@@ -1,0 +1,91 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - about_ict
+  - get_wifi_access
+  - ict_mission
+  - about_buksu
+  - medic_clinic
+  - med_mission
+  - med_vision
+  - buksu_med_loc
+  - ask_more
+  - nlu_fallback
+  - buksu_IT
+  - buksu_FT
+  - buksu_ET
+  - buksu_EMC
+  - exam_requirements
+  - exam_results
+  - take_exam
+  - application_next_step
+  - no_slots
+  - status_application
+  - exam_fees
+
+  - office_schedule
+  - online_application_schedule
+  - denied_applications
+  - main_campus_full
+  - contact_registrar
+  - contact_atu
+  - exam_location_vs_campus
+  - system_error
+  - additional_slots
+  - contact_scholarship_unit
+
+
+entities:
+  - category
+  - sub_category
+  - slot_name
+  - slot_value
+
+slots:
+  category:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  sub_category:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  slot_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  slot_value:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  last_topic:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+  utter_goodbye:
+    - text: "Welcome as always, Feel free to ask again😊"
+  utter_iamabot:
+    - text: "I am a bot, here to help you."
+
+actions:
+  - action_reply_from_json
+  - action_set_dynamic_slot
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

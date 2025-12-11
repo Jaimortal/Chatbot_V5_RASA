@@ -1,0 +1,630 @@
+version: "3.1"
+
+nlu:
+
+- intent: about_ict
+  examples: |
+    - What is the ICT Services Unit in BukSU and what does it do
+    - Can you explain the role of the ICT SU at Bukidnon State University
+    - I want to know what the ICT department of BukSU is responsible for
+    - Could you describe the functions of the ICT Services Unit
+    - What areas does the ICT SU handle in the university
+    - Tell me about the ICT office of BukSU and its responsibilities
+    - What does the ICT Services Unit manage in terms of technology
+    - Can you explain the technical services handled by the ICT SU
+    - What is the main purpose of the ICT unit in BukSU
+    - I am curious about what the ICT SU does for the university systems and network
+    - How does the ICT Services Unit support the university IT operations
+    - What are the services provided by the BukSU ICT department
+    - Tell me the scope of work of the ICT SU especially in systems and networks
+    - What does the ICT SU do related to web development and infrastructure
+    - How does the ICT unit help with computer labs AV equipment and technical support
+
+
+
+- intent: get_wifi_access
+  examples: |
+    - How can I get wifi access on campus
+    - Where can I go to request wifi access in BukSU
+    - I need help getting wifi for the campus network
+    - How do students get access to the school wifi
+    - I want to know the process for getting campus wifi
+    - Where should I go if I want to activate wifi access
+    - Can you guide me on how to obtain wifi access here
+    - What is the procedure to get connected to the campus wifi
+    - I want to know where the ICT office is for wifi access
+    - Who do I need to talk to in order to get campus wifi access
+    - Can you tell me the steps for getting wifi access at BukSU
+    - Where can I request assistance for connecting to the campus network
+    - I need instructions on how to access the wifi service offered by ICT
+    - How do I apply for wifi access in the university
+    - Where is the ICT office located so I can ask for wifi connection
+
+
+- intent: ict_mission
+  examples: |
+    - What is the mission of the ICT unit in BukSU
+    - Can you tell me the official ICT mission
+    - I want to know the mission of the ICT Services Unit
+    - What mission does the ICT department follow
+    - Tell me the mission statement of ICT
+    - Can you explain the ICT mission for the university
+    - What does the ICT SU aim to accomplish in its mission
+    - I want to learn the mission of the ICT office at BukSU
+    - What is the guiding mission of the ICT Services Unit
+    - How would you describe the mission of the ICT department
+    - Can you describe the main mission of the ICT unit
+    - What is the mission that ICT follows to support the university
+    - Give me details about the mission of the ICT SU
+    - What is the official mission of the ICT Services Unit of BukSU
+    - I am asking about the ICT mission can you tell me what it is
+
+- intent: about_buksu
+  examples: |
+    - Tell me about BukSU and what the university is known for
+    - What is Bukidnon State University and where is it located
+    - I want to know information about BukSU
+    - Can you explain what Bukidnon State University is
+    - Give me an overview of BukSU as a university
+    - What can you tell me about Bukidnon State University
+    - I want to learn about the background of BukSU
+    - What makes Bukidnon State University known in Bukidnon
+    - Can you describe BukSU to me
+    - What kind of university is BukSU in Malaybalay City
+    - Tell me the basic details about Bukidnon State University
+    - What is the history and identity of BukSU
+    - How would you describe BukSU to someone new
+    - I want to know more about BukSU and its reputation
+    - What is BukSU and what makes it an important university
+
+- intent: medic_clinic
+  examples: |
+    - Where is the medical clinic of BukSU and how can I access it
+    - Tell me about the university medical clinic and the services it offers
+    - I want information about the BukSU medical clinic
+    - Can you describe what the university clinic provides for students
+    - What kind of health services does the BukSU clinic offer
+    - I want to know where the medical clinic is and what it does
+    - Can you explain the role of the medical clinic in BukSU
+    - What is the university clinic responsible for in terms of health care
+    - How does the BukSU medical clinic support the campus community
+    - Give me details about the services of the BukSU health clinic
+    - What does the medical clinic do for students and staff in the university
+    - Can you guide me about the purpose of the BukSU health service unit
+    - I am looking for information about the university primary health care clinic
+    - What should I know about the medical clinic inside Bukidnon State University
+    - How does the BukSU clinic handle health cases and consultations
+
+- intent: med_mission
+  examples: |
+    - What is the mission of the BukSU Medical Clinic
+    - Can you tell me the medical clinic mission at Bukidnon State University
+    - I want to know the mission of the university medical clinic
+    - What does the BukSU Medical Clinic aim to accomplish in its mission
+    - Tell me the mission statement of the BukSU Medical Clinic
+    - What is the purpose of the medical clinic according to its mission
+    - Can you explain the goals of the BukSU Medical Clinic
+    - What are the main objectives of the medical clinic at BukSU
+    - I want details about the mission of the university clinic
+    - How does the BukSU Medical Clinic commit itself to serve the university community
+    - What is the guiding mission of the medical clinic in Bukidnon State University
+    - Explain the mission of the BukSU Medical Clinic and its priorities
+    - What does the university medical clinic focus on according to its mission
+    - Can you describe what the medical clinic aims to provide for students and staff
+    - Give me information about the mission of the BukSU Medical Clinic
+
+- intent: med_vision
+  examples: |
+    - What is the vision of the BukSU Medical Clinic
+    - Can you tell me the medical clinic vision at Bukidnon State University
+    - I want to know the vision of the university medical clinic
+    - What does the BukSU Medical Clinic aim for in its vision
+    - Tell me the vision statement of the BukSU Medical Clinic
+    - What is the long term goal of the medical clinic according to its vision
+    - Can you explain what the BukSU Medical Clinic envisions for its community
+    - How does the medical clinic plan to serve students and staff in the future
+    - What are the guiding principles in the vision of the BukSU Medical Clinic
+    - I want details about the vision of the university clinic
+    - What is the holistic health vision of the BukSU Medical Clinic
+    - Explain the vision of the medical clinic for the BukSU community
+    - What is the ideal outcome that the BukSU Medical Clinic hopes to achieve
+    - Can you describe what the clinic envisions for well-being of students and staff
+    - Give me information about the long term vision of the BukSU Medical Clinic
+
+
+- intent: buksu_med_loc
+  examples: |
+    - Where is the BukSU medical clinic located
+    - Can you tell me the location of the university clinic
+    - I want to know where the BukSU medical clinic is
+    - What is the exact location of the BukSU clinic
+    - How can I find the university medical clinic
+    - Tell me where the medical clinic is in Bukidnon State University
+    - Where can I go to reach the BukSU medical clinic
+    - Can you guide me to the location of the university clinic
+    - I need directions to the BukSU medical clinic
+    - What building is the BukSU clinic in
+    - Where is the health services building located for the clinic
+    - How do I get to the BukSU medical clinic from campus
+    - Can you explain where the clinic is situated in the university
+    - I am looking for the location of the medical clinic at BukSU
+    - Where on campus can I find the university medical clinic
+
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - good morning
+
+- intent: goodbye
+  examples: |
+    - bye
+    - Okay
+    - goodbye
+    - thank you
+
+- intent: nlu_fallback
+  examples: |
+    - asjdasjdasd
+    - lkajsdnajsndas
+    - nonsense question
+    - random text
+    - gibberish
+    - I am typing something unrelated
+    - Hello but not about BukSU
+    - What is the weather today
+    - Tell me a joke
+    - Who is the president
+    - Random question not related to BukSU
+    - Blah blah blah
+    - Unrelated query
+    - I want to ask about something else
+    - Something completely different
+    - How do I cook spaghetti
+    - Tell me about movies
+    - I need help with my homework in math
+    - What is the capital of France
+    - Can you play music
+    - Give me a random fact
+    - How do I fix my computer
+    - I want to know about sports
+    - What is cryptocurrency
+    - Tell me a funny story
+    - Who won the last World Cup
+    - How do I travel to Japan
+    - I need advice on gardening
+    - What is the meaning of life
+    - Can you tell me a riddle
+    - I want to know about cooking recipes
+    - Random words here
+    - Something unrelated to BukSU
+
+- intent: ask_more
+  examples: |
+    - Can you tell me more
+    - More info please
+    - Continue
+    - Go on
+    - Yes
+    - Yes please
+    - Yes sure
+    - Sure
+    - Go ahead
+    - Tell me more
+    - Next
+    - Please give me more details
+    - I want to know more
+    - Can you explain further
+    - Show me additional information
+    - I need more explanation
+    - Keep going
+    - Continue with the details
+    - Give me more information about that
+    - Please continue with the answer
+    - I would like to hear more
+    - Can you provide further details
+    - Tell me the rest
+    - Give me more insight
+    - Keep explaining
+    - is there other information about it
+
+- intent: buksu_IT
+  examples: |
+    - Can you tell me about the IT course at BukSU?
+    - What is the Bachelor of Science in Information Technology program?
+    - I want to know about BukSU IT program
+    - Tell me about Information Technology at BukSU
+    - BukSU IT course details
+    - Information about IT degree in BukSU
+    - What does the IT program cover?
+    - Can you explain BukSU's IT curriculum?
+    - Details on the BSIT program
+    - I want more info on BukSU IT
+    - What subjects are included in IT at BukSU?
+    - How is the IT course structured?
+    - BukSU Bachelor of Science in IT info
+    - IT program overview at BukSU
+    - Tell me more about IT studies at BukSU
+
+- intent: buksu_FT
+  examples: |
+    - can you tell me about the food technology course at buksu
+    - what is the bachelor of science in food technology program
+    - i want to know about buksu food technology program
+    - tell me about food technology at buksu
+    - buksu food technology course details
+    - information about food technology degree in buksu
+    - what does the food technology program cover
+    - can you explain buksu food technology curriculum
+    - details on the bsft program
+    - i want more info on buksu food technology
+    - what subjects are included in food technology at buksu
+    - how is the food technology course structured
+    - buksu bachelor of science in food technology info
+    - food technology program overview at buksu
+    - tell me more about food technology studies at buksu
+
+- intent: buksu_ET
+  examples: |
+    - can you tell me about the electronics technology course at buksu
+    - what is the bachelor of science in electronics technology program
+    - i want to know about buksu electronics technology program
+    - tell me about electronics technology at buksu
+    - buksu electronics technology course details
+    - information about electronics technology degree in buksu
+    - what does the electronics technology program cover
+    - can you explain buksu electronics technology curriculum
+    - details on the bset program
+    - i want more info on buksu electronics technology
+    - what subjects are included in electronics technology at buksu
+    - how is the electronics technology course structured
+    - buksu bachelor of science in electronics technology info
+    - electronics technology program overview at buksu
+    - tell me more about electronics technology studies at buksu
+
+- intent: buksu_EMC
+  examples: |
+    - can you tell me about the entertainment and multimedia computing course at buksu
+    - what is the bachelor of science in entertainment and multimedia computing program
+    - i want to know about buksu emc program
+    - tell me about entertainment and multimedia computing at buksu
+    - buksu emc course details
+    - information about entertainment and multimedia computing degree in buksu
+    - what does the emc program cover
+    - can you explain buksu emc curriculum
+    - details on the bsemc program
+    - i want more info on buksu emc
+    - what subjects are included in entertainment and multimedia computing at buksu
+    - how is the emc course structured
+    - buksu bachelor of science in emc info
+    - entertainment and multimedia computing program overview at buksu
+    - tell me more about emc studies at buksu
+
+
+
+- intent: exam_requirements
+  examples: |
+    - What should I bring on the examination day
+    - Can you tell me the requirements for the exam
+    - What items are needed for the test
+    - I want to know what to bring for the exam
+    - Please list the things required for the examination
+    - What documents do I need to bring on exam day
+    - Can you explain the exam requirements
+    - What materials should I prepare for the test
+    - Tell me what I need to bring for the examination
+    - How should I prepare for the exam
+    - What are the necessary items to bring on exam day
+    - I need a list of exam requirements
+    - What should I have ready before the test
+    - Can you provide details about what to bring for the exam
+    - What are the items I must bring during the examination
+    - Give me information on exam day requirements
+
+
+- intent: exam_results
+  examples: |
+    - How and when will I know my examination result
+    - Can you tell me when exam results are released
+    - I want to know how to check my exam results
+    - When will the examination results be available
+    - How can I access my exam results at BukSU
+    - Tell me the schedule for releasing exam results
+    - When will I receive my test results
+    - How will I find out my examination results
+    - I need to know the exam result posting date
+    - Where can I check my BukSU examination results
+    - What is the procedure for checking exam results
+    - Can you guide me on accessing my test results
+    - When are the exam results posted online
+    - How do I view my examination results from BukSU
+    - What is the timeframe for releasing examination results
+    - I want to check my test results on my admission account
+
+
+- intent: take_exam
+  examples: |
+    - How can I take the BukSU College Admission Test
+    - Can you tell me the steps to apply for the college admission test
+    - I want to know how to take the BukSU CAT
+    - What is the process for taking the BukSU College Admission Test
+    - Tell me how to register for the college admission exam
+    - How do I apply for the BukSU admission test
+    - Can you explain the procedure for taking the college entrance exam
+    - I need guidance on applying for the BukSU College Admission Test
+    - How can I complete the application for the admission test
+    - What steps should I follow to take the BukSU College Admission Test
+    - I want instructions for registering and taking the admission test
+    - Can you provide information on how to take the BukSU CAT
+    - How do I submit my documents for the college admission test
+    - Tell me how to select my schedule for the BukSU College Admission Test
+    - How will I receive notifications about my admission test application
+    - What do I need to do to successfully apply and take the BukSU College Admission Test
+
+
+- intent: application_next_step
+  examples: |
+    - What is the next step after I filled out the online application
+    - I have completed the application what should I do next
+    - Can you tell me the next procedure after submitting my application
+    - I finished filling out the online application what comes next
+    - After completing the application what do I need to do
+    - I want to know the next steps after my online application
+    - What should I do after submitting the BukSU admission application
+    - Can you explain the next process after I finish the application
+    - I submitted my online application what is the next step
+    - How do I proceed after completing my application
+    - What is the following step after I filled out the online form
+    - Please tell me what to do next after the application
+    - What do I need to prepare after submitting my application
+    - After filling out the application how do I select my schedule
+    - I want guidance on the next step after completing the application
+
+    
+- intent: no_slots
+  examples: |
+    - There are no slots available for my schedule
+    - I cannot find any available slots for the admission test
+    - No schedule slots are showing up
+    - What do I do if there are no slots available
+    - I am trying to select a schedule but no slots appear
+    - How can I get a slot if none are available
+    - There are no test slots open right now
+    - Can you tell me what to do when there are no available slots
+    - I cannot book a slot for the BukSU admission test
+    - No slots appear for my preferred date and time
+    - How do I proceed if there are no slots left
+    - What should I do when no slots are showing for my application
+    - I want to select a schedule but there are no slots
+    - Are there any options if no slots are available for my exam
+    - I am trying to schedule my test but no available slots appear
+
+
+- intent: status_application
+  examples: |
+    - How do I know if my application for the College Admission Test is accepted
+    - Can you tell me how to check my application status
+    - I want to know the status of my BukSU admission application
+    - How can I verify if my application has been accepted
+    - I submitted my application how do I know it is approved
+    - Where can I check the status of my College Admission Test application
+    - How do I receive updates on my application acceptance
+    - Tell me how to track the status of my admission application
+    - I want to check if my application for the admission test is approved
+    - How will I be notified about my application status
+    - Can you explain how to see if my application is accepted
+    - How do I login to check the status of my admission application
+    - I need guidance on checking the acceptance of my application
+    - What steps do I take to know if my application is accepted
+    - How can I confirm the status of my BukSU College Admission Test application
+
+
+- intent: exam_fees
+  examples: |
+    - Are there fees for the College Admission Test
+    - I want to know if the BukSU admission test has a cost
+    - Is the College Admission Test free or paid
+    - Can you tell me about the exam fees at BukSU
+    - Do applicants need to pay for the College Admission Test
+    - How much is the fee for the BukSU admission test
+    - I want information about the cost of taking the College Admission Test
+    - Are there charges for the BukSU College Admission Test
+    - Do I need to pay for the admission test if I am a first-time applicant
+    - Are second course takers required to pay for the test
+    - What is the payment requirement for the BukSU admission test
+    - Tell me if there are fees for applicants taking the College Admission Test
+    - How much do second course takers pay for the admission test
+    - I want to know the fee policy for the BukSU College Admission Test
+    - Can you explain who needs to pay for the College Admission Test
+    - Is the College Admission Test free for all applicants
+
+
+- intent: office_schedule
+  examples: |
+    - What are the office hours of BukSU
+    - Can you tell me the schedule of Bukidnon State University offices
+    - I want to know the operating hours of the Registrar and Accounting Office
+    - When are the BukSU offices open
+    - Tell me the official working hours of Bukidnon State University
+    - What time do BukSU offices start and end daily
+    - I need to know the office schedule at BukSU
+    - When can I visit BukSU offices for inquiries
+    - How long are BukSU offices open on weekdays
+    - Are BukSU offices open on Saturdays and Sundays
+    - I want to check the office hours of the university offices
+    - What is the daily schedule of Bukidnon State University offices
+    - When can I contact BukSU offices in person
+    - How do I plan my visit to the Registrar or Accounting Office
+    - Tell me the working hours and breaks for BukSU offices
+    - What are the office hours for contacting BukSU staff
+
+- intent: online_application_schedule
+  examples: |
+    - Where can I find the BukSU CAT online application schedule
+    - Can you tell me the schedule for BukSU College Admission Test application
+    - I want to know the online application dates for BukSU CAT
+    - How can I check the BukSU CAT online application schedule
+    - Tell me where to see the online application schedule for the admission test
+    - I need information about BukSU CAT application timeline
+    - Where do I go to see the online application schedule
+    - How can I follow updates about the BukSU College Admission Test schedule
+    - I want to check the BukSU CAT online registration period
+    - Can you explain the dates for the BukSU College Admission Test application
+    - I need guidance on where to find the online application schedule
+    - How do I access the official BukSU CAT application schedule
+    - Tell me how to know the online application period for BukSU admission test
+    - Where are the online application announcements posted
+    - I want to see the official BukSU CAT online application schedule
+    - How can I track updates for the BukSU College Admission Test
+
+- intent: denied_applications
+  examples: |
+    - Why was my application denied
+    - Can you tell me why my admission application was rejected
+    - I want to know the reason my application was not accepted
+    - My application was denied what should I do
+    - Tell me why my BukSU CAT application was refused
+    - How come my application from a testing site was denied
+    - I need to understand why my admission request was rejected
+    - What is the reason for my denied application
+    - Why did the system reject my application
+    - Can you explain why my application from a testing site was denied
+    - I submitted my application but it was denied what are my options
+    - What should I do if my application was denied
+    - Why was my test application not accepted
+    - I want guidance on denied applications for BukSU CAT
+    - How can I proceed after my application was rejected
+    - Can I apply to another satellite campus if my application was denied
+
+- intent: main_campus_full
+  examples: |
+    - What if the admission slots at the Main Campus are full
+    - Can you tell me what to do if main campus slots are already taken
+    - I want to know my options if the BukSU main campus is full
+    - Are there still available slots at the main campus
+    - What happens if I cannot get a slot at the BukSU main campus
+    - Tell me what to do when the main campus admission slots are full
+    - I submitted my application but main campus slots are full
+    - Can I apply to another campus if the main campus is full
+    - How do I proceed if the main campus is fully booked
+    - What are my options if the main campus slots are already taken
+    - Can you explain what happens when the main campus has no more slots
+    - I want guidance if I cannot get a slot at BukSU main campus
+    - How do I choose another campus if my preferred campus is full
+    - What should I do when all main campus admission slots are filled
+    - Are there alternative campuses available if main campus is full
+    - I need information on applying to satellite campuses if main campus is full
+
+- intent: contact_registrar
+  examples: |
+    - How can I contact the University Registrar Office
+    - I want to get in touch with the BukSU Registrar
+    - Can you tell me the contact information for the Registrar
+    - How do I reach the University Registrar Office
+    - I need to contact the Registrar Office at BukSU
+    - What are the phone numbers of the University Registrar Office
+    - How can I email the BukSU Registrar
+    - I want to know the contact details for the Registrar Office
+    - Where can I find the Registrar Office contact information
+    - Can you provide the BukSU Registrar Office phone and email
+    - How do I reach the University Registrar by phone
+    - Tell me how to get in touch with the Registrar Office
+    - I need guidance on contacting the BukSU Registrar
+    - How do I contact the Registrar Office through Facebook
+    - Can you give me all the contact options for the University Registrar
+    - I want to connect with the University Registrar for inquiries
+
+- intent: contact_atu
+  examples: |
+    - How can I contact the BukSU Admission and Testing Unit
+    - I want to get in touch with the ATU office
+    - Can you tell me the contact information for BukSU ATU
+    - How do I reach the Admission and Testing Unit at BukSU
+    - I need to contact the BukSU ATU for inquiries
+    - What is the phone number for the BukSU Admission and Testing Unit
+    - How can I email the BukSU ATU office
+    - I want the contact details of the Admission and Testing Unit
+    - Where can I find BukSU ATU contact information
+    - Can you provide the BukSU ATU phone and email
+    - How do I reach ATU by phone or email
+    - Tell me how to get in touch with BukSU ATU for questions
+    - I need guidance on contacting the BukSU Admission and Testing Unit
+    - How do I contact ATU through Facebook
+    - Can you give me all the contact options for BukSU ATU
+    - I want to connect with the ATU office for updates
+
+- intent: exam_location_vs_campus
+  examples: |
+    - Does the location of my entrance exam determine my campus
+    - I want to know if my exam location affects my preferred campus
+    - Can you tell me if exam site decides my campus
+    - Does taking the exam at a certain location mean I will study at that campus
+    - I am confused if the exam venue affects my preferred campus
+    - Will the location of the entrance test determine my campus assignment
+    - Tell me if the exam location changes my preferred campus
+    - How does my exam site relate to the campus I will attend
+    - Can my campus choice be different from my exam location
+    - Does the test site automatically select my campus
+    - I want clarification on exam location and campus preference
+    - Can I have a different preferred campus than my exam site
+    - Does the location of my admission test affect the campus I am assigned
+    - How is campus preference decided if exam location is fixed
+    - Explain if the exam location controls my preferred campus
+    - I want guidance on campus assignment versus exam location
+
+- intent: system_error
+  examples: |
+    - I encountered a system error
+    - There is a problem with the system
+    - The website is not working
+    - I cannot access the page due to an error
+    - Something went wrong with the system
+    - The system is showing an error message
+    - I am facing a technical issue with the site
+    - The admission website is not responding
+    - I received an error when trying to submit
+    - The page failed to load
+    - How do I fix a system error
+    - I cannot proceed due to a website error
+    - The online application site has a problem
+    - I am unable to continue because of a system glitch
+    - The system seems to be down
+    - I am having trouble with the website
+
+- intent: additional_slots
+  examples: |
+    - What should I do if there are no slots available
+    - Can additional slots be opened for the admission test
+    - I want to know what happens when all slots are full
+    - How can I get a slot if none are currently available
+    - Tell me what to do when no schedule slots are available
+    - I cannot find an available test slot what now
+    - Are there any extra slots for the admission test
+    - How do I apply if all slots are already taken
+    - What are my options when the schedule is full
+    - Can I try for a slot again later
+    - Is it possible to get another slot if someone cancels
+    - How do I monitor for additional test slots
+    - I want guidance on getting a slot when current slots are full
+    - Can new slots open if some applications are denied
+    - How often should I check the portal for new slots
+    - What steps should I take if there are no available slots
+
+- intent: contact_scholarship_unit
+  examples: |
+    - How can I contact the Scholarships and Financial Grants Unit
+    - I want to get in touch with the SFGU office
+    - Can you tell me the contact information for BukSU SFGU
+    - How do I reach the Scholarships and Financial Grants Unit
+    - I need to contact the SFGU office at BukSU
+    - What is the phone number for the SFGU office
+    - How can I email the Scholarships and Financial Grants Unit
+    - I want the contact details of the SFGU office
+    - Where can I find SFGU contact information
+    - Can you provide the SFGU phone and email
+    - How do I reach SFGU by phone or email
+    - Tell me how to get in touch with BukSU SFGU for questions
+    - I need guidance on contacting the Scholarships and Financial Grants Unit
+    - How do I contact SFGU through Facebook
+    - Can you give me all the contact options for BukSU SFGU
+    - I want to connect with the SFGU office for scholarship inquiries

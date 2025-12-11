@@ -1,0 +1,164 @@
+version: "3.1"
+
+stories:
+
+- story: greetings 
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- story: ict info
+  steps:
+    - intent: about_ict
+    - action: action_reply_from_json
+
+- story: wifi access
+  steps:
+    - intent: get_wifi_access
+    - action: action_reply_from_json
+
+- story: ict mission
+  steps:
+    - intent: ict_mission
+    - action: action_reply_from_json
+
+- story: about buksu
+  steps:
+    - intent: about_buksu
+    - action: action_reply_from_json
+
+- story: medical clinic info
+  steps:
+    - intent: medic_clinic
+    - action: action_reply_from_json
+
+- story: medical mission
+  steps:
+    - intent: med_mission
+    - action: action_reply_from_json
+
+- story: medical vision
+  steps:
+    - intent: med_vision
+    - action: action_reply_from_json
+
+- story: medical location
+  steps:
+    - intent: buksu_med_loc
+    - action: action_reply_from_json
+
+- story: ask more follow-up
+  steps:
+    - intent: ask_more
+    - action: action_reply_from_json
+
+- story : ask about information technology
+  steps:
+    - intent: buksu_IT
+    - action: action_reply_from_json
+
+- story : ask about food technology
+  steps:
+    - intent: buksu_FT
+    - action: action_reply_from_json
+
+- story : ask about electronic technology
+  steps:
+    - intent: buksu_ET
+    - action: action_reply_from_json
+
+- story : ask about entertainment and multimedia computing
+  steps:
+    - intent: buksu_EMC
+    - action: action_reply_from_json
+
+
+
+
+- story : ask about examination requirements
+  steps:
+    - intent: exam_requirements
+    - action: action_reply_from_json
+
+- story : ask about how to know examination results
+  steps:
+    - intent: exam_results
+    - action: action_reply_from_json
+
+
+- story : ask about how to take admission test
+  steps:
+    - intent: take_exam
+    - action: action_reply_from_json
+
+- story : ask about what is the next step after application
+  steps:
+    - intent: application_next_step
+    - action: action_reply_from_json
+
+- story : ask about no slot available 
+  steps:
+    - intent: no_slots
+    - action: action_reply_from_json
+
+- story : ask about application status 
+  steps:
+    - intent: status_application
+    - action: action_reply_from_json
+
+- story : ask about how much is the application fee
+  steps:
+    - intent: exam_fees
+    - action: action_reply_from_json
+
+
+- story : ask about office hours of registrar
+  steps:
+    - intent: office_schedule
+    - action: action_reply_from_json
+
+- story : ask about bukSU CAT online application schedule
+  steps:
+    - intent: online_application_schedule
+    - action: action_reply_from_json
+
+- story : ask about reason of application testing site denied
+  steps:
+    - intent: denied_applications
+    - action: action_reply_from_json
+
+- story : ask about main campus admission slot is full
+  steps:
+    - intent: main_campus_full
+    - action: action_reply_from_json
+
+- story : ask about the contact info of registrar
+  steps:
+    - intent: contact_registrar
+    - action: action_reply_from_json
+
+- story : ask about contact info of admission testing unit
+  steps:
+    - intent: contact_atu
+    - action: action_reply_from_json
+
+- story : ask about location of entrance exam determine may preferred campus?
+  steps:
+    - intent: exam_location_vs_campus
+    - action: action_reply_from_json
+
+- story : ask about how to fix encountered system error
+  steps:
+    - intent: system_error
+    - action: action_reply_from_json
+
+- story : ask about what to do if theres no slot available
+  steps:
+    - intent: additional_slots
+    - action: action_reply_from_json
+
+- story : ask about contact information of scholarship
+  steps:
+    - intent: contact_scholarship_unit
+    - action: action_reply_from_json
+    

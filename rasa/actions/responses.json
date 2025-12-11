@@ -1,0 +1,795 @@
+[
+  {
+    "intent": "about_ict",
+    "category": "ICT",
+    "sub_category": "general",
+    "responses": {
+      "answer": [
+        "The Information & Communications Technology Services Unit (ICT-SU) of Bukidnon State University",
+        "It handles the technical aspect of the university processes involving the areas of information systems, network, technical services, and web development. It is also involved in the expansion of IT infrastructure and hardware, maintenance and upgrade of Computer Laboratories and Audio-Visual Center, management of internet bandwidth, IT training, and technical support."
+      ],
+      "context_slots": {
+        "last_topic": "about_ict"
+      }
+    },
+    "metadata": {
+      "source": "ICTdata"
+    }
+  },
+  {
+    "intent": "get_wifi_access",
+    "category": "ICT",
+    "sub_category": "services",
+    "responses": {
+      "answer": [
+        "Heres how you could get any wifi connection that ICT could offer to you.",
+        "Go to Finance Building 3rd floor.",
+        "In front of Audio laboratory you could See ICT office",
+        "You can see all of those numbers computer laboratory? if you see Comlab 6 Computer Laboratory 6, then you sould see the ICT office which is located on the right side of comlab 6 - Computer Laboratory 6"
+      ],
+      "mapData": {
+        "locationName": "ICT Office (Finance Bldg 3rd Flr)",
+        "coordinates": [
+          240,
+          580.30
+        ],
+        "mapId": "main_map"
+      },
+      "follow_up": [
+        "For now, this is all the assistance I can offer regarding your issue. Thanks for being patient!"
+      ],
+      "context_slots": {
+        "last_topic": "get_wifi_access"
+      }
+    },
+    "metadata": {
+      "source": "ICTdata"
+    }
+  },
+  {
+    "intent": "ict_mission",
+    "category": "ICT",
+    "sub_category": "mission",
+    "responses": {
+      "answer": [
+        "To provide reliable and secure ICT infrastructure and services framework enable for the academic community to exploit innovative information technologies that will support instruction, research, extension and production"
+      ],
+      "follow_up": [
+        "Okay here's the vision of ICT - Inforamtion & Communication Technology",
+        "Innovative and motivated technology professionals providing secure ICT infrastructure and excellent service"
+      ],
+      "context_slots": {
+        "last_topic": "ict_mission"
+      }
+    },
+    "metadata": {
+      "source": "ICTdata"
+    }
+  },
+  {
+    "intent": "about_buksu",
+    "category": "FAQ",
+    "sub_category": "general",
+    "responses": {
+      "answer": [
+        "Bukidnon State University is a state university located in Malaybalay City, Bukidnon, Philippines. The school was formerly known as Bukidnon State College. It is the only university in the Province of Bukidnon that carries the name of Bukidnon in its official name.",
+        "Bukidnon State University is currently TOP 400 World University Rankings for Innovation (WURI) 2025"
+      ],
+      "follow_up": [
+        "Furthermore Bukidnon State University (BukSU) provides an extensive selection of college programs, empowering students to pursue their passions and build their future with confidence. Here are the programs that they can offer to us",
+        "Bachelor of Science in Environmental Science Major in Environmental Heritage Studies",
+        "Bachelor of Science in Automotive Technology",
+        "Bachelor of Arts in Philosophy",
+        "Bachelor of Secondary Education Major in Filipino",
+        "Bachelor of Science in Nursing",
+        "Bachelor of Secondary Education Major in Mathematics",
+        "Bachelor of Arts in English Language",
+        "Bachelor of Elementary Education",
+        "Bachelor of Science in Information Technology",
+        "Bachelor of Arts in Social Science",
+        "Bachelor of Science in Electronics Technology",
+        "Bachelor of Science in Development Communication",
+        "Bachelor of Science in Biology Major in Biotechnology",
+        "Bachelor of Arts in Economics",
+        "Bachelor of Early Childhood Education",
+        "Bachelor of Science in Community Development",
+        "Bachelor of Arts in Sociology",
+        "Bachelor of Science in Hospitality Management",
+        "Bachelor of Science in Mathematics",
+        "Bachelor of Science in Food Technology",
+        "Bachelor of Physical Education",
+        "Bachelor of Public Administration",
+        "Bachelor of Science in Entertainment and Multimedia Computing Major in Digital Animation Technology",
+        "Bachelor of Science in Accountancy",
+        "Bachelor of Secondary Education Major in Science",
+        "Bachelor of Secondary Education Major in English",
+        "Bachelor of Science in Business Administration major in Financial Management",
+        "Bachelor of Secondary Education Major in Social Studies",
+        "And those are the only courses that Buksu Main campus can provide as of 2025, for more information you can check the buksu admission list of courses",
+        "https://admissions.buksu.edu.ph/courses"
+      ]
+    },
+    "metadata": {
+      "source": "FAQ"
+    }
+  },
+  {
+    "intent": "medic_clinic",
+    "category": "buksuMedical",
+    "sub_category": "clinic_info",
+    "responses": {
+      "answer": [
+        "The University Medical Clinic is a primary health care facility that is available to render primary health care services and selected specialized services to the Bukidnon State University community. The health service unit is staffed with trained registered professional health personnel. The clinic is responsible in documenting all consulted health cases, collaborative care is practiced for cases that need extended evaluation and apt referral is done for further management."
+      ],
+      "follow_up": [
+        "Apparently Theres no more data that i can give"
+      ],
+      "context_slots": {
+        "last_topic": "clinic_info"
+      }
+    },
+    "metadata": {
+      "author": "admin"
+    }
+  },
+  {
+    "intent": "med_mission",
+    "category": "buksuMedical",
+    "sub_category": "mission",
+    "responses": {
+      "answer": [
+        "Bukidnon State University Medical Clinic Mission",
+        "MISSION",
+        "We commit ourselves to:",
+        "Provide prompt, proficient and eminent health services to students, faculty and non-teaching personnel. Participate actively in activities which will sustain the wellness and health of the students."
+      ],
+      "follow_up": [
+        "Okay heres also the Vision of Bukidnon State University Medical Clinic",
+        "VISION",
+        "The University Medical Clinic is a part of the primary health care delivery system that provides holistic health services to ensure optimal well-being of the students, faculty and non-teaching personnel.",
+        " ",
+        "The Goal and Objectives",
+        " ",
+        "Maintain and sustain a healthy environment of the University, through conduct of health assessment and provision of basic health services.",
+        "Identify any existing health problems, render treatment to those which is remedial in nature and notify if needed the teacher-in-charge/parents/guardians.",
+        "Render regular health education and other health promoting activities.",
+        "Coordinate and refer clients to other specialties or departments for continuity of care as needed.",
+        "Document all cases and submit reports monthly to the OSS and to Department of Health in cases of outbreak."
+      ],
+      "context_slots": {
+        "last_topic": "mission"
+      }
+    },
+    "metadata": {
+      "author": "admin"
+    }
+  },
+  {
+    "intent": "med_vision",
+    "category": "buksuMedical",
+    "sub_category": "vision",
+    "responses": {
+      "answer": [
+        "Bukidnon State University Medical Clinic Vision",
+        "VISION",
+        "The University Medical Clinic is a part of the primary health care delivery system that provides holistic health services to ensure optimal well-being of the students, faculty and non-teaching personnel."
+      ],
+      "follow_up": [
+        "Okay heres also the Mission of Bukidnon State University Medical Clinic",
+        "MISSION",
+        "We commit ourselves to:",
+        "Provide prompt, proficient and eminent health services to students, faculty and non-teaching personnel. Participate actively in activities which will sustain the wellness and health of the students.",
+        " ",
+        "The Goal and Objectives",
+        " ",
+        "Maintain and sustain a healthy environment of the University, through conduct of health assessment and provision of basic health services.",
+        "Identify any existing health problems, render treatment to those which is remedial in nature and notify if needed the teacher-in-charge/parents/guardians.",
+        "Render regular health education and other health promoting activities.",
+        "Coordinate and refer clients to other specialties or departments for continuity of care as needed.",
+        "Document all cases and submit reports monthly to the OSS and to Department of Health in cases of outbreak."
+      ],
+      "context_slots": {
+        "last_topic": "vision"
+      }
+    },
+    "metadata": {
+      "source": "BuksuMedical"
+    }
+  },
+  {
+    "intent": "buksu_med_loc",
+    "category": "buksuMedical",
+    "sub_category": "location",
+    "responses": {
+      "image": "",
+      "answer": [
+        "The University Medical Clinic is located at the Ground Floor of the Health Services Building near the old College of Nursing Building."
+      ],
+      "follow_up": [
+        "Apparently Theres no more data that i can give"
+      ],
+      "context_slots": {
+        "last_topic": "location"
+      }
+    },
+    "metadata": {
+      "source": "BuksuMedical"
+    }
+  },
+  {
+    "intent": "nlu_fallback",
+    "responses": {
+      "answer": [
+        "I'm not sure I understand. Could you rephrase your question?"
+      ]
+    },
+    "metadata": {
+      "source": "system"
+    }
+  },
+  {
+    "intent": "buksu_IT",
+    "category": "courses",
+    "sub_category": "information_technology",
+    "responses": {
+      "answer": [
+        "The Bachelor of Science in Information Technology program includes the study of the utilization of both hardware and software technologies involving planning, installing, customizing, operating, managing and administering, and maintaining information technology infrastructure that provides computing solutions to address the needs of an organization.",
+        " ",
+        "The program prepares graduates to address various user needs involving the selection, development, application, integration and management of computing technologies within an organization."
+      ],
+      "follow_up": [
+        "OKay here are the other information of Bachelor of Science in Information Technology",
+        "QUALITY AWARDS",
+        "AACCUP Level III",
+        " ",
+        "PROGRAM OBJECTIVES",
+        "1. Provide students and IT graduates with:",
+        "   a. Broad-based ICT education that serves as the basis for personal growth and lifelong learning.",
+        "   b. Quality and technical education necessary to become ethical and productive professionals in the field of Information Technology.",
+        "   c. Competencies and skills to become globally competitive in response to exponential technological advancement.",
+        "2. Prepare students to become well versed in software installation, operation, development, maintenance and administration and familiar with hardware management and networking.",
+        "3. Equip students with:",
+        "   a. Management and problem solving skills relevant to IT professional practice.",
+        "   b. Knowledge and mastery on the concepts of tools and techniques applicable in different computing areas.",
+        "   c. Skills to effectively communicate with end-users, peers and organizational management in general.",
+        "4. Develop the students’ skills through active participation in community involvement and extension activities.",
+        "5. Enhance students’ technical and academic capabilities through research and development. development. (Institution-Based)",
+        " ",
+        "And those are the only data that i can give to you as of now, for more infomration you can visit any of this links",
+        "https://buksu.edu.ph/course/bsit/",
+        "https://www.facebook.com/BukSUCOTOfficial"
+      ],
+      "context_slots": {
+        "last_topic": "information_technology"
+      }
+    },
+    "metadata": {
+      "source": "COT"
+    }
+  },
+  {
+    "intent": "buksu_FT",
+    "category": "courses",
+    "sub_category": "food technology",
+    "responses": {
+      "answer": [
+        "Bachelor of Science in Food Technology is a four-year degree program design to develop professionals in food technology. The program focuses on a mix of pure and applied science, engineering, business, and entrepreneurial skills. It aims to produce professionals who have the capacity to apply the science and technology and related fields of study in post-harvest handling, preparation, processing, packaging, storage, distribution, and marketing of food to ensure food and nutrition security, quality, environmental sustainability and the well-being of individuals, families and communities. The program also aims to promote continued excellence in food science education."
+      ],
+      "follow_up": [
+        "OKay here are the other information of Bachelor of Science in Food Technology",
+        "QUALITY AWARDS",
+        "AACCUP Level III",
+        " ",
+        "PROGRAM OBJECTIVES",
+        "1. To be exposed to the different areas of responsibilities of a food technologist",
+        "2. To apply the knowledge in science in the field of food, specifically in the handling, processing and production",
+        "3. To acquire skills in the handling, preparation and processing of foods; product development skills; research skills; production and people management skills; quality assessment and sensorial evaluation skills; and entrepreneurial skills.",
+        "4. To have extensive exposure in the food industry, with its challenges and potentials",
+        "5. To develop the value of industry, initiative, creativity, service to mankind, productivity, and the spirit of inquiry",
+        " ",
+        "And those are the only data that i can give to you as of now, for more infomration you can visit any of this links",
+        "https://buksu.edu.ph/course/bsft/",
+        "https://www.facebook.com/BukSUCOTOfficial"
+      ],
+      "context_slots": {
+        "last_topic": "food technology"
+      }
+    },
+    "metadata": {
+      "source": "COT"
+    }
+  },
+  {
+    "intent": "buksu_ET",
+    "category": "courses",
+    "sub_category": "electronic technology",
+    "responses": {
+      "answer": [
+        "The Bachelor of Science and Electronics Technology program offers opportunities for students to learn and apply the scientific knowledge and methods in modern technology to support electronics technology activities in the field of industrial technology. Students are provided a focus on classroom instruction and hands-on laboratory and testing experiences. Moreover, the program prepares the students to become professionals, and be qualified for the positions in the field of electronics technology such as electronic systems analysis and design, technical sales and the service, and engineering operations and maintenance."
+      ],
+      "follow_up": [
+        "OKay here are the other information of Bachelor of Science in Electronics Technology",
+        "QUALITY AWARDS",
+        "AACCUP Level III",
+        " ",
+        "PROGRAM COMPETENCIES",
+        "The BS Electronics Technology program aims for the students to acquire the following competencies:",
+        "a. Demonstrate capabilities in innovative leadership for technological advancements.",
+        "b. Engage in lifelong learning and understanding of the need to keep abreast of the developments in the specific field of practice.(Philippine Framework or PQF level 6 descriptor)",
+        "c. Effectively communicate orally and writing using both English and Filipino.",
+        "d. Work effectively and independently in multi-disciplinary and multi-cultural teams.",
+        "e. Recognize professional, social and ethical responsibility",
+        " ",
+        "And those are the only data that i can give to you as of now, for more infomration you can visit any of this links",
+        "https://buksu.edu.ph/course/bset/",
+        "https://www.facebook.com/BukSUCOTOfficial"
+      ],
+      "context_slots": {
+        "last_topic": "electronic technology"
+      }
+    },
+    "metadata": {
+      "source": "COT"
+    }
+  },
+  {
+    "intent": "buksu_EMC",
+    "category": "courses",
+    "sub_category": "entertainment and multimedia computing",
+    "responses": {
+      "answer": [
+        "The Bachelor of Science in Entertainment and Multimedia Computing is the study and use of concepts, principles, and techniques of computing in the design and development of multimedia products and solutions. It includes various applications such as in science, entertainment, education, simulations and advertising.",
+        " ",
+        "The program enables the students to be knowledgeable of the whole pipeline of Digital Animation projects. The students will acquire the independence and creative competencies to articulate project design and requirements of new projects, not necessarily based on standard templates.",
+        " ",
+        "The Digital Animation Technology major is the study and application of fundamental and advanced theories and techniques in 2D and 3D animation, use and development for advancement of animation technologies and production of commercially acceptable content and viable solutions for different platforms such as broadcast, web and mobile cast."
+      ],
+      "follow_up": [
+        "PROGRAM OBJECTIVES",
+        "1. To prepare students and EMC graduates to be:",
+        "a. Game development professionals with specialized knowledge, competencies and values in designing, developing, and producing digital games and/or tools and in managing game development projects for various applications.",
+        "b. Digital animation professionals who are equipped with both creative and technical knowledge, skills, and values in conceptualizing, designing and producing animation products and solutions, and in managing such projects over different technology platforms.",
+        " ",
+        "2. To provide students with:",
+        "a. Comprehensive and relevant training for personal growth and lifelong learning.",
+        "b. Quality education necessary to become ethical professionals imbued with multi-cultural sensitivity and innovative leadership.",
+        "c. Cognitive abilities and technical skills to become globally competitive professionals.",
+        " ",
+        "3. To inculcate students’ social, ethical and professional responsibility through active participation in community involvement and extension activities.",
+        "4. To enhance students’ technical and academic capabilities through research and development.",
+        " ",
+        "And those are the only data that i can give to you as of now, for more infomration you can visit any of this links",
+        "https://buksu.edu.ph/course/bsemc-dat/",
+        "https://www.facebook.com/BukSUCOTOfficial"
+      ],
+      "context_slots": {
+        "last_topic": "entertainment and multimedia computing"
+      }
+    },
+    "metadata": {
+      "source": "COT"
+    }
+  },
+  {
+    "intent": "exam_requirements",
+    "category": "admissions",
+    "sub_category": "examination_needs",
+    "responses": {
+      "answer": [
+        "What to bring on the examination day",
+        "Test takers must bring the following items:",
+        "1. Test Permit (can be downloaded from the BukSU admission website)",
+        "2. Application Form (can be downloaded from the BukSU admission website)",
+        "3. Pen",
+        "4. Pencil No. 2, eraser, and sharpener"
+      ],
+      "follow_up": [
+        "Make sure to prepare these items before the exam day to avoid any inconvenience.",
+        "For more details, you can check the BukSU admission website or contact the admissions office."
+      ],
+      "context_slots": {
+        "last_topic": "examination_needs"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "exam_results",
+    "category": "admissions",
+    "sub_category": "examination_results",
+    "responses": {
+      "answer": [
+        "How and when will I know my examination result?",
+        "The schedule of releasing examination results will be posted on the BukSU Admission and Testing Facebook page.",
+        "Examination results will also be posted on your admission account around May to June."
+      ],
+      "follow_up": [
+        "Make sure to regularly check your admission account and the BukSU Admission and Testing Facebook page for updates.",
+        "If you encounter any issues accessing your results, you can contact the admissions office for assistance."
+      ],
+      "context_slots": {
+        "last_topic": "examination_results"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "take_exam",
+    "category": "admissions",
+    "sub_category": "exam_application",
+    "responses": {
+      "answer": [
+        "How can I take the BukSU College Admission Test?",
+        "Follow these steps to apply for the BukSU College Admission Test:",
+        "Step 1: Access http://admissions.buksu.edu.ph. Register using your active Gmail account. Create your password and re-type it for verification.",
+        "Step 2: After creating an account, an email containing a confirmation link will be sent to your Gmail. Check your inbox and click the link to activate your account.",
+        "Step 3: Fill out all the necessary information and upload the documentary requirements.",
+        "Step 4: Select your preferred schedule (venue, date, and time) based on the availability of slots.",
+        "Step 5: You will get notifications when your application is accepted. Once accepted, download and print your Test Permit."
+      ],
+      "follow_up": [
+        "Make sure all your information and documents are correct to avoid delays in your application.",
+        "Keep track of your preferred schedule and check your email regularly for notifications."
+      ],
+      "context_slots": {
+        "last_topic": "exam_application"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "application_next_step",
+    "category": "admissions",
+    "sub_category": "examination",
+    "responses": {
+      "answer": [
+        "I have already filled out the online application. What is the next step?",
+        "After you have filled out the application, select your preferred schedule and venue.",
+        "Make sure that you have completed the application process and prepare all the necessary requirements before the day of testing."
+      ],
+      "follow_up": [
+        "Double-check that all documents are uploaded correctly to avoid issues on the test day.",
+        "Keep an eye on your email for notifications regarding your schedule and Test Permit."
+      ],
+      "context_slots": {
+        "last_topic": "next_step_after_application"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "no_slots",
+    "category": "admissions",
+    "sub_category": "examination",
+    "responses": {
+      "answer": [
+        "No Slots Available?",
+        "Evaluators are still checking applications. Stay logged in, go to Step 4, and refresh between 8 AM and 5 PM.",
+        "New slots may appear if others are denied."
+      ],
+      "follow_up": [
+        "Keep refreshing the schedule page regularly to catch any new available slots.",
+        "If you still cannot find a slot, contact the admissions office for assistance."
+      ],
+      "context_slots": {
+        "last_topic": "no_slots_available"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "status_application",
+    "category": "admissions",
+    "sub_category": "examination",
+    "responses": {
+      "answer": [
+        "How would I know that my application to take the College Admission Test is accepted?",
+        "Applicants will be notified of the status of their application in their BukSU Admissions Account.",
+        "Login to the BukSU Admissions account from time to time to receive updates and feedback."
+      ],
+      "follow_up": [
+        "Make sure your login credentials are active to check for notifications.",
+        "Contact the admissions office if you do not receive updates within a reasonable timeframe."
+      ],
+      "context_slots": {
+        "last_topic": "application_status"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "exam_fees",
+    "category": "admissions",
+    "sub_category": "examination",
+    "responses": {
+      "answer": [
+        "Are there fees for the College Admission Test?",
+        "College Admission Tests are offered for FREE at Bukidnon State University.",
+        "However, applicants who have already completed a bachelors degree (second course takers) need to pay 300 Php for the Admission Test.",
+        "They are not qualified to avail of the benefits of the Free Higher Education."
+      ],
+      "follow_up": [
+        "Make sure to check your eligibility before applying for the free test.",
+        "Second course takers should prepare the payment of 300 Php on or before the test schedule."
+      ],
+      "context_slots": {
+        "last_topic": "examination_fee"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "office_schedule",
+    "category": "university_info",
+    "sub_category": "office_hours",
+    "responses": {
+      "answer": [
+        "What are the office hours of Bukidnon State University?",
+        "Bukidnon State University offices, including the Registrar’s Office and the Accounting Office, operate only from Monday to Friday.",
+        "Office hours are 8:00 AM to 12:00 NN and 1:00 PM to 5:00 PM.",
+        "They are closed on Saturdays and Sundays.",
+        " ",
+        "Make sure to plan your visits during the official office hours.",
+        "For urgent matters, you can check if services are available online or contact the offices directly.",
+        "📱 Contact Number: 0975 758 3157",
+        "✉️ Email: registrar@buksu.edu.ph",
+        "🖥️ Facebook Page: https://www.facebook.com/BSURegistrar",
+        "📞 BukSU Contact Number: 088-813-5661"
+      ],
+      "follow_up": [
+        "Currently, this is the only assistance I can provide. I appreciate your understanding."
+      ],
+      "context_slots": {
+        "last_topic": "office_schedule"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Official"
+    }
+  },
+  {
+    "intent": "online_application_schedule",
+    "category": "university_info",
+    "sub_category": "admissions_guidelines",
+    "responses": {
+      "answer": [
+        "Where can I find the BukSU-CAT online application schedule for AY 2026-2027?",
+        "Please refer to the official announcement posted through this link: https://www.facebook.com/share/p/19fuWqGGe3/",
+        "For updates and further announcements, follow the official BukSU Facebook page.",
+        "For additional inquiries, you may contact the BukSU Admission and Testing Unit (ATU):",
+        "📱 Contact Number: 0968 568 1435",
+        "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+        "✉️ Email: admissionandtesting@buksu.edu.ph",
+        "🌐 Website: admissions.buksu.edu.ph",
+        "📞 BukSU Contact Number: 088-813-5661"
+      ],
+      "follow_up": [
+        "Currently, I'm only able to give you this much to address your problem. I hope you understand."
+      ],
+      "context_slots": {
+        "last_topic": "online_application_schedule"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "denied_applications",
+    "category": "admissions_info",
+    "sub_category": "application_status",
+    "responses": {
+      "answer": [
+        "Why was my application from a testing site denied?",
+        "Applications from some testing sites may have been denied due to full application slots, as they have already reached their maximum capacity.",
+        "You may consider applying to our other satellite campuses for admission.",
+        " ",
+        "For further inquiries, you may contact the BukSU Admission and Testing Unit (ATU):",
+        "📱 Contact Number: 0968 568 1435",
+        "🖥️ Facebook Page: BukSUATU",
+        "✉️ Email: admissionandtesting@buksu.edu.ph",
+        "🌐 Website: admissions.buksu.edu.ph",
+        "📞 BukSU Contact Number: 088-813-5661"
+      ],
+      "follow_up": [
+        "For now, this is all the assistance I can offer regarding your issue. Thanks for being patient!"
+      ],
+      "context_slots": {
+        "last_topic": "denied_applications"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "main_campus_full",
+    "category": "admissions_info",
+    "sub_category": "application_status",
+    "responses": {
+      "answer": [
+        "What if the admission slots at the Main Campus are full?",
+        "Currently, the admission slots at the Main Campus are already full.",
+        "You may consider applying to one of our other satellite campuses instead.",
+        "Please note that the location of your entrance examination does not automatically determine the campus where you will study.",
+        "Your preferred campus is indicated in your admission account based on the information you provided during your application.",
+        " ",
+        "For further inquiries or assistance, you can contact the BukSU Admission and Testing Unit (ATU):",
+        "📱 Contact Number: 0968 568 1435",
+        "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+        "✉️ Email: admissionandtesting@buksu.edu.ph",
+        "🌐 Website: admissions.buksu.edu.ph",
+        "📞 BukSU Contact Number: 088-813-5661"
+      ],
+      "follow_up": [
+        "This is the best I can do for you right now in terms of information. I appreciate your understanding."
+      ],
+      "context_slots": {
+        "last_topic": "main_campus_full"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "contact_registrar",
+    "category": "university_info",
+    "sub_category": "office_contacts",
+    "responses": {
+      "answer": [
+        "Looking to contact the University Registrar Office?",
+        "You can get in touch with them directly using the following contact information:",
+        "Here are the contact details for the University Registrar Office (URO):",
+        "📱 Contact Number: 0975 758 3157",
+        "✉️ Email: registrar@buksu.edu.ph",
+        "🖥️ Facebook Page: https://www.facebook.com/BSURegistrar",
+        "📞 BukSU Contact Number: 088-813-5661"
+      ],
+      "follow_up": [
+        "For now, this is all the assistance I can offer regarding your issue. Thanks for being patient!"
+      ],
+      "context_slots": {
+        "last_topic": "contact_registrar"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Official"
+    }
+  },
+  {
+    "intent": "contact_atu",
+    "category": "university_info",
+    "sub_category": "office_contacts",
+    "responses": {
+      "answer": [
+        "How can I contact the BukSU Admission and Testing Unit (ATU)?",
+        "To expedite the response to your query or concern, please contact the appropriate office directly.",
+        "BukSU Admission and Testing Unit (ATU) contact details:",
+        "📱 Contact Number: 0968 568 1435",
+        "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+        "✉️ Email: admissionandtesting@buksu.edu.ph",
+        "🌐 Website: admissions.buksu.edu.ph",
+        "📞 BukSU Contact Number: 088-813-5661"
+      ],
+      "follow_up": [
+        "I am only able to provide this much information to help you at the moment. I appreciate your understanding."
+      ],
+      "context_slots": {
+        "last_topic": "contact_atu"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "exam_location_vs_campus",
+    "category": "admissions",
+    "sub_category": "application_guidelines",
+    "responses": {
+      "answer": [
+        "Does the location of my entrance exam determine my preferred campus?",
+        "The **location of your entrance exam** does not automatically indicate the **preferred campus** where you wish to pursue your studies.",
+        "Your **preferred campus is clearly indicated in your admission account,** based on the information you provided during your application.",
+        "For further clarification or assistance, you may contact the Admissions and Testing Unit (ATU).",
+        "📱 Contact Number: 0968 568 1435",
+        "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+        "✉️ Email: admissionandtesting@buksu.edu.ph",
+        "🌐 Website: admissions.buksu.edu.ph",
+        "📞 BukSU Contact Number: 088-813-5661"
+      ],
+      "follow_up": [
+        "Unfortunately, those are the only data I can provide to you at this time."
+      ],
+      "context_slots": {
+        "last_topic": "determine_preferred_campus"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "system_error",
+    "category": "technical_support",
+    "sub_category": "website_issues",
+    "responses": {
+      "answer": [
+        "It seems you've encountered a system error. Let's try to resolve it together.",
+        "Please refresh the page or reopen the link, as this may be caused by temporary high traffic or a minor system glitch.",
+        "We truly appreciate your patience while we work to fix this issue.",
+        "Thank you for your understanding and cooperation."
+      ],
+      "follow_up": [
+        "At the moment, this is the information I can provide. I appreciate your understanding."
+      ],
+      "context_slots": {
+        "last_topic": "system_error"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "additional_slots",
+    "category": "admissions",
+    "sub_category": "application_status",
+    "responses": {
+      "answer": [
+        "Wondering what to do if no slots are available?",
+        "Keep checking the admissions portal regularly and try submitting your application again.",
+        "Additional slots may open up if some applications are denied due to incomplete or missing requirements.",
+        "Since these openings can appear at any time, frequent monitoring is recommended."
+      ],
+      "follow_up": [
+        "At the moment, this is the information I can provide to help your problem. I appreciate your understanding."
+      ],
+      "context_slots": {
+        "last_topic": "additional_slots"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Admissions"
+    }
+  },
+  {
+    "intent": "contact_scholarship_unit",
+    "category": "university_info",
+    "sub_category": "office_contacts",
+    "responses": {
+      "answer": [
+        "Need to get in touch with the Scholarships and Financial Grants Unit?",
+        "To ensure a quicker response, please contact the appropriate office directly.",
+        "Here are the contact details for the Scholarships and Financial Grants Unit:",
+        "🖥️ Facebook Page: https://www.facebook.com/BukSUSFGU",
+        "✉️ Email: sfgu@buksu.edu.ph",
+        "📞 BukSU Contact Number: 088-813-5661"
+      ],
+      "follow_up": [
+        "As it stands, this is the information I have available to assist you. I thank you for your consideration."
+      ],
+      "context_slots": {
+        "last_topic": "contact_scholarship_unit"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Official"
+    }
+  }
+]
