@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Mic, Send, Minimize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +8,7 @@ import { motion } from "framer-motion";
 import MapMessage from "./MapMessage";
 import { cn } from "@/lib/utils";
 import { mockBackend, generateId, type ChatMessage } from "@/lib/mockApi";
+import type { UserPrivileges } from "@/types/admin";
 
 // Helper for Web Speech API
 const SpeechRecognition =
@@ -17,6 +19,17 @@ interface ChatWindowProps {
   onClose: () => void;
   isOpen: boolean;
 }
+
+ async function fetchUserPrivileges(): Promise<UserPrivileges> {
+   try {
+     const res = await fetch("/api/privileges");
+     const json = await res.json();
+     if (json?.success && json?.data) return json.data as UserPrivileges;
+   } catch (err) {
+     // ignore
+   }
+   return { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true };
+ }
 
 // Convert backend responses → ChatMessage[]
 function convertResponseToMessages(response: any): ChatMessage[] {
@@ -53,6 +66,14 @@ function convertResponseToMessages(response: any): ChatMessage[] {
 }
 
 export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
+  const { data: privileges = { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true } } = useQuery({
+    queryKey: ["privileges"],
+    queryFn: fetchUserPrivileges,
+    staleTime: 0,
+    refetchInterval: 5000,
+    enabled: isOpen
+  });
+
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "welcome",
@@ -68,6 +89,13 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
   const [isListening, setIsListening] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
+
+  useEffect(() => {
+    if ((!privileges.chatEnabled || !privileges.audioInputEnabled) && isListening) {
+      recognitionRef.current?.stop?.();
+      setIsListening(false);
+    }
+  }, [privileges.chatEnabled, privileges.audioInputEnabled, isListening]);
 
   // Test backend on mount
   useEffect(() => {
@@ -130,6 +158,9 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
   }, []);
 
   const toggleListening = () => {
+    if (!privileges.chatEnabled || !privileges.audioInputEnabled) {
+      return;
+    }
     if (!SpeechRecognition) {
       alert("Voice input is not supported in this browser.");
       return;
@@ -151,6 +182,9 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
   };
 
   const handleSend = async (text: string) => {
+    if (!privileges.chatEnabled) {
+      return;
+    }
     const trimmedText = text.trim();
     if (!trimmedText) return;
 
@@ -205,8 +239,8 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
   return (
     <div className="flex flex-col h-full bg-background relative overflow-hidden">
       {/* Header */}
-      <div className="bg-primary p-4 flex items-center justify-between text-primary-foreground shadow-sm shrink-0">
-        <div className="flex items-center gap-2">
+      <div className="bg-primary p-4 flex items-center justify-between text-primary-foreground shadow-sm shrink-0" style={{backgroundColor: '#001C38'}}>
+        <div className="flex items-center gap-2" >
           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           <h3 className="font-semibold text-sm">Buksu Chatbot</h3>
         </div>
@@ -252,10 +286,16 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
 
                 {/* Map message */}
                 {msg.type === "map" && msg.mapData && (
-                  <MapMessage
-                    locationName={msg.mapData.locationName}
-                    coordinates={msg.mapData.coordinates}
-                  />
+                  privileges.mapAccessEnabled ? (
+                    <MapMessage
+                      locationName={msg.mapData.locationName}
+                      coordinates={msg.mapData.coordinates}
+                    />
+                  ) : (
+                    <div className="mt-2 rounded-md border border-destructive/20 bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
+                      Map is not accessible right now.
+                    </div>
+                  )
                 )}
               </div>
             </motion.div>
@@ -279,33 +319,43 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
 
       {/* Input */}
       <div className="p-3 border-t bg-background shrink-0 gap-2 flex items-center">
-        <Button
-          variant={isListening ? "destructive" : "secondary"}
-          size="icon"
-          className="rounded-full shrink-0 h-10 w-10 transition-all duration-300"
-          onClick={toggleListening}
-          disabled={isTyping}
-        >
-          <Mic className={cn("h-5 w-5", isListening && "animate-pulse")} />
-        </Button>
+        {privileges.chatEnabled ? (
+          <>
+            {privileges.audioInputEnabled ? (
+              <Button
+                variant={isListening ? "destructive" : "secondary"}
+                size="icon"
+                className="rounded-full shrink-0 h-10 w-10 transition-all duration-300"
+                onClick={toggleListening}
+                disabled={isTyping}
+              >
+                <Mic className={cn("h-5 w-5", isListening && "animate-pulse")} />
+              </Button>
+            ) : null}
 
-        <Input
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Type a message..."
-          className="rounded-full bg-muted/50 border-transparent focus-visible:bg-background focus-visible:border-primary/20 transition-all"
-          disabled={isTyping || isListening}
-        />
+            <Input
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Type a message..."
+              className="rounded-full bg-muted/50 border-transparent focus-visible:bg-background focus-visible:border-primary/20 transition-all"
+              disabled={isTyping || isListening}
+            />
 
-        <Button
-          onClick={() => handleSend(inputValue)}
-          size="icon"
-          disabled={!inputValue.trim() || isTyping || isListening}
-          className="rounded-full shrink-0 h-10 w-10"
-        >
-          <Send className="h-4 w-4" />
-        </Button>
+            <Button
+              onClick={() => handleSend(inputValue)}
+              size="icon"
+              disabled={!inputValue.trim() || isTyping || isListening}
+              className="rounded-full shrink-0 h-10 w-10"
+            >
+              <Send className="h-4 w-4" />
+            </Button>
+          </>
+        ) : (
+          <div className="w-full text-center text-sm text-muted-foreground py-2">
+            Chat is currently disabled.
+          </div>
+        )}
       </div>
     </div>
   );

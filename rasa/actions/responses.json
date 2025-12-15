@@ -18,7 +18,7 @@
   },
   {
     "intent": "get_wifi_access",
-    "category": "ICT",
+    "category": "Location",
     "sub_category": "services",
     "responses": {
       "answer": [
@@ -28,10 +28,10 @@
         "You can see all of those numbers computer laboratory? if you see Comlab 6 Computer Laboratory 6, then you sould see the ICT office which is located on the right side of comlab 6 - Computer Laboratory 6"
       ],
       "mapData": {
-        "locationName": "ICT Office (Finance Bldg 3rd Flr)",
+        "locationName": "Heres how you could get any wifi connection that ICT could offer to you.",
         "coordinates": [
-          240,
-          580.30
+          750,
+          581
         ],
         "mapId": "main_map"
       },
@@ -198,8 +198,8 @@
   },
   {
     "intent": "buksu_med_loc",
-    "category": "buksuMedical",
-    "sub_category": "location",
+    "category": "Location",
+    "sub_category": "medical_clinic_location",
     "responses": {
       "image": "",
       "answer": [
@@ -209,7 +209,15 @@
         "Apparently Theres no more data that i can give"
       ],
       "context_slots": {
-        "last_topic": "location"
+        "last_topic": "medical_clinic_location"
+      },
+      "mapData": {
+        "locationName": "The University Medical Clinic is located at the Ground Floor of the Health Services Building near the old College of Nursing Building.",
+        "coordinates": [
+          281,
+          654
+        ],
+        "mapId": "main_map"
       }
     },
     "metadata": {
@@ -512,7 +520,7 @@
   {
     "intent": "exam_fees",
     "category": "admissions",
-    "sub_category": "examination",
+    "sub_category": "examination_fee",
     "responses": {
       "answer": [
         "Are there fees for the College Admission Test?",

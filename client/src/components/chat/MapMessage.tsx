@@ -121,7 +121,9 @@ export default function MapMessage({
     return [500, 500];
   })();
 
-  const center = tuple ?? fallbackCenter;
+  // Flip Y coordinate to match admin coordinate system (origin at top-left)
+  const flippedMarker = tuple ? [1000 - tuple[0], tuple[1]] as CoordArray : null;
+  const center = flippedMarker ?? fallbackCenter;
 
   return (
     <div className="w-60 h-48 rounded-lg overflow-hidden border border-border mt-2 relative z-2">
@@ -138,8 +140,8 @@ export default function MapMessage({
       >
         <ImageOverlay url={mapImage} bounds={imageBounds} />
         {/* only render marker if tuple is good */}
-        {tuple ? (
-          <Marker position={tuple}>
+        {flippedMarker ? (
+          <Marker position={flippedMarker}>
             <Popup>{locationName}</Popup>
           </Marker>
         ) : null}
