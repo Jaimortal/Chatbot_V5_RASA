@@ -4,13 +4,19 @@
     "category": "ICT",
     "sub_category": "general",
     "responses": {
-      "answer": [
-        "The Information & Communications Technology Services Unit (ICT-SU) of Bukidnon State University",
-        "It handles the technical aspect of the university processes involving the areas of information systems, network, technical services, and web development. It is also involved in the expansion of IT infrastructure and hardware, maintenance and upgrade of Computer Laboratories and Audio-Visual Center, management of internet bandwidth, IT training, and technical support."
-      ],
+      "answer": {
+        "en": [
+          "The Information & Communications Technology Services Unit (ICT-SU) of Bukidnon State University. It handles the technical aspect of university processes involving information systems, network, technical services, and web development. ICT-SU is also responsible for maintaining all computers in the computer laboratories, and ensures that any issues or damages in the labs are addressed promptly. You may also approach them for technical assistance regarding computer facilities."
+        ],
+        "ceb": [
+          "Ang Information & Communications Technology Services Unit (ICT-SU) sa Bukidnon State University. Mao sila ang ga-atiman sa teknikal nga bahin sa mga proseso sa unibersidad lakip ang information systems, network, technical services, ug web development. Sila usab ang ga-mentinar sa mga computer sulod sa computer laboratory, ug kung naay mga posibleng damage sa mga computers, sila usab ang ga-ayo niini. Pwede ka mo-doul sa ila alang sa tabang sa technical nga aspeto sa computer facilities."
+        ]
+      },
       "context_slots": {
         "last_topic": "about_ict"
-      }
+      },
+      "follow_up": [],
+      "imageUrl": ""
     },
     "metadata": {
       "source": "ICTdata"

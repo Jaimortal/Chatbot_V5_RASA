@@ -121,7 +121,14 @@ export async function upsertResponse(responseData: ResponseData): Promise<ApiRes
     const existingIndex = responses.findIndex(r => r.intent === responseData.intent);
     
     if (existingIndex >= 0) {
-      responses[existingIndex] = responseData;
+      const existing = responses[existingIndex];
+      responses[existingIndex] = {
+        ...existing,
+        ...responseData,
+        intent: existing.intent,
+        category: existing.category,
+        sub_category: existing.sub_category,
+      };
     } else {
       responses.push(responseData);
     }
@@ -142,21 +149,10 @@ export async function upsertResponse(responseData: ResponseData): Promise<ApiRes
 
 // Delete a response
 export async function deleteResponse(intent: string): Promise<ApiResponse> {
-  try {
-    const responses = await getResponses();
-    const filteredResponses = responses.filter(r => r.intent !== intent);
-    
-    const success = await saveResponses(filteredResponses);
-    return {
-      success,
-      message: success ? 'Response deleted successfully' : 'Failed to delete response'
-    };
-  } catch (error) {
-    return {
-      success: false,
-      message: 'Error deleting response: ' + error
-    };
-  }
+  return {
+    success: false,
+    message: 'Deleting intents is disabled.'
+  };
 }
 
 // Add or update a location

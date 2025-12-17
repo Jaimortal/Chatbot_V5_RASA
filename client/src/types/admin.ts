@@ -20,7 +20,8 @@ export interface ResponseData {
   category: string;
   sub_category: string;
   responses: {
-    answer: string[];
+    answer: string[] | Record<string, string[]>;
+    imageUrl?: string;
     mapData?: {
       locationName: string;
       coordinates: [number, number];

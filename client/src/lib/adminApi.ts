@@ -2,10 +2,21 @@ import type { ResponseData, Location, ApiResponse, UserPrivileges } from '@/type
 
 const API_BASE = '/api/admin';
 
+// Helper function to get auth headers
+const getAuthHeaders = () => {
+  const token = localStorage.getItem('adminToken');
+  return {
+    'Content-Type': 'application/json',
+    ...(token && { 'Authorization': `Bearer ${token}` }),
+  };
+};
+
 // Response API functions
 export async function fetchResponses(): Promise<ResponseData[]> {
   try {
-    const response = await fetch(`${API_BASE}/responses`);
+    const response = await fetch(`${API_BASE}/responses`, {
+      headers: getAuthHeaders(),
+    });
     const result: ApiResponse = await response.json();
     return result.success ? result.data : [];
   } catch (error) {
@@ -18,9 +29,7 @@ export async function saveResponse(responseData: ResponseData): Promise<ApiRespo
   try {
     const response = await fetch(`${API_BASE}/responses`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       body: JSON.stringify(responseData),
     });
     return await response.json();
@@ -34,6 +43,7 @@ export async function deleteResponseApi(intent: string): Promise<ApiResponse> {
   try {
     const response = await fetch(`${API_BASE}/responses/${encodeURIComponent(intent)}`, {
       method: 'DELETE',
+      headers: getAuthHeaders(),
     });
     return await response.json();
   } catch (error) {
@@ -45,7 +55,9 @@ export async function deleteResponseApi(intent: string): Promise<ApiResponse> {
 // Location API functions
 export async function fetchLocations(): Promise<Location[]> {
   try {
-    const response = await fetch(`${API_BASE}/locations`);
+    const response = await fetch(`${API_BASE}/locations`, {
+      headers: getAuthHeaders(),
+    });
     const result: ApiResponse = await response.json();
     return result.success ? result.data : [];
   } catch (error) {
@@ -58,9 +70,7 @@ export async function saveLocation(locationData: Location): Promise<ApiResponse>
   try {
     const response = await fetch(`${API_BASE}/locations`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       body: JSON.stringify(locationData),
     });
     return await response.json();
@@ -74,6 +84,7 @@ export async function deleteLocationApi(id: string): Promise<ApiResponse> {
   try {
     const response = await fetch(`${API_BASE}/locations/${encodeURIComponent(id)}`, {
       method: 'DELETE',
+      headers: getAuthHeaders(),
     });
     return await response.json();
   } catch (error) {
@@ -84,7 +95,9 @@ export async function deleteLocationApi(id: string): Promise<ApiResponse> {
 
 export async function fetchUserPrivilegesAdmin(): Promise<UserPrivileges> {
   try {
-    const response = await fetch(`${API_BASE}/privileges`);
+    const response = await fetch(`${API_BASE}/privileges`, {
+      headers: getAuthHeaders(),
+    });
     const result: ApiResponse = await response.json();
     return result.success
       ? (result.data as UserPrivileges)
@@ -99,9 +112,7 @@ export async function saveUserPrivilegesAdmin(privileges: UserPrivileges): Promi
   try {
     const response = await fetch(`${API_BASE}/privileges`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       body: JSON.stringify(privileges),
     });
     return await response.json();

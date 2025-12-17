@@ -1,0 +1,32 @@
+{
+  "development": {
+    "users": [
+      {
+        "email": "admin@example.com",
+        "name": "Development Admin",
+        "role": "admin",
+        "googleId": null,
+        "enabled": true
+      },
+      {
+        "email": "test@example.com",
+        "name": "Test Admin", 
+        "role": "admin",
+        "googleId": null,
+        "enabled": true
+      },
+      {
+        "email": "thepersonaljaime@gmail.com",
+        "name": "Jaime Perez",
+        "role": "admin",
+        "googleId": null,
+        "enabled": true
+      }
+    ],
+    "settings": {
+      "allowGoogleAuth": true,
+      "allowLocalAuth": true,
+      "developmentMode": true
+    }
+  }
+}

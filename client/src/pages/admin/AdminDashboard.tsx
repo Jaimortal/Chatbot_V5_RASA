@@ -3,7 +3,6 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { 
   fetchResponses, 
   saveResponse as saveResponseApi, 
-  deleteResponseApi,
   fetchLocations,
   saveLocation as saveLocationApi,
   deleteLocationApi,
@@ -23,7 +22,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Trash2, Edit2, Save, MessageSquare, Shield, LogOut } from "lucide-react";
+import { Plus, Edit2, Save, MessageSquare, Shield, LogOut } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -87,14 +86,6 @@ export default function AdminDashboard() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["responses"] });
       toast({ title: "Response Saved", description: "The chatbot response has been updated." });
-    }
-  });
-
-  const deleteResponseMutation = useMutation({
-    mutationFn: (intent: string) => deleteResponseApi(intent),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["responses"] });
-      toast({ title: "Response Deleted", variant: "destructive" });
     }
   });
 
@@ -223,9 +214,6 @@ export default function AdminDashboard() {
                                 onSave={saveResponseMutation.mutate} 
                                 trigger={<Button variant="ghost" size="icon"><Edit2 className="h-4 w-4"/></Button>}
                              />
-                             <Button variant="ghost" size="icon" onClick={() => deleteResponseMutation.mutate(response.intent)}>
-                               <Trash2 className="h-4 w-4 text-destructive"/>
-                             </Button>
                           </div>
                         </TableCell>
                       </TableRow>
@@ -302,37 +290,77 @@ function ResponseDialog({ response, onSave, trigger }: {
   onSave: (r: ResponseData) => void, 
   trigger?: React.ReactNode 
 }) {
+  const isEdit = !!response;
   const [open, setOpen] = useState(false);
-  const [formData, setFormData] = useState<Partial<ResponseData>>(response || {
-    intent: "",
-    category: "",
-    sub_category: "",
-    responses: {
-      answer: [""],
-      follow_up: [],
-      context_slots: {}
-    },
-    metadata: {
-      source: "admin"
+  const normalizeAnswer = (answer: ResponseData["responses"]["answer"] | undefined) => {
+    if (!answer) return { en: [""], ceb: [""] };
+    if (Array.isArray(answer)) return { en: answer, ceb: [""] };
+    const record = answer as Record<string, string[]>;
+    return {
+      en: Array.isArray(record.en) ? record.en : [""],
+      ceb: Array.isArray(record.ceb) ? record.ceb : [""]
+    };
+  };
+
+  const getInitialFormData = (): Partial<ResponseData> => {
+    if (response) {
+      return {
+        ...response,
+        responses: {
+          ...response.responses,
+          answer: normalizeAnswer(response.responses?.answer),
+          follow_up: Array.isArray(response.responses?.follow_up) ? response.responses.follow_up : [],
+          context_slots: response.responses?.context_slots || {},
+          imageUrl: response.responses?.imageUrl || ""
+        }
+      };
     }
-  });
+
+    return {
+      intent: "",
+      category: "",
+      sub_category: "",
+      responses: {
+        answer: { en: [""], ceb: [""] },
+        follow_up: [],
+        context_slots: {},
+        imageUrl: ""
+      },
+      metadata: {
+        source: "admin"
+      }
+    };
+  };
+
+  const [formData, setFormData] = useState<Partial<ResponseData>>(getInitialFormData());
   const [hasMapData, setHasMapData] = useState(!!response?.responses.mapData);
-  const [mapCoordinates, setMapCoordinates] = useState<[number, number]>(
-    response?.responses.mapData?.coordinates || [500, 500]
-  );
+  const [mapCoordinates, setMapCoordinates] = useState<[number, number]>(response?.responses.mapData?.coordinates || [500, 500]);
+
+  useEffect(() => {
+    if (open) {
+      const initial = getInitialFormData();
+      setFormData(initial);
+      setHasMapData(!!response?.responses.mapData);
+      setMapCoordinates(response?.responses.mapData?.coordinates || [500, 500]);
+    }
+  }, [open, response]);
 
   const handleSubmit = () => {
+    const normalizedAnswer = normalizeAnswer(formData.responses?.answer);
+
+    const mapLocationName =
+      normalizedAnswer.en.find((s) => !!s?.trim()) ||
+      normalizedAnswer.ceb.find((s) => !!s?.trim()) ||
+      "Location";
+
     const finalResponse: ResponseData = {
       ...formData,
       responses: {
         ...formData.responses!,
+        answer: normalizedAnswer,
         ...(hasMapData && {
           mapData: {
-            locationName: Array.isArray(formData.responses!.answer) 
-              ? formData.responses!.answer[0] 
-              : typeof formData.responses!.answer === 'string'
-              ? formData.responses!.answer
-              : "Location",
+            locationName: mapLocationName,
             coordinates: mapCoordinates,
             mapId: "main_map"
           }
@@ -360,6 +388,7 @@ function ResponseDialog({ response, onSave, trigger }: {
               value={formData.intent} 
               onChange={e => setFormData({...formData, intent: e.target.value})} 
               placeholder="e.g. get_wifi_access" 
+              disabled={isEdit}
             />
           </div>
           <div className="grid gap-2">
@@ -368,6 +397,7 @@ function ResponseDialog({ response, onSave, trigger }: {
               value={formData.category} 
               onChange={e => setFormData({...formData, category: e.target.value})} 
               placeholder="e.g. ICT" 
+              disabled={isEdit}
             />
           </div>
           <div className="grid gap-2">
@@ -376,26 +406,52 @@ function ResponseDialog({ response, onSave, trigger }: {
               value={formData.sub_category} 
               onChange={e => setFormData({...formData, sub_category: e.target.value})} 
               placeholder="e.g. services" 
+              disabled={isEdit}
             />
           </div>
           <div className="grid gap-2">
-            <Label>Response Answer</Label>
+            <Label>Response Answer (English)</Label>
             <Textarea 
               value={
-                Array.isArray(formData.responses?.answer) 
-                  ? formData.responses.answer.join("\n") 
-                  : typeof formData.responses?.answer === 'string'
-                  ? formData.responses.answer
-                  : ""
+                (() => {
+                  const a = normalizeAnswer(formData.responses?.answer);
+                  return Array.isArray(a.en) ? a.en.join("\n") : "";
+                })()
               } 
               onChange={e => setFormData({
                 ...formData, 
                 responses: {
                   ...formData.responses!,
-                  answer: e.target.value.split("\n").filter(Boolean)
+                  answer: {
+                    ...normalizeAnswer(formData.responses?.answer),
+                    en: e.target.value.split("\n")
+                  }
                 }
               })} 
-              placeholder="Enter response text (one per line)"
+              placeholder="Enter English response text (one per line)"
+              rows={4}
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label>Response Answer (Bisaya)</Label>
+            <Textarea
+              value={
+                (() => {
+                  const a = normalizeAnswer(formData.responses?.answer);
+                  return Array.isArray(a.ceb) ? a.ceb.join("\n") : "";
+                })()
+              }
+              onChange={e => setFormData({
+                ...formData,
+                responses: {
+                  ...formData.responses!,
+                  answer: {
+                    ...normalizeAnswer(formData.responses?.answer),
+                    ceb: e.target.value.split("\n")
+                  }
+                }
+              })}
+              placeholder="Enter Bisaya response text (one per line)"
               rows={4}
             />
           </div>
@@ -417,6 +473,63 @@ function ResponseDialog({ response, onSave, trigger }: {
               placeholder="Enter follow up questions (one per line)"
               rows={3}
             />
+          </div>
+          <div className="grid gap-2">
+            <Label>Response Image (optional)</Label>
+            <div className="grid gap-2">
+              <Input
+                value={formData.responses?.imageUrl || ""}
+                onChange={(e) => setFormData({
+                  ...formData,
+                  responses: {
+                    ...formData.responses!,
+                    imageUrl: e.target.value
+                  }
+                })}
+                placeholder="Paste an image URL or use Upload below"
+              />
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const result = typeof reader.result === "string" ? reader.result : "";
+                    setFormData((prev) => ({
+                      ...prev,
+                      responses: {
+                        ...prev.responses!,
+                        imageUrl: result
+                      }
+                    }));
+                  };
+                  reader.readAsDataURL(file);
+                }}
+              />
+              {formData.responses?.imageUrl ? (
+                <div className="grid gap-2">
+                  <img
+                    src={formData.responses.imageUrl}
+                    alt="Response image"
+                    className="max-h-48 rounded border object-contain"
+                  />
+                  <Button
+                    variant="outline"
+                    onClick={() => setFormData({
+                      ...formData,
+                      responses: {
+                        ...formData.responses!,
+                        imageUrl: ""
+                      }
+                    })}
+                  >
+                    Remove Image
+                  </Button>
+                </div>
+              ) : null}
+            </div>
           </div>
           <div className="flex items-center space-x-2">
             <input

@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { sendMessageToRasa } from "./rasaData"; // Your live Rasa API
+import { getSessionData } from "./sessionStore";
 
 // --- Utilities ---
 export function cn(...inputs: ClassValue[]) {
@@ -19,6 +20,7 @@ export interface ChatMessage {
   sender: "user" | "bot";
   type: MessageType;
   timestamp: Date;
+  imageUrl?: string;
   mapData?: {
     locationName: string;
     coordinates: { lat: number; lng: number }; // Changed from [number, number]
@@ -28,6 +30,7 @@ export interface ChatMessage {
 // Interface for the response format expected by ChatWindow
 interface BackendResponse {
   answer?: string | string[];
+  imageUrl?: string;
   mapData?: {
     locationName: string;
     coordinates: { lat: number; lng: number };
@@ -39,18 +42,26 @@ class RasaBackend {
   private lastTopic: string | null = null;
 
   // This method now returns a BackendResponse object instead of ChatMessage[]
-  async sendMessage(text: string): Promise<BackendResponse> {
+  async sendMessage(text: string, sessionId?: string): Promise<BackendResponse> {
     try {
-      const responses = await sendMessageToRasa(text);
+      const session = getSessionData();
+      const preferredLanguage = session.userPreferences?.language;
+      const responses = await sendMessageToRasa(text, preferredLanguage, sessionId);
       
       // Combine all text responses
       let combinedText = "";
+      let imageUrl: string | null = null;
       let mapData: any = null;
 
       responses.forEach((r: any) => {
         // Extract text
         if (r.text) {
           combinedText += r.text + "\n";
+        }
+
+        // Extract image (standard Rasa REST field)
+        if (!imageUrl && r.image) {
+          imageUrl = r.image;
         }
 
         // Extract custom data (follow_up, map, etc.)
@@ -99,6 +110,10 @@ class RasaBackend {
         answer: combinedText || "I received your message but got an empty response."
       };
 
+      if (imageUrl) {
+        response.imageUrl = imageUrl;
+      }
+
       // Add map data if available
       if (mapData) {
         response.mapData = mapData;
@@ -142,7 +157,6 @@ class RasaBackend {
 
 // --- Export instance and utility ---
 export const mockBackend = new RasaBackend();
-export type { ChatMessage };
 
 // Helper function for ChatWindow to convert responses
 export function convertRasaResponseToMessages(rasaResponses: any[]): ChatMessage[] {

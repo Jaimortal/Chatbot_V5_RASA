@@ -105,16 +105,41 @@ class ActionReplyFromJsonHelper:
         answer = responses_data.get("answer", "I'm sorry, I don't have an answer for that.")
         
         # Check for image or map data (Enhanced for Map Support)
-        image_data = responses_data.get("image", None)
+        image_data = responses_data.get("image", None) or responses_data.get("imageUrl", None)
         map_data = responses_data.get("mapData", None)
         
         # Prepare result payload
         result = {}
         
-        if isinstance(answer, list):
+        if isinstance(answer, dict):
+            # New multilingual format: { "en": [...], "ceb": [...] }
+            # Detect language from user_message (simple heuristic)
+            preferred_lang = "en"
+            if any(word in user_message.lower() for word in [
+                "unsay", "unsa", "asa", "ngano", "diin", "kinsa", "kanus-a", 
+                "pila", "gamay", "dako", "mao", "ni", "na", "sa", "ang", 
+                "mga", "ug", "uy", "ba", "man", "gani", "diay", "sige"
+            ]):
+                preferred_lang = "ceb"
+            selected = answer.get(preferred_lang)
+            if selected is None:
+                # Fallback to English or first available language
+                selected = answer.get("en")
+                if selected is None:
+                    first_key = next(iter(answer), None)
+                    selected = answer.get(first_key) if first_key else None
+            if isinstance(selected, list):
+                result["text"] = "\n".join(selected)
+            elif isinstance(selected, str):
+                result["text"] = selected
+            else:
+                result["text"] = "I'm sorry, I don't have an answer for that."
+        elif isinstance(answer, list):
             result["text"] = "\n".join(answer)
         elif isinstance(answer, str):
             result["text"] = answer
+        else:
+            result["text"] = "I'm sorry, I don't have an answer for that."
             
         if image_data:
              result["image"] = image_data

@@ -1,16 +1,9 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { type Server } from "http";
-import { findIntent } from "./rasa";
-import {
-  getResponses,
-  upsertResponse,
-  deleteResponse,
-  getLocations,
-  upsertLocation,
-  deleteLocation,
-  getUserPrivileges,
-  upsertUserPrivileges
-} from "./admin";
+import { ChatController } from "./controllers/chatController";
+import { AdminController } from "./controllers/adminController";
+import { AuthController } from "./controllers/authController";
+import jwt from "jsonwebtoken";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -24,125 +17,69 @@ export async function registerRoutes(
     if (providedKey && providedKey === expectedKey) return next();
     return res.status(401).json({ success: false, message: "Unauthorized" });
   };
+
+  const requireAuth = (req: Request, res: Response, next: NextFunction) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({ success: false, message: "No token provided" });
+    }
+    
+    const token = authHeader.substring(7);
+    
+    try {
+      const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production";
+      const decoded = jwt.verify(token, JWT_SECRET);
+      
+      if (!decoded) {
+        return res.status(401).json({ success: false, message: "Invalid token" });
+      }
+      
+      // Attach user info to request for potential use
+      (req as any).user = decoded;
+      next();
+    } catch (error) {
+      return res.status(401).json({ success: false, message: "Invalid token" });
+    }
+  };
+  
+  // AUTHENTICATION ROUTES
+  app.post("/api/admin/login", AuthController.login);
+  app.post("/api/admin/google-login", AuthController.googleLogin);
+  app.post("/api/admin/verify", AuthController.verify);
+  app.post("/api/admin/logout", AuthController.logout);
   
   // CHAT ROUTE
-  app.post("/api/chat", (req, res) => {
-    const { intent } = req.body;
-
-    const result = findIntent(intent);
-
-    if (!result) {
-      return res.json({
-        answer: "I cannot understand your question.",
-        mapData: null,
-        follow_up: []
-      });
-    }
-
-    // Convert answer array to string
-    const answerText = Array.isArray(result.responses.answer) 
-      ? result.responses.answer.join("\n")
-      : result.responses.answer || "";
-
-    return res.json({
-      answer: answerText,
-      follow_up: result.responses.follow_up ?? [],
-      mapData: result.responses.mapData ?? null
-    });
-  });
+  app.post("/api/chat", ChatController.handleChat);
 
   // PUBLIC USER PRIVILEGES
 
-  app.get("/api/privileges", async (_req, res) => {
-    try {
-      const privileges = await getUserPrivileges();
-      res.json({ success: true, data: privileges });
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to fetch privileges" });
-    }
-  });
+  app.get("/api/privileges", AdminController.getUserPrivileges);
 
   // ADMIN ROUTES
   
   // Get all responses
-  app.get("/api/admin/responses", requireAdmin, async (req, res) => {
-    try {
-      const responses = await getResponses();
-      res.json({ success: true, data: responses });
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to fetch responses" });
-    }
-  });
+  app.get("/api/admin/responses", requireAuth, AdminController.getResponses);
 
   // Create or update a response
-  app.post("/api/admin/responses", requireAdmin, async (req, res) => {
-    try {
-      const result = await upsertResponse(req.body);
-      res.json(result);
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to save response" });
-    }
-  });
+  app.post("/api/admin/responses", requireAuth, AdminController.createOrUpdateResponse);
 
   // Delete a response
-  app.delete("/api/admin/responses/:intent", requireAdmin, async (req, res) => {
-    try {
-      const result = await deleteResponse(req.params.intent);
-      res.json(result);
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to delete response" });
-    }
-  });
+  app.delete("/api/admin/responses/:intent", requireAuth, AdminController.deleteResponse);
 
   // Get all locations
-  app.get("/api/admin/locations", requireAdmin, async (req, res) => {
-    try {
-      const locations = await getLocations();
-      res.json({ success: true, data: locations });
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to fetch locations" });
-    }
-  });
+  app.get("/api/admin/locations", requireAuth, AdminController.getLocations);
 
   // Create or update a location
-  app.post("/api/admin/locations", requireAdmin, async (req, res) => {
-    try {
-      const result = await upsertLocation(req.body);
-      res.json(result);
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to save location" });
-    }
-  });
+  app.post("/api/admin/locations", requireAuth, AdminController.createOrUpdateLocation);
 
   // Delete a location
-  app.delete("/api/admin/locations/:id", requireAdmin, async (req, res) => {
-    try {
-      const result = await deleteLocation(req.params.id);
-      res.json(result);
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to delete location" });
-    }
-  });
+  app.delete("/api/admin/locations/:id", requireAuth, AdminController.deleteLocation);
 
   // USER PRIVILEGES (ADMIN)
 
-  app.get("/api/admin/privileges", requireAdmin, async (_req, res) => {
-    try {
-      const privileges = await getUserPrivileges();
-      res.json({ success: true, data: privileges });
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to fetch privileges" });
-    }
-  });
+  app.get("/api/admin/privileges", requireAuth, AdminController.getUserPrivileges);
 
-  app.post("/api/admin/privileges", requireAdmin, async (req, res) => {
-    try {
-      const result = await upsertUserPrivileges(req.body);
-      res.json(result);
-    } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to save privileges" });
-    }
-  });
+  app.post("/api/admin/privileges", requireAuth, AdminController.updateUserPrivileges);
 
   return httpServer;
 }

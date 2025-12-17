@@ -46,6 +46,7 @@ function convertResponseToMessages(response: any): ChatMessage[] {
       text: answerText,
       sender: "bot",
       type: "text",
+      imageUrl: response.imageUrl,
       timestamp: new Date(),
     });
   }
@@ -74,10 +75,19 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     enabled: isOpen
   });
 
+  // Generate or retrieve session ID for conversation tracking
+  const [sessionId] = useState(() => {
+    const stored = sessionStorage.getItem('chatSessionId');
+    if (stored) return stored;
+    const newId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    sessionStorage.setItem('chatSessionId', newId);
+    return newId;
+  });
+
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "welcome",
-      text: "Hi there! I'm your virtual concierge. Ask me where to find shops, food, or restrooms! (Pwede ra mag Binisaya)",
+      text: "Hi there! I’m the BukSU Assistance Chatbot. Ask me anything about BukSU. Pwede ra gyud Bisaya or English 👍",
       sender: "bot",
       type: "text",
       timestamp: new Date(),
@@ -202,7 +212,7 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     setIsTyping(true);
 
     try {
-      const response = await mockBackend.sendMessage(trimmedText);
+      const response = await mockBackend.sendMessage(trimmedText, sessionId);
       
       // Convert bot response to correct message types
       const botMessages = convertResponseToMessages(response);
@@ -265,8 +275,8 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               className={cn(
-                "flex w-full",
-                msg.sender === "user" ? "justify-end" : "justify-start"
+                "flex flex-col w-full",
+                msg.sender === "user" ? "items-end" : "items-start"
               )}
             >
               <div
@@ -279,9 +289,29 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
               >
                 {/* Normal text */}
                 {msg.type === "text" && (
-                  <p className="leading-relaxed whitespace-pre-line">
-                    {msg.text}
-                  </p>
+                  <div>
+                    <p 
+                      className="leading-relaxed whitespace-pre-line"
+                      dangerouslySetInnerHTML={{
+                        __html: msg.text.replace(
+                          /(https?:\/\/[^\s]+)/g,
+                          (match) => {
+                            const display = match.length > 40 ? match.slice(0, 37) + '...' : match;
+                            return `<a href="${match}" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 break-all">${display}</a>`;
+                          }
+                        )
+                      }}
+                    />
+
+                    {msg.imageUrl ? (
+                      <img
+                        src={msg.imageUrl}
+                        alt="Chatbot response"
+                        loading="lazy"
+                        className="mt-2 w-full max-w-[320px] rounded-lg border border-border object-contain"
+                      />
+                    ) : null}
+                  </div>
                 )}
 
                 {/* Map message */}
@@ -297,6 +327,11 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
                     </div>
                   )
                 )}
+              </div>
+
+              {/* Timestamp centered under the message card */}
+              <div className="text-xs opacity-60 mt-1 text-center">
+                {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </div>
             </motion.div>
           ))}
