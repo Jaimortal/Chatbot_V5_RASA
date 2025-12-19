@@ -126,7 +126,7 @@
     "responses": {
       "answer": {
         "en": [
-          "The University Medical Clinic is a primary health care facility that is available to render primary health care services and selected specialized services to the Bukidnon State University community. The health service unit is staffed with trained registered professional health personnel. The clinic is responsible in documenting all consulted health cases, collaborative care is practiced for cases that need extended evaluation and apt referral is done for further management."
+          "The University Medical Clinic is a primary health care facility that is available to render primary health care services and selected specialized services to the Bukidnon State University community. The health service unit is staffed with trained registered professional health personnel. The clinic is responsible in documenting all consulted health cases, collaborative care is practiced for cases that need extended evaluation and apt referral is done for further management.."
         ],
         "ceb": [
           ""
@@ -138,7 +138,8 @@
       "context_slots": {
         "last_topic": "clinic_info"
       },
-      "imageUrl": ""
+      "imageUrl": "",
+      "imageUrls": []
     },
     "metadata": {
       "author": "admin"
@@ -771,18 +772,25 @@
     "category": "admissions",
     "sub_category": "application_status",
     "responses": {
-      "answer": [
-        "Wondering what to do if no slots are available?",
-        "Keep checking the admissions portal regularly and try submitting your application again.",
-        "Additional slots may open up if some applications are denied due to incomplete or missing requirements.",
-        "Since these openings can appear at any time, frequent monitoring is recommended."
-      ],
+      "answer": {
+        "en": [
+          "Wondering what to do if no slots are available?",
+          "Keep checking the admissions portal regularly and try submitting your application again.",
+          "Additional slots may open up if some applications are denied due to incomplete or missing requirements.",
+          "Since these openings can appear at any time, frequent monitoring is recommended."
+        ],
+        "ceb": [
+          "Kay naghunahuna ka kong unsay buhaton kong walay mga slots ang anaa? Padayong susiha nga regular ang mga pagpasulod ug sulayi ang pagdawat pag - usab sa imong aplikasyon."
+        ]
+      },
       "follow_up": [
         "At the moment, this is the information I can provide to help your problem. I appreciate your understanding."
       ],
       "context_slots": {
         "last_topic": "additional_slots"
-      }
+      },
+      "imageUrl": "",
+      "imageUrls": []
     },
     "metadata": {
       "source": "BukSU Admissions"

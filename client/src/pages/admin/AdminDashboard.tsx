@@ -1,4 +1,4 @@
-import { useState, useEffect, useId } from "react";
+import { useState, useEffect, useId, useRef } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { 
   fetchResponses, 
@@ -7,7 +7,8 @@ import {
   saveLocation as saveLocationApi,
   deleteLocationApi,
   fetchUserPrivilegesAdmin,
-  saveUserPrivilegesAdmin
+  saveUserPrivilegesAdmin,
+  fetchAutoTranslateStatus
 } from "@/lib/adminApi";
 import type { ResponseData, Location, UserPrivileges } from "@/types/admin";
 import { 
@@ -35,7 +36,8 @@ export default function AdminDashboard() {
   const DEFAULT_PRIVILEGES: UserPrivileges = {
     chatEnabled: true,
     audioInputEnabled: true,
-    mapAccessEnabled: true
+    mapAccessEnabled: true,
+    autoTranslateEnabled: true
   };
   
   // --- Filter States ---
@@ -60,6 +62,18 @@ export default function AdminDashboard() {
     queryFn: fetchUserPrivilegesAdmin
   });
 
+  const { data: autoTranslateStatus } = useQuery({
+    queryKey: ["autoTranslateStatus"],
+    queryFn: fetchAutoTranslateStatus,
+    refetchInterval: 1500,
+  });
+
+  const mountedAtRef = useRef<number>(Date.now());
+  const lastNotifiedJobIdRef = useRef<string | null>(null);
+  const translationBusy = autoTranslateStatus?.status === "running";
+  const translationBusyIntent: string | null =
+    typeof autoTranslateStatus?.current?.intent === "string" ? autoTranslateStatus.current.intent : null;
+
   const [privileges, setPrivileges] = useState<UserPrivileges>(DEFAULT_PRIVILEGES);
 
   useEffect(() => {
@@ -67,6 +81,28 @@ export default function AdminDashboard() {
       setPrivileges(fetchedPrivileges);
     }
   }, [fetchedPrivileges]);
+
+  useEffect(() => {
+    const last = autoTranslateStatus?.lastCompleted;
+    if (!last?.jobId || typeof last.jobId !== "string") return;
+    if (typeof last?.finishedAt === "number" && last.finishedAt < mountedAtRef.current) return;
+    if (lastNotifiedJobIdRef.current === last.jobId) return;
+    if (last?.status !== "completed" && last?.status !== "failed") return;
+
+    lastNotifiedJobIdRef.current = last.jobId;
+
+    if (last.status === "completed") {
+      toast({ title: "English Translation complete" });
+      queryClient.invalidateQueries({ queryKey: ["responses"] });
+      return;
+    }
+
+    toast({
+      title: "Translation failed",
+      description: last?.error || "Auto-translation failed. Please try again or type the Bisaya response manually.",
+      variant: "destructive",
+    });
+  }, [autoTranslateStatus, queryClient, toast]);
 
   // --- Filter Logic ---
   const filteredResponses = responses.filter(response => {
@@ -82,11 +118,17 @@ export default function AdminDashboard() {
 
   // --- Mutations ---
   const saveResponseMutation = useMutation({
-    mutationFn: (response: ResponseData) => saveResponseApi(response),
+    mutationFn: async (response: ResponseData) => {
+      const result: any = await saveResponseApi(response);
+      if (!result?.success) {
+        throw new Error(result?.message || "Failed to save response");
+      }
+      return result;
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["responses"] });
       toast({ title: "Response Saved", description: "The chatbot response has been updated." });
-    }
+    },
   });
 
   const saveLocationMutation = useMutation({
@@ -157,7 +199,11 @@ export default function AdminDashboard() {
                     <CardTitle>Chatbot Responses</CardTitle>
                     <CardDescription>Manage chatbot responses and their location data</CardDescription>
                   </div>
-                  <ResponseDialog onSave={saveResponseMutation.mutate} />
+                  <ResponseDialog
+                    onSave={saveResponseMutation.mutateAsync}
+                    translationBusy={translationBusy}
+                    translationBusyIntent={translationBusyIntent}
+                  />
                 </div>
                 
                 {/* Filters */}
@@ -211,7 +257,9 @@ export default function AdminDashboard() {
                           <div className="flex gap-2">
                              <ResponseDialog 
                                 response={response} 
-                                onSave={saveResponseMutation.mutate} 
+                                onSave={saveResponseMutation.mutateAsync} 
+                                translationBusy={translationBusy}
+                                translationBusyIntent={translationBusyIntent}
                                 trigger={<Button variant="ghost" size="icon"><Edit2 className="h-4 w-4"/></Button>}
                              />
                           </div>
@@ -273,6 +321,18 @@ export default function AdminDashboard() {
                     disabled={savePrivilegesMutation.isPending}
                   />
                 </div>
+
+                <div className="flex items-center justify-between border rounded-lg p-4">
+                  <div className="space-y-1">
+                    <Label>Auto Translate</Label>
+                    <p className="text-sm text-muted-foreground">Auto-fill Cebuano when admin leaves it empty</p>
+                  </div>
+                  <Switch
+                    checked={privileges.autoTranslateEnabled}
+                    onCheckedChange={(checked) => handlePrivilegeToggle("autoTranslateEnabled", checked)}
+                    disabled={savePrivilegesMutation.isPending}
+                  />
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
@@ -285,14 +345,17 @@ export default function AdminDashboard() {
 
 // --- Dialog Components ---
 
-function ResponseDialog({ response, onSave, trigger }: { 
+function ResponseDialog({ response, onSave, trigger, translationBusy, translationBusyIntent }: { 
   response?: ResponseData, 
-  onSave: (r: ResponseData) => void, 
-  trigger?: React.ReactNode 
+  onSave: (r: ResponseData) => Promise<any>, 
+  trigger?: React.ReactNode,
+  translationBusy?: boolean,
+  translationBusyIntent?: string | null
 }) {
   const isEdit = !!response;
   const [open, setOpen] = useState(false);
   const uploadId = useId();
+  const { toast } = useToast();
 
   type LocationDraft = {
     locationName: string;
@@ -386,8 +449,10 @@ function ResponseDialog({ response, onSave, trigger }: {
     }
   }, [open, response]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const normalizedAnswer = normalizeAnswer(formData.responses?.answer);
+
+    const finalCebuano = normalizedAnswer.ceb;
 
     const normalizedImages = Array.isArray(formData.responses?.imageUrls)
       ? formData.responses!.imageUrls!.map((s) => (typeof s === "string" ? s.trim() : "")).filter(Boolean)
@@ -405,7 +470,10 @@ function ResponseDialog({ response, onSave, trigger }: {
       ...formData,
       responses: {
         ...formData.responses!,
-        answer: normalizedAnswer,
+        answer: {
+          en: normalizedAnswer.en,
+          ceb: finalCebuano
+        },
         imageUrls: normalizedImages,
         imageUrl: normalizedImages[0] || formData.responses?.imageUrl || "",
         mapData: hasMapData
@@ -422,12 +490,39 @@ function ResponseDialog({ response, onSave, trigger }: {
       }
     } as ResponseData;
     
-    onSave(finalResponse);
-    setOpen(false);
+    try {
+      await onSave(finalResponse);
+      setOpen(false);
+    } catch (err: any) {
+      toast({
+        title: "Save failed",
+        description: String(err?.message || err || "Failed to save response"),
+        variant: "destructive",
+      });
+    }
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog
+      open={open}
+      onOpenChange={(next) => {
+        const busy = Boolean(translationBusy);
+        const sameIntent =
+          Boolean(response?.intent) &&
+          Boolean(translationBusyIntent) &&
+          response!.intent === translationBusyIntent;
+
+        if (next && busy && !sameIntent) {
+          toast({
+            title: "Please wait",
+            description: "Auto-translation is still running. Please wait for it to finish before editing another intent.",
+            variant: "destructive",
+          });
+          return;
+        }
+        setOpen(next);
+      }}
+    >
       <DialogTrigger asChild>
         {trigger || <Button><Plus className="mr-2 h-4 w-4"/> Add Response</Button>}
       </DialogTrigger>
@@ -487,7 +582,7 @@ function ResponseDialog({ response, onSave, trigger }: {
             />
           </div>
           <div className="grid gap-2">
-            <Label>Response Answer (Bisaya)</Label>
+            <Label>Response Answer (Bisaya) <span className="text-muted-foreground text-sm">(keep it blank to auto-fill Bisaya language)</span></Label>
             <Textarea
               value={
                 (() => {

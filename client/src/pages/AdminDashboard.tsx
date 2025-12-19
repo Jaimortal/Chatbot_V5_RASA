@@ -36,7 +36,8 @@ export default function AdminDashboard() {
   const DEFAULT_PRIVILEGES: UserPrivileges = {
     chatEnabled: true,
     audioInputEnabled: true,
-    mapAccessEnabled: true
+    mapAccessEnabled: true,
+    autoTranslateEnabled: true
   };
   
   // --- Filter States ---

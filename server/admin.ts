@@ -23,7 +23,8 @@ async function ensureDataDir() {
 const DEFAULT_PRIVILEGES: UserPrivileges = {
   chatEnabled: true,
   audioInputEnabled: true,
-  mapAccessEnabled: true
+  mapAccessEnabled: true,
+  autoTranslateEnabled: true
 };
 
 // Read responses from responses.json

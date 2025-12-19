@@ -12,5 +12,8 @@ rasa/models/
 rasa/.rasa
 
 
+server/privateAPI/models
+
+
 .env
 client/.env

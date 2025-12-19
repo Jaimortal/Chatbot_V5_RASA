@@ -63,6 +63,11 @@ export async function registerRoutes(
   // Create or update a response
   app.post("/api/admin/responses", requireAuth, AdminController.createOrUpdateResponse);
 
+  // Translate text to Cebuano
+  app.post("/api/admin/translate", requireAuth, AdminController.translateToCebuano);
+
+  app.get("/api/admin/auto-translate-status", requireAuth, AdminController.getAutoTranslateStatus);
+
   // Delete a response
   app.delete("/api/admin/responses/:intent", requireAuth, AdminController.deleteResponse);
 

@@ -82,6 +82,7 @@ export class MemStorage implements IStorage {
       chatEnabled: true,
       audioInputEnabled: true,
       mapAccessEnabled: true,
+      autoTranslateEnabled: true,
       updatedAt: new Date(),
     };
   }
@@ -203,6 +204,7 @@ export class MemStorage implements IStorage {
         chatEnabled: true,
         audioInputEnabled: true,
         mapAccessEnabled: true,
+        autoTranslateEnabled: true,
         updatedAt: new Date(),
       };
     }

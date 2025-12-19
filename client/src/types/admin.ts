@@ -63,4 +63,5 @@ export interface UserPrivileges {
   chatEnabled: boolean;
   audioInputEnabled: boolean;
   mapAccessEnabled: boolean;
+  autoTranslateEnabled: boolean;
 }

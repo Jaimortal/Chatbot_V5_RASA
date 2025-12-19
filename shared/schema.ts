@@ -53,6 +53,7 @@ export const userPrivileges = pgTable("user_privileges", {
   chatEnabled: boolean("chat_enabled").default(true),
   audioInputEnabled: boolean("audio_input_enabled").default(true),
   mapAccessEnabled: boolean("map_access_enabled").default(true),
+  autoTranslateEnabled: boolean("auto_translate_enabled").default(true),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 

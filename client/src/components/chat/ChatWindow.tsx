@@ -28,7 +28,7 @@ interface ChatWindowProps {
    } catch (err) {
      // ignore
    }
-   return { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true };
+   return { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true, autoTranslateEnabled: true };
  }
 
 // Convert backend responses → ChatMessage[]
@@ -95,7 +95,7 @@ function convertResponseToMessages(response: any): ChatMessage[] {
 }
 
 export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
-  const { data: privileges = { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true } } = useQuery({
+  const { data: privileges = { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true, autoTranslateEnabled: true } } = useQuery({
     queryKey: ["privileges"],
     queryFn: fetchUserPrivileges,
     staleTime: 0,

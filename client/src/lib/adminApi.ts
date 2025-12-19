@@ -101,10 +101,10 @@ export async function fetchUserPrivilegesAdmin(): Promise<UserPrivileges> {
     const result: ApiResponse = await response.json();
     return result.success
       ? (result.data as UserPrivileges)
-      : { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true };
+      : { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true, autoTranslateEnabled: true };
   } catch (error) {
     console.error('Error fetching privileges:', error);
-    return { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true };
+    return { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true, autoTranslateEnabled: true };
   }
 }
 
@@ -118,6 +118,18 @@ export async function saveUserPrivilegesAdmin(privileges: UserPrivileges): Promi
     return await response.json();
   } catch (error) {
     console.error('Error saving privileges:', error);
+    return { success: false, message: 'Network error' };
+  }
+}
+
+export async function fetchAutoTranslateStatus(): Promise<any> {
+  try {
+    const response = await fetch(`${API_BASE}/auto-translate-status`, {
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching auto-translate status:', error);
     return { success: false, message: 'Network error' };
   }
 }
