@@ -22,14 +22,31 @@ export interface ResponseData {
   responses: {
     answer: string[] | Record<string, string[]>;
     imageUrl?: string;
+    imageUrls?: string[];
     mapData?: {
       locationName: string;
       coordinates: [number, number];
       mapId: string;
-    };
+    } | Array<{
+      locationName: string;
+      coordinates: [number, number];
+      mapId: string;
+    }>;
     follow_up?: string[];
     context_slots?: Record<string, any>;
   };
+  laboratories?: Record<
+    string,
+    {
+      en?: string[];
+      ceb?: string[];
+      image?: string;
+      images?: string[];
+      coordinates?: [number, number] | number[];
+      map_id?: string;
+      mapId?: string;
+    }
+  >;
   metadata: {
     source: string;
     author?: string;

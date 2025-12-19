@@ -212,8 +212,8 @@ export default function AdminDashboard() {
                         <TableCell className="font-medium">{response.intent}</TableCell>
                         <TableCell>{response.category}</TableCell>
                         <TableCell>
-                          <span className={response.responses.mapData ? "text-blue-600 font-medium" : "text-gray-500"}>
-                            {response.responses.mapData ? "YES" : "NO"}
+                          <span className={response.responses?.mapData ? "text-blue-600 font-medium" : "text-gray-500"}>
+                            {response.responses?.mapData ? "YES" : "NO"}
                           </span>
                         </TableCell>
                         <TableCell>
@@ -316,27 +316,36 @@ function ResponseDialog({ response, onSave, trigger }: {
       source: "admin"
     }
   });
-  const [hasMapData, setHasMapData] = useState(!!response?.responses.mapData);
-  const [mapCoordinates, setMapCoordinates] = useState<[number, number]>(
-    response?.responses.mapData?.coordinates || [500, 500]
-  );
+  const initialMapCoordinates: [number, number] = (() => {
+    const md = response?.responses.mapData;
+    if (Array.isArray(md)) {
+      return (md[0]?.coordinates as [number, number]) || [500, 500];
+    }
+    return ((md as any)?.coordinates as [number, number]) || [500, 500];
+  })();
+
+  const [hasMapData, setHasMapData] = useState(() => {
+    const md = response?.responses.mapData;
+    return Array.isArray(md) ? md.length > 0 : !!md;
+  });
+  const [mapCoordinates, setMapCoordinates] = useState<[number, number]>(initialMapCoordinates);
 
   const handleSubmit = () => {
     const finalResponse: ResponseData = {
       ...formData,
       responses: {
         ...formData.responses!,
-        ...(hasMapData && {
-          mapData: {
-            locationName: Array.isArray(formData.responses!.answer) 
-              ? formData.responses!.answer[0] 
-              : typeof formData.responses!.answer === 'string'
-              ? formData.responses!.answer
-              : "Location",
-            coordinates: mapCoordinates,
-            mapId: "main_map"
-          }
-        })
+        mapData: hasMapData
+          ? {
+              locationName: Array.isArray(formData.responses!.answer) 
+                ? formData.responses!.answer[0] 
+                : typeof formData.responses!.answer === 'string'
+                ? formData.responses!.answer
+                : "Location",
+              coordinates: mapCoordinates,
+              mapId: "main_map"
+            }
+          : undefined
       }
     } as ResponseData;
     

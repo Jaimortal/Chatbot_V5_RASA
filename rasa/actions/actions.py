@@ -1,6 +1,7 @@
 import json
 import os
 import random
+import re
 from typing import Any, Text, Dict, List, Optional
 
 from rasa_sdk import Action, Tracker
@@ -106,6 +107,7 @@ class ActionReplyFromJsonHelper:
         
         # Check for image or map data (Enhanced for Map Support)
         image_data = responses_data.get("image", None) or responses_data.get("imageUrl", None)
+        image_list = responses_data.get("images", None) or responses_data.get("imageUrls", None)
         map_data = responses_data.get("mapData", None)
         
         # Prepare result payload
@@ -121,11 +123,22 @@ class ActionReplyFromJsonHelper:
                 "mga", "ug", "uy", "ba", "man", "gani", "diay", "sige"
             ]):
                 preferred_lang = "ceb"
+
             selected = answer.get(preferred_lang)
-            if selected is None:
+
+            is_blank_selected = (
+                selected is None or
+                (isinstance(selected, str) and not selected.strip()) or
+                (isinstance(selected, list) and not any(str(x).strip() for x in selected))
+            )
+
+            if is_blank_selected:
                 # Fallback to English or first available language
                 selected = answer.get("en")
-                if selected is None:
+                if selected is None or (
+                    (isinstance(selected, str) and not selected.strip()) or
+                    (isinstance(selected, list) and not any(str(x).strip() for x in selected))
+                ):
                     first_key = next(iter(answer), None)
                     selected = answer.get(first_key) if first_key else None
             if isinstance(selected, list):
@@ -143,12 +156,17 @@ class ActionReplyFromJsonHelper:
             
         if image_data:
              result["image"] = image_data
+
+        if isinstance(image_list, list):
+             cleaned = [str(x) for x in image_list if x]
+             if cleaned:
+                  result["images"] = cleaned
              
         if map_data:
              result["custom"] = {"mapData": map_data}
 
         # Return dict if we have rich content, otherwise just text
-        if "image" in result or "custom" in result:
+        if "image" in result or "images" in result or "custom" in result:
              return result
              
         return result["text"]
@@ -211,6 +229,102 @@ class ActionReplyFromJsonHelper:
     def reset_context(self) -> None:
         self.context.reset()
 
+    # -------------------------
+    # Lab Location Entity Handler
+    # -------------------------
+    def _normalize_lab_number(self, raw_value: Any) -> Optional[str]:
+        if raw_value is None:
+            return None
+
+        value = str(raw_value).strip().lower()
+
+        # Common cases: "3", "comlab 3", "computer laboratory 3"
+        match = re.search(r"\b(\d{1,2})\b", value)
+        if match:
+            return match.group(1)
+
+        # Word numbers (limited support)
+        word_to_num = {
+            "one": "1",
+            "two": "2",
+            "three": "3",
+            "four": "4",
+            "five": "5",
+            "six": "6",
+            "seven": "7",
+            "eight": "8",
+            "nine": "9",
+            "ten": "10",
+            "eleven": "11",
+            "twelve": "12",
+        }
+        for word, num in word_to_num.items():
+            if re.search(rf"\b{re.escape(word)}\b", value):
+                return num
+
+        return None
+
+    def _get_lab_location_response(self, lab_number: str, user_message: str) -> dict:
+        """Get location response for specific ComLab from the new JSON structure"""
+
+        entry = next((e for e in self.responses if e.get("intent") == "locate_comlab"), None)
+        laboratories = (entry or {}).get("laboratories", {})
+        lab_info = laboratories.get(str(lab_number))
+        
+        if not lab_info:
+            return {"text": f"Sorry, I don't have information about ComLab {lab_number}."}
+        
+        # Detect language for bilingual support
+        is_bisaya = any(word in user_message.lower() for word in [
+            "asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay", 
+            "dako", "mao", "ni", "na", "sa", "ang", "mga", "ug", "uy", "ba", 
+            "man", "gani", "diay", "sige"
+        ])
+        
+        # Get the appropriate language responses
+        lang_key = "ceb" if is_bisaya else "en"
+        responses = lab_info.get(lang_key)
+        if not responses:
+            responses = lab_info.get("en", [])
+
+        # Combine all response lines
+        if isinstance(responses, list):
+            response_text = "\n".join(responses)
+        else:
+            response_text = str(responses)
+
+        result = {"text": response_text}
+        
+        # Add images if available
+        images = None
+        if isinstance(lab_info.get("images"), list):
+            images = [str(x) for x in lab_info.get("images") if x]
+        elif isinstance(lab_info.get("imageUrls"), list):
+            images = [str(x) for x in lab_info.get("imageUrls") if x]
+        elif lab_info.get("image"):
+            images = [str(lab_info.get("image"))]
+        elif lab_info.get("imageUrl"):
+            images = [str(lab_info.get("imageUrl"))]
+
+        if images:
+            result["images"] = images
+            # keep backward compatibility for clients that only read `image`
+            result["image"] = images[0]
+        
+        # Add map data if available
+        map_id = lab_info.get("map_id") or lab_info.get("mapId")
+        if lab_info.get("coordinates") and map_id:
+            location_name = lab_info.get("locationName") or f"ComLab {lab_number}"
+            result["custom"] = {
+                "mapData": {
+                    "locationName": location_name,
+                    "coordinates": lab_info["coordinates"],
+                    "mapId": map_id
+                }
+            }
+        
+        return result
+
 
 # -------------------------
 # Rasa Actions
@@ -228,6 +342,60 @@ class ActionReplyFromJson(Action):
         user_msg = tracker.latest_message.get("text", "")
         category = tracker.get_slot("category")
         sub_category = tracker.get_slot("sub_category")
+
+        # Entity-based ComLab lookup
+        if intent == "locate_comlab":
+            raw_lab = None
+            for entity in tracker.latest_message.get("entities", []):
+                if entity.get("entity") == "lab_number":
+                    raw_lab = entity.get("value")
+                    break
+
+            if raw_lab is None:
+                raw_lab = tracker.get_slot("lab_number")
+
+            lab_number = self.helper._normalize_lab_number(raw_lab)
+
+            # If lab number exists, respond with lab-specific info
+            if lab_number:
+                response = self.helper._get_lab_location_response(lab_number, user_msg)
+
+                if response.get("text"):
+                    dispatcher.utter_message(text=response["text"])
+                if isinstance(response.get("images"), list):
+                    for img in response.get("images"):
+                        if img:
+                            dispatcher.utter_message(image=img)
+                elif response.get("image"):
+                    dispatcher.utter_message(image=response["image"])
+                if response.get("custom"):
+                    dispatcher.utter_message(json_message=response["custom"])
+
+                return []
+
+            # If no lab number extracted, use the generic locate_comlab response
+            response = self.helper.get_response(
+                "locate_comlab",
+                category="comlab",
+                sub_category="computer_laboratories",
+                user_message=user_msg,
+            )
+
+            if isinstance(response, dict):
+                if response.get("text"):
+                    dispatcher.utter_message(text=response["text"])
+                if isinstance(response.get("images"), list):
+                    for img in response.get("images"):
+                        if img:
+                            dispatcher.utter_message(image=img)
+                elif response.get("image"):
+                    dispatcher.utter_message(image=response["image"])
+                if response.get("custom"):
+                    dispatcher.utter_message(json_message=response["custom"])
+            else:
+                dispatcher.utter_message(text=response)
+
+            return []
 
         # ✨ FIX: if intent == ask_more → DO NOT call main response
         if intent == "ask_more":
@@ -249,7 +417,11 @@ class ActionReplyFromJson(Action):
             if response.get("text"):
                 dispatcher.utter_message(text=response["text"])
 
-            if response.get("image"):
+            if isinstance(response.get("images"), list):
+                for img in response.get("images"):
+                    if img:
+                        dispatcher.utter_message(image=img)
+            elif response.get("image"):
                 dispatcher.utter_message(image=response["image"])
                 
             if response.get("custom"):

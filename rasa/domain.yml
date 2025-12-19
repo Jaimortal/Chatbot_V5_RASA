@@ -35,6 +35,9 @@ intents:
   - system_error
   - additional_slots
   - contact_scholarship_unit
+  - all_comlab_locations
+  - locate_comlab
+  - bot_challenge
 
 
 entities:
@@ -42,6 +45,7 @@ entities:
   - sub_category
   - slot_name
   - slot_value
+  - lab_number
 
 slots:
   category:
@@ -73,6 +77,13 @@ slots:
     influence_conversation: true
     mappings:
       - type: custom
+
+  lab_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: lab_number
 
 responses:
   utter_greet:

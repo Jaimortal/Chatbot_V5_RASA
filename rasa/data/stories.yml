@@ -161,4 +161,18 @@ stories:
   steps:
     - intent: contact_scholarship_unit
     - action: action_reply_from_json
+
+
+
+- story: ask about comlab locations
+  steps:
+    - intent: all_comlab_locations
+    - action: action_reply_from_json
+
+- story: ask about comlab location
+  steps:
+    - intent: locate_comlab
+      entities:
+        - lab_number
+    - action: action_reply_from_json
     

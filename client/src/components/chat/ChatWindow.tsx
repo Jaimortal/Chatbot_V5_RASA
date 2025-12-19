@@ -35,11 +35,14 @@ interface ChatWindowProps {
 function convertResponseToMessages(response: any): ChatMessage[] {
   const messages: ChatMessage[] = [];
 
-  // Normal text answer
-  if (response.answer) {
+  const hasText = typeof response.answer === "string" ? response.answer.length > 0 : Array.isArray(response.answer);
+  const hasImages = Boolean(response.imageUrl) || (Array.isArray(response.imageUrls) && response.imageUrls.length > 0);
+
+  // Text (and/or images) message
+  if (hasText || hasImages) {
     const answerText = Array.isArray(response.answer)
       ? response.answer.join("\n")
-      : response.answer;
+      : (typeof response.answer === "string" ? response.answer : "");
 
     messages.push({
       id: generateId(),
@@ -47,12 +50,37 @@ function convertResponseToMessages(response: any): ChatMessage[] {
       sender: "bot",
       type: "text",
       imageUrl: response.imageUrl,
+      imageUrls: response.imageUrls,
       timestamp: new Date(),
     });
   }
 
-  // Map message
-  if (response.mapData) {
+  // Map message(s)
+  if (Array.isArray(response.mapDataList) && response.mapDataList.length > 0) {
+    response.mapDataList.forEach((md: any) => {
+      if (!md) return;
+      messages.push({
+        id: generateId(),
+        text: "",
+        sender: "bot",
+        type: "map",
+        mapData: md,
+        timestamp: new Date(),
+      });
+    });
+  } else if (Array.isArray(response.mapData) && response.mapData.length > 0) {
+    response.mapData.forEach((md: any) => {
+      if (!md) return;
+      messages.push({
+        id: generateId(),
+        text: "",
+        sender: "bot",
+        type: "map",
+        mapData: md,
+        timestamp: new Date(),
+      });
+    });
+  } else if (response.mapData) {
     messages.push({
       id: generateId(),
       text: "",
@@ -303,7 +331,19 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
                       }}
                     />
 
-                    {msg.imageUrl ? (
+                    {msg.imageUrls && msg.imageUrls.length > 0 ? (
+                      <div className="mt-2 grid gap-2">
+                        {msg.imageUrls.map((url, idx) => (
+                          <img
+                            key={`${msg.id}-img-${idx}`}
+                            src={url}
+                            alt="Chatbot response"
+                            loading="lazy"
+                            className="w-full max-w-[320px] rounded-lg border border-border object-contain"
+                          />
+                        ))}
+                      </div>
+                    ) : msg.imageUrl ? (
                       <img
                         src={msg.imageUrl}
                         alt="Chatbot response"

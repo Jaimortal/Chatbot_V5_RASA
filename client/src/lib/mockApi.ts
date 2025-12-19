@@ -21,6 +21,7 @@ export interface ChatMessage {
   type: MessageType;
   timestamp: Date;
   imageUrl?: string;
+  imageUrls?: string[];
   mapData?: {
     locationName: string;
     coordinates: { lat: number; lng: number }; // Changed from [number, number]
@@ -31,10 +32,15 @@ export interface ChatMessage {
 interface BackendResponse {
   answer?: string | string[];
   imageUrl?: string;
+  imageUrls?: string[];
   mapData?: {
     locationName: string;
     coordinates: { lat: number; lng: number };
   };
+  mapDataList?: Array<{
+    locationName: string;
+    coordinates: { lat: number; lng: number };
+  }>;
 }
 
 // --- Backend Adapter for Rasa ---
@@ -50,18 +56,19 @@ class RasaBackend {
       
       // Combine all text responses
       let combinedText = "";
-      let imageUrl: string | null = null;
+      const imageUrls: string[] = [];
       let mapData: any = null;
+      const mapDataList: any[] = [];
 
       responses.forEach((r: any) => {
         // Extract text
-        if (r.text) {
-          combinedText += r.text + "\n";
+        if (typeof r.text === "string" && r.text.trim()) {
+          combinedText += r.text.trim() + "\n";
         }
 
         // Extract image (standard Rasa REST field)
-        if (!imageUrl && r.image) {
-          imageUrl = r.image;
+        if (typeof r.image === "string" && r.image.trim()) {
+          imageUrls.push(r.image.trim());
         }
 
         // Extract custom data (follow_up, map, etc.)
@@ -72,12 +79,28 @@ class RasaBackend {
           
           // Check for map data in custom response
           if (r.custom.mapData) {
-            mapData = {
-              locationName: r.custom.mapData.locationName || "Location",
-              coordinates: Array.isArray(r.custom.mapData.coordinates) 
-                ? { lat: r.custom.mapData.coordinates[0], lng: r.custom.mapData.coordinates[1] }
-                : r.custom.mapData.coordinates
-            };
+            if (Array.isArray(r.custom.mapData)) {
+              const extracted = r.custom.mapData
+                .map((item: any) => {
+                  const coords = item?.coordinates;
+                  return {
+                    locationName: item?.locationName || "Location",
+                    coordinates: Array.isArray(coords)
+                      ? { lat: coords[0], lng: coords[1] }
+                      : coords
+                  };
+                })
+                .filter((item: any) => item?.coordinates);
+
+              extracted.forEach((item: any) => mapDataList.push(item));
+            } else {
+              mapData = {
+                locationName: r.custom.mapData.locationName || "Location",
+                coordinates: Array.isArray(r.custom.mapData.coordinates) 
+                  ? { lat: r.custom.mapData.coordinates[0], lng: r.custom.mapData.coordinates[1] }
+                  : r.custom.mapData.coordinates
+              };
+            }
           }
           
           // Also check for direct map property
@@ -105,22 +128,32 @@ class RasaBackend {
       // Clean up text
       combinedText = combinedText.trim();
 
+      // Deduplicate images while preserving order
+      const uniqueImageUrls = Array.from(new Set(imageUrls));
+
       // Build response object
       const response: BackendResponse = {
-        answer: combinedText || "I received your message but got an empty response."
+        answer:
+          combinedText ||
+          (uniqueImageUrls.length > 0 || mapData || mapDataList.length > 0
+            ? ""
+            : "I received your message but got an empty response.")
       };
 
-      if (imageUrl) {
-        response.imageUrl = imageUrl;
+      if (uniqueImageUrls.length > 0) {
+        response.imageUrls = uniqueImageUrls;
+        response.imageUrl = uniqueImageUrls[0];
       }
 
       // Add map data if available
-      if (mapData) {
+      if (mapDataList.length > 0) {
+        response.mapDataList = mapDataList;
+      } else if (mapData) {
         response.mapData = mapData;
       }
 
       // If no map data from Rasa, check if the query implies a location
-      if (!mapData && this.isLocationQuery(text)) {
+      if (!mapData && mapDataList.length === 0 && this.isLocationQuery(text)) {
         // Add default map data for location queries
         response.mapData = {
           locationName: "General Location",

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { 
   fetchResponses, 
@@ -203,8 +203,8 @@ export default function AdminDashboard() {
                         <TableCell className="font-medium">{response.intent}</TableCell>
                         <TableCell>{response.category}</TableCell>
                         <TableCell>
-                          <span className={response.responses.mapData ? "text-blue-600 font-medium" : "text-gray-500"}>
-                            {response.responses.mapData ? "YES" : "NO"}
+                          <span className={response.responses?.mapData ? "text-blue-600 font-medium" : "text-gray-500"}>
+                            {response.responses?.mapData ? "YES" : "NO"}
                           </span>
                         </TableCell>
                         <TableCell>
@@ -292,6 +292,13 @@ function ResponseDialog({ response, onSave, trigger }: {
 }) {
   const isEdit = !!response;
   const [open, setOpen] = useState(false);
+  const uploadId = useId();
+
+  type LocationDraft = {
+    locationName: string;
+    coordinates: [number, number];
+  };
+
   const normalizeAnswer = (answer: ResponseData["responses"]["answer"] | undefined) => {
     if (!answer) return { en: [""], ceb: [""] };
     if (Array.isArray(answer)) return { en: answer, ceb: [""] };
@@ -302,8 +309,31 @@ function ResponseDialog({ response, onSave, trigger }: {
     };
   };
 
+  const normalizeMapData = (mapData: ResponseData["responses"]["mapData"] | undefined): LocationDraft[] => {
+    if (!mapData) return [];
+    if (Array.isArray(mapData)) {
+      return mapData
+        .map((md) => ({
+          locationName: md?.locationName || "Location",
+          coordinates: (md?.coordinates || [500, 500]) as [number, number],
+        }))
+        .filter((md) => Array.isArray(md.coordinates) && md.coordinates.length === 2);
+    }
+
+    return [
+      {
+        locationName: mapData.locationName || "Location",
+        coordinates: (mapData.coordinates || [500, 500]) as [number, number],
+      },
+    ];
+  };
+
   const getInitialFormData = (): Partial<ResponseData> => {
     if (response) {
+      const existingImages = Array.isArray(response.responses?.imageUrls)
+        ? response.responses.imageUrls
+        : (response.responses?.imageUrl ? [response.responses.imageUrl] : []);
+
       return {
         ...response,
         responses: {
@@ -311,7 +341,8 @@ function ResponseDialog({ response, onSave, trigger }: {
           answer: normalizeAnswer(response.responses?.answer),
           follow_up: Array.isArray(response.responses?.follow_up) ? response.responses.follow_up : [],
           context_slots: response.responses?.context_slots || {},
-          imageUrl: response.responses?.imageUrl || ""
+          imageUrl: response.responses?.imageUrl || "",
+          imageUrls: existingImages
         }
       };
     }
@@ -324,7 +355,8 @@ function ResponseDialog({ response, onSave, trigger }: {
         answer: { en: [""], ceb: [""] },
         follow_up: [],
         context_slots: {},
-        imageUrl: ""
+        imageUrl: "",
+        imageUrls: []
       },
       metadata: {
         source: "admin"
@@ -333,38 +365,60 @@ function ResponseDialog({ response, onSave, trigger }: {
   };
 
   const [formData, setFormData] = useState<Partial<ResponseData>>(getInitialFormData());
-  const [hasMapData, setHasMapData] = useState(!!response?.responses.mapData);
-  const [mapCoordinates, setMapCoordinates] = useState<[number, number]>(response?.responses.mapData?.coordinates || [500, 500]);
+  const [selectedLab, setSelectedLab] = useState<string>("1");
+  const [hasMapData, setHasMapData] = useState(normalizeMapData(response?.responses?.mapData).length > 0);
+  const [locations, setLocations] = useState<LocationDraft[]>(normalizeMapData(response?.responses?.mapData));
 
   useEffect(() => {
     if (open) {
       const initial = getInitialFormData();
       setFormData(initial);
-      setHasMapData(!!response?.responses.mapData);
-      setMapCoordinates(response?.responses.mapData?.coordinates || [500, 500]);
+      const initialLocations = normalizeMapData(response?.responses?.mapData);
+      setHasMapData(initialLocations.length > 0);
+      setLocations(initialLocations);
+
+      if ((initial as any)?.laboratories) {
+        const keys = Object.keys((initial as any).laboratories || {});
+        if (keys.length > 0) {
+          setSelectedLab(keys.sort()[0]);
+        }
+      }
     }
   }, [open, response]);
 
   const handleSubmit = () => {
     const normalizedAnswer = normalizeAnswer(formData.responses?.answer);
 
-    const mapLocationName =
-      normalizedAnswer.en.find((s) => !!s?.trim()) ||
-      normalizedAnswer.ceb.find((s) => !!s?.trim()) ||
-      "Location";
+    const normalizedImages = Array.isArray(formData.responses?.imageUrls)
+      ? formData.responses!.imageUrls!.map((s) => (typeof s === "string" ? s.trim() : "")).filter(Boolean)
+      : [];
+
+    const normalizedLocations = locations
+      .map((l) => ({
+        locationName: (l.locationName || "Location").trim() || "Location",
+        coordinates: l.coordinates,
+        mapId: "main_map",
+      }))
+      .filter((l) => Array.isArray(l.coordinates) && l.coordinates.length === 2);
 
     const finalResponse: ResponseData = {
       ...formData,
       responses: {
         ...formData.responses!,
         answer: normalizedAnswer,
-        ...(hasMapData && {
-          mapData: {
-            locationName: mapLocationName,
-            coordinates: mapCoordinates,
-            mapId: "main_map"
-          }
-        })
+        imageUrls: normalizedImages,
+        imageUrl: normalizedImages[0] || formData.responses?.imageUrl || "",
+        mapData: hasMapData
+          ? (
+              normalizedLocations.length > 1
+                ? normalizedLocations
+                : normalizedLocations[0] || {
+                    locationName: "Location",
+                    coordinates: [500, 500],
+                    mapId: "main_map",
+                  }
+            )
+          : undefined,
       }
     } as ResponseData;
     
@@ -377,7 +431,7 @@ function ResponseDialog({ response, onSave, trigger }: {
       <DialogTrigger asChild>
         {trigger || <Button><Plus className="mr-2 h-4 w-4"/> Add Response</Button>}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[730px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] sm:max-w-[1050px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>{response ? "Edit Response" : "New Response"}</DialogTitle>
         </DialogHeader>
@@ -475,58 +529,116 @@ function ResponseDialog({ response, onSave, trigger }: {
             />
           </div>
           <div className="grid gap-2">
-            <Label>Response Image (optional)</Label>
+            <Label>Images (optional)</Label>
             <div className="grid gap-2">
-              <Input
-                value={formData.responses?.imageUrl || ""}
-                onChange={(e) => setFormData({
-                  ...formData,
-                  responses: {
-                    ...formData.responses!,
-                    imageUrl: e.target.value
-                  }
-                })}
-                placeholder="Paste an image URL or use Upload below"
-              />
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => {
-                  const file = e.target.files?.[0];
-                  if (!file) return;
-                  const reader = new FileReader();
-                  reader.onload = () => {
-                    const result = typeof reader.result === "string" ? reader.result : "";
-                    setFormData((prev) => ({
-                      ...prev,
-                      responses: {
-                        ...prev.responses!,
-                        imageUrl: result
-                      }
-                    }));
-                  };
-                  reader.readAsDataURL(file);
-                }}
-              />
-              {formData.responses?.imageUrl ? (
-                <div className="grid gap-2">
-                  <img
-                    src={formData.responses.imageUrl}
-                    alt="Response image"
-                    className="max-h-48 rounded border object-contain"
+              {(formData.responses?.imageUrls || []).map((url, idx) => (
+                <div key={`img-${idx}`} className="flex gap-2">
+                  <Input
+                    value={url}
+                    onChange={(e) => {
+                      const next = [...(formData.responses?.imageUrls || [])];
+                      next[idx] = e.target.value;
+                      setFormData({
+                        ...formData,
+                        responses: {
+                          ...formData.responses!,
+                          imageUrls: next,
+                          imageUrl: next[0] || "",
+                        },
+                      });
+                    }}
+                    placeholder="Paste an image URL or base64 data URL"
                   />
                   <Button
                     variant="outline"
-                    onClick={() => setFormData({
+                    onClick={() => {
+                      const next = (formData.responses?.imageUrls || []).filter((_, i) => i !== idx);
+                      setFormData({
+                        ...formData,
+                        responses: {
+                          ...formData.responses!,
+                          imageUrls: next,
+                          imageUrl: next[0] || "",
+                        },
+                      });
+                    }}
+                  >
+                    Remove
+                  </Button>
+                </div>
+              ))}
+
+              <div className="flex gap-2 items-center">
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => {
+                    const next = [...(formData.responses?.imageUrls || []), ""];
+                    setFormData({
                       ...formData,
                       responses: {
                         ...formData.responses!,
-                        imageUrl: ""
-                      }
-                    })}
-                  >
-                    Remove Image
-                  </Button>
+                        imageUrls: next,
+                        imageUrl: next[0] || "",
+                      },
+                    });
+                  }}
+                >
+                  Add Image URL
+                </Button>
+
+                <input
+                  id={`upload-${uploadId}`}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  className="hidden"
+                  onChange={(e) => {
+                    const files = Array.from(e.target.files || []);
+                    if (files.length === 0) return;
+
+                    files.forEach((file) => {
+                      const reader = new FileReader();
+                      reader.onload = () => {
+                        const result = typeof reader.result === "string" ? reader.result : "";
+                        if (!result) return;
+                        setFormData((prev) => {
+                          const existing = prev.responses?.imageUrls || [];
+                          const next = [...existing, result];
+                          return {
+                            ...prev,
+                            responses: {
+                              ...prev.responses!,
+                              imageUrls: next,
+                              imageUrl: next[0] || "",
+                            },
+                          };
+                        });
+                      };
+                      reader.readAsDataURL(file);
+                    });
+                  }}
+                />
+                <Label
+                  htmlFor={`upload-${uploadId}`}
+                  className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-semibold shadow-sm hover:bg-accent cursor-pointer"
+                >
+                  Choose Images
+                </Label>
+              </div>
+
+              {(formData.responses?.imageUrls || []).filter(Boolean).length > 0 ? (
+                <div className="grid gap-2">
+                  <div className="grid grid-cols-2 gap-2">
+                    {(formData.responses?.imageUrls || []).filter(Boolean).slice(0, 4).map((src, idx) => (
+                      <img
+                        key={`preview-${idx}`}
+                        src={src}
+                        alt="Preview"
+                        className="max-h-40 rounded border object-contain"
+                      />
+                    ))}
+                  </div>
                 </div>
               ) : null}
             </div>
@@ -542,13 +654,190 @@ function ResponseDialog({ response, onSave, trigger }: {
           </div>
           {hasMapData && (
             <div className="grid gap-2">
-              <Label>Location on Map</Label>
-              <InteractiveMap
-                initialCoordinates={mapCoordinates}
-                onCoordinatesChange={setMapCoordinates}
-                width={600}
-                height={600}
-              />
+              <Label>Locations on Map</Label>
+              <div className="grid gap-4">
+                {locations.map((loc, idx) => (
+                  <div key={`loc-${idx}`} className="rounded-md border p-3 grid gap-3">
+                    <div className="flex gap-2 items-center">
+                      <Input
+                        value={loc.locationName}
+                        onChange={(e) => {
+                          const next = [...locations];
+                          next[idx] = { ...next[idx], locationName: e.target.value };
+                          setLocations(next);
+                        }}
+                        placeholder="Location name"
+                      />
+                      <Button
+                        variant="outline"
+                        onClick={() => setLocations((prev) => prev.filter((_, i) => i !== idx))}
+                      >
+                        Remove
+                      </Button>
+                    </div>
+
+                    <InteractiveMap
+                      initialCoordinates={loc.coordinates}
+                      onCoordinatesChange={(coords) => {
+                        const next = [...locations];
+                        next[idx] = { ...next[idx], coordinates: coords };
+                        setLocations(next);
+                      }}
+                      width={550}
+                      height={450}
+                    />
+                  </div>
+                ))}
+
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => setLocations((prev) => ([...prev, { locationName: "Location", coordinates: [500, 500] }]))}
+                >
+                  Add Location
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* ComLab laboratory editor (for locate_comlab) */}
+          {(formData.intent === "locate_comlab" || response?.intent === "locate_comlab") && (
+            <div className="grid gap-3 rounded-md border p-4">
+              <Label className="font-semibold">ComLab Laboratories (1-12)</Label>
+
+              <div className="grid gap-2">
+                <Label>Choose ComLab</Label>
+                <Select value={selectedLab} onValueChange={setSelectedLab}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select ComLab" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Array.from({ length: 12 }, (_, i) => String(i + 1)).map((n) => (
+                      <SelectItem key={n} value={n}>
+                        {`ComLab ${n}`}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {(() => {
+                const labs = ((formData as any).laboratories || {}) as any;
+                const lab = (labs[selectedLab] || {}) as any;
+                const labImages: string[] = Array.isArray(lab.images)
+                  ? lab.images
+                  : (lab.image ? [lab.image] : []);
+                const labCoords: [number, number] = Array.isArray(lab.coordinates) && lab.coordinates.length === 2
+                  ? lab.coordinates
+                  : [500, 500];
+                const labMapId = lab.map_id || lab.mapId || "main_map";
+                const labLocationName = lab.locationName || `ComLab ${selectedLab}`;
+
+                return (
+                  <div className="grid gap-4">
+                    <div className="grid gap-2">
+                      <Label>Location Name</Label>
+                      <Input
+                        value={labLocationName}
+                        onChange={(e) => {
+                          const nextLabs = { ...labs, [selectedLab]: { ...lab, locationName: e.target.value } };
+                          setFormData({ ...formData, laboratories: nextLabs } as any);
+                        }}
+                      />
+                    </div>
+
+                    <div className="grid gap-2">
+                      <Label>ComLab Answer (English) - one per line</Label>
+                      <Textarea
+                        value={Array.isArray(lab.en) ? lab.en.join("\n") : ""}
+                        onChange={(e) => {
+                          const nextLabs = { ...labs, [selectedLab]: { ...lab, en: e.target.value.split("\n") } };
+                          setFormData({ ...formData, laboratories: nextLabs } as any);
+                        }}
+                        rows={3}
+                      />
+                    </div>
+
+                    <div className="grid gap-2">
+                      <Label>ComLab Answer (Bisaya) - one per line</Label>
+                      <Textarea
+                        value={Array.isArray(lab.ceb) ? lab.ceb.join("\n") : ""}
+                        onChange={(e) => {
+                          const nextLabs = { ...labs, [selectedLab]: { ...lab, ceb: e.target.value.split("\n") } };
+                          setFormData({ ...formData, laboratories: nextLabs } as any);
+                        }}
+                        rows={3}
+                      />
+                    </div>
+
+                    <div className="grid gap-2">
+                      <Label>Images for this ComLab</Label>
+                      <div className="grid gap-2">
+                        {labImages.map((url, idx) => (
+                          <div key={`lab-img-${idx}`} className="flex gap-2">
+                            <Input
+                              value={url}
+                              onChange={(e) => {
+                                const next = [...labImages];
+                                next[idx] = e.target.value;
+                                const nextLabs = { ...labs, [selectedLab]: { ...lab, images: next, image: next[0] || "" } };
+                                setFormData({ ...formData, laboratories: nextLabs } as any);
+                              }}
+                              placeholder="Paste image URL/base64"
+                            />
+                            <Button
+                              variant="outline"
+                              onClick={() => {
+                                const next = labImages.filter((_, i) => i !== idx);
+                                const nextLabs = { ...labs, [selectedLab]: { ...lab, images: next, image: next[0] || "" } };
+                                setFormData({ ...formData, laboratories: nextLabs } as any);
+                              }}
+                            >
+                              Remove
+                            </Button>
+                          </div>
+                        ))}
+
+                        <Button
+                          type="button"
+                          variant="secondary"
+                          onClick={() => {
+                            const next = [...labImages, ""];
+                            const nextLabs = { ...labs, [selectedLab]: { ...lab, images: next, image: next[0] || "" } };
+                            setFormData({ ...formData, laboratories: nextLabs } as any);
+                          }}
+                        >
+                          Add Image URL
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-2">
+                      <Label>Map ID</Label>
+                      <Input
+                        value={labMapId}
+                        onChange={(e) => {
+                          const nextLabs = { ...labs, [selectedLab]: { ...lab, map_id: e.target.value } };
+                          setFormData({ ...formData, laboratories: nextLabs } as any);
+                        }}
+                      />
+                    </div>
+
+                    <div className="grid gap-2">
+                      <Label>Pin on Map</Label>
+                      <InteractiveMap
+                        initialCoordinates={labCoords}
+                        onCoordinatesChange={(coords) => {
+                          const nextLabs = { ...labs, [selectedLab]: { ...lab, coordinates: coords } };
+                          setFormData({ ...formData, laboratories: nextLabs } as any);
+                        }}
+                        width={550}
+                        height={450}
+                      />
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           )}
         </div>

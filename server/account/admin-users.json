@@ -21,6 +21,13 @@
         "role": "admin",
         "googleId": null,
         "enabled": true
+      },
+      {
+        "email": "2301106910@student.buksu.edu.ph",
+        "name": "Jaime Perez",
+        "role": "admin",
+        "googleId": null,
+        "enabled": true
       }
     ],
     "settings": {

@@ -645,3 +645,83 @@ nlu:
     - How do I contact SFGU through Facebook
     - Can you give me all the contact options for BukSU SFGU
     - I want to connect with the SFGU office for scholarship inquiries
+
+- intent: all_comlab_locations
+  examples: |
+    - Where are the computer laboratories located in Bukidnon State University
+    - Can you tell me the locations of the computer labs in BukSU
+    - I want to know where the computer laboratories are in BukSU
+    - What buildings contain the computer laboratories in Bukidnon State University
+    - Can you explain where each computer laboratory is located on campus
+    - Where can I find the different computer laboratories in BukSU
+    - Please tell me the locations of all computer labs in the university
+    - In which buildings are the computer laboratories found at BukSU
+    - How many locations do the computer laboratories have in Bukidnon State University
+    - I am looking for the locations of the computer laboratories on campus
+    - Where are ComLab buildings situated in BukSU
+    - Can you guide me to where the computer laboratories are located
+    - What are the main locations of computer laboratories at BukSU
+    - Where do students usually find the computer laboratories
+    - I need information about the locations of BukSU computer labs
+    - Asa dapit makita ang mga computer laboratory sa BukSU
+    - Pwede nimo isulti asa nahimutang ang mga computer lab sa Bukidnon State University
+    - Gusto ko mahibal an asa ang mga computer laboratory sa campus
+    - Asa nga mga building makita ang computer laboratories sa BukSU
+    - Unsa nga lugar nahimutang ang mga computer lab sa unibersidad
+    - Asa ko pwede makakita sa mga computer laboratory sa BukSU
+    - Tabangi ko pag locate asa ang mga computer lab sa campus
+    - Asa dapit ginahimutang ang ComLab sa Bukidnon State University
+    - Unsay mga lokasyon sa computer laboratories sa BukSU
+    - Asa ginabutang ang mga computer laboratory sa eskwelahan
+    - Asa dapit ang mga computer lab nga ginagamit sa mga estudyante
+    - Pwede ba nimo ipakita asa ang mga computer laboratory sa BukSU
+    - Asa makita ang tanang computer laboratory sa unibersidad
+    - Unsa nga mga lugar adunay computer lab sa BukSU
+    - Asa ko moadto kung mangita ko ug computer laboratory sa campus
+
+- intent: locate_comlab
+  examples: |
+    - Where is [ComLab 1](lab_number) located in Bukidnon State University
+    - Can you tell me the location of [ComLab 2](lab_number) in BukSU
+    - I am trying to find where [ComLab 3](lab_number) is located
+    - Which building and floor is [ComLab 4](lab_number) located in
+    - How can I get to [ComLab 5](lab_number) in the campus
+    - Where can I find [Computer Laboratory 6](lab_number) in BukSU
+    - Please guide me to the location of [ComLab 7](lab_number)
+    - I need directions going to [ComLab 1](lab_number)
+    - What floor is [ComLab 2](lab_number) located in the Finance Building
+    - Can you help me locate [ComLab 3](lab_number) inside the university
+    - Where exactly is [Computer Laboratory 4](lab_number) situated
+    - I am looking for [ComLab 5](lab_number) for my class
+    - How do I reach [ComLab 6](lab_number) from the entrance
+    - Is [ComLab 7](lab_number) located in the Finance Building
+    - Where is the first computer laboratory in BukSU
+    - Where is the second computer laboratory in BukSU
+    - Where is the third computer laboratory in BukSU
+    - Where is the fourth computer laboratory in BukSU
+    - Where is the fifth computer laboratory in BukSU
+    - Where is the sixth computer laboratory in BukSU
+    - Where is the seventh computer laboratory in BukSU
+    - Asa dapit ang [ComLab 1](lab_number) sa BukSU
+    - Pwede nimo isulti asa nahimutang ang [ComLab 2](lab_number)
+    - Gusto ko mahibal an asa ang [Computer Laboratory 3](lab_number)
+    - Asa nga building ug floor makita ang [ComLab 4](lab_number)
+    - Unsaon pag adto sa [ComLab 5](lab_number) sa campus
+    - Asa ko pwede makakita sa [ComLab 6](lab_number)
+    - Tabangi ko pag locate sa [ComLab 7](lab_number) sa BukSU
+    - Asa dapit ginahimutang ang [Computer Laboratory 1](lab_number)
+    - Unsay sakto nga lokasyon sa [ComLab 2](lab_number)
+    - Asa ko moadto kung mangita ko ug [ComLab 3](lab_number)
+    - Asa makita ang unang computer laboratory sa BukSU
+    - Pwede ba nimo itudlo asa ang [ComLab 4](lab_number)
+    - Asa dapit ang [ComLab 5](lab_number) sa Finance Building
+    - Giunsa pag adto sa [ComLab 6](lab_number) kung naa ko sa campus
+    - Asa makita ang [ComLab 7](lab_number) para sa among klase
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
