@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { spawn } from "child_process";
 import path from "path";
 import { fileURLToPath } from "url";
+import PhraseTranslator from "../../rulebaseTranslation/phraseTranslator";
 import {
   getResponses,
   upsertResponse,
@@ -15,6 +16,9 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Initialize phrase-based translator
+const phraseTranslator = new PhraseTranslator();
 
 type AutoTranslateJob = {
   jobId: string;
@@ -231,9 +235,8 @@ export class AdminController {
         if (!job || job.jobId !== jobId) return;
 
         try {
-          const translated = await translateToCebuanoViaPython(englishText);
-          const filtered = applyCebuanoPostFilters(String(translated));
-          const translatedLines = filtered.split(/\r?\n/);
+          const translated = await phraseTranslator.translateToCebuano(englishText);
+          const translatedLines = translated.split(/\r?\n/);
 
           const responses = await getResponses();
           const idx = responses.findIndex((r: any) => r?.intent === intent);
@@ -334,21 +337,23 @@ export class AdminController {
     }
   }
 
-  // Private translation endpoint (dictionary-based)
+  // Phrase-based translation endpoint
   static async translateToCebuano(req: Request, res: Response) {
     try {
       const { text } = req.body;
-      console.log("[AdminController] /translate request received:", text);
+      console.log("[AdminController] /translate request received (phrase-based):", text);
+      
       if (!text || typeof text !== "string") {
         return res.status(400).json({ success: false, message: "Text is required" });
       }
 
-      const translated = await translateToCebuanoViaPython(text);
-      const filtered = applyCebuanoPostFilters(String(translated));
-      console.log("[AdminController] Translation result:", filtered);
-      res.json({ success: true, translatedText: filtered });
+      // Use phrase-based translator
+      const translated = await phraseTranslator.translateToCebuano(text);
+      console.log("[AdminController] Phrase-based translation result:", translated);
+      
+      res.json({ success: true, translatedText: translated });
     } catch (error) {
-      console.error("[AdminController] Translation error:", error);
+      console.error("[AdminController] Phrase-based translation error:", error);
       res.status(500).json({ success: false, message: "Translation failed" });
     }
   }
