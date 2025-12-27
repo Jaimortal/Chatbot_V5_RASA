@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { findIntent } from "../rasa";
+import { callRasaAPI } from "../rasa";
 import { storage } from "../storage";
 import type { InsertConversationLog } from "@shared/schema";
 
@@ -67,14 +67,24 @@ export class ChatController {
       const { intent, language, lang, sessionId = "default" } = req.body;
       const preferredLanguage: string | undefined = language || lang;
 
-      const result = findIntent(intent);
+      const result = await callRasaAPI(intent, preferredLanguage, sessionId);
 
       let answerText = "I cannot understand your question.";
       let detectedIntent = null;
+      let mapDataFromRasa = null;
       
-      if (result) {
-        answerText = selectAnswerText(result.responses.answer, preferredLanguage);
-        detectedIntent = result.intent;
+      // Extract text from first response
+      if (result && result.length > 0 && result[0].text) {
+        answerText = result[0].text;
+        detectedIntent = intent;
+      }
+      
+      // Extract mapData from any response (could be in second item)
+      for (const response of result) {
+        if (response.custom?.mapData) {
+          mapDataFromRasa = response.custom.mapData;
+          break;
+        }
       }
 
       const botResponseTimestamp = new Date();
@@ -97,10 +107,22 @@ export class ChatController {
         console.error("Failed to log conversation:", error);
       });
 
+      // Format mapData coordinates properly
+      let formattedMapData = null;
+      if (mapDataFromRasa) {
+        // Keep coordinates as array [y, x] format for MapMessage component
+        formattedMapData = {
+          locationName: mapDataFromRasa.locationName || "Location",
+          coordinates: Array.isArray(mapDataFromRasa.coordinates) 
+            ? mapDataFromRasa.coordinates // Keep as [y, x] array
+            : mapDataFromRasa.coordinates // Keep as-is if already object
+        };
+      }
+
       return res.json({
         answer: answerText,
-        follow_up: result?.responses.follow_up ?? [],
-        mapData: result?.responses.mapData ?? null
+        follow_up: result?.[0]?.custom?.follow_up ?? [],
+        mapData: formattedMapData
       });
     } catch (error) {
       console.error("Chat controller error:", error);

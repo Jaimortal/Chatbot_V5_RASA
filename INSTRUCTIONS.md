@@ -83,6 +83,14 @@ If you are using the Python Rasa backend:
     rasa run --enable-api --cors "*"
     (sample: rasa run --enable-api --cors "http://127.0.0.1:5000") for spacific domain only
     ```
+6.  Important Note!
+    ```bash
+    you can view the index.ts the server side, to see what port needed to access during testing
+
+    win + R -> CMD -> ipconfig -> copy the ipv4 address
+    go to browser run the http://<ipv4 address>:5005
+    "http://10.0.x.x:5000" <- Sample
+    ```
 
 
 

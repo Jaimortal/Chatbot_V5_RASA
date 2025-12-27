@@ -31,7 +31,6 @@ interface ChatWindowProps {
    return { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true, autoTranslateEnabled: true };
  }
 
-// Convert backend responses → ChatMessage[]
 function convertResponseToMessages(response: any): ChatMessage[] {
   const messages: ChatMessage[] = [];
 

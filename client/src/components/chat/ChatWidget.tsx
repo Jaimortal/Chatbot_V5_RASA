@@ -16,7 +16,7 @@ export default function ChatWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="mb-4 w-[350px] sm:w-[380px] h-[600px] max-h-[80vh] bg-background rounded-2xl shadow-2xl overflow-hidden border border-border/50 pointer-events-auto origin-bottom-right"
+            className="mb-4 w-[90vw] sm:w-[380px] h-[600px] max-h-[80vh] bg-background rounded-2xl shadow-2xl overflow-hidden border border-border/50 pointer-events-auto origin-bottom-center sm:origin-bottom-right sm:mr-0 mr-auto"
           >
             <ChatWindow onClose={() => setIsOpen(false)} isOpen={isOpen} />
           </motion.div>

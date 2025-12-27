@@ -51,6 +51,7 @@ npx cross-env NODE_ENV=development npx tsx server/index.ts
 
 *   The app will start at `http://localhost:5000`.
 *   The admin dashboard is at `http://localhost:5000/admin`.
+*   Sample URL `http://10.0.x.x:5000`
 
 ---
 
@@ -67,7 +68,6 @@ set PORT=3000 && npx cross-env NODE_ENV=development npx tsx server/index.ts
 ```powershell
 $env:PORT=3000; npx cross-env NODE_ENV=development npx tsx server/index.ts
 ```
-
 **Git Bash / Mac / Linux:**
 ```bash
 PORT=3000 npm run dev

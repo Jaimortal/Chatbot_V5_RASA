@@ -165,14 +165,16 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-muted/30 p-8">
       <div className="max-w-6xl mx-auto space-y-8">
         
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" style={{backgroundColor: '#001C38', borderRadius: '10px', padding: '1rem'}}>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
-            <p className="text-muted-foreground mt-1">Manage chatbot responses and map locations</p>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">Admin Dashboard</h1>
+            <p className="text-muted-foreground text-sm sm:text-base mt-1">Manage chatbot responses and map locations</p>
           </div>
-          <div className="flex gap-2">
-             <Button variant="outline" onClick={() => window.open('/', '_blank')}>Open Chat Demo</Button>
-             <Button variant="destructive" onClick={logout} className="flex items-center gap-2">
+          <div className="flex gap-2 w-full sm:w-auto">
+             <Button variant="outline" onClick={() => window.open('/', '_blank')} style={{display:"none"}} className="flex-1 sm:flex-none">
+              Open Chat Demo
+             </Button>
+             <Button variant="destructive" onClick={logout} className="flex items-center gap-2 flex-1 sm:flex-none">
                <LogOut className="h-4 w-4" />
                Logout
              </Button>
@@ -187,17 +189,17 @@ export default function AdminDashboard() {
             </TabsTrigger>
             <TabsTrigger value="privileges" className="flex items-center gap-2">
               <Shield className="w-4 h-4" />
-              User Privileges
+              User Settings
             </TabsTrigger>
           </TabsList>
           
           <TabsContent value="responses" className="mt-6">
             <Card>
               <CardHeader className="flex flex-col items-start space-y-4">
-                <div className="flex flex-row items-center justify-between w-full">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4">
                   <div>
-                    <CardTitle>Chatbot Responses</CardTitle>
-                    <CardDescription>Manage chatbot responses and their location data</CardDescription>
+                    <CardTitle className="text-lg sm:text-xl">Chatbot Responses</CardTitle>
+                    <CardDescription className="text-sm">Manage chatbot responses and their location data</CardDescription>
                   </div>
                   <ResponseDialog
                     onSave={saveResponseMutation.mutateAsync}
@@ -207,8 +209,8 @@ export default function AdminDashboard() {
                 </div>
                 
                 {/* Filters */}
-                <div className="flex flex-row gap-4 w-full">
-                  <div className="flex-1">
+                <div className="flex flex-col sm:flex-row gap-4 w-full">
+                  <div className="w-full sm:flex-1">
                     <Input
                       placeholder="Search by intent or category..."
                       value={searchTerm}
@@ -234,35 +236,36 @@ export default function AdminDashboard() {
                 </div>
               </CardHeader>
               <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Intent</TableHead>
-                      <TableHead>Category</TableHead>
-                      <TableHead>Has Map Data</TableHead>
-                      <TableHead className="w-[100px]">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredResponses.map((response) => (
-                      <TableRow key={response.intent}>
-                        <TableCell className="font-medium">{response.intent}</TableCell>
-                        <TableCell>{response.category}</TableCell>
-                        <TableCell>
-                          <span className={response.responses?.mapData ? "text-blue-600 font-medium" : "text-gray-500"}>
-                            {response.responses?.mapData ? "YES" : "NO"}
-                          </span>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex gap-2">
-                             <ResponseDialog 
-                                response={response} 
-                                onSave={saveResponseMutation.mutateAsync} 
-                                translationBusy={translationBusy}
-                                translationBusyIntent={translationBusyIntent}
-                                trigger={<Button variant="ghost" size="icon"><Edit2 className="h-4 w-4"/></Button>}
-                             />
-                          </div>
+                <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="min-w-[120px]">Intent</TableHead>
+                        <TableHead className="min-w-[100px] hidden sm:table-cell">Category</TableHead>
+                        <TableHead className="min-w-[120px] hidden sm:table-cell">Has Map Data</TableHead>
+                        <TableHead className="w-[80px] sm:w-[100px]">Actions</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredResponses.map((response) => (
+                        <TableRow key={response.intent}>
+                          <TableCell className="font-medium text-sm sm:text-base">{response.intent}</TableCell>
+                          <TableCell className="text-sm sm:text-base hidden sm:table-cell">{response.category}</TableCell>
+                          <TableCell className="hidden sm:table-cell">
+                            <span className={`inline-block px-2 py-1 rounded text-xs sm:text-sm font-medium ${response.responses?.mapData ? "text-blue-600 bg-blue-50" : "text-gray-500 bg-gray-50"}`}>
+                              {response.responses?.mapData ? "YES" : "NO"}
+                            </span>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex gap-1 sm:gap-2">
+                               <ResponseDialog 
+                                  response={response} 
+                                  onSave={saveResponseMutation.mutateAsync} 
+                                  translationBusy={translationBusy}
+                                  translationBusyIntent={translationBusyIntent}
+                                  trigger={<Button variant="ghost" size="sm" className="h-8 w-8 sm:h-9 sm:w-9"><Edit2 className="h-3 w-3 sm:h-4 sm:w-4"/></Button>}
+                               />
+                            </div>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -275,21 +278,22 @@ export default function AdminDashboard() {
                     )}
                   </TableBody>
                 </Table>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
 
-          <TabsContent value="privileges" className="mt-6">
+          <TabsContent value="privileges" className="flex flex-col gap-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>User Privileges</CardTitle>
-                <CardDescription>Enable or disable user features in the chat widget</CardDescription>
+                <CardTitle className="text-lg sm:text-xl">User Privileges</CardTitle>
+                <CardDescription className="text-sm">Enable or disable user features in the chat widget</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-center justify-between border rounded-lg p-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
                   <div className="space-y-1">
-                    <Label>User Chat</Label>
-                    <p className="text-sm text-muted-foreground">Allow users to send messages</p>
+                    <Label className="text-sm sm:text-base">User Chat</Label>
+                    <p className="text-xs sm:text-sm text-muted-foreground">Allow users to send messages</p>
                   </div>
                   <Switch
                     checked={privileges.chatEnabled}
@@ -298,10 +302,10 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div className="flex items-center justify-between border rounded-lg p-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
                   <div className="space-y-1">
-                    <Label>Audio Input</Label>
-                    <p className="text-sm text-muted-foreground">Show or hide the microphone input</p>
+                    <Label className="text-sm sm:text-base">Audio Input</Label>
+                    <p className="text-xs sm:text-sm text-muted-foreground">Show or hide the microphone input</p>
                   </div>
                   <Switch
                     checked={privileges.audioInputEnabled}
@@ -310,10 +314,10 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div className="flex items-center justify-between border rounded-lg p-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
                   <div className="space-y-1">
-                    <Label>Map Access</Label>
-                    <p className="text-sm text-muted-foreground">Allow users to view maps in responses</p>
+                    <Label className="text-sm sm:text-base">Map Access</Label>
+                    <p className="text-xs sm:text-sm text-muted-foreground">Allow users to view maps in responses</p>
                   </div>
                   <Switch
                     checked={privileges.mapAccessEnabled}
@@ -321,11 +325,18 @@ export default function AdminDashboard() {
                     disabled={savePrivilegesMutation.isPending}
                   />
                 </div>
-
-                <div className="flex items-center justify-between border rounded-lg p-4">
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg sm:text-xl">Admin Settings</CardTitle>
+                <CardDescription className="text-sm">Manage the intents settings</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
                   <div className="space-y-1">
-                    <Label>Auto Translate</Label>
-                    <p className="text-sm text-muted-foreground">Auto-fill Cebuano when admin leaves it empty</p>
+                    <Label className="text-sm sm:text-base">Auto Translate</Label>
+                    <p className="text-xs sm:text-sm text-muted-foreground">Auto-fill Cebuano when admin leaves it empty</p>
                   </div>
                   <Switch
                     checked={privileges.autoTranslateEnabled}
@@ -524,24 +535,25 @@ function ResponseDialog({ response, onSave, trigger, translationBusy, translatio
       }}
     >
       <DialogTrigger asChild>
-        {trigger || <Button><Plus className="mr-2 h-4 w-4"/> Add Response</Button>}
+        {trigger || <Button className="w-full sm:w-auto rounded-sm"><Plus className="mr-2 h-4 w-4"/> Add Response</Button>}
       </DialogTrigger>
-      <DialogContent className="w-[95vw] sm:max-w-[1050px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] sm:max-w-[1050px] max-h-[90vh] overflow-y-auto sm:p-6 p-4 rounded-sm">
         <DialogHeader>
-          <DialogTitle>{response ? "Edit Response" : "New Response"}</DialogTitle>
+          <DialogTitle className="text-lg sm:text-xl">{response ? "Edit Response" : "New Response"}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
+        <div className="grid gap-4 py-4 sm:grid-cols-1 lg:grid-cols-2">
           <div className="grid gap-2">
-            <Label>Intent Name</Label>
+            <Label className="text-sm sm:text-base">Intent Name</Label>
             <Input 
               value={formData.intent} 
               onChange={e => setFormData({...formData, intent: e.target.value})} 
               placeholder="e.g. get_wifi_access" 
               disabled={isEdit}
+              className="text-sm sm:text-base"
             />
           </div>
           <div className="grid gap-2">
-            <Label>Category</Label>
+            <Label className="text-sm sm:text-base">Category</Label>
             <Input 
               value={formData.category} 
               onChange={e => setFormData({...formData, category: e.target.value})} 
