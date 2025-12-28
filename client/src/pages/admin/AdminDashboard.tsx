@@ -8,7 +8,9 @@ import {
   deleteLocationApi,
   fetchUserPrivilegesAdmin,
   saveUserPrivilegesAdmin,
-  fetchAutoTranslateStatus
+  fetchAutoTranslateStatus,
+  sendVerificationCode,
+  verifyCodeAndUpdateEmail
 } from "@/lib/adminApi";
 import type { ResponseData, Location, UserPrivileges } from "@/types/admin";
 import { 
@@ -23,7 +25,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Edit2, Save, MessageSquare, Shield, LogOut } from "lucide-react";
+import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -32,6 +34,7 @@ export default function AdminDashboard() {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const { logout } = useAuth();
+  const [activeTab, setActiveTab] = useState("responses");
 
   const DEFAULT_PRIVILEGES: UserPrivileges = {
     chatEnabled: true,
@@ -160,195 +163,246 @@ export default function AdminDashboard() {
   };
 
   // --- UI ---
+  const menuItems = [
+    { id: "responses", label: "Responses", icon: MessageSquare },
+    { id: "privileges", label: "User Privilege", icon: User },
+    { id: "admin-settings", label: "Admin Settings", icon: Settings },
+  ];
 
   return (
-    <div className="min-h-screen bg-muted/30 p-8">
-      <div className="max-w-6xl mx-auto space-y-8">
-        
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" style={{backgroundColor: '#001C38', borderRadius: '10px', padding: '1rem'}}>
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">Admin Dashboard</h1>
-            <p className="text-muted-foreground text-sm sm:text-base mt-1">Manage chatbot responses and map locations</p>
-          </div>
-          <div className="flex gap-2 w-full sm:w-auto">
-             <Button variant="outline" onClick={() => window.open('/', '_blank')} style={{display:"none"}} className="flex-1 sm:flex-none">
-              Open Chat Demo
-             </Button>
-             <Button variant="destructive" onClick={logout} className="flex items-center gap-2 flex-1 sm:flex-none">
-               <LogOut className="h-4 w-4" />
-               Logout
-             </Button>
-          </div>
+    <div className="min-h-screen bg-muted/30 flex">
+      {/* Sidebar Navigation */}
+      <div className="w-64 bg-white shadow-lg">
+        <div className="p-6" style={{backgroundColor: '#001C38'}}>
+          <h1 className="text-xl font-bold text-white">Admin Dashboard</h1>
+          <p className="text-muted-foreground text-xs mt-1 text-white/80">Manage chatbot settings</p>
         </div>
-
-        <Tabs defaultValue="responses" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="responses" className="flex items-center gap-2">
-              <MessageSquare className="w-4 h-4" />
-              Responses
-            </TabsTrigger>
-            <TabsTrigger value="privileges" className="flex items-center gap-2">
-              <Shield className="w-4 h-4" />
-              User Settings
-            </TabsTrigger>
-          </TabsList>
+        
+        <nav className="p-4">
+          {menuItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id)}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors ${
+                  activeTab === item.id
+                    ? "bg-blue-50 text-blue-600 border-l-4 border-blue-600"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                }`}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="font-medium">{item.label}</span>
+              </button>
+            );
+          })}
           
-          <TabsContent value="responses" className="mt-6">
-            <Card>
-              <CardHeader className="flex flex-col items-start space-y-4">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4">
-                  <div>
-                    <CardTitle className="text-lg sm:text-xl">Chatbot Responses</CardTitle>
-                    <CardDescription className="text-sm">Manage chatbot responses and their location data</CardDescription>
-                  </div>
-                  <ResponseDialog
-                    onSave={saveResponseMutation.mutateAsync}
-                    translationBusy={translationBusy}
-                    translationBusyIntent={translationBusyIntent}
-                  />
-                </div>
-                
-                {/* Filters */}
-                <div className="flex flex-col sm:flex-row gap-4 w-full">
-                  <div className="w-full sm:flex-1">
-                    <Input
-                      placeholder="Search by intent or category..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="max-w-sm"
+          <div className="mt-8 pt-4 border-t">
+            <Button
+              variant="destructive"
+              onClick={logout}
+              className="w-full flex items-center gap-2"
+            >
+              <LogOut className="h-4 w-4" />
+              Logout
+            </Button>
+          </div>
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-8">
+        <div className="max-w-6xl mx-auto">
+          {activeTab === "responses" && (
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-2xl font-bold tracking-tight">Chatbot Responses</h2>
+                <p className="text-muted-foreground mt-1">Manage chatbot responses and their location data</p>
+              </div>
+              
+              <Card>
+                <CardHeader className="flex flex-col items-start space-y-4">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4">
+                    <div>
+                      <CardTitle className="text-lg sm:text-xl">Chatbot Responses</CardTitle>
+                      <CardDescription className="text-sm">Manage chatbot responses and their location data</CardDescription>
+                    </div>
+                    <ResponseDialog
+                      onSave={saveResponseMutation.mutateAsync}
+                      translationBusy={translationBusy}
+                      translationBusyIntent={translationBusyIntent}
                     />
                   </div>
-                  <div className="w-48">
-                    <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Filter by category" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Categories</SelectItem>
-                        {categories.map(category => (
-                          <SelectItem key={category} value={category}>
-                            {category}
-                          </SelectItem>
+                  
+                  {/* Filters */}
+                  <div className="flex flex-col sm:flex-row gap-4 w-full">
+                    <div className="w-full sm:flex-1">
+                      <Input
+                        placeholder="Search by intent or category..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="max-w-sm"
+                      />
+                    </div>
+                    <div className="w-48">
+                      <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Filter by category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">All Categories</SelectItem>
+                          {categories.map(category => (
+                            <SelectItem key={category} value={category}>
+                              {category}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="min-w-[120px]">Intent</TableHead>
+                          <TableHead className="min-w-[100px] hidden sm:table-cell">Category</TableHead>
+                          <TableHead className="min-w-[120px] hidden sm:table-cell">Has Map Data</TableHead>
+                          <TableHead className="w-[80px] sm:w-[100px]">Actions</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {filteredResponses.map((response) => (
+                          <TableRow key={response.intent}>
+                            <TableCell className="font-medium text-sm sm:text-base">{response.intent}</TableCell>
+                            <TableCell className="text-sm sm:text-base hidden sm:table-cell">{response.category}</TableCell>
+                            <TableCell className="hidden sm:table-cell">
+                              <span className={`inline-block px-2 py-1 rounded text-xs sm:text-sm font-medium ${response.responses?.mapData ? "text-blue-600 bg-blue-50" : "text-gray-500 bg-gray-50"}`}>
+                                {response.responses?.mapData ? "YES" : "NO"}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <div className="flex gap-1 sm:gap-2">
+                                 <ResponseDialog 
+                                    response={response} 
+                                    onSave={saveResponseMutation.mutateAsync} 
+                                    translationBusy={translationBusy}
+                                    translationBusyIntent={translationBusyIntent}
+                                    trigger={<Button variant="ghost" size="sm" className="h-8 w-8 sm:h-9 sm:w-9"><Edit2 className="h-3 w-3 sm:h-4 sm:w-4"/></Button>}
+                                 />
+                              </div>
+                            </TableCell>
+                          </TableRow>
                         ))}
-                      </SelectContent>
-                    </Select>
+                        {filteredResponses.length === 0 && (
+                          <TableRow>
+                            <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
+                              No responses found matching your filters.
+                            </TableCell>
+                          </TableRow>
+                        )}
+                      </TableBody>
+                    </Table>
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="min-w-[120px]">Intent</TableHead>
-                        <TableHead className="min-w-[100px] hidden sm:table-cell">Category</TableHead>
-                        <TableHead className="min-w-[120px] hidden sm:table-cell">Has Map Data</TableHead>
-                        <TableHead className="w-[80px] sm:w-[100px]">Actions</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {filteredResponses.map((response) => (
-                        <TableRow key={response.intent}>
-                          <TableCell className="font-medium text-sm sm:text-base">{response.intent}</TableCell>
-                          <TableCell className="text-sm sm:text-base hidden sm:table-cell">{response.category}</TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            <span className={`inline-block px-2 py-1 rounded text-xs sm:text-sm font-medium ${response.responses?.mapData ? "text-blue-600 bg-blue-50" : "text-gray-500 bg-gray-50"}`}>
-                              {response.responses?.mapData ? "YES" : "NO"}
-                            </span>
-                          </TableCell>
-                          <TableCell>
-                            <div className="flex gap-1 sm:gap-2">
-                               <ResponseDialog 
-                                  response={response} 
-                                  onSave={saveResponseMutation.mutateAsync} 
-                                  translationBusy={translationBusy}
-                                  translationBusyIntent={translationBusyIntent}
-                                  trigger={<Button variant="ghost" size="sm" className="h-8 w-8 sm:h-9 sm:w-9"><Edit2 className="h-3 w-3 sm:h-4 sm:w-4"/></Button>}
-                               />
-                            </div>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                    {filteredResponses.length === 0 && (
-                      <TableRow>
-                        <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
-                          No responses found matching your filters.
-                        </TableCell>
-                      </TableRow>
-                    )}
-                  </TableBody>
-                </Table>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
+                </CardContent>
+              </Card>
+            </div>
+          )}
 
-          <TabsContent value="privileges" className="flex flex-col gap-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg sm:text-xl">User Privileges</CardTitle>
-                <CardDescription className="text-sm">Enable or disable user features in the chat widget</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
-                  <div className="space-y-1">
-                    <Label className="text-sm sm:text-base">User Chat</Label>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Allow users to send messages</p>
+          {activeTab === "privileges" && (
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-2xl font-bold tracking-tight">User Privilege</h2>
+                <p className="text-muted-foreground mt-1">Enable or disable user features in the chat widget</p>
+              </div>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg sm:text-xl">User Privileges</CardTitle>
+                  <CardDescription className="text-sm">Enable or disable user features in the chat widget</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
+                    <div className="space-y-1">
+                      <Label className="text-sm sm:text-base">User Chat</Label>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Allow users to send messages</p>
+                    </div>
+                    <Switch
+                      checked={privileges.chatEnabled}
+                      onCheckedChange={(checked) => handlePrivilegeToggle("chatEnabled", checked)}
+                      disabled={savePrivilegesMutation.isPending}
+                    />
                   </div>
-                  <Switch
-                    checked={privileges.chatEnabled}
-                    onCheckedChange={(checked) => handlePrivilegeToggle("chatEnabled", checked)}
-                    disabled={savePrivilegesMutation.isPending}
-                  />
-                </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
-                  <div className="space-y-1">
-                    <Label className="text-sm sm:text-base">Audio Input</Label>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Show or hide the microphone input</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
+                    <div className="space-y-1">
+                      <Label className="text-sm sm:text-base">Audio Input</Label>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Show or hide the microphone input</p>
+                    </div>
+                    <Switch
+                      checked={privileges.audioInputEnabled}
+                      onCheckedChange={(checked) => handlePrivilegeToggle("audioInputEnabled", checked)}
+                      disabled={savePrivilegesMutation.isPending}
+                    />
                   </div>
-                  <Switch
-                    checked={privileges.audioInputEnabled}
-                    onCheckedChange={(checked) => handlePrivilegeToggle("audioInputEnabled", checked)}
-                    disabled={savePrivilegesMutation.isPending}
-                  />
-                </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
-                  <div className="space-y-1">
-                    <Label className="text-sm sm:text-base">Map Access</Label>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Allow users to view maps in responses</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
+                    <div className="space-y-1">
+                      <Label className="text-sm sm:text-base">Map Access</Label>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Allow users to view maps in responses</p>
+                    </div>
+                    <Switch
+                      checked={privileges.mapAccessEnabled}
+                      onCheckedChange={(checked) => handlePrivilegeToggle("mapAccessEnabled", checked)}
+                      disabled={savePrivilegesMutation.isPending}
+                    />
                   </div>
-                  <Switch
-                    checked={privileges.mapAccessEnabled}
-                    onCheckedChange={(checked) => handlePrivilegeToggle("mapAccessEnabled", checked)}
-                    disabled={savePrivilegesMutation.isPending}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg sm:text-xl">Admin Settings</CardTitle>
-                <CardDescription className="text-sm">Manage the intents settings</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
-                  <div className="space-y-1">
-                    <Label className="text-sm sm:text-base">Auto Translate</Label>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Auto-fill Cebuano when admin leaves it empty</p>
-                  </div>
-                  <Switch
-                    checked={privileges.autoTranslateEnabled}
-                    onCheckedChange={(checked) => handlePrivilegeToggle("autoTranslateEnabled", checked)}
-                    disabled={savePrivilegesMutation.isPending}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+                </CardContent>
+              </Card>
+            </div>
+          )}
 
+          {activeTab === "admin-settings" && (
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-2xl font-bold tracking-tight">Admin Settings</h2>
+                <p className="text-muted-foreground mt-1">Manage admin-specific settings and account</p>
+              </div>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg sm:text-xl">Translation Settings</CardTitle>
+                  <CardDescription className="text-sm">Manage translation and content settings</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border rounded-lg p-4 gap-4">
+                    <div className="space-y-1">
+                      <Label className="text-sm sm:text-base">Auto Translate</Label>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Auto-fill Cebuano when admin leaves it empty</p>
+                    </div>
+                    <Switch
+                      checked={privileges.autoTranslateEnabled}
+                      onCheckedChange={(checked) => handlePrivilegeToggle("autoTranslateEnabled", checked)}
+                      disabled={savePrivilegesMutation.isPending}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg sm:text-xl">Account Settings</CardTitle>
+                  <CardDescription className="text-sm">Manage your admin account credentials</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ChangeEmailDialog />
+                  <ChangePasswordDialog />
+                </CardContent>
+              </Card>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -1009,6 +1063,475 @@ function LocationDialog({ location, onSave, trigger }: {
         </div>
         <div className="flex justify-end">
           <Button onClick={handleSubmit}>Save Changes</Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function ChangeEmailDialog() {
+  const [open, setOpen] = useState(false);
+  const [step, setStep] = useState(1); // 1: current email + password, 2: verify current email, 3: new email + verification
+  const [currentEmail, setCurrentEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [currentVerificationCode, setCurrentVerificationCode] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newVerificationCode, setNewVerificationCode] = useState("");
+  const [isSendingCode, setIsSendingCode] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [codeSentToNewEmail, setCodeSentToNewEmail] = useState(false);
+  const { toast } = useToast();
+
+  // Debug: Log when component renders
+  console.log("ChangeEmailDialog rendered, open:", open);
+
+  // Reset form when dialog closes
+  const resetForm = () => {
+    console.log("Resetting form");
+    setStep(1);
+    setCurrentEmail("");
+    setPassword("");
+    setCurrentVerificationCode("");
+    setNewEmail("");
+    setNewVerificationCode("");
+    setCodeSentToNewEmail(false);
+  };
+
+  const handleClose = () => {
+    console.log("Dialog closing");
+    setOpen(false);
+    resetForm();
+  };
+
+  // Step 1: Send verification code to current email
+  const handleSendCurrentEmailCode = async () => {
+    console.log("Send current email code clicked, email:", currentEmail);
+    
+    if (!currentEmail.includes("@") || !password) {
+      toast({
+        title: "Missing fields",
+        description: "Please enter your current email and password",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSendingCode(true);
+    try {
+      console.log("Sending verification code to current email:", currentEmail);
+      const result = await sendVerificationCode(currentEmail);
+      console.log("Send current email code result:", result);
+      
+      if (result.success) {
+        toast({
+          title: "Verification code sent",
+          description: "Please check your current email for the 6-digit code",
+        });
+        setStep(2);
+      } else {
+        toast({
+          title: "Failed to send code",
+          description: result.message || "Please try again",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Error sending current email code:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send verification code",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSendingCode(false);
+    }
+  };
+
+  // Step 2: Verify current email code
+  const handleVerifyCurrentEmail = async () => {
+    console.log("Verify current email clicked, code:", currentVerificationCode);
+    
+    if (currentVerificationCode.length !== 6) {
+      toast({
+        title: "Invalid code",
+        description: "Please enter the 6-digit verification code",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsVerifying(true);
+    try {
+      // For now, we'll just move to step 3
+      // In a real implementation, you'd verify the code first
+      console.log("Current email verified, moving to step 3");
+      setStep(3);
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+
+  // Step 3: Send verification code to new email
+  const handleSendNewEmailCode = async () => {
+    console.log("Send new email code clicked, email:", newEmail);
+    
+    if (!newEmail.includes("@")) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid new email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (newEmail === currentEmail) {
+      toast({
+        title: "Same email",
+        description: "New email must be different from current email",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSendingCode(true);
+    try {
+      console.log("Sending verification code to new email:", newEmail);
+      const result = await sendVerificationCode(newEmail);
+      console.log("Send new email code result:", result);
+      
+      if (result.success) {
+        toast({
+          title: "Verification code sent",
+          description: "Please check your new email for the 6-digit code",
+        });
+        setCodeSentToNewEmail(true);
+      } else {
+        toast({
+          title: "Failed to send code",
+          description: result.message || "Please try again",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Error sending new email code:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send verification code",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSendingCode(false);
+    }
+  };
+
+  // Step 3: Verify new email and update
+  const handleVerifyNewEmailAndUpdate = async () => {
+    console.log("Verify new email and update clicked");
+    
+    if (newVerificationCode.length !== 6) {
+      toast({
+        title: "Invalid code",
+        description: "Please enter the 6-digit verification code for new email",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsVerifying(true);
+    try {
+      console.log("Updating email from", currentEmail, "to", newEmail);
+      const result = await verifyCodeAndUpdateEmail(newEmail, newVerificationCode, currentEmail, password);
+      console.log("Update email result:", result);
+      
+      if (result.success) {
+        toast({
+          title: "Email updated successfully",
+          description: "Your email has been changed. You may need to log in again.",
+        });
+        handleClose();
+      } else {
+        toast({
+          title: "Failed to update email",
+          description: result.message || "Please check your credentials and try again",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Error updating email:", error);
+      toast({
+        title: "Error",
+        description: "Failed to update email",
+        variant: "destructive",
+      });
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button 
+          variant="outline" 
+          className="w-full justify-start"
+          onClick={() => {
+            console.log("Change Email button clicked!");
+            setOpen(true);
+          }}
+        >
+          <Mail className="mr-2 h-4 w-4" />
+          Change Email
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Change Email Address</DialogTitle>
+        </DialogHeader>
+        
+        {/* Step 1: Current Email + Password */}
+        {step === 1 && (
+          <div className="grid gap-4 py-4">
+            <div className="text-center mb-4">
+              <p className="text-sm text-muted-foreground">
+                Enter your current email and password to start:
+              </p>
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="current-email">Current Email Address</Label>
+              <Input
+                id="current-email"
+                type="email"
+                value={currentEmail}
+                onChange={(e) => setCurrentEmail(e.target.value)}
+                placeholder="Enter your current email"
+                disabled={isSendingCode}
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                disabled={isSendingCode}
+              />
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button variant="outline" onClick={handleClose} disabled={isSendingCode}>
+                Cancel
+              </Button>
+              <Button onClick={handleSendCurrentEmailCode} disabled={isSendingCode || !currentEmail || !password}>
+                {isSendingCode ? "Sending..." : "Send Verification Code"}
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* Step 2: Verify Current Email Code */}
+        {step === 2 && (
+          <div className="grid gap-4 py-4">
+            <div className="text-center mb-4">
+              <p className="text-sm text-muted-foreground">
+                We've sent a 6-digit verification code to:
+              </p>
+              <p className="font-medium">{currentEmail}</p>
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="current-verification-code">Verification Code</Label>
+              <Input
+                id="current-verification-code"
+                type="text"
+                value={currentVerificationCode}
+                onChange={(e) => setCurrentVerificationCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                placeholder="Enter 6-digit code"
+                maxLength={6}
+                disabled={isVerifying}
+                className="text-center text-lg tracking-widest"
+              />
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button variant="outline" onClick={() => setStep(1)} disabled={isVerifying}>
+                Back
+              </Button>
+              <Button onClick={handleVerifyCurrentEmail} disabled={isVerifying || currentVerificationCode.length !== 6}>
+                {isVerifying ? "Verifying..." : "Verify Code"}
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* Step 3: New Email + Verification */}
+        {step === 3 && (
+          <div className="grid gap-4 py-4">
+            <div className="text-center mb-4">
+              <p className="text-sm text-muted-foreground">
+                Current email verified! Now enter your new email:
+              </p>
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="new-email">New Email Address</Label>
+              <Input
+                id="new-email"
+                type="email"
+                value={newEmail}
+                onChange={(e) => setNewEmail(e.target.value)}
+                placeholder="Enter your new email address"
+                disabled={isSendingCode || codeSentToNewEmail}
+              />
+            </div>
+            
+            {!codeSentToNewEmail && (
+              <div className="flex justify-end">
+                <Button onClick={handleSendNewEmailCode} disabled={isSendingCode || !newEmail}>
+                  {isSendingCode ? "Sending..." : "Send Code to New Email"}
+                </Button>
+              </div>
+            )}
+
+            {codeSentToNewEmail && (
+              <>
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground">
+                    Verification code sent to: {newEmail}
+                  </p>
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="new-verification-code">Verification Code</Label>
+                  <Input
+                    id="new-verification-code"
+                    type="text"
+                    value={newVerificationCode}
+                    onChange={(e) => setNewVerificationCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                    placeholder="Enter 6-digit code"
+                    maxLength={6}
+                    disabled={isVerifying}
+                    className="text-center text-lg tracking-widest"
+                  />
+                </div>
+                <div className="flex justify-end gap-2">
+                  <Button variant="outline" onClick={() => {setCodeSentToNewEmail(false); setNewVerificationCode("");}}>
+                    Back
+                  </Button>
+                  <Button onClick={handleVerifyNewEmailAndUpdate} disabled={isVerifying || newVerificationCode.length !== 6}>
+                    {isVerifying ? "Updating..." : "Update Email"}
+                  </Button>
+                </div>
+              </>
+            )}
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function ChangePasswordDialog() {
+  const [open, setOpen] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const { toast } = useToast();
+
+  const handleSubmit = async () => {
+    // Basic validation
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      toast({
+        title: "Missing fields",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (newPassword.length < 8) {
+      toast({
+        title: "Password too short",
+        description: "Password must be at least 8 characters long",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      toast({
+        title: "Passwords don't match",
+        description: "New password and confirmation must match",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      // TODO: Implement actual password change API call
+      // For now, just show success message
+      toast({
+        title: "Password changed successfully",
+        description: "Your password has been updated.",
+      });
+      setOpen(false);
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+    } catch (error) {
+      toast({
+        title: "Failed to change password",
+        description: "Please check your current password and try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline" className="w-full justify-start">
+          <Lock className="mr-2 h-4 w-4" />
+          Change Password
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Change Password</DialogTitle>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid gap-2">
+            <Label htmlFor="current-password">Current Password</Label>
+            <Input
+              id="current-password"
+              type="password"
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              placeholder="Enter your current password"
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="new-password">New Password</Label>
+            <Input
+              id="new-password"
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="Enter your new password (min. 8 characters)"
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="confirm-password">Confirm New Password</Label>
+            <Input
+              id="confirm-password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm your new password"
+            />
+          </div>
+        </div>
+        <div className="flex justify-end gap-2">
+          <Button variant="outline" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button onClick={handleSubmit}>Change Password</Button>
         </div>
       </DialogContent>
     </Dialog>

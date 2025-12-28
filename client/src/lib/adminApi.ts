@@ -133,3 +133,42 @@ export async function fetchAutoTranslateStatus(): Promise<any> {
     return { success: false, message: 'Network error' };
   }
 }
+
+// Email verification API functions
+export async function sendVerificationCode(email: string): Promise<ApiResponse> {
+  try {
+    const response = await fetch('/api/email/send-verification', {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({ email }),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error sending verification code:', error);
+    return { success: false, message: 'Network error' };
+  }
+}
+
+export async function verifyCodeAndUpdateEmail(
+  newEmail: string,
+  verificationCode: string,
+  currentEmail: string,
+  password: string
+): Promise<ApiResponse> {
+  try {
+    const response = await fetch('/api/email/verify-and-update', {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({
+        newEmail,
+        verificationCode,
+        currentEmail,
+        password,
+      }),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error verifying code and updating email:', error);
+    return { success: false, message: 'Network error' };
+  }
+}

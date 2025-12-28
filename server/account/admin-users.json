@@ -10,7 +10,7 @@
       },
       {
         "email": "test@example.com",
-        "name": "Test Admin", 
+        "name": "Test Admin",
         "role": "admin",
         "googleId": null,
         "enabled": true
@@ -28,6 +28,14 @@
         "role": "admin",
         "googleId": null,
         "enabled": true
+      },
+      {
+        "email": "thepersonaljaime@gmail.com",
+        "name": "New Admin",
+        "role": "admin",
+        "googleId": null,
+        "enabled": true,
+        "password": "$2b$12$86PeE8aDovi1KZB9EkLfCufORLW6jURhr6pAW9uIKTTiCHbo7LODe"
       }
     ],
     "settings": {

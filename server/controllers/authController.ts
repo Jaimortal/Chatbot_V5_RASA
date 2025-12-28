@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { verifyPassword } from "../utils/passwordUtils.js";
 
 // Get __dirname equivalent in ES module
 const __filename = fileURLToPath(import.meta.url);
@@ -194,7 +195,38 @@ export class AuthController {
           });
         }
       } else {
-        // Use default credentials
+        // Check admin-users.json for email/password authentication
+        if (adminUsers && adminUsers.development && adminUsers.development.users) {
+          const user = adminUsers.development.users.find((u: any) => 
+            u.email === username && u.enabled && u.password // Only check users with passwords
+          );
+          
+          if (user && await verifyPassword(password, user.password)) {
+            const token = generateToken(user.email);
+            const sessionId = `session_${Date.now()}_${Math.random()}`;
+            
+            sessions.set(sessionId, {
+              token,
+              expires: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
+            });
+
+            // Clear failed attempts on successful login
+            clearFailedAttempts(identifier);
+
+            return res.json({
+              success: true,
+              token,
+              message: "Login successful",
+              user: {
+                email: user.email,
+                name: user.name,
+                role: user.role
+              }
+            });
+          }
+        }
+        
+        // Fallback to default credentials
         if (username === DEFAULT_ADMIN_USERNAME && password === DEFAULT_ADMIN_PASSWORD) {
           const token = generateToken(username);
           const sessionId = `session_${Date.now()}_${Math.random()}`;

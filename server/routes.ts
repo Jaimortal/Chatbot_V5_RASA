@@ -3,6 +3,7 @@ import { type Server } from "http";
 import { ChatController } from "./controllers/chatController";
 import { AdminController } from "./controllers/adminController";
 import { AuthController } from "./controllers/authController";
+import emailRoutes from "./routes/emailRoutes";
 import jwt from "jsonwebtoken";
 
 export async function registerRoutes(
@@ -85,6 +86,9 @@ export async function registerRoutes(
   app.get("/api/admin/privileges", requireAuth, AdminController.getUserPrivileges);
 
   app.post("/api/admin/privileges", requireAuth, AdminController.updateUserPrivileges);
+
+  // EMAIL VERIFICATION ROUTES
+  app.use("/api/email", emailRoutes);
 
   return httpServer;
 }
