@@ -2,40 +2,20 @@
   "development": {
     "users": [
       {
-        "email": "admin@example.com",
-        "name": "Development Admin",
-        "role": "admin",
-        "googleId": null,
-        "enabled": true
-      },
-      {
-        "email": "test@example.com",
-        "name": "Test Admin",
-        "role": "admin",
-        "googleId": null,
-        "enabled": true
-      },
-      {
         "email": "thepersonaljaime@gmail.com",
-        "name": "Jaime Perez",
+        "name": "Admin User",
         "role": "admin",
         "googleId": null,
-        "enabled": true
+        "enabled": true,
+        "password": "$2b$12$LiK4ttOHCtaGC.nsYs/WdOCwQtmtA4tiPiFVdUCMKBhUh4FIpjyku"
       },
       {
         "email": "2301106910@student.buksu.edu.ph",
         "name": "Jaime Perez",
         "role": "admin",
         "googleId": null,
-        "enabled": true
-      },
-      {
-        "email": "thepersonaljaime@gmail.com",
-        "name": "New Admin",
-        "role": "admin",
-        "googleId": null,
         "enabled": true,
-        "password": "$2b$12$86PeE8aDovi1KZB9EkLfCufORLW6jURhr6pAW9uIKTTiCHbo7LODe"
+        "password": "$2b$12$vqUt3ojH8f9LwO7n99MLXeGC24Z6MiNZhYLVT.wz1R.NEOjVkzyBe"
       }
     ],
     "settings": {

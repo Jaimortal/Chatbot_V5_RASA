@@ -1,8 +1,11 @@
 import { Request, Response } from "express";
 import { spawn } from "child_process";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import PhraseTranslator from "../../rulebaseTranslation/phraseTranslator";
+import { hashPassword, verifyPassword } from "../utils/passwordUtils";
+import jwt from "jsonwebtoken";
 import {
   getResponses,
   upsertResponse,
@@ -390,6 +393,86 @@ export class AdminController {
     } catch (error) {
       console.error("Error saving privileges:", error);
       res.status(500).json({ success: false, message: "Failed to save privileges" });
+    }
+  }
+
+  static async changePassword(req: Request, res: Response) {
+    try {
+      const { currentPassword, newPassword } = req.body;
+      
+      if (!currentPassword || !newPassword) {
+        return res.status(400).json({ 
+          success: false, 
+          message: "Current password and new password are required" 
+        });
+      }
+
+      if (newPassword.length < 8) {
+        return res.status(400).json({ 
+          success: false, 
+          message: "New password must be at least 8 characters long" 
+        });
+      }
+
+      // Get user email from JWT token
+      const authHeader = req.headers.authorization;
+      if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        return res.status(401).json({ success: false, message: "Unauthorized - No valid auth header" });
+      }
+
+      const token = authHeader.substring(7);
+      const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production";
+      const decoded = jwt.verify(token, JWT_SECRET) as any;
+      
+      if (!decoded || !decoded.username) {
+        return res.status(401).json({ success: false, message: "Invalid token - no username" });
+      }
+
+      const userEmail = decoded.username as string;
+
+      // Load admin users from file (fresh read)
+      const adminUsersPath = path.join(__dirname, "../account/admin-users.json");
+      const adminUsersData = JSON.parse(fs.readFileSync(adminUsersPath, "utf8"));
+      
+      // Find user
+      const user = adminUsersData.development.users.find((u: any) => 
+        u.email === userEmail && u.enabled && u.password
+      );
+
+      if (!user) {
+        return res.status(404).json({ 
+          success: false, 
+          message: "User not found" 
+        });
+      }
+
+      // Verify current password
+      const currentPasswordValid = await verifyPassword(currentPassword, user.password);
+      
+      if (!currentPasswordValid) {
+        return res.status(400).json({ 
+          success: false, 
+          message: "Current password is incorrect" 
+        });
+      }
+
+      // Hash new password
+      const newPasswordHash = await hashPassword(newPassword);
+
+      // Update password in JSON file
+      user.password = newPasswordHash;
+      fs.writeFileSync(adminUsersPath, JSON.stringify(adminUsersData, null, 2));
+
+      res.json({ 
+        success: true, 
+        message: "Password changed successfully" 
+      });
+    } catch (error: any) {
+      console.error("Error changing password:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to change password: " + (error?.message || String(error))
+      });
     }
   }
 }

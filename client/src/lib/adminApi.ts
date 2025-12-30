@@ -172,3 +172,31 @@ export async function verifyCodeAndUpdateEmail(
     return { success: false, message: 'Network error' };
   }
 }
+
+// Password change API function
+export async function changePassword(
+  currentPassword: string,
+  newPassword: string
+): Promise<ApiResponse> {
+  try {
+    const response = await fetch(`${API_BASE}/change-password`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({
+        currentPassword,
+        newPassword,
+      }),
+    });
+    
+    const result = await response.json();
+    
+    if (!response.ok) {
+      console.error('Password change failed:', result);
+    }
+    
+    return result;
+  } catch (error) {
+    console.error('Error changing password:', error);
+    return { success: false, message: 'Network error' };
+  }
+}

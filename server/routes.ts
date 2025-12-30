@@ -87,6 +87,9 @@ export async function registerRoutes(
 
   app.post("/api/admin/privileges", requireAuth, AdminController.updateUserPrivileges);
 
+  // PASSWORD CHANGE (ADMIN)
+  app.post("/api/admin/change-password", requireAuth, AdminController.changePassword);
+
   // EMAIL VERIFICATION ROUTES
   app.use("/api/email", emailRoutes);
 

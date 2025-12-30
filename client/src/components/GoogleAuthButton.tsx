@@ -33,9 +33,6 @@ export default function GoogleAuthButton({ onGoogleLogin, isLoading = false }: G
   useEffect(() => {
     const handleOAuthCallback = async () => {
       // Check if we're in the OAuth callback with a token in the hash or search params
-      console.log('Current URL hash:', window.location.hash);
-      console.log('Current URL search:', window.location.search);
-
       const hashParams = new URLSearchParams(
         window.location.hash.startsWith('#')
           ? window.location.hash.substring(1)
@@ -66,10 +63,7 @@ export default function GoogleAuthButton({ onGoogleLogin, isLoading = false }: G
       
       const idToken = hashParams.get('id_token') || searchParams.get('id_token');
       
-      console.log('Extracted idToken:', idToken ? 'present' : 'missing');
-      
       if (!idToken) {
-        console.log('No token found, not processing OAuth callback');
         return; // Don't throw error, just exit if no token
       }
 
@@ -91,8 +85,6 @@ export default function GoogleAuthButton({ onGoogleLogin, isLoading = false }: G
           picture: tokenPayload.picture
         };
 
-          console.log('Decoded user:', { email: user.email, name: user.name });
-
         // Send to backend for verification
         const requestPayload = {
           token: idToken,
@@ -107,14 +99,12 @@ export default function GoogleAuthButton({ onGoogleLogin, isLoading = false }: G
           body: JSON.stringify(requestPayload),
         });
 
-        console.log('Backend response status:', response.status);
         let responseData: any = null;
         try {
           responseData = await response.json();
         } catch (jsonErr) {
           responseData = null;
         }
-        console.log('Backend response data:', responseData);
 
         if (response.ok) {
           const data = responseData;
@@ -249,5 +239,5 @@ export default function GoogleAuthButton({ onGoogleLogin, isLoading = false }: G
 
 // Simplified auth loading - no external scripts needed
 export const loadGoogleAuth = () => {
-  console.log('Google Auth ready');
+  // Google Auth ready
 };

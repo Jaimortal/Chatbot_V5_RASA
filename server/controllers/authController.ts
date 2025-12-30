@@ -19,7 +19,6 @@ function loadAdminUsers() {
     if (fs.existsSync(adminUsersPath)) {
       const data = fs.readFileSync(adminUsersPath, "utf8");
       adminUsers = JSON.parse(data);
-      console.log("Admin users loaded from JSON");
     } else {
       console.log("Admin users JSON file not found, using fallback");
     }
@@ -112,8 +111,6 @@ function clearFailedAttempts(identifier: string) {
 }
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production";
-const DEFAULT_ADMIN_USERNAME = "admin";
-const DEFAULT_ADMIN_PASSWORD = "admin123";
 
 // Initialize Google OAuth client
 const googleClient = new OAuth2Client();
@@ -172,36 +169,19 @@ export class AuthController {
         });
       }
 
-      // Check if ADMIN_KEY environment variable is set for API access
-      const adminKey = process.env.ADMIN_KEY;
-      if (adminKey) {
-        // If using ADMIN_KEY, accept any non-empty credentials
-        if (username && password) {
-          const token = generateToken(username);
-          const sessionId = `session_${Date.now()}_${Math.random()}`;
+      // Check admin-users.json for email/password authentication ONLY
+      if (adminUsers && adminUsers.development && adminUsers.development.users) {
+        // Always reload admin users to get latest data
+        loadAdminUsers();
+        
+        const user = adminUsers.development.users.find((u: any) => 
+          u.email === username && u.enabled && u.password // Only check users with passwords
+        );
+        
+        if (user) {
+          const passwordValid = await verifyPassword(password, user.password);
           
-          sessions.set(sessionId, {
-            token,
-            expires: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
-          });
-
-          // Clear failed attempts on successful login
-          clearFailedAttempts(identifier);
-
-          return res.json({
-            success: true,
-            token,
-            message: "Login successful"
-          });
-        }
-      } else {
-        // Check admin-users.json for email/password authentication
-        if (adminUsers && adminUsers.development && adminUsers.development.users) {
-          const user = adminUsers.development.users.find((u: any) => 
-            u.email === username && u.enabled && u.password // Only check users with passwords
-          );
-          
-          if (user && await verifyPassword(password, user.password)) {
+          if (passwordValid) {
             const token = generateToken(user.email);
             const sessionId = `session_${Date.now()}_${Math.random()}`;
             
@@ -224,26 +204,6 @@ export class AuthController {
               }
             });
           }
-        }
-        
-        // Fallback to default credentials
-        if (username === DEFAULT_ADMIN_USERNAME && password === DEFAULT_ADMIN_PASSWORD) {
-          const token = generateToken(username);
-          const sessionId = `session_${Date.now()}_${Math.random()}`;
-          
-          sessions.set(sessionId, {
-            token,
-            expires: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
-          });
-
-          // Clear failed attempts on successful login
-          clearFailedAttempts(identifier);
-
-          return res.json({
-            success: true,
-            token,
-            message: "Login successful"
-          });
         }
       }
 
@@ -312,24 +272,26 @@ export class AuthController {
         });
       }
 
-      // Check if user is in admin users list (if JSON file exists)
-      if (adminUsers && adminUsers.development && adminUsers.development.users) {
-        const adminUser = adminUsers.development.users.find((adminUser: any) => 
-          adminUser.email === effectiveEmail && adminUser.enabled
-        );
-        
-        if (!adminUser) {
-          return res.status(403).json({
-            success: false,
-            message: "User not authorized as admin"
-          });
-        }
-        
-        console.log(`Google login successful for authorized admin: ${effectiveEmail}`);
-      } else {
-        // Fallback: allow any Google user in development mode
-        console.log(`Google login successful (development mode): ${effectiveEmail}`);
+      // Check if user is in admin users list - REQUIRED for security
+      if (!adminUsers || !adminUsers.development || !adminUsers.development.users) {
+        return res.status(500).json({
+          success: false,
+          message: "Server configuration error: Admin users not loaded"
+        });
       }
+
+      const adminUser = adminUsers.development.users.find((adminUser: any) => 
+        adminUser.email === effectiveEmail && adminUser.enabled
+      );
+      
+      if (!adminUser) {
+        return res.status(403).json({
+          success: false,
+          message: "User not authorized as admin"
+        });
+      }
+      
+      console.log(`Google login successful for authorized admin: ${effectiveEmail}`);
 
       // Generate JWT token
       const jwtToken = generateToken(effectiveEmail);
