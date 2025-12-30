@@ -26,7 +26,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock, Eye, EyeOff, Menu, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -36,6 +36,7 @@ export default function AdminDashboard() {
   const { toast } = useToast();
   const { logout } = useAuth();
   const [activeTab, setActiveTab] = useState("responses");
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   const DEFAULT_PRIVILEGES: UserPrivileges = {
     chatEnabled: true,
@@ -168,51 +169,94 @@ export default function AdminDashboard() {
     { id: "responses", label: "Responses", icon: MessageSquare },
     { id: "privileges", label: "User Privilege", icon: User },
     { id: "admin-settings", label: "Admin Settings", icon: Settings },
+    { id: "logout", label: "Logout", icon: LogOut, isLogout: true },
   ];
 
   return (
     <div className="min-h-screen bg-muted/30 flex">
+      {/* Mobile Sidebar Overlay */}
+      {isMobileSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setIsMobileSidebarOpen(false)}
+        />
+      )}
+      
+      {/* mobile hamburger menu */}
+      <div className="lg:hidden fixed top-8 right-4 z-50">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+          className="bg-white"
+        >
+          {isMobileSidebarOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+        </Button>
+      </div>
+
       {/* Sidebar Navigation */}
-      <div className="w-64 bg-white shadow-lg">
-        <div className="p-6" style={{backgroundColor: '#001C38'}}>
-          <h1 className="text-xl font-bold text-white">Admin Dashboard</h1>
-          <p className="text-muted-foreground text-xs mt-1 text-white/80">Manage chatbot settings</p>
+      <div className={`
+        fixed lg:relative w-64 bg-white shadow-lg z-50 lg:z-auto
+        transform transition-transform duration-300 ease-in-out
+        ${isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+        h-full lg:h-auto
+      `}>
+        <div className="p-6" >
+          <div className="flex items-center gap-3 mb-2">
+            <img 
+              src="/LOGO.png" 
+              alt="Admin Logo" 
+              className="w-10 h-10 rounded-lg"
+              onError={(e) => {
+                // Fallback if image doesn't exist
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            <div>
+              <h1 className="text-xl font-bold ">Admin Panel</h1>
+              <p className="text-muted-foreground text-xs text-dark/80">Manage chatbot settings</p>
+            </div>
+          </div>
         </div>
         
-        <nav className="p-4">
+        <nav className="p-4 gap-2 flex flex-col">
           {menuItems.map((item) => {
             const Icon = item.icon;
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => {
+                  if (item.isLogout) {
+                    logout();
+                    setIsMobileSidebarOpen(false);
+                  } else {
+                    setActiveTab(item.id);
+                    setIsMobileSidebarOpen(false);
+                  }
+                }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors ${
-                  activeTab === item.id
-                    ? "bg-blue-50 text-blue-600 border-l-4 border-blue-600"
+                  item.isLogout
+                    ? "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                    : activeTab === item.id
+                    ? " text-white "
                     : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 }`}
+                style={
+                  !item.isLogout && activeTab === item.id
+                    ? { background: "linear-gradient(to right, #001C38, #0356a9ff)" }
+                    : undefined
+                }
               >
                 <Icon className="w-5 h-5" />
                 <span className="font-medium">{item.label}</span>
               </button>
             );
           })}
-          
-          <div className="mt-8 pt-4 border-t">
-            <Button
-              variant="destructive"
-              onClick={logout}
-              className="w-full flex items-center gap-2"
-            >
-              <LogOut className="h-4 w-4" />
-              Logout
-            </Button>
-          </div>
         </nav>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-4 lg:p-8 mt-5">
         <div className="max-w-6xl mx-auto">
           {activeTab === "responses" && (
             <div className="space-y-6">
@@ -590,7 +634,7 @@ function ResponseDialog({ response, onSave, trigger, translationBusy, translatio
       }}
     >
       <DialogTrigger asChild>
-        {trigger || <Button className="w-full sm:w-auto rounded-sm"><Plus className="mr-2 h-4 w-4"/> Add Response</Button>}
+        {trigger || <Button className="w-full sm:w-auto rounded-sm" style={{background: "linear-gradient(to right, #001C38, #0356a9ff)"}}><Plus className="mr-2 h-4 w-4"/> Add Response</Button>}
       </DialogTrigger>
       <DialogContent className="w-[95vw] sm:max-w-[1050px] max-h-[90vh] overflow-y-auto sm:p-6 p-4 rounded-sm">
         <DialogHeader>
@@ -1275,7 +1319,7 @@ function ChangeEmailDialog() {
       <DialogTrigger asChild>
         <Button 
           variant="outline" 
-          className="w-full justify-start"
+          className="w-full justify-start border-none hover:bg-muted/50"
           onClick={() => {
             console.log("Change Email button clicked!");
             setOpen(true);
@@ -1285,7 +1329,7 @@ function ChangeEmailDialog() {
           Change Email
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] ">
         <DialogHeader>
           <DialogTitle>Change Email Address</DialogTitle>
         </DialogHeader>
@@ -1514,7 +1558,7 @@ function ChangePasswordDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="w-full justify-start">
+        <Button variant="outline" className="w-full justify-start border-none">
           <Lock className="mr-2 h-4 w-4" />
           Change Password
         </Button>
