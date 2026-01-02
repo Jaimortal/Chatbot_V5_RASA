@@ -169,21 +169,39 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
       const recognition = new SpeechRecognition();
       recognition.continuous = false;
       recognition.lang = "en-US";
-      recognition.interimResults = false;
+      recognition.interimResults = true; // Enable interim results for real-time feedback
+      recognition.maxAlternatives = 1;
 
       recognition.onresult = (event: any) => {
-        const transcript = event.results[0][0].transcript;
-        setInputValue(transcript);
-        setIsListening(false);
-        // Auto-send the voice input after a brief delay
-        setTimeout(() => {
+        const current = event.resultIndex;
+        const transcript = event.results[current][0].transcript;
+        
+        if (event.results[current].isFinal) {
+          // Final result - set input and auto-send
+          setInputValue(transcript);
+          setIsListening(false);
+          // Send immediately without delay
           handleSend(transcript);
-        }, 300);
+        } else {
+          // Interim result - show in input field for visual feedback
+          setInputValue(transcript);
+        }
       };
 
       recognition.onerror = (event: any) => {
         console.error("Speech recognition error:", event.error);
         setIsListening(false);
+        
+        // Handle specific errors
+        if (event.error === 'not-allowed') {
+          alert('Microphone access was denied. Please allow microphone access to use voice input.');
+        } else if (event.error === 'no-speech') {
+          console.log('No speech detected');
+        } else if (event.error === 'network') {
+          alert('Network error occurred during speech recognition. Please check your internet connection.');
+        } else {
+          alert(`Speech recognition error: ${event.error}`);
+        }
       };
       
       recognition.onend = () => {
@@ -194,12 +212,12 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     }
   }, []);
 
-  const toggleListening = () => {
+  const toggleListening = async () => {
     if (!privileges.chatEnabled || !privileges.audioInputEnabled) {
       return;
     }
     if (!SpeechRecognition) {
-      alert("Voice input is not supported in this browser.");
+      alert("Voice input is not supported in this browser. Please try using Chrome, Edge, or Safari.");
       return;
     }
     
@@ -207,13 +225,24 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
       recognitionRef.current?.stop();
       setIsListening(false);
     } else {
-      setIsListening(true);
-      setInputValue(""); // Clear previous input
+      // Check microphone permissions first
       try {
-        recognitionRef.current?.start();
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        stream.getTracks().forEach(track => track.stop()); // Stop the stream immediately
+        
+        setIsListening(true);
+        setInputValue(""); // Clear previous input
+        
+        try {
+          recognitionRef.current?.start();
+        } catch (error) {
+          console.error("Failed to start voice recognition:", error);
+          setIsListening(false);
+          alert("Failed to start voice recognition. Please try again.");
+        }
       } catch (error) {
-        console.error("Failed to start voice recognition:", error);
-        setIsListening(false);
+        console.error("Microphone permission denied:", error);
+        alert("Microphone access is required for voice input. Please allow microphone access in your browser settings.");
       }
     }
   };
@@ -411,19 +440,22 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Type a message..."
-              className="rounded-full bg-muted/50 border-transparent focus-visible:bg-background focus-visible:border-primary/20 transition-all"
-              disabled={isTyping || isListening}
+              placeholder={isListening ? "Listening..." : "Type a message..."}
+              className={cn(
+                "rounded-full bg-muted/50 border-transparent focus-visible:bg-background focus-visible:border-primary/20 transition-all",
+                isListening && "bg-red-50 border-red-200 animate-pulse"
+              )}
+              disabled={isTyping}
             />
 
-            <Button
-              onClick={() => handleSend(inputValue)}
-              size="icon"
-              disabled={!inputValue.trim() || isTyping || isListening}
-              className="rounded-full shrink-0 h-10 w-10"
-            >
-              <Send className="h-4 w-4" />
-            </Button>
+              <Button
+                onClick={() => handleSend(inputValue)}
+                size="icon"
+                disabled={!inputValue.trim() || isTyping || isListening}
+                className="rounded-full shrink-0 h-10 w-10"
+              >
+                <Send className="h-4 w-4" />
+              </Button>
           </>
         ) : (
           <div className="w-full text-center text-sm text-muted-foreground py-2">
