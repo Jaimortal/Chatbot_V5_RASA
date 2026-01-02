@@ -37,12 +37,28 @@ function convertResponseToMessages(response: any): ChatMessage[] {
   const hasText = typeof response.answer === "string" ? response.answer.length > 0 : Array.isArray(response.answer);
   const hasImages = Boolean(response.imageUrl) || (Array.isArray(response.imageUrls) && response.imageUrls.length > 0);
 
+  // Get answer text for filtering
+  const answerText = Array.isArray(response.answer)
+    ? response.answer.join("\n")
+    : (typeof response.answer === "string" ? response.answer : "");
+
+  // Frontend filter: Clear mapData if answer contains error messages
+  let filteredMapData = response.mapData;
+  let filteredMapDataList = response.mapDataList;
+  
+  if (
+    !answerText ||
+    answerText.includes("cannot understand") ||
+    answerText.includes("try again") ||
+    answerText.includes("I'm not sure I understand") ||
+    answerText.includes("Could you rephrase")
+  ) {
+    filteredMapData = null;
+    filteredMapDataList = null;
+  }
+
   // Text (and/or images) message
   if (hasText || hasImages) {
-    const answerText = Array.isArray(response.answer)
-      ? response.answer.join("\n")
-      : (typeof response.answer === "string" ? response.answer : "");
-
     messages.push({
       id: generateId(),
       text: answerText,
@@ -54,9 +70,9 @@ function convertResponseToMessages(response: any): ChatMessage[] {
     });
   }
 
-  // Map message(s)
-  if (Array.isArray(response.mapDataList) && response.mapDataList.length > 0) {
-    response.mapDataList.forEach((md: any) => {
+  // Map message(s) - use filtered data
+  if (Array.isArray(filteredMapDataList) && filteredMapDataList.length > 0) {
+    filteredMapDataList.forEach((md: any) => {
       if (!md) return;
       messages.push({
         id: generateId(),
@@ -79,13 +95,13 @@ function convertResponseToMessages(response: any): ChatMessage[] {
         timestamp: new Date(),
       });
     });
-  } else if (response.mapData) {
+  } else if (filteredMapData) {
     messages.push({
       id: generateId(),
       text: "",
       sender: "bot",
       type: "map",
-      mapData: response.mapData,
+      mapData: filteredMapData,
       timestamp: new Date(),
     });
   }

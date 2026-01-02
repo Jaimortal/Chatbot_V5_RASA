@@ -79,9 +79,16 @@ export class ChatController {
         detectedIntent = intent;
       }
       
-      // Extract mapData from any response (could be in second item)
+      // Check if this is a fallback response
+      const isFallback = answerText.includes("I'm not sure I understand") || 
+                         answerText.includes("I cannot understand your question") ||
+                         answerText.includes("Could you rephrase") ||
+                         answerText.includes("cannot understand") ||
+                         answerText.includes("try again");
+      
+      // Extract mapData only if intent is valid and not a fallback
       for (const response of result) {
-        if (response.custom?.mapData) {
+        if (!isFallback && response.custom?.mapData) {
           mapDataFromRasa = response.custom.mapData;
           break;
         }
