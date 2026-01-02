@@ -24,6 +24,7 @@ import { Switch } from "@/components/ui/switch";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock, Eye, EyeOff, Menu, X } from "lucide-react";
@@ -37,6 +38,7 @@ export default function AdminDashboard() {
   const { logout } = useAuth();
   const [activeTab, setActiveTab] = useState("responses");
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
 
   const DEFAULT_PRIVILEGES: UserPrivileges = {
     chatEnabled: true,
@@ -227,7 +229,7 @@ export default function AdminDashboard() {
                 key={item.id}
                 onClick={() => {
                   if (item.isLogout) {
-                    logout();
+                    setShowLogoutConfirmation(true);
                     setIsMobileSidebarOpen(false);
                   } else {
                     setActiveTab(item.id);
@@ -449,6 +451,36 @@ export default function AdminDashboard() {
           )}
         </div>
       </div>
+      
+      {/* Logout Confirmation Dialog */}
+      <AlertDialog open={showLogoutConfirmation} onOpenChange={setShowLogoutConfirmation}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirm Logout</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to logout?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel 
+              className="bg-white text-gray-800 hover:bg-gray-100 border-0"
+              onClick={() => setShowLogoutConfirmation(false)}
+            >
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction 
+              className="text-white border-0"
+              style={{ background: "linear-gradient(to right, #001C38, #0356a9ff)" }}
+              onClick={() => {
+                logout();
+                setShowLogoutConfirmation(false);
+              }}
+            >
+              Confirm
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
