@@ -130,7 +130,7 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "welcome",
-      text: "Hi there! I’m the BukSU Assistance Chatbot. Ask me anything about BukSU. Pwede ra gyud Bisaya or English 👍",
+      text: "Hi there! I’m the BukSU Assistance Chatbot. Ask me anything about BukSU. Pwede ra gyud Bisaya or English",
       sender: "bot",
       type: "text",
       timestamp: new Date(),
@@ -322,9 +322,12 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     <div className="flex flex-col h-full bg-background relative overflow-hidden">
       {/* Header */}
       <div className="bg-primary p-4 flex items-center justify-between text-primary-foreground shadow-sm shrink-0" style={{backgroundColor: '#001C38'}}>
-        <div className="flex items-center gap-2" >
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <h3 className="font-semibold text-sm">Buksu Chatbot</h3>
+        <div className="flex items-center gap-4" >
+          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse mt-1" />
+          <div className="flex flex-col leading-tight">
+            <h3 className="font-semibold text-sm text-white">Buksu Chatbot</h3>
+            <p className="text-xs text-white/90 font-light">Ask me everything about BukSU</p>
+          </div>
         </div>
         <div className="flex gap-1">
           <Button

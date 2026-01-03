@@ -11,6 +11,12 @@ attached_assets/
 rasa/models/
 rasa/.rasa
 
+# This will be used on production
+
+# packages/admin-app/node_modules/
+# packages/chat-app/node_modules/
+
+packages/
 
 server/privateAPI/models
 
