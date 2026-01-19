@@ -718,6 +718,56 @@ nlu:
     - Giunsa pag adto sa [ComLab 6](lab_number) kung naa ko sa campus
     - Asa makita ang [ComLab 7](lab_number) para sa among klase
 
+- intent: ask_faculty_room_location
+  examples: |
+    - Where is the [COT](college) faculty room?
+    - Where can I find the [College of Technology](college) faculty room?
+    - Can you tell me the location of the [COB](college) faculty room?
+    - Where exactly is the [CON](college) faculty room located?
+    - I am looking for the [COT](college) faculty room
+    - How do I get to the [COB](college) faculty room?
+    - What is the location of the [CON](college) faculty room?
+    - Please guide me to the [College of Business](college) faculty room
+    - Where is the faculty room of [COT](college)?
+    - Where can I locate the [College of Nursing](college) faculty room?
+    - Can you help me find the [COB](college) faculty room?
+    - Which floor is the [COT](college) faculty room on?
+    - I need directions to the [CON](college) faculty room
+    - Where is the [College of Technology](college) faculty office?
+    - Tell me where the [COB](college) faculty room is
+    - Asa dapit ang [COT](college) faculty room?
+    - Asa makit-an ang faculty room sa [College of Technology](college)?
+    - Pwede nimo isulti asa nahimutang ang [COB](college) faculty room?
+    - Asa exactly makita ang [CON](college) faculty room?
+    - Nangita ko sa [COT](college) faculty room
+    - Unsaon pag adto sa [COB](college) faculty room?
+    - Asa ang lokasyon sa [CON](college) faculty room?
+    - Tabangi ko pangitaon ang faculty room sa [College of Business](college)
+    - Asa nahimutang ang faculty room sa [COT](college)?
+    - Asa ko makakita sa faculty room sa [College of Nursing](college)?
+    - Pwede ba nimo ko giya paingon sa [COB](college) faculty room?
+    - Sa unsang floor makita ang [COT](college) faculty room?
+    - Kinahanglan ko og direksyon paingon sa [CON](college) faculty room
+    - Asa dapit ang opisina sa faculty sa [College of Technology](college)?
+    - Isulti ko asa ang faculty room sa [COB](college)
+
+- synonym: COT
+  examples: |
+    - College of Technology
+    - College of Tech
+    - Technology College
+
+- synonym: COB
+  examples: |
+    - College of Business
+    - Business College
+
+- synonym: CON
+  examples: |
+    - College of Nursing
+    - Nursing College
+    - Bachelor of Science in Nursing
+
 - intent: bot_challenge
   examples: |
     - are you a bot?

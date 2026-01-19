@@ -37,6 +37,7 @@ intents:
   - contact_scholarship_unit
   - all_comlab_locations
   - locate_comlab
+  - ask_faculty_room_location
   - bot_challenge
 
 
@@ -46,6 +47,7 @@ entities:
   - slot_name
   - slot_value
   - lab_number
+  - college
 
 slots:
   category:
@@ -84,6 +86,13 @@ slots:
     mappings:
       - type: from_entity
         entity: lab_number
+
+  college:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: college
 
 responses:
   utter_greet:

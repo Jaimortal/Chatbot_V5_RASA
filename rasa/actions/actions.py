@@ -325,6 +325,37 @@ class ActionReplyFromJsonHelper:
         
         return result
 
+    def _get_faculty_room_response(self, college: str, user_message: str) -> dict:
+        """Get location response for specific faculty room from JSON structure"""
+        
+        entry = next((e for e in self.responses if e.get("intent") == "ask_faculty_room_location"), None)
+        faculty_rooms = (entry or {}).get("faculty_rooms", {})
+        college_info = faculty_rooms.get(college.upper())
+        
+        if not college_info:
+            return {"text": f"Sorry, I don't have information about {college} faculty room."}
+        
+        # Detect language for bilingual support
+        is_bisaya = any(word in user_message.lower() for word in [
+            "asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay", 
+            "dako", "mao", "ni", "na", "sa", "ang", "mga", "ug", "uy", "ba", 
+            "man", "gani", "diay", "sige"
+        ])
+        
+        # Get the appropriate language responses
+        lang_key = "ceb" if is_bisaya else "en"
+        responses = college_info.get(lang_key)
+        if not responses:
+            responses = college_info.get("en", [])
+
+        # Combine all response lines
+        if isinstance(responses, list):
+            response_text = "\n".join(responses)
+        else:
+            response_text = str(responses)
+
+        return {"text": response_text}
+
 
 # -------------------------
 # Rasa Actions
@@ -395,6 +426,37 @@ class ActionReplyFromJson(Action):
             else:
                 dispatcher.utter_message(text=response)
 
+            return []
+
+        # Entity-based Faculty Room lookup
+        if intent == "ask_faculty_room_location":
+            college = None
+            for entity in tracker.latest_message.get("entities", []):
+                if entity.get("entity") == "college":
+                    college = entity.get("value")
+                    break
+
+            if college is None:
+                college = tracker.get_slot("college")
+
+            # If college exists, respond with specific faculty room info
+            if college:
+                response = self.helper._get_faculty_room_response(college, user_msg)
+                dispatcher.utter_message(text=response["text"])
+                return []
+
+            # If no college extracted, use generic response
+            response = self.helper.get_response(
+                "ask_faculty_room_location",
+                user_message=user_msg
+            )
+            
+            if isinstance(response, dict):
+                if response.get("text"):
+                    dispatcher.utter_message(text=response["text"])
+            else:
+                dispatcher.utter_message(text=response)
+            
             return []
 
         # ✨ FIX: if intent == ask_more → DO NOT call main response

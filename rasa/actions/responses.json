@@ -1252,5 +1252,57 @@
     "metadata": {
       "source": "ICTdata"
     }
+  },
+
+  {
+    "intent": "ask_faculty_room_location",
+    "category": "faculty",
+    "sub_category": "faculty_room",
+    "comment": "_______________ENTITY FOR FACULTY__________________________",
+    "responses": {
+      "answer": {
+        "en": [
+          "Sure! Please tell me which college faculty room you are looking for (COT, COB, or CON)."
+        ],
+        "ceb": [
+          "Sige! Palihug isulti kung unsang college faculty room imong gipangita (COT, COB, or CON)."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "ask_faculty_room_location"
+      },
+      "follow_up": [
+        "You can ask about: COT, COB, or CON faculty rooms."
+      ]
+    },
+    "faculty_rooms": {
+      "COT": {
+        "en": [
+          "Located on the 2nd floor of the COT Building."
+        ],
+        "ceb": [
+          "Nahimutang sa 2nd floor sa COT Building."
+        ]
+      },
+      "COB": {
+        "en": [
+          "Located on the 3rd floor of the Business Building."
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor sa Business Building."
+        ]
+      },
+      "CON": {
+        "en": [
+          "Located near the Nursing Skills Laboratory."
+        ],
+        "ceb": [
+          "Nahimutang duol sa Nursing Skills Laboratory."
+        ]
+      }
+    },
+    "metadata": {
+      "source": "ICTdata"
+    }
   }
 ]
