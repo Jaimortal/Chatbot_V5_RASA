@@ -115,13 +115,18 @@ class ActionReplyFromJsonHelper:
         
         if isinstance(answer, dict):
             # New multilingual format: { "en": [...], "ceb": [...] }
-            # Detect language from user_message (simple heuristic)
+            # Detect language from user_message (improved heuristic)
             preferred_lang = "en"
-            if any(word in user_message.lower() for word in [
+            # More precise Bisaya detection with word boundaries
+            bisaya_words = [
                 "unsay", "unsa", "asa", "ngano", "diin", "kinsa", "kanus-a", 
-                "pila", "gamay", "dako", "mao", "ni", "na", "sa", "ang", 
-                "mga", "ug", "uy", "ba", "man", "gani", "diay", "sige"
-            ]):
+                "pila", "gamay", "dako", "mao", "ug", "uy", "man", "gani", 
+                "diay", "sige", "kinahanglan", "bisan", "sab", "gud", "pod", 
+                "wala", "naa", "ikaw", "ako"
+            ]
+            # Use word boundary matching to avoid false positives
+            user_words = user_message.lower().split()
+            if any(word in bisaya_words for word in user_words):
                 preferred_lang = "ceb"
 
             selected = answer.get(preferred_lang)
@@ -274,12 +279,14 @@ class ActionReplyFromJsonHelper:
         if not lab_info:
             return {"text": f"Sorry, I don't have information about ComLab {lab_number}."}
         
-        # Detect language for bilingual support
-        is_bisaya = any(word in user_message.lower() for word in [
+        # Detect language for bilingual support (improved heuristic)
+        bisaya_words = [
             "asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay", 
-            "dako", "mao", "ni", "na", "sa", "ang", "mga", "ug", "uy", "ba", 
-            "man", "gani", "diay", "sige"
-        ])
+            "dako", "mao", "ug", "uy", "man", "gani", "diay", "sige", "kinahanglan", 
+            "bisan", "sab", "gud", "pod", "wala", "naa", "ikaw", "ako"
+        ]
+        user_words = user_message.lower().split()
+        is_bisaya = any(word in bisaya_words for word in user_words)
         
         # Get the appropriate language responses
         lang_key = "ceb" if is_bisaya else "en"
@@ -335,12 +342,14 @@ class ActionReplyFromJsonHelper:
         if not college_info:
             return {"text": f"Sorry, I don't have information about {college} faculty room."}
         
-        # Detect language for bilingual support
-        is_bisaya = any(word in user_message.lower() for word in [
+        # Detect language for bilingual support (improved heuristic)
+        bisaya_words = [
             "asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay", 
-            "dako", "mao", "ni", "na", "sa", "ang", "mga", "ug", "uy", "ba", 
-            "man", "gani", "diay", "sige"
-        ])
+            "dako", "mao", "ug", "uy", "man", "gani", "diay", "sige", "kinahanglan", 
+            "bisan", "sab", "gud", "pod", "wala", "naa", "ikaw", "ako"
+        ]
+        user_words = user_message.lower().split()
+        is_bisaya = any(word in bisaya_words for word in user_words)
         
         # Get the appropriate language responses
         lang_key = "ceb" if is_bisaya else "en"
