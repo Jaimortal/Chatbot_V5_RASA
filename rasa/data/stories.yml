@@ -179,3 +179,223 @@ stories:
         - lab_number
     - action: action_reply_from_json
     
+
+- story: transferee enrollment info
+  steps:
+    - intent: transferee_enrollment
+    - action: action_reply_from_json
+
+- story: student fees info
+  steps:
+    - intent: student_fees
+    - action: action_reply_from_json
+
+- story: student organizations info
+  steps:
+    - intent: student_organizations
+    - action: action_reply_from_json
+
+- story: nstp info
+  steps:
+    - intent: about_nstp
+    - action: action_reply_from_json
+
+- story: pe info
+  steps:
+    - intent: about_pe
+    - action: action_reply_from_json
+
+- story: failed subject policy info
+  steps:
+    - intent: failed_subject_policy
+    - action: action_reply_from_json
+
+- story: course shifting info
+  steps:
+    - intent: course_shifting
+    - action: action_reply_from_json
+
+- story: campus safety info
+  steps:
+    - intent: campus_safety
+    - action: action_reply_from_json
+
+- story: lost on campus info
+  steps:
+    - intent: lost_on_campus
+    - action: action_reply_from_json
+
+- story: access sias info
+  steps:
+    - intent: access_sias
+    - action: action_reply_from_json
+
+- story: peer mentoring info
+  steps:
+    - intent: peer_mentoring
+    - action: action_reply_from_json
+
+- story: graduation attendance info
+  steps:
+    - intent: graduation_attendance
+    - action: action_reply_from_json
+
+- story: graduation rehearsal attendance info
+  steps:
+    - intent: graduation_rehearsal_attendance
+    - action: action_reply_from_json
+
+- story: tracer study info
+  steps:
+    - intent: tracer_study
+    - action: action_reply_from_json
+
+- story: early document request info
+  steps:
+    - intent: early_document_request
+    - action: action_reply_from_json
+
+- story: course shifting later years info
+  steps:
+    - intent: course_shifting_later_years
+    - action: action_reply_from_json
+
+- story: thesis defense failure info
+  steps:
+    - intent: thesis_defense_failure
+    - action: action_reply_from_json
+
+- story: thesis defense info
+  steps:
+    - intent: thesis_defense
+    - action: action_reply_from_json
+
+- story: thesis defense panelists info
+  steps:
+    - intent: thesis_defense_panelists
+    - action: action_reply_from_json
+
+- story: thesis topic selection info
+  steps:
+    - intent: thesis_topic_selection
+    - action: action_reply_from_json
+
+- story: internship requirement info
+  steps:
+    - intent: internship_requirement
+    - action: action_reply_from_json
+
+- story: campus transfer info
+  steps:
+    - intent: campus_transfer
+    - action: action_reply_from_json
+
+- story: deans list info
+  steps:
+    - intent: deans_list
+    - action: action_reply_from_json
+
+- story: academic probation info
+  steps:
+    - intent: academic_probation
+    - action: action_reply_from_json
+
+- story: attendance requirement info
+  steps:
+    - intent: attendance_requirement
+    - action: action_reply_from_json
+
+- story: add drop subject info
+  steps:
+    - intent: add_drop_subject
+    - action: action_reply_from_json
+
+- story: request cor info
+  steps:
+    - intent: request_cor
+    - action: action_reply_from_json
+
+- story: inactive group member info
+  steps:
+    - intent: inactive_group_member
+    - action: action_reply_from_json
+
+- story: student stress support info
+  steps:
+    - intent: student_stress_support
+    - action: action_reply_from_json
+
+- story: submit assignments online info
+  steps:
+    - intent: submit_assignments_online
+    - action: action_reply_from_json
+
+- story: phone use in class info
+  steps:
+    - intent: phone_use_in_class
+    - action: action_reply_from_json
+
+- story: subject overload info
+  steps:
+    - intent: subject_overload
+    - action: action_reply_from_json
+
+- story: class concerns info
+  steps:
+    - intent: class_concerns
+    - action: action_reply_from_json
+
+- story: freshmen intramurals info
+  steps:
+    - intent: freshmen_intramurals
+    - action: action_reply_from_json
+
+- story: about intramurals info
+  steps:
+    - intent: about_intramurals
+    - action: action_reply_from_json
+
+- story: end of semester info
+  steps:
+    - intent: end_of_semester
+    - action: action_reply_from_json
+
+- story: minor subject info
+  steps:
+    - intent: minor_subject
+    - action: action_reply_from_json
+
+- story: access grades info
+  steps:
+    - intent: access_grades
+    - action: action_reply_from_json
+
+- story: senior academic overload info
+  steps:
+    - intent: senior_academic_overload
+    - action: action_reply_from_json
+
+- story: board exam review info
+  steps:
+    - intent: board_exam_review
+    - action: action_reply_from_json
+
+- story: eating in classroom info
+  steps:
+    - intent: eating_in_classroom
+    - action: action_reply_from_json
+
+- story: licensure examination info
+  steps:
+    - intent: licensure_examination
+    - action: action_reply_from_json
+
+- story: mock board exam info
+  steps:
+    - intent: mock_board_exam
+    - action: action_reply_from_json
+
+- story: on the job training info
+  steps:
+    - intent: on_the_job_training
+    - action: action_reply_from_json

@@ -1253,7 +1253,6 @@
       "source": "ICTdata"
     }
   },
-
   {
     "intent": "ask_faculty_room_location",
     "category": "faculty",
@@ -1304,5 +1303,1073 @@
     "metadata": {
       "source": "ICTdata"
     }
+  },
+
+    {
+    "intent": "transferee_enrollment",
+    "category": "Admissions",
+    "sub_category": "transferees",
+    "responses": {
+      "answer": {
+        "en": [
+          "Transferees from public schools may enroll, subject to the evaluation of their academic records.",
+          "However, students transferring from private schools should expect possible delays in the process.",
+          "Please note that for private school transferees, previously taken subjects may not be credited.",
+          "As a result, you may be required to retake courses as a first-year student."
+        ],
+        "ceb": [
+          "Ang mga transferees gikan sa public schools mahimong maka-enroll basta ma-evaluate ang ilang academic records.",
+          "Apan ang mga estudyante nga mobalhin gikan sa private schools kinahanglan mag-expect og posibleng delay sa proseso.",
+          "Palihog timan-i nga para sa mga transferees gikan sa private schools, posibleng dili ma-credit ang ilang mga previous subjects.",
+          "Tungod niini, mahimong kinahanglan nimo kuhaon balik ang mga subject sama sa usa ka first-year student."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "transferee_enrollment"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AdmissionsData"
+    }
+  },
+  {
+    "intent": "student_fees",
+    "category": "Admissions",
+    "sub_category": "fees",
+    "responses": {
+      "answer": {
+        "en": [
+          "Students are required to pay for laboratory, ID, and miscellaneous fees.",
+          "Tuition is free at Bukidnon State University.",
+          "However, some courses may have additional charges for laboratory equipment and required textbooks."
+        ],
+        "ceb": [
+          "Kinahanglan magbayad ang mga estudyante para sa laboratory, ID, ug miscellaneous fees.",
+          "Libre ang tuition sa Bukidnon State University.",
+          "Apan naa gihapon ubang mga kurso nga naay dugang bayranan para sa laboratory equipment ug mga gikinahanglan nga libro."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "student_fees"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AdmissionsData"
+    }
+  },
+  {
+    "intent": "student_organizations",
+    "category": "Student Affairs",
+    "sub_category": "organizations",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, freshmen are allowed to join recognized BukSU student organizations."
+        ],
+        "ceb": [
+          "Oo, pwede moapil ang mga freshmen sa mga giila nga BukSU student organizations."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "student_organizations"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "about_nstp",
+    "category": "Student Affairs",
+    "sub_category": "programs",
+    "responses": {
+      "answer": {
+        "en": [
+          "The National Service Training Program (NSTP) is a required civic service program for BukSU students."
+        ],
+        "ceb": [
+          "Ang National Service Training Program (NSTP) kay usa ka required civic service program sa BukSU."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "about_nstp"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "about_pe",
+    "category": "Student Affairs",
+    "sub_category": "curriculum",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, Physical Education is part of BukSU’s general curriculum."
+        ],
+        "ceb": [
+          "Oo, apil ang Physical Education (PE) sa general curriculum sa BukSU."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "about_pe"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "failed_subject_policy",
+    "category": "Academic Policies",
+    "sub_category": "grading",
+    "responses": {
+      "answer": {
+        "en": [
+          "According to BukSU academic policies, you may retake a subject if it is your first time failing it.",
+          "However, please note that failing a subject multiple times, up to three total attempts, may lead to serious consequences.",
+          "In some cases, this may include being advised to transfer to another school.",
+          "For more specific details and proper guidance, it is recommended to consult your college faculty."
+        ],
+        "ceb": [
+          "Sumala sa academic policies sa BukSU, pwede ka mokuha balik og subject kung first time pa nimo nga nabagsak.",
+          "Apan palihog timan-i nga kung mabagsak nimo ang usa ka subject ug makadaghang beses, hangtod tulo ka attempts, mahimo kini magdala og seryosong mga resulta.",
+          "Lakip niini ang posibilidad nga marekomenda ka nga mobalhin og laing eskwelahan.",
+          "Mas maayo nga mokonsulta ka sa imong college faculty para sa mas klaro nga detalye ug hustong giya."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "failed_subject_policy"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "course_shifting",
+    "category": "Academic Policies",
+    "sub_category": "course_change",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, course shifting is allowed at BukSU, especially during your first year.",
+          "However, please note that usually only minor subjects are credited.",
+          "This means you will not need to retake those specific classes in your new program.",
+          "It is rare for major subjects to be credited, so it is recommended to check with the Registrar’s Office for more details."
+        ],
+        "ceb": [
+          "Oo, pwede ra mag-shift og course sa BukSU, labi na kung first year pa.",
+          "Apan palihog timan-i nga kasagaran mga minor subjects ra ang ma-credit.",
+          "Pasabot niini nga dili na nimo kinahanglan kuhaon balik ang mga maong subject sa imong bag-ong kurso.",
+          "Talagsa ra kaayo nga ma-credit ang major subjects, mao nga mas maayo mangutana ka sa Registrar’s Office para sa mas klaro nga detalye."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "course_shifting"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "campus_safety",
+    "category": "Student Affairs",
+    "sub_category": "safety",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, Bukidnon State University has campus security personnel on duty to help ensure student safety."
+        ],
+        "ceb": [
+          "Oo, adunay campus security personnel ang Bukidnon State University nga nagbantay aron masiguro ang kaluwasan sa mga estudyante."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "campus_safety"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "lost_on_campus",
+    "category": "Student Affairs",
+    "sub_category": "campus_navigation",
+    "responses": {
+      "answer": {
+        "en": [
+          "Getting lost on campus is rare, but if it happens, you may ask staff members, security guards, or fellow students for directions.",
+          "I can also provide a campus map to help you navigate more easily.",
+          "You may ask me about a specific place, and I will check if I can help you locate it."
+        ],
+        "ceb": [
+          "Talagsa ra ni mahitabo, apan kung mahitabo man, pwede ka mangutana sa staff, mga guard, o ubang estudyante para sa direksyon.",
+          "Pwede usab ko mohatag og mapa aron mas sayon ang pag-navigate sa campus.",
+          "Pwede pud ka mangutana nako sa usa ka specific nga lugar, ug tan-awon nako kung makatabang ba ko sa pagpangita niini."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "lost_on_campus"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "access_sias",
+    "category": "ICT",
+    "sub_category": "portal_access",
+    "responses": {
+      "answer": {
+        "en": [
+          "You can access the BukSU SIAS portal using the link provided.",
+          "Please use the account credentials assigned to you, which can be found on the BukSU Admission website.",
+          "If you need help locating your account details, just ask: 'How do I find my BukSU SIAS account on the admission website?'"
+        ],
+        "ceb": [
+          "Pwede nimo ma-access ang BukSU SIAS portal gamit ang gihatag nga link.",
+          "Gamiton ang account credentials nga gi-assign sa imoha, nga makita sa BukSU Admission website.",
+          "Kung kinahanglan nimo og tabang sa pagpangita sa imong account details, pwede ka mangutana: 'How do I find my BukSU SIAS account on the admission website?'"
+        ]
+      },
+      "context_slots": {
+        "last_topic": "access_sias"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "ICTData"
+    }
+  },
+  {
+    "intent": "peer_mentoring",
+    "category": "Student Affairs",
+    "sub_category": "mentoring",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, some programs offer peer mentoring for lower-year students."
+        ],
+        "ceb": [
+          "Oo, naay peer mentoring programs para sa lower-year students."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "peer_mentoring"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "graduation_attendance",
+    "category": "Student Affairs",
+    "sub_category": "graduation",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, parents and guests are allowed to attend graduation ceremonies."
+        ],
+        "ceb": [
+          "Oo, pwede mo-attend ang parents ug mga bisita sa graduation ceremonies."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "graduation_attendance"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "graduation_rehearsal_attendance",
+    "category": "Student Affairs",
+    "sub_category": "graduation",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, attendance during the graduation rehearsal is usually mandatory."
+        ],
+        "ceb": [
+          "Oo, kasagaran required ang attendance sa graduation rehearsal."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "graduation_rehearsal_attendance"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "tracer_study",
+    "category": "Student Affairs",
+    "sub_category": "graduate_tracking",
+    "responses": {
+      "answer": {
+        "en": [
+          "A tracer study tracks graduates’ employment status and is usually required."
+        ],
+        "ceb": [
+          "Ang tracer study nag-track sa employment status sa mga graduate, ug kasagaran required gyud ni."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "tracer_study"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "early_document_request",
+    "category": "Student Affairs",
+    "sub_category": "graduation",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, some documents can be requested before graduation."
+        ],
+        "ceb": [
+          "Oo, pwede mag-request ug documents bisan wala pa graduate."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "early_document_request"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentAffairsData"
+    }
+  },
+  {
+    "intent": "course_shifting_later_years",
+    "category": "Academic Policies",
+    "sub_category": "course_change",
+    "responses": {
+      "answer": {
+        "en": [
+          "Shifting courses in the third year is possible, but it may delay graduation."
+        ],
+        "ceb": [
+          "Pwede mag-shift pero basin ma-delay ang graduation."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "course_shifting_later_years"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "thesis_defense_failure",
+    "category": "Academic Policies",
+    "sub_category": "thesis_capstone",
+    "responses": {
+      "answer": {
+        "en": [
+          "Students may be required to revise and re-defend their thesis within a specified timeframe.",
+          "If the second defense is unsuccessful, the student may need to retake the thesis or capstone subject."
+        ],
+        "ceb": [
+          "Ang mga estudyante mahimo nga kinahanglan mag-revise ug mag-redefend sa ilang thesis sulod sa gihatag nga oras.",
+          "Kung mapakyas sa ikaduhang defense, mahimo nga kinahanglan nila kuhaon pag-usab ang thesis o capstone subject."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "thesis_defense_failure"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "thesis_defense",
+    "category": "Academic Policies",
+    "sub_category": "thesis_capstone",
+    "responses": {
+      "answer": {
+        "en": [
+          "A thesis defense is a formal presentation where students defend their research."
+        ],
+        "ceb": [
+          "Ang thesis defense kay usa ka formal presentation sa research."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "thesis_defense"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "thesis_defense_panelists",
+    "category": "Academic Policies",
+    "sub_category": "thesis_capstone",
+    "responses": {
+      "answer": {
+        "en": [
+          "The thesis defense usually consists of a three-member panel and one secretary, though this may vary depending on the specific course."
+        ],
+        "ceb": [
+          "Kasagaran ang defense adunay tulo ka panel members ug usa ka secretary, apan mahimong lahi-lahi depende sa kurso."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "thesis_defense_panelists"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "thesis_topic_selection",
+    "category": "Academic Policies",
+    "sub_category": "thesis_capstone",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, thesis topics are usually proposed by students and approved by advisers."
+        ],
+        "ceb": [
+          "Oo, ang topic gi-propose sa students ug i-approve sa adviser."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "thesis_topic_selection"
+      },
+      "follow_up": [
+        "What topics are not allowed?"
+      ],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "internship_requirement",
+    "category": "Academic Policies",
+    "sub_category": "curriculum",
+    "responses": {
+      "answer": {
+        "en": [
+          "Not all courses require an internship; it depends on the curriculum."
+        ],
+        "ceb": [
+          "Dili tanan kurso naay internship, depende sa curriculum."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "internship_requirement"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "campus_transfer",
+    "category": "Academic Policies",
+    "sub_category": "course_change",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, transferring to another campus is possible, subject to campus policies and approval."
+        ],
+        "ceb": [
+          "Oo, depende sa policy ug approval sa campus."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "campus_transfer"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "deans_list",
+    "category": "Academic Policies",
+    "sub_category": "academic_recognition",
+    "responses": {
+      "answer": {
+        "en": [
+          "The dean’s list recognizes students with excellent academic performance."
+        ],
+        "ceb": [
+          "Ang dean’s list para sa students nga taas ug grado."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "deans_list"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "academic_probation",
+    "category": "Academic Policies",
+    "sub_category": "academic_standing",
+    "responses": {
+      "answer": {
+        "en": [
+          "Academic probation is given to students with low academic performance."
+        ],
+        "ceb": [
+          "Ang academic probation ihatag sa students nga ubos ug performance."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "academic_probation"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "attendance_requirement",
+    "category": "Academic Policies",
+    "sub_category": "curriculum",
+    "responses": {
+      "answer": {
+        "en": [
+          "Regular attendance is required and strictly recorded.",
+          "If you need to be absent, you must provide a valid reason and supporting documentation for approval.",
+          "Please remember that accumulating 7 absences will result in an FDA (Failure Due to Absences)."
+        ],
+        "ceb": [
+          "Oo, kinahanglan gyud ang regular nga pag-attend ug strictly kining ginarecord.",
+          "Kung kinahanglan ka mag-absent, kinahanglan maghatag ka ug valid nga rason ug supporting documents para ma-approve.",
+          "Timan-i nga kung maka-accumulate ka ug 7 ka absences, moresulta kini sa FDA (Failure Due to Absences)."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "attendance_requirement"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "add_drop_subject",
+    "category": "Academic Policies",
+    "sub_category": "subject_management",
+    "responses": {
+      "answer": {
+        "en": [
+          "You may add or drop subjects during the official add/drop period at the Registrar's Office.",
+          "To help you find your way, I have provided a map you can use to navigate to the office."
+        ],
+        "ceb": [
+          "Pwede ka makadugang o makatangtang ug subject sulod sa official add/drop period sa Registrar’s Office.",
+          "Aron mas sayon nimo makita ang lugar, naghatag ko ug mapa nga pwede nimo gamiton padulong sa opisina."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "add_drop_subject"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "request_cor",
+    "category": "Academic Policies",
+    "sub_category": "document_request",
+    "responses": {
+      "answer": {
+        "en": [
+          "You can obtain your Certificate of Enrollment (COR) through the BukSU Admission Portal.",
+          "Once your enrollment is complete, your COR is automatically generated.",
+          "You may then download and print it to proceed with the validation process."
+        ],
+        "ceb": [
+          "Makakuha nimo ang imong Certificate of Enrollment (COR) pinaagi sa BukSU Admission Portal.",
+          "Kung mahuman na ang imong enrollment, automatic nga ma-generate ang imong COR.",
+          "Pwede na nimo kini i-download ug i-print para magpadayon sa validation process."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "request_cor"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "inactive_group_member",
+    "category": "Student Concerns",
+    "sub_category": "group_work",
+    "responses": {
+      "answer": {
+        "en": [
+          "If a group member becomes inactive, it is best to inform your instructor about the situation as early as possible."
+        ],
+        "ceb": [
+          "Kung naay inactive nga group member, mas maayo nga i-inform dayon ang instructor sa sitwasyon."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "inactive_group_member"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentConcernsData"
+    }
+  },
+  {
+    "intent": "student_stress_support",
+    "category": "Student Wellness",
+    "sub_category": "mental_health",
+    "responses": {
+      "answer": {
+        "en": [
+          "If you are feeling stressed or overwhelmed, consider seeking help from your advisers, counselors, or trusted university staff."
+        ],
+        "ceb": [
+          "Kung gibati nimo nga stressed o overwhelmed ka, mangayo ug tabang sa adviser, counselor, o kasaligan nga staff sa unibersidad."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "student_stress_support"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentWellnessData"
+    }
+  },
+  {
+    "intent": "submit_assignments_online",
+    "category": "Academic Policies",
+    "sub_category": "coursework",
+    "responses": {
+      "answer": {
+        "en": [
+          "Assignments may be submitted via email or through platforms like Google Classroom, depending on your instructor's preference. To submit via Google Classroom:",
+          "1. Open the specific subject with the pending assignment.",
+          "2. If you can’t find it, tap the Menu (three lines) on the top left and select 'To-do.'",
+          "3. Select the assignment, attach your file, and click 'Turn in.",
+          "4. Once the status changes to 'Turned in,' your submission is complete."
+        ],
+        "ceb": [
+          "Ang mga assignment pwede ipasa pinaagi sa email o sa mga platform sama sa Google Classroom, depende sa gusto sa inyong instructor. Para mopasa gamit ang Google Classroom:",
+          "1. Ablihi ang specific nga subject nga naay pending nga assignment.",
+          "2. Kung dili nimo makita, i-tap ang Menu (tulo ka linya) sa ibabaw nga wala ug pilia ang 'To-do'.",
+          "3. Pilia ang assignment, i-attach ang imong file, ug i-click ang 'Turn in'.",
+          "4. Kung mausab na ang status ngadto sa 'Turned in', kumpleto na ang imong submission."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "submit_assignments_online"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "phone_use_in_class",
+    "category": "Academic Policies",
+    "sub_category": "classroom_rules",
+    "responses": {
+      "answer": {
+        "en": [
+          "The use of mobile phones during class depends on the classroom rules set by the instructor."
+        ],
+        "ceb": [
+          "Ang paggamit sa cellphone sulod sa klase depende sa classroom rules nga gi-set sa instructor."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "phone_use_in_class"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "subject_overload",
+    "category": "Academic Policies",
+    "sub_category": "enrollment_load",
+    "responses": {
+      "answer": {
+        "en": [
+          "Overload refers to taking more subjects than the regular academic load."
+        ],
+        "ceb": [
+          "Ang overload kay pagkuha ug mas daghang subjects kaysa sa normal nga academic load."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "subject_overload"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "class_concerns",
+    "category": "Academic Concerns",
+    "sub_category": "class_management",
+    "responses": {
+      "answer": {
+        "en": [
+          "For class-related concerns, you should talk to your instructor first."
+        ],
+        "ceb": [
+          "Para sa mga concern sa klase, makigstorya una sa imong instructor."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "class_concerns"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicConcernsData"
+    }
+  },
+  {
+    "intent": "freshmen_intramurals",
+    "category": "Student Life",
+    "sub_category": "sports",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, freshmen are allowed to participate in intramurals."
+        ],
+        "ceb": [
+          "Oo, pwede moapil ang freshmen sa intramurals."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "freshmen_intramurals"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentLifeData"
+    }
+  },
+  {
+    "intent": "about_intramurals",
+    "category": "Student Life",
+    "sub_category": "sports",
+    "responses": {
+      "answer": {
+        "en": [
+          "Intramurals are sports competitions held within the university."
+        ],
+        "ceb": [
+          "Ang intramurals kay sports competition sulod sa unibersidad."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "about_intramurals"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentLifeData"
+    }
+  },
+  {
+    "intent": "end_of_semester",
+    "category": "Academic Calendar",
+    "sub_category": "semester_process",
+    "responses": {
+      "answer": {
+        "en": [
+          "At the end of the semester, final examinations are conducted, grades are submitted, and clearance processing takes place."
+        ],
+        "ceb": [
+          "Sa katapusan sa semester, naay final exams, pag-submit sa grades, ug clearance processing."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "end_of_semester"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicCalendarData"
+    }
+  },
+  {
+    "intent": "minor_subject",
+    "category": "Academic Policies",
+    "sub_category": "curriculum",
+    "responses": {
+      "answer": {
+        "en": [
+          "A minor subject supports your major field of study and helps build general knowledge."
+        ],
+        "ceb": [
+          "Ang minor subject kay support sa imong major ug naghatag ug dugang kahibalo."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "minor_subject"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "access_grades",
+    "category": "Academic Records",
+    "sub_category": "grades",
+    "responses": {
+      "answer": {
+        "en": [
+          "Grades can be viewed once they are officially released.",
+          "However, your previous grades remain accessible anytime through the SIAS portal."
+        ],
+        "ceb": [
+          "Makita ang grades kung officially released na.",
+          "Apan ang imong previous grades pwede gihapon ma-access anytime pinaagi sa SIAS portal."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "access_grades"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicRecordsData"
+    }
+  },
+  {
+    "intent": "senior_academic_overload",
+    "category": "Academic Policies",
+    "sub_category": "enrollment_load",
+    "responses": {
+      "answer": {
+        "en": [
+          "Academic overload for seniors allows graduating students to take additional subjects in order to complete their program on time."
+        ],
+        "ceb": [
+          "Ang overload para sa seniors kay pagkuha ug extra subjects aron makagraduate dayon."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "senior_academic_overload"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "board_exam_review",
+    "category": "Academic Support",
+    "sub_category": "licensure_preparation",
+    "responses": {
+      "answer": {
+        "en": [
+          "Some colleges offer board examination review programs or support sessions for students."
+        ],
+        "ceb": [
+          "Ang ubang mga college naghatag ug review programs o support sessions para sa board exam."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "board_exam_review"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicSupportData"
+    }
+  },
+  {
+    "intent": "eating_in_classroom",
+    "category": "Academic Policies",
+    "sub_category": "classroom_rules",
+    "responses": {
+      "answer": {
+        "en": [
+          "Eating inside classrooms depends on the rules set by the instructor."
+        ],
+        "ceb": [
+          "Ang pagkaon sulod sa classroom depende sa rules sa instructor."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "eating_in_classroom"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPoliciesData"
+    }
+  },
+  {
+    "intent": "licensure_examination",
+    "category": "Academic Information",
+    "sub_category": "professional_exams",
+    "responses": {
+      "answer": {
+        "en": [
+          "A licensure examination is a national exam required to legally practice certain professions."
+        ],
+        "ceb": [
+          "Ang licensure examination kay national exam nga gikinahanglan para makapraktis sa pipila ka profession."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "licensure_examination"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicInformationData"
+    }
+  },
+  {
+    "intent": "mock_board_exam",
+    "category": "Academic Support",
+    "sub_category": "licensure_preparation",
+    "responses": {
+      "answer": {
+        "en": [
+          "A mock board exam is a practice examination designed to prepare students for the actual licensure examination."
+        ],
+        "ceb": [
+          "Ang mock board exam kay practice exam nga gituyo aron andamon ang mga estudyante para sa tinuod nga board exam."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "mock_board_exam"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicSupportData"
+    }
+  },
+  {
+    "intent": "on_the_job_training",
+    "category": "Academic Programs",
+    "sub_category": "internship_training",
+    "responses": {
+      "answer": {
+        "en": [
+          "On-the-job training (OJT) provides students with real-world work experience related to their course."
+        ],
+        "ceb": [
+          "Ang on-the-job training (OJT) naghatag ug real-world nga work experience nga konektado sa imong kurso."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "on_the_job_training"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicProgramsData"
+    }
   }
+
 ]

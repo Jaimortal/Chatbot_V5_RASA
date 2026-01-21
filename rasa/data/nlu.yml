@@ -37,8 +37,6 @@ nlu:
     - Ang ICT ba ang nag manage sa AV equipment sa BukSU
     - Unsay ginahandle sa ICT SU sa teknolohiya sa BukSU
 
-
-
 - intent: get_wifi_access
   examples: |
     - How can I get wifi access on campus
@@ -775,3 +773,1459 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+
+- intent: transferee_enrollment
+  examples: |
+    - I want to know if a student transferring from another school can enroll at Bukidnon State University
+    - Can you explain the enrollment process for transferee students coming from another institution
+    - I am planning to transfer to BukSU and I want to understand the transferee enrollment policy
+    - Please explain how enrollment works for students who are transferring from public schools
+    - I would like to ask about the requirements for transferee enrollment at Bukidnon State University
+    - How does BukSU handle enrollment for students transferring from private schools
+    - I want to know if subjects taken from my previous school will be credited as a transferee
+    - Can a transferee student enroll even if the subjects may not be credited
+    - What happens during enrollment if I transfer from a private college to BukSU
+    - I am a transferee and I want to know if I need to repeat first year subjects
+    - Please clarify the rules for transferee enrollment especially for private school students
+    - I want information about academic record evaluation for transferee enrollment
+    - How long does the transferee enrollment process usually take at BukSU
+    - I am transferring from another university and I want to know what to expect during enrollment
+    - Can you provide details about transferee enrollment evaluation and subject crediting
+    - Gusto ko mahibal an kung pwede ba maka enroll ang estudyante nga mobalhin gikan sa lain nga eskwelahan
+    - Palihog ipasabut ang proseso sa enrollment para sa mga transferee nga estudyante
+    - Nagplano ko nga mobalhin sa BukSU ug gusto ko masabtan ang balaod sa transferee enrollment
+    - Unsaon pag enroll sa BukSU kung ang estudyante gikan sa public school
+    - Gusto ko mangutana bahin sa mga kinahanglanon para sa transferee enrollment sa BukSU
+    - Unsa ang proseso sa enrollment kung ang transferee gikan sa private school
+    - Gusto ko mahibal an kung ma credit ba ang mga subject nga nakuha na sa previous school
+    - Pwede ba maka enroll ang transferee bisan kung dili ma credit ang mga subject
+    - Unsa ang mahitabo sa enrollment kung gikan ko sa private college ug mobalhin sa BukSU
+    - Usa ko ka transferee ug gusto ko mahibal an kung kinahanglan ba nako balikon ang first year subjects
+    - Palihog ipatin aw ang mga lagda sa transferee enrollment labi na para sa private schools
+    - Gusto ko og impormasyon bahin sa evaluation sa academic records sa transferee
+    - Pila ka dugay ang proseso sa transferee enrollment sa Bukidnon State University
+    - Mobalhin ko gikan sa lain nga unibersidad ug gusto ko mahibal an unsay akong paaboton
+    - Pwede ba ko hatagan og detalye bahin sa transferee enrollment ug subject evaluation
+
+- intent: student_fees
+  examples: |
+    - I want to know what fees students are required to pay at Bukidnon State University
+    - Can you explain the different student fees aside from tuition at BukSU
+    - Are there any fees that students need to pay even if tuition is free
+    - I would like information about laboratory and miscellaneous fees for students
+    - What are the required fees that enrolled students must settle at BukSU
+    - Please explain if students still pay fees even with free tuition
+    - I want to ask about ID fees and other student related charges
+    - Can you clarify what student fees are collected during enrollment
+    - Are laboratory fees required for all courses at Bukidnon State University
+    - I want to know if some courses have additional fees for equipment or materials
+    - What kind of fees should students prepare for during the semester
+    - Please tell me if textbooks and laboratory materials have additional costs
+    - I am asking about student payments for laboratories and school services
+    - Can you explain what miscellaneous fees cover for students
+    - I want full details about student fees required by the university
+    - Gusto ko mahibal an unsang mga bayranan ang gikinahanglan sa mga estudyante sa BukSU
+    - Palihog ipasabut ang lain laing student fees gawas sa tuition
+    - Naa bay bayranan ang estudyante bisan libre ang tuition
+    - Gusto ko og impormasyon bahin sa laboratory ug miscellaneous fees
+    - Unsa ang mga bayranan nga kinahanglan bayran sa mga enrolled nga estudyante
+    - Palihog ipatin aw kung naa bay fees bisan walay tuition
+    - Mangutana ko bahin sa bayad sa student ID ug uban pang bayranan
+    - Unsa ang mga student fees nga ginakolekta panahon sa enrollment
+    - Kinahanglan ba magbayad og laboratory fees ang tanang kurso
+    - Gusto ko mahibal an kung naa bay dugang bayranan para sa equipment ug materials
+    - Unsa nga mga bayranan ang angay andamon sa estudyante matag semester
+    - Palihog ipasabut kung naa bay bayad ang libro ug laboratory materials
+    - Nangutana ko bahin sa bayranan para sa laboratory ug school services
+    - Unsa ang ginatabunan sa miscellaneous fees sa mga estudyante
+    - Gusto ko og kumpletong detalye bahin sa student fees sa unibersidad
+
+- intent: student_organizations
+  examples: |
+    - I want to ask if freshmen students are allowed to join student organizations at Bukidnon State University
+    - Can first year college students participate in recognized student organizations
+    - Are new students permitted to become members of BukSU student organizations
+    - I would like to know if freshmen can already join student organizations
+    - Is it allowed for first year students to apply for student organizations at BukSU
+    - Can incoming freshmen students join official student organizations
+    - I am asking if first year students are eligible to join student organizations
+    - Are freshmen students allowed to participate in student organizations at the university
+    - I want information about freshmen membership in BukSU student organizations
+    - Can newly enrolled students join recognized student organizations
+    - Are student organizations open to freshmen students at Bukidnon State University
+    - Is there any restriction for freshmen joining student organizations
+    - I want to confirm if first year students can join campus organizations
+    - Are freshmen encouraged to join student organizations at BukSU
+    - Can first year college students become members of student organizations
+    - Gusto ko mangutana kung pwede ba moapil ang mga freshmen sa student organizations sa BukSU
+    - Pwede ba moapil ang mga first year students sa giila nga student organizations
+    - Gusto ko mahibal an kung gitugotan ba ang mga bag ong estudyante nga moapil og organizations
+    - Pwede ba ang freshmen nga mahimong miyembro sa student organizations
+    - Mangutana ko kung allowed ba ang first year students sa student organizations sa unibersidad
+    - Gitugotan ba ang mga bagong enroll nga estudyante nga moapil sa student organizations
+    - Gusto ko ipatin aw kung pwede moapil ang freshmen sa BukSU student organizations
+    - Pwede ba moapil ang first year college students sa mga organization sa campus
+    - Naa bay limitasyon para sa freshmen nga gusto moapil sa student organizations
+    - Mangutana ko kung open ba ang student organizations para sa freshmen
+    - Pwede ba moapil ang first year students sa mga giila nga organization sa BukSU
+    - Gusto ko mahibal an kung ginadawat ba ang freshmen sa student organizations
+    - Allowed ba ang mga freshmen nga moapil sa mga student organizations sa unibersidad
+    - Pwede ba ang bag ong estudyante nga moapil og campus organizations
+    - Gusto ko mangutana kung pwede na ba dayon moapil ang freshmen sa student organizations
+
+- intent: about_nstp
+  examples: |
+    - What is the National Service Training Program at Bukidnon State University
+    - Can you explain the purpose of the [NSTP] program for students
+    - I want to know about the [National Service Training Program] at BukSU
+    - Tell me the role of the [NSTP] for college students
+    - What does the [NSTP] program involve for BukSU students
+    - How does [NSTP] work for first year students
+    - I am asking about the requirements of the [NSTP] program
+    - Can you describe what the [National Service Training Program] is
+    - What is expected of students who enroll in [NSTP]
+    - I would like to understand the objectives of [NSTP] at BukSU
+    - How is the [NSTP] program implemented in the university
+    - Are all students required to join [NSTP] at BukSU
+    - Explain the purpose and activities of the [NSTP] program
+    - What kind of civic duties are included in [NSTP]
+    - Can you provide details about the [NSTP] program for students
+    - Unsa ang [NSTP] program sa Bukidnon State University
+    - Gusto ko mahibal an unsay purpose sa [National Service Training Program] para sa mga estudyante
+    - Palihug ipasabot unsa ang [NSTP] sa BukSU
+    - Unsa ang mga buluhaton sa [NSTP] para sa mga college students
+    - Gusto ko mahibal an unsay ginahimo sa [NSTP] program
+    - Giunsa pag-implementar ang [NSTP] sa BukSU
+    - Kinahanglan ba ang tanan estudyante moapil sa [NSTP]
+    - Ipasabot palihug ang mga requirements sa [NSTP] program
+    - Unsa ang mga responsibilidad sa mga estudyante sa [NSTP]
+    - Gusto ko masabtan ang tumong sa [NSTP] sa BukSU
+    - Unsaon pag-apil sa [National Service Training Program] sa BukSU
+    - Palihug ipasabot ang mga civic duties nga apil sa [NSTP]
+    - Unsa ang gipasabot sa [NSTP] para sa mga freshmen students
+    - Gusto ko mahibal an ang kalihokan ug buluhaton sa [NSTP]
+    - Unsa ang role sa [NSTP] program sa kinatibuk-an sa BukSU
+
+
+- intent: about_pe
+  examples: |
+    - Is [Physical Education] part of the curriculum at Bukidnon State University
+    - Can you explain the role of [PE] in BukSU academic programs
+    - I want to know if [Physical Education] is required for students
+    - Tell me if [PE] is included in the general education curriculum
+    - Are all students required to take [Physical Education] at BukSU
+    - How does [PE] fit into the BukSU general curriculum
+    - What are the benefits of taking [Physical Education] for students
+    - I am asking about the [PE] classes at Bukidnon State University
+    - Is [PE] considered a core subject at BukSU
+    - Can you describe the [Physical Education] program at BukSU
+    - Do students get credit for [PE] courses at BukSU
+    - How many [PE] units are included in the curriculum
+    - Is [PE] mandatory for freshmen students
+    - Explain the importance of [Physical Education] at BukSU
+    - What activities are part of the [PE] curriculum for students
+    - Apil ba ang [Physical Education] sa kurikulum sa BukSU
+    - Gusto ko masayran kung kinahanglan ba ang [PE] sa BukSU
+    - Palihug ipasabot unsa ang role sa [PE] sa academic programs
+    - Kinahanglan ba tanan estudyante moapil sa [Physical Education]
+    - Asa giapil ang [PE] sa general curriculum sa BukSU
+    - Unsa ang purpose sa [PE] para sa mga estudyante
+    - Giunsa pag-implementar ang [Physical Education] sa BukSU
+    - Ang [PE] ba usa ka core subject sa BukSU
+    - Ipasabot palihug ang [Physical Education] program sa BukSU
+    - Giunsa pagkuha ug credit ang [PE] courses sa BukSU
+    - Pila ka units ang apil sa [PE] sa curriculum
+    - Kinahanglan ba ang [PE] para sa mga first-year students
+    - Palihug ipasabot ang kahinungdanon sa [Physical Education] sa BukSU
+    - Unsa ang mga kalihokan nga apil sa [PE] curriculum
+    - Gusto ko masayran unsa ang kalihokan sa [PE] classes sa BukSU
+
+- intent: failed_subject_policy
+  examples: |
+    - What happens if I fail a [subject] for the first time at BukSU
+    - Can I retake a [subject] if I failed it once
+    - Explain the policy for failing a [course] at Bukidnon State University
+    - I want to know the consequences of failing a [subject] multiple times
+    - How many times can I retake a [subject] before serious consequences occur
+    - What are the rules for repeating a [subject] at BukSU
+    - Tell me about the academic policy regarding failed [courses]
+    - Are there limits to how many times I can fail a [subject]
+    - Can failing a [subject] more than once affect my enrollment status
+    - What guidance does BukSU provide for students who fail a [subject]
+    - Is there a maximum number of attempts for a [course] at BukSU
+    - What happens if I fail a [subject] three times
+    - How does failing a [subject] impact my academic record
+    - Can I consult my faculty about retaking a failed [subject]
+    - What are the consequences of repeatedly failing a [subject] at BukSU
+    - Unsay mahitabo kung mabagsak ko sa [subject] sa unang higayon sa BukSU
+    - Pwede ba nako kuhaon balik ang [subject] kung nabagsak nako kini
+    - Palihug ipasabot ang polisiya sa BukSU kung mabagsak ka sa [course]
+    - Gusto ko masayran ang epekto sa pagbagsak og [subject] daghang beses
+    - Pila ka beses pwede nako kuhaon balik ang [subject] sa BukSU
+    - Unsa ang mga lagda sa pagbalik og [subject] sa BukSU
+    - I-explain ang academic policy bahin sa nabagsak nga [courses]
+    - Aduna bay limit sa pila ka beses pwede mabagsak ang usa ka [subject]
+    - Mahimo ba nga makaapekto sa enrollment kung mabagsak ang [subject] daghan nga beses
+    - Asa ko makapangayo og tabang kung nabagsak ko sa [subject]
+    - Aduna bay maximum attempts sa [course] sa BukSU
+    - Unsay mahitabo kung mabagsak ko sa [subject] tulo ka beses
+    - Giunsa pag-apekto sa akong academic record ang pagbagsak sa [subject]
+    - Pwede ba nako konsultan ang faculty bahin sa pagkuha balik sa nabagsak nga [subject]
+    - Unsay resulta kung sige kog bagsak sa [subject] sa BukSU
+
+- intent: course_shifting
+  examples: |
+    - Can I shift from my current [course] to another [course] at BukSU
+    - I want to change my [program] and I want to know the rules at Bukidnon State University
+    - Explain how course shifting works for first year students at BukSU
+    - Are there any restrictions when I shift from one [course] to another
+    - How many [subjects] are usually credited when shifting courses
+    - Can I retain the credits of my minor [subjects] if I change program
+    - Is it possible to shift my [course] after first year at BukSU
+    - What is the policy for course shifting and crediting of [subjects]
+    - How does BukSU handle course shifting requests for students
+    - I want to transfer from my current [program] to a new [program]
+    - Tell me about the steps to shift [course] at BukSU
+    - Are major [subjects] usually credited when shifting courses
+    - Who should I contact for guidance about shifting my [course]
+    - Can I still graduate on time if I shift [course] after first year
+    - Are there conditions I must meet before shifting my [program]
+    - Pwede ba ko mag-shift gikan sa akong current nga [course] ngadto sa laing [course] sa BukSU
+    - Gusto nako ilisan ang akong [program] ug gusto ko masayran ang rules sa Bukidnon State University
+    - Palihug ipasabot unsaon pag-shift og [course] sa mga first year students sa BukSU
+    - Aduna bay restrictions kung mo-shift ko gikan sa usa ka [course] ngadto sa lain
+    - Pila ka [subjects] kasagaran ma-credit kung mo-shift og course
+    - Pwede ba ma-retain ang credits sa akong minor nga [subjects] kung mo-shift ko
+    - Posible ba nga mo-shift sa akong [course] human sa first year sa BukSU
+    - Unsay polisiya sa BukSU bahin sa course shifting ug pag-credit sa [subjects]
+    - Giunsa pag-handle sa BukSU ang mga course shifting requests sa estudyante
+    - Gusto nako mo-transfer gikan sa akong current nga [program] ngadto sa bag-ong [program]
+    - I-explain unsaon pag-shift og [course] sa BukSU
+    - Kasagaran ba nga ma-credit ang major nga [subjects] kung mo-shift og course
+    - Kinsa ang akong kontakon para sa guidance bahin sa pag-shift sa [course]
+    - Pwede pa ba ko makagraduate on time kung mo-shift ko sa [course] human sa first year
+    - Aduna bay conditions nga kinahanglan matuman sa dili pa ko mo-shift sa [program]
+
+- intent: campus_safety
+  examples: |
+    - Is there campus security at BukSU to ensure student safety
+    - How does Bukidnon State University provide safety for students on campus
+    - Are there security personnel patrolling BukSU grounds
+    - Who is responsible for maintaining safety at the BukSU campus
+    - Can students report safety concerns to campus security
+    - What measures does BukSU take to keep the campus safe
+    - Are emergency services available on campus for students
+    - Is there a security hotline for students at BukSU
+    - How does BukSU handle incidents involving student safety
+    - Are there security guards during class hours at BukSU
+    - Does BukSU have CCTV cameras to monitor campus safety
+    - Can students request assistance from campus security if needed
+    - How often do security personnel patrol the university grounds
+    - Are there safety protocols in place for students at BukSU
+    - How does BukSU respond to emergencies affecting student safety
+    - Aduna ba campus security sa BukSU aron masiguro ang kaluwasan sa mga estudyante
+    - Giunsa pagpanalipod sa Bukidnon State University ang mga estudyante sa campus
+    - Aduna ba mga security personnel nga nagbantay sa grounds sa BukSU
+    - Kinsa ang responsable sa pagmintinar sa kaluwasan sa BukSU campus
+    - Pwede ba mag-report ang mga estudyante og safety concerns sa campus security
+    - Unsang mga lakang ang gibuhat sa BukSU aron luwas ang campus
+    - Aduna ba emergency services nga magamit sa campus alang sa mga estudyante
+    - Aduna ba security hotline para sa mga estudyante sa BukSU
+    - Giunsa pag-handle sa BukSU ang mga insidente nga may kalabotan sa kaluwasan sa estudyante
+    - Aduna ba mga security guards sa panahon sa klase sa BukSU
+    - Aduna ba CCTV cameras sa BukSU aron bantayan ang kaluwasan sa campus
+    - Pwede ba mangayo og tabang ang estudyante gikan sa campus security kung kinahanglan
+    - Kanus-a kasagaran nagpatrol ang mga security personnel sa unibersidad
+    - Aduna bay safety protocols alang sa mga estudyante sa BukSU
+    - Giunsa pagresponde sa BukSU sa mga emerhensiya nga makaapekto sa kaluwasan sa estudyante
+
+- intent: lost_on_campus
+  examples: |
+    - What should I do if I get lost on campus
+    - I cannot find my way around BukSU what can I do
+    - How do I locate buildings if I am lost on campus
+    - Can you help me find my way at Bukidnon State University
+    - I am lost on campus where can I go for directions
+    - Is there someone I can ask if I get lost at BukSU
+    - Who can guide me if I do not know where to go on campus
+    - Can you provide directions if I am lost at BukSU
+    - How do I find a classroom if I am unfamiliar with the campus
+    - Are there maps to help me navigate BukSU campus
+    - Can I ask other students for help if I am lost
+    - I need to reach a building but I am lost on campus
+    - Can I contact security or staff when I am lost on campus
+    - How can I avoid getting lost at BukSU
+    - What resources are available if I am lost on campus
+    - Unsa akong buhaton kung maligaw ko sa campus
+    - Dili nako makita ang akong agianan sa BukSU unsaon nako
+    - Giunsa nako pagpangita sa mga building kung maligaw ko sa campus
+    - Pwede ba nimo ko tabangan pagpangita sa akong agianan sa Bukidnon State University
+    - Naligaw ko sa campus asa ko pwede mangutana sa direksyon
+    - Aduna ba tawo nga makatabang nako kung maligaw ko sa BukSU
+    - Kinsa ang makagiyahan nako kung dili ko kabalo asa moadto sa campus
+    - Pwede ba nimo ko hatagan og direksyon kung maligaw ko sa BukSU
+    - Giunsa nako pagpangita sa classroom kung bag-o pa ko sa campus
+    - Aduna bay mapa nga makatabang nako sa pag-navigate sa BukSU campus
+    - Pwede ba ko mangutana sa ubang estudyante kung naligaw ko
+    - Kinahanglan nako moabot sa usa ka building apan naligaw ko sa campus
+    - Pwede ba ko makontak sa security o staff kung naligaw ko sa campus
+    - Giunsa nako malikayan nga maligaw sa BukSU
+    - Unsang mga kapanguhaan ang magamit kung naligaw ko sa campus
+
+- intent: access_sias
+  examples: |
+    - How can I access my BukSU SIAS account
+    - I want to log in to the BukSU SIAS portal how do I start
+    - Where can I find the SIAS portal for Bukidnon State University
+    - I forgot how to access my BukSU SIAS account can you guide me
+    - Can you explain the steps to access the BukSU SIAS portal
+    - How do I use my credentials to log in to the SIAS portal
+    - I need instructions on accessing my SIAS account at BukSU
+    - What is the link to access the BukSU SIAS portal
+    - I cannot remember my login details for the BukSU SIAS portal
+    - How do I recover or access my SIAS account
+    - Can you show me how to find my BukSU SIAS account on the admission website
+    - I am trying to access BukSU SIAS but I do not know where to go
+    - How do I navigate to the SIAS portal for students at BukSU
+    - What should I do to access my account on BukSU SIAS
+    - How do I enter my credentials to log in to the SIAS system
+    - Giunsa nako pag-access sa akong BukSU SIAS account
+    - Gusto nako mag-log in sa BukSU SIAS portal unsaon nako
+    - Asa nako makita ang SIAS portal sa Bukidnon State University
+    - Nakalimot ko unsaon pag-access sa akong BukSU SIAS account pwede nimo ko giya
+    - Pwede ba nimo ipakita ang mga lakang aron ma-access ang BukSU SIAS portal
+    - Giunsa nako paggamit sa akong credentials aron makasulod sa SIAS portal
+    - Kinahanglan nako og instructions sa pag-access sa akong SIAS account sa BukSU
+    - Unsay link aron ma-access ang BukSU SIAS portal
+    - Dili nako mahinumduman ang akong login details sa BukSU SIAS portal
+    - Giunsa nako pag-recover o pag-access sa akong SIAS account
+    - Pwede ba nimo ipakita unsaon nako pagpangita sa akong BukSU SIAS account sa admission website
+    - Nag-try ko og access sa BukSU SIAS apan wala ko kabalo asa moadto
+    - Giunsa nako pag-navigate sa SIAS portal para sa mga estudyante sa BukSU
+    - Unsay buhaton aron ma-access ang akong account sa BukSU SIAS
+    - Giunsa nako pagsulod sa akong credentials aron makalog in sa SIAS system
+
+- intent: peer_mentoring
+  examples: |
+    - Does BukSU offer peer mentoring for students
+    - Are there peer mentoring programs for freshmen or lower-year students
+    - I want to know if I can have a peer mentor at BukSU
+    - Can upper-year students mentor lower-year students
+    - Are there programs where older students guide newer students
+    - Does BukSU have peer mentoring initiatives
+    - How can I participate in peer mentoring at BukSU
+    - Are peer mentoring programs available for first-year students
+    - Can I be assigned a peer mentor if I am a new student
+    - Who provides guidance through peer mentoring programs
+    - Is peer mentoring organized by specific programs at BukSU
+    - Can peer mentoring help me adjust to university life
+    - Are there upper-year students available to mentor freshmen
+    - How do peer mentoring programs work at BukSU
+    - Are mentoring opportunities offered for students who need guidance
+    - Naay peer mentoring sa BukSU para sa mga estudyante
+    - Aduna bay peer mentoring programs para sa freshmen o lower-year students
+    - Gusto nako mahibalo kung pwede ko og peer mentor sa BukSU
+    - Makamentor ba ang upper-year students sa lower-year students
+    - Naay mga programa nga ang mga senior students motabang sa bag-ong students
+    - Aduna ba peer mentoring initiatives sa BukSU
+    - Giunsa nako pag-apil sa peer mentoring sa BukSU
+    - Naay peer mentoring programs para sa first-year students
+    - Pwede ko ma-assign og peer mentor kung bag-o pa ko nga estudyante
+    - Kinsa ang mohatag og guidance pinaagi sa peer mentoring programs
+    - Gi-organize ba ang peer mentoring sa specific programs sa BukSU
+    - Makapahimo ba og peer mentoring aron mas dali ko maka-adjust sa university life
+    - Naay upper-year students nga available aron mag-mentor sa freshmen
+    - Giunsa pagtrabaho ang peer mentoring programs sa BukSU
+    - Gi-offer ba ang mentoring opportunities para sa estudyante nga nanginahanglan og guidance
+
+- intent: graduation_attendance
+  examples: |
+    - Can parents attend the graduation ceremony
+    - Are guests allowed to join the graduation
+    - I want to know if family members can come to graduation
+    - Is it permitted for parents to watch the graduation
+    - Can I bring relatives to the graduation program
+    - Are visitors allowed during graduation ceremonies
+    - How many guests can attend graduation
+    - Can alumni attend the graduation of current students
+    - Are friends allowed to attend the graduation
+    - Can I invite my parents to the graduation event
+    - Are external guests permitted at graduation
+    - Who can attend the graduation ceremonies
+    - Is there a limit on the number of attendees for graduation
+    - Can the parents watch the graduation online or on-site
+    - Are non-students allowed to be present during graduation
+    - Pwede ba mo-attend ang mga ginikanan sa graduation ceremony
+    - Ang mga bisita ba puwede moapil sa graduation
+    - Gusto nako mahibalo kung pwede ang family members moanhi sa graduation
+    - Gi-permit ba nga motan-aw ang ginikanan sa graduation
+    - Pwede ba ko magdala og paryente sa graduation program
+    - Ang mga visitor ba allowed sa graduation ceremonies
+    - Pila ka bisita ang pwede mo-attend sa graduation
+    - Pwede ba ang alumni mo-apil sa graduation sa current students
+    - Ang mga higala ba allowed moapil sa graduation
+    - Pwede ba nako imbitahon ang akong ginikanan sa graduation event
+    - Gi-permit ba ang external guests sa graduation
+    - Kinsa ang pwede mo-attend sa graduation ceremonies
+    - Aduna bay limit sa number of attendees sa graduation
+    - Pwede ba motan-aw ang ginikanan online o on-site sa graduation
+    - Ang mga non-students ba pwede mo-apil sa graduation
+
+- intent: graduation_rehearsal_attendance
+  examples: |
+    - Is it required to attend the graduation rehearsal
+    - Do students need to be present during graduation rehearsal
+    - Must I go to the graduation rehearsal
+    - Is graduation rehearsal attendance mandatory
+    - Are students allowed to skip the rehearsal
+    - Can I miss the graduation rehearsal
+    - Do all graduates need to attend the rehearsal
+    - Are rehearsal sessions compulsory for graduating students
+    - What happens if I am absent during the graduation rehearsal
+    - Should parents attend the rehearsal
+    - Is attendance at rehearsal necessary for graduation
+    - Do I need to participate in the rehearsal before graduation
+    - Can someone else attend the rehearsal on my behalf
+    - Are there consequences if a student misses rehearsal
+    - How important is the graduation rehearsal attendance
+    - Kinahanglan ba mo-attend sa graduation rehearsal
+    - Kailangan ba ang estudyante mo-apil sa rehearsal
+    - Obligado ba ko moadto sa graduation rehearsal
+    - Mandatory ba ang attendance sa rehearsal
+    - Pwede ba skipon sa estudyante ang rehearsal
+    - Pwede ba ko dili moapil sa graduation rehearsal
+    - Kinahanglan ba tanan graduates moapil sa rehearsal
+    - Required ba ang rehearsal session para sa mga graduates
+    - Unsay mahitabo kung absent ko sa graduation rehearsal
+    - Pwede ba moapil ang ginikanan sa rehearsal
+    - Kinahanglan ba moapil sa rehearsal para maka-graduate
+    - Kailangan ba nako mo-participate sa rehearsal before graduation
+    - Pwede ba ang lain moapil sa rehearsal para nako
+    - Aduna bay consequences kung wala moapil ang estudyante sa rehearsal
+    - Unsa ka importante ang attendance sa graduation rehearsal
+
+
+- intent: tracer_study
+  examples: |
+    - What is a tracer study
+    - Can you explain what a tracer study is
+    - I want to know about tracer studies
+    - What does a tracer study track
+    - How is a tracer study conducted
+    - Is tracer study required for graduates
+    - Do all alumni need to participate in tracer studies
+    - Why is tracer study important
+    - What information is collected in a tracer study
+    - Can tracer study help track employment of graduates
+    - How often is a tracer study done
+    - Who is responsible for conducting the tracer study
+    - Are tracer studies mandatory
+    - What is the purpose of a tracer study
+    - How can I participate in a tracer study
+    - Unsa man ang tracer study
+    - Pwede nimo i-explain unsa ang tracer study
+    - Gusto nako makabalo bahin sa tracer study
+    - Unsay gi-track sa tracer study
+    - Giunsa pag-conduct ang tracer study
+    - Required ba ang tracer study para sa mga graduate
+    - Kinahanglan ba tanan alumni moapil sa tracer study
+    - Ngano importante ang tracer study
+    - Unsang impormasyon ang gina-kuha sa tracer study
+    - Maka-tabang ba ang tracer study sa pag-track sa employment sa graduates
+    - Kanus-a kasagaran ginabuhat ang tracer study
+    - Kinsa ang responsable sa pag-conduct sa tracer study
+    - Mandatory ba ang tracer study
+    - Unsa ang tumong sa tracer study
+    - Unsaon nako pag-apil sa tracer study
+
+- intent: early_document_request
+  examples: |
+    - Can I request documents before graduation
+    - Is it possible to get my documents early
+    - How can I request documents before I graduate
+    - I want to request my certificate before graduation
+    - Are early document requests allowed
+    - Can I get my transcript before graduating
+    - Is early processing of documents possible
+    - How do I request documents in advance
+    - Can graduates get documents before graduation day
+    - Are diplomas available before graduation
+    - What documents can be requested early
+    - Can I submit a request for my records before finishing
+    - Is pre-graduation document request allowed
+    - Can I claim my academic documents early
+    - How early can I request my documents
+    - Pwede ba mag-request ug documents bisan wala pa graduate
+    - Posible ba nga makuha nako akong documents sayo
+    - Giunsa pag-request sa documents sa wala pa graduation
+    - Gusto nako mag-request sa akong certificate sa wala pa graduation
+    - Gi-allow ba ang early document requests
+    - Pwede ba makuha nako akong transcript sa wala pa graduation
+    - Posible ba ang early processing sa documents
+    - Giunsa pag-request sa documents in advance
+    - Pwede ba makakuha ang graduates sa documents sa wala pa graduation day
+    - Available ba ang diploma sa wala pa graduation
+    - Unsang documents ang pwede i-request sayo
+    - Pwede ba ko mo-submit request sa akong records sa wala pa matapos
+    - Gi-allow ba ang pre-graduation document request
+    - Pwede ba kuhaon ang akong academic documents sayo
+    - Kanus-a pwede mag-request sa documents sayo
+
+- intent: course_shifting_later_years
+  examples: |
+    - Can I shift courses in my third year
+    - Is it possible to transfer to another course in my later years
+    - How do I shift courses in the third year
+    - Can I change my program after the first two years
+    - Is course shifting allowed in higher years
+    - Can I move to another degree program in the third year
+    - What happens if I shift courses in later years
+    - Are there restrictions for shifting courses after second year
+    - How late can I change my course
+    - Can third year students apply for course shifting
+    - Is it too late to shift courses in my third year
+    - Can I still shift majors as a third year student
+    - Will shifting courses delay my graduation
+    - Are there consequences for changing courses in upper years
+    - What is the process for course shifting in later years
+    - Pwede ba mag-shift og course sa third year
+    - Posible ba nga mobalhin og lain nga kurso sa taas nga tuig
+    - Giunsa pag-shift sa course sa third year
+    - Pwede ba usbon ang program human sa una nga duha ka tuig
+    - Gi-allow ba ang course shifting sa taas nga level
+    - Pwede ba mobalhin sa lain nga degree program sa third year
+    - Unsa ang mahitabo kung mag-shift og kurso sa taas nga tuig
+    - Naa bay restrictions sa pag-shift sa kurso human sa second year
+    - Kanus-a ang ulahing panahon sa pag-usab sa kurso
+    - Pwede ba ang third year students mag-apply og course shifting
+    - Late na ba mag-shift sa kurso sa third year
+    - Pwede pa ba mag-shift og major sa third year
+    - Maka-delay ba ang graduation kung mag-shift og kurso
+    - Naa bay epekto kung mag-usab sa kurso sa taas nga tuig
+    - Giunsa ang proseso sa pag-shift sa kurso sa later years
+
+- intent: thesis_defense_failure
+  examples: |
+    - What happens if I fail my thesis defense
+    - Can I re-defend my thesis if I fail
+    - What should I do after failing the thesis defense
+    - Is a second defense allowed if I did not pass
+    - What are the steps after an unsuccessful thesis defense
+    - Do students need to revise their thesis after failing
+    - Can I resubmit my thesis for another defense
+    - What is the policy if the thesis defense fails
+    - How many times can I defend my thesis
+    - Is there a chance to re-defend the thesis
+    - What happens to students who fail their capstone project defense
+    - Can I retake the thesis subject after failing defense
+    - Are there deadlines for the second thesis defense
+    - Will failing thesis defense affect graduation
+    - What revisions are needed after failing the thesis defense
+    - Unsa ang mahitabo kung mapakyas ko sa thesis defense
+    - Pwede ba mag-redefend sa thesis kung napakyas
+    - Unsa ang angay buhaton human mapakyas sa thesis defense
+    - Gi-allow ba ang ikaduhang defense kung wala pa mapasar
+    - Unsa ang mga lakang human sa dili malampuson nga thesis defense
+    - Kinahanglan ba mag-revise ang estudyante sa thesis human mapakyas
+    - Pwede ba ko mag-resubmit sa thesis para sa laing defense
+    - Unsa ang polisiya kung mapakyas sa thesis defense
+    - Pila ka beses pwede i-defend ang thesis
+    - Naa bay tsansa nga mag-redefend sa thesis
+    - Unsa ang mahitabo sa estudyante nga mapakyas sa capstone project defense
+    - Pwede ba mokuha pag-usab sa thesis subject human mapakyas
+    - Naa bay deadline para sa ikaduhang thesis defense
+    - Maka-apekto ba ang pagkapakyas sa thesis defense sa graduation
+    - Unsang mga revisions ang kinahanglan human mapakyas sa thesis defense
+
+- intent: thesis_defense
+  examples: |
+    - What is a thesis defense
+    - Can you explain the thesis defense
+    - Tell me about defending a thesis
+    - How does a thesis defense work
+    - What happens during a thesis defense
+    - What is the purpose of a thesis defense
+    - Explain the process of thesis defense
+    - How do students present their thesis
+    - What is expected in a thesis defense
+    - Is the thesis defense required for graduation
+    - How should I prepare for a thesis defense
+    - Who attends the thesis defense
+    - How long does a thesis defense take
+    - What questions are asked during thesis defense
+    - Can you describe a typical thesis defense
+    - Unsa ang thesis defense
+    - Pwede nimo ipasabot ang thesis defense
+    - Isulti nako bahin sa pag-defend sa thesis
+    - Giunsa ang thesis defense
+    - Unsa ang mahitabo sa thesis defense
+    - Unsa ang katuyoan sa thesis defense
+    - Ipaliwanag ang proseso sa thesis defense
+    - Giunsa pagpresenta sa mga estudyante ang ilang thesis
+    - Unsa ang gilauman sa thesis defense
+    - Kinahanglan ba ang thesis defense para sa graduation
+    - Giunsa ko pag-andam para sa thesis defense
+    - Kinsa ang moapil sa thesis defense
+    - Pila ka oras ang thesis defense
+    - Unsa nga mga pangutana ang ipangutana sa thesis defense
+    - Pwede nimo i-describe ang kasagaran nga thesis defense
+
+- intent: thesis_defense_panelists
+  examples: |
+    - Who are the panelists in a thesis defense
+    - How many panel members are in a thesis defense
+    - Tell me about the members of the thesis defense panel
+    - Who evaluates a student during thesis defense
+    - Can you explain the thesis defense panel
+    - How is a thesis defense panel composed
+    - Who sits on a thesis defense panel
+    - How many professors are on the thesis defense panel
+    - Who participates in evaluating the thesis
+    - What is the role of panelists in thesis defense
+    - How many faculty members review the thesis
+    - Can you describe the thesis defense panel
+    - Who monitors the defense as a secretary
+    - How is the thesis panel structured
+    - Who decides if the thesis passes
+    - Kinsa ang mga panelists sa thesis defense
+    - Pila ka panel members ang naa sa thesis defense
+    - Isulti nako bahin sa mga panel members sa thesis defense
+    - Kinsa ang mo-evaluate sa estudyante sa thesis defense
+    - Pwede nimo ipasabot ang panel sa thesis defense
+    - Giunsa pag-setup ang thesis defense panel
+    - Kinsa ang naa sa thesis defense panel
+    - Pila ka professors ang naa sa thesis defense panel
+    - Kinsa ang moapil sa pag-evaluate sa thesis
+    - Unsa ang role sa panelists sa thesis defense
+    - Pila ka faculty members ang mo-review sa thesis
+    - Pwede nimo i-describe ang thesis defense panel
+    - Kinsa ang nag-monitor sa defense isip secretary
+    - Giunsa pag-structure ang thesis panel
+    - Kinsa ang mo-decide kung pasado ang thesis
+
+- intent: thesis_topic_selection
+  examples: |
+    - How do I select a thesis topic
+    - Can students propose their own thesis topic
+    - Who approves my thesis topic
+    - Tell me how thesis topics are chosen
+    - Can I suggest my thesis topic
+    - How do advisers approve thesis topics
+    - What is the process for thesis topic selection
+    - Are thesis topics chosen by students
+    - Who guides students in selecting a topic
+    - Can I change my thesis topic
+    - How do I know if my thesis topic is approved
+    - Do I need permission for my thesis topic
+    - Can the adviser reject a thesis topic
+    - How long does topic selection take
+    - What criteria are used for thesis topic approval
+    - Giunsa pag pili ang thesis topic
+    - Pwede ba mag-propose og kaugalingong thesis topic ang student
+    - Kinsa ang mo-approve sa thesis topic
+    - Isulti ko kung giunsa pagpili sa thesis topics
+    - Pwede ba ko mag-suggest og thesis topic
+    - Giunsa pag-approve sa adviser ang thesis topics
+    - Unsa ang proseso sa pagpili sa thesis topic
+    - Ang mga estudyante ba ang mopili sa topic
+    - Kinsa ang mo-guide sa student sa pagpili sa topic
+    - Pwede ba ko usbon ang thesis topic
+    - Giunsa nako mahibal-an kung approved ang thesis topic
+    - Kinahanglan ba ko og permiso para sa thesis topic
+    - Pwede ba i-reject sa adviser ang topic
+    - Pilay dugay ang pagpili sa thesis topic
+    - Unsa ang criteria sa pag-approve sa thesis topic
+
+- intent: internship_requirement
+  examples: |
+    - Does my course require an internship
+    - Are internships mandatory for all programs
+    - Which courses need an internship
+    - Tell me if my curriculum includes internship
+    - Do I have to do an internship
+    - Are internships part of every course
+    - Is internship a requirement for graduation
+    - How do I know if my course requires an internship
+    - Can I graduate without doing an internship
+    - Are internships optional for some programs
+    - Who decides if a course has an internship
+    - Do all students need internship
+    - Are internships included in the syllabus
+    - Can some students skip internship
+    - Where can I check internship requirements for my course
+    - Kinahanglan ba ang internship sa akong kurso
+    - Mandatory ba ang internship sa tanang programa
+    - Asa nga kurso kinahanglan ang internship
+    - Isulti ko kung apil ba ang internship sa curriculum
+    - Kinahanglan ba ko mo-internship
+    - Apil ba ang internship sa tanang kurso
+    - Requirement ba ang internship para maka-graduate
+    - Giunsa nako paghibalo kung kinahanglan ang internship sa akong kurso
+    - Maka-graduate ba ko bisan wala ko mag-internship
+    - Optional ba ang internship sa uban nga programa
+    - Kinsa ang mo-decide kung ang kurso adunay internship
+    - Kinahanglan ba ang tanang estudyante mo-internship
+    - Apil ba ang internship sa syllabus
+    - Pwede ba ang uban estudyante mo-skip sa internship
+    - Asa nako makita ang requirements sa internship sa akong kurso
+
+- intent: campus_transfer
+  examples: |
+    - Can I transfer to another BukSU campus
+    - Is it possible to move to a different campus
+    - How do I apply for a campus transfer
+    - Are campus transfers allowed at BukSU
+    - Can I change my campus location
+    - What are the requirements for transferring campus
+    - Is approval needed for campus transfer
+    - Can students transfer to another campus during the semester
+    - Who can authorize a campus transfer
+    - Can I transfer my enrollment to a different campus
+    - Are there restrictions for campus transfers
+    - Can I move to the main campus from a satellite campus
+    - How long does campus transfer take
+    - Do I need to submit documents for campus transfer
+    - Is transferring campuses common at BukSU
+    - Pwede ba ko mo-transfer sa laing BukSU campus
+    - Posible ba nga mobalhin sa laing campus
+    - Giunsa nako pag-apply sa campus transfer
+    - Gisuportahan ba sa BukSU ang campus transfers
+    - Pwede ba nako ilisan ang akong campus location
+    - Unsa ang mga requirements para sa campus transfer
+    - Kinahanglan ba og approval sa campus transfer
+    - Pwede ba ang estudyante mo-transfer sa lain nga campus sa tunga sa semester
+    - Kinsa ang mo-authorize sa campus transfer
+    - Pwede ba nako i-transfer ang akong enrollment sa lain campus
+    - Aduna bay restrictions sa campus transfer
+    - Pwede ba mo-transfer sa main campus gikan sa satellite campus
+    - Pila ka adlaw ang proseso sa campus transfer
+    - Kinahanglan ba ko mo-submit og documents para sa campus transfer
+    - Kasagaran ba ang pag-transfer sa campuses sa BukSU
+
+- intent: deans_list
+  examples: |
+    - What is the dean list
+    - Can you explain the meaning of the dean list
+    - Who are included in the dean list
+    - How do students become part of the dean list
+    - What are the requirements to be included in the dean list
+    - Is the dean list only for students with excellent grades
+    - How often is the dean list published
+    - What benefits are given to students who are on the dean list
+    - Are first year students eligible to be on the dean list
+    - Does being on the dean list affect the eligibility for scholarships
+    - Is the dean list determined only by academic grades
+    - Who is responsible for deciding the dean list
+    - How is academic excellence recognized through the dean list
+    - Are students informed if they have qualified for the dean list
+    - Can students inquire about their status on the dean list
+    - Unsa ang dean list
+    - Pwede nimo ipasabot unsa ang kahulugan sa dean list
+    - Kinsa ang apil sa dean list
+    - Giunsa sa mga estudyante pagpangapil sa dean list
+    - Unsa ang mga kinahanglanon aron makaapil sa dean list
+    - Ang dean list para ra ba sa mga estudyante nga taas ang grado
+    - Kanus a ipahibalo ang dean list
+    - Unsa ang mga benepisyo sa mga estudyante nga naa sa dean list
+    - Pwede ba ang mga first year students moapil sa dean list
+    - Makaapekto ba ang dean list sa eligibility sa scholarship
+    - Ang dean list base ra ba sa akademikong grado
+    - Kinsa ang responsable sa pagdesisyon sa dean list
+    - Giunsa pagila ang academic excellence pinaagi sa dean list
+    - Ipahibalo ba ang mga estudyante kung kwalipikado sila sa dean list
+    - Pwede ba mangutana ang estudyante sa ilang status sa dean list
+
+- intent: academic_probation
+  examples: |
+    - What is academic probation
+    - Can you explain the meaning of academic probation
+    - Who is placed under academic probation
+    - How do students get academic probation
+    - What are the reasons for academic probation
+    - Is academic probation given only for low grades
+    - How long does academic probation last
+    - What happens to students under academic probation
+    - Can students continue their courses while on academic probation
+    - Are students informed when they are placed on academic probation
+    - Does academic probation affect scholarships or grants
+    - How can a student be removed from academic probation
+    - Who monitors students on academic probation
+    - Are there support programs for students on academic probation
+    - Can academic probation be appealed
+    - Unsa ang academic probation
+    - Pwede nimo ipasabot ang kahulugan sa academic probation
+    - Kinsa ang ibutang sa academic probation
+    - Giunsa sa mga estudyante nga maapil sa academic probation
+    - Unsa ang mga rason nganong mahatagan og academic probation
+    - Ang academic probation para ra ba sa mga estudyante nga ubos ang grado
+    - Pila ka dugay ang academic probation
+    - Unsa ang mahitabo sa mga estudyante nga naa sa academic probation
+    - Pwede ba magpadayon sa ilang kurso ang estudyante samtang naa sa academic probation
+    - Ipahibalo ba ang mga estudyante kung sila ibutang sa academic probation
+    - Makaapekto ba ang academic probation sa scholarship o grants
+    - Giunsa pagtangtang sa estudyante gikan sa academic probation
+    - Kinsa ang nagbantay sa mga estudyante nga naa sa academic probation
+    - Aduna bay tabang o support program para sa mga estudyante nga naa sa academic probation
+    - Pwede ba nga i-apelar ang academic probation
+
+- intent: attendance_requirement
+  examples: |
+    - What is the attendance requirement for students
+    - Can you explain the rules regarding attendance
+    - How many times can a student be absent before consequences
+    - Is regular attendance mandatory
+    - What happens if a student misses classes
+    - How is attendance recorded in Bukidnon State University
+    - Are students allowed to be absent without notice
+    - What documents are needed to justify an absence
+    - Can a student appeal if they reach the maximum absences
+    - How do professors handle repeated absences
+    - What are the consequences of failing due to absences
+    - How strict is the attendance policy at BukSU
+    - Is there any flexibility in attendance rules
+    - Who monitors student attendance
+    - Can absences affect grades or academic standing
+    - Unsa ang attendance requirement para sa mga estudyante
+    - Pwede nimo ipasabot ang mga lagda bahin sa attendance
+    - Pila ka beses mahimong absent ang estudyante una adunay konsekwensya
+    - Mandatory ba ang regular nga pag-attend
+    - Unsa ang mahitabo kung ang estudyante wala moapil sa klase
+    - Giunsa pag-record ang attendance sa Bukidnon State University
+    - Pwede ba nga ang estudyante mag-absent nga walay pahibalo
+    - Unsa nga mga dokumento ang kinahanglan aron ma-justify ang absence
+    - Pwede ba nga mo-apela ang estudyante kung maabot na ang maximum absences
+    - Giunsa pag-handle sa mga professors ang balik-balik nga absences
+    - Unsa ang mga konsekwensya kung mapakyas tungod sa absences
+    - Unsang ka-strikto ang attendance policy sa BukSU
+    - Aduna bay flexibility sa attendance rules
+    - Kinsa ang nagbantay sa attendance sa estudyante
+    - Makaapekto ba ang absences sa grado o academic standing
+
+- intent: add_drop_subject
+  examples: |
+    - How can I add a subject this semester
+    - Is it possible to drop a subject at Bukidnon State University
+    - What is the procedure for adding subjects
+    - What is the procedure for dropping subjects
+    - Where can I go to add or drop my subjects
+    - Can students change their schedule by adding or dropping subjects
+    - When is the official add drop period for subjects
+    - Do I need approval to add or drop a subject
+    - How do I submit a request to add a subject
+    - How do I submit a request to drop a subject
+    - Can I add a subject after the first week of classes
+    - Can I drop a subject after the first week of classes
+    - Are there any penalties for adding or dropping subjects late
+    - Who should I contact to add or drop a subject
+    - Is there a map available to guide me to the Registrar Office
+    - Unsaon pagdugang ug subject karong semestra
+    - Pwede ba ko makatangtang ug subject sa Bukidnon State University
+    - Unsa ang proseso sa pagdugang sa subject
+    - Unsa ang proseso sa pagtangtang sa subject
+    - Asa ko pwede moadto aron makadugang o makatangtang ug subject
+    - Pwede ba ang estudyante mag-usab sa schedule pinaagi sa pagdugang o pagtangtang ug subject
+    - Kanus-a ang official add drop period sa mga subject
+    - Kinahanglan ba og approval sa pagdugang o pagtangtang ug subject
+    - Giunsa nako pag-submit sa request aron makadugang ug subject
+    - Giunsa nako pag-submit sa request aron makatangtang ug subject
+    - Pwede ba ko makadugang ug subject human sa unang semana sa klase
+    - Pwede ba ko makatangtang ug subject human sa unang semana sa klase
+    - Aduna bay penalty kung madugay ang pagdugang o pagtangtang ug subject
+    - Kinsa ang akong kontakon aron makadugang o makatangtang ug subject
+    - Aduna bay mapa nga makatabang sa pagpangita sa Registrar Office
+
+- intent: request_cor
+  examples: |
+    - How can I request my Certificate of Enrollment
+    - Where do I get my COR at Bukidnon State University
+    - Can I obtain my Certificate of Enrollment online
+    - What is the procedure to get my COR
+    - How do I download my Certificate of Enrollment
+    - Is there a specific portal to request COR
+    - When will my COR be available after enrollment
+    - Can I print my Certificate of Enrollment by myself
+    - Who should I contact to get my COR
+    - Do I need to pay to get my Certificate of Enrollment
+    - Can the COR be emailed to me after enrollment
+    - Is my Certificate of Enrollment automatically generated
+    - How do I verify the information on my COR
+    - Can I request my COR before completing enrollment
+    - What documents are required to obtain the Certificate of Enrollment
+    - Unsaon nako pagkuha sa akong Certificate of Enrollment
+    - Asa ko makakuha sa akong COR sa Bukidnon State University
+    - Pwede ba nako makuha ang akong Certificate of Enrollment online
+    - Unsa ang proseso sa pagkuha sa COR
+    - Giunsa nako pag-download sa akong Certificate of Enrollment
+    - Aduna bay portal nga kinahanglan gamiton sa pag-request sa COR
+    - Kanus-a mahimong available ang akong COR human sa enrollment
+    - Pwede ba nako i-print ang akong Certificate of Enrollment
+    - Kinsa ang akong kontakon aron makuha ang COR
+    - Kinahanglan ba ko magbayad aron makuha ang Certificate of Enrollment
+    - Pwede ba i-email ang COR human sa enrollment
+    - Automatic ba nga ma-generate ang akong Certificate of Enrollment
+    - Giunsa nako pag-verify ang impormasyon sa akong COR
+    - Pwede ba nako i-request ang COR bisan wala pa mahuman ang enrollment
+    - Unsang mga dokumento ang kinahanglan aron makuha ang Certificate of Enrollment
+
+- intent: inactive_group_member
+  examples: |
+    - What should I do if a group member becomes inactive
+    - How do I handle a group member who is not participating
+    - My team member is not contributing what should I do
+    - Can I report a group member who is inactive
+    - How do I inform the instructor about a nonactive group member
+    - What is the proper way to deal with inactive members in a group project
+    - How should I proceed if my group member is absent from meetings
+    - Who should I notify if a group member is not participating
+    - What steps do I take if someone in my group stops contributing
+    - Can the instructor help if a member is inactive
+    - Is it acceptable to continue the project without an inactive group member
+    - How do I document the inactivity of a group member
+    - Should I communicate with the inactive member before telling the instructor
+    - What is the university procedure for handling inactive group members
+    - Can inactivity of a member affect the group grade
+    - Unsaon nako pag-handle sa usa ka inactive nga group member
+    - Kung ang akong kauban sa grupo dili mo-apil unsa akong buhaton
+    - Ang usa ka membro sa grupo dili mag-contribute unsaon nako
+    - Pwede ba nako i-report ang usa ka inactive nga group member
+    - Giunsa nako pag-inform sa instructor bahin sa usa ka inactive nga miembro
+    - Unsay angay buhaton kung ang usa ka grupo membro dili motabang sa project
+    - Unsay proseso kung ang akong kauban sa grupo walay partisipasyon sa meetings
+    - Kinsa akong kontakon kung adunay membro sa grupo nga inactive
+    - Unsay mga lakang kung ang usa ka membro mo-undang sa pag-contribute
+    - Pwede ba ang instructor makatabang kung adunay inactive nga membro
+    - Acceptable ba nga ipadayon ang project bisan adunay inactive nga membro
+    - Giunsa nako i-dokumento ang pagka-inactive sa usa ka membro
+    - Angay ba nga istoryahon ang inactive nga miembro una pa i-report sa instructor
+    - Unsay procedure sa unibersidad sa pag-handle sa inactive nga mga miembro
+    - Makaapekto ba ang pagka-inactive sa usa ka membro sa grade sa grupo
+
+
+- intent: student_stress_support
+  examples: |
+    - What should I do if I am feeling stressed at school
+    - How can I manage stress during my studies
+    - I am overwhelmed with my academic workload what should I do
+    - Who can I talk to if I feel stressed or anxious about school
+    - Where can I seek support for mental health issues in university
+    - How do I find help when I feel pressure from classes and assignments
+    - Can I approach someone for guidance when I am feeling overwhelmed
+    - I feel too much stress because of my projects and exams what can I do
+    - Who in the university can provide support for students feeling stressed
+    - What resources are available for students who feel anxious or stressed
+    - How can I cope with academic stress effectively
+    - Is there someone I can talk to about being overwhelmed by school work
+    - How can I balance my responsibilities without feeling stressed
+    - Can counselors or advisers assist if I feel mentally exhausted
+    - I need guidance for handling stress caused by university workload
+    - Unsaon nako pag-handle sa stress kung gibati nako sa eskwelahan
+    - Kung overwhelmed ko sa akong academic workload unsa akong buhaton
+    - Kinsa ang pwede nako duolon kung gibati nako ang kahadlok o stress sa school
+    - Asa ko mangayo ug tabang para sa mental health sa unibersidad
+    - Giunsa nako pagpangita ug tabang kung daghan kaayo akong klase ug assignments
+    - Pwede ba ko mo-approach sa adviser o counselor kung gibati nako ang stress
+    - Gibati nako nga sobra kaayo ang stress tungod sa projects ug exams unsa akong buhaton
+    - Kinsa sa unibersidad ang makatabang sa estudyante nga gibati nga stressed
+    - Unsay mga available nga resources para sa estudyante nga nag-antos sa stress
+    - Giunsa nako pagcope sa academic stress sa husto nga paagi
+    - Aduna bay tao nga pwede nako istoryahon kung gibati nako nga overwhelmed sa school work
+    - Giunsa nako pagbalanse sa akong responsibilidad nga dili kaayo ma-stress
+    - Pwede ba ang counselors ug advisers makatabang kung mentally exhausted ko
+    - Nanginahanglan ko ug giya sa paghandle sa stress nga dala sa university workload
+    - Unsa ang angay buhaton kung ang stress gikan sa school nagapugos sa akong performance
+
+- intent: submit_assignments_online
+  examples: |
+    - How do I submit my assignments online
+    - Can I send my assignments through email to my instructor
+    - What online platform should I use to submit my homework
+    - Is it allowed to submit assignments using Google Classroom
+    - How can I turn in my school projects using the internet
+    - Can I upload my assignments on the platform assigned by the teacher
+    - Where should I submit my tasks if I cannot hand them physically
+    - How do I submit my academic work remotely
+    - Can assignments be sent digitally instead of printed
+    - What is the proper way to submit my homework online
+    - Which online tool is recommended for submitting assignments
+    - Can students use email to turn in their assignments
+    - How do I send my completed assignments to the teacher online
+    - Are online submissions accepted for all subjects
+    - What steps should I follow to submit my tasks online
+    - Giunsa nako pag-submit sa akong assignments online
+    - Pwede ba nako ipadala ang akong assignments pinaagi sa email sa instructor
+    - Unsang online platform ang angay gamiton para i-submit ang homework
+    - Gipasugtan ba nga i-submit ang assignments gamit ang Google Classroom
+    - Giunsa nako pag-turn in sa akong school projects gamit ang internet
+    - Pwede ba nako i-upload ang assignments sa platform nga gi-assign sa teacher
+    - Asa ko mag-submit sa akong tasks kung dili nako mahatag personally
+    - Giunsa nako pag-submit sa academic work remotely
+    - Pwede ba ipadala digitally ang assignments imbes nga i-print
+    - Unsay hustong paagi sa pag-submit sa homework online
+    - Unsang online tool ang rekomendado para sa pag-submit sa assignments
+    - Pwede ba gamiton sa students ang email para i-turn in ang assignments
+    - Giunsa nako ipadala ang nahuman nga assignments sa teacher online
+    - Gidawat ba ang online submissions sa tanang subjects
+    - Unsang mga lakang ang angay sundon aron ma-submit ang tasks online
+
+- intent: phone_use_in_class
+  examples: |
+    - Am I allowed to use my mobile phone during class
+    - Can students use their phones while the lecture is ongoing
+    - Is it acceptable to have a cellphone in class
+    - Are mobile phones permitted during classroom sessions
+    - When can I use my phone while attending class
+    - Are there any rules for using mobile devices in class
+    - Can I check my phone during lectures
+    - Is phone usage allowed if the teacher permits it
+    - What is the policy on bringing cellphones to class
+    - Can students text or call during class time
+    - Is it okay to have my phone on the desk during class
+    - Are there restrictions for using mobile phones in lectures
+    - How do instructors regulate cellphone use during class
+    - Can I use my phone for class activities if needed
+    - Should I keep my phone silent during lessons
+    - Pwede ba nako gamiton ang cellphone sulod sa klase
+    - Ang students pwede ba mogamit sa ilang phones samtang nag-lecture
+    - Gidawat ba ang pagdala og cellphone sa classroom
+    - Gi-permit ba ang mobile phones sa klase
+    - Kanus-a pwede gamiton ang phone samtang naa sa klase
+    - Aduna bay rules sa paggamit sa mobile devices sa classroom
+    - Pwede ba nako i-check ang akong phone samtang nag-lecture
+    - Gipasugtan ba ang phone kung ang teacher mopermit
+    - Unsay policy sa pagdala og cellphone sa klase
+    - Pwede ba ang students mag-text o tawag sa classroom
+    - Okay ra ba nga naa ang phone sa desk sa klase
+    - Aduna bay restrictions sa paggamit sa mobile phones sa lecture
+    - Giunsa sa instructor pag-regulate sa paggamit sa cellphone sa klase
+    - Pwede ba gamiton ang phone para sa class activities kung kinahanglan
+    - Kinahanglan ba i-silent ang phone samtang nag-lesson
+
+- intent: subject_overload
+  examples: |
+    - What does it mean to have a subject overload
+    - Can you explain subject overload in university
+    - Is taking too many subjects considered overload
+    - How do I know if I have an academic overload
+    - What is the definition of overload in courses
+    - Are there consequences for having a subject overload
+    - Can a student take more subjects than allowed
+    - How is overload calculated in the academic system
+    - Is it okay to enroll in extra subjects
+    - What happens if I register more courses than normal
+    - Can overload affect my academic performance
+    - How many subjects can I take before it is overload
+    - Does overload require special permission from the Registrar
+    - Are there limits on the number of subjects per semester
+    - Can subject overload be approved by the college faculty
+    - Unsa ang pasabot sa subject overload
+    - Pwede nimo i-explain ang subject overload sa unibersidad
+    - Ang pagkuha og daghang subjects ba gi-consider nga overload
+    - Giunsa nako paghibalo kung naay ko academic overload
+    - Unsa ang kahulugan sa overload sa mga kurso
+    - Aduna bay consequences kung naay subject overload
+    - Pwede ba ang estudyante mo-enroll og labaw pa nga subjects
+    - Giunsa pag-compute ang overload sa academic system
+    - Okay ra ba nga mo-enroll og extra subjects
+    - Unsay mahitabo kung mo-register ko og daghang courses kaysa normal
+    - Makaapekto ba ang overload sa akong academic performance
+    - Pila ka subjects ang pwede kuhaon antes matawag nga overload
+    - Nanginahanglan ba og special permission ang overload sa Registrar
+    - Aduna bay limit sa number of subjects matag semester
+    - Pwede ba ma-approve ang subject overload sa college faculty
+
+- intent: class_concerns
+  examples: |
+    - Who should I talk to for concerns about my class
+    - How can I address issues related to my class
+    - Where do I report problems with my class
+    - I have questions about my class schedule who should I contact
+    - Can I talk to someone regarding class concerns
+    - How do I resolve conflicts in class
+    - Who handles complaints about classes
+    - What is the proper way to raise class concerns
+    - If I have difficulties in class who can help
+    - Can I approach the instructor for class problems
+    - Who is responsible for handling class-related issues
+    - What steps should I take for concerns in class
+    - Is there a procedure to address class concerns
+    - Can I discuss my class performance issues with someone
+    - How do I get assistance for classroom concerns
+    - Kinsa ang angay kontakon para sa concern sa klase
+    - Giunsa nako pagsulti sa akong instructor kung naay problema sa klase
+    - Asa ko mo-report kung naay problema sa klase
+    - Naay ko pangutana bahin sa schedule sa klase kinsa ang kontakon
+    - Pwede ba ko makigstorya bahin sa mga concern sa klase
+    - Giunsa pag-resolve sa mga conflict sa klase
+    - Kinsa ang nagdumala sa reklamo bahin sa klase
+    - Unsa ang hustong paagi sa pag-raise sa concern sa klase
+    - Kung naay ko kalisud sa klase kinsa ang makatabang
+    - Pwede ba ko mo-approach sa instructor para sa problema sa klase
+    - Kinsa ang responsable sa pag-handle sa mga isyu sa klase
+    - Unsa nga mga lakang ang angay buhaton para sa concern sa klase
+    - Aduna bay procedure sa pag-address sa concern sa klase
+    - Pwede ba ko makig-discuss sa akong performance sa klase sa usa ka tawo
+    - Giunsa nako pagkuha og tabang para sa mga classroom concerns
+
+
+- intent: freshmen_intramurals
+  examples: |
+    - Are freshmen allowed to join intramural activities
+    - Can first year students participate in intramurals
+    - How can freshmen get involved in the intramurals
+    - Is participation in intramurals open to first year students
+    - Who can join the BukSU intramural games
+    - Are new students permitted to join intramural competitions
+    - What are the requirements for freshmen to join intramurals
+    - Can freshmen take part in intramural sports and activities
+    - Do first year students have the opportunity to participate in intramurals
+    - Are first year students encouraged to join intramurals
+    - How do freshmen register for intramural participation
+    - Are freshmen allowed to compete in intramural events
+    - Is intramural participation restricted to upper year students
+    - Can freshmen enjoy the intramural experience at BukSU
+    - Who is eligible to participate in the university intramurals
+    - Pwede ba ang mga freshmen moapil sa intramurals
+    - Ang mga first year students ba gi-allow sa intramurals
+    - Giunsa pag-apil sa freshmen sa intramural activities
+    - Open ba ang participation sa intramurals para sa first year students
+    - Kinsa ang pwede moapil sa BukSU intramural games
+    - Gi-permit ba ang mga bag-ong estudyante sa intramural competitions
+    - Unsa ang requirements para sa freshmen aron makasalmot sa intramurals
+    - Pwede ba ang freshmen moapil sa intramural sports ug activities
+    - Aduna bay oportunidad ang first year students moapil sa intramurals
+    - Gi-encourage ba ang first year students moapil sa intramurals
+    - Giunsa pag-register sa freshmen para sa intramural participation
+    - Pwede ba ang mga freshmen mo-compete sa intramural events
+    - Restricted ba ang intramural participation sa upper year students
+    - Pwede ba ang freshmen maka-enjoy sa intramural experience sa BukSU
+    - Kinsa ang eligible moapil sa university intramurals
+
+- intent: about_intramurals
+  examples: |
+    - What are intramurals at Bukidnon State University
+    - Can you explain the concept of intramurals in the university
+    - I want to know about the intramural sports events
+    - Please tell me what intramurals are
+    - How are intramurals conducted at BukSU
+    - Are intramurals held every year in the university
+    - What is the purpose of intramurals in the school
+    - Can you describe the intramural competitions at BukSU
+    - How do intramurals benefit the students
+    - Who participates in intramural events at BukSU
+    - What types of sports are included in intramurals
+    - How often are intramural games organized in the university
+    - Are intramurals only for student organizations or open to all
+    - Can freshmen join intramurals at Bukidnon State University
+    - How can students register for intramural participation
+    - Unsa ang intramurals sa Bukidnon State University
+    - Pwede nimo i-explain ang konsepto sa intramurals sa unibersidad
+    - Gusto nako mahibaloan ang intramural sports events
+    - Palihog sultihi ko unsa ang intramurals
+    - Giunsa pagpatuman ang intramurals sa BukSU
+    - Ginahimo ba ang intramurals kada tuig sa unibersidad
+    - Unsa ang katuyoan sa intramurals sa eskwelahan
+    - Pwede nimo i-describe ang intramural competitions sa BukSU
+    - Giunsa pag-benefit ang mga estudyante sa intramurals
+    - Kinsa ang moapil sa intramural events sa BukSU
+    - Unsang klase sa sports ang apil sa intramurals
+    - Pila ka beses ginahimo ang intramural games sa unibersidad
+    - Para lang ba sa student organizations ang intramurals o open sa tanan
+    - Pwede ba ang mga freshmen moapil sa intramurals sa Bukidnon State University
+    - Giunsa pag-register sa mga estudyante para sa intramural participation
+
+- intent: end_of_semester
+  examples: |
+    - What happens at the end of the semester
+    - Can you explain the activities during the end of the semester
+    - I want to know what students do at the end of the semester
+    - Please tell me what occurs during the end of the semester
+    - How is the end of the semester handled at Bukidnon State University
+    - Are final examinations conducted at the end of the semester
+    - What is the process for submitting grades at the end of the semester
+    - How is student clearance processed at the end of the semester
+    - Can you describe the end of semester procedures
+    - What are the academic responsibilities at the end of the semester
+    - When does the clearance processing take place
+    - How do students complete their requirements at the end of the semester
+    - What are the tasks students need to finish before the semester ends
+    - How are academic records finalized at the end of the semester
+    - What is the sequence of activities at the end of the semester
+    - Unsa ang mahitabo sa katapusan sa semester
+    - Pwede nimo i-explain ang mga kalihokan sa katapusan sa semester
+    - Gusto nako mahibaloan unsa ang buhaton sa mga estudyante sa katapusan sa semester
+    - Palihog sultihi ko unsa ang mahitabo sa katapusan sa semester
+    - Giunsa pagdumala ang katapusan sa semester sa Bukidnon State University
+    - Ginahimo ba ang final examinations sa katapusan sa semester
+    - Unsa ang proseso sa pag-submit sa grades sa katapusan sa semester
+    - Giunsa pag-process ang student clearance sa katapusan sa semester
+    - Pwede nimo i-describe ang end of semester procedures
+    - Unsay mga academic responsibilities sa katapusan sa semester
+    - Kanus-a ginahimo ang clearance processing
+    - Giunsa pagkompleto sa mga estudyante ang ilang requirements sa katapusan sa semester
+    - Unsay mga tasks nga kinahanglan tapuson sa estudyante sa wala pa matapos ang semester
+    - Giunsa pag-finalize ang academic records sa katapusan sa semester
+    - Unsay sequence sa mga kalihokan sa katapusan sa semester
+
+- intent: minor_subject
+  examples: |
+    - What is a minor subject in university
+    - Can you explain the role of a minor subject
+    - I want to know the purpose of a minor subject
+    - Please tell me what a minor subject is for
+    - How does a minor subject support a major
+    - What are minor subjects used for in academics
+    - Can a minor subject help me in my major
+    - How important is a minor subject for students
+    - What knowledge do students gain from minor subjects
+    - Are minor subjects required for all programs
+    - How are minor subjects different from major subjects
+    - Can you describe the benefits of taking a minor subject
+    - What is the scope of a minor subject in the curriculum
+    - How do minor subjects contribute to general education
+    - Why should students take minor subjects in university
+    - Unsa ang minor subject sa unibersidad
+    - Pwede nimo i-explain ang papel sa minor subject
+    - Gusto nako mahibaloan unsay purpose sa minor subject
+    - Palihog sultihi ko unsa ang gamit sa minor subject
+    - Giunsa pag-support sa minor subject ang major field
+    - Para unsa ang minor subjects sa akademiko
+    - Maka-tabang ba ang minor subject sa akong major
+    - Giunsa ka importante ang minor subject para sa mga estudyante
+    - Unsay kahibalo nga makuha sa minor subjects
+    - Kinahanglan ba ang minor subjects sa tanang kurso
+    - Giunsa pagkalahi ang minor subjects sa major subjects
+    - Pwede nimo i-describe ang mga benepisyo sa minor subject
+    - Unsay coverage sa minor subject sa curriculum
+    - Giunsa pag-contribute ang minor subjects sa general education
+    - Ngano kinahanglan mo kuha ang mga estudyante ug minor subjects sa unibersidad
+
+- intent: access_grades
+  examples: |
+    - How can I view my grades
+    - Where can I check my academic grades
+    - I want to see my grades for this semester
+    - Can you tell me how to access my grades
+    - How do I view my previous grades
+    - Is there a way to check grades online
+    - I need to review my grades for a subject
+    - Where can I find my official grades
+    - Can students view their grades anytime
+    - How to check grades released by the university
+    - Are grades available through the student portal
+    - What steps do I take to access my grades
+    - Can I see my grades before printing the report
+    - How can I track my grades over time
+    - Where do I go to view my final grades
+    - Giunsa nako makita ang akong grades
+    - Asa nako ma-check ang akong academic grades
+    - Gusto nako makita ang akong grades sa semester karon
+    - Pwede nimo sultihan unsaon pag-access sa akong grades
+    - Giunsa nako makita ang akong previous grades
+    - Naay paagi ba nga ma-check ang grades online
+    - Kinahanglan nako i-review ang akong grades sa usa ka subject
+    - Asa nako makita ang akong official grades
+    - Maka-view ba ang mga estudyante sa ilang grades bisan kanus-a
+    - Giunsa pag-check ang grades nga gi-release sa unibersidad
+    - Ang grades ba makita pinaagi sa student portal
+    - Unsay mga lakang aron ma-access ang akong grades
+    - Pwede ba nako makita ang grades sa wala pa i-print ang report
+    - Giunsa nako i-track ang akong grades sa tanang panahon
+    - Asa ko moadto aron makita ang akong final grades
+
+- intent: senior_academic_overload
+  examples: |
+    - What is academic overload for senior students
+    - Can seniors take more subjects to graduate on time
+    - How does academic overload work for graduating students
+    - Is it possible to take extra subjects as a senior
+    - What are the rules for academic overload for seniors
+    - How can graduating students apply for academic overload
+    - Can seniors enroll in additional courses for graduation
+    - What does taking overload subjects mean for final year students
+    - Are there limits on the number of subjects for seniors
+    - How do seniors complete their program faster with overload
+    - Can academic overload help seniors graduate earlier
+    - What is allowed under senior academic overload policy
+    - How to request for additional subjects as a senior
+    - What benefits do seniors get from taking extra subjects
+    - Can seniors finish all subjects on time with overload
+    - Unsay pasabot sa academic overload para sa senior students
+    - Pwede ba ang seniors magkuha ug daghang subjects aron maka-graduate sa saktong oras
+    - Giunsa pagtrabaho ang academic overload para sa graduating students
+    - Posible ba nga magkuha ug extra subjects ang senior students
+    - Unsay mga lagda para sa academic overload sa mga seniors
+    - Giunsa pag-apply sa graduating students alang sa academic overload
+    - Maka-enroll ba ang seniors sa dugang nga kurso alang sa graduation
+    - Unsay kahulugan sa pagkuha ug overload subjects para sa final year students
+    - Adunay limit ba sa number of subjects alang sa seniors
+    - Giunsa sa seniors pagkumpleto sa ilang programa mas paspas pinaagi sa overload
+    - Maka-tabang ba ang academic overload sa mga seniors nga maka-graduate sayo
+    - Unsay gitugotan ilawom sa senior academic overload policy
+    - Giunsa pag-request alang sa dugang subjects isip usa ka senior
+    - Unsay mga benepisyo sa seniors sa pagkuha ug extra subjects
+    - Maka-human ba ang seniors sa tanang subjects sa saktong oras pinaagi sa overload
+
+- intent: academic_support
+  examples: |
+    - What academic support is available for students
+    - Can I get help for board examination preparation
+    - Are there review programs for college students
+    - Does BukSU provide support sessions for students
+    - Where can I find academic assistance for exams
+    - Are there any programs for board exam review
+    - How can students get academic guidance
+    - What support does the college offer for student success
+    - Can seniors attend board exam review sessions
+    - Are there organized review classes for students
+    - How do I join academic support programs
+    - Can I ask for academic help from the college
+    - What are the benefits of attending support sessions
+    - Is there help available for improving academic performance
+    - Are there tutoring or mentoring programs offered
+    - Unsay academic support nga gihatag sa mga estudyante
+    - Pwede ba ko makakuha ug tabang para sa board examination preparation
+    - Adunay review programs para sa college students
+    - Naghatag ba ang BukSU ug support sessions para sa mga estudyante
+    - Asa ko makakita ug academic assistance para sa exams
+    - Adunay ba mga programa para sa board exam review
+    - Giunsa pagkuha sa mga estudyante ug academic guidance
+    - Unsay suporta nga gihatag sa college para sa kalampusan sa estudyante
+    - Maka-apil ba ang seniors sa board exam review sessions
+    - Adunay ba mga organisadong review classes para sa mga estudyante
+    - Giunsa ko pag-apil sa academic support programs
+    - Pwede ba ko mangayo ug academic help gikan sa college
+    - Unsay mga benepisyo sa pag-apil sa support sessions
+    - Adunay ba tabang para mapauswag ang academic performance
+    - Naghatag ba ang college ug tutoring o mentoring programs
+
+- intent: eating_in_classroom
+  examples: |
+    - Is eating allowed inside the classroom
+    - Can students eat while in class
+    - Are we permitted to have food in the classroom
+    - Does the instructor allow eating during lectures
+    - Am I allowed to eat during class time
+    - What are the rules for eating in class
+    - Can we bring snacks inside the classroom
+    - Is it acceptable to eat in class according to the teacher
+    - Are students allowed to consume food in the classroom
+    - Can I eat my lunch while attending class
+    - Are there restrictions on eating inside the classroom
+    - May students eat meals during lectures
+    - Are food and drinks allowed in classroom activities
+    - Can I have a snack during instructional time
+    - Is eating in class permitted by the academic guidelines
+    - Pwede ba magkaon sulod sa classroom
+    - Makakaon ba ang mga estudyante samtang naa sa klase
+    - Gi-tugotan ba ang pagkaon sa sulod sa classroom
+    - Naghatag ba ug permiso ang instructor sa pagkaon sa klase
+    - Pwede ba ko magkaon samtang naa sa class time
+    - Unsay mga rules bahin sa pagkaon sa classroom
+    - Pwede ba magdala ug snacks sa sulod sa classroom
+    - Ang pagkaon sulod sa klase gi-allow ba sa teacher
+    - Gi-tugotan ba ang mga estudyante nga magkaon sa classroom
+    - Pwede ba magkaon sa lunch samtang nag-attend sa klase
+    - Adunay restrictions sa pagkaon sulod sa classroom
+    - Pwede ba magkaon ang students sa meals panahon sa lectures
+    - Gi-allow ba ang pagkaon ug drinks sa classroom activities
+    - Pwede ba mag-snack panahon sa instructional time
+    - Gi-tugotan ba ang pagkaon sa klase sumala sa academic guidelines
+
+- intent: licensure_examination
+  examples: |
+    - What is a licensure examination
+    - Can you explain what a licensure examination is
+    - I want to know the purpose of a licensure examination
+    - Is a licensure examination required for certain professions
+    - Who needs to take a licensure examination
+    - Why do professionals need to take a licensure examination
+    - How does a licensure examination affect professional practice
+    - Can you describe the national licensure examination process
+    - What are the requirements to take a licensure examination
+    - Is passing a licensure examination necessary for legal practice
+    - What type of professions require a licensure examination
+    - Are licensure examinations standardized nationwide
+    - How do I prepare for a licensure examination
+    - What is the significance of a licensure examination
+    - Can you provide information about national licensure examinations
+    - Unsa ang licensure examination
+    - Pwede nimo i-explain unsa ang licensure examination
+    - Gusto nako mahibal-an ang katuyoan sa licensure examination
+    - Kinahanglan ba ang licensure examination para sa pipila ka profession
+    - Kinsa ang kinahanglan mo-take sa licensure examination
+    - Ngano kinahanglan sa mga professional ang licensure examination
+    - Unsaon pag-apekto sa licensure examination sa legal nga practice
+    - Pwede nimo i-describe ang proseso sa national licensure examination
+    - Unsay mga requirements aron makuha ang licensure examination
+    - Kinahanglan ba mo-pass sa licensure examination para sa legal nga practice
+    - Unsang klase sa profession ang nagkinahanglan og licensure examination
+    - Ang licensure examination parehas ba sa tibuok nasud
+    - Unsaon ko pagpangandam sa licensure examination
+    - Unsay kahulugan sa licensure examination
+    - Pwede nimo ihatag ang impormasyon bahin sa national licensure examinations
+
+- intent: mock_board_exam
+  examples: |
+    - What is a mock board exam
+    - Can you explain what a mock board exam is
+    - I want to know the purpose of a mock board exam
+    - How does a mock board exam help students
+    - Is a mock board exam required before the actual licensure examination
+    - Who should take a mock board exam
+    - Why is a mock board exam important for students
+    - How do students prepare using a mock board exam
+    - Can you describe the structure of a mock board exam
+    - What subjects are included in a mock board exam
+    - Is a mock board exam similar to the real board exam
+    - How often are mock board exams conducted
+    - Does a mock board exam improve chances of passing the real exam
+    - What is the difference between a mock board exam and the actual board exam
+    - Can students take a mock board exam multiple times
+    - Unsa ang mock board exam
+    - Pwede nimo i-explain unsa ang mock board exam
+    - Gusto nako mahibal-an ang katuyoan sa mock board exam
+    - Giunsa pagtabang sa mock board exam ang mga estudyante
+    - Kinahanglan ba ang mock board exam sa dili pa ang tinuod nga licensure examination
+    - Kinsa ang angay mo-take sa mock board exam
+    - Ngano importante ang mock board exam para sa mga estudyante
+    - Giunsa pag-andam sa estudyante gamit ang mock board exam
+    - Pwede nimo i-describe ang structure sa mock board exam
+    - Unsang mga subjects ang apil sa mock board exam
+    - Parehas ba ang mock board exam sa tinuod nga board exam
+    - Unsaon pagkuha sa mock board exam ug unsa ka kasagaran kini gihimo
+    - Makapadugang ba og tsansa sa pagkapasar sa tinuod nga exam ang mock board exam
+    - Unsa ang kalainan sa mock board exam ug sa tinuod nga board exam
+    - Pwede ba makakuha og mock board exam ang estudyante daghang beses
+
+- intent: on_the_job_training
+  examples: |
+    - What is on-the-job training
+    - Can you explain what on-the-job training is
+    - I want to know the purpose of on-the-job training
+    - How does on-the-job training help students
+    - Is on-the-job training required for my course
+    - Who should participate in on-the-job training
+    - Why is on-the-job training important for students
+    - How do students prepare for on-the-job training
+    - Can you describe the tasks involved in on-the-job training
+    - What skills can students gain from on-the-job training
+    - Does on-the-job training count as course credit
+    - How long is the on-the-job training period
+    - Where do students usually do on-the-job training
+    - Can on-the-job training improve chances of employment
+    - What is the difference between on-the-job training and internship
+    - Unsa ang on-the-job training
+    - Pwede nimo i-explain unsa ang on-the-job training
+    - Gusto nako mahibal-an ang katuyoan sa on-the-job training
+    - Giunsa pagtabang sa on-the-job training ang mga estudyante
+    - Kinahanglan ba ang on-the-job training sa akong kurso
+    - Kinsa ang angay moapil sa on-the-job training
+    - Ngano importante ang on-the-job training para sa mga estudyante
+    - Giunsa pag-andam sa estudyante para sa on-the-job training
+    - Pwede nimo i-describe ang mga tasks nga apil sa on-the-job training
+    - Unsang mga skills ang makuha sa estudyante gikan sa on-the-job training
+    - Gihatagan ba og credit ang on-the-job training
+    - Unsa ka dugay ang on-the-job training period
+    - Asa kasagaran ginabuhat ang on-the-job training
+    - Makapadugang ba sa tsansa sa trabaho ang on-the-job training
+    - Unsa ang kalainan sa on-the-job training ug internship

@@ -40,6 +40,50 @@ intents:
   - ask_faculty_room_location
   - bot_challenge
 
+  - transferee_enrollment
+  - student_fees
+  - student_organizations
+  - about_nstp
+  - about_pe
+  - failed_subject_policy
+  - course_shifting
+  - campus_safety
+  - lost_on_campus
+  - access_sias
+  - peer_mentoring
+  - graduation_attendance
+  - graduation_rehearsal_attendance
+  - tracer_study
+  - early_document_request
+  - course_shifting_later_years
+  - thesis_defense_failure
+  - thesis_defense
+  - thesis_defense_panelists
+  - thesis_topic_selection
+  - internship_requirement
+  - campus_transfer
+  - deans_list
+  - academic_probation
+  - attendance_requirement
+  - add_drop_subject
+  - request_cor
+  - inactive_group_member
+  - student_stress_support
+  - submit_assignments_online
+  - phone_use_in_class
+  - subject_overload
+  - class_concerns
+  - freshmen_intramurals
+  - about_intramurals
+  - end_of_semester
+  - minor_subject
+  - access_grades
+  - senior_academic_overload
+  - board_exam_review
+  - eating_in_classroom
+  - licensure_examination
+  - mock_board_exam
+  - on_the_job_training
 
 entities:
   - category
