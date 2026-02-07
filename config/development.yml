@@ -1,0 +1,78 @@
+# Development Configuration
+version: "3.1"
+
+language: en
+
+pipeline:
+  # Use lighter pipeline for faster training during development
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+  - name: DIETClassifier
+    epochs: 50  # Reduced for faster training
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 50
+  - name: FallbackClassifier
+    threshold: 0.4  # Lower threshold for testing
+  - name: EntityExtractor
+    epochs: 50
+
+policies:
+  # Faster policies for development
+  - name: MemoizationPolicy
+  - name: RulePolicy
+  - name: UnexpecTEDIntentPolicy
+    max_history: 3
+    epochs: 50
+  - name: TEDPolicy
+    max_history: 3
+    epochs: 50
+
+core:
+  token: null
+  nlu_threshold: 0.4  # Lower threshold for testing
+  endpoint:
+    url: http://localhost:5005/webhooks/rest/webhook
+    token: null
+    project_name: null
+    input_channel: null
+    output_channel: null
+    cors_origins: "*"
+    response_timeout: 30
+
+assistant_id: development
+
+nlu:
+  - data/nlu.yml
+
+domain:
+  - domain.yml
+
+training_data:
+  - data/stories.yml
+
+log_level: DEBUG  # Verbose logging for development
+log_file: logs/rasa_dev.log
+
+# Development-specific settings
+enable_api: true
+max_request_size: 1048576
+response_timeout: 5
+num_worker_threads: 1
+port: 5005
+
+# Development security settings
+jwt_secret: dev-secret-key-change-in-production
+enable_cors: true
+cors_origins: 
+  - "*"
+  - "http://localhost:3000"
+  - "http://localhost:3001"
+
+# Development monitoring
+enable_monitoring: false
+telemetry: true  # Enable for debugging

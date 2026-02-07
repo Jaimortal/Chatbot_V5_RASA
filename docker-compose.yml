@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # Rasa Core Service
+  rasa:
+    build: .
+    container_name: buksu-chatbot-rasa
+    ports:
+      - "5005:5005"
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=INFO
+      - PORT=5005
+    volumes:
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./uploads:/app/uploads
+    networks:
+      - chatbot-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5005/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Action Server Service
+  rasa-actions:
+    build: .
+    container_name: buksu-chatbot-actions
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/app/logs
+      - ./rasa/actions:/app/rasa/actions
+    networks:
+      - chatbot-network
+    restart: unless-stopped
+    depends_on:
+      - rasa
+    command: ["python", "scripts/start.py", "--env", "production", "--mode", "actions"]
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    container_name: buksu-chatbot-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - chatbot-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  # Nginx reverse proxy (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: buksu-chatbot-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    networks:
+      - chatbot-network
+    restart: unless-stopped
+    depends_on:
+      - rasa
+    profiles:
+      - production
+
+volumes:
+  redis_data:
+
+networks:
+  chatbot-network:
+    driver: bridge

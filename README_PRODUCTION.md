@@ -1,0 +1,349 @@
+# BukSU Chatbot - Production Ready System
+
+A comprehensive, production-ready chatbot system for Bukidnon State University built with Rasa framework, featuring generalized entity handling with metadata support.
+
+## 🚀 Features
+
+- **🤖 Intelligent Conversational AI**: Built with Rasa framework
+- **🌍 Bilingual Support**: English and Cebuano language support
+- **📍 Generalized Location Entity**: Single entity handling multiple location types
+- **📊 Rich Metadata**: Building, floor, coordinates, and map integration
+- **🐳 Docker Ready**: Containerized deployment with Docker Compose
+- **📈 Production Monitoring**: Comprehensive health checks and metrics
+- **🔒 Security Focused**: Environment-based configuration management
+- **🛠️ Staff Tools**: Complete deployment and management scripts
+
+## 🏗️ Architecture
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Frontend    │    │   Rasa Core   │    │   Actions      │
+│   (Web UI)   │◄──►│   (NLU + Dialog)│◄──►│   (Business    │
+└─────────────────┘    └─────────────────┘    │    Logic)       │
+                                              └─────────────────┘
+```
+
+## 📁 Project Structure
+
+```
+Code-Crafter/
+├── 📋 rasa/                    # Core Rasa application
+│   ├── 🤖 actions/           # Custom actions
+│   │   ├── actions.py         # Main action server
+│   │   ├── responses.json      # Response data
+│   │   └── responses_new.json # Generalized entities
+│   ├── 📊 data/              # Training data
+│   │   ├── nlu.yml           # NLU training
+│   │   └── stories.yml        # Dialog stories
+│   ├── 🏷️ domain.yml          # Bot domain
+│   └── ⚙️ config.yml          # Rasa config
+├── ⚙️ config/                  # Environment configs
+│   ├── 🏭 production.yml     # Production settings
+│   ├── 🧪 development.yml    # Development settings
+│   └── 🎭 staging.yml        # Staging settings
+├── 📜 scripts/                 # Management scripts
+│   ├── 🔧 setup-env.py      # Environment setup
+│   ├── 🚀 start.py           # Startup script
+│   ├── 📦 deploy.py          # Deployment script
+│   └── 📊 monitor.py         # Monitoring system
+├── 📝 docs/                    # Documentation
+│   └── STAFF_GUIDE.md     # Staff guide
+├── 🐳 docker-compose.yml         # Container orchestration
+├── 🐳 Dockerfile               # Container definition
+├── 📊 logs/                    # Application logs
+├── 📁 uploads/                  # File uploads
+├── 💾 models/                   # Trained models
+├── 🔑 .env.example              # Environment template
+└── 📋 requirements.txt           # Dependencies
+```
+
+## 🚀 Quick Start
+
+### For Development Team
+```bash
+# 1. Clone and setup
+git clone <repository-url>
+cd Code-Crafter
+python scripts/setup-env.py
+
+# 2. Start development
+python scripts/start.py --env development
+
+# 3. Train model (if needed)
+rasa train
+```
+
+### For Production Deployment
+```bash
+# 1. Configure environment
+cp .env.example .env
+# Edit .env with production values
+
+# 2. Deploy with backup
+python scripts/deploy.py production --backup
+
+# 3. Start monitoring
+python scripts/monitor.py --daemon
+```
+
+### Docker Deployment
+```bash
+# Build and start all services
+docker-compose up -d
+
+# Production with nginx
+docker-compose --profile production up -d
+```
+
+## 🌐 Environment Configuration
+
+### Development Environment
+- **Purpose**: Active development and testing
+- **Config**: `config/development.yml`
+- **Logging**: DEBUG level
+- **Features**: Telemetry enabled, fast training
+
+### Staging Environment
+- **Purpose**: Pre-production testing
+- **Config**: `config/staging.yml`
+- **Logging**: INFO level
+- **Features**: Production-like settings
+
+### Production Environment
+- **Purpose**: Live deployment
+- **Config**: `config/production.yml`
+- **Logging**: INFO level
+- **Features**: Optimized for performance, monitoring enabled
+
+## 📍 Generalized Entity System
+
+The chatbot features a revolutionary generalized location entity that handles multiple location types through a single unified system:
+
+### Supported Location Types
+- **🖥️ Computer Laboratories** (ComLab 1-8)
+- **🏢 Faculty Rooms** (Faculty Room 102)
+- **🚻 Comfort Rooms** (Comfort Room - Finance 3F)
+- **🏫 Classrooms** (Classroom 204)
+- **📍 Any Future Location Types**
+
+### Entity Structure
+```json
+{
+  "location_name": {
+    "type": "location_category",
+    "building": "Building Name",
+    "floor": "Floor Level",
+    "coordinates": [x, y],
+    "map_id": "map_identifier",
+    "responses": {
+      "en": ["English responses"],
+      "ceb": ["Cebuano responses"]
+    }
+  }
+}
+```
+
+### Usage Examples
+- "Where is [ComLab 1](location)?"
+- "Can you help me find [Faculty Room 102](location)?"
+- "Asa dapit ang [Classroom 204](location)?"
+
+## 🔧 Management Scripts
+
+### Environment Setup (`scripts/setup-env.py`)
+- ✅ Creates virtual environment
+- ✅ Installs dependencies
+- ✅ Validates configuration
+- ✅ Creates necessary directories
+
+### Startup Script (`scripts/start.py`)
+- 🚀 Environment-aware startup
+- 📊 Health checks
+- 📝 Comprehensive logging
+- 🔄 Graceful shutdown handling
+
+### Deployment Script (`scripts/deploy.py`)
+- 📦 Automatic backup creation
+- 🧪 Model validation
+- 🚀 Multi-environment support
+- 🔄 Rollback capabilities
+- 📝 Deployment logging
+
+### Monitoring Script (`scripts/monitor.py`)
+- 📈 Real-time metrics
+- 🚨 Alert system
+- 📊 Resource monitoring
+- 📝 Historical data tracking
+
+## 🐳 Docker Deployment
+
+### Container Services
+- **rasa**: Main Rasa server (port 5005)
+- **rasa-actions**: Action server
+- **redis**: Caching layer (optional)
+- **nginx**: Reverse proxy with SSL (production)
+
+### Docker Commands
+```bash
+# Development
+docker-compose up -d
+
+# Production
+docker-compose --profile production up -d
+
+# Scale services
+docker-compose up -d --scale rasa=2
+
+# View logs
+docker-compose logs -f
+```
+
+## 📊 Monitoring & Analytics
+
+### Health Metrics
+- Server uptime and availability
+- Response time tracking
+- Success/error rates
+- System resource usage
+- Request patterns
+
+### Alert System
+- CPU usage thresholds
+- Memory usage alerts
+- Custom webhook integration
+- Email notification support
+
+### Log Management
+- Automatic log rotation
+- Configurable retention
+- Structured logging format
+- Real-time log streaming
+
+## 🔒 Security Features
+
+### Environment Security
+- `.env` file for sensitive data
+- JWT secret management
+- CORS configuration
+- Rate limiting support
+
+### Production Security
+- Non-root Docker containers
+- SSL/TLS encryption
+- Firewall configuration
+- Security headers
+
+## 🛠️ Development Workflow
+
+### 1. Feature Development
+```bash
+# Create new feature branch
+git checkout -b new-feature
+
+# Make changes
+# Edit files in rasa/ directory
+
+# Test locally
+python scripts/start.py --env development
+```
+
+### 2. Testing
+```bash
+# Train model
+rasa train
+
+# Run tests
+rasa test
+
+# Interactive testing
+rasa shell
+```
+
+### 3. Deployment
+```bash
+# Deploy to staging
+python scripts/deploy.py staging --backup
+
+# Test staging environment
+# Manual testing and validation
+
+# Deploy to production
+python scripts/deploy.py production --backup
+```
+
+## 📋 Requirements
+
+### System Requirements
+- **Python**: 3.9+
+- **Memory**: 2GB+ RAM
+- **Storage**: 5GB+ available
+- **Network**: Internet connection for training
+
+### Dependencies
+See `requirements.txt` for complete list:
+- `rasa>=3.6.0`
+- `flask>=2.3.0`
+- `psutil>=5.9.0`
+- `requests>=2.28.0`
+
+## 📞 Support & Documentation
+
+### Documentation
+- 📖 **Staff Guide**: `docs/STAFF_GUIDE.md`
+- 🔧 **API Documentation**: Available in Rasa docs
+- 🐳 **Docker Guide**: Container deployment instructions
+
+### Getting Help
+1. **Check Logs**: Review `logs/` directory first
+2. **Staff Guide**: Consult `docs/STAFF_GUIDE.md`
+3. **Monitoring**: Use `scripts/monitor.py --status`
+4. **Community**: Rasa community forums
+
+### Emergency Procedures
+- 🚨 **Server Down**: Use rollback procedures
+- 🗑️ **Data Loss**: Restore from backups
+- 🔒 **Security**: Change all secrets
+
+## 🎯 Production Readiness Checklist
+
+### Pre-Deployment
+- [ ] Environment configured in `.env`
+- [ ] All secrets changed from defaults
+- [ ] Backup strategy tested
+- [ ] Monitoring configured
+- [ ] SSL certificates ready
+- [ ] Performance tested under load
+
+### Post-Deployment
+- [ ] Health checks passing
+- [ ] Monitoring active
+- [ ] Alerts configured
+- [ ] Documentation updated
+- [ ] Team trained on procedures
+
+---
+
+## 🏆 Key Benefits
+
+### For Development Team
+- **🚀 Fast Setup**: One-command environment setup
+- **🔧 Unified Management**: Single script for all operations
+- **📊 Real-time Monitoring**: Comprehensive health tracking
+- **🔄 Safe Deployments**: Backup and rollback capabilities
+- **🐳 Portable**: Docker-based deployment
+
+### For University Staff
+- **📚 Easy Management**: Comprehensive staff guide
+- **🛠️ Low Maintenance**: Automated monitoring and alerts
+- **🔒 Secure**: Production-focused security
+- **📈 Scalable**: Docker orchestration support
+- **🌍 Bilingual**: Native language support
+
+---
+
+**Version**: 1.0.0  
+**Last Updated**: January 2025  
+**Framework**: Rasa 3.1  
+**Maintained by**: BukSU ICT Services Unit
+
+🚀 **Ready for production deployment!**

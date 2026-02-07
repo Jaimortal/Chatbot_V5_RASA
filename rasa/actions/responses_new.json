@@ -1,0 +1,93 @@
+{
+  "locations": {
+    "ComLab 1": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 3rd floor of the Finance Building.",
+          "ComLab 1 is the first laboratory you will see.",
+          "You may use either the elevator or the stairs to reach the floor."
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor sa Finance Building.",
+          "Ang ComLab 1 mao ang una makita nga laboratory.",
+          "Pwede ka mogamit sa elevator o stairs para moabot sa floor."
+        ]
+      }
+    },
+    "ComLab 8": {
+      "type": "comlab",
+      "building": "Secondary School Laboratory Building",
+      "floor": "1st Floor",
+      "coordinates": [300, 600],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 1st floor of the Secondary School Laboratory Building.",
+          "This building is beside the University Press Building and in front of the parking area along P.A. Ramos Street.",
+          "Once you reach the building, ComLab 8 can be easily found on the ground floor."
+        ],
+        "ceb": [
+          "Nahimutang sa 1st floor sa Secondary School Laboratory Building.",
+          "Kining bilding nahimutang tapad sa University Press Building ug diretso sa atubangan sa parking area sa P.A. Ramos Street.",
+          "Kung moabot ka sa bilding, sayon makita ang ComLab 8 sa ground floor."
+        ]
+      }
+    },
+    "Faculty Room 102": {
+      "type": "faculty_room",
+      "building": "College of Education",
+      "floor": "1st Floor",
+      "coordinates": [120, 200],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Faculty Room 102 is located on the 1st floor of the College of Education Building.",
+          "It is near the main entrance and assigned to Prof. Cruz."
+        ],
+        "ceb": [
+          "Nahimutang ang Faculty Room 102 sa 1st floor sa College of Education Building.",
+          "Duol kini sa main entrance ug assigned kang Prof. Cruz."
+        ]
+      }
+    },
+    "Comfort Room - Finance 3F": {
+      "type": "comfort_room",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [500, 550],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The comfort room on the 3rd floor of the Finance Building is near ComLab 5.",
+          "Follow the hallway to reach it."
+        ],
+        "ceb": [
+          "Ang comfort room sa 3rd floor sa Finance Building nahimutang duol sa ComLab 5.",
+          "Sunda lang ang hallway para maabot kini."
+        ]
+      }
+    },
+    "Classroom 204": {
+      "type": "classroom",
+      "building": "Science Building",
+      "floor": "2nd Floor",
+      "coordinates": [200, 350],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Classroom 204 is located on the 2nd floor of the Science Building.",
+          "It is at the end of the corridor, beside the Chemistry Lab."
+        ],
+        "ceb": [
+          "Nahimutang ang Classroom 204 sa 2nd floor sa Science Building.",
+          "Anaa kini sa tumoy sa corridor, tapad sa Chemistry Lab."
+        ]
+      }
+    }
+  }
+}

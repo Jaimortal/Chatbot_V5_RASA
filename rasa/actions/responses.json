@@ -1,4 +1,229 @@
 [
+
+  {
+    "ComLab 1": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 3rd floor of the Finance Building.",
+          "You may use either the elevator or the stairs to reach the floor.",
+          "Once you arrive, ComLab 1 will be the first computer laboratory you will see."
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor sa Finance Building.",
+          "Pwede ka mogamit sa elevator o stairs para sa floor.",
+          "Kung moabot ka, ComLab 1 mao ang una makita nga computer laboratory."
+        ]
+      }
+    },
+    "ComLab 2": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 3rd floor of the Finance Building.",
+          "Positioned right beside ComLab 1, making it easy to find once you reach the computer laboratory area."
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor sa Finance Building.",
+          "Positioned tapad sa ComLab 1, sayon makita kung moabot ka sa computer laboratory area."
+        ]
+      }
+    },
+    "ComLab 3": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 3rd floor of the Finance Building.",
+          "Situated near the other computer laboratories and is easy to locate once you reach the area."
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor sa Finance Building.",
+          "Nahimutang duol sa lain nga mga computer laboratory ug sayon makita kung moabot ka sa area."
+        ]
+      }
+    },
+    "ComLab 4": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+         "Located on the 3rd floor of the Finance Building.",
+          "At the back of ComLab 3.",
+          "Once you pass ComLab 3, you will easily see ComLab 4."
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor, Finance Building.",
+          "Sa luyo sa ComLab 3.",
+          "Kung mo-uban ka sa ComLab 3, sayon makita ang ComLab 4."
+        ]
+      }
+    },
+    "ComLab 5": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 3rd floor of the Finance Building.",
+          "Beside ComLab 4.",
+          "Once you find ComLab 4, ComLab 5 will be immediately next to it."
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor, Finance Building.",
+          "Tapad sa ComLab 4.",
+          "Kung makita ang ComLab 4, ang ComLab 5 anaa dayon tapad niini."
+        ]
+      }
+    },
+    "ComLab 6": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 3rd floor of the Finance Building.",
+          "Positioned near ComLab 5 and is easily accessible once you reach the computer laboratory area." 
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor sa Finance Building.",
+          "Positioned duol sa ComLab 5 ug sayon ma-access kung moabot ka sa computer laboratory area."
+        ]
+      }
+    },
+    "ComLab 7": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 3rd floor of the Finance Building.",
+          "This is the Multimedia and Arts Laboratory.",
+          "Situated near ComLab 6 and can be easily found once you reach the computer laboratory area."
+        ],
+        "ceb": [
+          "Nahimutang sa 3rd floor, Finance Building.",
+          "Kini ang Multimedia and Arts Laboratory.",
+          "Nahimutang duol sa ComLab 6 ug sayon makita kung moabot ka sa computer laboratory area."
+        ]
+      }
+    },
+    "ComLab 8": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located on the 1st floor of the Secondary School Laboratory Building.",
+          "This building is situated beside the University Press (UP) Building and directly in front of the parking area along P.A. Ramos Street.",
+          "Once you reach the building, ComLab 8 can be easily found on the ground floor."
+        ],
+        "ceb": [
+          "Nahimutang sa 1st floor sa Secondary School Laboratory Building.",
+          "Kining bilding nahimutang tapad sa University Press (UP) Building ug diretso sa atubangan sa parking area sa P.A. Ramos Street.",
+          "Kung moabot ka sa bilding, sayon makita ang ComLab 8 sa ground floor."
+        ]
+      }
+    },
+    "ComLab 9": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Located in the same building as ComLab 8, the Secondary School Laboratory Building.",
+          "Also on the 1st floor and positioned right beside ComLab 8.",
+          "Once you arrive at the area near the University Press building and parking space along P.A. Ramos Street, it will be easy to locate."
+        ],
+        "ceb": [
+          "Nahimutang sa sama nga bilding sa ComLab 8, ang Secondary School Laboratory Building.",
+          "Usab sa 1st floor ug positioned tapad sa ComLab 8.",
+          "Kung moabot ka sa area duol sa University Press bilding ug parking space sa P.A. Ramos Street, sayon makita."
+        ]
+      }
+    },
+    "ComLab 10": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "At present, ComLab 10 does not exist.",
+          "The available computer laboratories are currently numbered from ComLab 1 up to ComLab 12, with no designated ComLab 10."
+        ],
+        "ceb": [
+          "Karon, wala ang ComLab 10.",
+          "Ang anaa nga mga computer laboratory karon gikan sa ComLab 1 hangtod sa ComLab 12, walay designated ComLab 10."
+        ]
+      }
+    },
+    "ComLab 11": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "This is the Audio Laboratory located on the 3rd floor of the CPAG Building.",
+          "Situated beside the ICTU Room and the Networking Laboratory.",
+          "Once you reach the area, the laboratory is easy to identify."
+        ],
+        "ceb": [
+          "Kini ang Audio Laboratory nahimutang sa 3rd floor sa CPAG Building.",
+          "Nahimutang tapad sa ICTU Room ug Networking Laboratory.",
+          "Kung moabot ka sa area, sayon makita ang laboratory."
+        ]
+      }
+    },
+    "ComLab 12": {
+      "type": "comlab",
+      "building": "Finance Building",
+      "floor": "3rd Floor",
+      "coordinates": [701, 645],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "This is the Networking Laboratory located on the 3rd floor of the CPAG Building.",
+          "In the same area as ComLab 11 and positioned directly in front of the Smart Classroom.",
+          "Once you are on the floor, it should be easy to locate."
+        ],
+        "ceb": [
+          "Kini ang Networking Laboratory nahimutang sa 3rd floor sa CPAG Building.",
+          "Sa sama nga area sa ComLab 11 ug positioned diretso sa atubangan sa Smart Classroom.",
+          "Kung anaa ka sa floor, sayon makita."
+        ]
+      }
+    }
+
+  },
+
   {
     "intent": "about_ict",
     "category": "comlab",
@@ -1466,16 +1691,18 @@
     "responses": {
       "answer": {
         "en": [
-          "Yes, course shifting is allowed at BukSU, especially during your first year.",
+          "Yes, course shifting is allowed at BukSU, especially after finishing your first year course.",
           "However, please note that usually only minor subjects are credited.",
           "This means you will not need to retake those specific classes in your new program.",
-          "It is rare for major subjects to be credited, so it is recommended to check with the Registrar’s Office for more details."
+          "It is rare for major subjects to be credited, so it is recommended to check with the Registrar’s Office for more details.",
+          "Please also keep in mind that for certain specific courses, you are not permitted to shift during the second semester. In these cases, you must complete your entire first year in your current program before you are eligible to transfer to a different course."
         ],
         "ceb": [
           "Oo, pwede ra mag-shift og course sa BukSU, labi na kung first year pa.",
           "Apan palihog timan-i nga kasagaran mga minor subjects ra ang ma-credit.",
           "Pasabot niini nga dili na nimo kinahanglan kuhaon balik ang mga maong subject sa imong bag-ong kurso.",
-          "Talagsa ra kaayo nga ma-credit ang major subjects, mao nga mas maayo mangutana ka sa Registrar’s Office para sa mas klaro nga detalye."
+          "Talagsa ra kaayo nga ma-credit ang major subjects, mao nga mas maayo mangutana ka sa Registrar’s Office para sa mas klaro nga detalye.",
+          "Palihog hinumdumi usab nga para sa pipila ka espesipikong kurso, dili tugotan ang pag-shift sa ikaduhang semester. Sa ing-ani nga mga kaso, kinahanglan nimo tapuson ang tibuok first year sa imong current nga programa usa ka pa mahimong eligible nga mobalhin sa lain nga kurso."
         ]
       },
       "context_slots": {
