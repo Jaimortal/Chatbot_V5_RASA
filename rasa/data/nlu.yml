@@ -677,22 +677,39 @@ nlu:
     - Unsa nga mga lugar adunay computer lab sa BukSU
     - Asa ko moadto kung mangita ko ug computer laboratory sa campus
 
-- intent: locate_comlab
+- intent: ask_locations
   examples: |
-    - Where is [ComLab 1](lab_number) located in Bukidnon State University
-    - Can you tell me the location of [ComLab 2](lab_number) in BukSU
-    - I am trying to find where [ComLab 3](lab_number) is located
-    - Which building and floor is [ComLab 4](lab_number) located in
-    - How can I get to [ComLab 5](lab_number) in the campus
-    - Where can I find [Computer Laboratory 6](lab_number) in BukSU
-    - Please guide me to the location of [ComLab 7](lab_number)
-    - I need directions going to [ComLab 1](lab_number)
-    - What floor is [ComLab 2](lab_number) located in the Finance Building
-    - Can you help me locate [ComLab 3](lab_number) inside the university
-    - Where exactly is [Computer Laboratory 4](lab_number) situated
-    - I am looking for [ComLab 5](lab_number) for my class
-    - How do I reach [ComLab 6](lab_number) from the entrance
-    - Is [ComLab 7](lab_number) located in the Finance Building
+    - Where is [ComLab 1](location_name) located in Bukidnon State University
+    - Can you tell me the location of [ComLab 2](location_name) in BukSU
+    - I am trying to find where [ComLab 3](location_name) is located
+    - Which building and floor is [ComLab 4](location_name) located in
+    - How can I get to [ComLab 5](location_name) in the campus
+    - Where can I find [Computer Laboratory 6](location_name) in BukSU
+    - Please guide me to the location of [ComLab 7](location_name)
+    - Where is [ComLab 2](location_name) located
+    - Where can I find [ComLab 9](location_name)
+    - How do I get to [ComLab 10](location_name)
+    - Please guide me to [ComLab 11](location_name)
+    - I need directions to [ComLab 12](location_name)
+    - Where can I find [Computer Laboratory 11](location_name)
+    - Where is [Computer Laboratory 9](location_name)
+    - How do I reach [Computer Laboratory 11](location_name)
+    - Asa dapit ang [ComLab 2](location_name)
+    - Asa makita ang [ComLab 9](location_name)
+    - Unsaon pag adto sa [ComLab 11](location_name)
+    - Asa dapit ang [ComLab 12](location_name)
+    - Where is [Conference Room A](location_name) located
+    - Can you tell me where [Conference Room A](location_name) is
+    - I need to find [Conference Room A](location_name)
+    - Asa dapit ang [Conference Room A](location_name)
+    - Unsaon pag adto sa [Conference Room A](location_name)
+    - I need directions going to [ComLab 1](location_name)
+    - What floor is [ComLab 2](location_name) located in the Finance Building
+    - Can you help me locate [ComLab 3](location_name) inside the university
+    - Where exactly is [Computer Laboratory 4](location_name) situated
+    - I am looking for [ComLab 5](location_name) for my class
+    - How do I reach [ComLab 6](location_name) from the entrance
+    - Is [ComLab 7](location_name) located in the Finance Building
     - Where is the first computer laboratory in BukSU
     - Where is the second computer laboratory in BukSU
     - Where is the third computer laboratory in BukSU
@@ -700,21 +717,29 @@ nlu:
     - Where is the fifth computer laboratory in BukSU
     - Where is the sixth computer laboratory in BukSU
     - Where is the seventh computer laboratory in BukSU
-    - Asa dapit ang [ComLab 1](lab_number) sa BukSU
-    - Pwede nimo isulti asa nahimutang ang [ComLab 2](lab_number)
-    - Gusto ko mahibal an asa ang [Computer Laboratory 3](lab_number)
-    - Asa nga building ug floor makita ang [ComLab 4](lab_number)
-    - Unsaon pag adto sa [ComLab 5](lab_number) sa campus
-    - Asa ko pwede makakita sa [ComLab 6](lab_number)
-    - Tabangi ko pag locate sa [ComLab 7](lab_number) sa BukSU
-    - Asa dapit ginahimutang ang [Computer Laboratory 1](lab_number)
-    - Unsay sakto nga lokasyon sa [ComLab 2](lab_number)
-    - Asa ko moadto kung mangita ko ug [ComLab 3](lab_number)
+    - Asa dapit ang [ComLab 1](location_name) sa BukSU
+    - Pwede nimo isulti asa nahimutang ang [ComLab 2](location_name)
+    - Gusto ko mahibal an asa ang [Computer Laboratory 3](location_name)
+    - Asa nga building ug floor makita ang [ComLab 4](location_name)
+    - Unsaon pag adto sa [ComLab 5](location_name) sa campus
+    - Asa ko pwede makakita sa [ComLab 6](location_name)
+    - Tabangi ko pag locate sa [ComLab 7](location_name) sa BukSU
+    - Asa dapit ginahimutang ang [Computer Laboratory 1](location_name)
+    - Unsay sakto nga lokasyon sa [ComLab 2](location_name)
+    - Asa ko moadto kung mangita ko ug [ComLab 3](location_name)
     - Asa makita ang unang computer laboratory sa BukSU
-    - Pwede ba nimo itudlo asa ang [ComLab 4](lab_number)
+    - Pwede ba nimo itudlo asa ang [ComLab 4](location_name)
+    - Asa dapit ang [ComLab 5](location_name) sa Finance Building
+    - Giunsa pag adto sa [ComLab 6](location_name) kung naa ko sa campus
+    - Asa makita ang [ComLab 7](location_name) para sa among klase
     - Asa dapit ang [ComLab 5](lab_number) sa Finance Building
     - Giunsa pag adto sa [ComLab 6](lab_number) kung naa ko sa campus
     - Asa makita ang [ComLab 7](lab_number) para sa among klase
+
+- regex: lab_number
+  examples: |
+    - ComLab [0-9]+
+    - Computer Laboratory [0-9]+
 
 - intent: ask_faculty_room_location
   examples: |
@@ -2229,3 +2254,325 @@ nlu:
     - Asa kasagaran ginabuhat ang on-the-job training
     - Makapadugang ba sa tsansa sa trabaho ang on-the-job training
     - Unsa ang kalainan sa on-the-job training ug internship
+
+- intent: cannot_upload_2x2_picture
+  examples: |
+    - I cannot upload my 2x2 profile picture in the admission portal
+    - The system does not allow me to upload my 2x2 photo for my application
+    - Why is my 2x2 picture not uploading in my admission account
+    - I am having trouble uploading my profile photo in the admission system
+    - My admission profile picture upload keeps failing and does not complete
+    - What should I do if my 2x2 photo cannot be uploaded successfully
+    - The portal rejects my profile picture even though I uploaded it correctly
+    - I tried uploading my admission photo but the upload does not work
+    - The admission system does not accept my 2x2 profile image
+    - How can I fix the problem when my profile picture cannot be uploaded
+    - Dili nako ma upload ang akong 2x2 nga profile picture sa admission portal
+    - Ngano dili madawat sa system ang akong 2x2 nga litrato
+    - Naa koy problema sa pag upload sa akong profile picture sa admission system
+    - Dili mo proceed ang upload sa akong litrato sa admission account
+    - Gi reject sa portal ang akong 2x2 nga litrato bisan sakto ang format
+    - Unsa akong buhaton kung dili ma upload ang akong profile picture
+    - Dili madawat sa admission system ang akong profile photo
+    - Naglisod ko sa pag upload sa akong litrato para sa admission
+    - Ngano dili makompleto ang upload sa akong 2x2 nga picture
+    - Giunsa pag solve kung dili ma upload ang profile picture sa admission portal
+
+- intent: application_always_denied
+  examples: |
+    - Why does my admission application keep getting denied
+    - My application is always rejected even though I submitted my requirements
+    - I want to know why my admission application was denied
+    - What is the reason why my admission application is not approved
+    - The system keeps denying my admission application every time I submit
+    - How can I fix my admission application that keeps getting rejected
+    - My admission status shows denied and I do not know why
+    - I already submitted everything but my admission application was still denied
+    - What should I do if my admission application is always rejected
+    - Why does the admission office keep denying my application
+    - Ngano pirmi ma deny ang akong admission application
+    - Gi reject sa system ang akong application bisan kompleto ang requirements
+    - Gusto nako mahibal an ngano wala na approve ang akong application
+    - Unsa ang hinungdan ngano denied ang akong admission application
+    - Pirmi gi deny sa admission system ang akong application
+    - Giunsa pag ayos kung pirmi gi reject ang admission application
+    - Nagpakita ang akong admission status nga denied ug wala ko kabalo ngano
+    - Nagsubmit nako sa tanan requirements pero gi deny gihapon ang application
+    - Unsa akong buhaton kung pirmi gi reject ang akong admission application
+    - Ngano wala gi approve sa admission office ang akong application
+
+- intent: test_permit_corrupted
+  examples: |
+    - My test permit cannot be opened on my device
+    - I cannot view my admission test permit because it is corrupted
+    - The test permit file does not open properly
+    - Why is my admission test permit not working
+    - I downloaded my test permit but it cannot be opened
+    - My test permit shows an error when I try to open it
+    - The admission test permit file appears damaged or corrupted
+    - What should I do if my test permit cannot be accessed
+    - I cannot open my test permit after downloading it
+    - How can I fix my corrupted admission test permit
+    - Dili ma open ang akong test permit sa akong device
+    - Dili nako makita ang akong test permit kay corrupted kini
+    - Dili mo open ang file sa akong admission test permit
+    - Ngano dili mo work ang akong test permit
+    - Gi download nako ang test permit pero dili ma open
+    - Nagpakita ug error ang akong test permit kung akong ablihan
+    - Murag damaged o corrupted ang akong test permit nga file
+    - Unsa akong buhaton kung dili ma access ang akong test permit
+    - Dili nako ma open ang akong test permit human nako gi download
+    - Giunsa pag ayos kung corrupted ang admission test permit
+
+- intent: application_pending
+  examples: |
+    - Why is my admission application still pending approval
+    - My admission application status shows pending and I want to know why
+    - How long does it take for my admission application to be approved
+    - My admission account says pending and it has not changed yet
+    - When will my admission application be reviewed and approved
+    - What should I do if my admission application is still pending
+    - I already submitted my admission requirements but the status is still pending
+    - Why has my admission application not been approved yet
+    - Is it normal for my admission application to remain pending
+    - I want to know when my admission application will be approved
+    - Ngano pending gihapon ang akong admission application
+    - Ang akong admission status pending gihapon ug gusto ko mahibal an ngano
+    - Kanus a ma approve ang akong admission application
+    - Pending gihapon ang status sa akong admission account hangtod karon
+    - Kanus a i review ug i approve ang akong admission application
+    - Unsa akong buhaton kung pending gihapon ang akong admission application
+    - Nagsubmit nako sa akong requirements pero pending gihapon ang status
+    - Ngano wala pa na approve ang akong admission application
+    - Normal ra ba nga pending gihapon ang admission application
+    - Gusto ko mahibal an kanus a ma approve ang akong application
+
+- intent: intramurals_week_classes
+  examples: |
+    - Are there classes during intramurals week
+    - Will classes continue during the intramurals period
+    - Do instructors still conduct classes during intramurals week
+    - I want to know if there are classes during intramurals
+    - Are students required to attend classes during intramurals week
+    - Is the class schedule different during intramurals week
+    - Will my classes be suspended during intramurals activities
+    - Should I attend classes or intramurals during intramurals week
+    - Do instructors cancel classes during intramurals week
+    - What happens to class schedules during intramurals week
+    - Naa ba klase panahon sa intramurals week
+    - Magpadayon ba ang klase panahon sa intramurals
+    - Mag conduct ba gihapon ug klase ang instructor panahon sa intramurals
+    - Gusto ko mahibal an kung naa bay klase panahon sa intramurals
+    - Kinahanglan ba mo attend ug klase panahon sa intramurals week
+    - Mausab ba ang class schedule panahon sa intramurals
+    - I suspend ba ang klase panahon sa intramurals activities
+    - Klase ba o intramurals ang dapat attendan panahon sa intramurals week
+    - Gi cancel ba sa instructor ang klase panahon sa intramurals
+    - Unsa mahitabo sa class schedule panahon sa intramurals week
+
+- intent: intramurals_week_classes
+  examples: |
+    - Are there classes during intramurals week
+    - Will classes continue during the intramurals period
+    - Do instructors still conduct classes during intramurals week
+    - I want to know if there are classes during intramurals
+    - Are students required to attend classes during intramurals week
+    - Is the class schedule different during intramurals week
+    - Will my classes be suspended during intramurals activities
+    - Should I attend classes or intramurals during intramurals week
+    - Do instructors cancel classes during intramurals week
+    - What happens to class schedules during intramurals week
+    - Naa ba klase panahon sa intramurals week
+    - Magpadayon ba ang klase panahon sa intramurals
+    - Mag conduct ba gihapon ug klase ang instructor panahon sa intramurals
+    - Gusto ko mahibal an kung naa bay klase panahon sa intramurals
+    - Kinahanglan ba mo attend ug klase panahon sa intramurals week
+    - Mausab ba ang class schedule panahon sa intramurals
+    - I suspend ba ang klase panahon sa intramurals activities
+    - Klase ba o intramurals ang dapat attendan panahon sa intramurals week
+    - Gi cancel ba sa instructor ang klase panahon sa intramurals
+    - Unsa mahitabo sa class schedule panahon sa intramurals week
+
+- intent: tes_release_delay
+  examples: |
+    - Why is my TES allowance not released yet
+    - My TES allowance has not been received and I want to know why
+    - When will the TES allowance be released
+    - What is the reason for the delay in TES allowance release
+    - I am still waiting for my TES allowance and there is no update
+    - How long does it take for TES allowance to be released
+    - Why does TES allowance processing take so long
+    - My TES allowance is delayed and I want to know the reason
+    - What should I do if my TES allowance is delayed
+    - I want to know the status of my TES allowance release
+    - Ngano wala pa na release ang akong TES allowance
+    - Wala pa nako nadawat ang TES allowance ug gusto ko mahibal an ngano
+    - Kanus a ma release ang TES allowance
+    - Unsa ang hinungdan sa delay sa TES allowance
+    - Naghulat gihapon ko sa TES allowance ug wala pay update
+    - Pila ka adlaw o semana bago ma release ang TES allowance
+    - Ngano dugay ang proseso sa TES allowance release
+    - Na delay ang akong TES allowance ug gusto ko mahibal an ngano
+    - Unsa akong buhaton kung delayed ang TES allowance
+    - Gusto ko mahibal an ang status sa TES allowance release
+
+- intent: reschedule_entrance_exam
+  examples: |
+    - Can I reschedule my Bukidnon State University entrance examination date
+    - I want to change my assigned entrance examination schedule to another date
+    - Is it possible to move my entrance examination to a different schedule
+    - I cannot attend my assigned entrance examination and I want to reschedule it
+    - Can the admission office reschedule my entrance examination schedule
+    - What should I do if I miss my assigned entrance examination date
+    - Is there an option to reschedule the university entrance examination
+    - I have a conflict with my entrance examination date and I want to change it
+    - Can I request a different entrance examination schedule from the admission office
+    - I want to know if the entrance examination schedule can be changed
+    - Pwede ba nako ma reschedule ang akong entrance examination sa Bukidnon State University
+    - Gusto nako ilisan ang akong assigned entrance examination schedule
+    - Posible ba nga mausab ang schedule sa akong entrance examination
+    - Dili ko makatunga sa akong assigned entrance examination ug gusto nako mag reschedule
+    - Pwede ba ko mangayo ug lain nga entrance examination schedule
+    - Unsa akong buhaton kung dili ko makatunga sa entrance examination
+    - Pwede ba mausab ang schedule sa entrance examination
+    - Naay conflict ang akong entrance examination schedule ug gusto nako ilisan
+    - Pwede ba nako ilisan ang entrance examination date nga gi assign sa akoa
+    - Gusto nako mahibal an kung pwede ba mausab ang entrance examination schedule
+
+- intent: tes_with_other_scholarships
+  examples: |
+    - Can I apply for TES scholarship while applying for another scholarship program
+    - Am I allowed to receive TES and another scholarship at the same time
+    - Is it possible to qualify for TES if I already have another scholarship
+    - Can students receive TES together with other government scholarship programs
+    - I want to know if TES allows students with existing scholarships
+    - Can I still apply for TES if I am already a scholarship applicant
+    - Does TES allow multiple scholarship benefits for students
+    - Will TES approve students who already have another scholarship
+    - Is TES compatible with other scholarship programs in the university
+    - Can I receive TES allowance while receiving another educational assistance
+    - Pwede ba ko mag apply sa TES scholarship bisan naa koy lain nga scholarship
+    - Tugotan ba nga makadawat ug TES ug lain nga scholarship sa parehas nga panahon
+    - Posible ba nga ma qualify sa TES kung naa nakoy lain nga scholarship
+    - Pwede ba makadawat ug TES allowance bisan naa nay existing scholarship
+    - Gusto nako mahibal an kung pwede ba ang TES ug lain nga scholarship
+    - Pwede ba ko mag apply sa TES kung scholarship applicant nako daan
+    - Tugotan ba sa TES ang students nga adunay lain nga scholarship
+    - Ma approve ba sa TES ang students nga naa nay scholarship
+    - Compatible ba ang TES sa ubang scholarship programs
+    - Pwede ba makadawat ug TES ug lain nga educational assistance
+
+- intent: college_shirt_allowed
+  examples: |
+    - Am I allowed to wear a college shirt instead of the official school uniform
+    - Can students wear their college shirt during regular class days
+    - Is wearing a college shirt allowed inside the university campus
+    - Are college shirts accepted as part of the student uniform
+    - When are students allowed to wear college shirts in school
+    - Can I attend classes while wearing a college shirt
+    - Is the college shirt allowed during regular academic days
+    - Does the university allow wearing college shirts during classes
+    - Are new students allowed to wear college shirts instead of uniform
+    - What are the rules for wearing college shirts inside the campus
+    - Pwede ba magsul ob ug college shirt imbis nga official school uniform
+    - Tugotan ba ang students nga magsul ob ug college shirt panahon sa klase
+    - Pwede ba magsul ob ug college shirt sulod sa campus
+    - Gi allow ba ang college shirt isip uniform sa students
+    - Kanus a pwede magsul ob ug college shirt ang students
+    - Pwede ba mo attend ug klase nga nagsul ob ug college shirt
+    - Gi allow ba ang college shirt panahon sa regular class days
+    - Tugotan ba sa university ang pagsul ob ug college shirt
+    - Pwede ba ang college shirt para sa bag o nga students
+    - Unsa ang rules sa pagsul ob ug college shirt sulod sa campus
+
+- intent: campus_dormitories
+  examples: |
+    - Does Bukidnon State University have dormitories for students
+    - Are there dormitory facilities available inside the campus
+    - I want to know if the university provides student dormitories
+    - Can students stay in dormitories inside the university campus
+    - Is there a dormitory available for male and female students
+    - How can I apply for a dormitory inside the university
+    - Does the university offer accommodation for students
+    - Where can I find dormitories inside the campus
+    - Are students allowed to live in campus dormitories
+    - I want information about university dormitory availability
+    - Naa bay dormitory ang Bukidnon State University para sa students
+    - Aduna bay dormitory facilities sulod sa campus
+    - Gusto nako mahibal an kung naa bay dormitory ang university
+    - Pwede ba mag stay ang students sa dormitory sulod sa campus
+    - Naa bay dormitory para sa lalaki ug babae nga students
+    - Unsaon pag apply sa dormitory sa university
+    - Nag offer ba ang university ug accommodation para sa students
+    - Asa makakita ug dormitory sulod sa campus
+    - Tugotan ba ang students nga mopuyo sa campus dormitory
+    - Gusto nako mahibal an ang availability sa dormitory sa university
+
+- intent: dormitory_pros_cons
+  examples: |
+    - What are the advantages and disadvantages of living in the university dormitory
+    - Can you explain the benefits and limitations of staying in campus dormitories
+    - I want to know the pros and cons of living in the Bukidnon State University dormitory
+    - Is living in a university dormitory convenient for students
+    - What are the benefits of staying in the campus dormitory
+    - Are there any disadvantages of living in the university dormitory
+    - Why should students choose to live in campus dormitories
+    - What should I expect if I stay in the university dormitory
+    - Is it better to live in the dormitory or outside the campus
+    - Can you give information about dormitory living conditions and rules
+    - Unsa ang mga bentaha ug disbentaha sa pagpuyo sa dormitory sa university
+    - Pwede ba nimo ipasabot ang mga benepisyo ug limitasyon sa pagpuyo sa dormitory
+    - Gusto nako mahibal an ang pros ug cons sa pagpuyo sa dormitory sa Bukidnon State University
+    - Maayo ba ang pagpuyo sa dormitory para sa students
+    - Unsa ang mga benepisyo sa pagpuyo sa dormitory sulod sa campus
+    - Naa bay mga disbentaha sa pagpuyo sa dormitory
+    - Ngano nga ang students mopili sa pagpuyo sa campus dormitory
+    - Unsa ang akong ma expect kung mopuyo ko sa dormitory
+    - Mas maayo ba ang pagpuyo sa dormitory o sa gawas sa campus
+    - Pwede ba ka mohatag ug impormasyon bahin sa dormitory living conditions ug rules
+
+- intent: cancel_tabuk_assistance
+  examples: |
+    - How can I cancel my TABUK assistance
+    - I want to stop my TABUK scholarship support
+    - Can you tell me the process for cancelling TABUK assistance
+    - Is it possible to withdraw from the TABUK program
+    - What steps are required to discontinue my TABUK funding
+    - I need guidance on cancelling my TABUK financial aid
+    - How do I remove myself from the TABUK scholarship program
+    - Can I stop receiving funds from TABUK while still in TES
+    - Is there a procedure to end TABUK assistance officially
+    - Please explain how to terminate my participation in the TABUK program
+    - Unsaon nako pag-cancel sa akong TABUK assistance
+    - Gusto nako undangon ang akong TABUK scholarship support
+    - Pwede ba nimo isulti ang proseso sa pag-cancel sa TABUK assistance
+    - Posible ba nga mo-withdraw sa TABUK program
+    - Unsang mga lakang ang kinahanglan aron dili na madawat ang TABUK funding
+    - Nanginahanglan ko og tabang sa pag-cancel sa TABUK financial aid
+    - Unsaon nako pagkuha sa akong kaugalingon gikan sa TABUK scholarship program
+    - Pwede ba nga mo-undang sa pagdawat sa TABUK funds samtang naa pa sa TES
+    - Aduna bay pamaagi aron opisyal nga tapuson ang TABUK assistance
+    - Palihog ipasabot unsaon pagtapos sa akong partisipasyon sa TABUK program
+
+- intent: shorts_on_campus
+  examples: |
+    - Are students allowed to wear shorts on campus
+    - When is it acceptable to wear shorts while at the university
+    - Can I wear shorts during class or activities
+    - What are the rules for wearing shorts inside the campus
+    - Are shorts permitted only for sports or P.E. activities
+    - Is it allowed to wear shorts outside of sports events
+    - Can I wear shorts for official university events
+    - What occasions allow students to wear shorts on campus
+    - Are there specific days or events when shorts are allowed
+    - Please explain the guidelines for wearing shorts while on campus
+    - Gitugotan ba ang students nga magsul-ob og shorts sulod sa campus
+    - Kanus-a pwede magsul-ob og shorts sa unibersidad
+    - Pwede ba ko magsul-ob og shorts panahon sa klase o activities
+    - Unsay mga rules sa pagsul-ob og shorts sa sulod sa campus
+    - Ang shorts ba gitugotan ra sa sports o P.E. activities
+    - Pwede ba magsul-ob og shorts gawas sa sports events
+    - Pwede ba ko magsul-ob og shorts para sa official university events
+    - Unsang mga okasyon ang nagtugot sa students nga magsul-ob og shorts
+    - Aduna bay specific days o events nga gitugotan ang shorts
+    - Palihog ipasabot ang guidelines sa pagsul-ob og shorts sulod sa campus

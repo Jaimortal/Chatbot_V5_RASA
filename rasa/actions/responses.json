@@ -1,229 +1,4 @@
 [
-
-  {
-    "ComLab 1": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "You may use either the elevator or the stairs to reach the floor.",
-          "Once you arrive, ComLab 1 will be the first computer laboratory you will see."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Finance Building.",
-          "Pwede ka mogamit sa elevator o stairs para sa floor.",
-          "Kung moabot ka, ComLab 1 mao ang una makita nga computer laboratory."
-        ]
-      }
-    },
-    "ComLab 2": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "Positioned right beside ComLab 1, making it easy to find once you reach the computer laboratory area."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Finance Building.",
-          "Positioned tapad sa ComLab 1, sayon makita kung moabot ka sa computer laboratory area."
-        ]
-      }
-    },
-    "ComLab 3": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "Situated near the other computer laboratories and is easy to locate once you reach the area."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Finance Building.",
-          "Nahimutang duol sa lain nga mga computer laboratory ug sayon makita kung moabot ka sa area."
-        ]
-      }
-    },
-    "ComLab 4": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-         "Located on the 3rd floor of the Finance Building.",
-          "At the back of ComLab 3.",
-          "Once you pass ComLab 3, you will easily see ComLab 4."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor, Finance Building.",
-          "Sa luyo sa ComLab 3.",
-          "Kung mo-uban ka sa ComLab 3, sayon makita ang ComLab 4."
-        ]
-      }
-    },
-    "ComLab 5": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "Beside ComLab 4.",
-          "Once you find ComLab 4, ComLab 5 will be immediately next to it."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor, Finance Building.",
-          "Tapad sa ComLab 4.",
-          "Kung makita ang ComLab 4, ang ComLab 5 anaa dayon tapad niini."
-        ]
-      }
-    },
-    "ComLab 6": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "Positioned near ComLab 5 and is easily accessible once you reach the computer laboratory area." 
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Finance Building.",
-          "Positioned duol sa ComLab 5 ug sayon ma-access kung moabot ka sa computer laboratory area."
-        ]
-      }
-    },
-    "ComLab 7": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "This is the Multimedia and Arts Laboratory.",
-          "Situated near ComLab 6 and can be easily found once you reach the computer laboratory area."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor, Finance Building.",
-          "Kini ang Multimedia and Arts Laboratory.",
-          "Nahimutang duol sa ComLab 6 ug sayon makita kung moabot ka sa computer laboratory area."
-        ]
-      }
-    },
-    "ComLab 8": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "Located on the 1st floor of the Secondary School Laboratory Building.",
-          "This building is situated beside the University Press (UP) Building and directly in front of the parking area along P.A. Ramos Street.",
-          "Once you reach the building, ComLab 8 can be easily found on the ground floor."
-        ],
-        "ceb": [
-          "Nahimutang sa 1st floor sa Secondary School Laboratory Building.",
-          "Kining bilding nahimutang tapad sa University Press (UP) Building ug diretso sa atubangan sa parking area sa P.A. Ramos Street.",
-          "Kung moabot ka sa bilding, sayon makita ang ComLab 8 sa ground floor."
-        ]
-      }
-    },
-    "ComLab 9": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "Located in the same building as ComLab 8, the Secondary School Laboratory Building.",
-          "Also on the 1st floor and positioned right beside ComLab 8.",
-          "Once you arrive at the area near the University Press building and parking space along P.A. Ramos Street, it will be easy to locate."
-        ],
-        "ceb": [
-          "Nahimutang sa sama nga bilding sa ComLab 8, ang Secondary School Laboratory Building.",
-          "Usab sa 1st floor ug positioned tapad sa ComLab 8.",
-          "Kung moabot ka sa area duol sa University Press bilding ug parking space sa P.A. Ramos Street, sayon makita."
-        ]
-      }
-    },
-    "ComLab 10": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "At present, ComLab 10 does not exist.",
-          "The available computer laboratories are currently numbered from ComLab 1 up to ComLab 12, with no designated ComLab 10."
-        ],
-        "ceb": [
-          "Karon, wala ang ComLab 10.",
-          "Ang anaa nga mga computer laboratory karon gikan sa ComLab 1 hangtod sa ComLab 12, walay designated ComLab 10."
-        ]
-      }
-    },
-    "ComLab 11": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "This is the Audio Laboratory located on the 3rd floor of the CPAG Building.",
-          "Situated beside the ICTU Room and the Networking Laboratory.",
-          "Once you reach the area, the laboratory is easy to identify."
-        ],
-        "ceb": [
-          "Kini ang Audio Laboratory nahimutang sa 3rd floor sa CPAG Building.",
-          "Nahimutang tapad sa ICTU Room ug Networking Laboratory.",
-          "Kung moabot ka sa area, sayon makita ang laboratory."
-        ]
-      }
-    },
-    "ComLab 12": {
-      "type": "comlab",
-      "building": "Finance Building",
-      "floor": "3rd Floor",
-      "coordinates": [701, 645],
-      "map_id": "main_map",
-      "responses": {
-        "en": [
-          "This is the Networking Laboratory located on the 3rd floor of the CPAG Building.",
-          "In the same area as ComLab 11 and positioned directly in front of the Smart Classroom.",
-          "Once you are on the floor, it should be easy to locate."
-        ],
-        "ceb": [
-          "Kini ang Networking Laboratory nahimutang sa 3rd floor sa CPAG Building.",
-          "Sa sama nga area sa ComLab 11 ug positioned diretso sa atubangan sa Smart Classroom.",
-          "Kung anaa ka sa floor, sayon makita."
-        ]
-      }
-    }
-
-  },
-
   {
     "intent": "about_ict",
     "category": "comlab",
@@ -1232,247 +1007,6 @@
       },
       "follow_up": [],
       "imageUrl": ""
-    },
-    "metadata": {
-      "source": "ICTdata"
-    }
-  },
-  {
-    "intent": "locate_comlab",
-    "category": "comlab",
-    "sub_category": "computer_laboratories",
-    "responses": {
-      "answer": {
-        "en": [
-          "I can help you locate any computer laboratory. Please specify which ComLab you're looking for (1-12)."
-        ],
-        "ceb": [
-          "Pwede ko makatabang sa pag-locate sa bisan unsang computer laboratory. Palihug isulti kung unsang ComLab ang imong pangitaon (1-12)."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "locate_comlab"
-      },
-      "follow_up": [
-        "Available ComLabs: 1-7 (3rd Floor, Finance Building), 8-9 (1st Floor, Secondary School Laboratory Building), 11-12 (3rd Floor, CPAG Building)",
-        "Note: ComLab 10 does not exist."
-      ],
-      "imageUrl": "",
-      "imageUrls": []
-    },
-    "laboratories": {
-      "1": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "You may use either the elevator or the stairs to reach the floor.",
-          "Once you arrive, ComLab 1 will be the first computer laboratory you will see."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Finance Building.",
-          "Pwede ka mogamit sa elevator o stairs para sa floor.",
-          "Kung moabot ka, ComLab 1 mao ang una makita nga computer laboratory."
-        ],
-        "image": "",
-        "coordinates": [
-          701,
-          645
-        ],
-        "map_id": "main_map",
-        "images": []
-      },
-      "2": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "Positioned right beside ComLab 1, making it easy to find once you reach the computer laboratory area."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Finance Building.",
-          "Positioned tapad sa ComLab 1, sayon makita kung moabot ka sa computer laboratory area."
-        ],
-        "image": "",
-        "coordinates": [
-          710,
-          642
-        ],
-        "map_id": "main_map",
-        "images": []
-      },
-      "3": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "Situated near the other computer laboratories and is easy to locate once you reach the area."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Finance Building.",
-          "Nahimutang duol sa lain nga mga computer laboratory ug sayon makita kung moabot ka sa area."
-        ],
-        "image": "",
-        "coordinates": [
-          723,
-          645
-        ],
-        "map_id": "main_map",
-        "images": []
-      },
-      "4": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "At the back of ComLab 3.",
-          "Once you pass ComLab 3, you will easily see ComLab 4."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor, Finance Building.",
-          "Sa luyo sa ComLab 3.",
-          "Kung mo-uban ka sa ComLab 3, sayon makita ang ComLab 4."
-        ],
-        "image": "",
-        "coordinates": [
-          745,
-          645
-        ],
-        "map_id": "main_map",
-        "images": []
-      },
-      "5": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "Beside ComLab 4.",
-          "Once you find ComLab 4, ComLab 5 will be immediately next to it."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor, Finance Building.",
-          "Tapad sa ComLab 4.",
-          "Kung makita ang ComLab 4, ang ComLab 5 anaa dayon tapad niini."
-        ],
-        "image": "",
-        "coordinates": [
-          748,
-          613
-        ],
-        "map_id": "main_map",
-        "images": []
-      },
-      "6": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "Positioned near ComLab 5 and is easily accessible once you reach the computer laboratory area.",
-          "This laboratory functions as a regular computer laboratory."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Finance Building.",
-          "Positioned duol sa ComLab 5 ug sayon ma-access kung moabot ka sa computer laboratory area.",
-          "Kining laboratory nag-fungsiyon bilang regular nga computer laboratory."
-        ],
-        "image": "map_comlab_6",
-        "coordinates": [
-          754,
-          573
-        ],
-        "map_id": "main_map"
-      },
-      "7": {
-        "en": [
-          "Located on the 3rd floor of the Finance Building.",
-          "This is the Multimedia and Arts Laboratory.",
-          "Situated near ComLab 6 and can be easily found once you reach the computer laboratory area."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor, Finance Building.",
-          "Kini ang Multimedia and Arts Laboratory.",
-          "Nahimutang duol sa ComLab 6 ug sayon makita kung moabot ka sa computer laboratory area."
-        ],
-        "image": "map_comlab_7",
-        "coordinates": [
-          820,
-          550
-        ],
-        "map_id": "main_map"
-      },
-      "8": {
-        "en": [
-          "Located on the 1st floor of the Secondary School Laboratory Building.",
-          "This building is situated beside the University Press (UP) Building and directly in front of the parking area along P.A. Ramos Street.",
-          "Once you reach the building, ComLab 8 can be easily found on the ground floor."
-        ],
-        "ceb": [
-          "Nahimutang sa 1st floor sa Secondary School Laboratory Building.",
-          "Kining bilding nahimutang tapad sa University Press (UP) Building ug diretso sa atubangan sa parking area sa P.A. Ramos Street.",
-          "Kung moabot ka sa bilding, sayon makita ang ComLab 8 sa ground floor."
-        ],
-        "image": "map_comlab_8",
-        "coordinates": [
-          300,
-          600
-        ],
-        "map_id": "main_map"
-      },
-      "9": {
-        "en": [
-          "Located in the same building as ComLab 8, the Secondary School Laboratory Building.",
-          "Also on the 1st floor and positioned right beside ComLab 8.",
-          "Once you arrive at the area near the University Press building and parking space along P.A. Ramos Street, it will be easy to locate."
-        ],
-        "ceb": [
-          "Nahimutang sa sama nga bilding sa ComLab 8, ang Secondary School Laboratory Building.",
-          "Usab sa 1st floor ug positioned tapad sa ComLab 8.",
-          "Kung moabot ka sa area duol sa University Press bilding ug parking space sa P.A. Ramos Street, sayon makita."
-        ],
-        "image": "map_comlab_9",
-        "coordinates": [
-          320,
-          600
-        ],
-        "map_id": "main_map"
-      },
-      "10": {
-        "en": [
-          "At present, ComLab 10 does not exist.",
-          "The available computer laboratories are currently numbered from ComLab 1 up to ComLab 12, with no designated ComLab 10."
-        ],
-        "ceb": [
-          "Karon, wala ang ComLab 10.",
-          "Ang anaa nga mga computer laboratory karon gikan sa ComLab 1 hangtod sa ComLab 12, walay designated ComLab 10."
-        ],
-        "image": "",
-        "coordinates": [],
-        "map_id": ""
-      },
-      "11": {
-        "en": [
-          "This is the Audio Laboratory located on the 3rd floor of the CPAG Building.",
-          "Situated beside the ICTU Room and the Networking Laboratory.",
-          "Once you reach the area, the laboratory is easy to identify."
-        ],
-        "ceb": [
-          "Kini ang Audio Laboratory nahimutang sa 3rd floor sa CPAG Building.",
-          "Nahimutang tapad sa ICTU Room ug Networking Laboratory.",
-          "Kung moabot ka sa area, sayon makita ang laboratory."
-        ],
-        "image": "map_comlab_11",
-        "coordinates": [
-          500,
-          400
-        ],
-        "map_id": "main_map"
-      },
-      "12": {
-        "en": [
-          "This is the Networking Laboratory located on the 3rd floor of the CPAG Building.",
-          "In the same area as ComLab 11 and positioned directly in front of the Smart Classroom.",
-          "Once you are on the floor, it should be easy to locate."
-        ],
-        "ceb": [
-          "Kini ang Networking Laboratory nahimutang sa 3rd floor sa CPAG Building.",
-          "Sa sama nga area sa ComLab 11 ug positioned diretso sa atubangan sa Smart Classroom.",
-          "Kung anaa ka sa floor, sayon makita."
-        ],
-        "image": "map_comlab_12",
-        "coordinates": [
-          520,
-          400
-        ],
-        "map_id": "main_map"
-      }
     },
     "metadata": {
       "source": "ICTdata"
@@ -2597,6 +2131,404 @@
     "metadata": {
       "source": "AcademicProgramsData"
     }
+  },
+
+  {
+  "intent": "cannot_upload_2x2_picture",
+  "category": "Admissions",
+  "sub_category": "profile_picture",
+  "responses": {
+    "answer": {
+      "en": [
+        "This issue commonly occurs among first- and second-year applicants.",
+        "Please ensure that your photo meets the required specifications: it must have a pure white background, show you wearing a plain white t-shirt, and contain no accessories.",
+        "The photo must also follow the 2x2 format and have a small file size to ensure successful uploading.",
+        "After uploading your photo, please allow time for the Admission Officers to review and approve it.",
+        "If the issue persists, I recommend visiting the Registrar’s Office for further assistance."
+      ],
+      "ceb": [
+        "Kining problema kasagaran mahitabo sa mga first ug second-year nga applicants.",
+        "Siguroa nga ang imong litrato nagsunod sa mga required specifications: kinahanglan puti gyud ang background, nagsul-ob ka ug plain nga puti nga t-shirt, ug walay accessories.",
+        "Ang litrato kinahanglan usab 2x2 ang size ug gamay ra ang file size aron masiguro nga ma-upload kini og tarong.",
+        "Human sa pag-upload, palihog hulata ang approval gikan sa Admission Officers.",
+        "Kung magpadayon gihapon ang problema, girekomenda nga moadto ka sa Registrar’s Office aron mangayo ug dugang nga tabang."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "cannot_upload_2x2_picture"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
   }
+},
+
+{
+  "intent": "application_always_denied",
+  "category": "Admissions",
+  "sub_category": "application_status",
+  "responses": {
+    "answer": {
+      "en": [
+        "One of the most common reasons for application denial is an incorrect or non-compliant profile picture.",
+        "Please ensure your photo has a pure white background, shows you wearing a plain white t-shirt, contains no accessories, and follows the 2x2 format with a clear image and minimal file size.",
+        "Also verify that your account details, such as your full name, contact number, and email address, are accurate and match your admission account.",
+        "Additionally, review your submitted requirements, including your Report Card, Transcript of Records, and Principal’s Certification.",
+        "Please ensure that all certifications are properly signed by your school principal.",
+        "Once all corrections are completed, kindly wait for the Admission Officers to review your application.",
+        "If your application continues to be denied, I recommend visiting the Admission Office for further assistance. A campus map is available to help you locate the office."
+      ],
+      "ceb": [
+        "Usa sa kasagarang hinungdan sa application denial mao ang profile picture nga wala nagsunod sa required specifications.",
+        "Siguroa nga ang imong litrato adunay puti gyud nga background, nagsul-ob ka ug plain nga puti nga t-shirt, walay accessories, ug nagsunod sa 2x2 format nga klaro ang image ug gamay ra ang file size.",
+        "Siguroa usab nga sakto ug updated ang imong account details sama sa imong ngalan, contact number, ug email address nga parehas sa imong admission account.",
+        "I-review usab ang imong mga requirements sama sa Report Card, Transcript of Records, ug Principal’s Certification.",
+        "Siguroa nga ang tanang certifications adunay pirma sa inyong principal.",
+        "Human nimo ma-update ang tanan, hulata ang review ug approval gikan sa Admission Officers.",
+        "Kung ma-deny gihapon ang imong application, girekomenda nga moadto ka sa Admission Office alang sa dugang nga tabang. Adunay mapa nga makatabang nimo sa pagpangita sa opisina."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "application_always_denied"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "test_permit_corrupted",
+  "category": "Admissions",
+  "sub_category": "test_permit",
+  "responses": {
+    "answer": {
+      "en": [
+        "If your test permit cannot be opened or appears corrupted, this issue may require assistance from the Admission Office.",
+        "This may be caused by a system or database-related error that cannot be resolved through basic troubleshooting.",
+        "I recommend visiting the Admission Office and informing the staff about the issue so they can assist you directly.",
+        "A campus map is available to help you locate the office."
+      ],
+      "ceb": [
+        "Kung dili ma-open ang imong test permit o corrupted kini, posible nga kinahanglan kini ug assistance gikan sa Admission Office.",
+        "Mahimong tungod kini sa system o database error nga dili masulbad pinaagi sa basic troubleshooting.",
+        "Girekomenda nga moadto ka sa Admission Office ug ipahibalo ang staff bahin sa problema aron matabangan ka nila direkta.",
+        "Adunay mapa nga makatabang nimo sa pagpangita sa opisina."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "test_permit_corrupted"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "application_pending",
+  "category": "Admissions",
+  "sub_category": "application_status",
+  "responses": {
+    "answer": {
+      "en": [
+        "Application approval may take time due to the high volume of applications being reviewed by the Admission staff.",
+        "In most cases, applications are approved about one week before the scheduled examination date.",
+        "However, processing times may vary and approval may occur closer to the exam date in some situations.",
+        "Please continue monitoring your admission account and allow additional time for the review process."
+      ],
+      "ceb": [
+        "Ang approval sa application mahimong modugay tungod sa kadaghan sa applications nga gi-review sa Admission staff.",
+        "Sa kasagaran, ang applications ma-aprubahan mga usa ka semana sa wala pa ang exam date.",
+        "Apan, ang processing time mahimong magkalain-lain ug usahay ma-aprubahan mas duol sa exam date.",
+        "Palihog padayon sa pag-monitor sa imong admission account ug magpailub samtang naghulat sa approval."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "application_pending"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "intramurals_week_classes",
+  "category": "Student Life",
+  "sub_category": "intramurals",
+  "responses": {
+    "answer": {
+      "en": [
+        "Class schedules during intramurals week may vary depending on your instructor.",
+        "In most cases, there are no formal classes held during this period.",
+        "However, participation in intramurals activities is important, as attendance may be monitored by your department and instructors.",
+        "I recommend checking with your instructor for specific instructions regarding your class."
+      ],
+      "ceb": [
+        "Ang schedule sa klase panahon sa intramurals week nagdepende sa inyong instructor.",
+        "Sa kasagaran, walay pormal nga klase niining panahona.",
+        "Apan importante ang pag-apil sa intramurals activities kay ang attendance mahimong ginabantayan sa inyong departamento ug instructors.",
+        "Mas maayo nga mangutana sa inyong instructor alang sa eksaktong instruksyon bahin sa inyong klase."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "intramurals_week_classes"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "tes_release_delay",
+  "category": "Scholarship",
+  "sub_category": "TES",
+  "responses": {
+    "answer": {
+      "en": [
+        "TES allowance release may take time due to multiple verification and approval processes.",
+        "This includes fund release, eligibility validation, and billing verification.",
+        "The process involves coordination between DBM, CHED, and the university.",
+        "Any missing documents or strict auditing procedures may further delay the release.",
+        "I recommend regularly checking with your scholarship coordinator for updates."
+      ],
+      "ceb": [
+        "Ang pag-release sa TES allowance mahimong modugay tungod sa daghang proseso sa verification ug approval.",
+        "Lakip niini ang pag-release sa pondo, pag-validate sa eligibility, ug pag-verify sa billing documents.",
+        "Ang proseso naglakip sa koordinasyon tali sa DBM, CHED, ug sa unibersidad.",
+        "Ang kulang nga dokumento o hugot nga auditing mahimong makapahinay sa pag-release sa allowance.",
+        "Mas maayo nga mangutana sa inyong scholarship coordinator para sa updates."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "tes_release_delay"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "ScholarshipData"
+  }
+},
+
+{
+  "intent": "reschedule_entrance_exam",
+  "category": "Admissions",
+  "sub_category": "entrance_exam",
+  "responses": {
+    "answer": {
+      "en": [
+        "The BukSU Entrance Examination cannot be rescheduled once your exam date has been assigned.",
+        "If you are unable to attend your scheduled exam, you may need to wait for the next admission cycle.",
+        "I recommend ensuring your availability on your assigned exam date to avoid delays in your admission."
+      ],
+      "ceb": [
+        "Dili ma-reschedule ang BukSU Entrance Examination kung naa na kay assigned exam date.",
+        "Kung dili ka makatunga sa imong scheduled exam, mahimo nga kinahanglan ka maghulat sa sunod nga admission cycle.",
+        "Mas maayo nga siguroon ang imong availability sa imong exam date aron malikayan ang delay sa imong admission."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "reschedule_entrance_exam"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "tes_with_other_scholarships",
+  "category": "Scholarship",
+  "sub_category": "TES",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students may apply for TES even if they are applicants of other scholarship programs such as REAP or TABUK.",
+        "However, TES qualification policies generally do not allow students to receive multiple government-funded educational assistance benefits simultaneously.",
+        "Final eligibility is subject to scholarship guidelines and official verification.",
+        "I recommend consulting the Scholarship Office for accurate confirmation regarding your eligibility."
+      ],
+      "ceb": [
+        "Ang mga estudyante pwede mag-apply sa TES bisan applicant sila sa ubang scholarship programs sama sa REAP o TABUK.",
+        "Apan, base sa scholarship policies, dili kasagaran tugotan nga makadawat og daghang government-funded educational assistance sa parehas nga panahon.",
+        "Ang final eligibility magdepende sa scholarship guidelines ug official verification.",
+        "Mas maayo nga mangutana sa Scholarship Office aron makakuha og eksaktong impormasyon."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "tes_with_other_scholarships"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "ScholarshipData"
+  }
+},
+
+{
+  "intent": "college_shirt_allowed",
+  "category": "Campus Policies",
+  "sub_category": "uniform",
+  "responses": {
+    "answer": {
+      "en": [
+        "The official school uniform is required for undergraduate students during regular class days.",
+        "Civilian attire is typically allowed on Wednesdays, Saturdays, and Sundays, or when authorized by official announcements.",
+        "Formal attire may also be allowed during enrollment periods or official academic activities.",
+        "New students are usually given a grace period to prepare their uniforms."
+      ],
+      "ceb": [
+        "Ang official school uniform required para sa undergraduate students panahon sa regular class days.",
+        "Ang civilian attire kasagaran tugotan matag Miyerkules, Sabado, ug Domingo, o kung adunay official announcement.",
+        "Ang formal attire pwede usab panahon sa enrollment o official academic activities.",
+        "Ang mga bag-ong estudyante kasagaran hatagan og grace period aron makapangandam sa ilang uniform."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "college_shirt_allowed"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PolicyData"
+  }
+},
+
+{
+  "intent": "campus_dormitories",
+  "category": "Student Life",
+  "sub_category": "dormitories",
+  "responses": {
+    "answer": {
+      "en": [
+        "BukSU provides on-campus dormitory facilities for students.",
+        "Separate dormitories are available for male and female students.",
+        "Dormitory policies are strictly implemented to ensure safety and proper accommodation.",
+        "I recommend contacting the dormitory office for availability and application requirements."
+      ],
+      "ceb": [
+        "Naghatag ang BukSU og on-campus dormitory facilities para sa mga estudyante.",
+        "Adunay separate dormitories alang sa lalaki ug babae.",
+        "Ang dormitory policies hugot nga ginapatuman aron masiguro ang safety ug proper accommodation.",
+        "Mas maayo nga mangutana sa dormitory office alang sa availability ug requirements."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "campus_dormitories"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "dormitory_pros_cons",
+  "category": "Student Life",
+  "sub_category": "dormitories",
+  "responses": {
+    "answer": {
+      "en": [
+        "Living in BukSU dormitories provides several benefits, including affordable housing, campus security, and convenient access to university facilities.",
+        "Dormitories often include basic utilities such as electricity and internet access.",
+        "However, residents must follow dormitory rules, including curfew policies and participation in required activities.",
+        "Certain restrictions may also apply depending on dormitory regulations.",
+        "Dormitory living is recommended for students who prefer convenience and campus accessibility."
+      ],
+      "ceb": [
+        "Ang pagpuyo sa BukSU dormitories adunay daghang benepisyo sama sa affordable housing, campus security, ug dali nga access sa university facilities.",
+        "Kasagaran apil na ang basic utilities sama sa kuryente ug internet access.",
+        "Apan, kinahanglan sundon sa mga residente ang dormitory rules, lakip ang curfew ug required activities.",
+        "Adunay usab restrictions depende sa dormitory regulations.",
+        "Ang dormitory living maayo para sa mga estudyante nga gusto ug convenience ug duol sa campus."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "dormitory_pros_cons"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "cancel_tabuk_assistance",
+  "category": "Scholarship",
+  "sub_category": "TABUK",
+  "responses": {
+    "answer": {
+      "en": [
+        "Unfortunately, I do not have information on how to cancel your TABUK assistance, as that program is not managed by BukSU.",
+        "Regarding your concerns about eligibility: being in one program does not automatically disqualify you from others.",
+        "However, to avoid disqualification from the TES program or other programs, you must ensure you are not actively receiving funds from two different government subsidies at the same time."
+      ],
+      "ceb": [
+        "Kasubo, wala ko’y impormasyon kung unsaon pag-cancel sa imong TABUK assistance, kay ang maong programa dili gi-manage sa BukSU.",
+        "Bahin sa imong kabalaka bahin sa eligibility: ang pagka-apil sa usa ka programa dili pasabot nga dili na ka pwede moapil sa lain.",
+        "Apan, aron malikayan ang disqualification sa TES program o uban pang programa, siguroa nga dili ka simultaneous nga nakadawat ug pondo gikan sa duha ka lain-laing government subsidies."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "cancel_tabuk_assistance"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "ScholarshipData"
+  }
+},
+
+{
+  "intent": "shorts_on_campus",
+  "category": "Campus Policies",
+  "sub_category": "uniform",
+  "responses": {
+    "answer": {
+      "en": [
+        "Wearing shorts is permitted only during intramural sports competitions, such as wearing a jersey to allow for better movement.",
+        "Shorts are also allowed if required for specific academic activities, such as P.E. presentations.",
+        "Outside of these specific instances, wearing shorts on campus is strictly prohibited."
+      ],
+      "ceb": [
+        "Ang pagsul-ob og shorts gitugotan ra panahon sa intramural sports competitions, sama sa pagsul-ob og jersey aron mas sayon ang lihok.",
+        "Gitugotan usab kini kung kinahanglan para sa espesipikong academic activities, sama sa mga P.E. presentations.",
+        "Gawas ani nga mga sitwasyon, hugot nga bawal ang pagsul-ob og shorts sulod sa campus."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "shorts_on_campus"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PolicyData"
+  }
+}
+
+
 
 ]

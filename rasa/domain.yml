@@ -1,6 +1,7 @@
 version: "3.1"
 
 intents:
+  - ask_locations
   - greet
   - goodbye
   - about_ict
@@ -36,7 +37,6 @@ intents:
   - additional_slots
   - contact_scholarship_unit
   - all_comlab_locations
-  - locate_comlab
   - ask_faculty_room_location
   - bot_challenge
 
@@ -85,12 +85,27 @@ intents:
   - mock_board_exam
   - on_the_job_training
 
+  - cannot_upload_2x2_picture
+  - application_always_denied
+  - test_permit_corrupted
+  - application_pending
+  - intramurals_week_classes
+  - tes_release_delay
+  - reschedule_entrance_exam
+  - tes_with_other_scholarships
+  - college_shirt_allowed
+  - campus_dormitories
+  - dormitory_pros_cons
+  - cancel_tabuk_assistance
+  - shorts_on_campus
+  
 entities:
+  - lab_number
+  - location_name
   - category
   - sub_category
   - slot_name
   - slot_value
-  - lab_number
   - college
 
 slots:

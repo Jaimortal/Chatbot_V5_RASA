@@ -152,22 +152,11 @@ class RasaBackend {
         response.mapData = mapData;
       }
 
-      // If no map data from Rasa, check if the query implies a location
-      if (!mapData && mapDataList.length === 0 && this.isLocationQuery(text)) {
-        // Add default map data for location queries
-        response.mapData = {
-          locationName: "General Location",
-          coordinates: { lat: 10.297, lng: 123.897 }
-        };
-      }
-
       return response;
 
-    } catch (err) {
-      console.error("Error sending message to Rasa:", err);
-      return {
-        answer: "Sorry, there was an error connecting to the AI backend. Please try again."
-      };
+    } catch (error) {
+      console.error("Error sending message:", error);
+      throw error;
     }
   }
 

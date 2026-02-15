@@ -86,6 +86,40 @@ python scripts/deploy.py production --backup
 python scripts/monitor.py --daemon
 ```
 
+### PostgreSQL (current limited usage)
+
+The project is wired to use **PostgreSQL** in a minimal, production-ready way while keeping `rasa/actions/responses.json` as the primary source during development.
+
+- PostgreSQL connection is configured via these env vars in `.env`:
+
+  ```ini
+  PGHOST=localhost
+  PGPORT=5432
+  PGUSER=postgres
+  PGPASSWORD=adpass           # change as needed on your server
+  PGDATABASE=ChatbotVersion
+  ```
+
+- A single intent, `exam_requirements`, is migrated into a `responses` table and served from PostgreSQL **only when the Rasa API is unavailable**.
+
+To migrate that intent from `rasa/actions/responses.json` into PostgreSQL:
+
+```bash
+# From project root, after setting .env
+npx tsx scripts/migrate-exam-requirements-to-pg.ts
+```
+
+This script:
+
+- Creates the `responses` table if it does not exist.
+- Upserts only the `exam_requirements` intent into PostgreSQL.
+- Leaves all other intents in `responses.json`.
+
+At runtime, when the backend cannot reach Rasa and the user message text is exactly `exam_requirements`, the server will:
+
+- First try to read `exam_requirements` from PostgreSQL.
+- If that fails, fall back to the file-based `responses.json` as before.
+
 ### Docker Deployment
 ```bash
 # Build and start all services
@@ -196,6 +230,80 @@ docker-compose up -d --scale rasa=2
 
 # View logs
 docker-compose logs -f
+```
+
+## 💬 Embeddable Chatbox Widget
+
+The end-user chat UI has a dedicated, minimal page that is **ready for embedding** into other systems.
+
+### Embed URL
+
+- Frontend chat widget page (production): `https://<your-domain>/embed/chat`
+- During local development with Vite: `http://localhost:5000/embed/chat`
+
+### How to embed via iframe
+
+In any external system (portal, LMS, other apps), you can embed the chatbot as an iframe:
+
+```html
+<iframe
+  src="https://your-bot-domain.com/embed/chat"
+  style="border:0;width:100%;max-width:420px;height:720px;border-radius:16px;overflow:hidden;"
+  allow="microphone;"
+></iframe>
+```
+
+#### Sticky Positioning (Fixed to Parent Page)
+
+If you want the chathead to stick to the bottom right of the parent page (like the main site), even when scrolling, add `position: fixed` to the iframe's style:
+
+```html
+<iframe
+  src="https://your-bot-domain.com/embed/chat"
+  style="position:fixed;bottom:0;right:0;z-index:9999;border:0;width:420px;height:720px;border-radius:16px;overflow:hidden;background:transparent;pointer-events:auto;"
+  allow="microphone;"
+></iframe>
+```
+
+For responsive design on mobile devices (e.g., iPhone SE), adjust the size to avoid covering navigation:
+
+```html
+<style>
+  @media (max-width: 480px) {
+    iframe {
+      width: 100% !important;
+      height: 80vh !important;
+      max-width: 100vw !important;
+    }
+  }
+</style>
+<iframe
+  src="https://your-bot-domain.com/embed/chat"
+  style="position:fixed;bottom:0;right:0;z-index:9999;border:0;width:420px;height:720px;border-radius:16px;overflow:hidden;background:transparent;pointer-events:auto;"
+  allow="microphone;"
+></iframe>
+```
+
+This positions the iframe fixed to the parent's viewport, making the chathead behave as a floating widget on the parent page. On small screens, it resizes to fit better without covering the nav bar.
+
+Notes:
+
+- The `/embed/chat` page renders only the chat window in a centered container.
+- The main marketing/landing layout (`/`) is **not** included in this view.
+- Voice input (microphone) will work if the embedding site allows the `microphone` permission.
+
+### Running the embeddable chat in development
+
+```bash
+# 1. Start backend API
+npm run dev            # starts the Express + Rasa proxy
+
+# 2. Start frontend
+npm run dev:client     # Vite dev server on http://localhost:5000
+
+# 3. Open or embed
+#   Direct: http://localhost:5000/embed/chat
+#   Iframe: use the same URL as src in another local app
 ```
 
 ## 📊 Monitoring & Analytics

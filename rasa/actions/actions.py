@@ -7,6 +7,75 @@ from typing import Any, Text, Dict, List, Optional
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+# Location aliases for normalizing user input
+LOCATION_ALIASES = {
+    "college of information technology faculty": "COT Faculty",
+    "cit faculty": "COT Faculty",
+    "college it faculty": "COT Faculty",
+    "comlab 1": "ComLab 1",
+    "computer laboratory 1": "ComLab 1",
+    "com lab 1": "ComLab 1",
+    "cl1": "ComLab 1",
+
+    "comlab 2": "ComLab 2",
+    "computer laboratory 2": "ComLab 2",
+    "com lab 2": "ComLab 2",
+    "cl2": "ComLab 2",
+
+    "comlab 3": "ComLab 3",
+    "computer laboratory 3": "ComLab 3",
+    "com lab 3": "ComLab 3",
+    "cl3": "ComLab 3",
+
+    "comlab 4": "ComLab 4",
+    "computer laboratory 4": "ComLab 4",
+    "com lab 4": "ComLab 4",
+    "cl4": "ComLab 4",
+
+    "comlab 5": "ComLab 5",
+    "computer laboratory 5": "ComLab 5",
+    "com lab 5": "ComLab 5",
+    "cl5": "ComLab 5",
+
+    "comlab 6": "ComLab 6",
+    "computer laboratory 6": "ComLab 6",
+    "com lab 6": "ComLab 6",
+    "cl6": "ComLab 6",
+
+    "comlab 7": "ComLab 7",
+    "computer laboratory 7": "ComLab 7",
+    "com lab 7": "ComLab 7",
+    "cl7": "ComLab 7",
+
+    "comlab 8": "ComLab 8",
+    "computer laboratory 8": "ComLab 8",
+    "com lab 8": "ComLab 8",
+    "cl8": "ComLab 8",
+
+    "comlab 9": "ComLab 9",
+    "computer laboratory 9": "ComLab 9",
+    "com lab 9": "ComLab 9",
+    "cl8": "ComLab 8",
+
+    "comlab 10": "ComLab 10",
+    "computer laboratory 10": "ComLab 10",
+    "com lab 10": "ComLab 10",
+    "cl10": "ComLab 10",
+
+    "comlab 11": "ComLab 11",
+    "computer laboratory 11": "ComLab 11",
+    "com lab 11": "ComLab 11",
+    "cl11": "ComLab 11",
+
+    "comlab 12": "ComLab 12",
+    "computer laboratory 12": "ComLab 12",
+    "com lab 12": "ComLab 12",
+    "cl12": "ComLab 12",
+
+    "faculty room 102": "Faculty Room 102",
+    "classroom 204": "Classroom 204"
+}
+
 # -------------------------
 # Conversation Context
 # -------------------------
@@ -54,7 +123,20 @@ class ActionReplyFromJsonHelper:
             responses_path = os.path.join(current_dir, "responses.json")
         self.responses_path = responses_path
         self.responses = self._load_responses()
+        self.location_responses_path = os.path.join(os.path.dirname(responses_path), "responses_location.json")
+        self.location_responses = self._load_location_responses()
         self.context = ConversationContext()
+
+    def _load_location_responses(self) -> Dict[str, Any]:
+        try:
+            with open(self.location_responses_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except FileNotFoundError:
+            print(f"Error: responses_location.json not found at {self.location_responses_path}")
+            return {}
+        except json.JSONDecodeError as e:
+            print(f"Error: Invalid JSON in responses_location.json - {e}")
+            return {}
 
     def _load_responses(self) -> List[Dict[str, Any]]:
         try:
@@ -231,12 +313,46 @@ class ActionReplyFromJsonHelper:
     def get_dynamic_slot(self, slot_name: str) -> Any:
         return self.context.get_slot(slot_name)
 
-    def reset_context(self) -> None:
-        self.context.reset()
+    def _normalize_location_name(self, raw_name: str) -> str:
+        if not raw_name:
+            return raw_name
+        lower_name = raw_name.lower().strip()
+        return LOCATION_ALIASES.get(lower_name, raw_name)
 
-    # -------------------------
-    # Lab Location Entity Handler
-    # -------------------------
+    def get_location_response(self, location_name: str, user_message: str) -> Dict[str, Any]:
+        normalized_name = self._normalize_location_name(location_name)
+        locations = self.location_responses.get("locations", {})
+        location_info = locations.get(normalized_name)
+        if not location_info:
+            return {"text": f"Sorry, I don't have information about {location_name}."}
+        
+        # Detect language
+        bisaya_words = ["asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay", "dako", "mao", "ug", "uy", "man", "gani", "diay", "sige", "kinahanglan", "bisan", "sab", "gud", "pod", "wala", "naa", "ikaw", "ako"]
+        user_words = user_message.lower().split()
+        is_bisaya = any(word in bisaya_words for word in user_words)
+        lang_key = "ceb" if is_bisaya else "en"
+        responses = location_info.get("responses", {}).get(lang_key)
+        if not responses:
+            responses = location_info.get("responses", {}).get("en", [])
+        
+        if isinstance(responses, list):
+            response_text = "\n".join(responses)
+        else:
+            response_text = str(responses)
+        
+        result = {"text": response_text}
+        
+        # Add map data
+        if location_info.get("coordinates") and location_info.get("map_id"):
+            result["custom"] = {
+                "mapData": {
+                    "locationName": normalized_name,
+                    "coordinates": location_info["coordinates"],
+                    "mapId": location_info["map_id"]
+                }
+            }
+        
+        return result
     def _normalize_lab_number(self, raw_value: Any) -> Optional[str]:
         if raw_value is None:
             return None
@@ -435,6 +551,36 @@ class ActionReplyFromJson(Action):
             else:
                 dispatcher.utter_message(text=response)
 
+            return []
+
+        # Entity-based Location lookup
+        if intent == "ask_locations":
+            location_name = None
+            for entity in tracker.latest_message.get("entities", []):
+                if entity.get("entity") == "location_name":
+                    location_name = entity.get("value")
+                    break
+
+            if location_name is None:
+                location_name = tracker.get_slot("location_name")
+
+            if location_name:
+                response = self.helper.get_location_response(location_name, user_msg)
+                dispatcher.utter_message(text=response["text"])
+                if response.get("custom"):
+                    dispatcher.utter_message(json_message=response["custom"])
+                return []
+
+            # If no location extracted, use generic response if available
+            response = self.helper.get_response(
+                "ask_locations",
+                user_message=user_msg
+            )
+            if isinstance(response, dict):
+                if response.get("text"):
+                    dispatcher.utter_message(text=response["text"])
+            else:
+                dispatcher.utter_message(text=response)
             return []
 
         # Entity-based Faculty Room lookup

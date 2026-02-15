@@ -174,11 +174,8 @@ stories:
     
 - story: ask about comlab location
   steps:
-    - intent: locate_comlab
-      entities:
-        - lab_number
+    - intent: ask_locations
     - action: action_reply_from_json
-    
 
 - story: transferee enrollment info
   steps:
@@ -398,4 +395,69 @@ stories:
 - story: on the job training info
   steps:
     - intent: on_the_job_training
+    - action: action_reply_from_json
+
+- story: ask about cannot upload 2x2 picture
+  steps:
+    - intent: cannot_upload_2x2_picture
+    - action: action_reply_from_json
+
+- story: ask about application always denied
+  steps:
+    - intent: application_always_denied
+    - action: action_reply_from_json
+
+- story: ask about test permit corrupted
+  steps:
+    - intent: test_permit_corrupted
+    - action: action_reply_from_json
+
+- story: ask about application pending
+  steps:
+    - intent: application_pending
+    - action: action_reply_from_json
+
+- story: ask about intramurals week classes
+  steps:
+    - intent: intramurals_week_classes
+    - action: action_reply_from_json
+
+- story: ask about tes release delay
+  steps:
+    - intent: tes_release_delay
+    - action: action_reply_from_json
+
+- story: ask about reschedule entrance exam
+  steps:
+    - intent: reschedule_entrance_exam
+    - action: action_reply_from_json
+
+- story: ask about tes with other scholarships
+  steps:
+    - intent: tes_with_other_scholarships
+    - action: action_reply_from_json
+
+- story: ask about college shirt allowed
+  steps:
+    - intent: college_shirt_allowed
+    - action: action_reply_from_json
+
+- story: ask about campus dormitories
+  steps:
+    - intent: campus_dormitories
+    - action: action_reply_from_json
+
+- story: ask about dormitory pros and cons
+  steps:
+    - intent: dormitory_pros_cons
+    - action: action_reply_from_json
+
+- story: ask about cancel tabuk assistance
+  steps:
+    - intent: cancel_tabuk_assistance
+    - action: action_reply_from_json
+
+- story: ask about shorts on campus
+  steps:
+    - intent: shorts_on_campus
     - action: action_reply_from_json

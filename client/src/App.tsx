@@ -9,11 +9,13 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
 import Login from "@/pages/admin/Login";
+import EmbedChat from "@/pages/EmbedChat";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/embed/chat" component={EmbedChat} />
       <Route path="/admin/login" component={Login} />
       <Route path="/admin">
         {() => (

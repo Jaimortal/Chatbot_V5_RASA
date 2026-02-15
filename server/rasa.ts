@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { getOne } from "./db";
 
 const responsesPath = path.join(process.cwd(), "rasa", "actions", "responses.json");
 const RASA_API_URL = "http://127.0.0.1:5005/webhooks/rest/webhook";
@@ -54,7 +55,36 @@ export async function callRasaAPI(message: string, language?: string, sessionId?
     console.error("[Rasa] Error calling Rasa API:", error);
     // Fallback to local responses
     console.log("[Rasa] Falling back to local responses");
-    const localResult = findIntent(message);
+    let localResult: any = null;
+
+    // Special case: exam_requirements should be served from PostgreSQL if available
+    if (message === "exam_requirements") {
+      try {
+        const dbResult = await getOne<any>(
+          "SELECT intent, category, sub_category, responses, laboratories, metadata FROM responses WHERE intent = $1",
+          ["exam_requirements"]
+        );
+
+        if (dbResult) {
+          localResult = {
+            intent: dbResult.intent,
+            category: dbResult.category,
+            sub_category: dbResult.sub_category,
+            responses: dbResult.responses,
+            laboratories: dbResult.laboratories,
+            metadata: dbResult.metadata,
+          };
+        }
+      } catch (dbError) {
+        console.error("[Rasa] Error fetching exam_requirements from PostgreSQL:", dbError);
+      }
+    }
+
+    // If nothing from DB (or different intent), fall back to file-based responses.json
+    if (!localResult) {
+      localResult = findIntent(message);
+    }
+
     if (localResult) {
       const answer = Array.isArray(localResult.responses.answer) 
         ? localResult.responses.answer.join("\n")
