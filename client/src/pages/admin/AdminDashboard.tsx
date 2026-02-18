@@ -39,6 +39,7 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("responses");
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
+  const [responsesSubTab, setResponsesSubTab] = useState<"general" | "locations">("general");
 
   const DEFAULT_PRIVILEGES: UserPrivileges = {
     chatEnabled: true,
@@ -50,6 +51,7 @@ export default function AdminDashboard() {
   // --- Filter States ---
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [locationSearchTerm, setLocationSearchTerm] = useState<string>("");
   
   // --- Responses Query ---
   const { data: responses = [] } = useQuery({
@@ -122,6 +124,16 @@ export default function AdminDashboard() {
 
   // --- Get Unique Categories ---
   const categories = Array.from(new Set(responses.map(r => r.category).filter(Boolean)));
+
+  const filteredLocations = locations.filter((l) => {
+    if (!locationSearchTerm.trim()) return true;
+    const q = locationSearchTerm.toLowerCase();
+    return (
+      (l.name && l.name.toLowerCase().includes(q)) ||
+      (l.type && l.type.toLowerCase().includes(q)) ||
+      (l.building && l.building.toLowerCase().includes(q))
+    );
+  });
 
   // --- Mutations ---
   const saveResponseMutation = useMutation({
@@ -274,84 +286,152 @@ export default function AdminDashboard() {
                       <CardTitle className="text-lg sm:text-xl">Chatbot Responses</CardTitle>
                       <CardDescription className="text-sm">Manage chatbot responses and their location data</CardDescription>
                     </div>
-                    <ResponseDialog
-                      onSave={saveResponseMutation.mutateAsync}
-                      translationBusy={translationBusy}
-                      translationBusyIntent={translationBusyIntent}
-                    />
+                    {responsesSubTab === "general" ? (
+                      <ResponseDialog
+                        onSave={saveResponseMutation.mutateAsync}
+                        translationBusy={translationBusy}
+                        translationBusyIntent={translationBusyIntent}
+                      />
+                    ) : (
+                      <LocationDialog
+                        onSave={(l) => saveLocationMutation.mutate(l)}
+                      />
+                    )}
                   </div>
+
+                  <Tabs value={responsesSubTab} onValueChange={(v) => setResponsesSubTab(v as any)}>
+                    <TabsList>
+                      <TabsTrigger value="general">General</TabsTrigger>
+                      <TabsTrigger value="locations">Locations</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
                   
                   {/* Filters */}
-                  <div className="flex flex-col sm:flex-row gap-4 w-full">
-                    <div className="w-full sm:flex-1">
-                      <Input
-                        placeholder="Search by intent or category..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="max-w-sm"
-                      />
+                  {responsesSubTab === "general" ? (
+                    <div className="flex flex-col sm:flex-row gap-4 w-full">
+                      <div className="w-full sm:flex-1">
+                        <Input
+                          placeholder="Search by intent or category..."
+                          value={searchTerm}
+                          onChange={(e) => setSearchTerm(e.target.value)}
+                          className="max-w-sm"
+                        />
+                      </div>
+                      <div className="w-48">
+                        <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Filter by category" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">All Categories</SelectItem>
+                            {categories.map(category => (
+                              <SelectItem key={category} value={category}>
+                                {category}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
-                    <div className="w-48">
-                      <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Filter by category" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">All Categories</SelectItem>
-                          {categories.map(category => (
-                            <SelectItem key={category} value={category}>
-                              {category}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                  ) : (
+                    <div className="flex flex-col sm:flex-row gap-4 w-full">
+                      <div className="w-full sm:flex-1">
+                        <Input
+                          placeholder="Search locations by name/building/type..."
+                          value={locationSearchTerm}
+                          onChange={(e) => setLocationSearchTerm(e.target.value)}
+                          className="max-w-sm"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </CardHeader>
                 <CardContent>
-                  <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead className="min-w-[120px]">Intent</TableHead>
-                          <TableHead className="min-w-[100px] hidden sm:table-cell">Category</TableHead>
-                          <TableHead className="min-w-[120px] hidden sm:table-cell">Has Map Data</TableHead>
-                          <TableHead className="w-[80px] sm:w-[100px]">Actions</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {filteredResponses.map((response) => (
-                          <TableRow key={response.intent}>
-                            <TableCell className="font-medium text-sm sm:text-base">{response.intent}</TableCell>
-                            <TableCell className="text-sm sm:text-base hidden sm:table-cell">{response.category}</TableCell>
-                            <TableCell className="hidden sm:table-cell">
-                              <span className={`inline-block px-2 py-1 rounded text-xs sm:text-sm font-medium ${response.responses?.mapData ? "text-blue-600 bg-blue-50" : "text-gray-500 bg-gray-50"}`}>
-                                {response.responses?.mapData ? "YES" : "NO"}
-                              </span>
-                            </TableCell>
-                            <TableCell>
-                              <div className="flex gap-1 sm:gap-2">
-                                 <ResponseDialog 
-                                    response={response} 
-                                    onSave={saveResponseMutation.mutateAsync} 
-                                    translationBusy={translationBusy}
-                                    translationBusyIntent={translationBusyIntent}
-                                    trigger={<Button variant="ghost" size="sm" className="h-8 w-8 sm:h-9 sm:w-9"><Edit2 className="h-3 w-3 sm:h-4 sm:w-4"/></Button>}
-                                 />
-                              </div>
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                        {filteredResponses.length === 0 && (
+                  {responsesSubTab === "general" ? (
+                    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                      <Table>
+                        <TableHeader>
                           <TableRow>
-                            <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
-                              No responses found matching your filters.
-                            </TableCell>
+                            <TableHead className="min-w-[120px]">Intent</TableHead>
+                            <TableHead className="min-w-[100px] hidden sm:table-cell">Category</TableHead>
+                            <TableHead className="min-w-[120px] hidden sm:table-cell">Has Map Data</TableHead>
+                            <TableHead className="w-[80px] sm:w-[100px]">Actions</TableHead>
                           </TableRow>
-                        )}
-                      </TableBody>
-                    </Table>
-                  </div>
+                        </TableHeader>
+                        <TableBody>
+                          {filteredResponses.map((response) => (
+                            <TableRow key={response.intent}>
+                              <TableCell className="font-medium text-sm sm:text-base">{response.intent}</TableCell>
+                              <TableCell className="text-sm sm:text-base hidden sm:table-cell">{response.category}</TableCell>
+                              <TableCell className="hidden sm:table-cell">
+                                <span className={`inline-block px-2 py-1 rounded text-xs sm:text-sm font-medium ${response.responses?.mapData ? "text-blue-600 bg-blue-50" : "text-gray-500 bg-gray-50"}`}>
+                                  {response.responses?.mapData ? "YES" : "NO"}
+                                </span>
+                              </TableCell>
+                              <TableCell>
+                                <div className="flex gap-1 sm:gap-2">
+                                   <ResponseDialog 
+                                      response={response} 
+                                      onSave={saveResponseMutation.mutateAsync} 
+                                      translationBusy={translationBusy}
+                                      translationBusyIntent={translationBusyIntent}
+                                      trigger={<Button variant="ghost" size="sm" className="h-8 w-8 sm:h-9 sm:w-9"><Edit2 className="h-3 w-3 sm:h-4 sm:w-4"/></Button>}
+                                   />
+                                </div>
+                              </TableCell>
+                            </TableRow>
+                          ))}
+                          {filteredResponses.length === 0 && (
+                            <TableRow>
+                              <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
+                                No responses found matching your filters.
+                              </TableCell>
+                            </TableRow>
+                          )}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  ) : (
+                    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="min-w-[160px]">Location</TableHead>
+                            <TableHead className="min-w-[120px] hidden sm:table-cell">Type</TableHead>
+                            <TableHead className="min-w-[160px] hidden sm:table-cell">Building</TableHead>
+                            <TableHead className="min-w-[120px] hidden sm:table-cell">Floor</TableHead>
+                            <TableHead className="w-[80px] sm:w-[100px]">Actions</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {filteredLocations.map((loc) => (
+                            <TableRow key={loc.id}>
+                              <TableCell className="font-medium text-sm sm:text-base">{loc.name}</TableCell>
+                              <TableCell className="text-sm sm:text-base hidden sm:table-cell">{loc.type || ""}</TableCell>
+                              <TableCell className="text-sm sm:text-base hidden sm:table-cell">{loc.building || ""}</TableCell>
+                              <TableCell className="text-sm sm:text-base hidden sm:table-cell">{loc.floor || ""}</TableCell>
+                              <TableCell>
+                                <div className="flex gap-1 sm:gap-2">
+                                  <LocationDialog
+                                    location={loc}
+                                    onSave={(l) => saveLocationMutation.mutate(l)}
+                                    trigger={<Button variant="ghost" size="sm" className="h-8 w-8 sm:h-9 sm:w-9"><Edit2 className="h-3 w-3 sm:h-4 sm:w-4"/></Button>}
+                                  />
+                                </div>
+                              </TableCell>
+                            </TableRow>
+                          ))}
+                          {filteredLocations.length === 0 && (
+                            <TableRow>
+                              <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
+                                No locations found matching your filters.
+                              </TableCell>
+                            </TableRow>
+                          )}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -1094,16 +1174,40 @@ function LocationDialog({ location, onSave, trigger }: {
 }) {
   const [open, setOpen] = useState(false);
   const [locationName, setLocationName] = useState(location?.name || "");
-  const [mapCoordinates, setMapCoordinates] = useState<[number, number]>(
-    location?.coordinates || [500, 500]
-  );
+  const [locationType, setLocationType] = useState(location?.type || "");
+  const [building, setBuilding] = useState(location?.building || "");
+  const [floor, setFloor] = useState(location?.floor || "");
+  const [mapId, setMapId] = useState(location?.mapImage || "main_map");
+  const [mapCoordinates, setMapCoordinates] = useState<[number, number]>(location?.coordinates || [500, 500]);
+  const [enText, setEnText] = useState<string>((location?.responses?.en || []).join("\n"));
+  const [cebText, setCebText] = useState<string>((location?.responses?.ceb || []).join("\n"));
+
+  useEffect(() => {
+    if (!open) return;
+    setLocationName(location?.name || "");
+    setLocationType(location?.type || "");
+    setBuilding(location?.building || "");
+    setFloor(location?.floor || "");
+    setMapId(location?.mapImage || "main_map");
+    setMapCoordinates(location?.coordinates || [500, 500]);
+    setEnText((location?.responses?.en || []).join("\n"));
+    setCebText((location?.responses?.ceb || []).join("\n"));
+  }, [open, location]);
 
   const handleSubmit = () => {
+    const nextName = locationName.trim();
     const newLocation: Location = {
-      name: locationName,
+      id: location?.id || nextName,
+      name: nextName,
+      type: locationType.trim() || undefined,
+      building: building.trim() || undefined,
+      floor: floor.trim() || undefined,
       coordinates: mapCoordinates,
-      mapImage: location?.mapImage || "/generated_map.png",
-      id: location?.id || `loc_${Date.now()}`
+      mapImage: (mapId || "main_map").trim() || "main_map",
+      responses: {
+        en: enText.split("\n").map((s) => s.trim()).filter(Boolean),
+        ceb: cebText.split("\n").map((s) => s.trim()).filter(Boolean),
+      },
     };
     
     onSave(newLocation);
@@ -1113,29 +1217,81 @@ function LocationDialog({ location, onSave, trigger }: {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        {trigger || <Button><Plus className="mr-2 h-4 w-4"/> Add Location</Button>}
+        {trigger || <Button className="w-full sm:w-auto rounded-sm" style={{background: "linear-gradient(to right, #001C38, #0356a9ff)"}}><Plus className="mr-2 h-4 w-4"/> Add Location</Button>}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
+      <DialogContent className="w-[95vw] sm:max-w-[1050px] max-h-[90vh] overflow-y-auto sm:p-6 p-4 rounded-sm">
         <DialogHeader>
           <DialogTitle>{location ? "Edit Location" : "New Location"}</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid gap-2">
-            <Label>Location Name</Label>
-            <Input 
-              value={locationName} 
-              onChange={e => setLocationName(e.target.value)} 
-              placeholder="e.g. ICT Office" 
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label>Location on Map</Label>
-            <InteractiveMap
-              initialCoordinates={mapCoordinates}
-              onCoordinatesChange={setMapCoordinates}
-              width={600}
-              height={600}
-            />
+          <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
+            <div className="grid gap-2">
+              <Label>Location Name</Label>
+              <Input
+                value={locationName}
+                onChange={e => setLocationName(e.target.value)}
+                placeholder="e.g. Conference Room A"
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label>Type</Label>
+              <Input
+                value={locationType}
+                onChange={e => setLocationType(e.target.value)}
+                placeholder="e.g. room, comlab"
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label>Building</Label>
+              <Input
+                value={building}
+                onChange={e => setBuilding(e.target.value)}
+                placeholder="e.g. Admin Building"
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label>Floor</Label>
+              <Input
+                value={floor}
+                onChange={e => setFloor(e.target.value)}
+                placeholder="e.g. 2nd Floor"
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label>Response Answer (English)</Label>
+              <Textarea
+                value={enText}
+                onChange={(e) => setEnText(e.target.value)}
+                placeholder="Enter English response text (one per line)"
+                rows={4}
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label>Response Answer (Bisaya)</Label>
+              <Textarea
+                value={cebText}
+                onChange={(e) => setCebText(e.target.value)}
+                placeholder="Enter Bisaya response text (one per line)"
+                rows={4}
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label>Map ID</Label>
+              <Input
+                value={mapId}
+                onChange={(e) => setMapId(e.target.value)}
+                placeholder="main_map"
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label>Pin on Map</Label>
+              <InteractiveMap
+                initialCoordinates={mapCoordinates}
+                onCoordinatesChange={setMapCoordinates}
+                width={550}
+                height={450}
+              />
+            </div>
           </div>
         </div>
         <div className="flex justify-end">

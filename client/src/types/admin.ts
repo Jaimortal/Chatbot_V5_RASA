@@ -13,6 +13,13 @@ export interface Location {
   name: string;
   coordinates: [number, number]; // [y, x] format
   mapImage: string;
+  type?: string;
+  building?: string;
+  floor?: string;
+  responses?: {
+    en?: string[];
+    ceb?: string[];
+  };
 }
 
 export interface ResponseData {

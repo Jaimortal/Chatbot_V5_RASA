@@ -5,8 +5,8 @@
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        692,
+        644
       ],
       "map_id": "main_map",
       "responses": {
@@ -131,8 +131,8 @@
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        752,
+        580
       ],
       "map_id": "main_map",
       "responses": {
@@ -282,7 +282,10 @@
       "type": "room",
       "building": "Admin Building",
       "floor": "2nd Floor",
-      "coordinates": [100, 200],
+      "coordinates": [
+        100,
+        200
+      ],
       "map_id": "main_map",
       "responses": {
         "en": [
@@ -296,5 +299,4 @@
       }
     }
   }
-  
 }

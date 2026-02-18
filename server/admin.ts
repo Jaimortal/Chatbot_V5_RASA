@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const RESPONSES_FILE = path.join(__dirname, '..', 'rasa', 'actions', 'responses.json');
-const LOCATIONS_FILE = path.join(DATA_DIR, 'locations.json');
+const RESPONSES_LOCATION_FILE = path.join(__dirname, '..', 'rasa', 'actions', 'responses_location.json');
 const PRIVILEGES_FILE = path.join(DATA_DIR, 'user_privileges.json');
 
 // Ensure data directory exists
@@ -49,28 +49,81 @@ export async function saveResponses(responses: ResponseData[]): Promise<boolean>
   }
 }
 
-// Read locations from locations.json
-export async function getLocations(): Promise<Location[]> {
+type LocationFileShape = {
+  locations: Record<
+    string,
+    {
+      type?: string;
+      building?: string;
+      floor?: string;
+      coordinates?: [number, number] | number[];
+      map_id?: string;
+      mapId?: string;
+      responses?: Record<string, any>;
+    }
+  >;
+};
+
+async function readLocationFile(): Promise<LocationFileShape> {
   try {
-    await ensureDataDir();
-    const data = await fs.readFile(LOCATIONS_FILE, 'utf-8');
+    const data = await fs.readFile(RESPONSES_LOCATION_FILE, 'utf-8');
     const parsed = JSON.parse(data);
-    return parsed.locations || [];
+    if (parsed && typeof parsed === 'object' && parsed.locations && typeof parsed.locations === 'object') {
+      return parsed as LocationFileShape;
+    }
+    return { locations: {} };
   } catch (error) {
-    console.error('Error reading locations:', error);
-    return [];
+    console.error('Error reading responses_location.json:', error);
+    return { locations: {} };
   }
 }
 
-// Write locations to locations.json
-export async function saveLocations(locations: Location[]): Promise<boolean> {
+async function writeLocationFile(next: LocationFileShape): Promise<boolean> {
   try {
-    await ensureDataDir();
-    await fs.writeFile(LOCATIONS_FILE, JSON.stringify({ locations }, null, 2), 'utf-8');
+    await fs.writeFile(RESPONSES_LOCATION_FILE, JSON.stringify(next, null, 2), 'utf-8');
     return true;
   } catch (error) {
-    console.error('Error saving locations:', error);
+    console.error('Error saving responses_location.json:', error);
     return false;
+  }
+}
+
+// Read locations from responses_location.json
+export async function getLocations(): Promise<Location[]> {
+  try {
+    const file = await readLocationFile();
+    const locationsMap = file.locations || {};
+    return Object.entries(locationsMap).map(([name, value]) => {
+      const coordsRaw: any = (value as any)?.coordinates;
+      const coords: [number, number] =
+        Array.isArray(coordsRaw) && coordsRaw.length === 2
+          ? [Number(coordsRaw[0]), Number(coordsRaw[1])]
+          : [500, 500];
+      const mapId = (value as any)?.map_id || (value as any)?.mapId || 'main_map';
+
+      const responsesRaw: any = (value as any)?.responses;
+      const responses =
+        responsesRaw && typeof responsesRaw === 'object'
+          ? {
+              en: Array.isArray(responsesRaw?.en) ? responsesRaw.en : [],
+              ceb: Array.isArray(responsesRaw?.ceb) ? responsesRaw.ceb : [],
+            }
+          : { en: [], ceb: [] };
+
+      return {
+        id: name,
+        name,
+        coordinates: coords,
+        mapImage: mapId,
+        type: (value as any)?.type,
+        building: (value as any)?.building,
+        floor: (value as any)?.floor,
+        responses,
+      };
+    });
+  } catch (error) {
+    console.error('Error reading locations:', error);
+    return [];
   }
 }
 
@@ -159,16 +212,31 @@ export async function deleteResponse(intent: string): Promise<ApiResponse> {
 // Add or update a location
 export async function upsertLocation(location: Location): Promise<ApiResponse> {
   try {
-    const locations = await getLocations();
-    const existingIndex = locations.findIndex(l => l.id === location.id);
-    
-    if (existingIndex >= 0) {
-      locations[existingIndex] = location;
-    } else {
-      locations.push(location);
+    const file = await readLocationFile();
+    const key = String(location?.id || location?.name || '').trim();
+    if (!key) {
+      return { success: false, message: 'Location id/name is required' };
     }
-    
-    const success = await saveLocations(locations);
+
+    const next = { ...(file.locations || {}) } as any;
+    const existing = next[key] || {};
+
+    const nextResponses = {
+      en: Array.isArray((location as any)?.responses?.en) ? (location as any).responses.en : (existing.responses?.en || []),
+      ceb: Array.isArray((location as any)?.responses?.ceb) ? (location as any).responses.ceb : (existing.responses?.ceb || []),
+    };
+
+    next[key] = {
+      ...existing,
+      type: (location as any)?.type || existing.type,
+      building: (location as any)?.building || existing.building,
+      floor: (location as any)?.floor || existing.floor,
+      coordinates: Array.isArray(location.coordinates) ? location.coordinates : existing.coordinates,
+      map_id: location.mapImage || existing.map_id || existing.mapId || 'main_map',
+      responses: nextResponses,
+    };
+
+    const success = await writeLocationFile({ locations: next });
     return {
       success,
       message: success ? 'Location saved successfully' : 'Failed to save location',
@@ -185,10 +253,19 @@ export async function upsertLocation(location: Location): Promise<ApiResponse> {
 // Delete a location
 export async function deleteLocation(id: string): Promise<ApiResponse> {
   try {
-    const locations = await getLocations();
-    const filteredLocations = locations.filter(l => l.id !== id);
-    
-    const success = await saveLocations(filteredLocations);
+    const file = await readLocationFile();
+    const key = String(id || '').trim();
+    if (!key) {
+      return { success: false, message: 'Location id is required' };
+    }
+
+    const next = { ...(file.locations || {}) } as any;
+    if (!next[key]) {
+      return { success: false, message: 'Location not found' };
+    }
+
+    delete next[key];
+    const success = await writeLocationFile({ locations: next });
     return {
       success,
       message: success ? 'Location deleted successfully' : 'Failed to delete location'
