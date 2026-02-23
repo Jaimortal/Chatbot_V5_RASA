@@ -7,13 +7,15 @@ interface InteractiveMapProps {
   onCoordinatesChange: (coordinates: [number, number]) => void;
   width?: number;
   height?: number;
+  showManualInputs?: boolean;
 }
 
 export default function InteractiveMap({ 
   initialCoordinates = [500, 500], 
   onCoordinatesChange,
   width = 600,
-  height = 600 
+  height = 600,
+  showManualInputs = true,
 }: InteractiveMapProps) {
   const [coordinates, setCoordinates] = useState<[number, number]>(initialCoordinates);
   const [isPlacingPin, setIsPlacingPin] = useState(false);
@@ -62,90 +64,79 @@ export default function InteractiveMap({
     // Clear canvas
     ctx.clearRect(0, 0, width, height);
 
-    // Apply scale and offset transformations
+    // Draw map image / grid in world-space (affected by pan/zoom)
     ctx.save();
     ctx.translate(offset.x, offset.y);
     ctx.scale(scale, scale);
 
-    // Draw map image or fallback grid
     if (mapImage) {
       ctx.drawImage(mapImage, 0, 0, width, height);
     } else {
-      // Draw fallback grid
       ctx.strokeStyle = '#e5e7eb';
       ctx.lineWidth = 1;
-      
-      // Draw grid lines
       for (let x = 0; x <= width; x += 50) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
         ctx.lineTo(x, height);
         ctx.stroke();
       }
-      
       for (let y = 0; y <= height; y += 50) {
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(width, y);
         ctx.stroke();
       }
-      
-      // Add grid labels
       ctx.fillStyle = '#6b7280';
       ctx.font = '10px sans-serif';
       ctx.fillText('(0,0)', 5, 15);
       ctx.fillText(`(${height},${width})`, width - 40, height - 5);
     }
+    ctx.restore();
 
-    // Draw pin - convert from 1000x1000 coordinates to canvas coordinates
-    const [y, x] = coordinates;
-    const canvasX = (x / 1000) * width;
-    const canvasY = (y / 1000) * height;
-    
-    // Draw pin shadow
+    // Draw pin in screen-space (NOT scaled) so it stays same size when zooming
+    const { screenX, screenY } = getScreenCoords(coordinates);
+    const pinX = screenX;
+    const pinY = screenY;
+
+    // shadow (under the pin tip)
     ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
     ctx.beginPath();
-    ctx.ellipse(canvasX + 2, canvasY + 2, 8, 4, 0, 0, Math.PI * 2);
+    ctx.ellipse(pinX + 2, pinY + 11, 10, 5, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Draw pin
-    ctx.fillStyle = '#ef4444'; // Red color
+    // head
+    ctx.fillStyle = '#2563eb';
     ctx.beginPath();
-    ctx.arc(canvasX, canvasY - 5, 8, 0, Math.PI * 2);
+    ctx.arc(pinX, pinY - 6, 10, 0, Math.PI * 2);
     ctx.fill();
 
-    // Draw pin point
+    // point
     ctx.beginPath();
-    ctx.moveTo(canvasX - 8, canvasY - 5);
-    ctx.lineTo(canvasX, canvasY + 10);
-    ctx.lineTo(canvasX + 8, canvasY - 5);
+    ctx.moveTo(pinX - 10, pinY - 6);
+    ctx.lineTo(pinX, pinY + 12);
+    ctx.lineTo(pinX + 10, pinY - 6);
     ctx.closePath();
     ctx.fill();
 
-    // Draw pin center
+    // center
     ctx.fillStyle = '#ffffff';
     ctx.beginPath();
-    ctx.arc(canvasX, canvasY - 5, 3, 0, Math.PI * 2);
+    ctx.arc(pinX, pinY - 6, 3.5, 0, Math.PI * 2);
     ctx.fill();
 
-    // Draw delete button if hovering
     if (showDeleteButton) {
-      // Draw delete button background
       ctx.fillStyle = 'rgba(239, 68, 68, 0.9)';
-      ctx.fillRect(canvasX + 15, canvasY - 20, 20, 20);
-      
-      // Draw X
+      ctx.fillRect(pinX + 15, pinY - 20, 20, 20);
+
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(canvasX + 18, canvasY - 17);
-      ctx.lineTo(canvasX + 32, canvasY - 3);
-      ctx.moveTo(canvasX + 32, canvasY - 17);
-      ctx.lineTo(canvasX + 18, canvasY - 3);
+      ctx.moveTo(pinX + 18, pinY - 17);
+      ctx.lineTo(pinX + 32, pinY - 3);
+      ctx.moveTo(pinX + 32, pinY - 17);
+      ctx.lineTo(pinX + 18, pinY - 3);
       ctx.stroke();
     }
-
-    ctx.restore();
   };
 
   const getScreenCoords = (coords: [number, number]) => {
@@ -303,11 +294,11 @@ export default function InteractiveMap({
   };
 
   return (
-    <Card className="p-4">
-      <div className="space-y-4">
-        <div className="flex justify-between items-center">
+    <Card className="p-4 overflow-hidden">
+      <div className="space-y-4 overflow-hidden">
+        <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
           <h3 className="text-lg font-semibold">Interactive Map</h3>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Button
               variant={isPlacingPin ? "default" : "outline"}
               onClick={() => setIsPlacingPin(!isPlacingPin)}
@@ -346,30 +337,32 @@ export default function InteractiveMap({
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">Y Coordinate</label>
-            <input
-              type="number"
-              min="0"
-              max="1000"
-              value={coordinates[0]}
-              onChange={(e) => handleManualInput('y', e.target.value)}
-              className="w-full px-3 py-2 border rounded-md"
-            />
+        {showManualInputs ? (
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Y Coordinate</label>
+              <input
+                type="number"
+                min="0"
+                max="1000"
+                value={coordinates[0]}
+                onChange={(e) => handleManualInput('y', e.target.value)}
+                className="w-full px-3 py-2 border rounded-md"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">X Coordinate</label>
+              <input
+                type="number"
+                min="0"
+                max="1000"
+                value={coordinates[1]}
+                onChange={(e) => handleManualInput('x', e.target.value)}
+                className="w-full px-3 py-2 border rounded-md"
+              />
+            </div>
           </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">X Coordinate</label>
-            <input
-              type="number"
-              min="0"
-              max="1000"
-              value={coordinates[1]}
-              onChange={(e) => handleManualInput('x', e.target.value)}
-              className="w-full px-3 py-2 border rounded-md"
-            />
-          </div>
-        </div>
+        ) : null}
 
         <div className="text-sm text-muted-foreground flex justify-between">
           <span>Current coordinates: ({coordinates[0]}, {coordinates[1]})</span>

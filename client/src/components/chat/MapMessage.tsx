@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { MapContainer, ImageOverlay, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -25,6 +25,7 @@ type CoordObject = { lat: number; lng: number } | { latitude?: number; longitude
 interface MapMessageProps {
   locationName: string;
   coordinates: CoordArray | CoordObject | null | undefined;
+  pins?: Array<{ name: string; coordinates: CoordArray | CoordObject }>;
   // optional props to tune bounds if needed
   imageBounds?: L.LatLngBoundsExpression;
   maxClamp?: number;
@@ -91,16 +92,32 @@ function clamp(v: number, min: number, max: number) {
 export default function MapMessage({
   locationName,
   coordinates,
+  pins,
   imageBounds = DefaultBounds,
   maxClamp = 3000,
 }: MapMessageProps) {
-  // normalize coordinates into tuple [y, x]
-  const tuple = normalizeToTuple(coordinates, maxClamp);
+  const normalizedPins = useMemo(() => {
+    if (Array.isArray(pins) && pins.length > 0) {
+      return pins
+        .map((p) => {
+          const tuple = normalizeToTuple((p as any)?.coordinates, maxClamp);
+          const name = String((p as any)?.name || "").trim() || "Pin";
+          return tuple ? { name, coordinates: tuple as CoordArray } : null;
+        })
+        .filter(Boolean) as Array<{ name: string; coordinates: CoordArray }>;
+    }
+
+    const tuple = normalizeToTuple(coordinates, maxClamp);
+    return tuple ? [{ name: locationName, coordinates: tuple }] : [];
+  }, [pins, coordinates, maxClamp, locationName]);
+
+  // use first pin for centering
+  const tuple = normalizedPins[0]?.coordinates || null;
 
   // debug logs to help see what was passed
   useEffect(() => {
-    console.debug("[MapMessage] raw coords:", coordinates, "normalized:", tuple);
-  }, [coordinates, tuple]);
+    console.debug("[MapMessage] raw coords:", coordinates, "pins:", pins, "normalized pins:", normalizedPins);
+  }, [coordinates, pins, normalizedPins]);
 
   // fallback center if coords invalid — choose center of image bounds
   const fallbackCenter: CoordArray = (() => {
@@ -121,9 +138,47 @@ export default function MapMessage({
     return [500, 500];
   })();
 
-  // Flip Y coordinate to match admin coordinate system (origin at top-left)
-  const flippedMarker = tuple ? [1000 - tuple[0], tuple[1]] as CoordArray : null;
-  const center = flippedMarker ?? fallbackCenter;
+  const flippedMarkers = normalizedPins
+    .map((p) => ({
+      name: p.name,
+      coordinates: [1000 - p.coordinates[0], p.coordinates[1]] as CoordArray,
+    }))
+    .filter((p) => Array.isArray(p.coordinates) && p.coordinates.length === 2);
+
+  const center = flippedMarkers[0]?.coordinates ?? fallbackCenter;
+
+  const labeledIcon = (label: string) =>
+    L.divIcon({
+      className: "",
+      html: `
+        <div style="position:relative; transform: translate(-50%, -100%);">
+          <div style="
+            position:absolute;
+            top:-18px;
+            left:50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.75);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 10px;
+            line-height: 1;
+            white-space: nowrap;
+          ">${escapeHtml(label)}</div>
+          <div style="
+            width: 16px;
+            height: 16px;
+            background: #2563eb;
+            border: 2px solid #ffffff;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+          "></div>
+        </div>
+      `,
+      iconSize: [1, 1],
+      iconAnchor: [0, 0],
+    });
 
   return (
     <div className="w-60 h-48 rounded-lg overflow-hidden border border-border mt-2 relative z-2">
@@ -139,14 +194,22 @@ export default function MapMessage({
         attributionControl={false}
       >
         <ImageOverlay url={mapImage} bounds={imageBounds} />
-        {/* only render marker if tuple is good */}
-        {flippedMarker ? (
-          <Marker position={flippedMarker}>
-            <Popup>{locationName}</Popup>
+        {flippedMarkers.map((p, idx) => (
+          <Marker key={`pin-${idx}`} position={p.coordinates} icon={labeledIcon(p.name)}>
+            <Popup>{p.name}</Popup>
           </Marker>
-        ) : null}
+        ))}
         <MapController coords={center} />
       </MapContainer>
     </div>
   );
+}
+
+function escapeHtml(input: string) {
+  return String(input)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }

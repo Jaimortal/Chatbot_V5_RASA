@@ -9,72 +9,285 @@ from rasa_sdk.executor import CollectingDispatcher
 
 # Location aliases for normalizing user input
 LOCATION_ALIASES = {
-    "college of information technology faculty": "COT Faculty",
-    "cit faculty": "COT Faculty",
-    "college it faculty": "COT Faculty",
+    # === Computer Laboratory Aliases ===
     "comlab 1": "ComLab 1",
     "computer laboratory 1": "ComLab 1",
     "com lab 1": "ComLab 1",
     "cl1": "ComLab 1",
-
+    "lab 1": "ComLab 1",
+    "computer lab 1": "ComLab 1",
+    
     "comlab 2": "ComLab 2",
     "computer laboratory 2": "ComLab 2",
     "com lab 2": "ComLab 2",
     "cl2": "ComLab 2",
-
+    "lab 2": "ComLab 2",
+    "computer lab 2": "ComLab 2",
+    
     "comlab 3": "ComLab 3",
     "computer laboratory 3": "ComLab 3",
     "com lab 3": "ComLab 3",
     "cl3": "ComLab 3",
-
+    "lab 3": "ComLab 3",
+    "computer lab 3": "ComLab 3",
+    
     "comlab 4": "ComLab 4",
     "computer laboratory 4": "ComLab 4",
     "com lab 4": "ComLab 4",
     "cl4": "ComLab 4",
-
+    "lab 4": "ComLab 4",
+    "computer lab 4": "ComLab 4",
+    
     "comlab 5": "ComLab 5",
     "computer laboratory 5": "ComLab 5",
     "com lab 5": "ComLab 5",
     "cl5": "ComLab 5",
-
+    "lab 5": "ComLab 5",
+    "computer lab 5": "ComLab 5",
+    
     "comlab 6": "ComLab 6",
     "computer laboratory 6": "ComLab 6",
     "com lab 6": "ComLab 6",
     "cl6": "ComLab 6",
-
+    "lab 6": "ComLab 6",
+    "computer lab 6": "ComLab 6",
+    
     "comlab 7": "ComLab 7",
     "computer laboratory 7": "ComLab 7",
     "com lab 7": "ComLab 7",
     "cl7": "ComLab 7",
-
+    "lab 7": "ComLab 7",
+    "computer lab 7": "ComLab 7",
+    
     "comlab 8": "ComLab 8",
     "computer laboratory 8": "ComLab 8",
     "com lab 8": "ComLab 8",
     "cl8": "ComLab 8",
-
+    "lab 8": "ComLab 8",
+    "computer lab 8": "ComLab 8",
+    
     "comlab 9": "ComLab 9",
     "computer laboratory 9": "ComLab 9",
     "com lab 9": "ComLab 9",
-    "cl8": "ComLab 8",
-
+    "cl9": "ComLab 9",
+    "lab 9": "ComLab 9",
+    "computer lab 9": "ComLab 9",
+    
     "comlab 10": "ComLab 10",
     "computer laboratory 10": "ComLab 10",
     "com lab 10": "ComLab 10",
     "cl10": "ComLab 10",
-
+    "lab 10": "ComLab 10",
+    "computer lab 10": "ComLab 10",
+    
     "comlab 11": "ComLab 11",
     "computer laboratory 11": "ComLab 11",
     "com lab 11": "ComLab 11",
     "cl11": "ComLab 11",
-
+    "lab 11": "ComLab 11",
+    "computer lab 11": "ComLab 11",
+    
     "comlab 12": "ComLab 12",
     "computer laboratory 12": "ComLab 12",
     "com lab 12": "ComLab 12",
     "cl12": "ComLab 12",
-
-    "faculty room 102": "Faculty Room 102",
-    "classroom 204": "Classroom 204"
+    "lab 12": "ComLab 12",
+    "computer lab 12": "ComLab 12",
+    
+    # === Electronics Laboratory Aliases ===
+    "electronics laboratory 1": "Electronics Laboratory 1",
+    "electronics lab 1": "Electronics Laboratory 1",
+    "electronics lab": "Electronics Laboratory 1",
+    "el1": "Electronics Laboratory 1",
+    
+    "electronics laboratory 2": "Electronics Laboratory 2",
+    "electronics lab 2": "Electronics Laboratory 2",
+    "el2": "Electronics Laboratory 2",
+    
+    # === Room Code Aliases (C2-2-XX format) ===
+    # C2-2-01 variations
+    "c2-2-01": "C2-2-01",
+    "c2-2-1": "C2-2-01",
+    "c2201": "C2-2-01",
+    "c2 2 01": "C2-2-01",
+    "c2 2 1": "C2-2-01",
+    "c2-2 01": "C2-2-01",
+    "room c2-2-01": "C2-2-01",
+    "room c2201": "C2-2-01",
+    
+    # C2-2-02 variations
+    "c2-2-02": "C2-2-02",
+    "c2-2-2": "C2-2-02",
+    "c2202": "C2-2-02",
+    "room c2202": "C2-2-02",
+    "c2 2 02": "C2-2-02",
+    "c2 2 2": "C2-2-02",
+    "c2-2 02": "C2-2-02",
+    "room c2-2-02": "C2-2-02",
+    "room c2202": "C2-2-02",
+    
+    # C2-2-03 variations
+    "c2-2-03": "C2-2-03",
+    "c2-2-3": "C2-2-03",
+    "c2203": "C2-2-03",
+    "c2 2 03": "C2-2-03",
+    "c2 2 3": "C2-2-03",
+    "c2-2 03": "C2-2-03",
+    "room c2-2-03": "C2-2-03",
+    "room c2203": "C2-2-03",
+    
+    # C2-2-04 variations
+    "c2-2-04": "C2-2-04",
+    "c2-2-4": "C2-2-04",
+    "c2204": "C2-2-04",
+    "c2 2 04": "C2-2-04",
+    "c2 2 4": "C2-2-04",
+    "c2-2 04": "C2-2-04",
+    "room c2-2-04": "C2-2-04",
+    "room c2204": "C2-2-04",
+    
+    # === Faculty Room Aliases ===
+    "college of information technology faculty": "COT Faculty",
+    "cit faculty": "COT Faculty",
+    "college it faculty": "COT Faculty",
+    "cot faculty": "COT Faculty",
+    "cot faculty room": "COT Faculty",
+    "college of technology faculty": "COT Faculty",
+    
+    "cob faculty": "COB Faculty Room",
+    "college of business faculty": "COB Faculty Room",
+    "cob faculty room": "COB Faculty Room",
+    
+    "cpag faculty": "CPAG Faculty Room",
+    "cpag faculty room": "CPAG Faculty Room",
+    
+    "bsn faculty": "BSN Faculty Room",
+    "bsn faculty room": "BSN Faculty Room",
+    "nursing faculty": "BSN Faculty Room",
+    
+    "cas deans office": "CAS Deans Office",
+    "cas dean's office": "CAS Deans Office",
+    
+    "cpag deans office": "CPAG Deans Office",
+    "cpag dean's office": "CPAG Deans Office",
+    
+    # === Building Aliases ===
+    "old cot building": "Old COT Building",
+    "new cot building": "New COT Building",
+    "college of technology building": "New COT Building",
+    "cot building": "Old COT Building",
+    
+    "finance building": "Finance Building",
+    "finance bldg": "Finance Building",
+    
+    "cpag building": "CPAG Building",
+    
+    "college of business building": "College of Business Building",
+    "cob building": "College of Business Building",
+    
+    "registrars office": "Registrar Office",
+    "registrar's office": "Registrar Office",
+    "registrar office": "Registrar Office",
+    
+    "old college of nursing": "Old College of Nursing",
+    "old nursing building": "Old College of Nursing",
+    
+    # === Dormitory Aliases ===
+    "mahogany dorm": "Mahogany Dorm",
+    "mahogany dormitory": "Mahogany Dorm",
+    "rubia dorm": "Rubia Dorm",
+    "rubia dormitory": "Rubia Dorm",
+    "rubia ladies dormitory": "Rubia Dorm",
+    "kilala dorm": "Kilala Dorm",
+    "kilala dormitory": "Kilala Dorm",
+    
+    # === Facility Aliases ===
+    "library": "Library",
+    "university library": "Library",
+    "main library": "Library",
+    "buksu library": "Library",
+    
+    "auditorium": "Auditorium",
+    "main auditorium": "Auditorium",
+    
+    "theater": "Theater",
+    "finance theater": "Theater",
+    
+    "cafeteria": "Cafeteria",
+    "university cafeteria": "Cafeteria",
+    "canteen": "Cafeteria",
+    
+    "gym": "Fitness Gym",
+    "fitness gym": "Fitness Gym",
+    "gymnasium": "Fitness Gym",
+    
+    "oval": "Oval",
+    "university oval": "Oval",
+    
+    "museum": "Museum",
+    "university museum": "Museum",
+    
+    "multimedia lab": "Multimedia Laboratory",
+    "multimedia": "Multimedia Laboratory",
+    "multimedia laboratories": "Multimedia Laboratory",
+    "multimedia laboratory": "Multimedia Laboratory",
+    
+    "computer laboratories": "Computer Laboratories",
+    "computer laboratory": "Computer Laboratories",
+    "computer labs": "Computer Laboratories",
+    
+    "avc": "AVC",
+    "avc room": "AVC",
+    "audio visual center": "AVC",
+    
+    "dxbu": "DXBU",
+    "dxbu office": "DXBU",
+    
+    "law office": "Law Office",
+    "college law office": "Law Office",
+    "legal office": "Law Office",
+    
+    "admission office": "Admission Office",
+    "admission and testing office": "Admission Office",
+    "admissions office": "Admission Office",
+    
+    "nstp office": "NSTP Office",
+    
+    "automotive faculty office": "Automotive Faculty Office",
+    "automotive office": "Automotive Faculty Office",
+    
+    "electronics faculty room": "Electronics Faculty Room",
+    "electronics office": "Electronics Faculty Room",
+    
+    "electronics laboratories": "Electronics Laboratories",
+    "electronics labs": "Electronics Laboratories",
+    
+    "guard house": "Guard House",
+    "security office": "Guard House",
+    "entrance gate": "Guard House",
+    
+    "vehicle parking": "Vehicle Parking Area",
+    "vehicle": "Vehicle Parking Area",
+    "car parking": "Car Parking Area",
+    "motorcycle parking": "Motorcycle Parking Area",
+    "motorcycle": "Motorcycle Parking Area",
+    "car": "Car Parking Area",
+    "park": "Vehicle Parking Area",
+    "parking area": "Vehicle Parking Area",
+    
+    "comfort room": "Comfort Room",
+    "restroom": "Comfort Room",
+    "toilet": "Comfort Room",
+    "cr": "Comfort Room",
+    "libanganan": "Comfort Room",
+    
+    "research extension": "Research Extension",
+    "extension office": "Research Extension",
+    
+    "university press": "University Press Building",
+    "press building": "University Press Building",
 }
+
 
 # -------------------------
 # Conversation Context
@@ -316,13 +529,64 @@ class ActionReplyFromJsonHelper:
     def _normalize_location_name(self, raw_name: str) -> str:
         if not raw_name:
             return raw_name
-        lower_name = raw_name.lower().strip()
-        return LOCATION_ALIASES.get(lower_name, raw_name)
+
+        cleaned = str(raw_name).lower()
+
+        # ✅ remove punctuation
+        cleaned = re.sub(r"[^\w\s-]", "", cleaned)
+
+        cleaned = cleaned.strip()
+
+        # remove prefixes
+        cleaned = re.sub(r"^\s*(room|rm|the)\s+", "", cleaned).strip()
+
+        if cleaned in LOCATION_ALIASES:
+            return LOCATION_ALIASES[cleaned]
+
+        return LOCATION_ALIASES.get(cleaned, raw_name)
+
+    def _guess_location_from_text(self, user_message: str) -> Optional[str]:
+        if not user_message:
+            return None
+
+        text = str(user_message).strip().lower()
+
+        # direct substring match against aliases (prefer longest alias)
+        best_alias = None
+        for alias in LOCATION_ALIASES.keys():
+            if alias and alias in text:
+                if best_alias is None or len(alias) > len(best_alias):
+                    best_alias = alias
+
+        if best_alias:
+            return LOCATION_ALIASES.get(best_alias)
+
+        # Try to reconstruct room codes like "c2 2 01" even if entity extraction is partial
+        match = re.search(r"\b(c\d+)\s+(\d+)\s+(\d{1,2})\b", text)
+        if match:
+            building, floor, room = match.group(1), match.group(2), match.group(3)
+            room_padded = room.zfill(2)
+            return f"{building}-{floor}-{room_padded}".upper()
+
+        match2 = re.search(r"\b(c\d+)-(\d+)-(\d{1,2})\b", text)
+        if match2:
+            building, floor, room = match2.group(1), match2.group(2), match2.group(3)
+            room_padded = room.zfill(2)
+            return f"{building}-{floor}-{room_padded}".upper()
+
+        return None
 
     def get_location_response(self, location_name: str, user_message: str) -> Dict[str, Any]:
         normalized_name = self._normalize_location_name(location_name)
         locations = self.location_responses.get("locations", {})
         location_info = locations.get(normalized_name)
+        if not location_info and isinstance(normalized_name, str):
+            # Fallback: try case-insensitive match against keys in responses_location.json
+            for k, v in locations.items():
+                if isinstance(k, str) and k.strip().lower() == normalized_name.strip().lower():
+                    normalized_name = k
+                    location_info = v
+                    break
         if not location_info:
             return {"text": f"Sorry, I don't have information about {location_name}."}
         
@@ -341,16 +605,57 @@ class ActionReplyFromJsonHelper:
             response_text = str(responses)
         
         result = {"text": response_text}
+
+        # Add images if available
+        images = None
+        if isinstance(location_info.get("imageUrls"), list):
+            images = [str(x) for x in location_info.get("imageUrls") if x]
+        elif isinstance(location_info.get("images"), list):
+            images = [str(x) for x in location_info.get("images") if x]
+        elif location_info.get("image"):
+            images = [str(location_info.get("image"))]
+        elif location_info.get("imageUrl"):
+            images = [str(location_info.get("imageUrl"))]
+
+        if images:
+            result["images"] = images
+            result["image"] = images[0]
         
-        # Add map data
-        if location_info.get("coordinates") and location_info.get("map_id"):
-            result["custom"] = {
-                "mapData": {
-                    "locationName": normalized_name,
-                    "coordinates": location_info["coordinates"],
-                    "mapId": location_info["map_id"]
+        # Add map data (support multiple pins)
+        map_id = location_info.get("map_id") or location_info.get("mapId")
+        pins_raw = location_info.get("pins")
+
+        pins_out = []
+        if isinstance(pins_raw, list):
+            for idx, p in enumerate(pins_raw):
+                coords = None
+                if isinstance(p, dict) and isinstance(p.get("coordinates"), list) and len(p.get("coordinates")) == 2:
+                    coords = p.get("coordinates")
+                name = None
+                if isinstance(p, dict):
+                    name = str(p.get("name") or "").strip()
+                if not name:
+                    name = f"Pin {idx + 1}"
+                if coords:
+                    pins_out.append({"name": name, "coordinates": coords})
+
+        if map_id:
+            if pins_out:
+                result["custom"] = {
+                    "mapData": {
+                        "locationName": normalized_name,
+                        "pins": pins_out,
+                        "mapId": map_id,
+                    }
                 }
-            }
+            elif location_info.get("coordinates"):
+                result["custom"] = {
+                    "mapData": {
+                        "locationName": normalized_name,
+                        "coordinates": location_info["coordinates"],
+                        "mapId": map_id,
+                    }
+                }
         
         return result
     def _normalize_lab_number(self, raw_value: Any) -> Optional[str]:
@@ -566,6 +871,13 @@ class ActionReplyFromJson(Action):
 
             if location_name:
                 response = self.helper.get_location_response(location_name, user_msg)
+
+                # If entity extraction was partial (e.g. "2 01"), try to guess from full text
+                if response.get("text", "").startswith("Sorry, I don't have information"):
+                    guessed = self.helper._guess_location_from_text(user_msg)
+                    if guessed:
+                        response = self.helper.get_location_response(guessed, user_msg)
+
                 dispatcher.utter_message(text=response["text"])
                 if response.get("custom"):
                     dispatcher.utter_message(json_message=response["custom"])
@@ -629,6 +941,18 @@ class ActionReplyFromJson(Action):
             sub_category=sub_category,
             user_message=user_msg
         )
+
+        # If NLU intent is not ask_locations but the text clearly contains a known location alias,
+        # answer with location response instead of generic fallback.
+        if intent not in {"ask_locations", "locate_comlab", "ask_faculty_room_location", "ask_more"}:
+            guessed = self.helper._guess_location_from_text(user_msg)
+            if guessed:
+                loc_resp = self.helper.get_location_response(guessed, user_msg)
+                if loc_resp and loc_resp.get("text") and not loc_resp["text"].startswith("Sorry, I don't have information"):
+                    dispatcher.utter_message(text=loc_resp["text"])
+                    if loc_resp.get("custom"):
+                        dispatcher.utter_message(json_message=loc_resp["custom"])
+                    return []
         
         if isinstance(response, dict):
             if response.get("text"):

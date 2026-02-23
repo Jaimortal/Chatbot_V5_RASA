@@ -114,15 +114,36 @@ export class ChatController {
         console.error("Failed to log conversation:", error);
       });
 
-      // Format mapData coordinates properly
-      let formattedMapData = null;
+      // Format mapData (preserve pins + mapId, and keep backward compatible coordinates)
+      let formattedMapData: any = null;
       if (mapDataFromRasa) {
-        // Keep coordinates as array [y, x] format for MapMessage component
+        const raw: any = mapDataFromRasa;
+
+        const pins = Array.isArray(raw.pins)
+          ? raw.pins
+              .map((p: any, idx: number) => {
+                const coords = p?.coordinates;
+                const tuple = Array.isArray(coords) && coords.length === 2
+                  ? [Number(coords[0]), Number(coords[1])]
+                  : null;
+                if (!tuple) return null;
+                const name = String(p?.name || "").trim() || `Pin ${idx + 1}`;
+                return { name, coordinates: tuple };
+              })
+              .filter(Boolean)
+          : null;
+
+        const coordFromPins = Array.isArray(pins) && pins.length > 0 ? pins[0].coordinates : null;
+        const rawCoords = raw.coordinates;
+        const coords = Array.isArray(rawCoords) && rawCoords.length === 2
+          ? [Number(rawCoords[0]), Number(rawCoords[1])]
+          : coordFromPins;
+
         formattedMapData = {
-          locationName: mapDataFromRasa.locationName || "Location",
-          coordinates: Array.isArray(mapDataFromRasa.coordinates) 
-            ? mapDataFromRasa.coordinates // Keep as [y, x] array
-            : mapDataFromRasa.coordinates // Keep as-is if already object
+          locationName: raw.locationName || "Location",
+          ...(coords ? { coordinates: coords } : {}),
+          ...(raw.mapId ? { mapId: raw.mapId } : {}),
+          ...(Array.isArray(pins) ? { pins } : {}),
         };
       }
 

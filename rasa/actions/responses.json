@@ -1013,58 +1013,6 @@
     }
   },
   {
-    "intent": "ask_faculty_room_location",
-    "category": "faculty",
-    "sub_category": "faculty_room",
-    "comment": "_______________ENTITY FOR FACULTY__________________________",
-    "responses": {
-      "answer": {
-        "en": [
-          "Sure! Please tell me which college faculty room you are looking for (COT, COB, or CON)."
-        ],
-        "ceb": [
-          "Sige! Palihug isulti kung unsang college faculty room imong gipangita (COT, COB, or CON)."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "ask_faculty_room_location"
-      },
-      "follow_up": [
-        "You can ask about: COT, COB, or CON faculty rooms."
-      ]
-    },
-    "faculty_rooms": {
-      "COT": {
-        "en": [
-          "Located on the 2nd floor of the COT Building."
-        ],
-        "ceb": [
-          "Nahimutang sa 2nd floor sa COT Building."
-        ]
-      },
-      "COB": {
-        "en": [
-          "Located on the 3rd floor of the Business Building."
-        ],
-        "ceb": [
-          "Nahimutang sa 3rd floor sa Business Building."
-        ]
-      },
-      "CON": {
-        "en": [
-          "Located near the Nursing Skills Laboratory."
-        ],
-        "ceb": [
-          "Nahimutang duol sa Nursing Skills Laboratory."
-        ]
-      }
-    },
-    "metadata": {
-      "source": "ICTdata"
-    }
-  },
-
-    {
     "intent": "transferee_enrollment",
     "category": "Admissions",
     "sub_category": "transferees",
@@ -2527,8 +2475,29 @@
   "metadata": {
     "source": "PolicyData"
   }
+},
+
+{
+  "intent": "get_inc_form",
+  "category": "Registrar",
+  "sub_category": "forms",
+  "responses": {
+    "answer": {
+      "en": [
+        "You can find all the forms, including the INC form, on the BukSU main website. You can access them directly using this link: https://buksu.edu.ph/downloadable-forms/"
+      ],
+      "ceb": [
+        "Naa ra sa main website sa BukSU ang tanang forms, apil na ang INC form. I-click lang ni nga link para makuha nimo sila: https://buksu.edu.ph/downloadable-forms/"
+      ]
+    },
+    "context_slots": {
+      "last_topic": "get_inc_form"
+    },
+    "follow_up": [],
+    "imageUrl": "https://buksu.edu.ph/downloadable-forms/"
+  },
+  "metadata": {
+    "source": "RegistrarData"
+  }
 }
-
-
-
 ]

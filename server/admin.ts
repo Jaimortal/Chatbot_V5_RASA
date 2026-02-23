@@ -57,9 +57,11 @@ type LocationFileShape = {
       building?: string;
       floor?: string;
       coordinates?: [number, number] | number[];
+      pins?: Array<{ name?: string; coordinates?: [number, number] | number[] }>;
       map_id?: string;
       mapId?: string;
       responses?: Record<string, any>;
+      imageUrls?: string[];
     }
   >;
 };
@@ -80,7 +82,23 @@ async function readLocationFile(): Promise<LocationFileShape> {
 
 async function writeLocationFile(next: LocationFileShape): Promise<boolean> {
   try {
-    await fs.writeFile(RESPONSES_LOCATION_FILE, JSON.stringify(next, null, 2), 'utf-8');
+    let base: any = {};
+    try {
+      const current = await fs.readFile(RESPONSES_LOCATION_FILE, 'utf-8');
+      const parsed = JSON.parse(current);
+      if (parsed && typeof parsed === 'object') {
+        base = parsed;
+      }
+    } catch {
+      base = {};
+    }
+
+    const merged = {
+      ...base,
+      locations: next.locations || {},
+    };
+
+    await fs.writeFile(RESPONSES_LOCATION_FILE, JSON.stringify(merged, null, 2), 'utf-8');
     return true;
   } catch (error) {
     console.error('Error saving responses_location.json:', error);
@@ -99,7 +117,25 @@ export async function getLocations(): Promise<Location[]> {
         Array.isArray(coordsRaw) && coordsRaw.length === 2
           ? [Number(coordsRaw[0]), Number(coordsRaw[1])]
           : [500, 500];
+
+      const pinsRaw: any = (value as any)?.pins;
+      const pins: Array<{ name: string; coordinates: [number, number] }> = Array.isArray(pinsRaw)
+        ? pinsRaw
+            .map((p: any, idx: number) => {
+              const c: any = p?.coordinates;
+              const tuple: [number, number] = Array.isArray(c) && c.length === 2
+                ? [Number(c[0]), Number(c[1])]
+                : coords;
+              const n = String(p?.name || "").trim() || `Pin ${idx + 1}`;
+              return { name: n, coordinates: tuple };
+            })
+            .filter((p: any) => Array.isArray(p.coordinates) && p.coordinates.length === 2)
+        : [];
       const mapId = (value as any)?.map_id || (value as any)?.mapId || 'main_map';
+
+      const imageUrls = Array.isArray((value as any)?.imageUrls)
+        ? (value as any).imageUrls.map((s: any) => String(s)).filter(Boolean)
+        : [];
 
       const responsesRaw: any = (value as any)?.responses;
       const responses =
@@ -118,7 +154,9 @@ export async function getLocations(): Promise<Location[]> {
         type: (value as any)?.type,
         building: (value as any)?.building,
         floor: (value as any)?.floor,
+        pins,
         responses,
+        imageUrls,
       };
     });
   } catch (error) {
@@ -226,14 +264,48 @@ export async function upsertLocation(location: Location): Promise<ApiResponse> {
       ceb: Array.isArray((location as any)?.responses?.ceb) ? (location as any).responses.ceb : (existing.responses?.ceb || []),
     };
 
+    const nextImageUrls: string[] = Array.isArray((location as any)?.imageUrls)
+      ? (location as any).imageUrls.map((s: any) => String(s).trim()).filter(Boolean)
+      : (Array.isArray(existing.imageUrls) ? existing.imageUrls : []);
+
+    const pinsRaw: any = (location as any)?.pins;
+    const pinsProvided = Object.prototype.hasOwnProperty.call((location as any) || {}, 'pins');
+    const nextPins = Array.isArray(pinsRaw)
+      ? pinsRaw
+          .map((p: any, idx: number) => {
+            const name = String(p?.name || "").trim() || `Pin ${idx + 1}`;
+            const c: any = p?.coordinates;
+            const coords: [number, number] | null = Array.isArray(c) && c.length === 2
+              ? [Number(c[0]), Number(c[1])]
+              : null;
+            if (!coords) return null;
+            return { name, coordinates: coords };
+          })
+          .filter(Boolean)
+      : (Array.isArray(existing.pins) ? existing.pins : []);
+
+    const coordsRaw: any = (location as any)?.coordinates;
+    const nextCoords: [number, number] =
+      Array.isArray(coordsRaw) && coordsRaw.length === 2
+        ? [Number(coordsRaw[0]), Number(coordsRaw[1])]
+        : (Array.isArray(existing.coordinates) && existing.coordinates.length === 2
+            ? [Number(existing.coordinates[0]), Number(existing.coordinates[1])]
+            : [500, 500]);
+
+    const coordsFromPins: [number, number] | null = Array.isArray(nextPins) && nextPins.length > 0
+      ? ([Number(nextPins[0].coordinates[0]), Number(nextPins[0].coordinates[1])] as [number, number])
+      : null;
+
     next[key] = {
       ...existing,
       type: (location as any)?.type || existing.type,
       building: (location as any)?.building || existing.building,
       floor: (location as any)?.floor || existing.floor,
-      coordinates: Array.isArray(location.coordinates) ? location.coordinates : existing.coordinates,
+      coordinates: coordsFromPins || nextCoords,
+      pins: pinsProvided ? nextPins : (Array.isArray(existing.pins) ? existing.pins : nextPins),
       map_id: location.mapImage || existing.map_id || existing.mapId || 'main_map',
       responses: nextResponses,
+      imageUrls: nextImageUrls,
     };
 
     const success = await writeLocationFile({ locations: next });

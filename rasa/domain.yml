@@ -37,7 +37,6 @@ intents:
   - additional_slots
   - contact_scholarship_unit
   - all_comlab_locations
-  - ask_faculty_room_location
   - bot_challenge
 
   - transferee_enrollment
@@ -99,6 +98,8 @@ intents:
   - cancel_tabuk_assistance
   - shorts_on_campus
   
+  - get_inc_form
+  
 entities:
   - lab_number
   - location_name
@@ -106,7 +107,6 @@ entities:
   - sub_category
   - slot_name
   - slot_value
-  - college
 
 slots:
   category:
@@ -145,13 +145,6 @@ slots:
     mappings:
       - type: from_entity
         entity: lab_number
-
-  college:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: college
 
 responses:
   utter_greet:

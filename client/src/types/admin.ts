@@ -16,10 +16,15 @@ export interface Location {
   type?: string;
   building?: string;
   floor?: string;
+  pins?: Array<{
+    name: string;
+    coordinates: [number, number];
+  }>;
   responses?: {
     en?: string[];
     ceb?: string[];
   };
+  imageUrls?: string[];
 }
 
 export interface ResponseData {

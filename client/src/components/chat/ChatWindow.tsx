@@ -7,7 +7,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 import MapMessage from "./MapMessage";
 import { cn } from "@/lib/utils";
-import { mockBackend, generateId, type ChatMessage } from "@/lib/mockApi";
+import { rasaBackend, generateId, type ChatMessage } from "@/lib/rasaApi";
 import type { UserPrivileges } from "@/types/admin";
 
 // Helper for Web Speech API
@@ -127,15 +127,34 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     return newId;
   });
 
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: "welcome",
-      text: "Hi there! I’m the BukSU Assistance Chatbot. Ask me anything about BukSU. Pwede ra gyud Bisaya or English",
-      sender: "bot",
-      type: "text",
-      timestamp: new Date(),
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>(() => {
+    try {
+      const saved = localStorage.getItem('chatMessages');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.timestamp && Date.now() - parsed.timestamp < 24 * 60 * 60 * 1000) { // 24 hours
+          return parsed.messages.map((msg: any) => ({
+            ...msg,
+            timestamp: new Date(msg.timestamp)
+          }));
+        } else {
+          localStorage.removeItem('chatMessages'); // Expired
+        }
+      }
+    } catch (error) {
+      console.error('Failed to load messages from localStorage:', error);
+    }
+    // Default welcome message
+    return [
+      {
+        id: "welcome",
+        text: "Hi there! I’m the BukSU Assistance Chatbot. Ask me anything about BukSU. Pwede ra gyud Bisaya or English",
+        sender: "bot",
+        type: "text",
+        timestamp: new Date(),
+      },
+    ];
+  });
 
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -155,7 +174,7 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     const testBackend = async () => {
       try {
         console.log("Testing backend connection...");
-        const testResponse = await mockBackend.sendMessage("test");
+        const testResponse = await rasaBackend.sendMessage("test");
         console.log("Backend response:", testResponse);
       } catch (error) {
         console.error("Backend test failed:", error);
@@ -178,6 +197,24 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
       }
     }
   }, [messages, isTyping]);
+
+  // Save messages to localStorage
+  useEffect(() => {
+    if (messages.length > 1) { // Only save if there are actual conversation messages
+      try {
+        const toSave = {
+          messages: messages.map(msg => ({
+            ...msg,
+            timestamp: msg.timestamp.toISOString()
+          })),
+          timestamp: Date.now()
+        };
+        localStorage.setItem('chatMessages', JSON.stringify(toSave));
+      } catch (error) {
+        console.error('Failed to save messages to localStorage:', error);
+      }
+    }
+  }, [messages]);
 
   // Initialize speech recognition
   useEffect(() => {
@@ -284,7 +321,7 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     setIsTyping(true);
 
     try {
-      const response = await mockBackend.sendMessage(trimmedText, sessionId);
+      const response = await rasaBackend.sendMessage(trimmedText, sessionId);
       
       // Convert bot response to correct message types
       const botMessages = convertResponseToMessages(response);
@@ -365,16 +402,16 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
                 {/* Normal text */}
                 {msg.type === "text" && (
                   <div>
-                    <p 
+                    <p
                       className="leading-relaxed whitespace-pre-line"
                       dangerouslySetInnerHTML={{
                         __html: msg.text.replace(
                           /(https?:\/\/[^\s]+)/g,
                           (match) => {
-                            const display = match.length > 40 ? match.slice(0, 37) + '...' : match;
+                            const display = match.length > 40 ? match.slice(0, 37) + "..." : match;
                             return `<a href="${match}" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 break-all">${display}</a>`;
                           }
-                        )
+                        ),
                       }}
                     />
 
@@ -406,19 +443,19 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
                   privileges.mapAccessEnabled ? (
                     <MapMessage
                       locationName={msg.mapData.locationName}
-                      coordinates={msg.mapData.coordinates}
+                      coordinates={(msg.mapData as any).coordinates}
+                      pins={(msg.mapData as any).pins}
                     />
                   ) : (
                     <div className="mt-2 rounded-md border border-destructive/20 bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
-                      Map is not accessible right now.
+                      Map access is disabled by the administrator.
                     </div>
                   )
                 )}
               </div>
 
-              {/* Timestamp centered under the message card */}
               <div className="text-xs opacity-60 mt-1 text-center">
-                {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                {msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </div>
             </motion.div>
           ))}

@@ -1179,8 +1179,17 @@ function LocationDialog({ location, onSave, trigger }: {
   const [floor, setFloor] = useState(location?.floor || "");
   const [mapId, setMapId] = useState(location?.mapImage || "main_map");
   const [mapCoordinates, setMapCoordinates] = useState<[number, number]>(location?.coordinates || [500, 500]);
+  const [pins, setPins] = useState<Array<{ name: string; coordinates: [number, number] }>>(
+    Array.isArray((location as any)?.pins) && (location as any).pins.length > 0
+      ? (location as any).pins
+      : [{ name: "Main Pin", coordinates: location?.coordinates || [500, 500] }]
+  );
+  const [activePinIndex, setActivePinIndex] = useState<number>(0);
   const [enText, setEnText] = useState<string>((location?.responses?.en || []).join("\n"));
   const [cebText, setCebText] = useState<string>((location?.responses?.ceb || []).join("\n"));
+  const [imageUrls, setImageUrls] = useState<string[]>(Array.isArray((location as any)?.imageUrls) ? (location as any).imageUrls : []);
+  const [imageUrlDraft, setImageUrlDraft] = useState<string>("");
+  const fileInputId = useId();
 
   useEffect(() => {
     if (!open) return;
@@ -1190,25 +1199,48 @@ function LocationDialog({ location, onSave, trigger }: {
     setFloor(location?.floor || "");
     setMapId(location?.mapImage || "main_map");
     setMapCoordinates(location?.coordinates || [500, 500]);
+    const nextPins = Array.isArray((location as any)?.pins) && (location as any).pins.length > 0
+      ? (location as any).pins
+      : [{ name: "Main Pin", coordinates: location?.coordinates || [500, 500] }];
+    setPins(nextPins);
+    setActivePinIndex(0);
     setEnText((location?.responses?.en || []).join("\n"));
     setCebText((location?.responses?.ceb || []).join("\n"));
+    setImageUrls(Array.isArray((location as any)?.imageUrls) ? (location as any).imageUrls : []);
+    setImageUrlDraft("");
   }, [open, location]);
+
+  useEffect(() => {
+    const pin = pins[activePinIndex];
+    if (!pin) return;
+    setMapCoordinates(pin.coordinates);
+  }, [activePinIndex, pins]);
 
   const handleSubmit = () => {
     const nextName = locationName.trim();
+    const normalizedPins = pins
+      .map((p, idx) => ({
+        name: String(p?.name || "").trim() || `Pin ${idx + 1}`,
+        coordinates: p?.coordinates || [500, 500],
+      }))
+      .filter((p) => Array.isArray(p.coordinates) && p.coordinates.length === 2);
+
     const newLocation: Location = {
       id: location?.id || nextName,
       name: nextName,
       type: locationType.trim() || undefined,
       building: building.trim() || undefined,
       floor: floor.trim() || undefined,
-      coordinates: mapCoordinates,
+      coordinates: (normalizedPins[0]?.coordinates || mapCoordinates),
       mapImage: (mapId || "main_map").trim() || "main_map",
+      pins: normalizedPins,
       responses: {
         en: enText.split("\n").map((s) => s.trim()).filter(Boolean),
         ceb: cebText.split("\n").map((s) => s.trim()).filter(Boolean),
       },
     };
+
+    (newLocation as any).imageUrls = imageUrls;
     
     onSave(newLocation);
     setOpen(false);
@@ -1223,80 +1255,219 @@ function LocationDialog({ location, onSave, trigger }: {
         <DialogHeader>
           <DialogTitle>{location ? "Edit Location" : "New Location"}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
-            <div className="grid gap-2">
-              <Label>Location Name</Label>
-              <Input
-                value={locationName}
-                onChange={e => setLocationName(e.target.value)}
-                placeholder="e.g. Conference Room A"
-              />
+        <div className="grid gap-4 py-4 overflow-x-hidden">
+          <div className="grid gap-4 min-w-0">
+            <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-3 min-w-0">
+              <div className="grid gap-4 lg:col-span-2 min-w-0">
+                <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2 min-w-0">
+                  <div className="grid gap-2 min-w-0">
+                    <Label>Location Name</Label>
+                    <Input
+                      value={locationName}
+                      onChange={e => setLocationName(e.target.value)}
+                      placeholder="e.g. Conference Room A"
+                    />
+                  </div>
+                  <div className="grid gap-2 min-w-0">
+                    <Label>Building</Label>
+                    <Input
+                      value={building}
+                      onChange={e => setBuilding(e.target.value)}
+                      placeholder="e.g. Admin Building"
+                    />
+                  </div>
+                  <div className="grid gap-2 min-w-0">
+                    <Label>Floor</Label>
+                    <Input
+                      value={floor}
+                      onChange={e => setFloor(e.target.value)}
+                      placeholder="e.g. 2nd Floor"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid gap-2 min-w-0">
+                  <Label>Pin on Map</Label>
+                  <InteractiveMap
+                    initialCoordinates={mapCoordinates}
+                    onCoordinatesChange={(coords) => {
+                      setMapCoordinates(coords);
+                      setPins((prev) => prev.map((p, idx) => (idx === activePinIndex ? { ...p, coordinates: coords } : p)));
+                    }}
+                    width={550}
+                    height={450}
+                    showManualInputs={false}
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-4 min-w-0">
+                <div className="grid gap-2 min-w-0">
+                  <Label>Response Answer (English)</Label>
+                  <Textarea
+                    value={enText}
+                    onChange={(e) => setEnText(e.target.value)}
+                    placeholder="Enter English response text (one per line)"
+                    rows={10}
+                  />
+                </div>
+                <div className="grid gap-2 min-w-0">
+                  <Label>Response Answer (Bisaya)</Label>
+                  <Textarea
+                    value={cebText}
+                    onChange={(e) => setCebText(e.target.value)}
+                    placeholder="Enter Bisaya response text (one per line)"
+                    rows={10}
+                  />
+                </div>
+
+                <div className="grid gap-2 min-w-0">
+                  <Label>Pins</Label>
+                  <div className="rounded-md border p-3 grid gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+                      <div className="text-sm font-medium">Pins</div>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        className="w-full sm:w-auto"
+                        onClick={() => {
+                          setPins((prev) => {
+                            const next = [...prev, { name: `Pin ${prev.length + 1}`, coordinates: [500, 500] as [number, number] }];
+                            return next;
+                          });
+                          setActivePinIndex(pins.length);
+                        }}
+                      >
+                        Add Pin
+                      </Button>
+                    </div>
+
+                    <div className="grid gap-2">
+                      {pins.map((p, idx) => (
+                        <div key={`pin-${idx}`} className="flex flex-col sm:flex-row gap-2 sm:items-center rounded-md border p-2">
+                          <Button
+                            type="button"
+                            variant={idx === activePinIndex ? "default" : "outline"}
+                            className="w-full sm:w-auto"
+                            onClick={() => setActivePinIndex(idx)}
+                          >
+                            Edit
+                          </Button>
+                          <Input
+                            value={p.name}
+                            onChange={(e) => {
+                              const v = e.target.value;
+                              setPins((prev) => prev.map((x, i) => (i === idx ? { ...x, name: v } : x)));
+                            }}
+                            placeholder={`Pin ${idx + 1} name`}
+                            className="min-w-0"
+                          />
+                          <Button
+                            type="button"
+                            variant="destructive"
+                            className="w-full sm:w-auto"
+                            disabled={pins.length <= 1}
+                            onClick={() => {
+                              setPins((prev) => {
+                                const next = prev.filter((_, i) => i !== idx);
+                                return next.length > 0 ? next : [{ name: "Main Pin", coordinates: [500, 500] }];
+                              });
+                              setActivePinIndex((cur) => {
+                                if (idx === cur) return 0;
+                                if (idx < cur) return Math.max(0, cur - 1);
+                                return cur;
+                              });
+                            }}
+                          >
+                            Remove
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Editing pin: <span className="font-medium text-foreground">{pins[activePinIndex]?.name || `Pin ${activePinIndex + 1}`}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="grid gap-2">
-              <Label>Type</Label>
-              <Input
-                value={locationType}
-                onChange={e => setLocationType(e.target.value)}
-                placeholder="e.g. room, comlab"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label>Building</Label>
-              <Input
-                value={building}
-                onChange={e => setBuilding(e.target.value)}
-                placeholder="e.g. Admin Building"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label>Floor</Label>
-              <Input
-                value={floor}
-                onChange={e => setFloor(e.target.value)}
-                placeholder="e.g. 2nd Floor"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label>Response Answer (English)</Label>
-              <Textarea
-                value={enText}
-                onChange={(e) => setEnText(e.target.value)}
-                placeholder="Enter English response text (one per line)"
-                rows={4}
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label>Response Answer (Bisaya)</Label>
-              <Textarea
-                value={cebText}
-                onChange={(e) => setCebText(e.target.value)}
-                placeholder="Enter Bisaya response text (one per line)"
-                rows={4}
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label>Map ID</Label>
-              <Input
-                value={mapId}
-                onChange={(e) => setMapId(e.target.value)}
-                placeholder="main_map"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label>Pin on Map</Label>
-              <InteractiveMap
-                initialCoordinates={mapCoordinates}
-                onCoordinatesChange={setMapCoordinates}
-                width={550}
-                height={450}
-              />
+
+            <div className="grid gap-2 min-w-0">
+              <Label>Images</Label>
+              <div className="grid gap-2">
+                {imageUrls.length > 0 ? (
+                  <div className="grid gap-2">
+                    {imageUrls.map((url, idx) => (
+                      <div key={`loc-img-${idx}`} className="flex flex-col sm:flex-row gap-2 sm:items-center rounded-md border p-2 min-w-0">
+                        <Input value={url} readOnly className="min-w-0" />
+                        <Button
+                          type="button"
+                          variant="destructive"
+                          className="w-full sm:w-auto"
+                          onClick={() => setImageUrls(prev => prev.filter((_, i) => i !== idx))}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-sm text-muted-foreground">No images yet.</div>
+                )}
+
+                <div className="grid gap-2 min-w-0">
+                  <div className="flex flex-col sm:flex-row gap-2 min-w-0">
+                    <Input
+                      value={imageUrlDraft}
+                      onChange={(e) => setImageUrlDraft(e.target.value)}
+                      placeholder="Paste image URL"
+                      className="min-w-0"
+                    />
+                    <Button
+                      type="button"
+                      className="w-full sm:w-auto rounded-sm"
+                      style={{background: "linear-gradient(to right, #001C38, #0356a9ff)"}}
+                      onClick={() => {
+                        const next = imageUrlDraft.trim();
+                        if (!next) return;
+                        setImageUrls(prev => (prev.includes(next) ? prev : [...prev, next]));
+                        setImageUrlDraft("");
+                      }}
+                    >
+                      Add by URL
+                    </Button>
+                  </div>
+
+                  <div className="flex flex-col gap-2 min-w-0">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:items-start">
+                      <Input
+                        id={fileInputId}
+                        type="file"
+                        accept="image/*"
+                        className="w-full"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
+                          const reader = new FileReader();
+                          reader.onload = () => {
+                            const result = String(reader.result || "");
+                            if (!result) return;
+                            setImageUrls((prev) => (prev.includes(result) ? prev : [...prev, result]));
+                          };
+                          reader.readAsDataURL(file);
+                          e.currentTarget.value = "";
+                        }}
+                      />
+                      <Button onClick={handleSubmit} className="w-full sm:w-auto">Save Changes</Button>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Choose an image file (saved as base64 in JSON).</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="flex justify-end">
-          <Button onClick={handleSubmit}>Save Changes</Button>
-        </div>
+        <div className="h-0" />
       </DialogContent>
     </Dialog>
   );

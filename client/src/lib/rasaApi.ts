@@ -25,6 +25,8 @@ export interface ChatMessage {
   mapData?: {
     locationName: string;
     coordinates: { lat: number; lng: number }; // Changed from [number, number]
+    mapId?: string;
+    pins?: Array<{ name: string; coordinates: { lat: number; lng: number } }>;
   };
 }
 
@@ -36,10 +38,14 @@ interface BackendResponse {
   mapData?: {
     locationName: string;
     coordinates: { lat: number; lng: number };
+    mapId?: string;
+    pins?: Array<{ name: string; coordinates: { lat: number; lng: number } }>;
   };
   mapDataList?: Array<{
     locationName: string;
     coordinates: { lat: number; lng: number };
+    mapId?: string;
+    pins?: Array<{ name: string; coordinates: { lat: number; lng: number } }>;
   }>;
 }
 
@@ -87,18 +93,62 @@ class RasaBackend {
                     locationName: item?.locationName || "Location",
                     coordinates: Array.isArray(coords)
                       ? { lat: coords[0], lng: coords[1] }
-                      : coords
+                      : coords,
+                    mapId: item?.mapId,
+                    pins: Array.isArray(item?.pins)
+                      ? item.pins
+                          .map((p: any) => {
+                            const c = p?.coordinates;
+                            if (Array.isArray(c) && c.length === 2) {
+                              return {
+                                name: String(p?.name || "").trim() || "Pin",
+                                coordinates: { lat: c[0], lng: c[1] },
+                              };
+                            }
+                            if (c && typeof c === "object" && ("lat" in c || "lng" in c)) {
+                              return {
+                                name: String(p?.name || "").trim() || "Pin",
+                                coordinates: c,
+                              };
+                            }
+                            return null;
+                          })
+                          .filter(Boolean)
+                      : undefined,
                   };
                 })
                 .filter((item: any) => item?.coordinates);
 
               extracted.forEach((item: any) => mapDataList.push(item));
             } else {
+              const pins = Array.isArray(r.custom.mapData.pins)
+                ? r.custom.mapData.pins
+                    .map((p: any) => {
+                      const c = p?.coordinates;
+                      if (Array.isArray(c) && c.length === 2) {
+                        return {
+                          name: String(p?.name || "").trim() || "Pin",
+                          coordinates: { lat: c[0], lng: c[1] },
+                        };
+                      }
+                      if (c && typeof c === "object" && ("lat" in c || "lng" in c)) {
+                        return {
+                          name: String(p?.name || "").trim() || "Pin",
+                          coordinates: c,
+                        };
+                      }
+                      return null;
+                    })
+                    .filter(Boolean)
+                : undefined;
+
               mapData = {
                 locationName: r.custom.mapData.locationName || "Location",
                 coordinates: Array.isArray(r.custom.mapData.coordinates) 
                   ? { lat: r.custom.mapData.coordinates[0], lng: r.custom.mapData.coordinates[1] }
-                  : r.custom.mapData.coordinates
+                  : r.custom.mapData.coordinates,
+                mapId: r.custom.mapData.mapId,
+                pins,
               };
             }
           }
@@ -178,7 +228,7 @@ class RasaBackend {
 }
 
 // --- Export instance and utility ---
-export const mockBackend = new RasaBackend();
+export const rasaBackend = new RasaBackend();
 
 // Helper function for ChatWindow to convert responses
 export function convertRasaResponseToMessages(rasaResponses: any[]): ChatMessage[] {

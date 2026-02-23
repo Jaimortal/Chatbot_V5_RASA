@@ -735,61 +735,104 @@ nlu:
     - Asa dapit ang [ComLab 5](lab_number) sa Finance Building
     - Giunsa pag adto sa [ComLab 6](lab_number) kung naa ko sa campus
     - Asa makita ang [ComLab 7](lab_number) para sa among klase
+    - Could you tell me where the [Mahogany dorm](location_name) is located near the Library Building in Bukidnon State University
+    - Asa dapit makita ang [Mahogany dorm](location_name) nga duol sa Library Building sa campus
+    - I need directions going to [Rubia dorm](location_name) beside the Automotive Building
+    - Unsay dalan padulong sa [Rubia dorm](location_name) nga naa dapit sa Automotive Building
+    - Where inside the Registrars Office Building can I find the [Auditorium](location_name)
+    - Asa sulod sa Registrars Office Building makita ang [Auditorium](location_name)
+    - What floor of the CPAG Building is the [AVC](location_name) located
+    - Sa unsang andana sa CPAG Building nahimutang ang [AVC](location_name)
+    - I would like to know the exact area of the [Fitness Gym](location_name) in the Oval
+    - Asa nga bahin sa Oval makita ang [Fitness Gym](location_name)
+    - Can you help me locate the [PE Faculty Room](location_name) between the Old Nursing Building and the Gymnasium
+    - Asa dapit sa tunga sa Old Nursing Building ug Gymnasium ang [PE Faculty Room](location_name)
+    - I want to visit the [Museum](location_name) in front of the Research Building and Library
+    - Asa atubangan sa Research Building ug Library makita ang [Museum](location_name)
+    - From the main gate how can I reach the [Oval](location_name)
+    - Gikan sa main gate unsaon pag adto sa [Oval](location_name)
+    - On the second floor of the College of Business Building where is the [COB Faculty Room](location_name)
+    - Asa sa second floor sa College of Business Building makita ang [COB Faculty Room](location_name)
+    - Which level of the New College of Technologies Building has the [COT Faculty Room](location_name)
+    - Asa nga level sa New College of Technologies Building naa ang [COT Faculty Room](location_name)
+    - Inside the Old College of Nursing Building where can I find the [BSN Faculty Room](location_name)
+    - Asa sulod sa Old College of Nursing Building makita ang [BSN Faculty Room](location_name)
+    - Where in the Pink Building is the [CAS Deans Office](location_name) located
+    - Asa sa Pink Building nahimutang ang [CAS Deans Office](location_name)
+    - Can you specify the location of the [CPAG Faculty Room](location_name) in the CPAG Building
+    - Asa gyud sa CPAG Building makita ang [CPAG Faculty Room](location_name)
+    - I need to go to the first floor of the CPAG Building where is the [CPAG Deans Office](location_name)
+    - Asa sa first floor sa CPAG Building makita ang [CPAG Deans Office](location_name)
+    - In the basement of the CPAG Building where can I access the [Canteen](location_name)
+    - Asa sa basement sa CPAG Building makita ang [Canteen](location_name)
+    - I need help finding the [Law Office](location_name) between the University Press Building and the Vehicle Entrance
+    - Asa dapit makita ang [Law Office](location_name) nga naa sa tunga sa University Press Building ug Vehicle Entrance
+    - Where exactly is the [Registrar Office](location_name) situated between the CPAG Building and the Finance Building
+    - Asa nahimutang ang [Registrar Office](location_name) sa tunga sa CPAG Building ug Finance Building
+    - Which floor of the CPAG Building contains the [Admission Office](location_name)
+    - Asa nga andana sa CPAG Building makita ang [Admission Office](location_name)
+    - I want to eat on campus where can I find the [Cafeteria](location_name) beside Rubia Dorm
+    - Asa dapit ang [Cafeteria](location_name) nga naa tapad sa Rubia Dorm
+    - Can you guide me to the nearest [Vehicle Parking Area](location_name) inside the campus
+    - Asa ko pwede moadto aron makita ang [Vehicle Parking Area](location_name) sa campus
+    - I am bringing a car today where is the [Car Parking Area](location_name) available for students
+    - Asa dapit ang [Car Parking Area](location_name) nga pwede maparkingan sa sakyanan
+    - I came using a motorcycle and need to locate the [Motorcycle Parking Area](location_name)
+    - Asa dapit ang [Motorcycle Parking Area](location_name) nga pwede maparkingan sa motorsiklo
+    - I would like to study inside the [Library](location_name) can you tell me where it is located
+    - Asa dapit makita ang [Library](location_name) aron makatuon ko sulod sa campus
+    - Can you tell me where the [Research Extension](location_name) is located in front of the Museum
+    - Asa dapit makita ang [Research Extension](location_name) nga naa sa atubangan sa Museum
+    - I am looking for the [Kilala Dorm](location_name) behind the Health and Service Building
+    - Asa dapit ang [Kilala Dorm](location_name) nga naa sa likod sa Health and Service Building
+    - Where can students find the nearest [Comfort Room](location_name) on campus
+    - Asa ko makakita og duol nga [Comfort Room](location_name) sulod sa campus
+    - Which building contains the [NSTP Office](location_name) in the COA Building area
+    - Asa nga building makita ang [NSTP Office](location_name) sa COA Building
+    - I want to visit the [Automotive Faculty Office](location_name) near the Rubia Ladies Dormitory
+    - Asa dapit makita ang [Automotive Faculty Office](location_name) nga naa sa wala sa Rubia Ladies Dormitory
+    - On what floor of the CPAG Building is the [Multimedia Laboratory](location_name) located
+    - Asa nga andana sa CPAG Building makita ang [Multimedia Laboratory](location_name)
+    - Where is the nearest [Guard House](location_name) at the entrance or exit of the campus
+    - Asa dapit makita ang [Guard House](location_name) sa entrance o exit sa campus
+    - Can you guide me to the [Electronics Faculty Room](location_name) in the new COT Building
+    - Asa dapit makita ang [Electronics Faculty Room](location_name) sa new COT Building
+    - I need directions going to the [Electronics Laboratories](location_name) on the fourth floor
+    - Asa dapit ang [Electronics Laboratories](location_name) nga naa sa fourth floor sa COT Building
+    - Where exactly is the [DXBU](location_name) room beside the Electronics Laboratories
+    - Asa dapit makita ang [DXBU](location_name) nga naa tupad sa Electronics Laboratories
+    - I plan to watch an event at the [Theater](location_name) in the Finance Building
+    - Asa dapit makita ang [Theater](location_name) sulod sa Finance Building
+    - Can you help me locate the [Computer Laboratories](location_name) in the Finance Building or near the UP Building
+    - Asa dapit makita ang [Computer Laboratories](location_name) sa Finance Building o tapad sa UP Building
+    - Where can I locate room [C2-2-01](location_name) in the Old COT Building
+    - Asa dapit makita ang room [C2-2-01](location_name) sa Old COT Building
+    - I need directions going to [C2-2-02](location_name) on the second floor
+    - Unsay paagi padulong sa [C2-2-02](location_name) nga naa sa second floor sa Old COT Building
+    - Which part of the Old COT Building is room [C2-2-03](location_name)
+    - Asa nga bahin sa Old COT Building makita ang [C2-2-03](location_name)
+    - Can you guide me to classroom [C2-2-04](location_name)
+    - Asa ko moadto aron makita ang [C2-2-04](location_name) sa second floor
+    - On what floor is [Electronics Laboratory 1](location_name) in the Old COT Building
+    - Asa nga andana makita ang [Electronics Laboratory 1](location_name) sa Old COT Building
+    - I am searching for [Electronics Laboratory 2](location_name) inside the Old COT Building
+    - Asa dapit makita ang [Electronics Laboratory 2](location_name) sulod sa Old COT Building
+    - Can you guide me where can i find the [room c2202](location_name)
+    - Can you help me to find the [room c2203](location_name)
+    - Can you show me the way where can i get to the [room c2204](location_name)
+    - Patabang ko asa dapita maka kita aning [c2201](location_name)
+    - Aha manta mo agi ani para maka abot tas [room c2203](location_name)
+    - Tagae dawkog mapa be og unsaon nato pag abot sa [c2201 room](location_name)
+
+- regex: location_name
+  examples: |
+    - room\s*c?\d{1,6}
+    - c?\d-\d-\d{2}
 
 - regex: lab_number
   examples: |
     - ComLab [0-9]+
     - Computer Laboratory [0-9]+
-
-- intent: ask_faculty_room_location
-  examples: |
-    - Where is the [COT](college) faculty room?
-    - Where can I find the [College of Technology](college) faculty room?
-    - Can you tell me the location of the [COB](college) faculty room?
-    - Where exactly is the [CON](college) faculty room located?
-    - I am looking for the [COT](college) faculty room
-    - How do I get to the [COB](college) faculty room?
-    - What is the location of the [CON](college) faculty room?
-    - Please guide me to the [College of Business](college) faculty room
-    - Where is the faculty room of [COT](college)?
-    - Where can I locate the [College of Nursing](college) faculty room?
-    - Can you help me find the [COB](college) faculty room?
-    - Which floor is the [COT](college) faculty room on?
-    - I need directions to the [CON](college) faculty room
-    - Where is the [College of Technology](college) faculty office?
-    - Tell me where the [COB](college) faculty room is
-    - Asa dapit ang [COT](college) faculty room?
-    - Asa makit-an ang faculty room sa [College of Technology](college)?
-    - Pwede nimo isulti asa nahimutang ang [COB](college) faculty room?
-    - Asa exactly makita ang [CON](college) faculty room?
-    - Nangita ko sa [COT](college) faculty room
-    - Unsaon pag adto sa [COB](college) faculty room?
-    - Asa ang lokasyon sa [CON](college) faculty room?
-    - Tabangi ko pangitaon ang faculty room sa [College of Business](college)
-    - Asa nahimutang ang faculty room sa [COT](college)?
-    - Asa ko makakita sa faculty room sa [College of Nursing](college)?
-    - Pwede ba nimo ko giya paingon sa [COB](college) faculty room?
-    - Sa unsang floor makita ang [COT](college) faculty room?
-    - Kinahanglan ko og direksyon paingon sa [CON](college) faculty room
-    - Asa dapit ang opisina sa faculty sa [College of Technology](college)?
-    - Isulti ko asa ang faculty room sa [COB](college)
-
-- synonym: COT
-  examples: |
-    - College of Technology
-    - College of Tech
-    - Technology College
-
-- synonym: COB
-  examples: |
-    - College of Business
-    - Business College
-
-- synonym: CON
-  examples: |
-    - College of Nursing
-    - Nursing College
-    - Bachelor of Science in Nursing
 
 - intent: bot_challenge
   examples: |
@@ -2576,3 +2619,26 @@ nlu:
     - Unsang mga okasyon ang nagtugot sa students nga magsul-ob og shorts
     - Aduna bay specific days o events nga gitugotan ang shorts
     - Palihog ipasabot ang guidelines sa pagsul-ob og shorts sulod sa campus
+
+- intent: get_inc_form
+  examples: |
+    - Where can I download the INC form from the university
+    - How can I get a copy of the INC form online
+    - I need instructions on how to access the INC form from the Bukidnon State University website
+    - Can you tell me where to find the INC form for submission
+    - What is the process for downloading the INC form from the university website
+    - Is the INC form available on the main website of Bukidnon State University
+    - Please guide me on how to obtain the INC form
+    - I am looking for the downloadable INC form from the registrar
+    - Where exactly can I access the official INC form
+    - Can you provide information on where to get the INC form online
+    - Asa nako ma download ang INC form sa university website
+    - Unsaon nako pagkuha sa kopya sa INC form online
+    - Nangita ko og paagi unsaon pag access sa INC form sa website sa Bukidnon State University
+    - Pwede ba nimo isulti kung asa makita ang INC form para sa submission
+    - Unsa ang proseso sa pag download sa INC form gikan sa university website
+    - Available ba ang INC form sa main website sa Bukidnon State University
+    - Palihog tudloi ko unsaon pagkuha sa INC form
+    - Nangita ko sa downloadable nga INC form gikan sa registrar
+    - Asa gyud nako ma access ang official nga INC form
+    - Pwede ba ka mohatag og impormasyon kung asa makuha ang INC form online

@@ -6,8 +6,14 @@ const API_BASE = '/api/admin';
 const getAuthHeaders = () => {
   const token = localStorage.getItem('adminToken');
   return {
-    'Content-Type': 'application/json',
     ...(token && { 'Authorization': `Bearer ${token}` }),
+  };
+};
+
+const getJsonAuthHeaders = () => {
+  return {
+    'Content-Type': 'application/json',
+    ...getAuthHeaders(),
   };
 };
 
@@ -29,7 +35,7 @@ export async function saveResponse(responseData: ResponseData): Promise<ApiRespo
   try {
     const response = await fetch(`${API_BASE}/responses`, {
       method: 'POST',
-      headers: getAuthHeaders(),
+      headers: getJsonAuthHeaders(),
       body: JSON.stringify(responseData),
     });
     return await response.json();
@@ -70,10 +76,14 @@ export async function saveLocation(locationData: Location): Promise<ApiResponse>
   try {
     const response = await fetch(`${API_BASE}/locations`, {
       method: 'POST',
-      headers: getAuthHeaders(),
+      headers: getJsonAuthHeaders(),
       body: JSON.stringify(locationData),
     });
-    return await response.json();
+    const result = await response.json();
+    if (!response.ok) {
+      console.error('Error saving location:', result);
+    }
+    return result;
   } catch (error) {
     console.error('Error saving location:', error);
     return { success: false, message: 'Network error' };
@@ -112,7 +122,7 @@ export async function saveUserPrivilegesAdmin(privileges: UserPrivileges): Promi
   try {
     const response = await fetch(`${API_BASE}/privileges`, {
       method: 'POST',
-      headers: getAuthHeaders(),
+      headers: getJsonAuthHeaders(),
       body: JSON.stringify(privileges),
     });
     return await response.json();

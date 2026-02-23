@@ -67,8 +67,8 @@
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        745,
+        642
       ],
       "map_id": "main_map",
       "responses": {
@@ -82,15 +82,25 @@
           "Sa luyo sa ComLab 3.",
           "Kung mo-uban ka sa ComLab 3, sayon makita ang ComLab 4."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            745,
+            642
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "ComLab 5": {
       "type": "comlab",
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        751,
+        625
       ],
       "map_id": "main_map",
       "responses": {
@@ -104,15 +114,25 @@
           "Tapad sa ComLab 4.",
           "Kung makita ang ComLab 4, ang ComLab 5 anaa dayon tapad niini."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            751,
+            625
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "ComLab 6": {
       "type": "comlab",
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        748,
+        602
       ],
       "map_id": "main_map",
       "responses": {
@@ -124,7 +144,17 @@
           "Nahimutang sa 3rd floor sa Finance Building.",
           "Positioned duol sa ComLab 5 ug sayon ma-access kung moabot ka sa computer laboratory area."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            748,
+            602
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "ComLab 7": {
       "type": "comlab",
@@ -132,7 +162,7 @@
       "floor": "3rd Floor",
       "coordinates": [
         752,
-        580
+        582
       ],
       "map_id": "main_map",
       "responses": {
@@ -146,15 +176,25 @@
           "Kini ang Multimedia and Arts Laboratory.",
           "Nahimutang duol sa ComLab 6 ug sayon makita kung moabot ka sa computer laboratory area."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Comlab 7",
+          "coordinates": [
+            752,
+            582
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "ComLab 8": {
       "type": "comlab",
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        676,
+        945
       ],
       "map_id": "main_map",
       "responses": {
@@ -168,15 +208,25 @@
           "Kining bilding nahimutang tapad sa University Press (UP) Building ug diretso sa atubangan sa parking area sa P.A. Ramos Street.",
           "Kung moabot ka sa bilding, sayon makita ang ComLab 8 sa ground floor."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            676,
+            945
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "ComLab 9": {
       "type": "comlab",
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        710,
+        948
       ],
       "map_id": "main_map",
       "responses": {
@@ -190,15 +240,25 @@
           "Usab sa 1st floor ug positioned tapad sa ComLab 8.",
           "Kung moabot ka sa area duol sa University Press bilding ug parking space sa P.A. Ramos Street, sayon makita."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            710,
+            948
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "ComLab 10": {
       "type": "comlab",
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        736,
+        947
       ],
       "map_id": "main_map",
       "responses": {
@@ -210,15 +270,25 @@
           "Karon, wala ang ComLab 10.",
           "Ang anaa nga mga computer laboratory karon gikan sa ComLab 1 hangtod sa ComLab 12, walay designated ComLab 10."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            736,
+            947
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "ComLab 11": {
       "type": "comlab",
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        733,
+        493
       ],
       "map_id": "main_map",
       "responses": {
@@ -232,15 +302,25 @@
           "Nahimutang tapad sa ICTU Room ug Networking Laboratory.",
           "Kung moabot ka sa area, sayon makita ang laboratory."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            733,
+            493
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "ComLab 12": {
       "type": "comlab",
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        714,
+        493
       ],
       "map_id": "main_map",
       "responses": {
@@ -254,15 +334,25 @@
           "Sa sama nga area sa ComLab 11 ug positioned diretso sa atubangan sa Smart Classroom.",
           "Kung anaa ka sa floor, sayon makita."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            714,
+            493
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "Smart Classroom": {
       "type": "smart_classroom",
       "building": "Finance Building",
       "floor": "3rd Floor",
       "coordinates": [
-        701,
-        645
+        716,
+        519
       ],
       "map_id": "main_map",
       "responses": {
@@ -276,7 +366,17 @@
           "Nahimutang tapad sa Networking Laboratory ug Audio Laboratory.",
           "Kung moabot ka sa area, sayon makita ang classroom."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            716,
+            519
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "Conference Room A": {
       "type": "room",
@@ -297,6 +397,1467 @@
           "Kini ang Conference Room A, gigamit para sa mga miting."
         ]
       }
+    },
+    "Mahogany dorm": {
+      "type": "building",
+      "building": "Near Library Building",
+      "floor": "N/A",
+      "coordinates": [
+        515,
+        345
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find the male dormitory right next to the library building please refer to the provided map for its exact location."
+        ],
+        "ceb": [
+          "Makita nimo ang male dormitory duol ra sa library building; palihog tan-awa ang gihatag nga mapa para sa eksaktong lokasyon niini."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            515,
+            345
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Rubia dorm": {
+      "type": "building",
+      "building": "Beside Automotive Building",
+      "floor": "N/A",
+      "coordinates": [
+        210,
+        261
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find the Female dormitory right beside the automotive Building, Please refer to the provided map for its exact location and navigation."
+        ],
+        "ceb": [
+          "Makita nimo ang female dormitory tupad sa automotive Building. Palihog tan-awa ang gihatag nga mapa para sa eksaktong lokasyon ug pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            210,
+            261
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Auditorium": {
+      "type": "room",
+      "building": "Registrar’s Office Building",
+      "floor": "First Floor",
+      "coordinates": [
+        638,
+        544
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find it located directly in front of the Registrar’s Office on the first floor. Please refer to the map I’ve provided to help you navigate the building."
+        ],
+        "ceb": [
+          "Makita kini nga nahimutang mismo atubangan sa Registrar’s Office sa unang andana. Palihog tan-awa ang gihatag nga mapa aron matabangan ka sa pag-navigate sulod sa building."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            638,
+            544
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "AVC": {
+      "type": "room",
+      "building": "CPAG Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        639,
+        545
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Audio Visual Center (AVC) is located on the second floor of the CPAG Building, directly above the Auditorium. I have provided a map to assist you with your navigation."
+        ],
+        "ceb": [
+          "Ang Audio Visual Center (AVC) nahimutang sa ikaduhang andana sa CPAG Building, ibabaw mismo sa Auditorium. Naghatag ko og mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            639,
+            545
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Fitness Gym": {
+      "type": "building",
+      "building": "Track and Field Area (Oval)",
+      "floor": "N/A",
+      "coordinates": [
+        457,
+        328
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The university gym is located on the bleacher side of the Track and Field area, commonly known as the Oval. It is easily recognizable by the fitness equipment visible through the glass windows."
+        ],
+        "ceb": [
+          "Ang university gym nahimutang sa bleacher side sa Track and Field area, nga kasagarang gitawag og Oval. Sayon ra kini mailhan tungod sa mga fitness equipment nga makita sulod pinaagi sa mga glass windows."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            457,
+            328
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "PE Faculty Room": {
+      "type": "room",
+      "building": "Between Old Nursing Building and Gymnasium",
+      "floor": "N/A",
+      "coordinates": [
+        217,
+        840
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The PE Faculty Room is located between the Old Nursing Building and the Gymnasium. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang PE Faculty Room nahimutang sa tunga sa Old Nursing Building ug sa Gymnasium. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            217,
+            840
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Museum": {
+      "type": "building",
+      "building": "Front of Research Building and University Library",
+      "floor": "N/A",
+      "coordinates": [
+        584,
+        498
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The IP Museum is located in front of the Research Building and the University Library. It is easily recognizable by its unique rounded rectangular design and the prominent signage on the front of the building. I provided a map to help you navigate."
+        ],
+        "ceb": [
+          "Ang IP Museum nahimutang atubangan sa Research Building ug sa University Library. Sayon ra kini mailhan tungod sa talagsaon nga rounded rectangular nga disenyo ug sa klarong signage sa atubangan sa building. Naghatag ko og mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            584,
+            498
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Oval": {
+      "type": "building",
+      "building": "Track and Field Area",
+      "floor": "N/A",
+      "coordinates": [
+        363,
+        265
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Oval, also known as the Track and Field, is accessible via Mr. Odulo De Guzman St. It is easy to locate, and I have provided a map to assist you with your navigation."
+        ],
+        "ceb": [
+          "Ang Oval, nga nailhan usab isip Track and Field, ma-access pinaagi sa Mr. Odulo De Guzman St. Sayon ra kini pangitaon, ug naghatag ko og mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            363,
+            265
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "COB Faculty Room": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        594,
+        280
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The COB Faculty Room is located in the College of Business Building on the second floor."
+        ],
+        "ceb": [
+          "Ang COB Faculty Room naa sa College of Business Building sa second floor."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            594,
+            280
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "COT Faculty Room": {
+      "type": "room",
+      "building": "New College of Technologies Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        479,
+        751
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The COT Faculty Room is located in the New College of Technologies Building on the third floor."
+        ],
+        "ceb": [
+          "Ang COT Faculty Room naa sa New College of Technologies Building sa third floor"
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            479,
+            751
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "BSN Faculty Room": {
+      "type": "room",
+      "building": "Old College of Nursing Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        244,
+        744
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The BSN Faculty Room is located in the Old College of Nursing Building on the ground floor"
+        ],
+        "ceb": [
+          "Ang BSN Faculty Room naa sa daan nga College of Nursing Building sa ground floor"
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            244,
+            744
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CAS Dean’s Office": {
+      "type": "office",
+      "building": "Pink Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        525,
+        550
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The CAS Dean's Office is located on the ground floor of the Pink Building. It is clearly visible and easy to find directly from the main entrance."
+        ],
+        "ceb": [
+          "Ang CAS Dean’s Office nahimutang sa ground floor sa Pink Building. dali ra kaayo kini makita ug sayon ra gikan sa main entrance."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            525,
+            550
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG Faculty Room": {
+      "type": "room",
+      "building": "CPAG Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        737,
+        496
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The CPAG Faculty Room is located on the second floor of the CPAG Building. A map is provided below to assist you with navigation."
+        ],
+        "ceb": [
+          "Ang CPAG Faculty Room nahimutang sa second floor sa CPAG Building. Adunay koy gihatag nga mapa sa ubos aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            737,
+            496
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG Dean’s Office": {
+      "type": "office",
+      "building": "CPAG Building",
+      "floor": "First Floor",
+      "coordinates": [
+        736,
+        496
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The CPAG Dean’s Office is located on the first floor of the CPAG Building, directly above the canteen. A map is provided below to assist with navigation."
+        ],
+        "ceb": [
+          "Ang CPAG Dean’s Office nahimutang sa first floor sa CPAG Building, direkta ibabaw sa canteen. Adunay gihatag nga mapa sa ubos aron makatabang sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            736,
+            496
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Canteen": {
+      "type": "facility",
+      "building": "CPAG Building",
+      "floor": "Basement",
+      "coordinates": [
+        749,
+        529
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The canteen is located in the basement of the CPAG Building, directly below the CPAG Dean's Office. A map has been provided to help you find your way."
+        ],
+        "ceb": [
+          "Ang canteen nahimutang sa basement sa CPAG Building, direkta ilalom sa CPAG Dean’s Office. Adunay gihatag nga mapa aron matabangan ka sa pagpangita sa dalan."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            749,
+            529
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Law Office": {
+      "type": "office",
+      "building": "Between University Press Building and Vehicle Entrance",
+      "floor": "N/A",
+      "coordinates": [
+        877,
+        937
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Law Office is easy to find, as it is located between the University Press building and the vehicle entrance. A map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Sayon ra pangitaon ang Law Office, kay nahimutang kini sa tunga sa University Press building ug sa vehicle entrance. Naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            877,
+            937
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Registrar Office": {
+      "type": "office",
+      "building": "Between CPAG Building and Finance Building",
+      "floor": "N/A",
+      "coordinates": [
+        682,
+        559
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Registrar's Office is located between the CPAG Building and the Finance Building. A map is provided to assist you with navigation."
+        ],
+        "ceb": [
+          "Ang Registrar’s Office nahimutang sa tunga sa CPAG Building ug sa Finance Building. Adunay gihatag nga mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            682,
+            559
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Admission Office": {
+      "type": "office",
+      "building": "CPAG Building",
+      "floor": "First Floor",
+      "coordinates": [
+        660,
+        502
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Admission and Testing Office is located on the first floor of the CPAG Building, directly in front of the auditorium. A map is provided to assist you with navigation."
+        ],
+        "ceb": [
+          "Ang Admission and Testing Office nahimutang sa first floor sa CPAG Building, direkta atubangan sa auditorium. Adunay gihatag nga mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            660,
+            502
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Cafeteria": {
+      "type": "facility",
+      "building": "Next to Rubia Dorm",
+      "floor": "N/A",
+      "coordinates": [
+        197,
+        396
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are two cafeterias on campus, though only one is currently open. You can find it located next to the Rubia Dorm. A map is provided to assist you with navigation."
+        ],
+        "ceb": [
+          "Adunay duha ka cafeteria sa campus, apan usa ra ang abri. Makita nimo kini tapad sa Rubia Dorm. Adunay gihatag nga mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Active",
+          "coordinates": [
+            197,
+            396
+          ]
+        },
+        {
+          "name": "Under construction",
+          "coordinates": [
+            354,
+            787
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Vehicle Parking Area": {
+      "type": "facility",
+      "building": "Multiple Parking Areas",
+      "floor": "N/A",
+      "coordinates": [
+        776,
+        420
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "While there are multiple parking areas, I will highlight the specific locations where you can park. Please note that these parking areas are open to the public, including both students and parents."
+        ],
+        "ceb": [
+          "Bisan daghan og parking area sa campus, akong i-highlight ang mga piho nga lugar nga pwede nimo maparkingan. Palihog hinumdumi nga kining mga parking area bukas para sa publiko, apil na ang mga estudyante ug ginikanan."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            776,
+            420
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            758,
+            883
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            634,
+            882
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            296,
+            799
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            506,
+            479
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            706,
+            462
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            752,
+            913
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            338,
+            882
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            251,
+            348
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            509,
+            834
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            257,
+            214
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Car Parking Area": {
+      "type": "facility",
+      "building": "Multiple Parking Areas",
+      "floor": "N/A",
+      "coordinates": [
+        266,
+        216
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are several parking areas available for cars, and I will help you identify potential spots on the map. However, please be aware that we cannot provide further assistance if all locations are fully occupied. I have provided a map with specific pins to help you navigate."
+        ],
+        "ceb": [
+          "Adunay daghang parking area nga pwede para sa mga sakyanan, ug tabangan tika sa pag-pangita sa posibleng maparkingan sa mapa. Apan palihog sabta nga dili na kami makahatag og dugang tabang kung puno na ang tanang lugar. Naghatag ko og mapa nga naay mga pin aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Cars",
+          "coordinates": [
+            266,
+            216
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            248,
+            344
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            510,
+            831
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            648,
+            904
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            753,
+            910
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            887,
+            824
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            379,
+            882
+          ]
+        },
+        {
+          "name": "Cars",
+          "coordinates": [
+            708,
+            467
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Motorcycle Parking Area": {
+      "type": "facility",
+      "building": "Multiple Parking Areas",
+      "floor": "N/A",
+      "coordinates": [
+        747,
+        419
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are several areas where you can park your motorcycle. Please be reminded that if all the provided spots are already full, we will be unable to assist you in finding further locations. I have provided a map to help you find these areas."
+        ],
+        "ceb": [
+          "Adunay pipila ka lugar nga pwede nimo maparkingan sa imong motorsiklo. Palihog hinumdumi nga kung puno na ang tanang gihatag nga parkingan, dili na kami makahatag og dugang tabang sa pagpangita og lain nga lugar. Naghatag ko og mapa aron matabangan ka sa pagpangita sa mga lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            747,
+            419
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            598,
+            884
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            730,
+            881
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            299,
+            845
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            296,
+            755
+          ]
+        },
+        {
+          "name": "Motorcycle",
+          "coordinates": [
+            523,
+            473
+          ]
+        },
+        {
+          "name": "Pin 7",
+          "coordinates": [
+            500,
+            500
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Library": {
+      "type": "building",
+      "building": "Left Side of Museum",
+      "floor": "N/A",
+      "coordinates": [
+        573,
+        407
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Library is located on the left side of museum facing front, you can easily find it sinse its has a signage on the front of the building, but i will provide some map to help you navigate"
+        ],
+        "ceb": [
+          "Ang Library nahimutang sa wala nga bahin sa museum kung nag-atubang ka sa atubangan sa building. Adunay klarong signage aron sayon ra mailhan, ug naghatag ko og mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            573,
+            407
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Research Extension": {
+      "type": "building",
+      "building": "In Front of Museum",
+      "floor": "N/A",
+      "coordinates": [
+        522,
+        502
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Research Extension is located directly in front of the museum and is clearly labeled \"Research Extension\" for easy identification. A map is provided to assist you with more accurate navigation."
+        ],
+        "ceb": [
+          "Ang Research Extension nahimutang direkta atubangan sa museum ug klarong nakabutang ang ‘Research Extension’ nga ngalan aron sayon ra mailhan. Adunay gihatag nga mapa aron mas tukma ang imong pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            522,
+            502
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Kilala Dorm": {
+      "type": "building",
+      "building": "Behind Health & Service Building",
+      "floor": "N/A",
+      "coordinates": [
+        241,
+        665
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Kilala Dorm is located behind the Health & Service Building. A map is provided below to assist you with better navigation."
+        ],
+        "ceb": [
+          "Ang Kilala Dorm nahimutang sa likod sa Health & Service Building. Adunay gihatag nga mapa sa ubos aron matabangan ka sa mas maayong pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            241,
+            665
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Comfort Room": {
+      "type": "facility",
+      "building": "Multiple Locations",
+      "floor": "N/A",
+      "coordinates": [
+        457,
+        324
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are many restrooms located throughout the university. I have pinned as many as possible on the map to assist you for navigation."
+        ],
+        "ceb": [
+          "Adunay daghang CR nga nagkalain-lain nga lugar sa tibuok unibersidad. Gipin nako ang tanan nga posibling location sa CR sa mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Oval CR",
+          "coordinates": [
+            457,
+            324
+          ]
+        },
+        {
+          "name": "COB ground",
+          "coordinates": [
+            645,
+            417
+          ]
+        },
+        {
+          "name": "CPAG near Parking lot",
+          "coordinates": [
+            719,
+            474
+          ]
+        },
+        {
+          "name": "CAS ground",
+          "coordinates": [
+            503,
+            557
+          ]
+        },
+        {
+          "name": "CPAG 3rd Floor",
+          "coordinates": [
+            687,
+            494
+          ]
+        },
+        {
+          "name": "Finance 3rd and 4th floor",
+          "coordinates": [
+            682,
+            646
+          ]
+        },
+        {
+          "name": "OLD COT mid stairs",
+          "coordinates": [
+            605,
+            729
+          ]
+        },
+        {
+          "name": "SSL Ground floor",
+          "coordinates": [
+            479,
+            941
+          ]
+        },
+        {
+          "name": "New COT ground",
+          "coordinates": [
+            475,
+            722
+          ]
+        },
+        {
+          "name": "NEW CAS Stairway",
+          "coordinates": [
+            423,
+            867
+          ]
+        },
+        {
+          "name": "CON",
+          "coordinates": [
+            233,
+            820
+          ]
+        },
+        {
+          "name": "Gym male",
+          "coordinates": [
+            237,
+            848
+          ]
+        },
+        {
+          "name": "Gym Female",
+          "coordinates": [
+            239,
+            948
+          ]
+        },
+        {
+          "name": "Ground",
+          "coordinates": [
+            314,
+            934
+          ]
+        },
+        {
+          "name": "Library 4th floor",
+          "coordinates": [
+            576,
+            402
+          ]
+        },
+        {
+          "name": "ESL Male",
+          "coordinates": [
+            733,
+            734
+          ]
+        },
+        {
+          "name": "ESL Female",
+          "coordinates": [
+            738,
+            861
+          ]
+        },
+        {
+          "name": "COB",
+          "coordinates": [
+            643,
+            246
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "NSTP Office": {
+      "type": "office",
+      "building": "COA Building",
+      "floor": "N/A",
+      "coordinates": [
+        611,
+        653
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The NSTP Office is located within the COA Building and is easily accessible if you are walking toward the Old COT area. A map is provided below to assist you with more accurate navigation."
+        ],
+        "ceb": [
+          "Ang NSTP Office nahimutang kilid sa COA Building ug sayon ra maadto kung maglakaw ka paingon sa Old COT area. Adunay gihatag nga mapa sa ubos aron mas tukma ang imong pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            611,
+            653
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Automotive Faculty Office": {
+      "type": "office",
+      "building": "Left of Rubia Ladies Dormitory",
+      "floor": "N/A",
+      "coordinates": [
+        227,
+        120
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Automotive Faculty Office is located to the left of the Rubia Ladies DormitoryClick to open side panel for more information. It is easily identifiable by the presence of various automotive equipment in the area. A map is provided to assist you with your navigation."
+        ],
+        "ceb": [
+          "Ang Automotive Faculty Office nahimutang sa wala nga bahin sa Rubia Ladies Dormitory. Sayon ra kini mailhan tungod sa lain-laing automotive equipment nga makita sa lugar. Adunay gihatag nga mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            227,
+            120
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Multimedia Laboratory": {
+      "type": "room",
+      "building": "CPAG Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        723,
+        493
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are three laboratories dedicated to multimedia, including a sound laboratory specifically intended for multimedia use. All of these facilities are located on the third floor of the CPAG Building.",
+          "I have provided a map to assist you with navigation, highlighting the specific locations for all three labs."
+        ],
+        "ceb": []
+      },
+      "pins": [
+        {
+          "name": "Audio Lab",
+          "coordinates": [
+            723,
+            493
+          ]
+        },
+        {
+          "name": "Multimedia Com lab 7",
+          "coordinates": [
+            753,
+            578
+          ]
+        },
+        {
+          "name": "Multimedia Lab",
+          "coordinates": [
+            628,
+            522
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Guard House": {
+      "type": "facility",
+      "building": "Multiple Locations",
+      "floor": "N/A",
+      "coordinates": [
+        874,
+        414
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are three guard houses located on campus, two are positioned at the entrance, and one is dedicated to the exit. I have pinned all three locations on the map to help you navigate efficiently."
+        ],
+        "ceb": [
+          "Adunay tulo ka guard house sa campus, duha nahimutang sa entrance, ug usa para sa exit. Gipin nako ang tanang tulo ka lokasyon sa mapa aron matabangan ka sa mas epektibo nga pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "GH Exit",
+          "coordinates": [
+            874,
+            414
+          ]
+        },
+        {
+          "name": "GH entrance 2",
+          "coordinates": [
+            899,
+            883
+          ]
+        },
+        {
+          "name": "GH entrance 1",
+          "coordinates": [
+            912,
+            933
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Electronics Faculty Room": {
+      "type": "room",
+      "building": "New College of Technology (COT) Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        468,
+        792
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Electronics Faculty Room is located on the third floor of the new College of Technology (COT) building. To assist with your navigation, a map is provided below"
+        ],
+        "ceb": [
+          "Ang Electronics Faculty Room nahimutang sa third floor sa bag-ong College of Technology (COT) building. Aron matabangan ka sa pag-navigate, adunay gihatag nga mapa sa ubos."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            468,
+            792
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Electronics Laboratories": {
+      "type": "room",
+      "building": "New College of Technology (COT) Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        479,
+        845
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Electronics Laboratories are located on the fourth floor of the new College of Technology (COT) building. To assist with your navigation, a map is provided below"
+        ],
+        "ceb": [
+          "Ang Electronics Laboratories nahimutang sa fourth floor sa bag-ong College of Technology (COT) building. Aron matabangan ka sa pag-navigate, adunay gihatag nga mapa sa ubos."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            479,
+            845
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "DXBU": {
+      "type": "room",
+      "building": "New College of Technology (COT) Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        476,
+        808
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "DXBU is located on the fourth floor of the new College of Technology (COT) building, situated right next to the electronic laboratories. A map is provided  for your navigation."
+        ],
+        "ceb": [
+          "Ang DXBU nahimutang sa fourth floor sa bag-ong College of Technology (COT) building, tupad mismo sa Electronics Laboratories. Adunay gihatag nga mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            476,
+            808
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Theater": {
+      "type": "room",
+      "building": "Finance Building",
+      "floor": "Fifth Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Theater is located on the Fifth floor of the Finance Building. For quicker access, you can use the elevator, though the staircase is also available. To assist with your navigation map is provided below."
+        ],
+        "ceb": [
+          "Ang Theater nahimutang sa Fifth floor sa Finance Building. Para mas paspas nga makaadto, pwede nimo gamiton ang elevator, apan pwede usab ang hagdanan. Aron matabangan ka sa pag-navigate, adunay gihatag nga mapa sa ubos."
+        ]
+      }
+    },
+    "Computer Laboratories": {
+      "type": "room",
+      "building": "Finance Building and Next to University Press (UP) Building",
+      "floor": "Third Floor (Finance Building)",
+      "coordinates": [
+        731,
+        636
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are two buildings that house computer laboratories, the first is located on the third floor of the Finance Building, and the second is situated next to the University Press (UP) building. I have pinpointed both locations to assist you with your navigation."
+        ],
+        "ceb": [
+          "Adunay duha ka building nga adunay computer laboratories, ang una nahimutang sa third floor sa Finance Building, ug ang ikaduha naa sa tapad sa University Press (UP) building. Gipin nako ang duha ka lokasyon aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "CL 1 - 12",
+          "coordinates": [
+            731,
+            636
+          ]
+        },
+        {
+          "name": "CL 8 - 10",
+          "coordinates": [
+            689,
+            944
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "C2-2-01": {
+      "type": "room",
+      "building": "Old COT Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        617,
+        753
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find that room on the second floor of the Old COT building.",
+          "A quick tip for navigating campus: room numbers starting with \"2-\" (such as 202) typically indicate that the room is located on the second floor of that specific building. 😉"
+        ],
+        "ceb": [
+          "Makita nimo kana nga room sa second floor sa Old COT building.",
+          "Usa ka dali nga tip sa pag-navigate sa campus: ang mga room number nga nagsugod sa ‘2-’ (sama sa 202) kasagaran nagpasabot nga naa ang room sa second floor sa maong building. 😉"
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            617,
+            753
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "C2-2-02": {
+      "type": "room",
+      "building": "Old COT Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        611,
+        795
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find that room on the second floor of the Old COT building, located directly beside Room C2-2-01."
+        ],
+        "ceb": [
+          "Makita nimo kana nga room sa second floor sa Old COT building, direkta tupad sa Room C2-2-01."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            611,
+            795
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "C2-2-03": {
+      "type": "room",
+      "building": "Old COT Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        609,
+        834
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find that room on the second floor of the Old COT building, located directly beside Room C2-2-02."
+        ],
+        "ceb": [
+          "Makita nimo kana nga room sa second floor sa Old COT building, direkta tupad sa Room C2-2-02."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            609,
+            834
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "C2-2-04": {
+      "type": "room",
+      "building": "Old COT Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        611,
+        856
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find that room on the second floor of the Old COT building, located directly beside Room C2-2-03."
+        ],
+        "ceb": [
+          "Makita nimo kana nga room sa second floor sa Old COT building, direkta tupad sa Room C2-2-03."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            611,
+            856
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Electronics Laboratory 1": {
+      "type": "room",
+      "building": "Old COT Building",
+      "floor": "First Floor",
+      "coordinates": [
+        610,
+        859
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find that specific room on the first floor of the Old COT building. I have pinpointed the location on the map to assist you with your navigation."
+        ],
+        "ceb": [
+          "Makita nimo kana nga piho nga room sa first floor sa Old COT building. Gipin nako ang lokasyon sa mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            610,
+            859
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Electronics Laboratory 2": {
+      "type": "room",
+      "building": "Old COT Building",
+      "floor": "First Floor",
+      "coordinates": [
+        611,
+        832
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find that specific room on the first floor of the Old COT building. I have pinpointed the location on the map to assist you with your navigation."
+        ],
+        "ceb": [
+          "Makita nimo kana nga piho nga room sa first floor sa Old COT building. Gipin nako ang lokasyon sa mapa aron matabangan ka sa pag-navigate."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            611,
+            832
+          ]
+        }
+      ],
+      "imageUrls": []
     }
   }
 }
