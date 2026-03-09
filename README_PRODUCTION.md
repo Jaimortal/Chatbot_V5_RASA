@@ -26,35 +26,39 @@ A comprehensive, production-ready chatbot system for Bukidnon State University b
 ## 📁 Project Structure
 
 ```
-Code-Crafter/
+Chatbot-v4-BUKSU/
 ├── 📋 rasa/                    # Core Rasa application
 │   ├── 🤖 actions/           # Custom actions
 │   │   ├── actions.py         # Main action server
-│   │   ├── responses.json      # Response data
-│   │   └── responses_new.json # Generalized entities
+│   │   └── responses_location.json # Location response data
 │   ├── 📊 data/              # Training data
 │   │   ├── nlu.yml           # NLU training
 │   │   └── stories.yml        # Dialog stories
 │   ├── 🏷️ domain.yml          # Bot domain
-│   └── ⚙️ config.yml          # Rasa config
+│   ├── ⚙️ config.yml          # Rasa config
+│   ├── ⚙️ endpoints.yml       # Action server endpoints
+│   └── 🧪 venv/             # Python virtual environment
+├── 🌐 client/                 # React frontend
+│   ├── 📁 src/              # Source code
+│   ├── 📦 package.json       # Dependencies
+│   └── � vite.config.ts     # Build config
+├── �️ server/                 # Node.js backend
+│   ├── 🔧 controllers/       # API controllers
+│   ├── �️ routes.ts          # API routes
+│   └── � drizzle.config.ts  # Database config
 ├── ⚙️ config/                  # Environment configs
-│   ├── 🏭 production.yml     # Production settings
-│   ├── 🧪 development.yml    # Development settings
-│   └── 🎭 staging.yml        # Staging settings
 ├── 📜 scripts/                 # Management scripts
-│   ├── 🔧 setup-env.py      # Environment setup
-│   ├── 🚀 start.py           # Startup script
-│   ├── 📦 deploy.py          # Deployment script
-│   └── 📊 monitor.py         # Monitoring system
 ├── 📝 docs/                    # Documentation
-│   └── STAFF_GUIDE.md     # Staff guide
 ├── 🐳 docker-compose.yml         # Container orchestration
 ├── 🐳 Dockerfile               # Container definition
 ├── 📊 logs/                    # Application logs
 ├── 📁 uploads/                  # File uploads
 ├── 💾 models/                   # Trained models
 ├── 🔑 .env.example              # Environment template
-└── 📋 requirements.txt           # Dependencies
+├── 📋 package.json              # Node dependencies
+├── 🎨 components.json           # UI components
+├── 🗒️ tsconfig.json            # TypeScript config
+└── 🌐 rulebaseTranslation/      # Translation system
 ```
 
 ## 🚀 Quick Start
@@ -251,6 +255,24 @@ In any external system (portal, LMS, other apps), you can embed the chatbot as a
   style="border:0;width:100%;max-width:420px;height:720px;border-radius:16px;overflow:hidden;"
   allow="microphone;"
 ></iframe>
+```
+
+
+
+### How to Run it
+
+To start the entire rasa use this command
+
+```
+venv\Scripts\python.exe -m rasa run --enable-api --cors "*"
+
+venv\Scripts\python.exe -m rasa run actions
+```
+
+And to kills existing port running use this command
+
+```
+taskkill /F /IM python.exe
 ```
 
 #### Sticky Positioning (Fixed to Parent Page)

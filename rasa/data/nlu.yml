@@ -36,6 +36,7 @@ nlu:
     - Kinsa ang mutabang kung naay problema sa computer lab
     - Ang ICT ba ang nag manage sa AV equipment sa BukSU
     - Unsay ginahandle sa ICT SU sa teknolohiya sa BukSU
+   
 
 - intent: get_wifi_access
   examples: |
@@ -335,6 +336,7 @@ nlu:
     - Can you provide details about what to bring for the exam
     - What are the items I must bring during the examination
     - Give me information on exam day requirements
+    - what do i need during examination for admission?
 
 
 - intent: exam_results
@@ -823,6 +825,100 @@ nlu:
     - Patabang ko asa dapita maka kita aning [c2201](location_name)
     - Aha manta mo agi ani para maka abot tas [room c2203](location_name)
     - Tagae dawkog mapa be og unsaon nato pag abot sa [c2201 room](location_name)
+    - aha manato na makita ang [Theater](location_name)?
+    - Asa manta maka kitag [Comfort Room](location_name) diri
+    - aha manpud ta maka kita anang room sa [COT Faculty Room](location_name)
+    - Can you help me find this room [B-2-03](location_name) and [B-2-06](location_name)?
+    - Where can I find this room [C2-2-02](location_name) and [C2-2-03](location_name)?
+    - Asa dapit ang [C2-2-02](location_name) ug ang [C2-2-03](location_name)?
+    - Can you show me where the [College of Business Building](location_name) is on the campus map
+    - Asa makita ang [College of Business Building](location_name) sa campus map
+    - Where can I find this room [B-2-02](location_name)
+    - Can you provide me some map for [B-1-01](location_name)
+    - Pwede ka maghatag og mapa padulong sa [B-1-01](location_name)
+    - I need help navigating to [B-1-02](location_name) inside the College of Business Building
+    - Tabangi ko sa pag navigate padulong sa [B-1-02](location_name) sa College of Business Building
+    - Can you send me a map going to [B-1-03](location_name)
+    - Pwede ka magpadala og mapa para makita ang [B-1-03](location_name)
+    - How do I reach the room called [B-1-04](location_name) in the College of Business Building
+    - Unsaon nako pag adto sa room nga [B-1-04](location_name) sa College of Business Building
+    - Can you guide me to the room [B-1-05](location_name) in the College of Business Building
+    - Asa dapit ang [B-1-05](location_name) sa College of Business Building
+    - Can you send me a campus map that shows where [B-1-06](location_name) is located
+    - Pwede ka magpadala og mapa aron makita ang [B-1-06](location_name)
+    - I am looking for the place called [B-1-08](location_name) inside the College of Business Building
+    - Nangita ko kung asa ang [B-1-08](location_name) sa College of Business Building
+    - Can you help me navigate going to [B-1-09](location_name)
+    - Tabangi ko sa pag navigate padulong sa [B-1-09](location_name)
+    - Could you show me on the map where [B-2-10](location_name) is in the College of Business Building
+    - Asa makita sa mapa ang [B-2-10](location_name) sa College of Business Building
+    - I want to know the location of [B-2-07](location_name) on the second floor
+    - Asa dapit ang [B-2-07](location_name) sa second floor sa College of Business Building
+    - Can you provide directions to [B-2-06](location_name)
+    - Unsaon pag adto sa [B-2-06](location_name)
+    - Please show me the map route going to [B-2-05](location_name)
+    - Pwede nimo ipakita ang mapa padulong sa [B-2-05](location_name)
+    - Where exactly is room [B-2-04](location_name) in the College of Business Building
+    - Asa dapit ang room [B-2-04](location_name) sa College of Business Building
+    - Can you help me find [B-2-03](location_name) on the campus map
+    - Asa makita sa mapa ang [B-2-03](location_name)
+    - I want directions going to [B-2-02](location_name) on the second floor
+    - Unsaon pag adto sa [B-2-02](location_name) sa second floor sa College of Business Building
+    - Can you provide a map that shows the location of [B-2-01](location_name)
+    - Pwede ka maghatag og mapa padulong sa [B-2-01](location_name)
+    - I am trying to navigate to [B-3-01](location_name) in the COB building
+    - Nangita ko kung asa ang [B-3-01](location_name) sa COB building
+    - Can you show me the path to [B-3-02](location_name)
+    - Asa ang dalan padulong sa [B-3-02](location_name)
+    - I would like to see a map for [B-3-03](location_name)
+    - Pwede nimo ipakita ang mapa para sa [B-3-03](location_name)
+    - How do I reach [B-3-04](location_name) on the third floor
+    - Unsaon nako pag adto sa [B-3-04](location_name) sa third floor
+    - Can you guide me toward [B-3-05](location_name)
+    - Tabangi ko pag navigate padulong sa [B-3-05](location_name)
+    - Can you show me a map for [B-3-06](location_name)
+    - Pwede nimo ipakita ang mapa para sa [B-3-06](location_name)
+    - I want to navigate to [B-3-07](location_name) on the third floor
+    - Tabangi ko pag navigate padulong sa [B-3-07](location_name) sa third floor
+    - Can you provide directions for [B-3-09](location_name)
+    - Unsaon pag adto sa [B-3-09](location_name)
+    - Please give me a map for [B-4-09](location_name)
+    - Pwede nimo i-send ang mapa para sa [B-4-09](location_name)
+    - How can I reach [B-4-08](location_name) on the 4th floor
+    - Asa ang dalan padulong sa [B-4-08](location_name) sa fourth floor
+    - I need a map to find [B-4-07](location_name)
+    - Tabangi ko og pangita sa [B-4-07](location_name) gamit ang mapa
+    - Can you help me navigate to [B-4-06](location_name)
+    - Unsaon nako pag adto sa [B-4-06](location_name)
+    - Can you show me a map for [B-4-05](location_name)
+    - Pwede nimo ipakita ang mapa para sa [B-4-05](location_name)
+    - I want to navigate to [B-4-04](location_name)
+    - Tabangi ko pag navigate padulong sa [B-4-04](location_name)
+    - Can you provide directions for [B-4-03](location_name)?
+    - Unsaon pag adto sa [B-4-03](location_name)?
+    - Please give me a map for [B-4-02](location_name)
+    - Pwede nimo i-send ang mapa para sa [B-4-02](location_name)
+    - How can I reach [B-4-01](location_name) on the 4th floor
+    - Asa ang dalan padulong sa [B-4-01](location_name) sa fourth floor
+    - I need a map to find [COB 4th Floor Students Organization](location_name)
+    - Tabangi ko og pangita sa [COB 4th Floor Students Organization](location_name) gamit ang mapa
+    - Can you help me navigate to [COB 4th Floor Students Organization](location_name)?
+    - Unsaon nako pag adto sa [COB 4th Floor Students Organization](location_name)?
+    - Please give me a map for [COT Buildings](location_name)
+    - Pwede nimo i-send ang mapa para sa [COT Buildings](location_name)?
+    - Where is [DXBU](location_name)
+    - [B-2-03](location_name)? location
+    - How to go to [B-4-04](location_name)
+    - Directions to [COT Buildings](location_name)?
+    - [C2-2-02](location_name) and [B-4-04](location_name) location
+    - Aha ning [Guard House](location_name)?
+    - Asa maning [B-2-02](location_name) og [B-2-03](location_name) makita?
+    - Where is [B-2-02](location_name)?
+    - Where can I find [B-2-03](location_name)?
+    - Where is room [B-2-02](location_name)?
+    - Where can I find [B-2-02](location_name) and [B-2-03](location_name)?
+    - Where is [College of Business Building](location_name) and [COT Buildings](location_name)?
+    - Asa dapit ang [College of Business Building](location_name) og [COT Buildings](location_name)?
 
 - regex: location_name
   examples: |
@@ -1139,6 +1235,7 @@ nlu:
     - Pwede ba ko makontak sa security o staff kung naligaw ko sa campus
     - Giunsa nako malikayan nga maligaw sa BukSU
     - Unsang mga kapanguhaan ang magamit kung naligaw ko sa campus
+
 
 - intent: access_sias
   examples: |

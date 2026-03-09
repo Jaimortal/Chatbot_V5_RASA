@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\3rd year files and works\CAPSTONE DEV\AI PROMPT VS\REPLIT\FROM REPLIT with rasa V2\Code-Crafter\rasa\venv
+set VIRTUAL_ENV=C:\School Related File\3rd year\Capstone dev\Chatbot\Chatbot-v4-BUKSU\rasa\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

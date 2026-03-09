@@ -72,11 +72,20 @@ export class ChatController {
       let answerText = "I cannot understand your question.";
       let detectedIntent = null;
       let mapDataFromRasa = null;
+      const allAnswers: string[] = [];
       
-      // Extract text from first response
-      if (result && result.length > 0 && result[0].text) {
-        answerText = result[0].text;
-        detectedIntent = intent;
+      // Extract text from ALL responses, not just the first
+      if (result && result.length > 0) {
+        for (const response of result) {
+          if (response.text) {
+            allAnswers.push(response.text);
+          }
+        }
+        
+        if (allAnswers.length > 0) {
+          answerText = allAnswers.join("\n\n");  // Combine all answers with separator
+          detectedIntent = intent;
+        }
       }
       
       // Check if this is a fallback response
@@ -86,11 +95,11 @@ export class ChatController {
                          answerText.includes("cannot understand") ||
                          answerText.includes("try again");
       
-      // Extract mapData only if intent is valid and not a fallback
+      // Extract ALL mapData from all responses (not just the first one)
+      const allMapDataFromRasa: any[] = [];
       for (const response of result) {
         if (!isFallback && response.custom?.mapData) {
-          mapDataFromRasa = response.custom.mapData;
-          break;
+          allMapDataFromRasa.push(response.custom.mapData);
         }
       }
 
@@ -114,9 +123,9 @@ export class ChatController {
         console.error("Failed to log conversation:", error);
       });
 
-      // Format mapData (preserve pins + mapId, and keep backward compatible coordinates)
-      let formattedMapData: any = null;
-      if (mapDataFromRasa) {
+      // Format ALL mapData entries
+      const formattedMapDataList: any[] = [];
+      for (const mapDataFromRasa of allMapDataFromRasa) {
         const raw: any = mapDataFromRasa;
 
         const pins = Array.isArray(raw.pins)
@@ -139,18 +148,22 @@ export class ChatController {
           ? [Number(rawCoords[0]), Number(rawCoords[1])]
           : coordFromPins;
 
-        formattedMapData = {
+        formattedMapDataList.push({
           locationName: raw.locationName || "Location",
           ...(coords ? { coordinates: coords } : {}),
           ...(raw.mapId ? { mapId: raw.mapId } : {}),
           ...(Array.isArray(pins) ? { pins } : {}),
-        };
+        });
       }
+
+      // Use first map for backward compatibility, but include all maps
+      const formattedMapData = formattedMapDataList.length > 0 ? formattedMapDataList[0] : null;
 
       return res.json({
         answer: answerText,
         follow_up: result?.[0]?.custom?.follow_up ?? [],
-        mapData: formattedMapData
+        mapData: formattedMapData,
+        mapDataList: formattedMapDataList.length > 0 ? formattedMapDataList : undefined
       });
     } catch (error) {
       console.error("Chat controller error:", error);

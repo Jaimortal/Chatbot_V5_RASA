@@ -1641,8 +1641,8 @@
       "building": "Finance Building",
       "floor": "Fifth Floor",
       "coordinates": [
-        100,
-        200
+        679,
+        644
       ],
       "map_id": "main_map",
       "responses": {
@@ -1652,7 +1652,17 @@
         "ceb": [
           "Ang Theater nahimutang sa Fifth floor sa Finance Building. Para mas paspas nga makaadto, pwede nimo gamiton ang elevator, apan pwede usab ang hagdanan. Aron matabangan ka sa pag-navigate, adunay gihatag nga mapa sa ubos."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Theater",
+          "coordinates": [
+            679,
+            644
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "Computer Laboratories": {
       "type": "room",
@@ -1858,6 +1868,671 @@
         }
       ],
       "imageUrls": []
+    },
+    "COT Buildings": {
+      "type": "building",
+      "building": "College of Technology",
+      "floor": "Ground Floor",
+      "coordinates": [
+        457,
+        797
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are actually two buildings for the College of Technology (COT). The new one is behind the New CAS building, and the old one is right in front of the new COT building. I've pinned both locations to help you find them."
+        ],
+        "ceb": [
+          "Adunay duha ka building para sa College of Technology (COT). Ang bag-o nga building naa sa likod sa New CAS building, ug ang daan nga building naa mismo sa atubangan sa bag-ong COT building. Gipin nako ang duha ka lokasyon aron matabangan ka sa pagpangita niini."
+        ]
+      },
+      "pins": [
+        {
+          "name": "New COT - Where Faculty room Dean office located",
+          "coordinates": [
+            457,
+            797
+          ]
+        },
+        {
+          "name": "Old COT - Classrooms",
+          "coordinates": [
+            594,
+            795
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "College of Business Building": {
+      "type": "building",
+      "building": "College of Business Building",
+      "floor": "N/A",
+      "coordinates": [
+        648,
+        414
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The College of Business building is right to the left of the university library. I’ve attached a map to help you find your way."
+        ],
+        "ceb": [
+          "Ang College of Business building naa sa wala nga side sa University Library. Nag-attach ko og mapa aron matabangan ka sa pagpangita neini nga building."
+        ]
+      }
+    },
+    "B-1-01": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        648,
+        414
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-1-01 accreditation is located on the College of Business building on the ground floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-1-01 accreditation makita sa College of Business building sa ground floor."
+        ]
+      }
+    },
+    "B-1-02": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        647,
+        394
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-1-02 faculty Accountancy department is located on the College of Business building on the ground floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-1-02 faculty Accountancy department makita sa College of Business building sa ground floor."
+        ]
+      }
+    },
+    "B-1-03": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        647,
+        362
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-1-03 faculty Accountancy department is located on the College of Business building on the ground floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-1-03 faculty Accountancy department makita sa College of Business building sa ground floor."
+        ]
+      }
+    },
+    "B-1-04": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        643,
+        333
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-1-04 faculty Business Ad is located on the College of Business building on the ground floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-1-04 faculty Business Ad makita sa College of Business building sa ground floor."
+        ]
+      }
+    },
+    "B-1-05": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        639,
+        297
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-1-05 faculty business ad is located on the College of Business building on the ground floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-1-05 faculty business ad makita sa College of Business building sa ground floor."
+        ]
+      }
+    },
+    "B-1-06": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        617,
+        261
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-1-06 faculty HM department is located on the College of Business building on the ground floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-1-06 faculty HM department makita sa College of Business building sa ground floor."
+        ]
+      }
+    },
+    "B-1-08": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        581,
+        273
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-1-08 Kilid sa HM faculty is located on the College of Business building on the ground floor. It also leads to B-2-08."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-1-08 Kilid sa HM faculty makita sa College of Business building sa ground floor. Nag-lead usab kini sa B-2-08."
+        ]
+      }
+    },
+    "B-1-09": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        552,
+        276
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-1-09 Kilid ni b8 is located on the College of Business building on the ground floor. It leads to the 2nd floor B-2-09 laboratory."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-1-09 Kilid ni b8 makita sa College of Business building sa ground floor. Nag-lead kini sa 2nd floor B-2-09 laboratory."
+        ]
+      }
+    },
+    "B-2-10": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        553,
+        290
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-2-10 Science laboratory stock room is located on the College of Business building on the 2nd floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-2-10 Science laboratory stock room makita sa College of Business building sa 2nd floor."
+        ]
+      }
+    },
+    "B-2-07": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        600,
+        271
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-2-07 is located on the College of Business building on the 2nd floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-2-07 makita sa College of Business building sa 2nd floor."
+        ]
+      }
+    },
+    "B-2-06": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        608,
+        274
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-2-06 is located on the College of Business building on the 2nd floor."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-2-06 makita sa College of Business building sa 2nd floor."
+        ]
+      }
+    },
+    "B-2-05": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        643,
+        295
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-2-05 is located on the 2nd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-2-05 makita sa 2nd floor sa COB building."
+        ]
+      }
+    },
+    "B-2-04": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        647,
+        340
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-2-04 is located on the 2nd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-2-04 makita sa 2nd floor sa COB building."
+        ]
+      }
+    },
+    "B-2-03": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        645,
+        370
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-2-03 is located on the 2nd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-2-03 makita sa 2nd floor sa COB building."
+        ]
+      }
+    },
+    "B-2-02": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        649,
+        394
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-2-02 is located on the 2nd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-2-02 makita sa 2nd floor sa COB building."
+        ]
+      }
+    },
+    "B-2-01": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        644,
+        422
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-2-01 Under construction is located on the 2nd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-2-01 Under construction makita sa 2nd floor sa COB building."
+        ]
+      }
+    },
+    "B-3-01": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        647,
+        418
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-3-01 is located on the 3rd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-3-01 makita sa 3rd floor sa COB building."
+        ]
+      }
+    },
+    "B-3-02": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        644,
+        385
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-3-02 is located on the 3rd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-3-02 makita sa 3rd floor sa COB building."
+        ]
+      }
+    },
+    "B-3-03": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        648,
+        367
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-3-03 is located on the 3rd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-3-03 makita sa 3rd floor sa COB building."
+        ]
+      }
+    },
+    "B-3-04": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        647,
+        338
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-3-04 is located on the 3rd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-3-04 makita sa 3rd floor sa COB building."
+        ]
+      }
+    },
+    "B-3-05": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        643,
+        306
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-3-05 is located on the 3rd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-3-05 makita sa 3rd floor sa COB building."
+        ]
+      }
+    },
+    "B-3-06": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        627,
+        276
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-3-06 is located on the 3rd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-3-06 makita sa 3rd floor sa COB building."
+        ]
+      }
+    },
+    "B-3-07": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        591,
+        275
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-3-07 is located on the 3rd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-3-07 makita sa 3rd floor sa COB building."
+        ]
+      }
+    },
+    "B-3-09": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Third Floor",
+      "coordinates": [
+        591,
+        286
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-3-09 is located on the 3rd floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-3-09 makita sa 3rd floor sa COB building."
+        ]
+      }
+    },
+    "B-4-09": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        569,
+        268
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-09 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-09 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "B-4-08": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        592,
+        277
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-08 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-08 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "B-4-07": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        601,
+        275
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-07 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-07 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "B-4-06": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        620,
+        268
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-06 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-06 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "B-4-05": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        644,
+        298
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-05 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-05 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "B-4-04": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        643,
+        336
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-04 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-04 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "B-4-03": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        648,
+        377
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-03 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-03 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "B-4-02": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        648,
+        385
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-02 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-02 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "B-4-01": {
+      "type": "room",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        646,
+        401
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The room B-4-01 is located on the 4th floor of the COB building."
+        ],
+        "ceb": [
+          "Ang kwarto nga B-4-01 makita sa 4th floor sa COB building."
+        ]
+      }
+    },
+    "COB 4th Floor Students Organization": {
+      "type": "office",
+      "building": "College of Business Building",
+      "floor": "Fourth Floor",
+      "coordinates": [
+        652,
+        245
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The COB 4th floor students organization is located on the College of Business building on the 4th floor."
+        ],
+        "ceb": [
+          "Ang COB 4th floor students organization makita sa College of Business building sa 4th floor."
+        ]
+      }
     }
   }
 }

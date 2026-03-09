@@ -10,6 +10,7 @@ attached_assets/
 
 rasa/models/
 rasa/.rasa
+rasa/venv/
 
 # This will be used on production
 

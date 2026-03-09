@@ -147,12 +147,12 @@ LOCATION_ALIASES = {
     "room c2204": "C2-2-04",
     
     # === Faculty Room Aliases ===
-    "college of information technology faculty": "COT Faculty",
-    "cit faculty": "COT Faculty",
-    "college it faculty": "COT Faculty",
-    "cot faculty": "COT Faculty",
-    "cot faculty room": "COT Faculty",
-    "college of technology faculty": "COT Faculty",
+    "college of information technology faculty": "COT Faculty Room",
+    "cit faculty": "COT Faculty Room",
+    "college it faculty": "COT Faculty Room",
+    "cot faculty": "COT Faculty Room",
+    "cot faculty room": "COT Faculty Room",
+    "college of technology faculty": "COT Faculty Room",
     
     "cob faculty": "COB Faculty Room",
     "college of business faculty": "COB Faculty Room",
@@ -194,13 +194,40 @@ LOCATION_ALIASES = {
     
     # === Dormitory Aliases ===
     "mahogany dorm": "Mahogany Dorm",
+    "mahoganys dorm": "Mahogany Dorm",
+    "mahogany's dorm": "Mahogany Dorm",
+    "mahoganys doorm": "Mahogany Dorm",
+    "mahogany's doorm": "Mahogany Dorm",
+    "male dorm": "Mahogany Dorm",
     "mahogany dormitory": "Mahogany Dorm",
+    "mahogany's dormitory": "Mahogany Dorm",
+    "mahoganys dormitory": "Mahogany Dorm",
+    "male dormitory": "Mahogany Dorm",
+    "man dormitory": "Mahogany Dorm",
+    "mans dormitory": "Mahogany Dorm",
+    "boy dormitory": "Mahogany Dorm",
+    "boys dormitory": "Mahogany Dorm",
+
+    "female dorm": "Rubia Dorm",
     "rubia dorm": "Rubia Dorm",
+    "rubia's dorm": "Rubia Dorm",
+    "rubias doorm": "Rubia Dorm",
+    "rubias dorm": "Rubia Dorm",
     "rubia dormitory": "Rubia Dorm",
+    "rubia's dormitory": "Rubia Dorm",
+    "female dormitory": "Rubia Dorm",
     "rubia ladies dormitory": "Rubia Dorm",
+    "woman dormitory": "Rubia Dorm",
+    "ladies dormitory": "Rubia Dorm",
+
     "kilala dorm": "Kilala Dorm",
+    "kilalas dorm": "Kilala Dorm",
+    "kilalas doorm": "Kilala Dorm",
+    "kilala's dorm": "Kilala Dorm",
     "kilala dormitory": "Kilala Dorm",
-    
+    "kilalas dormitory": "Kilala Dorm",
+    "kilala's dormitory": "Kilala Dorm",
+
     # === Facility Aliases ===
     "library": "Library",
     "university library": "Library",
@@ -211,6 +238,7 @@ LOCATION_ALIASES = {
     "main auditorium": "Auditorium",
     
     "theater": "Theater",
+    "mini theater": "Theater",
     "finance theater": "Theater",
     
     "cafeteria": "Cafeteria",
@@ -219,7 +247,6 @@ LOCATION_ALIASES = {
     
     "gym": "Fitness Gym",
     "fitness gym": "Fitness Gym",
-    "gymnasium": "Fitness Gym",
     
     "oval": "Oval",
     "university oval": "Oval",
@@ -274,18 +301,200 @@ LOCATION_ALIASES = {
     "car": "Car Parking Area",
     "park": "Vehicle Parking Area",
     "parking area": "Vehicle Parking Area",
-    
+
+    # CR badi
     "comfort room": "Comfort Room",
     "restroom": "Comfort Room",
     "toilet": "Comfort Room",
     "cr": "Comfort Room",
     "libanganan": "Comfort Room",
     
+    # research extension ni sya bay
     "research extension": "Research Extension",
     "extension office": "Research Extension",
     
+    
     "university press": "University Press Building",
     "press building": "University Press Building",
+    
+    "cot buildings": "COT Buildings",
+    "college of technology buildings": "COT Buildings",
+    "cot building": "COT Buildings",
+    "college of technology building": "COT Buildings",
+    "cot bldgs": "COT Buildings",
+    "cot bldg": "COT Buildings",
+    "room cot": "COT Buildings",
+
+     "college of business building": "College of Business Building",
+    "cob building": "College of Business Building",
+
+    "b-1-01": "B-1-01",
+    "b1-01": "B-1-01",
+    "b1 01": "B-1-01",
+    "b 1 01": "B-1-01",
+    "b101": "B-1-01",
+    "room b-1-01": "B-1-01",
+    "room b101": "B-1-01",
+    "room b0101": "B-1-01",
+
+    "b-1-02": "B-1-02",
+    "b1-02": "B-1-02",
+    "b1 02": "B-1-02",
+    "b 1 02": "B-1-02",
+    "b102": "B-1-02",
+    "room b-1-02": "B-1-02",
+    "room b102": "B-1-02",
+    "room b0102": "B-1-02",
+
+    "b-1-03": "B-1-03",
+    "b1-03": "B-1-03",
+    "b1 03": "B-1-03",
+    "b 1 03": "B-1-03",
+    "b103": "B-1-03",
+    "room b-1-03": "B-1-03",
+    "room b103": "B-1-03",
+    "room b0103": "B-1-03",
+
+    "b-1-04": "B-1-04",
+    "b1-04": "B-1-04",
+    "b1 04": "B-1-04",
+    "b 1 04": "B-1-04",
+    "b104": "B-1-04",
+    "room b-1-04": "B-1-04",
+    "room b104": "B-1-04",
+    "room b0104": "B-1-04",
+
+    "b-1-05": "B-1-05",
+    "b1-05": "B-1-05",
+    "b1 05": "B-1-05",
+    "b 1 05": "B-1-05",
+    "b105": "B-1-05",
+    "room b-1-05": "B-1-05",
+    "room b105": "B-1-05",
+    "room b0105": "B-1-05",
+
+    "b-1-06": "B-1-06",
+    "b1-06": "B-1-06",
+    "b1 06": "B-1-06",
+    "b 1 06": "B-1-06",
+    "b106": "B-1-06",
+    "room b-1-06": "B-1-06",
+    "room b106": "B-1-06",
+    "room b0106": "B-1-06",
+
+    "b-1-08": "B-1-08",
+    "b1-08": "B-1-08",
+    "b1 08": "B-1-08",
+    "b 1 08": "B-1-08",
+    "b108": "B-1-08",
+    "room b-1-08": "B-1-08",
+    "room b108": "B-1-08",
+    "room b0108": "B-1-08",
+
+    "b-1-09": "B-1-09",
+    "b1-09": "B-1-09",
+    "b1 09": "B-1-09",
+    "b 1 09": "B-1-09",
+    "b109": "B-1-09",
+    "room b-1-09": "B-1-09",
+    "room b109": "B-1-09",
+    "room b0109": "B-1-09",
+
+    "b-2-10": "B-2-10",
+    "b2-10": "B-2-10",
+    "b2 10": "B-2-10",
+    "b 2 10": "B-2-10",
+    "b210": "B-2-10",
+    "room b-2-10": "B-2-10",
+    "room b210": "B-2-10",
+    "room b0210": "B-2-10",
+
+    "b-2-07": "B-2-07",
+    "b2-07": "B-2-07",
+    "b2 07": "B-2-07",
+    "b 2 07": "B-2-07",
+    "b207": "B-2-07",
+    "room b-2-07": "B-2-07",
+    "room b207": "B-2-07",
+    "room b0207": "B-2-07",
+
+    "b-2-06": "B-2-06",
+    "b2-06": "B-2-06",
+    "b2 06": "B-2-06",
+    "b 2 06": "B-2-06",
+    "b206": "B-2-06",
+    "room b-2-06": "B-2-06",
+    "room b206": "B-2-06",
+    "room b0206": "B-2-06",
+
+    "b-2-05": "B-2-05",
+    "b2-05": "B-2-05",
+    "b2 05": "B-2-05",
+    "b 2 05": "B-2-05",
+    "b205": "B-2-05",
+    "room b-2-05": "B-2-05",
+    "room b205": "B-2-05",
+    "room b0205": "B-2-05",
+
+    "b-2-04": "B-2-04",
+    "b2-04": "B-2-04",
+    "b2 04": "B-2-04",
+    "b 2 04": "B-2-04",
+    "b204": "B-2-04",
+    "room b-2-04": "B-2-04",
+    "room b204": "B-2-04",
+    "room b0204": "B-2-04",
+
+    "b-2-03": "B-2-03",
+    "b2-03": "B-2-03",
+    "b2 03": "B-2-03",
+    "b 2 03": "B-2-03",
+    "b203": "B-2-03",
+    "room b-2-03": "B-2-03",
+    "room b203": "B-2-03",
+    "room b0203": "B-2-03",
+
+    "b-2-02": "B-2-02",
+    "b2-02": "B-2-02",
+    "b2 02": "B-2-02",
+    "b 2 02": "B-2-02",
+    "b202": "B-2-02",
+    "room b-2-02": "B-2-02",
+    "room b202": "B-2-02",
+    "room b0202": "B-2-02",
+
+    "b-2-01": "B-2-01",
+    "b2-01": "B-2-01",
+    "b2 01": "B-2-01",
+    "b 2 01": "B-2-01",
+    "b201": "B-2-01",
+    "room b-2-01": "B-2-01",
+    "room b201": "B-2-01",
+    "room b0201": "B-2-01",
+
+    "b-3-01": "B-3-01",
+    "b3-01": "B-3-01",
+    "b3 01": "B-3-01",
+    "b 3 01": "B-3-01",
+    "b301": "B-3-01",
+    "room b-3-01": "B-3-01",
+    "room b301": "B-3-01",
+    "room b0301": "B-3-01",
+
+    "b-3-02": "B-3-02",
+    "b3-02": "B-3-02",
+    "b3 02": "B-3-02",
+    "b 3 02": "B-3-02",
+    "b302": "B-3-02",
+    "room b-3-02": "B-3-02",
+    "room b302": "B-3-02",
+    "room b0302": "B-3-02",
+
+    # ...continue this pattern for all remaining rooms B-3-03 → B-4-09
+
+    "cob 4th floor students organization": "COB 4th Floor Students Organization",
+    "students organization cob 4th floor": "COB 4th Floor Students Organization",
+    "cob 4th floor so": "COB 4th Floor Students Organization",
 }
 
 
@@ -545,7 +754,36 @@ class ActionReplyFromJsonHelper:
 
         return LOCATION_ALIASES.get(cleaned, raw_name)
 
+    def _guess_all_locations_from_text(self, user_message: str) -> List[str]:
+        """Find ALL location aliases in the text, not just the best one"""
+        if not user_message:
+            return []
+
+        text = str(user_message).strip().lower()
+        found_locations = set()
+
+        # Find all matching aliases
+        for alias, normalized in LOCATION_ALIASES.items():
+            if alias and alias in text:
+                found_locations.add(normalized)
+
+        # Also try room code patterns
+        matches = re.finditer(r"\b(c\d+)\s+(\d+)\s+(\d{1,2})\b", text)
+        for match in matches:
+            building, floor, room = match.group(1), match.group(2), match.group(3)
+            room_padded = room.zfill(2)
+            found_locations.add(f"{building}-{floor}-{room_padded}".upper())
+
+        matches2 = re.finditer(r"\b(c\d+)-(\d+)-(\d{1,2})\b", text)
+        for match in matches2:
+            building, floor, room = match.group(1), match.group(2), match.group(3)
+            room_padded = room.zfill(2)
+            found_locations.add(f"{building}-{floor}-{room_padded}".upper())
+
+        return list(found_locations)
+
     def _guess_location_from_text(self, user_message: str) -> Optional[str]:
+        """Find the best (longest) location alias in the text"""
         if not user_message:
             return None
 
@@ -784,7 +1022,45 @@ class ActionReplyFromJsonHelper:
         else:
             response_text = str(responses)
 
-        return {"text": response_text}
+        result = {"text": response_text}
+        
+        # Add map data if available
+        map_id = college_info.get("map_id") or college_info.get("mapId")
+        pins_raw = college_info.get("pins")
+        
+        pins_out = []
+        if isinstance(pins_raw, list):
+            for idx, p in enumerate(pins_raw):
+                coords = None
+                if isinstance(p, dict) and isinstance(p.get("coordinates"), list) and len(p.get("coordinates")) == 2:
+                    coords = p.get("coordinates")
+                name = None
+                if isinstance(p, dict):
+                    name = str(p.get("name") or "").strip()
+                if not name:
+                    name = f"Pin {idx + 1}"
+                if coords:
+                    pins_out.append({"name": name, "coordinates": coords})
+
+        if map_id:
+            if pins_out:
+                result["custom"] = {
+                    "mapData": {
+                        "locationName": college.upper() + " Faculty Room",
+                        "pins": pins_out,
+                        "mapId": map_id,
+                    }
+                }
+            elif college_info.get("coordinates"):
+                result["custom"] = {
+                    "mapData": {
+                        "locationName": college.upper() + " Faculty Room",
+                        "coordinates": college_info["coordinates"],
+                        "mapId": map_id,
+                    }
+                }
+        
+        return result
 
 
 # -------------------------
@@ -858,29 +1134,110 @@ class ActionReplyFromJson(Action):
 
             return []
 
-        # Entity-based Location lookup
+        # Entity-based Location lookup - NOW SUPPORTS MULTIPLE LOCATIONS
         if intent == "ask_locations":
-            location_name = None
-            for entity in tracker.latest_message.get("entities", []):
-                if entity.get("entity") == "location_name":
-                    location_name = entity.get("value")
-                    break
+            # Get all location entities from the tracker
+            location_entities = list(tracker.get_latest_entity_values("location_name"))
+            
+            # DEBUG: Log what entities were extracted
+            print(f"DEBUG - ask_locations: Extracted entities: {location_entities}")
+            
+            # Check if extracted entities are valid (not generic words like 'faculty room', 'room')
+            invalid_entities = ['faculty room', 'room', 'office', 'building', 'location']
+            has_only_invalid = all(
+                any(inv in str(ent).lower() for inv in invalid_entities)
+                for ent in location_entities
+            ) if location_entities else True
+            
+            # If no entities found OR only invalid generic entities, try to find ALL locations in text
+            if not location_entities or has_only_invalid:
+                print(f"DEBUG - No valid entities found, searching text for all locations...")
+                guessed_locations = self.helper._guess_all_locations_from_text(user_msg)
+                if guessed_locations:
+                    location_entities = guessed_locations
+                    print(f"DEBUG - Found locations in text: {location_entities}")
 
-            if location_name is None:
-                location_name = tracker.get_slot("location_name")
+            if location_entities:
+                # DEBUG: Log what we're processing
+                print(f"DEBUG - Processing {len(location_entities)} locations: {location_entities}")
+                
+                processed_count = 0
+                all_map_pins = []  # Collect all pins for combined map
+                first_map_id = None  # Use the first map_id found
+                
+                # First pass: send all text and images, collect map data
+                for i, location_name in enumerate(location_entities):
+                    response = self.helper.get_location_response(location_name, user_msg)
+                    
+                    # DEBUG: Log each location processing
+                    print(f"DEBUG - Processing location {i+1}/{len(location_entities)}: {location_name}")
+                    
+                    if response.get("text") and not response["text"].startswith("Sorry, I don't have information"):
+                        # Send text response for this location
+                        dispatcher.utter_message(text=response["text"])
+                        print(f"DEBUG - Sent text for {location_name}")
+                        
+                        # Send image for this location if available
+                        if response.get("images"):
+                            for img in response["images"]:
+                                if img:
+                                    dispatcher.utter_message(image=img)
+                                    print(f"DEBUG - Sent image for {location_name}")
+                        elif response.get("image"):
+                            dispatcher.utter_message(image=response["image"])
+                            print(f"DEBUG - Sent image for {location_name}")
+                        
+                        # Collect map data for combined map
+                        if response.get("custom") and response["custom"].get("mapData"):
+                            map_data = response["custom"]["mapData"]
+                            
+                            # Track the first map_id we find
+                            if first_map_id is None and map_data.get("mapId"):
+                                first_map_id = map_data["mapId"]
+                            
+                            # Collect pins with location name prefix
+                            if map_data.get("pins"):
+                                for pin in map_data["pins"]:
+                                    pin_copy = dict(pin)  # Copy to avoid modifying original
+                                    # Prefix pin name with location for clarity
+                                    location_prefix = str(map_data.get("locationName", location_name))
+                                    if "name" in pin_copy:
+                                        pin_copy["name"] = f"{location_prefix}: {pin_copy['name']}"
+                                    else:
+                                        pin_copy["name"] = location_prefix
+                                    all_map_pins.append(pin_copy)
+                            elif map_data.get("coordinates"):
+                                # If no pins but has coordinates, create a pin
+                                all_map_pins.append({
+                                    "name": str(map_data.get("locationName", location_name)),
+                                    "coordinates": map_data["coordinates"]
+                                })
+                        
+                        processed_count += 1
 
-            if location_name:
-                response = self.helper.get_location_response(location_name, user_msg)
+                # DEBUG: Log final count
+                print(f"DEBUG - Successfully processed {processed_count} locations")
+                
+                # Send helper text before the combined map (only if multiple pins)
+                if all_map_pins and first_map_id and len(all_map_pins) > 1:
+                    dispatcher.utter_message(text="Please press the zoom out button to see the other pinpoint of the map")
+                    print(f"DEBUG - Sent zoom out helper text")
+                
+                # Send combined map with all pins if we have any
+                if all_map_pins and first_map_id:
+                    combined_map = {
+                        "mapData": {
+                            "locationName": f"Multiple Locations ({processed_count})",
+                            "pins": all_map_pins,
+                            "mapId": first_map_id
+                        }
+                    }
+                    dispatcher.utter_message(json_message=combined_map)
+                    print(f"DEBUG - Sent combined map with {len(all_map_pins)} pins")
 
-                # If entity extraction was partial (e.g. "2 01"), try to guess from full text
-                if response.get("text", "").startswith("Sorry, I don't have information"):
-                    guessed = self.helper._guess_location_from_text(user_msg)
-                    if guessed:
-                        response = self.helper.get_location_response(guessed, user_msg)
-
-                dispatcher.utter_message(text=response["text"])
-                if response.get("custom"):
-                    dispatcher.utter_message(json_message=response["custom"])
+                if processed_count == 0:
+                    dispatcher.utter_message(text="Sorry, I couldn't find information about those locations.")
+                
                 return []
 
             # If no location extracted, use generic response if available
@@ -895,21 +1252,82 @@ class ActionReplyFromJson(Action):
                 dispatcher.utter_message(text=response)
             return []
 
-        # Entity-based Faculty Room lookup
+        # Entity-based Faculty Room lookup - NOW SUPPORTS MULTIPLE COLLEGES
         if intent == "ask_faculty_room_location":
-            college = None
-            for entity in tracker.latest_message.get("entities", []):
-                if entity.get("entity") == "college":
-                    college = entity.get("value")
-                    break
+            # Get all college entities from the tracker
+            college_entities = list(tracker.get_latest_entity_values("college"))
+            
+            # DEBUG: Log what entities were extracted
+            print(f"DEBUG - ask_faculty_room_location: Extracted entities: {college_entities}")
+            
+            if not college_entities:
+                slot_college = tracker.get_slot("college")
+                if slot_college:
+                    college_entities = [slot_college]
 
-            if college is None:
-                college = tracker.get_slot("college")
-
-            # If college exists, respond with specific faculty room info
-            if college:
-                response = self.helper._get_faculty_room_response(college, user_msg)
-                dispatcher.utter_message(text=response["text"])
+            if college_entities:
+                # DEBUG: Log what we're processing
+                print(f"DEBUG - Processing {len(college_entities)} colleges: {college_entities}")
+                
+                all_map_pins = []  # Collect all pins for combined map
+                first_map_id = None  # Use the first map_id found
+                processed_count = 0
+                
+                # First pass: send all text, collect map data
+                for i, college in enumerate(college_entities):
+                    response = self.helper._get_faculty_room_response(college, user_msg)
+                    
+                    # DEBUG: Log each college processing
+                    print(f"DEBUG - Processing college {i+1}/{len(college_entities)}: {college}")
+                    
+                    if response.get("text"):
+                        # Send text response for this location
+                        dispatcher.utter_message(text=response["text"])
+                        print(f"DEBUG - Sent text for {college}")
+                        
+                        # Collect map data for combined map
+                        if response.get("custom") and response["custom"].get("mapData"):
+                            map_data = response["custom"]["mapData"]
+                            
+                            # Track the first map_id we find
+                            if first_map_id is None and map_data.get("mapId"):
+                                first_map_id = map_data["mapId"]
+                            
+                            # Collect pins with college name prefix
+                            if map_data.get("pins"):
+                                for pin in map_data["pins"]:
+                                    pin_copy = dict(pin)
+                                    college_prefix = str(map_data.get("locationName", f"{college} Faculty Room"))
+                                    if "name" in pin_copy:
+                                        pin_copy["name"] = f"{college_prefix}: {pin_copy['name']}"
+                                    else:
+                                        pin_copy["name"] = college_prefix
+                                    all_map_pins.append(pin_copy)
+                            elif map_data.get("coordinates"):
+                                all_map_pins.append({
+                                    "name": str(map_data.get("locationName", f"{college} Faculty Room")),
+                                    "coordinates": map_data["coordinates"]
+                                })
+                        
+                        processed_count += 1
+                
+                # Send helper text before the combined map (only if multiple pins)
+                if all_map_pins and first_map_id and len(all_map_pins) > 1:
+                    dispatcher.utter_message(text="Please press the zoom out button to see the other pinpoint of the map")
+                    print(f"DEBUG - Sent zoom out helper text")
+                
+                # Send combined map with all pins if we have any
+                if all_map_pins and first_map_id:
+                    combined_map = {
+                        "mapData": {
+                            "locationName": f"Multiple Faculty Rooms ({processed_count})",
+                            "pins": all_map_pins,
+                            "mapId": first_map_id
+                        }
+                    }
+                    dispatcher.utter_message(json_message=combined_map)
+                    print(f"DEBUG - Sent combined map with {len(all_map_pins)} pins")
+                
                 return []
 
             # If no college extracted, use generic response

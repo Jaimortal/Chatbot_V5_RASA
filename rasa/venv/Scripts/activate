@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\3rd year files and works\CAPSTONE DEV\AI PROMPT VS\REPLIT\FROM REPLIT with rasa V2\Code-Crafter\rasa\venv"
+VIRTUAL_ENV="C:\School Related File\3rd year\Capstone dev\Chatbot\Chatbot-v4-BUKSU\rasa\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
