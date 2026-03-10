@@ -434,7 +434,7 @@ stories:
 
 - story: ask about college shirt allowed
   steps:
-    - intent: college_shirt_allowed
+    - intent: wear_civilian_attire
     - action: action_reply_from_json
 
 - story: ask about campus dormitories
@@ -460,4 +460,59 @@ stories:
 - story: ask about get inc form
   steps:
     - intent: get_inc_form
+    - action: action_reply_from_json
+
+- story: ask about prerequisite subjects purpose
+  steps:
+    - intent: prerequisite_subjects_purpose
+    - action: action_reply_from_json
+
+- story: ask about rotc meaning
+  steps:
+    - intent: rotc_meaning
+    - action: action_reply_from_json
+
+- story: ask about buksu mission
+  steps:
+    - intent: buksu_mission
+    - action: action_reply_from_json
+
+- story: ask about buksu vision
+  steps:
+    - intent: buksu_vision
+    - action: action_reply_from_json
+
+- story: ask about buksu core values
+  steps:
+    - intent: buksu_core_values
+    - action: action_reply_from_json
+
+- story: ask about buksu president
+  steps:
+    - intent: buksu_president
+    - action: action_reply_from_json
+
+- story: ask about inc grade solution
+  steps:
+    - intent: inc_grade_solution
+    - action: action_reply_from_json
+
+- story: ask about inc grade consequences
+  steps:
+    - intent: inc_grade_consequences
+    - action: action_reply_from_json
+
+- story: ask about fda meaning
+  steps:
+    - intent: fda_meaning
+    - action: action_reply_from_json
+
+- story: ask about fda solution
+  steps:
+    - intent: fda_solution
+    - action: action_reply_from_json
+
+- story: ask about college shirt allowed
+  steps:
+    - intent: college_shirt_allowed
     - action: action_reply_from_json

@@ -495,6 +495,104 @@ LOCATION_ALIASES = {
     "cob 4th floor students organization": "COB 4th Floor Students Organization",
     "students organization cob 4th floor": "COB 4th Floor Students Organization",
     "cob 4th floor so": "COB 4th Floor Students Organization",
+
+
+    # New data
+     # NEW COT BUILDING
+    "new cot building": "New COT Building",
+    "new cot": "New COT Building",
+    "new college of technology building": "New COT Building",
+    "cot new building": "New COT Building",
+    "cot new bldg": "New COT Building",
+    "new cot bldg": "New COT Building",
+    "new technology building": "New COT Building",
+    "cot building new": "New COT Building",
+
+    # OLD COT BUILDING
+    "old cot building": "Old COT Building",
+    "old cot": "Old COT Building",
+    "old college of technology building": "Old COT Building",
+    "cot old building": "Old COT Building",
+    "old cot bldg": "Old COT Building",
+    "old technology building": "Old COT Building",
+    "cot building old": "Old COT Building",
+
+    # PHILOSOPHY FACULTY OFFICE
+    "philosophy faculty office": "Philosophy Faculty Office",
+    "philosophy office": "Philosophy Faculty Office",
+    "philosophy faculty": "Philosophy Faculty Office",
+    "philosophy department office": "Philosophy Faculty Office",
+    "philo faculty office": "Philosophy Faculty Office",
+    "philo office": "Philosophy Faculty Office",
+    "philosophy dept office": "Philosophy Faculty Office",
+    "philosophy faculty room": "Philosophy Faculty Office",
+
+    # CAS BUILDINGS
+    "cas buildings": "CAS Buildings",
+    "cas building": "CAS Buildings",
+    "college of arts and sciences building": "CAS Buildings",
+    "college of arts and sciences buildings": "CAS Buildings",
+    "cas bldg": "CAS Buildings",
+    "cas bldgs": "CAS Buildings",
+    "arts and sciences building": "CAS Buildings",
+    "arts and sciences buildings": "CAS Buildings",
+    "college arts sciences": "CAS Buildings",
+
+    # COLLEGE OF NURSING BUILDING
+    "college of nursing building": "College of Nursing Building",
+    "nursing building": "College of Nursing Building",
+    "nursing college building": "College of Nursing Building",
+    "nursing bldg": "College of Nursing Building",
+    "college nursing": "College of Nursing Building",
+    "nursing dept building": "College of Nursing Building",
+    "bukidnon nursing building": "College of Nursing Building",
+
+    # HEALTH & SERVICES BUILDING
+    "health & services building": "Health & Services Building",
+    "health and services building": "Health & Services Building",
+    "health services building": "Health & Services Building",
+    "health services": "Health & Services Building",
+    "health building": "Health & Services Building",
+    "services building": "Health & Services Building",
+    "health service center": "Health & Services Building",
+    "health services center": "Health & Services Building",
+
+    # GYMNASIUM
+    "gymnasium": "Gymnasium",
+    "gym": "Gymnasium",
+    "school gym": "Gymnasium",
+    "campus gym": "Gymnasium",
+    "university gymnasium": "Gymnasium",
+    "sports gym": "Gymnasium",
+    "gym building": "Gymnasium",
+
+    # ALUMNI BUILDING
+    "alumni building": "Alumni Building",
+    "alumni office": "Alumni Building",
+    "alumni center": "Alumni Building",
+    "alumni hall": "Alumni Building",
+    "alumni bldg": "Alumni Building",
+    "school alumni building": "Alumni Building",
+    "university alumni building": "Alumni Building",
+
+    # POWER BUILDING
+    "power building": "Power Building",
+    "power plant building": "Power Building",
+    "campus power building": "Power Building",
+    "power station": "Power Building",
+    "power facility": "Power Building",
+    "electric power building": "Power Building",
+    "generator building": "Power Building",
+
+    # INFORMATION UNIT OFFICE
+    "information unit office": "Information Unit Office",
+    "information office": "Information Unit Office",
+    "info unit office": "Information Unit Office",
+    "information desk": "Information Unit Office",
+    "information center": "Information Unit Office",
+    "info office": "Information Unit Office",
+    "campus information office": "Information Unit Office",
+    "information unit": "Information Unit Office",
 }
 
 

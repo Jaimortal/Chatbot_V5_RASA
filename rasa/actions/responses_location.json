@@ -1452,7 +1452,7 @@
       "map_id": "main_map",
       "responses": {
         "en": [
-          "The Automotive Faculty Office is located to the left of the Rubia Ladies DormitoryClick to open side panel for more information. It is easily identifiable by the presence of various automotive equipment in the area. A map is provided to assist you with your navigation."
+          "The Automotive Faculty Office is located to the left of the Rubia Ladies Dormitory. It is easily identifiable by the presence of various automotive equipment in the area. A map is provided to assist you with your navigation."
         ],
         "ceb": [
           "Ang Automotive Faculty Office nahimutang sa wala nga bahin sa Rubia Ladies Dormitory. Sayon ra kini mailhan tungod sa lain-laing automotive equipment nga makita sa lugar. Adunay gihatag nga mapa aron matabangan ka sa pag-navigate."
@@ -2531,6 +2531,186 @@
         ],
         "ceb": [
           "Ang COB 4th floor students organization makita sa College of Business building sa 4th floor."
+        ]
+      }
+    },
+    "New COT Building": {
+      "type": "building",
+      "building": "College of Community Education and Industrial Technology",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The new COT building is located in front of the old COT building. You can easily identify it because it is the only building labeled 'College of Community Education and Industrial Technology.' A map is provided to help you with navigation."
+        ],
+        "ceb": [
+          "Ang bag-ong COT building makita sa atubangan sa daang COT building. Sayon ra kini mailhan tungod kay mao ra kini ang building nga adunay label nga 'College of Community Education and Industrial Technology.' Adunay mapa nga gi-provide aron makatabang sa imong pag-navigate."
+        ]
+      }
+    },
+    "Old COT Building": {
+      "type": "building",
+      "building": "College of Community Education and Industrial Technology",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The old COT building is located in front of the new COT building. This building faces the parking lot area. You can use the map for better navigation."
+        ],
+        "ceb": [
+          "Ang daang COT building makita sa atubangan sa bag-ong COT building. Ang maong building nag-atubang sa parking lot area. Mahimo nimo gamiton ang mapa aron mas sayon ang pag-navigate."
+        ]
+      }
+    },
+    "Philosophy Faculty Office": {
+      "type": "office",
+      "building": "New CAS Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Philosophy faculty office is located in the New CAS building, which is behind the new COT building. The office is on the second floor, and you can reach it using either the elevator or the staircase. Please use the map for navigation."
+        ],
+        "ceb": [
+          "Ang Philosophy faculty office makita sa New CAS building nga naa sa likod sa bag-ong COT building. Ang opisina naa sa ikaduhang andana, ug mahimo nimo gamiton ang elevator o ang hagdanan aron makaabot didto. Gamita ang mapa alang sa imong pag-navigate."
+        ]
+      }
+    },
+    "CAS Buildings": {
+      "type": "building",
+      "building": "College of Arts and Sciences",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are multiple CAS buildings, and I will help you locate them. The New CAS building, where most CAS faculty offices are located, is behind the new COT building. The Old CAS building is located beside the New CAS building. There is also a Pink Building that belongs to CAS, which is located beside the Research Extension building. I have pinned all these locations on the map to help you with navigation."
+        ],
+        "ceb": [
+          "Adunay daghang CAS buildings, ug tabangan tika sa pagpangita niini. Ang New CAS building, diin kasagaran makita ang mga opisina sa CAS faculty, naa sa likod sa bag-ong COT building. Ang Old CAS building naa sa kilid sa New CAS building. Aduna pud Pink Building nga sakop sa CAS, nga naa sa kilid sa Research Extension building. Gi-pin nako ang tanang lokasyon sa mapa aron makatabang sa imong pag-navigate."
+        ]
+      }
+    },
+    "College of Nursing Building": {
+      "type": "building",
+      "building": "College of Nursing",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "There are two buildings related to the College of Nursing. One is the College of Nursing building itself, and the other is the Health & Services Building, which is located beside it. Please use the map provided, where both buildings are pinned to guide you."
+        ],
+        "ceb": [
+          "Adunay duha ka building nga sakop sa College of Nursing. Ang usa mao ang College of Nursing building mismo, ug ang usa pa mao ang Health & Services Building nga naa sa kilid niini. Gamita ang mapa nga akong gi-provide kay naka-pin didto ang duha ka building aron makatabang sa imong pag-navigate."
+        ]
+      }
+    },
+    "Health & Services Building": {
+      "type": "building",
+      "building": "Health & Services",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Health & Services Building is located on the left side of the College of Nursing building. Please use the map to help you navigate."
+        ],
+        "ceb": [
+          "Ang Health & Services Building makita sa wala nga bahin sa College of Nursing building. Gamita ang mapa aron makatabang sa imong pag-navigate."
+        ]
+      }
+    },
+    "Gymnasium": {
+      "type": "building",
+      "building": "Campus Area",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "You can find the gymnasium at the back area of the campus. It is easy to identify because the building has a visible label on top. Please use the map for easier navigation."
+        ],
+        "ceb": [
+          "Makita nimo ang gymnasium sa likod nga bahin sa campus. Sayon ra kini mailhan tungod kay adunay klaro nga label sa ibabaw sa building. Gamita ang mapa aron mas sayon ang imong pag-navigate."
+        ]
+      }
+    },
+    "Alumni Building": {
+      "type": "building",
+      "building": "Campus Area",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Alumni building is located right beside the library building. Please use the map for navigation."
+        ],
+        "ceb": [
+          "Ang Alumni building makita ra tupad sa library building. Gamita ang mapa aron makatabang sa imong pag-navigate."
+        ]
+      }
+    },
+    "Power Building": {
+      "type": "building",
+      "building": "Campus Area",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Power Building is located at the back of the Alumni building. Please use the map provided to help with your navigation."
+        ],
+        "ceb": [
+          "Ang Power Building makita sa likod sa Alumni building. Gamita ang mapa nga gi-provide aron makatabang sa imong pag-navigate."
+        ]
+      }
+    },
+    "Information Unit Office": {
+      "type": "office",
+      "building": "Bukidnon State University Entrance",
+      "floor": "Ground Floor",
+      "coordinates": [
+        100,
+        200
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Information Unit office is located at the entrance of Bukidnon State University. You can easily recognize it because there is a 'Help Desk' label on top of the office. Please use the map for guidance."
+        ],
+        "ceb": [
+          "Ang Information Unit office makita sa entrada sa Bukidnon State University. Sayon ra kini mailhan tungod kay adunay label nga 'Help Desk' sa ibabaw sa opisina. Gamita ang mapa aron makatabang sa imong pag-navigate."
         ]
       }
     }

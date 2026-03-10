@@ -607,6 +607,10 @@ nlu:
     - I am unable to continue because of a system glitch
     - The system seems to be down
     - I am having trouble with the website
+    - why my buksu admission is having a system error
+    - why my application is not submitting due to a system error
+    - I want to know how to resolve a system error on the admission site
+
 
 - intent: additional_slots
   examples: |
@@ -919,6 +923,26 @@ nlu:
     - Where can I find [B-2-02](location_name) and [B-2-03](location_name)?
     - Where is [College of Business Building](location_name) and [COT Buildings](location_name)?
     - Asa dapit ang [College of Business Building](location_name) og [COT Buildings](location_name)?
+    - Can you show me a map for [New COT Building](location_name)
+    - Pwede nimo ipakita ang mapa para sa [New COT Building](location_name)
+    - How do I go to [Old COT Building](location_name)
+    - Unsaon pag adto sa [Old COT Building](location_name)
+    - Can you guide me to the [Philosophy Faculty Office](location_name)
+    - Tabangi ko pag navigate padulong sa [Philosophy Faculty Office](location_name)
+    - I need directions going to [CAS Buildings](location_name)
+    - Asa dapit ang [CAS Buildings](location_name)
+    - Please send me a campus map for [College of Nursing Building](location_name)
+    - Pwede nimo i send ang mapa para sa [College of Nursing Building](location_name)
+    - Can you help me find the [Health & Services Building](location_name)
+    - Tabangi ko pangita ang [Health & Services Building](location_name)
+    - Show me the map location of the [Gymnasium](location_name)
+    - Asa makita sa mapa ang [Gymnasium](location_name)
+    - I want to navigate to the [Alumni Building](location_name)
+    - Unsaon nako pag navigate padulong sa [Alumni Building](location_name)
+    - Can you provide directions for the [Power Building](location_name)
+    - Asa ang dalan padulong sa [Power Building](location_name)
+    - Where is the [Information Unit Office](location_name) located
+    - Asa dapit ang [Information Unit Office](location_name)
 
 - regex: location_name
   examples: |
@@ -2602,28 +2626,28 @@ nlu:
     - Compatible ba ang TES sa ubang scholarship programs
     - Pwede ba makadawat ug TES ug lain nga educational assistance
 
-- intent: college_shirt_allowed
+- intent: wear_civilian_attire
   examples: |
-    - Am I allowed to wear a college shirt instead of the official school uniform
-    - Can students wear their college shirt during regular class days
-    - Is wearing a college shirt allowed inside the university campus
-    - Are college shirts accepted as part of the student uniform
-    - When are students allowed to wear college shirts in school
-    - Can I attend classes while wearing a college shirt
-    - Is the college shirt allowed during regular academic days
-    - Does the university allow wearing college shirts during classes
-    - Are new students allowed to wear college shirts instead of uniform
-    - What are the rules for wearing college shirts inside the campus
-    - Pwede ba magsul ob ug college shirt imbis nga official school uniform
-    - Tugotan ba ang students nga magsul ob ug college shirt panahon sa klase
-    - Pwede ba magsul ob ug college shirt sulod sa campus
-    - Gi allow ba ang college shirt isip uniform sa students
-    - Kanus a pwede magsul ob ug college shirt ang students
-    - Pwede ba mo attend ug klase nga nagsul ob ug college shirt
-    - Gi allow ba ang college shirt panahon sa regular class days
-    - Tugotan ba sa university ang pagsul ob ug college shirt
-    - Pwede ba ang college shirt para sa bag o nga students
-    - Unsa ang rules sa pagsul ob ug college shirt sulod sa campus
+    - Am I allowed to wear civilian attire instead of the official school uniform
+    - Can students wear their civilian attire during regular class days
+    - Is wearing civilian attire allowed inside the university campus
+    - Are civilian attire accepted as part of the student uniform
+    - When are students allowed to wear civilian attire in school
+    - Can I attend classes while wearing civilian attire
+    - Is the civilian attire allowed during regular academic days
+    - Does the university allow wearing civilian attire during classes
+    - Are new students allowed to wear civilian attire instead of uniform
+    - What are the rules for wearing civilian attire inside the campus
+    - Pwede ba magsul ob ug civilian attire imbis nga official school uniform
+    - Tugotan ba ang students nga magsul ob ug civilian attire panahon sa klase
+    - Pwede ba magsul ob ug civilian attire sulod sa campus
+    - Gi allow ba ang civilian attire isip uniform sa students
+    - Kanus a pwede magsul ob ug civilian attire ang students
+    - Pwede ba mo attend ug klase nga nagsul ob ug civilian attire
+    - Gi allow ba ang civilian attire panahon sa regular class days
+    - Tugotan ba sa university ang pagsul ob ug civilian attire
+    - Pwede ba ang civilian attire para sa bag o nga students
+    - Unsa ang rules sa pagsul ob ug civilian attire sulod sa campus
 
 - intent: campus_dormitories
   examples: |
@@ -2739,3 +2763,256 @@ nlu:
     - Nangita ko sa downloadable nga INC form gikan sa registrar
     - Asa gyud nako ma access ang official nga INC form
     - Pwede ba ka mohatag og impormasyon kung asa makuha ang INC form online
+
+- intent: prerequisite_subjects_purpose
+  examples: |
+    - What is the purpose of prerequisite subjects in my curriculum
+    - Why do students need to complete prerequisite subjects before advanced courses
+    - How do prerequisite subjects help students prepare for higher level classes
+    - Can you explain why prerequisite courses are required for enrollment
+    - I need information on the importance of completing foundational subjects first
+    - Why is it necessary to finish prerequisite subjects before taking specialized courses
+    - How do prerequisite subjects ensure students have enough skills for advanced classes
+    - What role do foundational subjects play in academic progression
+    - Can you describe the benefits of taking prerequisite subjects early
+    - What should students know about prerequisite courses before enrolling
+    - Unsa ang katuyoan sa prerequisite subjects sa akong kurso
+    - Ngano kinahanglan makompleto sa estudyante ang prerequisite subjects sa dili pa advanced courses
+    - Giunsa pagtabang sa prerequisite subjects ang estudyante nga makaandam sa mas taas nga klase
+    - Pwede nimo ipasabot ngano required ang prerequisite courses sa enrollment
+    - Nanginahanglan ko og impormasyon bahin sa kahinungdanon sa pagtapos sa foundational subjects una
+    - Ngano kinahanglan makompleto ang prerequisite subjects sa dili pa specialized courses
+    - Giunsa pagseguro sa prerequisite subjects nga adunay igo nga kahanas ang estudyante sa advanced classes
+    - Unsay papel sa foundational subjects sa academic progression
+    - Pwede nimo i-describe ang benepisyo sa pagkuha sa prerequisite subjects sayo
+    - Unsay angay masayran sa estudyante bahin sa prerequisite courses sa dili pa enrollment
+
+- intent: rotc_meaning
+  examples: |
+    - What does ROTC stand for in the university program
+    - Can you explain the meaning of ROTC in college
+    - I need information about ROTC and its purpose for students
+    - How does the ROTC program provide military training to students
+    - Why is ROTC important in the National Service Training Program
+    - Can you describe the goals of ROTC in student development
+    - How do students benefit from participating in ROTC activities
+    - What is the function of ROTC for leadership training in college
+    - Explain the ROTC program and its relevance to armed forces service
+    - Where can students find information about ROTC training requirements
+    - Unsa ang pasabot sa ROTC sa university program
+    - Pwede nimo ipasabot ang kahulugan sa ROTC sa kolehiyo
+    - Nanginahanglan ko og impormasyon bahin sa ROTC ug ang katuyoan niini para sa estudyante
+    - Giunsa paghatag sa ROTC program og military training sa mga estudyante
+    - Ngano importante ang ROTC sa National Service Training Program
+    - Pwede nimo i-describe ang mga tumong sa ROTC sa student development
+    - Giunsa pag-benefit sa estudyante ang pag-apil sa ROTC activities
+    - Unsay function sa ROTC para sa leadership training sa kolehiyo
+    - I-explain ang ROTC program ug ang relevance niini sa serbisyo sa armed forces
+    - Asa makakuha ang estudyante og impormasyon bahin sa ROTC training requirements
+
+- intent: buksu_mission
+  examples: |
+    - What is the mission of Bukidnon State University
+    - Can you describe the main objectives of BukSU
+    - How does BukSU aim to develop competitive professionals
+    - Explain the university mission regarding research and community service
+    - Why is quality instruction emphasized in the BukSU mission
+    - How does BukSU contribute to building a sustainable life for all
+    - Can you summarize BukSU mission for new students
+    - What are the primary goals of BukSU according to its mission
+    - Describe how BukSU ensures excellence through its mission
+    - How does the mission of BukSU guide academic and community activities
+    - Unsa ang misyon sa Bukidnon State University
+    - Pwede nimo i-describe ang pangunahing mga tumong sa BukSU
+    - Giunsa pagpalambo sa BukSU og kompetitibong propesyonal
+    - I-explain ang university mission bahin sa research ug community service
+    - Ngano gi-emphasize ang quality instruction sa BukSU mission
+    - Giunsa pagtabang sa BukSU sa pagtukod og malungtarong kinabuhi alang sa tanan
+    - Pwede nimo i-summarize ang BukSU mission para sa mga bag-ong estudyante
+    - Unsay mga pangunahing goals sa BukSU base sa ilang mission
+    - I-describe unsaon sa BukSU pagsiguro og excellence pinaagi sa mission
+    - Giunsa paggiya sa mission sa BukSU ang academic ug community activities
+
+- intent: buksu_vision
+  examples: |
+    - What is the vision of Bukidnon State University
+    - How does BukSU plan to become a premier institution
+    - Can you describe BukSU vision for sustainable development
+    - Explain how the university produces innovative leaders
+    - Why does BukSU focus on ethical leadership in its vision
+    - How does BukSU intend to impact society through education
+    - What are the long term objectives in the BukSU vision
+    - Summarize BukSU vision statement for students
+    - How does the vision guide academic excellence
+    - In what ways does BukSU vision influence student leadership
+    - Unsa ang bisyon sa Bukidnon State University
+    - Giunsa pagplano sa BukSU nga mahimong nangunang institusyon
+    - Pwede nimo i-describe ang BukSU vision para sa malungtarong kalamboan
+    - I-explain unsaon sa university pagmugna og innovative leaders
+    - Ngano gi-focus sa BukSU ang ethical leadership sa ilang vision
+    - Giunsa plano sa BukSU nga makaapekto sa katilingban pinaagi sa edukasyon
+    - Unsay long term objectives sa BukSU vision
+    - I-summarize ang BukSU vision statement para sa estudyante
+    - Giunsa paggiya sa vision ang academic excellence
+    - Sa unsang paagi ang BukSU vision naka-influence sa student leadership
+
+- intent: buksu_core_values
+  examples: |
+    - What are the core values of Bukidnon State University
+    - Can you list BukSU core values
+    - Explain the principles that guide BukSU students and faculty
+    - How do core values shape university culture
+    - Why are excellence and integrity emphasized in BukSU
+    - Describe the significance of commitment and professionalism
+    - How does culture sensitivity integrate into BukSU values
+    - What ethical standards are upheld by BukSU
+    - Can you summarize BukSU core values for new students
+    - Why is professionalism important in BukSU academic environment
+    - Unsa ang core values sa Bukidnon State University
+    - Pwede nimo i-list ang BukSU core values
+    - I-explain ang mga prinsipyo nga gi-guide ang estudyante ug faculty sa BukSU
+    - Giunsa pag-shape sa core values ang university culture
+    - Ngano gi-emphasize ang excellence ug integrity sa BukSU
+    - I-describe ang kahinungdanon sa commitment ug professionalism
+    - Giunsa pag-integrate ang culture sensitivity sa BukSU values
+    - Unsay ethical standards nga gisuportahan sa BukSU
+    - Pwede nimo i-summarize ang BukSU core values para sa bag-ong estudyante
+    - Ngano importante ang professionalism sa BukSU academic environment
+
+- intent: buksu_president
+  examples: |
+    - Who is the current president of Bukidnon State University
+    - Can you tell me who leads BukSU at present
+    - What are the responsibilities of the BukSU president
+    - How does the president guide academic and community programs
+    - Explain the role of the university president in research and instruction
+    - Who is in charge of administration at BukSU
+    - Describe the leadership of Dr Joy Mirasol at BukSU
+    - How does the president influence student development
+    - What initiatives are led by the BukSU president
+    - Can you provide information about BukSU administration leadership
+    - Kinsa ang kasamtangang presidente sa Bukidnon State University
+    - Pwede nimo isulti kinsa ang nag-lead sa BukSU karon
+    - Unsay mga responsibilidad sa BukSU presidente
+    - Giunsa paggiya sa presidente ang academic ug community programs
+    - I-explain ang papel sa university presidente sa research ug instruction
+    - Kinsa ang nagdumala sa administration sa BukSU
+    - I-describe ang leadership ni Dr Joy Mirasol sa BukSU
+    - Giunsa pag-impluwensya sa presidente ang student development
+    - Unsay mga initiatives nga gi-lead sa BukSU presidente
+    - Pwede nimo ihatag ang impormasyon bahin sa BukSU administration leadership
+
+- intent: inc_grade_solution
+  examples: |
+    - What does an INC grade mean for a subject
+    - How can I complete my INC requirements
+    - Can you explain the INC form process
+    - How long do students have to finish their INC activities
+    - Where can I download the INC form
+    - What steps should be taken to resolve an INC grade
+    - How do instructors handle incomplete grades
+    - Can I still enroll if I have an INC grade
+    - How are missing outputs or assignments submitted for INC
+    - What is the official procedure to convert an INC grade
+    - Unsa ang pasabot sa INC grade sa usa ka subject
+    - Giunsa nako makompleto ang akong INC requirements
+    - Pwede nimo i-explain ang INC form process
+    - Pila ka dugay ang estudyante nga makompleto ang ilang INC activities
+    - Asa nako ma-download ang INC form
+    - Unsay mga lakang aron ma-resolve ang INC grade
+    - Giunsa pag-handle sa instructor ang incomplete grades
+    - Pwede pa ba ko maka-enroll kung naa koy INC grade
+    - Giunsa pag-submit ang kulang nga outputs o assignments para sa INC
+    - Unsay official nga proseso aron ma-convert ang INC grade
+
+- intent: inc_grade_consequences
+  examples: |
+    - What happens if I receive an INC grade
+    - How does an INC affect enrollment in future subjects
+    - Can an INC grade make a student irregular
+    - What is the consequence of not completing INC requirements on time
+    - How long do I have to avoid becoming irregular
+    - Can INC grades impact my academic record
+    - What should I do if my prerequisite subject has an INC
+    - How are students informed about INC consequences
+    - Can INC completion delay graduation
+    - What are the academic risks of leaving an INC unresolved
+    - Unsay mahitabo kung makadawat ko og INC grade
+    - Giunsa pag-apekto sa INC ang enrollment sa sunod nga subject
+    - Pwede ba mahimong irregular ang estudyante tungod sa INC
+    - Unsay consequence kung dili makompleto ang INC requirements sa tukmang oras
+    - Pila ka dugay angay ko aron malikayan ang pagka-irregular
+    - Pwede ba maapektuhan sa INC grades ang akong academic record
+    - Unsay angay buhaton kung ang prerequisite subject nako adunay INC
+    - Giunsa pagpasabot sa estudyante ang INC consequences
+    - Pwede ba madugay ang graduation tungod sa INC completion
+    - Unsay mga academic risks kung pasagdan ang INC nga wala masulbad
+
+- intent: fda_meaning
+  examples: |
+    - What does FDA stand for in attendance rules
+    - How does a student get an FDA grade
+    - Explain the criteria for Failure Due to Absences
+    - How many absences lead to an FDA
+    - Does being late count toward FDA
+    - What are the department rules for FDA
+    - Can multiple absences cause a student to fail
+    - How is FDA recorded in the academic record
+    - What should a student know about FDA consequences
+    - How does FDA affect academic standing
+    - Unsay pasabot sa FDA sa attendance rules
+    - Giunsa pagkuha sa estudyante ang FDA grade
+    - I-explain ang criteria sa Failure Due to Absences
+    - Pila ka absences ang mosangpot sa FDA
+    - Apil ba ang pagka-late sa FDA
+    - Unsay department rules para sa FDA
+    - Pwede ba ang daghang absences makapahinabo sa failure sa estudyante
+    - Giunsa pag-record ang FDA sa academic record
+    - Unsay angay masayran sa estudyante bahin sa FDA consequences
+    - Giunsa pag-apekto sa FDA ang academic standing
+
+- intent: fda_solution
+  examples: |
+    - What should I do if I receive an FDA
+    - How can I approach my instructor about an FDA
+    - What are the possible actions after receiving FDA
+    - Can I discuss my situation with the instructor
+    - How do instructors handle students with FDA
+    - What guidance can be provided for FDA cases
+    - How soon should I report my FDA to the instructor
+    - What options are available to resolve FDA issues
+    - Can FDA affect my eligibility for enrollment
+    - Who should I contact regarding an FDA grade
+    - Unsay angay buhaton kung makadawat ko og FDA
+    - Giunsa nako duolon ang instructor bahin sa FDA
+    - Unsay mga posible nga lakang human makadawat og FDA
+    - Pwede ba nako istoryahan ang akong sitwasyon sa instructor
+    - Giunsa pag-handle sa instructors ang estudyante nga adunay FDA
+    - Unsay guidance nga pwede ihatag para sa FDA cases
+    - Kanus-a angay nako i-report ang FDA sa instructor
+    - Unsay mga options aron masulbad ang FDA issues
+    - Pwede ba maapektohan sa FDA ang eligibility sa enrollment
+    - Kinsa ang angay kontakon bahin sa FDA grade
+
+- intent: college_shirt_allowed
+  examples: |
+    - When can students wear their college shirts
+    - Are there official days for wearing college shirts
+    - Can students wear their shirts on certain weekdays
+    - How are college shirts regulated on campus
+    - What announcements guide shirt wearing
+    - Are shirts allowed during special academic activities
+    - How do students know the rules for college shirts
+    - Is there a schedule for college shirt days
+    - Can college shirts be worn without permission
+    - What is the official policy for wearing college shirts
+    - Kanus-a pwede magsul-ob ang estudyante sa ilang college shirts
+    - Aduna ba opisyal nga adlaw para magsul-ob og college shirts
+    - Pwede ba magsul-ob ang estudyante sa ilang shirts sa pipila ka weekdays
+    - Giunsa pag-regulate ang college shirts sa campus
+    - Unsay mga announcements nga naggiya sa pagsul-ob sa shirt
+    - Gitugotan ba ang shirts panahon sa special academic activities
+    - Giunsa pagsayran sa estudyante ang rules para sa college shirts
+    - Aduna bay schedule para sa college shirt days
+    - Pwede ba magsul-ob sa college shirts kung walay permiso
+    - Unsay opisyal nga policy sa pagsul-ob sa college shirts

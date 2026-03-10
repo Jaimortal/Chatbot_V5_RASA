@@ -92,13 +92,24 @@ intents:
   - tes_release_delay
   - reschedule_entrance_exam
   - tes_with_other_scholarships
-  - college_shirt_allowed
+  - wear_civilian_attire
   - campus_dormitories
   - dormitory_pros_cons
   - cancel_tabuk_assistance
   - shorts_on_campus
   
   - get_inc_form
+  - prerequisite_subjects_purpose
+  - rotc_meaning
+  - buksu_mission
+  - buksu_vision
+  - buksu_core_values
+  - buksu_president
+  - inc_grade_solution
+  - inc_grade_consequences
+  - fda_meaning
+  - fda_solution
+  - college_shirt_allowed
   
 entities:
   - lab_number
