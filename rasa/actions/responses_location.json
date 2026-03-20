@@ -380,7 +380,7 @@
     },
     "Conference Room A": {
       "type": "room",
-      "building": "Admin Building",
+      "building": "Finance Building",
       "floor": "2nd Floor",
       "coordinates": [
         100,
@@ -396,11 +396,21 @@
           "Nahimutang sa 2nd floor sa Admin Building.",
           "Kini ang Conference Room A, gigamit para sa mga miting."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            100,
+            200
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "Mahogany dorm": {
       "type": "building",
-      "building": "Near Library Building",
+      "building": "Dorm",
       "floor": "N/A",
       "coordinates": [
         515,
@@ -428,7 +438,7 @@
     },
     "Rubia dorm": {
       "type": "building",
-      "building": "Beside Automotive Building",
+      "building": "Dorm",
       "floor": "N/A",
       "coordinates": [
         210,
@@ -456,7 +466,7 @@
     },
     "Auditorium": {
       "type": "room",
-      "building": "Registrar’s Office Building",
+      "building": "CPAG Building",
       "floor": "First Floor",
       "coordinates": [
         638,
@@ -512,7 +522,7 @@
     },
     "Fitness Gym": {
       "type": "building",
-      "building": "Track and Field Area (Oval)",
+      "building": "Oval",
       "floor": "N/A",
       "coordinates": [
         457,
@@ -540,7 +550,7 @@
     },
     "PE Faculty Room": {
       "type": "room",
-      "building": "Between Old Nursing Building and Gymnasium",
+      "building": "Gymnasium",
       "floor": "N/A",
       "coordinates": [
         217,
@@ -568,7 +578,7 @@
     },
     "Museum": {
       "type": "building",
-      "building": "Front of Research Building and University Library",
+      "building": "IP Museum",
       "floor": "N/A",
       "coordinates": [
         584,
@@ -596,7 +606,7 @@
     },
     "Oval": {
       "type": "building",
-      "building": "Track and Field Area",
+      "building": "Oval",
       "floor": "N/A",
       "coordinates": [
         363,
@@ -652,7 +662,7 @@
     },
     "COT Faculty Room": {
       "type": "room",
-      "building": "New College of Technologies Building",
+      "building": "New COT Building",
       "floor": "Third Floor",
       "coordinates": [
         479,
@@ -680,7 +690,7 @@
     },
     "BSN Faculty Room": {
       "type": "room",
-      "building": "Old College of Nursing Building",
+      "building": "CON Building",
       "floor": "Ground Floor",
       "coordinates": [
         244,
@@ -820,7 +830,7 @@
     },
     "Law Office": {
       "type": "office",
-      "building": "Between University Press Building and Vehicle Entrance",
+      "building": "Law Building",
       "floor": "N/A",
       "coordinates": [
         877,
@@ -848,7 +858,7 @@
     },
     "Registrar Office": {
       "type": "office",
-      "building": "Between CPAG Building and Finance Building",
+      "building": "CPAG Building",
       "floor": "N/A",
       "coordinates": [
         682,
@@ -904,7 +914,7 @@
     },
     "Cafeteria": {
       "type": "facility",
-      "building": "Next to Rubia Dorm",
+      "building": "Dorm",
       "floor": "N/A",
       "coordinates": [
         197,
@@ -939,7 +949,7 @@
     },
     "Vehicle Parking Area": {
       "type": "facility",
-      "building": "Multiple Parking Areas",
+      "building": "Parking Areas",
       "floor": "N/A",
       "coordinates": [
         776,
@@ -1037,7 +1047,7 @@
     },
     "Car Parking Area": {
       "type": "facility",
-      "building": "Multiple Parking Areas",
+      "building": "Parking Areas",
       "floor": "N/A",
       "coordinates": [
         266,
@@ -1114,7 +1124,7 @@
     },
     "Motorcycle Parking Area": {
       "type": "facility",
-      "building": "Multiple Parking Areas",
+      "building": "Parking Areas",
       "floor": "N/A",
       "coordinates": [
         747,
@@ -1184,7 +1194,7 @@
     },
     "Library": {
       "type": "building",
-      "building": "Left Side of Museum",
+      "building": "Library",
       "floor": "N/A",
       "coordinates": [
         573,
@@ -1212,7 +1222,7 @@
     },
     "Research Extension": {
       "type": "building",
-      "building": "In Front of Museum",
+      "building": "Research Extension",
       "floor": "N/A",
       "coordinates": [
         522,
@@ -1240,7 +1250,7 @@
     },
     "Kilala Dorm": {
       "type": "building",
-      "building": "Behind Health & Service Building",
+      "building": "Dorm",
       "floor": "N/A",
       "coordinates": [
         241,
@@ -1268,7 +1278,7 @@
     },
     "Comfort Room": {
       "type": "facility",
-      "building": "Multiple Locations",
+      "building": "Comfort Room",
       "floor": "N/A",
       "coordinates": [
         457,
@@ -1415,7 +1425,7 @@
     },
     "NSTP Office": {
       "type": "office",
-      "building": "COA Building",
+      "building": "NSTP Building",
       "floor": "N/A",
       "coordinates": [
         611,
@@ -1443,7 +1453,7 @@
     },
     "Automotive Faculty Office": {
       "type": "office",
-      "building": "Left of Rubia Ladies Dormitory",
+      "building": "Automotive Building",
       "floor": "N/A",
       "coordinates": [
         227,
@@ -1512,7 +1522,7 @@
     },
     "Guard House": {
       "type": "facility",
-      "building": "Multiple Locations",
+      "building": "Guard House",
       "floor": "N/A",
       "coordinates": [
         874,
@@ -1554,7 +1564,7 @@
     },
     "Electronics Faculty Room": {
       "type": "room",
-      "building": "New College of Technology (COT) Building",
+      "building": "New COT Building",
       "floor": "Third Floor",
       "coordinates": [
         468,
@@ -1582,7 +1592,7 @@
     },
     "Electronics Laboratories": {
       "type": "room",
-      "building": "New College of Technology (COT) Building",
+      "building": "New COT Building",
       "floor": "Fourth Floor",
       "coordinates": [
         479,
@@ -1610,7 +1620,7 @@
     },
     "DXBU": {
       "type": "room",
-      "building": "New College of Technology (COT) Building",
+      "building": "New COT Building",
       "floor": "Fourth Floor",
       "coordinates": [
         476,
@@ -1666,7 +1676,7 @@
     },
     "Computer Laboratories": {
       "type": "room",
-      "building": "Finance Building and Next to University Press (UP) Building",
+      "building": "Comlab",
       "floor": "Third Floor (Finance Building)",
       "coordinates": [
         731,
@@ -1871,7 +1881,7 @@
     },
     "COT Buildings": {
       "type": "building",
-      "building": "College of Technology",
+      "building": "COT Building",
       "floor": "Ground Floor",
       "coordinates": [
         457,
@@ -2536,11 +2546,11 @@
     },
     "New COT Building": {
       "type": "building",
-      "building": "College of Community Education and Industrial Technology",
+      "building": "New COT Building",
       "floor": "Ground Floor",
       "coordinates": [
-        100,
-        200
+        482,
+        786
       ],
       "map_id": "main_map",
       "responses": {
@@ -2550,15 +2560,25 @@
         "ceb": [
           "Ang bag-ong COT building makita sa atubangan sa daang COT building. Sayon ra kini mailhan tungod kay mao ra kini ang building nga adunay label nga 'College of Community Education and Industrial Technology.' Adunay mapa nga gi-provide aron makatabang sa imong pag-navigate."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "New COT Building",
+          "coordinates": [
+            482,
+            786
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "Old COT Building": {
       "type": "building",
-      "building": "College of Community Education and Industrial Technology",
+      "building": "Old COT Building",
       "floor": "Ground Floor",
       "coordinates": [
-        100,
-        200
+        605,
+        764
       ],
       "map_id": "main_map",
       "responses": {
@@ -2568,7 +2588,17 @@
         "ceb": [
           "Ang daang COT building makita sa atubangan sa bag-ong COT building. Ang maong building nag-atubang sa parking lot area. Mahimo nimo gamiton ang mapa aron mas sayon ang pag-navigate."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Old COT building",
+          "coordinates": [
+            605,
+            764
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "Philosophy Faculty Office": {
       "type": "office",
@@ -2586,15 +2616,25 @@
         "ceb": [
           "Ang Philosophy faculty office makita sa New CAS building nga naa sa likod sa bag-ong COT building. Ang opisina naa sa ikaduhang andana, ug mahimo nimo gamiton ang elevator o ang hagdanan aron makaabot didto. Gamita ang mapa alang sa imong pag-navigate."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            100,
+            200
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "CAS Buildings": {
       "type": "building",
-      "building": "College of Arts and Sciences",
+      "building": "CAS Building",
       "floor": "Ground Floor",
       "coordinates": [
-        100,
-        200
+        425,
+        782
       ],
       "map_id": "main_map",
       "responses": {
@@ -2604,15 +2644,32 @@
         "ceb": [
           "Adunay daghang CAS buildings, ug tabangan tika sa pagpangita niini. Ang New CAS building, diin kasagaran makita ang mga opisina sa CAS faculty, naa sa likod sa bag-ong COT building. Ang Old CAS building naa sa kilid sa New CAS building. Aduna pud Pink Building nga sakop sa CAS, nga naa sa kilid sa Research Extension building. Gi-pin nako ang tanang lokasyon sa mapa aron makatabang sa imong pag-navigate."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "New CAS - Faculty offices",
+          "coordinates": [
+            425,
+            782
+          ]
+        },
+        {
+          "name": "Old CAS - Rooms & Offices",
+          "coordinates": [
+            472,
+            638
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "College of Nursing Building": {
       "type": "building",
-      "building": "College of Nursing",
+      "building": "CON Building",
       "floor": "Ground Floor",
       "coordinates": [
-        100,
-        200
+        240,
+        760
       ],
       "map_id": "main_map",
       "responses": {
@@ -2622,7 +2679,24 @@
         "ceb": [
           "Adunay duha ka building nga sakop sa College of Nursing. Ang usa mao ang College of Nursing building mismo, ug ang usa pa mao ang Health & Services Building nga naa sa kilid niini. Gamita ang mapa nga akong gi-provide kay naka-pin didto ang duha ka building aron makatabang sa imong pag-navigate."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "College of Nursing",
+          "coordinates": [
+            240,
+            760
+          ]
+        },
+        {
+          "name": "Health & Service bldg",
+          "coordinates": [
+            282,
+            665
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "Health & Services Building": {
       "type": "building",
@@ -2644,11 +2718,11 @@
     },
     "Gymnasium": {
       "type": "building",
-      "building": "Campus Area",
+      "building": "Gymnasium",
       "floor": "Ground Floor",
       "coordinates": [
-        100,
-        200
+        278,
+        897
       ],
       "map_id": "main_map",
       "responses": {
@@ -2658,7 +2732,17 @@
         "ceb": [
           "Makita nimo ang gymnasium sa likod nga bahin sa campus. Sayon ra kini mailhan tungod kay adunay klaro nga label sa ibabaw sa building. Gamita ang mapa aron mas sayon ang imong pag-navigate."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            278,
+            897
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "Alumni Building": {
       "type": "building",
@@ -2698,11 +2782,11 @@
     },
     "Information Unit Office": {
       "type": "office",
-      "building": "Bukidnon State University Entrance",
+      "building": "Administrative Building",
       "floor": "Ground Floor",
       "coordinates": [
-        100,
-        200
+        823,
+        614
       ],
       "map_id": "main_map",
       "responses": {
@@ -2712,7 +2796,17 @@
         "ceb": [
           "Ang Information Unit office makita sa entrada sa Bukidnon State University. Sayon ra kini mailhan tungod kay adunay label nga 'Help Desk' sa ibabaw sa opisina. Gamita ang mapa aron makatabang sa imong pag-navigate."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "Information Unit",
+          "coordinates": [
+            823,
+            614
+          ]
+        }
+      ],
+      "imageUrls": []
     }
   }
 }

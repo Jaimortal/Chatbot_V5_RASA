@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, boolean, timestamp, jsonb, integer } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, boolean, timestamp, jsonb, integer, serial } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -11,6 +11,47 @@ export const users = pgTable("users", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// Table for responses.json data
+export const botResponses = pgTable("bot_responses", {
+  id: serial("id").primaryKey(),
+  intent: text("intent").notNull().unique(),
+  category: text("category").default(""),
+  subCategory: text("sub_category").default(""),
+  // Answer can be multilingual or simple array
+  answerEn: jsonb("answer_en").$type<string[]>().default([]),
+  answerCeb: jsonb("answer_ceb").$type<string[]>().default([]),
+  // Simple answer for non-multilingual responses
+  answer: jsonb("answer").$type<string[]>().default([]),
+  followUp: jsonb("follow_up").$type<string[]>().default([]),
+  contextSlots: jsonb("context_slots").default({}),
+  imageUrl: text("image_url").default(""),
+  imageUrls: jsonb("image_urls").$type<string[]>().default([]),
+  mapData: jsonb("map_data").default(null),
+  metadata: jsonb("metadata").default({}),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Table for responses_location.json data
+export const locationResponses = pgTable("location_responses", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  type: text("type").notNull(),
+  building: text("building").notNull(),
+  floor: text("floor").default("N/A"),
+  coordinates: jsonb("coordinates").$type<number[]>().notNull(), // [y, x] format
+  mapId: text("map_id").default("main_map"),
+  // Multilingual responses
+  responsesEn: jsonb("responses_en").$type<string[]>().default([]),
+  responsesCeb: jsonb("responses_ceb").$type<string[]>().default([]),
+  // Additional map data
+  pins: jsonb("pins").$type<{name: string, coordinates: number[]}[]>().default([]),
+  imageUrls: jsonb("image_urls").$type<string[]>().default([]),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Keep existing admin_responses table for admin-managed responses
 export const adminResponses = pgTable("admin_responses", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   intent: text("intent").notNull().unique(),
@@ -40,6 +81,7 @@ export const userSessions = pgTable("user_sessions", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// Simplified locations table for basic location data
 export const locations = pgTable("locations", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   name: text("name").notNull(),
@@ -77,6 +119,18 @@ export const insertUserSchema = createInsertSchema(users).pick({
   role: true,
 });
 
+export const insertBotResponseSchema = createInsertSchema(botResponses).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertLocationResponseSchema = createInsertSchema(locationResponses).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
 export const insertAdminResponseSchema = createInsertSchema(adminResponses).omit({
   id: true,
   createdAt: true,
@@ -101,6 +155,12 @@ export const insertConversationLogSchema = createInsertSchema(conversationLogs).
 // Type definitions
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+export type InsertBotResponse = z.infer<typeof insertBotResponseSchema>;
+export type BotResponse = typeof botResponses.$inferSelect;
+
+export type InsertLocationResponse = z.infer<typeof insertLocationResponseSchema>;
+export type LocationResponse = typeof locationResponses.$inferSelect;
 
 export type InsertAdminResponse = z.infer<typeof insertAdminResponseSchema>;
 export type AdminResponse = typeof adminResponses.$inferSelect;

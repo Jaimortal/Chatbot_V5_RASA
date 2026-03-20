@@ -1,0 +1,12 @@
+{
+  "faqs": [
+    {
+      "intent": "ask_locations",
+      "exampleQuestion": "Where is ComLab 1 located in Bukidnon State University",
+      "count": 1,
+      "lastAsked": "2026-03-10T14:39:00.690Z"
+    }
+  ],
+  "totalQuestions": 1,
+  "lastUpdated": "2026-03-10T14:39:00.690Z"
+}

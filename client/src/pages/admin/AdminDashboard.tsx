@@ -11,7 +11,10 @@ import {
   fetchAutoTranslateStatus,
   sendVerificationCode,
   verifyCodeAndUpdateEmail,
-  changePassword
+  changePassword,
+  migrateResponses,
+  migrateLocations,
+  fetchMigrationStatus
 } from "@/lib/adminApi";
 import type { ResponseData, Location, UserPrivileges } from "@/types/admin";
 import { 
@@ -27,7 +30,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock, Eye, EyeOff, Menu, X } from "lucide-react";
+import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock, Eye, EyeOff, Menu, X, Database } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -40,6 +43,10 @@ export default function AdminDashboard() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
   const [responsesSubTab, setResponsesSubTab] = useState<"general" | "locations">("general");
+  
+  // Migration state
+  const [showMigrateDialog, setShowMigrateDialog] = useState(false);
+  const [migrationStatus, setMigrationStatus] = useState<{ responsesCount: number; locationsCount: number } | null>(null);
 
   const DEFAULT_PRIVILEGES: UserPrivileges = {
     chatEnabled: true,
@@ -52,6 +59,7 @@ export default function AdminDashboard() {
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [locationSearchTerm, setLocationSearchTerm] = useState<string>("");
+  const [buildingFilter, setBuildingFilter] = useState<string>("all");
   
   // --- Responses Query ---
   const { data: responses = [] } = useQuery({
@@ -68,13 +76,17 @@ export default function AdminDashboard() {
   // --- User Privileges Query ---
   const { data: fetchedPrivileges } = useQuery({
     queryKey: ["userPrivileges"],
-    queryFn: fetchUserPrivilegesAdmin
+    queryFn: fetchUserPrivilegesAdmin,
+    staleTime: 60000, // Consider data fresh for 1 minute
+    refetchInterval: 60000, // Only poll every minute
+    refetchOnWindowFocus: false,
   });
 
   const { data: autoTranslateStatus } = useQuery({
     queryKey: ["autoTranslateStatus"],
     queryFn: fetchAutoTranslateStatus,
-    refetchInterval: 1500,
+    refetchInterval: 10000, // Poll every 10 seconds instead of 1.5s (6.6x reduction)
+    staleTime: 5000, // Consider data fresh for 5 seconds
   });
 
   const mountedAtRef = useRef<number>(Date.now());
@@ -125,14 +137,18 @@ export default function AdminDashboard() {
   // --- Get Unique Categories ---
   const categories = Array.from(new Set(responses.map(r => r.category).filter(Boolean)));
 
+  // --- Get Unique Buildings ---
+  const buildings = Array.from(new Set(locations.map(l => l.building).filter(Boolean))) as string[];
+
   const filteredLocations = locations.filter((l) => {
-    if (!locationSearchTerm.trim()) return true;
-    const q = locationSearchTerm.toLowerCase();
-    return (
-      (l.name && l.name.toLowerCase().includes(q)) ||
-      (l.type && l.type.toLowerCase().includes(q)) ||
-      (l.building && l.building.toLowerCase().includes(q))
-    );
+    const matchesSearch = !locationSearchTerm.trim() || 
+      (l.name && l.name.toLowerCase().includes(locationSearchTerm.toLowerCase())) ||
+      (l.type && l.type.toLowerCase().includes(locationSearchTerm.toLowerCase())) ||
+      (l.building && l.building.toLowerCase().includes(locationSearchTerm.toLowerCase()));
+    
+    const matchesBuilding = buildingFilter === "all" || l.building === buildingFilter;
+    
+    return matchesSearch && matchesBuilding;
   });
 
   // --- Mutations ---
@@ -168,6 +184,71 @@ export default function AdminDashboard() {
       toast({ title: "Failed to update privileges", variant: "destructive" });
     }
   });
+
+  // Migration mutations
+  const migrateResponsesMutation = useMutation({
+    mutationFn: migrateResponses,
+    onSuccess: (result) => {
+      if (result.success) {
+        queryClient.invalidateQueries({ queryKey: ["responses"] });
+        toast({ 
+          title: "Migration Complete", 
+          description: result.message || "Responses migrated successfully" 
+        });
+      } else {
+        toast({ 
+          title: "Migration Failed", 
+          description: result.message || "Failed to migrate responses",
+          variant: "destructive"
+        });
+      }
+      setShowMigrateDialog(false);
+    },
+    onError: (error: any) => {
+      toast({ 
+        title: "Migration Error", 
+        description: error?.message || "An error occurred during migration",
+        variant: "destructive"
+      });
+      setShowMigrateDialog(false);
+    }
+  });
+
+  const migrateLocationsMutation = useMutation({
+    mutationFn: migrateLocations,
+    onSuccess: (result) => {
+      if (result.success) {
+        queryClient.invalidateQueries({ queryKey: ["locations"] });
+        toast({ 
+          title: "Migration Complete", 
+          description: result.message || "Locations migrated successfully" 
+        });
+      } else {
+        toast({ 
+          title: "Migration Failed", 
+          description: result.message || "Failed to migrate locations",
+          variant: "destructive"
+        });
+      }
+      setShowMigrateDialog(false);
+    },
+    onError: (error: any) => {
+      toast({ 
+        title: "Migration Error", 
+        description: error?.message || "An error occurred during migration",
+        variant: "destructive"
+      });
+      setShowMigrateDialog(false);
+    }
+  });
+
+  const handleMigrate = () => {
+    if (responsesSubTab === "general") {
+      migrateResponsesMutation.mutate();
+    } else {
+      migrateLocationsMutation.mutate();
+    }
+  };
 
   const handlePrivilegeToggle = (key: keyof UserPrivileges, checked: boolean) => {
     const updated: UserPrivileges = {
@@ -274,11 +355,6 @@ export default function AdminDashboard() {
         <div className="max-w-6xl mx-auto">
           {activeTab === "responses" && (
             <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold tracking-tight">Chatbot Responses</h2>
-                <p className="text-muted-foreground mt-1">Manage chatbot responses and their location data</p>
-              </div>
-              
               <Card>
                 <CardHeader className="flex flex-col items-start space-y-4">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4">
@@ -286,65 +362,88 @@ export default function AdminDashboard() {
                       <CardTitle className="text-lg sm:text-xl">Chatbot Responses</CardTitle>
                       <CardDescription className="text-sm">Manage chatbot responses and their location data</CardDescription>
                     </div>
-                    {responsesSubTab === "general" ? (
-                      <ResponseDialog
-                        onSave={saveResponseMutation.mutateAsync}
-                        translationBusy={translationBusy}
-                        translationBusyIntent={translationBusyIntent}
-                      />
-                    ) : (
-                      <LocationDialog
-                        onSave={(l) => saveLocationMutation.mutate(l)}
-                      />
-                    )}
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        onClick={() => setShowMigrateDialog(true)}
+                        className="w-full sm:w-auto"
+                      >
+                        <Database className="mr-2 h-4 w-4" />
+                        Migrate from JSON
+                      </Button>
+                      {responsesSubTab === "general" ? (
+                        <ResponseDialog
+                          onSave={saveResponseMutation.mutateAsync}
+                          translationBusy={translationBusy}
+                          translationBusyIntent={translationBusyIntent}
+                        />
+                      ) : (
+                        <LocationDialog
+                          onSave={(l) => saveLocationMutation.mutate(l)}
+                        />
+                      )}
+                    </div>
                   </div>
 
-                  <Tabs value={responsesSubTab} onValueChange={(v) => setResponsesSubTab(v as any)}>
-                    <TabsList>
-                      <TabsTrigger value="general">General</TabsTrigger>
-                      <TabsTrigger value="locations">Locations</TabsTrigger>
-                    </TabsList>
-                  </Tabs>
-                  
-                  {/* Filters */}
-                  {responsesSubTab === "general" ? (
-                    <div className="flex flex-col sm:flex-row gap-4 w-full">
-                      <div className="w-full sm:flex-1">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4">
+                    <Tabs value={responsesSubTab} onValueChange={(v) => setResponsesSubTab(v as any)}>
+                      <TabsList>
+                        <TabsTrigger value="general">General</TabsTrigger>
+                        <TabsTrigger value="locations">Locations</TabsTrigger>
+                      </TabsList>
+                    </Tabs>
+                    
+                    {/* Search Bar - Beside Tabs */}
+                    {responsesSubTab === "general" ? (
+                      <div className="flex gap-2 items-center">
                         <Input
                           placeholder="Search by intent or category..."
                           value={searchTerm}
                           onChange={(e) => setSearchTerm(e.target.value)}
-                          className="max-w-sm"
+                          className="w-48 sm:w-64"
                         />
+                        <div className="w-32 sm:w-40">
+                          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Category" />
+                            </SelectTrigger>
+                            <SelectContent className="max-h-48 overflow-y-auto">
+                              <SelectItem value="all">All Categories</SelectItem>
+                              {categories.map(category => (
+                                <SelectItem key={category} value={category}>
+                                  {category}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
                       </div>
-                      <div className="w-48">
-                        <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Filter by category" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="all">All Categories</SelectItem>
-                            {categories.map(category => (
-                              <SelectItem key={category} value={category}>
-                                {category}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col sm:flex-row gap-4 w-full">
-                      <div className="w-full sm:flex-1">
+                    ) : (
+                      <div className="flex gap-2 items-center">
                         <Input
-                          placeholder="Search locations by name/building/type..."
+                          placeholder="Search locations..."
                           value={locationSearchTerm}
                           onChange={(e) => setLocationSearchTerm(e.target.value)}
-                          className="max-w-sm"
+                          className="w-32 sm:w-48"
                         />
+                        <div className="w-32 sm:w-40">
+                          <Select value={buildingFilter} onValueChange={setBuildingFilter}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Building" />
+                            </SelectTrigger>
+                            <SelectContent className="max-h-48 overflow-y-auto">
+                              <SelectItem value="all">All Buildings</SelectItem>
+                              {buildings.map(building => (
+                                <SelectItem key={building} value={building}>
+                                  {building}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </CardHeader>
                 <CardContent>
                   {responsesSubTab === "general" ? (
@@ -439,11 +538,6 @@ export default function AdminDashboard() {
 
           {activeTab === "privileges" && (
             <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold tracking-tight">User Privilege</h2>
-                <p className="text-muted-foreground mt-1">Enable or disable user features in the chat widget</p>
-              </div>
-              
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg sm:text-xl">User Privileges</CardTitle>
@@ -492,11 +586,6 @@ export default function AdminDashboard() {
 
           {activeTab === "admin-settings" && (
             <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold tracking-tight">Admin Settings</h2>
-                <p className="text-muted-foreground mt-1">Manage admin-specific settings and account</p>
-              </div>
-              
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg sm:text-xl">Translation Settings</CardTitle>
@@ -557,6 +646,40 @@ export default function AdminDashboard() {
               }}
             >
               Confirm
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Migration Confirmation Dialog */}
+      <AlertDialog open={showMigrateDialog} onOpenChange={setShowMigrateDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirm Migration</AlertDialogTitle>
+            <AlertDialogDescription>
+              {responsesSubTab === "general" 
+                ? "Are you sure you want to migrate all data from responses.json to the database? This will update existing responses and add new ones."
+                : "Are you sure you want to migrate all data from responses_location.json to the database? This will update existing locations and add new ones."
+              }
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel 
+              className="bg-white text-gray-800 hover:bg-gray-100 border-0"
+              onClick={() => setShowMigrateDialog(false)}
+            >
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction 
+              className="text-white border-0"
+              style={{ background: "linear-gradient(to right, #001C38, #0356a9ff)" }}
+              onClick={handleMigrate}
+              disabled={migrateResponsesMutation.isPending || migrateLocationsMutation.isPending}
+            >
+              {migrateResponsesMutation.isPending || migrateLocationsMutation.isPending 
+                ? "Migrating..." 
+                : "Confirm Migration"
+              }
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

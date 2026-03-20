@@ -3,6 +3,7 @@ import { spawn } from "child_process";
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
+import crypto from "crypto";
 import PhraseTranslator from "../../rulebaseTranslation/phraseTranslator";
 import { hashPassword, verifyPassword } from "../utils/passwordUtils";
 import jwt from "jsonwebtoken";
@@ -379,6 +380,21 @@ export class AdminController {
   static async getUserPrivileges(req: Request, res: Response) {
     try {
       const privileges = await getUserPrivileges();
+      
+      // Generate ETag based on content hash
+      const contentHash = crypto.createHash('md5').update(JSON.stringify(privileges)).digest('hex');
+      const etag = `"${contentHash}"`;
+      
+      // Check If-None-Match header
+      const ifNoneMatch = req.headers['if-none-match'];
+      if (ifNoneMatch === etag) {
+        return res.status(304).end(); // Not Modified
+      }
+      
+      // Set cache headers
+      res.setHeader('ETag', etag);
+      res.setHeader('Cache-Control', 'private, max-age=30'); // Client can cache for 30s
+      
       res.json({ success: true, data: privileges });
     } catch (error) {
       console.error("Error fetching privileges:", error);

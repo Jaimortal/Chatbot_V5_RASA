@@ -2,6 +2,7 @@ import { useEffect, useMemo } from "react";
 import { MapContainer, ImageOverlay, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { Maximize2, Minimize2 } from "lucide-react";
 
 import mapImage from "./assets/nobackHD.png";
 // Fix for default marker icon in React Leaflet
@@ -29,6 +30,9 @@ interface MapMessageProps {
   // optional props to tune bounds if needed
   imageBounds?: L.LatLngBoundsExpression;
   maxClamp?: number;
+  // fullscreen props
+  isFullscreen?: boolean;
+  onToggleFullscreen?: () => void;
 }
 
 const DefaultBounds: L.LatLngBoundsExpression = [
@@ -41,12 +45,13 @@ const MapController = ({ coords }: { coords: CoordArray }) => {
   const map = useMap();
   useEffect(() => {
     if (!coords || coords.length !== 2) return;
-    // use setView to immediately center or flyTo for animation
+    // Pan to new location while keeping current zoom level
+    // This maintains the zoomed-out view so users can see surrounding area
     try {
-      map.flyTo(coords, Math.max(map.getZoom(), 1), { duration: 1.2 });
+      map.flyTo(coords, map.getZoom(), { duration: 1.2 });
     } catch (err) {
       // fallback
-      map.setView(coords, Math.max(map.getZoom(), 1));
+      map.setView(coords, map.getZoom());
     }
   }, [coords, map]);
   return null;
@@ -95,6 +100,8 @@ export default function MapMessage({
   pins,
   imageBounds = DefaultBounds,
   maxClamp = 3000,
+  isFullscreen = false,
+  onToggleFullscreen,
 }: MapMessageProps) {
   const normalizedPins = useMemo(() => {
     if (Array.isArray(pins) && pins.length > 0) {
@@ -181,13 +188,27 @@ export default function MapMessage({
     });
 
   return (
-    <div className="w-60 h-48 rounded-lg overflow-hidden border border-border mt-2 relative z-2">
+    <div className={`rounded-lg overflow-hidden border border-border mt-2 relative z-2 ${isFullscreen ? 'w-full h-full' : 'w-60 h-48'}`}>
+      {/* Fullscreen Toggle Button */}
+      {onToggleFullscreen && (
+        <button
+          onClick={onToggleFullscreen}
+          className="absolute top-2 right-2 z-[1000] bg-white/90 hover:bg-white text-gray-700 p-1.5 rounded-md shadow-md transition-all duration-200 backdrop-blur-sm"
+          title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+        >
+          {isFullscreen ? (
+            <Minimize2 className="h-4 w-4" />
+          ) : (
+            <Maximize2 className="h-4 w-4" />
+          )}
+        </button>
+      )}
       <MapContainer
         crs={L.CRS.Simple}
         bounds={imageBounds}
         center={center}
-        zoom={1}
-        minZoom={-1}
+        zoom={-1}
+        minZoom={-2}
         maxZoom={4}
         scrollWheelZoom={false}
         className="w-full h-full bg-slate-100"

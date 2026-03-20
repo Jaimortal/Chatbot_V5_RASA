@@ -152,6 +152,7 @@ LOCATION_ALIASES = {
     "college it faculty": "COT Faculty Room",
     "cot faculty": "COT Faculty Room",
     "cot faculty room": "COT Faculty Room",
+    "COT faculty room": "COT Faculty Room",
     "college of technology faculty": "COT Faculty Room",
     
     "cob faculty": "COB Faculty Room",
@@ -279,12 +280,21 @@ LOCATION_ALIASES = {
     "admissions office": "Admission Office",
     
     "nstp office": "NSTP Office",
+    "nstp faculty": "NSTP Office",
+    "nstp faculty room": "NSTP Office",
+    "nstp faculty office": "NSTP Office",
+    "nstp building": "NSTP Office",
+    
     
     "automotive faculty office": "Automotive Faculty Office",
+    "automotive office": "Automotive Faculty Office",
+    "automotive faculty": "Automotive Faculty Office",
     "automotive office": "Automotive Faculty Office",
     
     "electronics faculty room": "Electronics Faculty Room",
     "electronics office": "Electronics Faculty Room",
+    "electronics faculty": "Electronics Faculty Room",
+    "electronics faculty office": "Electronics Faculty Room",
     
     "electronics laboratories": "Electronics Laboratories",
     "electronics labs": "Electronics Laboratories",
@@ -292,15 +302,23 @@ LOCATION_ALIASES = {
     "guard house": "Guard House",
     "security office": "Guard House",
     "entrance gate": "Guard House",
+    "security post": "Guard House",
+    "guard post": "Guard House",
+    "security guard house": "Guard House",
     
     "vehicle parking": "Vehicle Parking Area",
     "vehicle": "Vehicle Parking Area",
-    "car parking": "Car Parking Area",
-    "motorcycle parking": "Motorcycle Parking Area",
-    "motorcycle": "Motorcycle Parking Area",
-    "car": "Car Parking Area",
     "park": "Vehicle Parking Area",
     "parking area": "Vehicle Parking Area",
+
+    "car parking": "Car Parking Area",
+    "cars parking": "Car Parking Area",
+    "car": "Car Parking Area",
+
+    "motorcycle parking": "Motorcycle Parking Area",
+    "motorcycle": "Motorcycle Parking Area",
+    "motor parking": "Motorcycle Parking Area",
+    "bikes parking": "Motorcycle Parking Area",
 
     # CR badi
     "comfort room": "Comfort Room",
@@ -724,7 +742,9 @@ class ActionReplyFromJsonHelper:
                 "unsay", "unsa", "asa", "ngano", "diin", "kinsa", "kanus-a", 
                 "pila", "gamay", "dako", "mao", "ug", "uy", "man", "gani", 
                 "diay", "sige", "kinahanglan", "bisan", "sab", "gud", "pod", 
-                "wala", "naa", "ikaw", "ako"
+                "wala", "naa", "ikaw", "ako", "unsaon", "unsaon nako", 
+                "unsaon nato", "unsaon ta", "ahamanato", "ahaman ta", 
+                "ahaman nato", "ahaman ko", "ahaman ka", "nganong"
             ]
             # Use word boundary matching to avoid false positives
             user_words = user_message.lower().split()
@@ -927,7 +947,13 @@ class ActionReplyFromJsonHelper:
             return {"text": f"Sorry, I don't have information about {location_name}."}
         
         # Detect language
-        bisaya_words = ["asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay", "dako", "mao", "ug", "uy", "man", "gani", "diay", "sige", "kinahanglan", "bisan", "sab", "gud", "pod", "wala", "naa", "ikaw", "ako"]
+        bisaya_words = [
+            "asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila",
+            "gamay", "dako", "mao", "ug", "uy", "man", "gani", 
+            "diay", "sige", "kinahanglan", "bisan", "sab", "gud", 
+            "pod", "wala", "naa", "ikaw", "ako", "Pwedi", "unsaon", "onsaon",
+            "palihog", "tabangi", "tabang", "taba", "tabange"
+            ]
         user_words = user_message.lower().split()
         is_bisaya = any(word in bisaya_words for word in user_words)
         lang_key = "ceb" if is_bisaya else "en"
@@ -1312,6 +1338,64 @@ class ActionReplyFromJson(Action):
                                 })
                         
                         processed_count += 1
+
+                # If NO entities produced valid results, try searching the raw text for locations
+                if processed_count == 0:
+                    print(f"DEBUG - No valid results from entities, searching text for all locations...")
+                    guessed_locations = self.helper._guess_all_locations_from_text(user_msg)
+                    if guessed_locations:
+                        print(f"DEBUG - Found locations in text: {guessed_locations}")
+                        
+                        # Reset collections for new search results
+                        all_map_pins = []
+                        first_map_id = None
+                        
+                        for i, location_name in enumerate(guessed_locations):
+                            response = self.helper.get_location_response(location_name, user_msg)
+                            
+                            # DEBUG: Log each location processing
+                            print(f"DEBUG - Processing location {i+1}/{len(guessed_locations)}: {location_name}")
+                            
+                            if response.get("text") and not response["text"].startswith("Sorry, I don't have information"):
+                                # Send text response for this location
+                                dispatcher.utter_message(text=response["text"])
+                                print(f"DEBUG - Sent text for {location_name}")
+                                
+                                # Send image for this location if available
+                                if response.get("images"):
+                                    for img in response["images"]:
+                                        if img:
+                                            dispatcher.utter_message(image=img)
+                                            print(f"DEBUG - Sent image for {location_name}")
+                                elif response.get("image"):
+                                    dispatcher.utter_message(image=response["image"])
+                                    print(f"DEBUG - Sent image for {location_name}")
+                                
+                                # Collect map data for combined map
+                                if response.get("custom") and response["custom"].get("mapData"):
+                                    map_data = response["custom"]["mapData"]
+                                    
+                                    # Track the first map_id we find
+                                    if first_map_id is None and map_data.get("mapId"):
+                                        first_map_id = map_data["mapId"]
+                                    
+                                    # Collect pins with location name prefix
+                                    if map_data.get("pins"):
+                                        for pin in map_data["pins"]:
+                                            pin_copy = dict(pin)
+                                            location_prefix = str(map_data.get("locationName", location_name))
+                                            if "name" in pin_copy:
+                                                pin_copy["name"] = f"{location_prefix}: {pin_copy['name']}"
+                                            else:
+                                                pin_copy["name"] = location_prefix
+                                            all_map_pins.append(pin_copy)
+                                    elif map_data.get("coordinates"):
+                                        all_map_pins.append({
+                                            "name": str(map_data.get("locationName", location_name)),
+                                            "coordinates": map_data["coordinates"]
+                                        })
+                                
+                                processed_count += 1
 
                 # DEBUG: Log final count
                 print(f"DEBUG - Successfully processed {processed_count} locations")

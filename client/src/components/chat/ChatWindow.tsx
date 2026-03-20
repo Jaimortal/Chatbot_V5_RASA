@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Mic, Send, Minimize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -113,10 +113,15 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
   const { data: privileges = { chatEnabled: true, audioInputEnabled: true, mapAccessEnabled: true, autoTranslateEnabled: true } } = useQuery({
     queryKey: ["privileges"],
     queryFn: fetchUserPrivileges,
-    staleTime: 0,
-    refetchInterval: 5000,
+    staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
+    gcTime: 10 * 60 * 1000, // Keep in cache for 10 minutes
+    refetchInterval: 30000, // Poll every 30 seconds instead of 5s (6x reduction)
+    refetchOnWindowFocus: false, // Don't refetch when user returns to tab
     enabled: isOpen
   });
+
+  // Fullscreen map state - stores the message ID of the map currently in fullscreen
+  const [fullscreenMapId, setFullscreenMapId] = useState<string | null>(null);
 
   // Generate or retrieve session ID for conversation tracking
   const [sessionId] = useState(() => {
@@ -129,32 +134,35 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
 
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
     try {
-      const saved = localStorage.getItem('chatMessages');
+      const saved = sessionStorage.getItem('chatMessages');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.timestamp && Date.now() - parsed.timestamp < 24 * 60 * 60 * 1000) { // 24 hours
-          return parsed.messages.map((msg: any) => ({
-            ...msg,
-            timestamp: new Date(msg.timestamp)
-          }));
-        } else {
-          localStorage.removeItem('chatMessages'); // Expired
-        }
+        // Remove time-based expiration since sessionStorage clears on reload
+        return parsed.messages.map((msg: any) => ({
+          ...msg,
+          timestamp: new Date(msg.timestamp)
+        }));
       }
     } catch (error) {
-      console.error('Failed to load messages from localStorage:', error);
+      console.error('Failed to load messages from sessionStorage:', error);
     }
     // Default welcome message
     return [
       {
         id: "welcome",
-        text: "Hi there! I’m the BukSU Assistance Chatbot. Ask me anything about BukSU. Pwede ra gyud Bisaya or English",
+        text: "Hi there! I'm the BukSU Assistance Chatbot. Ask me anything about BukSU. Pwede ra gyud Bisaya or English",
         sender: "bot",
         type: "text",
         timestamp: new Date(),
       },
     ];
   });
+
+  // Compute the fullscreen map message
+  const fullscreenMapMessage = useMemo(() => {
+    if (!fullscreenMapId) return null;
+    return messages.find(m => m.id === fullscreenMapId && m.type === "map");
+  }, [fullscreenMapId, messages]);
 
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -198,7 +206,22 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     }
   }, [messages, isTyping]);
 
-  // Save messages to localStorage
+  // Auto-scroll to bottom when exiting fullscreen mode
+  useEffect(() => {
+    if (!fullscreenMapId && scrollRef.current) {
+      // Small delay to ensure DOM is updated
+      setTimeout(() => {
+        const scrollContainer = scrollRef.current?.querySelector(
+          "[data-radix-scroll-area-viewport]"
+        );
+        if (scrollContainer) {
+          scrollContainer.scrollTop = scrollContainer.scrollHeight;
+        }
+      }, 100);
+    }
+  }, [fullscreenMapId]);
+
+  // Save messages to sessionStorage
   useEffect(() => {
     if (messages.length > 1) { // Only save if there are actual conversation messages
       try {
@@ -207,11 +230,11 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
             ...msg,
             timestamp: msg.timestamp.toISOString()
           })),
-          timestamp: Date.now()
+          // No timestamp needed for sessionStorage since it clears on reload
         };
-        localStorage.setItem('chatMessages', JSON.stringify(toSave));
+        sessionStorage.setItem('chatMessages', JSON.stringify(toSave));
       } catch (error) {
-        console.error('Failed to save messages to localStorage:', error);
+        console.error('Failed to save messages to sessionStorage:', error);
       }
     }
   }, [messages]);
@@ -378,147 +401,197 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
         </div>
       </div>
 
-      {/* Messages */}
-      <ScrollArea className="flex-1 p-4" ref={scrollRef}>
-        <div className="space-y-4 pb-4">
-          {messages.map((msg) => (
-            <motion.div
-              key={msg.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={cn(
-                "flex flex-col w-full",
-                msg.sender === "user" ? "items-end" : "items-start"
-              )}
-            >
-              <div
-                className={cn(
-                  "max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm",
-                  msg.sender === "user"
-                    ? "bg-primary text-primary-foreground rounded-br-none"
-                    : "bg-muted text-foreground rounded-bl-none"
-                )}
-              >
-                {/* Normal text */}
-                {msg.type === "text" && (
-                  <div>
-                    <p
-                      className="leading-relaxed whitespace-pre-line"
-                      dangerouslySetInnerHTML={{
-                        __html: msg.text.replace(
-                          /(https?:\/\/[^\s]+)/g,
-                          (match) => {
-                            const display = match.length > 40 ? match.slice(0, 37) + "..." : match;
-                            return `<a href="${match}" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 break-all">${display}</a>`;
-                          }
-                        ),
-                      }}
-                    />
-
-                    {msg.imageUrls && msg.imageUrls.length > 0 ? (
-                      <div className="mt-2 grid gap-2">
-                        {msg.imageUrls.map((url, idx) => (
-                          <img
-                            key={`${msg.id}-img-${idx}`}
-                            src={url}
-                            alt="Chatbot response"
-                            loading="lazy"
-                            className="w-full max-w-[320px] rounded-lg border border-border object-contain"
-                          />
-                        ))}
-                      </div>
-                    ) : msg.imageUrl ? (
-                      <img
-                        src={msg.imageUrl}
-                        alt="Chatbot response"
-                        loading="lazy"
-                        className="mt-2 w-full max-w-[320px] rounded-lg border border-border object-contain"
-                      />
-                    ) : null}
-                  </div>
-                )}
-
-                {/* Map message */}
-                {msg.type === "map" && msg.mapData && (
-                  privileges.mapAccessEnabled ? (
-                    <MapMessage
-                      locationName={msg.mapData.locationName}
-                      coordinates={(msg.mapData as any).coordinates}
-                      pins={(msg.mapData as any).pins}
-                    />
-                  ) : (
-                    <div className="mt-2 rounded-md border border-destructive/20 bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
-                      Map access is disabled by the administrator.
-                    </div>
-                  )
-                )}
-              </div>
-
-              <div className="text-xs opacity-60 mt-1 text-center">
-                {msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-              </div>
-            </motion.div>
-          ))}
-
-          {isTyping && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="flex justify-start w-full"
-            >
-              <div className="bg-muted px-4 py-3 rounded-2xl rounded-bl-none flex gap-1.5 items-center">
-                <div className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce [animation-delay:-0.3s]" />
-                <div className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce [animation-delay:-0.15s]" />
-                <div className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce" />
-              </div>
-            </motion.div>
-          )}
+      {/* Fullscreen Map View - Only visible when a map is in fullscreen */}
+      {fullscreenMapMessage && fullscreenMapMessage.mapData && (
+        <div className="flex-1 relative bg-slate-100">
+          <MapMessage
+            locationName={fullscreenMapMessage.mapData.locationName}
+            coordinates={(fullscreenMapMessage.mapData as any).coordinates}
+            pins={(fullscreenMapMessage.mapData as any).pins}
+            isFullscreen={true}
+            onToggleFullscreen={() => setFullscreenMapId(null)}
+          />
         </div>
-      </ScrollArea>
+      )}
 
-      {/* Input */}
-      <div className="p-3 border-t bg-background shrink-0 gap-2 flex items-center">
-        {privileges.chatEnabled ? (
-          <>
-            {privileges.audioInputEnabled ? (
-              <Button
-                variant={isListening ? "destructive" : "secondary"}
-                size="icon"
-                className="rounded-full shrink-0 h-10 w-10 transition-all duration-300"
-                onClick={toggleListening}
-                disabled={isTyping}
+      {/* Messages - Hidden when in fullscreen map mode */}
+      {!fullscreenMapId && (
+        <ScrollArea className="flex-1 p-4" ref={scrollRef}>
+          <div className="space-y-4 pb-4">
+            {messages.map((msg) => (
+              <motion.div
+                key={msg.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={cn(
+                  "flex flex-col w-full",
+                  msg.sender === "user" ? "items-end" : "items-start"
+                )}
               >
-                <Mic className={cn("h-5 w-5", isListening && "animate-pulse")} />
-              </Button>
-            ) : null}
+                <div
+                  className={cn(
+                    "max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm",
+                    msg.sender === "user"
+                      ? "bg-primary text-primary-foreground rounded-br-none"
+                      : "bg-muted text-foreground rounded-bl-none"
+                  )}
+                >
+                  {/* Normal text */}
+                  {msg.type === "text" && (
+                    <div>
+                      <p
+                        className="leading-relaxed whitespace-pre-line"
+                        dangerouslySetInnerHTML={{
+                          __html: msg.text.replace(
+                            /(https?:\/\/[^\s]+)/g,
+                            (match) => {
+                              const display = match.length > 40 ? match.slice(0, 37) + "..." : match;
+                              return `<a href="${match}" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 break-all">${display}</a>`;
+                            }
+                          ),
+                        }}
+                      />
 
-            <Input
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder={isListening ? "Listening..." : "Type a message..."}
-              className={cn(
-                "rounded-full bg-muted/50 border-transparent focus-visible:bg-background focus-visible:border-primary/20 transition-all",
-                isListening && "bg-red-50 border-red-200 animate-pulse"
-              )}
-              disabled={isTyping}
-            />
+                      {msg.imageUrls && msg.imageUrls.length > 0 ? (
+                        <div className="mt-2 grid gap-2">
+                          {msg.imageUrls.map((url, idx) => (
+                            <img
+                              key={`${msg.id}-img-${idx}`}
+                              src={url}
+                              alt="Chatbot response"
+                              loading="lazy"
+                              className="w-full max-w-[320px] rounded-lg border border-border object-contain"
+                            />
+                          ))}
+                        </div>
+                      ) : msg.imageUrl ? (
+                        <img
+                          src={msg.imageUrl}
+                          alt="Chatbot response"
+                          loading="lazy"
+                          className="mt-2 w-full max-w-[320px] rounded-lg border border-border object-contain"
+                        />
+                      ) : null}
+                    </div>
+                  )}
 
-              <Button
-                onClick={() => handleSend(inputValue)}
-                size="icon"
-                disabled={!inputValue.trim() || isTyping || isListening}
-                className="rounded-full shrink-0 h-10 w-10"
+                  {/* Map message */}
+                  {msg.type === "map" && msg.mapData && (
+                    privileges.mapAccessEnabled ? (
+                      <MapMessage
+                        locationName={msg.mapData.locationName}
+                        coordinates={(msg.mapData as any).coordinates}
+                        pins={(msg.mapData as any).pins}
+                        isFullscreen={false}
+                        onToggleFullscreen={() => {
+                          setFullscreenMapId(msg.id);
+                        }}
+                      />
+                    ) : (
+                      <div className="mt-2 rounded-md border border-destructive/20 bg-destructive/10 px-3 py-2 text-xs font-medium text-destructive">
+                        Map access is disabled by the administrator.
+                      </div>
+                    )
+                  )}
+                </div>
+
+                <div className="text-xs opacity-60 mt-1 text-center">
+                  {msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                </div>
+              </motion.div>
+            ))}
+
+            {isTyping && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex justify-start w-full"
               >
-                <Send className="h-4 w-4" />
-              </Button>
-          </>
-        ) : (
-          <div className="w-full text-center text-sm text-muted-foreground py-2">
-            Chat is currently disabled.
+                <div className="bg-muted px-4 py-3 rounded-2xl rounded-bl-none flex gap-1.5 items-center">
+                  <div className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                  <div className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                  <div className="w-1.5 h-1.5 bg-foreground/40 rounded-full animate-bounce" />
+                </div>
+              </motion.div>
+            )}
           </div>
-        )}
-      </div>
+        </ScrollArea>
+      )}
+
+      {/* Input - Hidden when in fullscreen map mode */}
+      {!fullscreenMapId && (
+        <div className="p-3 border-t bg-background shrink-0">
+          {/* FAQs Section - Only show when not typing */}
+          {!isTyping && (
+            <div className="mb-3">
+              <p className="text-xs text-muted-foreground mb-2 font-medium">Frequently Asked Questions:</p>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => handleSend("Where is the restroom?")}
+                  className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                >
+                  Where is the restroom?
+                </button>
+                <button
+                  onClick={() => handleSend("Where is the registrar office?")}
+                  className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                >
+                  Where is the registrar office?
+                </button>
+                <button
+                  onClick={() => handleSend("Where is the COT faculty room?")}
+                  className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                >
+                  Where is the COT faculty room?
+                </button>
+              </div>
+            </div>
+          )}
+
+          <div className="flex items-center gap-2">
+            {privileges.chatEnabled ? (
+              <>
+                {privileges.audioInputEnabled ? (
+                  <Button
+                    variant={isListening ? "destructive" : "secondary"}
+                    size="icon"
+                    className="rounded-full shrink-0 h-10 w-10 transition-all duration-300"
+                    onClick={toggleListening}
+                    disabled={isTyping}
+                  >
+                    <Mic className={cn("h-5 w-5", isListening && "animate-pulse")} />
+                  </Button>
+                ) : null}
+
+                <Input
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder={isListening ? "Listening..." : "Type a message..."}
+                  className={cn(
+                    "rounded-full bg-muted/50 border-transparent focus-visible:bg-background focus-visible:border-primary/20 transition-all",
+                    isListening && "bg-red-50 border-red-200 animate-pulse"
+                  )}
+                  disabled={isTyping}
+                />
+
+                <Button
+                  onClick={() => handleSend(inputValue)}
+                  size="icon"
+                  disabled={!inputValue.trim() || isTyping || isListening}
+                  className="rounded-full shrink-0 h-10 w-10"
+                >
+                  <Send className="h-4 w-4" />
+                </Button>
+              </>
+            ) : (
+              <div className="w-full text-center text-sm text-muted-foreground py-2">
+                Chat is currently disabled.
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -516,3 +516,393 @@ stories:
   steps:
     - intent: college_shirt_allowed
     - action: action_reply_from_json
+
+- story: ask about cat requirement nursing program
+  steps:
+    - intent: cat_requirement_nursing_program
+    - action: action_reply_from_json
+
+- story: ask about cat requirement education program
+  steps:
+    - intent: cat_requirement_education_program
+    - action: action_reply_from_json
+
+- story: ask about reset portal password buksu
+  steps:
+    - intent: reset_portal_password_buksu
+    - action: action_reply_from_json
+
+- story: ask about portal account locked issue
+  steps:
+    - intent: portal_account_locked_issue
+    - action: action_reply_from_json
+
+- story: ask about portal login problem
+  steps:
+    - intent: portal_login_problem
+    - action: action_reply_from_json
+
+- story: ask about check portal enrollment status
+  steps:
+    - intent: check_portal_enrollment_status
+    - action: action_reply_from_json
+
+- story: ask about change portal password buksu
+  steps:
+    - intent: change_portal_password_buksu
+    - action: action_reply_from_json
+
+- story: ask about request good moral certificate oss
+  steps:
+    - intent: request_good_moral_certificate_oss
+    - action: action_reply_from_json
+
+- story: ask about lost student id replacement process
+  steps:
+    - intent: lost_student_id_replacement_process
+    - action: action_reply_from_json
+
+- story: ask about continuing students enrollment process
+  steps:
+    - intent: continuing_students_enrollment_process
+    - action: action_reply_from_json
+
+- story: ask about gpat admission requirements
+  steps:
+    - intent: gpat_admission_requirements
+    - action: action_reply_from_json
+
+- story: ask about campus dress code policy
+  steps:
+    - intent: campus_dress_code_policy
+    - action: action_reply_from_json
+
+- story: ask about access buksu library resources
+  steps:
+    - intent: access_buksu_library_resources
+    - action: action_reply_from_json
+
+- story: ask about evening classes working students
+  steps:
+    - intent: evening_classes_working_students
+    - action: action_reply_from_json
+
+- story: ask about health services unit location hours
+  steps:
+    - intent: health_services_unit_location_hours
+    - action: action_reply_from_json
+
+- story: ask about transferee admission requirements
+  steps:
+    - intent: transferee_admission_requirements
+    - action: action_reply_from_json
+
+- story: ask about buksu admission facebook page
+  steps:
+    - intent: buksu_admission_facebook_page
+    - action: action_reply_from_json
+
+- story: ask about change program after application
+  steps:
+    - intent: change_program_after_application
+    - action: action_reply_from_json
+
+- story: ask about pwd student assistance services
+  steps:
+    - intent: pwd_student_assistance_services
+    - action: action_reply_from_json
+
+- story: ask about contact registrar for tor
+  steps:
+    - intent: contact_registrar_for_tor
+    - action: action_reply_from_json
+
+- story: ask about missed buksu cat schedule
+  steps:
+    - intent: missed_buksu_cat_schedule
+    - action: action_reply_from_json
+
+- story: ask about buksu dormitory information
+  steps:
+    - intent: buksu_dormitory_information
+    - action: action_reply_from_json
+
+- story: ask about als graduate buksu cat application
+  steps:
+    - intent: als_graduate_buksu_cat_application
+    - action: action_reply_from_json
+
+- story: ask about free tuition undergraduate buksu
+  steps:
+    - intent: free_tuition_undergraduate_buksu
+    - action: action_reply_from_json
+
+- story: ask about apply cat using mobile phone
+  steps:
+    - intent: apply_cat_using_mobile_phone
+    - action: action_reply_from_json
+
+- story: ask about join student organizations process
+  steps:
+    - intent: join_student_organizations_process
+    - action: action_reply_from_json
+
+- story: ask about buksu grading system
+  steps:
+    - intent: buksu_grading_system
+    - action: action_reply_from_json
+
+- story: ask about sports facilities for students
+  steps:
+    - intent: sports_facilities_for_students
+    - action: action_reply_from_json
+
+- story: ask about buksu courses offered list
+  steps:
+    - intent: buksu_courses_offered_list
+    - action: action_reply_from_json
+
+- story: ask about student assistant application process
+  steps:
+    - intent: student_assistant_application_process
+    - action: action_reply_from_json
+
+- story: ask about guidance counseling services buksu
+  steps:
+    - intent: guidance_counseling_services_buksu
+    - action: action_reply_from_json
+
+- story: ask about buksu history background
+  steps:
+    - intent: buksu_history_background
+    - action: action_reply_from_json
+
+- story: ask about buksu establishment year
+  steps:
+    - intent: buksu_establishment_year
+    - action: action_reply_from_json
+
+- story: ask about law author buksu university conversion
+  steps:
+    - intent: law_author_buksu_university_conversion
+    - action: action_reply_from_json
+
+- story: ask about significance year 1924 buksu
+  steps:
+    - intent: significance_year_1924_buksu
+    - action: action_reply_from_json
+
+- story: ask about previous name buksu college
+  steps:
+    - intent: previous_name_buksu_college
+    - action: action_reply_from_json
+
+- story: ask about second courser cat application
+  steps:
+    - intent: second_courser_cat_application
+    - action: action_reply_from_json
+
+- story: ask about library book borrowing rules
+  steps:
+    - intent: library_book_borrowing_rules
+    - action: action_reply_from_json
+
+- story: ask about library late return penalty
+  steps:
+    - intent: library_late_return_penalty
+    - action: action_reply_from_json
+
+- story: ask about oss no noon break policy
+  steps:
+    - intent: oss_no_noon_break_policy
+    - action: action_reply_from_json
+
+- story: ask about dasig spirit animal buksu
+  steps:
+    - intent: dasig_spirit_animal_buksu
+    - action: action_reply_from_json
+
+- story: ask about buksu academic colleges
+  steps:
+    - intent: buksu_academic_colleges
+    - action: action_reply_from_json
+
+- story: ask about smart buksu vision
+  steps:
+    - intent: smart_buksu_vision
+    - action: action_reply_from_json
+
+- story: ask about tor request for graduates
+  steps:
+    - intent: tor_request_for_graduates
+    - action: action_reply_from_json
+
+- story: ask about buksu satellite campuses
+  steps:
+    - intent: buksu_satellite_campuses
+    - action: action_reply_from_json
+
+- story: ask about program shifting policy
+  steps:
+    - intent: program_shifting_policy
+    - action: action_reply_from_json
+
+- story: ask about buksu alumni association
+  steps:
+    - intent: buksu_alumni_association
+    - action: action_reply_from_json
+
+- story: ask about buksu cat definition
+  steps:
+    - intent: buksu_cat_definition
+    - action: action_reply_from_json
+
+- story: ask about update student portal information
+  steps:
+    - intent: update_student_portal_information
+    - action: action_reply_from_json
+
+- story: ask about university code definition
+  steps:
+    - intent: university_code_definition
+    - action: action_reply_from_json
+
+- story: ask about masters degree admission requirements
+  steps:
+    - intent: masters_degree_admission_requirements
+    - action: action_reply_from_json
+
+- story: ask about graduation application process
+  steps:
+    - intent: graduation_application_process
+    - action: action_reply_from_json
+
+- story: ask about buksu seal significance
+  steps:
+    - intent: buksu_seal_significance
+    - action: action_reply_from_json
+
+- story: ask about overload units policy
+  steps:
+    - intent: overload_units_policy
+    - action: action_reply_from_json
+
+- story: ask about withdraw enrollment policy
+  steps:
+    - intent: withdraw_enrollment_policy
+    - action: action_reply_from_json
+
+- story: ask about buksu hymn
+  steps:
+    - intent: buksu_hymn
+    - action: action_reply_from_json
+
+- story: ask about second courser requirements
+  steps:
+    - intent: second_courser_requirements
+    - action: action_reply_from_json
+
+- story: ask about buksu bsit program
+  steps:
+    - intent: buksu_bsit_program
+    - action: action_reply_from_json
+
+- story: ask about buksu mpa program
+  steps:
+    - intent: buksu_mpa_program
+    - action: action_reply_from_json
+
+- story: ask about buksu graduation honors
+  steps:
+    - intent: buksu_graduation_honors
+    - action: action_reply_from_json
+
+- story: ask about buksu admission contact
+  steps:
+    - intent: buksu_admission_contact
+    - action: action_reply_from_json
+
+- story: ask about law admission requirements
+  steps:
+    - intent: law_admission_requirements
+    - action: action_reply_from_json
+
+- story: ask about student id replacement
+  steps:
+    - intent: student_id_replacement
+    - action: action_reply_from_json
+
+- story: ask about buksu clinic services
+  steps:
+    - intent: buksu_clinic_services
+    - action: action_reply_from_json
+
+- story: ask about institutional email info
+  steps:
+    - intent: institutional_email_info
+    - action: action_reply_from_json
+
+- story: ask about good moral certificate request
+  steps:
+    - intent: good_moral_certificate_request
+    - action: action_reply_from_json
+
+- story: ask about buksu library hours
+  steps:
+    - intent: buksu_library_hours
+    - action: action_reply_from_json
+
+- story: ask about student assistant application
+  steps:
+    - intent: student_assistant_application
+    - action: action_reply_from_json
+
+- story: ask about buksu medical dental services
+  steps:
+    - intent: buksu_medical_dental_services
+    - action: action_reply_from_json
+
+- story: ask about no noon break policy
+  steps:
+    - intent: no_noon_break_policy
+    - action: action_reply_from_json
+
+- story: ask about buksu official anthem
+  steps:
+    - intent: buksu_official_anthem
+    - action: action_reply_from_json
+
+- story: ask about buksu cat calculator policy
+  steps:
+    - intent: buksu_cat_calculator_policy
+    - action: action_reply_from_json
+
+- story: ask about latin honors graduation requirements
+  steps:
+    - intent: latin_honors_graduation_requirements
+    - action: action_reply_from_json
+
+- story: ask about latin honors average gpa
+  steps:
+    - intent: latin_honors_average_gpa
+    - action: action_reply_from_json
+
+- story: ask about buksu bsa program
+  steps:
+    - intent: buksu_bsa_program
+    - action: action_reply_from_json
+
+- story: ask about double enrollment policy
+  steps:
+    - intent: double_enrollment_policy
+    - action: action_reply_from_json
+
+- story: ask about buksu gymnasium facility
+  steps:
+    - intent: buksu_gymnasium_facility
+    - action: action_reply_from_json
+
+- story: ask about new student orientation purpose
+  steps:
+    - intent: new_student_orientation_purpose
+    - action: action_reply_from_json

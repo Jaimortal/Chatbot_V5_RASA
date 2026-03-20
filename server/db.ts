@@ -1,4 +1,5 @@
 import { Pool } from "pg";
+import { drizzle } from "drizzle-orm/node-postgres";
 
 const pool = new Pool({
   host: process.env.PGHOST || "localhost",
@@ -8,6 +9,10 @@ const pool = new Pool({
   database: process.env.PGDATABASE || "ChatbotVersion",
 });
 
+// Drizzle ORM instance for typed queries
+export const db = drizzle(pool);
+
+// Raw SQL query helpers (for backward compatibility)
 export async function query<T = any>(text: string, params?: any[]): Promise<{ rows: T[] }> {
   return pool.query(text, params);
 }

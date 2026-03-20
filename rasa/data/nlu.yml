@@ -228,6 +228,8 @@ nlu:
     - Go ahead
     - Tell me more
     - Next
+    - Okay sure
+    - Please continue
     - Please give me more details
     - I want to know more
     - Can you explain further
@@ -3016,3 +3018,2045 @@ nlu:
     - Aduna bay schedule para sa college shirt days
     - Pwede ba magsul-ob sa college shirts kung walay permiso
     - Unsay opisyal nga policy sa pagsul-ob sa college shirts
+
+- intent: cat_requirement_nursing_program
+  examples: |
+    - What is the required CAT score to enter the nursing program at Bukidnon State University
+    - How high should my admission test score be if I want to study nursing at BukSU
+    - Can you explain the admission test requirement for the nursing program
+    - What admission score is usually expected for applicants to the college of nursing
+    - I want to know the expected CAT result for students applying to the nursing course
+    - Is the nursing program at Bukidnon State University difficult to enter through the admission test
+    - How competitive is the admission test score for the nursing program
+    - What score do most students need in the admission test to qualify for nursing
+    - Does the nursing program require a high admission test score
+    - What admission requirements are needed for the college of nursing
+    - Unsa nga admission test score ang kasagaran gikinahanglan para makasulod sa nursing program sa Bukidnon State University
+    - Pila nga score ang kinahanglan nako sa admission test kung gusto ko mosulod sa nursing
+    - Pwede nimo ipasabot ang admission requirement para sa nursing program
+    - Unsa nga score ang kasagaran gikinahanglan sa aplikante sa college of nursing
+    - Gusto ko makahibalo unsa ang expected nga admission test result para sa nursing
+    - Lisod ba makasulod sa nursing program sa Bukidnon State University pinaagi sa admission test
+    - Unsa ka kompetitibo ang admission test score para sa nursing program
+    - Pila nga score ang kasagaran makuha sa estudyante aron makasulod sa nursing
+    - Nanginahanglan ba og taas nga admission test score ang nursing program
+    - Unsa nga admission requirements ang kinahanglan para sa college of nursing
+
+- intent: cat_requirement_education_program
+  examples: |
+    - What BukSU CAT score do I need to enroll in the College of Education
+    - What CAT score is required for the education program at BukSU
+    - What percentage do I need to qualify for the College of Education
+    - What score should I get in the BukSU CAT for education courses
+    - What is the required CAT score for the education program
+    - What CAT result do I need to be accepted in the College of Education
+    - How high should my BukSU CAT score be for education
+    - What admission test score is needed for education at BukSU
+    - What score do I need to pass to take education at BukSU
+    - What is the minimum CAT score for the College of Education
+    - What percentage should I aim for in the BukSU CAT for education
+    - Is 80 a good CAT score for the education program
+    - What CAT score is usually accepted for education students
+    - What CAT score do education applicants need
+    - How many points do I need in the BukSU CAT to enter education
+    - What score should I target if I want to take education
+    - What is the expected CAT score for education applicants
+    - What admission test score is required for education majors
+    - What BukSU CAT percentage is needed for the College of Education
+    - What CAT result qualifies me for education at BukSU
+    - What is the usual CAT score for education program admission
+    - Do I need at least 80 in the CAT for education
+    - What CAT score should I get to qualify for education
+    - What is the passing score for the education program
+    - What score is needed to enter BukSU College of Education
+    - How high should my admission test score be for education
+    - What CAT score is required to study education at BukSU
+    - What score do most education students get in the CAT
+    - What admission score should I have for education
+    - What BukSU CAT score do education applicants need
+    - Is there a required CAT score for education
+    - What percentage in the CAT is needed for education
+    - What score do I need if I want to enroll in education
+    - What CAT score should I reach for education courses
+    - What admission test score is needed to take education
+    - How high must my CAT score be to get into education
+    - What CAT score is required for BukSU education program
+    - What score is considered good for education applicants
+    - What CAT result is needed for education admission
+    - What BukSU CAT score should I aim for for education
+    - What admission score qualifies for the education program
+    - What CAT score do I need to enter the College of Education
+    - What score is needed for BukSU education applicants
+    - What CAT score should education students have
+    - What admission test percentage is needed for education
+    - What CAT score is required for education courses
+    - How much CAT score do I need for education
+    - What score do I need to qualify for education at BukSU
+    - What is the expected CAT score for the College of Education
+    - What BukSU admission test score is required for education
+    - Unsang BukSU CAT score ang kinahanglan para makasulod sa College of Education
+    - Pila ka score ang kinahanglan sa CAT para sa education program
+    - Unsang percentage ang kinahanglan para makasulod sa education
+    - Unsang CAT score ang kinahanglan para sa education course sa BukSU
+    - Pila ang minimum CAT score para sa College of Education
+    - Unsang score ang kinahanglan para makapasar sa education program
+    - Pila ka score ang kinahanglan sa BukSU CAT para sa education
+    - Unsang admission test score ang kinahanglan para sa education
+    - Pila ka puntos ang kinahanglan sa CAT para sa education
+    - Unsang CAT result ang makapasulod sa College of Education
+    - Pila ka percentage ang kinahanglan sa CAT para sa education
+    - Sakto ba ang 80 nga score para sa education program
+    - Unsang CAT score ang kasagaran madawat para sa education
+    - Pila ka score ang kinahanglan aron maka education sa BukSU
+    - Unsang CAT score ang kinahanglan sa education applicants
+    - Unsang score ang angay nako makuha kung mag education ko
+    - Unsang admission test result ang kinahanglan para sa education
+    - Unsang BukSU CAT score ang target para sa education
+    - Pila ang passing score sa CAT para sa education
+    - Unsang CAT score ang kinahanglan para makasulod sa education course
+    - Kinahanglan ba og 80 nga CAT score para sa education
+    - Unsang CAT score ang makapasar sa College of Education
+    - Pila ang kinahanglan nga score sa CAT para sa education program
+    - Unsang CAT result ang kinahanglan para sa education admission
+    - Unsang score ang kinahanglan para makasulod sa BukSU education
+    - Pila ang kinahanglan nga admission score para sa education
+    - Unsang CAT score ang gikinahanglan sa education students
+    - Pila ka score ang kinahanglan kung gusto ko mag education
+    - Unsang CAT score ang dapat makuha para sa education
+    - Unsang admission test score ang kinahanglan sa education course
+    - Unsang BukSU CAT percentage ang kinahanglan para sa education
+    - Pila ka puntos sa CAT ang kinahanglan para sa education
+    - Unsang CAT score ang kinahanglan para mahimong qualified sa education
+    - Unsang score ang kasagaran para sa education applicants
+    - Pila ang expected CAT score para sa education
+    - Unsang score ang kinahanglan aron makasulod sa College of Education
+    - Pila ka CAT score ang kinahanglan para sa BukSU education
+    - Unsang admission test result ang kinahanglan para sa education program
+    - Unsang CAT score ang kinahanglan aron maka education
+    - Pila ang kinahanglan nga score sa CAT para sa education course
+    - Unsang BukSU CAT score ang kinahanglan para sa education students
+    - Pila ka percentage sa CAT ang kinahanglan para sa education
+    - Unsang CAT score ang kinahanglan para sa education major
+    - Unsang admission score ang kinahanglan para sa education
+    - Pila ang kinahanglan nga CAT score aron ma qualify sa education
+    - Unsang CAT score ang target para makasulod sa education
+    - Unsang score ang kinahanglan sa BukSU CAT para sa education
+    - Pila ang minimum score para sa education program
+    - Unsang CAT result ang kinahanglan para sa College of Education
+    - Pila ang kinahanglan nga CAT score aron maka education sa BukSU
+
+- intent: reset_portal_password_buksu
+  examples: |
+    - How can I reset my Bukidnon State University portal password
+    - I forgot my BukSU portal password how can I recover it
+    - Is there any way to forgot my password on buksu admission website
+    - What should I do if I cannot remember my student portal password
+    - Can you guide me on resetting my BukSU portal account password
+    - how can i reset my password in buksu admission
+    - Where can I change my password for the BukSU student portal
+    - How do students create a new password for the university portal
+    - What is the process to recover a lost BukSU portal password
+    - I cannot access my portal because I forgot my password what should I do
+    - How can I request a password reset for my BukSU account
+    - What steps should I follow to make a new portal password
+    - Unsaon nako pag reset sa akong BukSU portal password
+    - Nakalimot ko sa akong portal password unsaon nako pag recover niini
+    - Unsa ang angay buhaton kung dili nako mahinumduman ang akong student portal password
+    - Pwede ba nimo ko tudluan unsaon pag reset sa BukSU portal account password
+    - Asa nako mabag o ang akong password sa BukSU student portal
+    - Giunsa paghimo og bag ong password para sa university portal
+    - Unsa ang proseso sa pag recover sa nakalimtan nga BukSU portal password
+    - Dili ko maka access sa portal kay nakalimot ko sa password unsa akong buhaton
+    - Giunsa pag request og password reset sa BukSU account
+    - Unsa nga mga lakang ang sundon aron makahimo og bag ong portal password
+
+- intent: portal_account_locked_issue
+  examples: |
+    - Why is my BukSU portal account locked
+    - What should I do if my student portal account becomes locked
+    - How can I unlock my Bukidnon State University portal account
+    - My portal account cannot be accessed because it is locked what should I do
+    - What causes a student portal account to become locked
+    - How long should I wait if my BukSU portal account is locked
+    - Who should I contact if my portal account remains locked
+    - Can multiple incorrect login attempts lock my portal account
+    - What solution is available for a locked BukSU portal account
+    - How do students fix a locked student portal account
+    - Ngano na lock ang akong BukSU portal account
+    - Unsa ang angay buhaton kung ma lock ang akong student portal account
+    - Giunsa nako pag unlock ang Bukidnon State University portal account
+    - Dili nako ma access ang portal kay na lock ang account unsa akong buhaton
+    - Unsay hinungdan ngano ma lock ang student portal account
+    - Pila ka minuto ang hulaton kung ma lock ang BukSU portal account
+    - Kinsa ang angay kontakon kung padayon nga na lock ang portal account
+    - Maka cause ba og account lock ang daghang sayop nga login attempts
+    - Unsa nga solution ang mahimo kung na lock ang BukSU portal account
+    - Giunsa pag ayos sa estudyante ang locked student portal account
+
+- intent: portal_login_problem
+  examples: |
+    - Why can I not log in to the BukSU student portal
+    - What should I check if the portal login does not work
+    - Why does the portal reject my student identification and password
+    - Can portal maintenance prevent students from logging in
+    - What are common reasons for portal login problems
+    - How can I solve issues with logging in to the student portal
+    - My BukSU portal login is not working what should I do
+    - Why does the system say my login information is incorrect
+    - What troubleshooting steps should I try for portal login problems
+    - How do students resolve login errors in the BukSU portal
+    - Ngano dili ko maka login sa BukSU student portal
+    - Unsa ang angay nako i check kung dili mo work ang portal login
+    - Ngano dili daw sakto ang akong student identification ug password
+    - Makaapekto ba ang portal maintenance sa pag login sa estudyante
+    - Unsa ang kasagarang rason sa portal login problems
+    - Giunsa pag solve ang problema sa pag login sa student portal
+    - Dili mo work ang akong BukSU portal login unsa akong buhaton
+    - Ngano moingon ang system nga sayop ang login information
+    - Unsang troubleshooting steps ang mahimo para sa portal login problems
+    - Giunsa pag resolve sa estudyante ang login errors sa BukSU portal
+
+- intent: check_portal_enrollment_status
+  examples: |
+    - How can I check my enrollment status in the BukSU portal
+    - Where can I see my subjects and schedule in the student portal
+    - How do I verify if my enrollment is successful in the portal
+    - What section of the portal shows enrollment information
+    - Can students check their registered subjects through the portal
+    - How do I confirm my enrollment using my student portal account
+    - Where can I view my class schedule after enrollment
+    - What steps should I follow to check enrollment status online
+    - Does the BukSU portal show the list of enrolled subjects
+    - How can students confirm their registration through the portal
+    - Unsaon nako pag check sa akong enrollment status sa BukSU portal
+    - Asa nako makita ang akong mga subject ug schedule sa student portal
+    - Giunsa nako pag verify kung successful ba ang akong enrollment sa portal
+    - Asa nga section sa portal makita ang enrollment information
+    - Pwede ba makita sa estudyante ang registered subjects pinaagi sa portal
+    - Giunsa nako pag confirm ang enrollment gamit ang student portal account
+    - Asa makita ang class schedule human sa enrollment
+    - Unsang mga lakang ang sundon aron ma check ang enrollment status online
+    - Ipakita ba sa BukSU portal ang listahan sa enrolled subjects
+    - Giunsa pag confirm sa estudyante ang registration pinaagi sa portal
+
+- intent: change_portal_password_buksu
+  examples: |
+    - How can I change my BukSU portal password
+    - What steps should I follow to update my student portal password
+    - Where can I change the password of my BukSU account
+    - I want to update my password in the BukSU student portal
+    - Can you guide me on how to change my BukSU portal password
+    - What is the process to modify my password in the BukSU portal
+    - How do students update their portal account password
+    - I need instructions on changing my BukSU portal password
+    - How can I create a new password for my BukSU portal account
+    - Where in the portal settings can I change my password
+    - Unsaon nako pag usob sa akong BukSU portal password
+    - Asa nako mabag o ang password sa akong BukSU account
+    - Gusto ko usbon ang password sa akong student portal
+    - Pwede ba nimo ko tudluan unsaon pag change sa BukSU portal password
+    - Unsa ang proseso sa pag update sa portal password sa BukSU
+    - Giunsa pag bag o sa estudyante ang ilang portal account password
+    - Nanginahanglan ko og giya sa pag change sa BukSU portal password
+    - Asa sa portal settings makita ang option sa pag usob sa password
+    - Unsaon paghimo og bag ong password sa BukSU portal account
+    - Giunsa pag update sa password sa student portal sa BukSU
+
+- intent: request_good_moral_certificate_oss
+  examples: |
+    - How can I request a good moral certificate from the university
+    - Where can students get a good moral certificate at BukSU
+    - What office issues the good moral certificate for students
+    - I need information on how to obtain a good moral certificate
+    - What is the process for requesting a good moral certificate
+    - Is there a fee for a good moral certificate at BukSU
+    - How do I apply for a good moral certificate from the student services office
+    - Can you tell me where to request a good moral certificate
+    - I want to know how to secure a good moral certificate from BukSU
+    - What steps should I follow to request a good moral certificate
+    - Unsaon nako pag request og good moral certificate sa BukSU
+    - Asa makakuha ang estudyante og good moral certificate sa university
+    - Unsa nga opisina ang mo issue og good moral certificate
+    - Nanginahanglan ko og impormasyon unsaon pagkuha sa good moral certificate
+    - Unsa ang proseso sa pag request og good moral certificate
+    - Naay bayad ang good moral certificate sa BukSU
+    - Giunsa pag apply sa good moral certificate sa Office of Student Services
+    - Pwede ba nimo isulti asa mag request og good moral certificate
+    - Gusto ko makahibalo unsaon pag secure og good moral certificate sa BukSU
+    - Unsang mga lakang ang sundon aron makakuha og good moral certificate
+
+- intent: lost_student_id_replacement_process
+  examples: |
+    - What should I do if I lose my BukSU student identification card
+    - How can I replace a lost student identification card at BukSU
+    - What is the process for getting a new student identification card
+    - Where do I report a lost student identification card
+    - How do students request a replacement for a lost student identification card
+    - Do I need an affidavit of loss for a missing student identification card
+    - What office handles the replacement of student identification cards
+    - What steps are required to get a new BukSU identification card
+    - I lost my student identification card how can I get a replacement
+    - Where should I go if my BukSU identification card is missing
+    - Unsa ang buhaton kung mawala ang akong BukSU student identification card
+    - Giunsa pag replace ang nawala nga student identification card sa BukSU
+    - Unsa ang proseso sa pagkuha og bag ong student identification card
+    - Asa nako i report kung mawala ang akong student identification card
+    - Giunsa pag request sa estudyante og replacement sa nawala nga identification card
+    - Kinahanglan ba og affidavit of loss kung mawala ang student identification card
+    - Unsa nga opisina ang mo process sa replacement sa identification card
+    - Unsang mga lakang ang sundon aron makakuha og bag ong BukSU identification card
+    - Nawala ang akong student identification card unsaon nako pagkuha og bag o
+    - Asa ko moadto kung mawala ang akong BukSU identification card
+- intent: continuing_students_enrollment_process
+  examples: |
+    - What is the enrollment process for continuing students at BukSU
+    - How do continuing students enroll through the admissions portal
+    - What steps should continuing students follow for enrollment
+    - Where should continuing students log in for enrollment
+    - How can a continuing student migrate their account for enrollment
+    - What information is required for continuing student enrollment
+    - How do students submit their enrollment application online
+    - What is the procedure for continuing students during enrollment period
+    - Can you explain the enrollment process for returning students
+    - How do continuing students complete their enrollment application
+    - Unsa ang enrollment process para sa continuing students sa BukSU
+    - Giunsa pag enroll sa continuing students pinaagi sa admissions portal
+    - Unsang mga lakang ang sundon sa continuing students para sa enrollment
+    - Asa mag login ang continuing students para sa enrollment
+    - Giunsa pag migrate sa account sa continuing student para sa enrollment
+    - Unsa nga impormasyon ang kinahanglan sa continuing student enrollment
+    - Giunsa pag submit sa estudyante ang enrollment application online
+    - Unsa ang proseso sa continuing students panahon sa enrollment
+    - Pwede nimo ipasabot ang enrollment process para sa returning students
+    - Giunsa pag kompleto sa continuing students ang enrollment application
+
+- intent: gpat_admission_requirements
+  examples: |
+    - What are the requirements for the graduate program admission test
+    - What documents are needed for GPAT application
+    - How can I apply for the graduate program admission test
+    - Do I need a transcript of records for GPAT application
+    - What files should be submitted for the graduate admission test
+    - Is an identification photo required for GPAT application
+    - What are the necessary documents for graduate admission
+    - Do non BukSU graduates need additional requirements for GPAT
+    - What proof of payment is needed for GPAT application
+    - Can you list the requirements for the graduate admission test
+    - Unsa ang mga kinahanglanon para sa graduate program admission test
+    - Unsang mga dokumento ang kinahanglan para sa GPAT application
+    - Giunsa pag apply sa graduate program admission test
+    - Kinahanglan ba ang transcript of records para sa GPAT application
+    - Unsang files ang ipasa para sa graduate admission test
+    - Kinahanglan ba ang identification picture para sa GPAT application
+    - Unsa ang mga dokumento nga kinahanglan para sa graduate admission
+    - Kinahanglan ba og dugang nga requirements ang dili BukSU graduate
+    - Unsang resibo sa bayad ang kinahanglan para sa GPAT application
+    - Pwede nimo i lista ang mga requirements para sa graduate admission test
+
+- intent: campus_dress_code_policy
+  examples: |
+    - What is the dress code policy for students at BukSU
+    - What clothes are allowed inside the BukSU campus
+    - Are students required to wear the official university uniform
+    - What are the rules for clothing on civilian days
+    - Are shorts or sleeveless shirts allowed on campus
+    - What clothing items are not allowed inside the university
+    - How strict is the dress code policy at BukSU
+    - What are the proper clothes students must wear in school
+    - Can students wear slippers or ripped jeans on campus
+    - What is the guideline for student attire at BukSU
+    - Unsa ang dress code policy para sa mga estudyante sa BukSU
+    - Unsang mga sinina ang gitugotan sulod sa campus
+    - Kinahanglan ba magsul ob ang estudyante sa opisyal nga uniporme
+    - Unsa ang mga rules sa pamesti panahon sa civilian days
+    - Gitugotan ba ang shorts o sleeveless nga sinina sa campus
+    - Unsang mga pamesti ang dili tugotan sulod sa university
+    - Unsa ka strikto ang dress code policy sa BukSU
+    - Unsang sakto nga pamesti ang angay sul obon sa estudyante
+    - Pwede ba magsul ob og tsinelas o gisi nga karsones sa campus
+    - Unsa ang guideline sa student attire sa BukSU
+
+- intent: access_buksu_library_resources
+  examples: |
+    - How can I access BukSU library resources
+    - Where can I use the library at BukSU
+    - How do I borrow books from BukSU library
+    - Can I access online library resources at BukSU
+    - What are the requirements to use BukSU library
+    - Do I need a student ID to access the library
+    - How can I log in to the digital library portal
+    - Is it possible to borrow physical books from the university library
+    - What is the process for accessing library resources
+    - Can students access the library with their BukSU ID
+    - Unsaon nako pag access sa BukSU library resources
+    - Asa nako magamit ang library sa BukSU
+    - Giunsa pag hulam og libro sa BukSU library
+    - Pwede ba ko mag access sa online library resources sa BukSU
+    - Unsa ang kinahanglanon para magamit ang BukSU library
+    - Kinahanglan ba og student ID para makagamit sa library
+    - Giunsa pag login sa digital library portal
+    - Pwede ba manghulam og physical books sa university library
+    - Unsay proseso sa pag access sa library resources
+    - Pwede ba ang estudyante makagamit sa library gamit ang BukSU ID
+
+- intent: evening_classes_working_students
+  examples: |
+    - Are there evening classes for working students at BukSU
+    - Can working individuals enroll in graduate school evening programs
+    - Which programs offer late afternoon or evening schedules
+    - Does BukSU have evening classes for law students
+    - How do working students attend classes at BukSU
+    - Are graduate degrees available for evening schedules
+    - Which undergraduate programs have evening classes
+    - Can I take Masters or Doctorate classes in the evening
+    - Does BukSU offer flexible scheduling for working students
+    - Where can I find evening class schedules for BukSU
+    - Naay evening classes para sa nagtrabaho nga estudyante sa BukSU
+    - Pwede ba ang mga nagtrabaho mo enroll sa graduate school evening programs
+    - Unsang mga programa ang nagtanyag og late afternoon o evening schedule
+    - Naay evening classes ang College of Law
+    - Giunsa pag attend sa klase ang mga working students sa BukSU
+    - Available ba ang graduate degrees sa evening schedule
+    - Unsang undergraduate programs ang naay evening classes
+    - Pwede ba magkuha og Masters o Doctorate klase sa gabii
+    - Nag offer ba ang BukSU og flexible schedule para sa working students
+    - Asa makita ang evening class schedules sa BukSU
+
+- intent: health_services_unit_location_hours
+  examples: |
+    - Where is the University Health Services Unit located
+    - What are the clinic hours at BukSU
+    - Can students get medical consultations at the campus clinic
+    - What services are provided by the University Health Services Unit
+    - Is the health clinic open on weekends
+    - How do students access first aid and emergency treatment
+    - Where is the BukSU clinic for staff and students
+    - What are the operating hours of the campus clinic
+    - Does BukSU have a dental consultation service
+    - How can students avail medical services on campus
+    - Asa nahimutang ang University Health Services Unit
+    - Unsa ang oras sa clinic sa BukSU
+    - Pwede ba ang estudyante makakuha og medical consultation sa campus clinic
+    - Unsang mga serbisyo ang gi provide sa University Health Services Unit
+    - Bukas ba ang health clinic sa weekend
+    - Giunsa pag access sa first aid ug emergency treatment sa estudyante
+    - Asa ang BukSU clinic para sa staff ug estudyante
+    - Unsa ang operating hours sa campus clinic
+    - Naay dental consultation service ang BukSU
+    - Giunsa pag avail sa medical services sa campus ang estudyante
+
+- intent: transferee_admission_requirements
+  examples: |
+    - What are the requirements for transferees at BukSU
+    - Can I transfer to BukSU for my chosen program
+    - Which documents are needed for evaluation as a transferee
+    - Is an Honorable Dismissal required for transfer
+    - Do transferees need to submit transcript of records
+    - What is the minimum GWA for transferees
+    - Do I need to pass an interview or exam to transfer
+    - How do I apply as a transferee to BukSU
+    - Are slots available for transferees
+    - How do I submit documents for transferee evaluation
+    - Unsang mga requirements ang kinahanglan sa transferees sa BukSU
+    - Pwede ba ko mo transfer sa BukSU sa napiling program
+    - Unsang mga dokumento ang ipasa para sa evaluation sa transferee
+    - Kinahanglan ba ang Honorable Dismissal para sa transfer
+    - Kinahanglan ba ipasa sa transferees ang transcript of records
+    - Unsay minimum GWA para sa transferees
+    - Kinahanglan ba makapasar sa interview o exam aron maka transfer
+    - Giunsa pag apply isip transferee sa BukSU
+    - Naay available nga slots para sa transferees
+    - Giunsa pag submit sa dokumento para sa transferee evaluation
+
+- intent: buksu_admission_facebook_page
+  examples: |
+    - Where can I get official updates about BukSU admissions
+    - Does BukSU have a Facebook page for admissions and testing updates
+    - How can I follow the latest announcements regarding BukSU admission
+    - Is there an official page for BukSU CAT updates
+    - How do I check the schedule for BukSU admissions
+    - Can I get admission news from BukSU Facebook page
+    - Where to find official announcements for BukSU testing
+    - How can I stay updated on BukSU admission news
+    - Does BukSU provide updates on social media
+    - Where can students follow BukSU admission and testing announcements
+    - Asa ko makakuha og opisyal nga update bahin sa BukSU admissions
+    - Naay Facebook page ang BukSU para sa admission ug testing updates
+    - Giunsa nako pag follow sa latest announcements bahin sa BukSU admission
+    - Naay official page para sa BukSU CAT updates
+    - Giunsa nako pag check sa schedule sa BukSU admissions
+    - Pwede ba makakuha og admission news sa BukSU Facebook page
+    - Asa makita ang opisyal nga announcements sa BukSU testing
+    - Giunsa pag stay updated sa BukSU admission news
+    - Nag provide ba ang BukSU og updates sa social media
+    - Asa mosunod ang estudyante sa BukSU admission ug testing announcements
+
+- intent: change_program_after_application
+  examples: |
+    - Can I change my program after submitting the BukSU CAT application
+    - Is it allowed to modify program choice after online submission
+    - What happens if I want to switch programs after applying
+    - Are program changes allowed post application
+    - How to finalize program selection for BukSU CAT
+    - Can applicants update program choice after submission
+    - Is changing course allowed after application is submitted
+    - What should I do if I selected the wrong program
+    - Are modifications possible after submitting BukSU CAT
+    - How strict is the rule about program change after application
+    - Pwede ba usbon ang program human sa pag submit sa BukSU CAT application
+    - Gitugotan ba nga i modify ang program choice human sa online submission
+    - Unsay mahitabo kung gusto ko mo switch og program human apply
+    - Naay pwede ba nga program changes post application
+    - Giunsa pag finalize sa program selection para sa BukSU CAT
+    - Pwede ba i update sa applicant ang program choice human submit
+    - Gitugotan ba ang pag usob sa kurso human sa submission
+    - Unsa ang buhaton kung sayop ang napiling program
+    - Posible ba ang modification human sa pag submit sa BukSU CAT
+    - Strikto ba ang rule bahin sa pag usob sa program human sa application
+
+- intent: pwd_student_assistance_services
+  examples: |
+    - Does BukSU provide assistance for PWD students
+    - How can students with disabilities get support at BukSU
+    - Are there accommodations for PWD applicants during exams
+    - Where can PWD students coordinate for assistance
+    - Is inclusivity supported for students with disabilities
+    - How do PWD applicants request reasonable accommodations
+    - What office handles PWD student assistance
+    - Can BukSU provide exam support for disabled students
+    - Are there special services for PWD students at BukSU
+    - Who can PWD students contact for assistance
+    - Naghatag ba og tabang ang BukSU para sa PWD students
+    - Giunsa pagkuha og support ang estudyante nga adunay disability
+    - Naay accommodations para sa PWD applicants panahon sa exams
+    - Asa makig coordinate ang PWD students para sa assistance
+    - Gisuportahan ba ang inclusivity sa mga estudyante nga adunay disability
+    - Giunsa pag request sa PWD applicants og reasonable accommodations
+    - Unsang opisina ang mo handle sa PWD student assistance
+    - Pwede ba ang BukSU maghatag og exam support para sa disabled students
+    - Naay special services para sa PWD students sa BukSU
+    - Kinsa kontakon sa PWD students para sa tabang
+
+- intent: contact_registrar_for_tor
+  examples: |
+    - How can I request my Transcript of Records at BukSU
+    - Where is the Registrar Office located
+    - Can I send an inquiry to request TOR
+    - What is the process to get my transcript from BukSU
+    - How to contact the registrar for transcript of records
+    - Do I need to visit the campus for TOR request
+    - What details do I need to submit for TOR
+    - Can I email the Registrar for transcript requests
+    - Where can I request my TOR at BukSU
+    - What is the official channel for requesting TOR
+    - Giunsa pag request sa akong Transcript of Records sa BukSU
+    - Asa nahimutang ang Registrar Office
+    - Pwede ba ko magpadala og inquiry para request sa TOR
+    - Unsay proseso sa pagkuha sa transcript sa BukSU
+    - Giunsa pag contact sa registrar para sa transcript of records
+    - Kinahanglan ba moadto sa campus para sa TOR request
+    - Unsang detalye ang ipasa para sa TOR
+    - Pwede ba mag email sa Registrar para sa transcript requests
+    - Asa nako mag request sa TOR sa BukSU
+    - Unsay opisyal nga channel para sa pag request sa TOR
+
+- intent: missed_buksu_cat_schedule
+  examples: |
+    - What should I do if I miss my BukSU CAT exam
+    - How can I reschedule a missed CAT exam
+    - Who do I contact for a missed admission test
+    - Can I take the CAT exam on a different date
+    - Is it possible to reschedule BukSU CAT if I missed it
+    - How to report missing the CAT exam
+    - Who handles rescheduling for missed BukSU CAT
+    - Can I still take the CAT exam after missing it
+    - What is the procedure if I miss my exam date
+    - Where to inform if I cannot attend my scheduled CAT
+    - Unsa ang buhaton kung mapalabay ang akong BukSU CAT exam
+    - Giunsa pag reschedule sa na miss nga CAT exam
+    - Kinsa ang kontakon para sa missed admission test
+    - Pwede ba ko mo take sa CAT exam sa laing petsa
+    - Posible ba ang reschedule sa BukSU CAT kung na miss
+    - Giunsa pag report nga na miss ang CAT exam
+    - Kinsa ang mo handle sa rescheduling sa missed BukSU CAT
+    - Pwede pa ba ko mo take sa CAT exam human na miss
+    - Unsay proseso kung mapalabay ang exam date
+    - Asa ipa inform kung dili maka attend sa scheduled CAT
+
+- intent: buksu_dormitory_information
+  examples: |
+    - What dormitories are available at BukSU
+    - How many dormitories are inside BukSU campus
+    - Who can stay in BukSU dormitories
+    - Are there dormitories for athletes at BukSU
+    - Where are the campus dormitories located
+    - Can students apply for BukSU dormitory slots
+    - Which dormitories exist at BukSU
+    - What are the names of BukSU dormitories
+    - Are dormitories available for specific student groups
+    - How do students find dormitories near BukSU
+    - Unsang mga dormitoryo ang available sa BukSU
+    - Pila ka dormitoryo ang sulod sa BukSU campus
+    - Kinsa ang pwede mupuyo sa BukSU dormitories
+    - Naay dormitoryo para sa athletes sa BukSU
+    - Asa nahimutang ang campus dormitories
+    - Pwede ba mag apply ang estudyante sa BukSU dormitory slots
+    - Unsang dormitories ang naa sa BukSU
+    - Unsay mga pangalan sa BukSU dormitories
+    - Naay dormitories para sa specific student groups
+    - Giunsa pag pangita sa estudyante og dormitory duol sa BukSU
+
+- intent: als_graduate_buksu_cat_application
+  examples: |
+    - Can ALS graduates apply for BukSU CAT
+    - Can Alternative Learning System graduates apply for BukSU CAT
+    - What documents are required for ALS graduates to take the CAT
+    - Is an ALS Certificate of Rating needed for CAT application
+    - How can an ALS graduate register for BukSU admission test
+    - Are ALS graduates eligible for BukSU College Admission Test
+    - Can ALS certificate be used for CAT application
+    - What identification is needed for ALS graduates applying to BukSU
+    - How do ALS graduates apply to BukSU
+    - Are ALS graduates treated differently in CAT application
+    - Pwede ba ang ALS graduates mo apply sa BukSU CAT
+    - Unsang mga dokumento ang kinahanglan para sa ALS graduates sa CAT
+    - Kinahanglan ba ang ALS Certificate of Rating para sa CAT application
+    - Giunsa pag register sa ALS graduate para sa BukSU admission test
+    - Eligible ba ang ALS graduates para sa BukSU College Admission Test
+    - Asa i submit sa ALS graduates ang required documents
+    - Pwede ba gamiton ang ALS certificate para sa CAT application
+    - Unsang identification ang kinahanglan para sa ALS graduates nga mo apply sa BukSU
+    - Giunsa pag apply sa ALS graduates sa BukSU
+    - Laing treatment ba ang ALS graduates sa CAT application
+
+- intent: free_tuition_undergraduate_buksu
+  examples: |
+    - Are undergraduate tuition fees free at BukSU
+    - Is BukSU tuition free under the Universal Access to Quality Tertiary Education Act
+    - Are miscellaneous fees covered for qualified Filipino students
+    - Who qualifies for free undergraduate tuition at BukSU
+    - How can a student avail free tuition under the law
+    - Are fees waived for undergraduate programs at BukSU
+    - Does BukSU implement free tuition for undergraduates
+    - Are Filipino students eligible for free tuition
+    - What is the policy for tuition at BukSU
+    - Is Universal Access to Quality Tertiary Education Act applied to BukSU
+    - Libre ba ang tuition para sa undergraduate sa BukSU
+    - Libre ba ang tuition sa BukSU ubos sa Universal Access to Quality Tertiary Education Act
+    - Apil ba ang miscellaneous fees para sa kwalipikadong Filipino students
+    - Kinsa ang kwalipikado para sa libre nga undergraduate tuition sa BukSU
+    - Giunsa pag avail sa estudyante ang libre nga tuition ubos sa balaod
+    - Gi-waive ba ang fees para sa undergraduate programs sa BukSU
+    - Nag-implement ba ang BukSU og free tuition para sa undergraduates
+    - Eligible ba ang Filipino students para sa libre nga tuition
+    - Unsay policy sa tuition sa BukSU
+    - Gi-aplikar ba ang Universal Access to Quality Tertiary Education Act sa BukSU
+
+- intent: apply_cat_using_mobile_phone
+  examples: |
+    - Can I use my mobile phone to apply for BukSU CAT
+    - Is it possible to access the admission portal using a smartphone
+    - Should I use a laptop instead of a mobile phone for application
+    - Are there technical limitations when using a mobile device for BukSU CAT
+    - How can I submit documents using mobile phone for CAT
+    - Is mobile application for BukSU CAT allowed
+    - Can photos and certificates be uploaded from a phone
+    - Is desktop recommended over mobile for BukSU application
+    - How do I access BukSU admission portal on my phone
+    - Can I complete the BukSU CAT application using mobile
+    - Pwede ba gamiton ang mobile phone para mag apply sa BukSU CAT
+    - Posible ba nga ma access ang admission portal gamit ang smartphone
+    - Mas maayo ba gamiton ang laptop kaysa mobile phone sa application
+    - Naay technical limitation kung gamit ang mobile device para sa BukSU CAT
+    - Giunsa pag submit ang documents gamit ang mobile phone para sa CAT
+    - Gitugotan ba ang mobile application para sa BukSU CAT
+    - Pwede ba i-upload ang photos ug certificates gikan sa phone
+    - Mas maayo ba ang desktop kaysa mobile para sa BukSU application
+    - Giunsa pag access ang BukSU admission portal sa phone
+    - Pwede ba kompletohon ang BukSU CAT application gamit ang mobile
+
+- intent: join_student_organizations_process
+  examples: |
+    - How can I join student organizations at BukSU
+    - When are Organization Days or Org Fair held
+    - Where can I find the list of accredited student clubs
+    - Can new students join organizations at the start of school year
+    - How do I apply to join a BukSU student club
+    - Is there a schedule for student organization recruitment
+    - Where is the Office of Student Services for club information
+    - Can students participate in student organizations any time
+    - How are student organizations recognized at BukSU
+    - Which office handles joining student organizations
+    - Giunsa pag join sa student organizations sa BukSU
+    - Kanus-a ginahimo ang Organization Days o Org Fair
+    - Asa makita ang listahan sa accredited student clubs
+    - Pwede ba ang new students moapil sa organizations sa sugod sa school year
+    - Giunsa pag apply para mo join sa BukSU student club
+    - Naay schedule ba para sa student organization recruitment
+    - Asa ang Office of Student Services para sa club information
+    - Pwede ba mo participate ang students sa student organizations bisan kanus-a
+    - Giunsa pag recognize ang student organizations sa BukSU
+    - Unsang opisina ang mo handle sa pag join sa student organizations
+
+- intent: buksu_grading_system
+  examples: |
+    - What grading system does BukSU use
+    - What is the highest and lowest grade at BukSU
+    - How is passing mark determined in BukSU
+    - What does INC mean in BukSU grading
+    - What grade is considered failing at BukSU
+    - How is numerical grading applied at BukSU
+    - Can you explain BukSU's grading scale
+    - What is the grade equivalent of passing mark
+    - How are incomplete subjects graded at BukSU
+    - What does 1.0 and 5.0 represent in BukSU grades
+    - Unsang grading system ang gigamit sa BukSU
+    - Unsay pinakataas ug pinakababa nga grado sa BukSU
+    - Giunsa pag determine ang passing mark sa BukSU
+    - Unsay pasabot sa INC sa BukSU grading
+    - Unsang grado ang failing sa BukSU
+    - Giunsa pag apply ang numerical grading sa BukSU
+    - Pwede nimo i explain ang grading scale sa BukSU
+    - Unsay grade equivalent sa passing mark
+    - Giunsa pag grade ang incomplete subjects sa BukSU
+    - Unsay pasabot sa 1.0 ug 5.0 sa BukSU grades
+
+- intent: sports_facilities_for_students
+  examples: |
+    - Does BukSU have sports facilities
+    - What sports amenities are available at BukSU
+    - Are there basketball courts and gym at BukSU
+    - Can students use open fields for PE classes
+    - How are sports facilities used for intramurals
+    - Are student athletes allowed to train in BukSU facilities
+    - Where are BukSU sports facilities located
+    - Which facilities are used for student athletics
+    - Are PE classes conducted in sports facilities
+    - How can students access sports amenities at BukSU
+    - Naay sports facilities ang BukSU
+    - Unsang sports amenities ang available sa BukSU
+    - Naay basketball courts ug gym sa BukSU
+    - Pwede ba gamiton sa estudyante ang open fields para sa PE classes
+    - Giunsa paggamit ang sports facilities para sa intramurals
+    - Pwede ba mag train ang student athletes sa BukSU facilities
+    - Asa nahimutang ang BukSU sports facilities
+    - Unsang facilities ang gigamit para sa student athletics
+    - Gipahigayon ba ang PE classes sa sports facilities
+    - Giunsa pag access sa estudyante ang sports amenities sa BukSU
+
+- intent: buksu_courses_offered_list
+  examples: |
+    - Where can I find a list of courses offered at BukSU
+    - How do I know which programs are available for undergraduates
+    - Is there a list of graduate programs at BukSU
+    - Can I inquire about available courses at the Admission and Testing Unit
+    - Are course offerings published on BukSU website
+    - How to check undergraduate and graduate programs
+    - Where is the Academics section on BukSU website
+    - Can I get course details directly from the university
+    - How do I know which courses are available this semester
+    - Who provides information on courses offered at BukSU
+    - Asa makita ang listahan sa courses nga gi offer sa BukSU
+    - Giunsa nako pagkahibalo unsang programs ang available para sa undergraduates
+    - Naay listahan sa graduate programs sa BukSU
+    - Pwede ba ko mangutana sa Admission and Testing Unit bahin sa available courses
+    - Gipublish ba ang course offerings sa BukSU website
+    - Giunsa pag check sa undergraduate ug graduate programs
+    - Asa ang Academics section sa BukSU website
+    - Pwede ba makakuha og course details diretso sa university
+    - Giunsa pagkahibalo unsang courses available karong semester
+    - Kinsa ang mo provide sa information sa courses offered sa BukSU
+
+- intent: student_assistant_application_process
+  examples: |
+    - How can I apply to become a Student Assistant at BukSU
+    - Which office handles student assistant applications
+    - What are the requirements to be a student assistant
+    - Do I need to submit GWA and study load for application
+    - Is proof of financial need required for student assistant
+    - Can I apply through the Office of Student Services
+    - What documents are needed to become a student assistant
+    - How do students submit their application for assistant position
+    - Are there specific eligibility criteria for student assistant
+    - Where do I inquire about student assistant openings
+    - Giunsa pag apply aron mahimong Student Assistant sa BukSU
+    - Unsang opisina ang mo handle sa student assistant applications
+    - Unsang mga requirements para mahimong student assistant
+    - Kinahanglan ba mag submit og GWA ug study load para sa application
+    - Kinahanglan ba ang proof of financial need para sa student assistant
+    - Pwede ba mo apply pinaagi sa Office of Student Services
+    - Unsang mga dokumento ang kinahanglan aron mahimong student assistant
+    - Giunsa pag submit sa estudyante sa ilang application para sa assistant position
+    - Naay specific eligibility criteria para sa student assistant
+    - Asa ko mangutana bahin sa student assistant openings
+
+- intent: guidance_counseling_services_buksu
+  examples: |
+    - Does BukSU provide guidance and counseling services
+    - What services are offered by University Guidance and Counseling Unit
+    - Can students receive career guidance at BukSU
+    - Are psychological tests available for students
+    - Is individual counseling provided by BukSU
+    - How do students access mental health support
+    - Who provides counseling services at BukSU
+    - Are the guidance services open to all students
+    - How can students request counseling sessions
+    - Does BukSU support student well-being through counseling
+    - Naghatag ba ang BukSU og guidance and counseling services
+    - Unsang mga serbisyo ang gi offer sa University Guidance and Counseling Unit
+    - Pwede ba makakuha og career guidance ang estudyante sa BukSU
+    - Naay psychological tests para sa estudyante
+    - Gi provide ba ang individual counseling sa BukSU
+    - Giunsa pag access sa estudyante sa mental health support
+    - Kinsa ang nag provide sa counseling services sa BukSU
+    - Open ba ang guidance services sa tanan estudyante
+    - Giunsa pag request sa estudyante sa counseling sessions
+    - Nag support ba ang BukSU sa student well-being pinaagi sa counseling
+
+- intent: buksu_history_background
+  examples: |
+    - What is the history of BukSU
+    - When did Bukidnon State University start
+    - How did BukSU evolve from a farm school to a university
+    - What were the previous names of BukSU
+    - When was BukSU converted to a state college
+    - Under which law did BukSU become a university
+    - Can you provide a timeline of BukSU history
+    - How has BukSU developed since 1924
+    - What changes occurred in 1976 and 2007 for BukSU
+    - When did BukSU become a university under Republic Act 9454
+    - Unsay history sa BukSU
+    - Kanus-a nagsugod ang Bukidnon State University
+    - Giunsa pag evolve ang BukSU gikan sa farm school ngadto sa university
+    - Unsay mga previous names sa BukSU
+    - Kanus-a nahimo ang BukSU nga state college
+    - Ubos sa unsang balaod nahimo ang BukSU nga university
+    - Pwede ba mohatag og timeline sa history sa BukSU
+    - Giunsa pag develop ang BukSU sukad 1924
+    - Unsang mga changes ang nahitabo sa 1976 ug 2007 sa BukSU
+    - Kanus-a nahimo ang BukSU nga university ubos sa Republic Act 9454
+
+- intent: buksu_establishment_year
+  examples: |
+    - When was BukSU originally established
+    - What year was Bukidnon State University founded
+    - Was BukSU originally a secondary school
+    - How did BukSU evolve from a secondary school to a university
+    - What is the founding year of BukSU
+    - When did the institution that became BukSU start
+    - Can you tell the original establishment year of BukSU
+    - When was BukSU founded as a school
+    - What year marks the beginning of BukSU history
+    - How long has BukSU existed since its establishment
+    - Kanus-a natukod ang BukSU
+    - Unsang tuig natukod ang Bukidnon State University
+    - Ang BukSU ba orihinal nga secondary school
+    - Giunsa pag evolve ang BukSU gikan sa secondary school ngadto sa university
+    - Unsay founding year sa BukSU
+    - Kanus-a nagsugod ang institusyon nga nahimong BukSU
+    - Pwede ba nimo isulti ang original establishment year sa BukSU
+    - Kanus-a gi establis ang BukSU isip usa ka school
+    - Unsang tuig ang nagsugod sa history sa BukSU
+    - Pila ka tuig ang BukSU sukad sa pagtukod
+
+- intent: law_author_buksu_university_conversion
+  examples: |
+    - Who authored the law converting Bukidnon State College to BukSU
+    - Who sponsored Republic Act 9454
+    - Which congressman authored BukSU conversion law
+    - Who wrote the act that made BukSU a university
+    - When was BukSU converted into a university by law
+    - Can you tell me the author of RA 9454
+    - Who is responsible for BukSU university conversion legislation
+    - Which lawmaker sponsored the BukSU university conversion
+    - Who initiated the law for BukSU's university status
+    - Who was the congressman behind BukSU conversion
+    - Kinsa ang nagsulat sa balaod nga nag convert sa Bukidnon State College ngadto sa BukSU
+    - Kinsa ang nagsponsor sa Republic Act 9454
+    - Unsang congressman ang nagsulat sa BukSU conversion law
+    - Kinsa ang nagsulat sa balaod nga naghimo sa BukSU nga university
+    - Kanus-a gi convert ang BukSU ngadto sa university pinaagi sa balaod
+    - Pwede nimo isulti ang author sa RA 9454
+    - Kinsa ang responsable sa BukSU university conversion legislation
+    - Unsang lawmaker ang nagsponsor sa BukSU university conversion
+    - Kinsa ang nag initiate sa balaod para sa university status sa BukSU
+    - Kinsa ang congressman likod sa BukSU conversion
+
+- intent: significance_year_1924_buksu
+  examples: |
+    - Why is the year 1924 significant for BukSU
+    - What happened in 1924 for Bukidnon State University
+    - When was the Bukidnon Farm School founded
+    - What is the historical origin of BukSU
+    - How did BukSU start in 1924
+    - Can you explain the significance of 1924 for BukSU
+    - What marks the beginning of BukSU's history
+    - Which school founded in 1924 became BukSU
+    - What is the foundation year of BukSU
+    - Why is 1924 important in BukSU history
+    - Ngano nga importante ang tuig 1924 para sa BukSU
+    - Unsay nahitabo niadtong 1924 para sa Bukidnon State University
+    - Kanus-a natukod ang Bukidnon Farm School
+    - Unsay historical origin sa BukSU
+    - Giunsa pagsugod ang BukSU niadtong 1924
+    - Pwede nimo i explain ang significance sa 1924 para sa BukSU
+    - Unsay nagsugod sa history sa BukSU
+    - Unsang school nga natukod niadtong 1924 nahimo nga BukSU
+    - Unsay foundation year sa BukSU
+    - Ngano nga importante ang 1924 sa history sa BukSU
+
+- intent: previous_name_buksu_college
+  examples: |
+    - What was BukSU called before 2007
+    - What was the previous name of Bukidnon State University
+    - When did Bukidnon State College exist
+    - What was the institution called from 1976 to 2007
+    - How did BukSU change names over time
+    - Which name did BukSU have before becoming a university
+    - What was the old name of BukSU
+    - Can you tell the former name of BukSU
+    - What did BukSU used to be called
+    - How long was BukSU known as Bukidnon State College
+    - Unsay gitawag sa BukSU sa wala pa 2007
+    - Unsay previous name sa Bukidnon State University
+    - Kanus-a nag exist ang Bukidnon State College
+    - Unsay gitawag sa institusyon gikan 1976 hangtod 2007
+    - Giunsa pag change ang pangalan sa BukSU sa paglabay sa panahon
+    - Unsang pangalan ang gigamit sa BukSU sa wala pa mahimong university
+    - Unsay old name sa BukSU
+    - Pwede nimo isulti ang former name sa BukSU
+    - Unsay gitawag sa BukSU sauna
+    - Pila ka tuig nailhan ang BukSU isip Bukidnon State College
+
+- intent: second_courser_cat_application
+  examples: |
+    - Can second courser apply for BukSU CAT
+    - Are second coursers allowed to take the entrance exam
+    - What is the testing fee for second courser applicants
+    - Do second coursers submit their Transcript of Records
+    - Are second coursers eligible for free tuition
+    - How can a second courser apply for BukSU admission
+    - What are the requirements for second coursers in CAT
+    - Can second courser avail Free Higher Education benefits
+    - Is there a specific fee for second coursers applying for CAT
+    - Are second coursers treated differently in the application process
+    - Pwede ba ang second courser mo apply sa BukSU CAT
+    - Gitugotan ba ang second coursers mo take sa entrance exam
+    - Unsay testing fee para sa second courser applicants
+    - Kinahanglan ba mag submit og Transcript of Records ang second coursers
+    - Eligible ba ang second coursers sa free tuition
+    - Giunsa pag apply sa second courser para sa BukSU admission
+    - Unsay requirements para sa second coursers sa CAT
+    - Pwede ba ang second courser mo avail sa Free Higher Education benefits
+    - Naay specific fee para sa second courser sa CAT
+    - Laing process ba para sa second courser sa application
+
+- intent: library_book_borrowing_rules
+  examples: |
+    - How many books can a student borrow from BukSU Library
+    - What is the weekly borrowing limit for students
+    - Are barcoded library cards required
+    - Which books are restricted to inside reading
+    - Can students photocopy reserve books or encyclopedias
+    - What are the rules for borrowing theses
+    - How does BukSU Library handle borrowing materials
+    - Are there special rules for certain library books
+    - What identification is needed to borrow books
+    - How many items can I borrow at a time from the library
+    - Pila ka libro pwede ma borrow sa estudyante sa BukSU Library
+    - Unsay weekly borrowing limit para sa students
+    - Kinahanglan ba og barcoded library card
+    - Unsang books ang restricted para sa inside reading
+    - Pwede ba mo photocopy sa reserve books o encyclopedias
+    - Unsay rules sa pag borrow sa theses
+    - Giunsa pag handle sa BukSU Library ang borrowing materials
+    - Naay special rules para sa pipila ka libro sa library
+    - Unsay identification nga kinahanglan para mo borrow og libro
+    - Pila ka items pwede i borrow sa library sa usa ka panahon
+
+- intent: library_late_return_penalty
+  examples: |
+    - What happens if I return library books late
+    - Are there fines for late returns at BukSU Library
+    - How much is the penalty for unreturned semester books
+    - Does Book Center charge for overdue books
+    - Are students fined for not returning borrowed materials
+    - What is the late return fee at BukSU
+    - How does the library enforce penalties for late books
+    - Who pays the penalty for unreturned items
+    - Is there a fee for failing to return borrowed books on time
+    - Are fines collected for semester books not returned
+    - Unsay mahitabo kung ma late ang pag return sa library books
+    - Naay multa kung ma late sa BukSU Library
+    - Pila ang penalty sa wala nauli nga semester books
+    - Nag charge ba ang Book Center para sa overdue books
+    - Multahan ba ang estudyante kung dili mubalik sa gi borrow nga libro
+    - Unsay late return fee sa BukSU
+    - Giunsa pag enforce sa library ang penalties para sa late books
+    - Kinsa ang mobayad sa penalty sa wala nauli nga items
+    - Naay fee kung mapakyas sa timely return sa borrowed books
+    - Nakolekta ba ang fines para sa semester books nga wala nauli
+
+- intent: oss_no_noon_break_policy
+  examples: |
+    - Does OSS have a no noon break policy
+    - Are staff available during lunch at OSS
+    - How does OSS implement continuous service
+    - Why does OSS stay open during lunch hours
+    - Can students get assistance during noon at OSS
+    - Is there a break for OSS staff at noon
+    - How does the No Noon Break Policy affect services
+    - Are services continuous at OSS throughout the day
+    - Who follows the no noon break policy at OSS
+    - What does OSS mean by No Noon Break Policy
+    - Nagpatuman ba ang OSS og no noon break policy
+    - Available ba ang staff sa OSS bisan sa lunch
+    - Giunsa pag implement sa OSS ang continuous service
+    - Ngano nga open gihapon ang OSS sa lunch hours
+    - Pwede ba makakuha og assistance ang students sa OSS sa noon
+    - Naay break ba ang OSS staff sa noon
+    - Giunsa pag affect sa No Noon Break Policy ang services
+    - Continuous ba ang services sa OSS tibuok adlaw
+    - Kinsa ang nagsunod sa no noon break policy sa OSS
+    - Unsay pasabot sa OSS sa No Noon Break Policy
+
+- intent: dasig_spirit_animal_buksu
+  examples: |
+    - What is the official spirit animal of BukSU
+    - When was Dasig introduced at BukSU
+    - Why was Dasig chosen as the spirit animal
+    - What does Dasig represent for the university
+    - How does Dasig relate to BukSU heritage
+    - Can you describe the Dasig spirit animal
+    - Is Dasig a new symbol for BukSU
+    - How is Dasig used in BukSU branding
+    - What month and year was Dasig launched
+    - What identity does Dasig convey for BukSU
+    - Unsay opisyal nga spirit animal sa BukSU
+    - Kanus-a gilunsad ang Dasig sa BukSU
+    - Ngano nga napili ang Dasig isip spirit animal
+    - Unsay ginarepresentar sa Dasig para sa university
+    - Giunsa pag relate ang Dasig sa heritage sa BukSU
+    - Pwede nimo i describe ang Dasig spirit animal
+    - Bag-o ba nga symbol ang Dasig para sa BukSU
+    - Giunsa paggamit ang Dasig sa BukSU branding
+    - Unsang buwan ug tuig gilunsad ang Dasig
+    - Unsang identity ang ginaconvey sa Dasig para sa BukSU
+
+- intent: buksu_academic_colleges
+  examples: |
+    - What colleges are part of BukSU
+    - How many academic colleges does BukSU have
+    - Which colleges are under BukSU administration
+    - Is there a College of Law at BukSU
+    - Can you list all colleges in BukSU
+    - Are there technology and nursing colleges at BukSU
+    - Which college handles business programs
+    - What is included in BukSU academic structure
+    - Does BukSU have a College of Public Administration
+    - Which colleges can students enroll in at BukSU
+    - Unsang mga kolehiyo ang kabahin sa BukSU
+    - Pila ka academic colleges ang naa sa BukSU
+    - Unsang mga kolehiyo ang ubos sa BukSU administration
+    - Naay College of Law sa BukSU
+    - Pwede nimo i list tanan kolehiyo sa BukSU
+    - Naay technology ug nursing colleges sa BukSU
+    - Unsang college ang mo handle sa business programs
+    - Unsay naa sa BukSU academic structure
+    - Naay College of Public Administration sa BukSU
+    - Unsang mga kolehiyo pwede sudlan sa estudyante sa BukSU
+
+- intent: smart_buksu_vision
+  examples: |
+    - What is Smart BukSU
+    - Who launched the Smart BukSU roadmap
+    - What does Smart BukSU focus on
+    - How does Smart BukSU improve student services
+    - Does Smart BukSU include digital transformation
+    - Can you explain Smart BukSU strategic plan
+    - What initiatives are part of Smart BukSU
+    - How is innovative instruction part of Smart BukSU
+    - Does Smart BukSU cover sustainable infrastructure
+    - What administration implemented Smart BukSU
+    - Unsay Smart BukSU
+    - Kinsa ang naglunsad sa Smart BukSU roadmap
+    - Unsay focus sa Smart BukSU
+    - Giunsa pag improve sa student services ang Smart BukSU
+    - Apil ba ang digital transformation sa Smart BukSU
+    - Pwede nimo i explain ang Smart BukSU strategic plan
+    - Unsang mga initiatives ang kabahin sa Smart BukSU
+    - Giunsa pag apil ang innovative instruction sa Smart BukSU
+    - Apil ba ang sustainable infrastructure sa Smart BukSU
+    - Unsang administration ang nag implement sa Smart BukSU
+
+- intent: tor_request_for_graduates
+  examples: |
+    - How can graduates request their Transcript of Records
+    - Where do alumni get their TOR
+    - What forms are needed for TOR request
+    - How much is the fee for requesting TOR
+    - Do graduates need clearance to get TOR
+    - Can TOR be requested at the University Registrar
+    - Who handles TOR requests for alumni
+    - What is the process for requesting a transcript
+    - Are there specific requirements for TOR application
+    - How do graduates pay for TOR requests
+    - Giunsa pag request sa graduates sa ilang Transcript of Records
+    - Asa makakuha ang alumni sa ilang TOR
+    - Unsang forms ang kinahanglan para sa TOR request
+    - Pila ang fee para sa pag request sa TOR
+    - Kinahanglan ba ang clearance para makakuha og TOR ang graduates
+    - Pwede ba i request ang TOR sa University Registrar
+    - Kinsa ang mo handle sa TOR requests sa alumni
+    - Unsay process para sa pag request sa transcript
+    - Naay specific requirements para sa TOR application
+    - Giunsa pag bayad sa graduates para sa TOR requests
+
+- intent: buksu_satellite_campuses
+  examples: |
+    - Does BukSU have satellite campuses
+    - Where are BukSU satellite campuses located
+    - Why does BukSU operate campuses in other municipalities
+    - How do satellite campuses help students
+    - Which provinces have BukSU satellite campuses
+    - Are satellite campuses for remote students
+    - How many satellite campuses does BukSU have
+    - What education services are offered in satellite campuses
+    - Can students attend satellite campuses
+    - How accessible are BukSU satellite campuses
+    - Naay satellite campuses ang BukSU
+    - Asa nahimutang ang BukSU satellite campuses
+    - Ngano nag operate ang BukSU og campuses sa lain nga municipalities
+    - Giunsa pag tabang sa satellite campuses ang mga estudyante
+    - Unsang mga probinsya ang adunay BukSU satellite campuses
+    - Para ba sa remote students ang satellite campuses
+    - Pila ka satellite campuses ang naa sa BukSU
+    - Unsang education services ang gi offer sa satellite campuses
+    - Pwede ba mo attend ang students sa satellite campuses
+    - Giunsa ka accessible ang BukSU satellite campuses
+
+- intent: program_shifting_policy
+  examples: |
+    - How can a student shift to another program
+    - What are the requirements for program shifting
+    - Do I need approval to transfer to another college
+    - When can students process program shifting
+    - Is there a grade requirement to shift programs
+    - Which departments approve program shifting
+    - Can I change my course this semester
+    - What is the procedure for shifting programs at BukSU
+    - Are there restrictions for shifting to a new program
+    - How does BukSU handle program change requests
+    - Giunsa pag shift sa laing program ang estudyante
+    - Unsay requirements para sa program shifting
+    - Kinahanglan ba og approval para mo transfer sa lain nga college
+    - Kanus-a pwede mag process sa program shifting
+    - Naay grade requirement para sa pag shift sa program
+    - Unsang mga departamento ang mo approve sa program shifting
+    - Pwede ba ko mo change sa akong kurso karong semester
+    - Unsay procedure para sa program shifting sa BukSU
+    - Naay restrictions sa pag shift sa bag ong program
+    - Giunsa pag handle sa BukSU ang program change requests
+
+- intent: buksu_alumni_association
+  examples: |
+    - Does BukSU have an alumni association
+    - How does BukSU connect with graduates
+    - What activities are organized by the BukSU Alumni Association
+    - Can alumni assist current students
+    - Who can join the BukSU Alumni Association
+    - Are there initiatives for alumni involvement
+    - How does the association support BukSU
+    - Does BukSU maintain contact with its graduates
+    - What benefits are provided by the Alumni Association
+    - How is the alumni network structured at BukSU
+    - Naay alumni association ang BukSU
+    - Giunsa pag connect sa BukSU ang mga gradwar
+    - Unsang mga activities ang gi organize sa BukSU Alumni Association
+    - Pwede ba makatabang ang alumni sa current students
+    - Kinsa pwede mo join sa BukSU Alumni Association
+    - Naay initiatives para sa alumni involvement
+    - Giunsa pag support sa association ang BukSU
+    - Nag maintain ba og contact ang BukSU sa graduates
+    - Unsang benefits ang gihatag sa Alumni Association
+    - Giunsa pag structure ang alumni network sa BukSU
+
+- intent: buksu_cat_definition
+  examples: |
+    - What is BukSU CAT
+    - Who needs to take the BukSU College Admission Test
+    - Is CAT mandatory for first year students
+    - Do second coursers need to take BukSU CAT
+    - What programs require BukSU CAT
+    - When is the CAT exam conducted
+    - Can you explain the BukSU admission test
+    - How important is BukSU CAT for enrollment
+    - What does CAT stand for
+    - Are there exceptions to the BukSU CAT requirement
+    - Unsay BukSU CAT
+    - Kinsa ang kinahanglan mo take sa BukSU College Admission Test
+    - Mandatory ba ang CAT para sa first year students
+    - Kinahanglan ba sa second coursers ang BukSU CAT
+    - Unsang programs ang kinahanglan ang BukSU CAT
+    - Kanus-a ginahimo ang CAT exam
+    - Pwede nimo i explain ang BukSU admission test
+    - Unsa ka importante ang BukSU CAT para sa enrollment
+    - Unsay pasabot sa CAT
+    - Naay exceptions sa BukSU CAT requirement
+
+- intent: update_student_portal_information
+  examples: |
+    - How can I update my information on the student portal
+    - Where do I change my profile details
+    - Can I edit my student info online
+    - Do I need documents to change major or name
+    - How to update personal details in BukSU portal
+    - Is there an edit option in the student portal
+    - How to correct civil status on the portal
+    - Can I update my contact information online
+    - What steps to follow to update profile information
+    - Are there restrictions for certain updates in the portal
+    - Giunsa pag update sa information sa student portal
+    - Asa nako usbon ang profile details
+    - Pwede ba ko mo edit sa student info online
+    - Kinahanglan ba og documents para sa pag change sa major o ngalan
+    - Giunsa pag update sa personal details sa BukSU portal
+    - Naay edit option sa student portal
+    - Giunsa pag correct sa civil status sa portal
+    - Pwede ba mo update sa contact information online
+    - Unsay steps sa pag update sa profile information
+    - Naay restrictions sa pipila ka updates sa portal
+
+- intent: university_code_definition
+  examples: |
+    - What is the University Code
+    - How does the University Code govern BukSU
+    - What rules are included in the University Code
+    - Who must follow the University Code
+    - Does it cover faculty and students
+    - How does it affect university operations
+    - What is the legal basis for university policies
+    - Can I access the University Code
+    - Is University Code part of governance
+    - How are policies enforced through the University Code
+    - Unsay University Code
+    - Giunsa pag govern sa University Code ang BukSU
+    - Unsang rules ang naa sa University Code
+    - Kinsa ang kinahanglan mosunod sa University Code
+    - Apil ba ang faculty ug students
+    - Giunsa pag affect ang operations sa university
+    - Unsay legal basis para sa university policies
+    - Pwede ba ma access ang University Code
+    - Kabahin ba ang University Code sa governance
+    - Giunsa pag enforce ang policies pinaagi sa University Code
+
+- intent: masters_degree_admission_requirements
+  examples: |
+    - What are the admission requirements for a Masters degree
+    - Do I need an Honorable Dismissal for Masters application
+    - Which Transcript of Records is required for Masters admission
+    - Is a 2x2 ID picture necessary
+    - Do I have to take the Graduate Program Admission Test
+    - Can you list requirements for BukSU Masters program
+    - Are originals of records needed for graduate admission
+    - How to apply for a Masters degree at BukSU
+    - Do I need to submit documents to Registrar for Masters
+    - Are there academic prerequisites for Masters applicants
+    - Unsay admission requirements para sa Masters degree
+    - Kinahanglan ba og Honorable Dismissal para sa Masters application
+    - Unsang Transcript of Records ang kinahanglan para sa Masters admission
+    - Kinahanglan ba ang 2x2 ID picture
+    - Kinahanglan ba mo take sa Graduate Program Admission Test
+    - Pwede nimo i list ang requirements para sa BukSU Masters program
+    - Kinahanglan ba ang originals sa records para sa graduate admission
+    - Giunsa pag apply sa Masters degree sa BukSU
+    - Kinahanglan ba i submit ang documents sa Registrar para sa Masters
+    - Naay academic prerequisites para sa Masters applicants
+
+- intent: graduation_application_process
+  examples: |
+    - How do I apply for graduation
+    - What steps are needed to graduate at BukSU
+    - Do I need pre evaluation of grades
+    - How to settle financial obligations before graduation
+    - When to file formal Application for Graduation
+    - Are there requirements for final semester graduation
+    - Who approves graduation application
+    - Can I graduate without settling fees
+    - What is the process for graduation application
+    - Do all students follow the same graduation procedure
+    - Giunsa pag apply para sa graduation
+    - Unsang steps ang kinahanglan aron makagraduate sa BukSU
+    - Kinahanglan ba og pre evaluation sa grades
+    - Giunsa pag settle sa financial obligations sa wala pa graduation
+    - Kanus-a mag file sa formal Application for Graduation
+    - Naay requirements para sa final semester graduation
+    - Kinsa ang mo approve sa graduation application
+    - Pwede ba ko makagraduate nga wala pa na settle ang fees
+    - Unsay process sa graduation application
+    - Tanang estudyante ba mosunod sa same graduation procedure
+
+- intent: buksu_seal_significance
+  examples: |
+    - What does the BukSU seal represent
+    - What symbols are in the BukSU seal
+    - Does the seal reflect BukSU heritage
+    - What is symbolized by the pineapple and mountains
+    - How does the flame of knowledge appear in the seal
+    - Can you describe BukSU seal elements
+    - Why is the seal important for university identity
+    - Is the seal used in official documents
+    - How does the seal convey education values
+    - What is the meaning of the BukSU emblem
+    - Unsay gi represent sa BukSU seal
+    - Unsang mga symbols ang naa sa BukSU seal
+    - Nag reflect ba ang seal sa BukSU heritage
+    - Unsay ginarepresentar sa pinya ug kabukiran
+    - Giunsa pagpakita ang siga sa kahibalo sa seal
+    - Pwede nimo i describe ang elements sa BukSU seal
+    - Ngano importante ang seal para sa university identity
+    - Gigamit ba ang seal sa official documents
+    - Giunsa pag convey sa seal ang education values
+    - Unsay kahulugan sa BukSU emblem
+
+- intent: overload_units_policy
+  examples: |
+    - Can I overload units at BukSU
+    - Who is allowed to take extra units
+    - Do I need approval to overload courses
+    - Are only graduating students allowed to overload
+    - What is the requirement for academic standing
+    - Which authorities approve overload units
+    - Can final year students take more units
+    - How to request unit overload at BukSU
+    - Are there restrictions for overloading
+    - Is overload allowed for non-graduating students
+    - Pwede ba ko mo overload units sa BukSU
+    - Kinsa ang gitugotan mo take og extra units
+    - Kinahanglan ba og approval para mo overload courses
+    - Graduating students ra ba ang allowed mo overload
+    - Unsay requirement para sa academic standing
+    - Unsang authorities ang mo approve sa overload units
+    - Pwede ba ang final year students mo take og more units
+    - Giunsa pag request sa unit overload sa BukSU
+    - Naay restrictions sa pag overload
+    - Gitugotan ba ang non-graduating students sa overload
+
+- intent: withdraw_enrollment_policy
+  examples: |
+    - How can a student withdraw enrollment
+    - Where to submit Withdrawal Form
+    - What happens if enrollment is not officially withdrawn
+    - Will grades be affected if withdrawal is not formal
+    - Can I drop all subjects without penalty
+    - When to file withdrawal form
+    - Who handles enrollment withdrawal requests
+    - Are there deadlines for withdrawing enrollment
+    - What is the procedure for official withdrawal
+    - How does BukSU penalize unofficial withdrawal
+    - Giunsa pag withdraw sa enrollment ang estudyante
+    - Asa i submit ang Withdrawal Form
+    - Unsay mahitabo kung dili opisyal ang pag withdraw
+    - Maapektuhan ba ang grades kung dili formal ang withdrawal
+    - Pwede ba i drop tanan subjects without penalty
+    - Kanus-a mag file sa withdrawal form
+    - Kinsa ang mo handle sa enrollment withdrawal requests
+    - Naay deadlines para sa withdrawing enrollment
+    - Unsay procedure para sa official withdrawal
+    - Giunsa pag penalize sa BukSU ang unofficial withdrawal
+
+- intent: buksu_hymn
+  examples: |
+    - What is the BukSU Hymn
+    - When is the university hymn performed
+    - Does the hymn reflect BukSU values
+    - Can you sing the BukSU Hymn
+    - Is the hymn mandatory at ceremonies
+    - What is the meaning of BukSU Hymn
+    - Who composed the BukSU Hymn
+    - What occasions feature the hymn
+    - How is the hymn related to university culture
+    - Is the hymn part of student tradition
+    - Unsay BukSU Hymn
+    - Kanus-a ginakanta ang university hymn
+    - Nag reflect ba ang hymn sa BukSU values
+    - Pwede nimo kantaon ang BukSU Hymn
+    - Mandatory ba ang hymn sa ceremonies
+    - Unsay kahulugan sa BukSU Hymn
+    - Kinsa ang composer sa BukSU Hymn
+    - Unsang occasions ang nag feature sa hymn
+    - Giunsa pag relate ang hymn sa university culture
+    - Kabahin ba ang hymn sa student tradition
+
+- intent: second_courser_requirements
+  examples: |
+    - What are requirements for second coursers
+    - Do second coursers need a Transcript of Records
+    - Is a 2x2 ID picture required
+    - How much is the admission test fee
+    - Are second coursers covered by Free Higher Education law
+    - Can second coursers apply for undergraduate programs
+    - Which documents must second coursers submit
+    - What is the payment process for admission test
+    - Are second coursers evaluated differently
+    - Is BukSU CAT mandatory for second coursers
+    - Unsay requirements para sa second coursers
+    - Kinahanglan ba og Transcript of Records ang second coursers
+    - Kinahanglan ba ang 2x2 ID picture
+    - Pila ang bayad sa admission test
+    - Sakop ba ang second coursers sa Free Higher Education law
+    - Pwede ba mo apply ang second coursers sa undergraduate programs
+    - Unsang documents ang kinahanglan i submit sa second coursers
+    - Unsay payment process para sa admission test
+    - Gi evaluate ba differently ang second coursers
+    - Mandatory ba ang BukSU CAT para sa second coursers
+
+- intent: buksu_bsit_program
+  examples: |
+    - Does BukSU offer BSIT
+    - What is included in the BSIT program
+    - Which college offers BSIT
+    - Is BSIT focused on software development
+    - Can I study network management in BSIT
+    - Are modern computing solutions taught in BSIT
+    - How to enroll in BukSU BSIT program
+    - What career paths are available for BSIT graduates
+    - Does BSIT include practical training
+    - How long is the BSIT course
+    - Nag offer ba ang BukSU og BSIT
+    - Unsay apil sa BSIT program
+    - Unsang college ang nag offer sa BSIT
+    - Focus ba ang BSIT sa software development
+    - Pwede ba mag study og network management sa BSIT
+    - Apil ba ang modern computing solutions sa BSIT
+    - Giunsa pag enroll sa BukSU BSIT program
+    - Unsay career paths para sa BSIT graduates
+    - Apil ba ang practical training sa BSIT
+    - Pila ka tuig ang BSIT course
+
+- intent: buksu_mpa_program
+  examples: |
+    - Does BukSU offer Master in Public Administration
+    - Which college administers MPA program
+    - Is MPA designed for government professionals
+    - Can non profit sector professionals enroll in MPA
+    - What are the goals of MPA program
+    - How to apply for MPA at BukSU
+    - Are there prerequisites for MPA admission
+    - What courses are included in MPA
+    - Is MPA a graduate level program
+    - How long is the MPA course
+    - Nag offer ba ang BukSU og Master in Public Administration
+    - Unsang college ang nag administer sa MPA program
+    - Designed ba ang MPA para sa government professionals
+    - Pwede ba mo enroll ang non profit sector professionals sa MPA
+    - Unsay goals sa MPA program
+    - Giunsa pag apply sa MPA sa BukSU
+    - Naay prerequisites para sa MPA admission
+    - Unsang courses ang apil sa MPA
+    - Graduate level ba ang MPA program
+    - Pila ka tuig ang MPA course
+
+- intent: buksu_graduation_honors
+  examples: |
+    - What are Latin Honors at BukSU
+    - How are Summa Cum Laude and Magna Cum Laude awarded
+    - What GPA is needed for Cum Laude
+    - Are there residency requirements for graduation honors
+    - Which graduates are eligible for Latin Honors
+    - How does BukSU recognize outstanding students
+    - Can students appeal Latin Honors decisions
+    - When are graduation honors announced
+    - Are honors based on final GPA
+    - Is Latin Honors applicable to all programs
+    - Unsay Latin Honors sa BukSU
+    - Giunsa pag award ang Summa Cum Laude ug Magna Cum Laude
+    - Unsay GPA nga kinahanglan para sa Cum Laude
+    - Naay residency requirements para sa graduation honors
+    - Kinsa ang kwalipikado sa Latin Honors
+    - Giunsa pag recognize sa BukSU ang outstanding students
+    - Pwede ba i appeal ang Latin Honors decisions
+    - Kanus-a gi announce ang graduation honors
+    - Base ba ang honors sa final GPA
+    - Applicable ba ang Latin Honors sa tanang programs
+
+- intent: buksu_admission_contact
+  examples: |
+    - How to contact BukSU Admission and Testing Unit
+    - Can I reach ATU through Facebook
+    - Where is the ATU office located
+    - Who handles admission inquiries at BukSU
+    - What is the official page for admission questions
+    - How to get information on entrance exams
+    - Can alumni contact ATU for testing info
+    - Is there a hotline for admissions
+    - How to send queries to BukSU ATU
+    - What is the main campus location for ATU office
+    - Giunsa pag contact sa BukSU Admission and Testing Unit
+    - Pwede ba ko mo reach sa ATU pinaagi sa Facebook
+    - Asa nahimutang ang ATU office
+    - Kinsa ang mo handle sa admission inquiries sa BukSU
+    - Unsay official page para sa admission questions
+    - Giunsa pagkuha og information sa entrance exams
+    - Pwede ba alumni mo contact sa ATU para sa testing info
+    - Naay hotline para sa admissions
+    - Giunsa pag send og queries sa BukSU ATU
+    - Asa ang main campus location sa ATU office
+
+- intent: law_admission_requirements
+  examples: |
+    - What are the requirements for Juris Doctor program
+    - Do I need a bachelor degree for law school
+    - Is Transcript of Records required for law admission
+    - Must I pass the Law School Admission Test
+    - Is a panel interview needed for law applicants
+    - How to apply for Juris Doctor at BukSU
+    - Are there prerequisites for law program
+    - Who approves law program admissions
+    - Can I submit documents online for law admission
+    - What tests are required for law applicants
+    - Unsay requirements para sa Juris Doctor program
+    - Kinahanglan ba og bachelor degree para sa law school
+    - Kinahanglan ba ang Transcript of Records para sa law admission
+    - Kinahanglan ba mo pass sa Law School Admission Test
+    - Kinahanglan ba ang panel interview para sa law applicants
+    - Giunsa pag apply sa Juris Doctor sa BukSU
+    - Naay prerequisites para sa law program
+    - Kinsa ang mo approve sa law program admissions
+    - Pwede ba i submit ang documents online para sa law admission
+    - Unsang tests ang kinahanglan sa law applicants
+
+- intent: student_id_replacement
+  examples: |
+    - How to replace a lost student ID
+    - Do I need an Affidavit of Loss for ID replacement
+    - Where to get a reissuance slip
+    - How much is the fee for student ID replacement
+    - Where to pay for the new ID
+    - Can I collect the ID at University Press
+    - What documents are required for replacement
+    - Who handles student ID replacement requests
+    - How to process a lost ID replacement
+    - Are there penalties for lost ID
+    - Giunsa pag replace sa nawala nga student ID
+    - Kinahanglan ba og Affidavit of Loss para sa ID replacement
+    - Asa kuhaon ang reissuance slip
+    - Pila ang bayad para sa student ID replacement
+    - Asa bayaran ang bag ong ID
+    - Pwede ba i collect ang ID sa University Press
+    - Unsang documents ang kinahanglan para sa replacement
+    - Kinsa ang mo handle sa student ID replacement requests
+    - Giunsa pag process sa lost ID replacement
+    - Naay penalties para sa lost ID
+
+- intent: buksu_clinic_services
+  examples: |
+    - Does BukSU provide medical and dental services
+    - Are consultations free at the university clinic
+    - Can students get first aid at BukSU
+    - Who can avail emergency treatment at the clinic
+    - Are health services available for staff
+    - Where is the University Health Services Unit
+    - What services are offered by BukSU clinic
+    - Can I see a doctor at BukSU for free
+    - Is dental consultation included in health services
+    - How to access BukSU health services
+    - Naghatag ba ang BukSU og medical ug dental services
+    - Libre ba ang consultations sa university clinic
+    - Pwede ba makakuha og first aid ang estudyante sa BukSU
+    - Kinsa ang pwede mo avail og emergency treatment sa clinic
+    - Apil ba ang staff sa health services
+    - Asa nahimutang ang University Health Services Unit
+    - Unsay services nga gi offer sa BukSU clinic
+    - Pwede ba ko makakita og doktor sa BukSU libre
+    - Apil ba ang dental consultation sa health services
+    - Giunsa pag access ang BukSU health services
+
+- intent: institutional_email_info
+  examples: |
+    - What is the institutional email at BukSU
+    - Who issues the official BukSU email
+    - When do students receive their email accounts
+    - Is buksu edu ph email used for official communication
+    - Can alumni access the institutional email
+    - How to activate BukSU email
+    - Where to get login details for institutional email
+    - Do all students have an official email
+    - What is the purpose of the institutional email
+    - How to contact ICT unit regarding email
+    - Unsay institutional email sa BukSU
+    - Kinsa ang mo issue sa opisyal nga BukSU email
+    - Kanus-a madawat sa estudyante ang email account
+    - Gigamit ba ang buksu edu ph email para sa official communication
+    - Pwede ba ang alumni mo access sa institutional email
+    - Giunsa pag activate sa BukSU email
+    - Asa kuhaon ang login details para sa institutional email
+    - Tanang estudyante ba adunay opisyal nga email
+    - Unsay purpose sa institutional email
+    - Giunsa pag contact sa ICT unit bahin sa email
+
+- intent: good_moral_certificate_request
+  examples: |
+    - How to request a Good Moral Certificate
+    - Where to get a Good Moral Certificate at BukSU
+    - How much is the fee for Good Moral Certificate
+    - Who issues the Good Moral Certificate
+    - Can I request Good Moral Certificate online
+    - Is there a processing time for Good Moral Certificate
+    - What documents are needed for Good Moral Certificate
+    - Can alumni request Good Moral Certificate
+    - Is it required for graduation
+    - How to submit payment for Good Moral Certificate
+    - Giunsa pag request sa Good Moral Certificate
+    - Asa kuhaon ang Good Moral Certificate sa BukSU
+    - Pila ang bayad para sa Good Moral Certificate
+    - Kinsa ang mo issue sa Good Moral Certificate
+    - Pwede ba i request ang Good Moral Certificate online
+    - Naay processing time para sa Good Moral Certificate
+    - Unsang documents ang kinahanglan para sa Good Moral Certificate
+    - Pwede ba ang alumni mo request sa Good Moral Certificate
+    - Kinahanglan ba kini para sa graduation
+    - Giunsa pag submit ang bayad para sa Good Moral Certificate
+
+- intent: buksu_library_hours
+  examples: |
+    - What are the University Library hours
+    - Is the library open on weekends
+    - Can students stay late during exams
+    - When does the library open and close
+    - Are there extended hours for exam weeks
+    - How to check library schedule
+    - Are library facilities accessible after hours
+    - Can staff use library during off-hours
+    - What is the library opening time
+    - How long is the library open each day
+    - Unsay oras sa University Library
+    - Bukas ba ang library sa weekends
+    - Pwede ba magpabilin ang estudyante sa library during exams
+    - Kanus-a magsugod ug magtapos ang library
+    - Naay extended hours sa panahon sa exam
+    - Giunsa pag check sa library schedule
+    - Accessible ba ang library facilities after hours
+    - Pwede ba ang staff mo gamit sa library sa off-hours
+    - Unsay oras sa pag open sa library
+    - Pila ka oras ang library bukas kada adlaw
+
+- intent: student_assistant_application
+  examples: |
+    - How to apply as a Student Assistant
+    - Where to submit application for Student Assistant
+    - What documents are needed to apply
+    - Is proof of financial need required
+    - Do I need to submit latest grades
+    - Can part-time students apply
+    - Who approves Student Assistant applications
+    - How to know if accepted as Student Assistant
+    - Is study load considered in application
+    - Are there deadlines for Student Assistant application
+    - Giunsa pag apply isip Student Assistant
+    - Asa i submit ang application para Student Assistant
+    - Unsang documents ang kinahanglan i submit
+    - Kinahanglan ba og proof sa financial need
+    - Kinahanglan ba i submit ang pinakaulahi nga grades
+    - Pwede ba mo apply ang part-time students
+    - Kinsa ang mo approve sa Student Assistant applications
+    - Giunsa paghibalo kung na accept isip Student Assistant
+    - Gi consider ba ang study load sa application
+    - Naay deadlines para sa Student Assistant application
+
+- intent: buksu_medical_dental_services
+  examples: |
+    - Are medical and dental services free for enrolled students
+    - Can students access emergency treatment at BukSU
+    - What do I need to present to get free consultations
+    - Does BukSU Health Services require ID
+    - Which services are included for students
+    - Are staff included in free services
+    - Where is the health services unit
+    - Can students use the clinic without payment
+    - How to get first aid at BukSU
+    - Is dental check-up included
+    - Libre ba ang medical ug dental services para sa enrolled students
+    - Pwede ba makakuha og emergency treatment ang estudyante sa BukSU
+    - Unsay ipakita aron makakuha og free consultations
+    - Kinahanglan ba ang ID sa BukSU Health Services
+    - Unsang services ang apil para sa estudyante
+    - Apil ba ang staff sa libre nga services
+    - Asa nahimutang ang health services unit
+    - Pwede ba mo gamit ang clinic nga walay bayad
+    - Giunsa pagkuha ang first aid sa BukSU
+    - Apil ba ang dental check-up
+
+- intent: no_noon_break_policy
+  examples: |
+    - Do frontline offices follow a no noon break policy
+    - Which offices operate continuously at BukSU
+    - Does Registrar and Cashier have no noon break
+    - How does Office of Student Services handle lunch hours
+    - Is the policy applied to all student services
+    - Why is there no noon break in some offices
+    - Can students still access services during lunch
+    - Are there exceptions to no noon break policy
+    - Who implements the policy
+    - Does the policy affect office schedule
+    - Nag follow ba ang frontline offices sa no noon break policy
+    - Unsang offices ang nag operate continuously sa BukSU
+    - Ang Registrar ug Cashier ba walay noon break
+    - Giunsa pag handle sa Office of Student Services ang lunch hours
+    - Applied ba ang policy sa tanang student services
+    - Ngano walay noon break sa pipila ka offices
+    - Pwede ba gihapon ma access ang services sa lunch
+    - Naay exceptions sa no noon break policy
+    - Kinsa ang mo implement sa policy
+    - Giunsa pag affect sa policy ang office schedule
+
+- intent: buksu_official_anthem
+  examples: |
+    - What is the official anthem of BukSU?
+    - What is the BukSU Hymn?
+    - What is the BukSU anthem?
+    - When is the BukSU Hymn performed?
+    - When is the BukSU anthem sung?
+    - Does the BukSU hymn reflect university values?
+    - Does the BukSU anthem reflect university values?
+    - Who composed the BukSU Hymn?
+    - Who wrote the BukSU anthem?
+    - Is the BukSU Hymn sung during ceremonies?
+    - Is the BukSU anthem sung during formal events?
+    - Can I listen to the BukSU Hymn online?
+    - Can I listen to the BukSU anthem online?
+    - What occasions feature the BukSU Hymn?
+    - What occasions feature the BukSU anthem?
+    - How important is the BukSU Hymn to university culture?
+    - How important is the BukSU anthem to university culture?
+    - Does BukSU have an official anthem?
+    - Does BukSU have an official hymn?
+    - How can I get the link to the BukSU Hymn?
+    - How can I get the link to the BukSU anthem?
+    - Is the BukSU Hymn part of university events?
+    - Is the BukSU anthem performed at university events?
+    - What events feature the BukSU hymn?
+    - What events feature the BukSU anthem?
+    - How often is the BukSU Hymn performed?
+    - How often is the BukSU anthem sung?
+    - Where can I hear the BukSU Hymn?
+    - Where can I hear the BukSU anthem?
+    - Can I find the BukSU Hymn on YouTube?
+    - Can I find the BukSU anthem online?
+    - Is the BukSU Hymn mandatory at ceremonies?
+    - Is the BukSU anthem mandatory during formal events?
+    - What does the BukSU Hymn represent?
+    - What does the BukSU anthem represent?
+    - Can I perform the BukSU Hymn during school events?
+    - Can I perform the BukSU anthem during events?
+    - Is there a video of the BukSU Hymn I can watch?
+    - Is there a video of the BukSU anthem I can watch?
+    - When should the BukSU Hymn be sung?
+    - When should the BukSU anthem be sung?
+    - Who are the people that sing the BukSU Hymn?
+    - Who are the people who perform the BukSU anthem?
+    - How can I learn the BukSU Hymn?
+    - How can I learn the BukSU anthem?
+    - Is the BukSU Hymn part of the graduation ceremony?
+    - Is the BukSU anthem part of the graduation ceremony?
+    - Where can I find the lyrics of the BukSU Hymn?
+    - Where can I find the lyrics of the BukSU anthem?
+    - Who composed the BukSU Anthem?
+    - When was the BukSU Hymn composed?
+    - What is the meaning of the BukSU Hymn?
+    - What is the meaning of the BukSU anthem?
+    - Unsay opisyal nga kanta sa BukSU?
+    - Unsay BukSU Hymn?
+    - Unsay BukSU anthem?
+    - Kanus-a ginakanta ang BukSU Hymn?
+    - Kanus-a ginakanta ang BukSU anthem?
+    - Nag reflect ba ang BukSU Hymn sa mga values sa unibersidad?
+    - Nag reflect ba ang BukSU anthem sa mga values sa unibersidad?
+    - Kinsa ang composer sa BukSU Hymn?
+    - Kinsa ang nagsulat sa BukSU anthem?
+    - Ginakanta ba ang BukSU Hymn sa mga ceremonies?
+    - Ginakanta ba ang BukSU anthem sa mga pormal nga okasyon?
+    - Pwede ba paminawon ang BukSU Hymn online?
+    - Pwede ba paminawon ang BukSU anthem online?
+    - Unsang okasyon ang nag feature sa BukSU Hymn?
+    - Unsang okasyon ang nag feature sa BukSU anthem?
+    - Unsa ka importante ang BukSU Hymn sa kultura sa unibersidad?
+    - Unsa ka importante ang BukSU anthem sa kultura sa unibersidad?
+    - Naay official anthem ang BukSU?
+    - Naay official hymn ang BukSU?
+    - Giunsa pagkuha ang link sa BukSU Hymn?
+    - Giunsa pagkuha ang link sa BukSU anthem?
+    - Apil ba ang BukSU Hymn sa mga unibersidad nga okasyon?
+    - Apil ba ang BukSU anthem sa mga formal nga okasyon?
+    - Unsang events ang nag feature sa BukSU Hymn?
+    - Unsang events ang nag feature sa BukSU anthem?
+    - Kanus-a kasagaran ginakanta ang BukSU Hymn?
+    - Kanus-a kasagaran ginakanta ang BukSU anthem?
+    - Asa ko makapaminaw sa BukSU Hymn?
+    - Asa ko makapaminaw sa BukSU anthem?
+    - Makita ba ang BukSU Hymn sa YouTube?
+    - Makita ba ang BukSU anthem online?
+    - Mandatory ba ang BukSU Hymn sa mga ceremonies?
+    - Mandatory ba ang BukSU anthem sa mga formal nga events?
+    - Unsay girepresenta sa BukSU Hymn?
+    - Unsay girepresenta sa BukSU anthem?
+    - Pwede ba nako i-perform ang BukSU Hymn sa school events?
+    - Pwede ba nako i-perform ang BukSU anthem sa events?
+    - Naay video sa BukSU Hymn nga pwede nako tan-awon?
+    - Naay video sa BukSU anthem nga pwede nako tan-awon?
+    - Kanus-a dapat ginakanta ang BukSU Hymn?
+    - Kanus-a dapat ginakanta ang BukSU anthem?
+    - Kinsa ang mga tao nga mag perform sa BukSU Hymn?
+    - Kinsa ang mag perform sa BukSU anthem?
+    - Giunsa nako pagkat-on sa BukSU Hymn?
+    - Giunsa nako pagkat-on sa BukSU anthem?
+    - Apil ba ang BukSU Hymn sa graduation ceremony?
+    - Apil ba ang BukSU anthem sa graduation ceremony?
+    - Asa ko makakita sa lyrics sa BukSU Hymn?
+    - Asa ko makakita sa lyrics sa BukSU anthem?
+    - Kinsa ang composer sa BukSU anthem?
+    - Kanus-a gi-compose ang BukSU Hymn?
+    - Unsa ang kahulugan sa BukSU Hymn?
+    - Unsa ang kahulugan sa BukSU anthem?
+
+- intent: buksu_cat_calculator_policy
+  examples: |
+    - Can I use a calculator during BukSU CAT
+    - Are scientific calculators allowed in CAT
+    - What items are allowed in testing room
+    - Can I bring pencils and erasers for CAT
+    - Is any electronic device allowed during CAT
+    - How strict is the CAT exam policy
+    - Can I bring my phone for calculations
+    - Are notes allowed in the testing room
+    - What is prohibited during BukSU CAT
+    - Who monitors CAT exam compliance
+    - Pwede ba mag gamit og calculator sa BukSU CAT
+    - Gitugotan ba ang scientific calculators sa CAT
+    - Unsang items ang pwede sa testing room
+    - Pwede ba magdala og pencils ug erasers para sa CAT
+    - Gitugotan ba ang bisan unsang electronic device sa CAT
+    - Unsa ka hugot ang CAT exam policy
+    - Pwede ba magdala og phone para sa calculations
+    - Pwede ba magdala og notes sa testing room
+    - Unsay gidili sa BukSU CAT
+    - Kinsa ang mo monitor sa CAT exam 
+
+- intent: latin_honors_graduation_requirements
+  examples: |
+    - What are the requirements for Latin Honors at BukSU
+    - How can I graduate with Summa Magna or Cum Laude
+    - What GPA is needed for Latin Honors
+    - Are failing grades allowed for Latin Honors
+    - Do I need to complete residency requirements for honors
+    - Can I graduate with Latin Honors if I fail a course
+    - Who approves Latin Honors graduation
+    - Is there a checklist for graduating with honors
+    - How to qualify for academic distinction
+    - What are BukSU's graduation requirements for Latin Honors
+    - Unsay requirements para sa Latin Honors sa BukSU
+    - Giunsa pag graduate sa Summa Magna o Cum Laude
+    - Unsang GPA ang kinahanglan para sa Latin Honors
+    - Pwede ba naay failing grades sa Latin Honors
+    - Kinahanglan ba tapuson ang residency requirements para sa honors
+    - Pwede ba ko makagradwar nga naay Latin Honors kung naay bagsak nga subject
+    - Kinsa ang mo approve sa Latin Honors graduation
+    - Naay checklist para sa graduating with honors
+    - Giunsa mahimong qualified para sa academic distinction
+    - Unsay graduation requirements sa BukSU para sa Latin Honors
+
+- intent: latin_honors_average_gpa
+  examples: |
+    - What GWA do I need to qualify for Latin Honors
+    - What GPA is required to graduate with Latin Honors
+    - What GWA do I need to become Cum Laude
+    - What is the minimum GWA for Latin Honors
+    - How high should my GWA be to get Latin Honors
+    - What GPA is needed to be Cum Laude
+    - What is the required GWA for Summa Cum Laude
+    - What GWA should I maintain to qualify for honors
+    - Is a 1.75 GWA enough for Latin Honors
+    - What grades do I need to maintain for Cum Laude
+    - What is the lowest individual grade allowed for Latin Honors
+    - Can I still get honors if I have a 2.00 grade
+    - Are the GPA requirements stricter for Summa Cum Laude
+    - What happens if my grade is below 1.50
+    - Can I still graduate with honors if my GWA is 1.75
+    - What GWA do I need to achieve Summa Cum Laude
+    - What is the required GPA for academic honors
+    - How do I qualify for Cum Laude
+    - What GWA is needed for academic honors
+    - What grades are required for Latin Honors
+    - Unsang GWA ang kinahanglan para ma qualify sa Latin Honors
+    - Unsang GWA ang kinahanglan para mahimong Cum Laude
+    - Pila ka GWA ang kinahanglan para maka Latin Honors
+    - Unsay minimum nga GWA para sa Latin Honors
+    - Unsay required GWA para mahimong Summa Cum Laude
+    - Unsang GWA ang kinahanglan para ma Summa Cum Laude
+    - Sakto ba ang 1.75 nga GWA para sa Latin Honors
+    - Unsang grado ang kinahanglan para maka Cum Laude
+    - Unsay pinakagamay nga individual grade nga pwede para sa honors
+    - Pwede ba gihapon maka Latin Honors kung naa koy 2.00 nga grade
+    - Mas strikto ba ang GWA requirement para sa Summa Cum Laude
+    - Unsay mahitabo kung ang akong grado mo ubos sa 1.50
+    - Pwede pa ba ko maka honors kung 1.75 akong GWA
+    - Unsang GWA ang kinahanglan para maka honors
+    - Giunsa pag qualify para mahimong Cum Laude
+    - Unsay kinahanglan nga grades para sa Latin Honors
+    - Unsang GPA o GWA ang kinahanglan para sa honors
+    - Unsang GWA ang kinahanglan para ma Cum Laude
+    - Kinahanglan ba taas ang GWA para maka Latin Honors
+    - Unsa nga GWA ang kinahanglan aron maka Latin Honors
+
+- intent: buksu_bsa_program
+  examples: |
+    - Does BukSU offer Bachelor of Science in Accountancy
+    - Which college offers BSA program
+    - Are qualifying exams required for accounting subjects
+    - How to enroll in BukSU BSA program
+    - Can I take higher-level accounting subjects immediately
+    - Is the program under College of Business
+    - What are the prerequisites for BSA program
+    - Can part-time students enroll in BSA
+    - Is there a specific curriculum for BSA
+    - How long is the BSA program
+    - Nag offer ba ang BukSU og Bachelor of Science in Accountancy
+    - Asa nga college ang nag offer sa BSA program
+    - Kinahanglan ba og qualifying exam para sa accounting subjects
+    - Giunsa pag enroll sa BukSU BSA program
+    - Pwede ba diretso sa higher-level accounting subjects
+    - Ubos ba ang program sa College of Business
+    - Unsay prerequisites para sa BSA program
+    - Pwede ba mo enroll ang part-time students sa BSA
+    - Naay specific curriculum para sa BSA
+    - Pila ka tuig ang BSA program
+
+- intent: double_enrollment_policy
+  examples: |
+    - Can I enroll in BukSU if I'm already enrolled in another school?
+    - Is it possible to enroll in two schools at the same time?
+    - How do I withdraw from my current school to enroll in BukSU?
+    - What do I need to do before enrolling in BukSU if I'm already enrolled somewhere else?
+    - What is the policy on double enrollment at BukSU?
+    - Are there any penalties for double enrollment at BukSU?
+    - Can I still enroll in BukSU if I'm enrolled in another university?
+    - How do I get an Honorable Dismissal from my current school before enrolling in BukSU?
+    - What happens if I try to enroll in BukSU while already enrolled in another school?
+    - Is double enrollment allowed in the College of Education at BukSU?
+    - What should I do if I want to enroll in BukSU but Im still enrolled elsewhere?
+    - Are online courses considered part of double enrollment?
+    - Does BukSU check whether I am enrolled in another school?
+    - Can I enroll in BukSU while taking online classes in another school?
+    - Whats the process for enrolling in BukSU if Im currently enrolled in another school?
+    - How do I comply with BukSU policy on double enrollment?
+    - Is there a penalty if Im caught double enrolling at BukSU?
+    - Can I be enrolled in two universities at the same time in the Philippines?
+    - What does "Honorable Dismissal" mean for enrollment at BukSU?
+    - How do I get an Honorable Dismissal from my old school?
+    - Can I still apply to BukSU if I am currently enrolled in a different school?
+    - What are the requirements for enrollment in BukSU if Im already enrolled in another school?
+    - How do I officially withdraw from my current school before enrolling in BukSU?
+    - Can I take online courses while enrolled at BukSU and another school?
+    - What should I do if I want to transfer to BukSU while enrolled at another school?
+    - What happens if I dont secure an Honorable Dismissal before enrolling in BukSU?
+    - Does BukSU check if Im enrolled in other schools during admission?
+    - How soon can I enroll in BukSU after getting an Honorable Dismissal?
+    - Are there any restrictions on enrolling at BukSU while enrolled in other schools?
+    - Can I enroll in BukSU without withdrawing from my previous school first?
+    - Does BukSU accept transfer students from other schools?
+    - What steps should I follow to withdraw from my current school and enroll in BukSU?
+    - What penalties might apply for double enrollment at BukSU?
+    - Can I enroll in BukSU while still enrolled in a different university?
+    - What is the enrollment policy for students who are enrolled in other schools?
+    - How does BukSU handle students who try to enroll while already attending another school?
+    - What is required to transfer to BukSU from another school?
+    - Does BukSU require an official withdrawal before enrolling in their programs?
+    - Is it allowed to be enrolled in multiple schools at once in BukSU?
+    - What must I do to get a Honorable Dismissal from my current school?
+    - What happens if I dont get a Honorable Dismissal before applying to BukSU?
+    - Can I take online courses while enrolled at BukSU and another school?
+    - How long does it take to get an Honorable Dismissal from a school?
+    - Can I enroll in BukSU even though I am enrolled in another school for online classes?
+    - Pwede ba ko mag enroll sa BukSU bisan enrolled ko sa laing eskwelahan?
+    - Unsaon pag withdraw gikan sa akong kasamtangang eskwelahan aron makasulod sa BukSU?
+    - Pila ang kinahanglan buhaton aron makasulod sa BukSU kung nag enroll pa ko sa laing eskwelahan?
+    - Unsay policy sa BukSU bahin sa double enrollment?
+    - Naay penalties ba kung mag double enroll sa BukSU?
+    - Pwede ba ko mag enroll sa BukSU bisan pa enrolled ko sa laing unibersidad?
+    - Giunsa pagkuha ang Honorable Dismissal sa akong current school aron maka enroll sa BukSU?
+    - Unsa mahitabo kung mag enroll ko sa BukSU bisan enrolled pa ko sa laing school?
+    - Gihimo ba sa BukSU ang double enrollment sa College of Education?
+    - Unsay buhaton kung gusto ko mag enroll sa BukSU pero enrolled pa ko sa lain nga school?
+    - Gi-consider ba ang online courses nga double enrollment?
+    - Gacheck ba sa BukSU kung enrolled pa ba ko sa laing eskwelahan?
+    - Pwede ba ko mag enroll sa BukSU samtang nagkuha ko og online courses sa lain nga school?
+    - Unsaon nako pag comply sa policy sa BukSU bahin sa double enrollment?
+    - Naay penalty ba kung madakpan ko nga double enrolled sa BukSU?
+    - Pwede ba ko mag enroll sa duha ka unibersidad sa Pilipinas?
+    - Unsa ang proseso sa Honorable Dismissal aron maka enroll ko sa BukSU?
+    - Unsaon nako pagkuha og Honorable Dismissal sa akong previous school?
+    - Pwede ba ko mag apply sa BukSU bisan enrolled pa ko sa laing school?
+    - Unsay requirements sa enrollment sa BukSU kung nag enroll pa ko sa laing school?
+    - Giunsa ang proseso sa pag withdraw gikan sa akong current school ug pag enroll sa BukSU?
+    - Pwede ba ko mag online courses samtang enrolled sa BukSU ug sa laing school?
+    - Unsa ang mga restrictions kung mag enroll ko sa BukSU samtang enrolled sa laing school?
+    - Unsay mga lakang aron mag withdraw gikan sa akong kasamtangang school ug mag enroll sa BukSU?
+    - Naay penalties ba kung mag double enrollment sa BukSU?
+    - Pwede ba ko mag enroll sa BukSU samtang enrolled pa ko sa laing unibersidad?
+    - Unsa ang policy sa BukSU para sa mga estudyante nga nag enroll sa lain nga school?
+    - Unsay mahitabo kung mag enroll ko sa BukSU nga wala pa nako makuha ang Honorable Dismissal?
+    - Gikinahanglan ba ang official withdrawal aron maka enroll sa BukSU?
+    - Pwede ba ko mag enroll sa BukSU nga wala pa mag withdraw sa akong previous school?
+    - Unsaon nako pag transfer sa BukSU gikan sa laing school?
+    - Kinahanglan ba nako mag withdraw official sa akong school aron maka enroll sa BukSU?
+    - Pwede ba ko mag enroll sa BukSU samtang enrolled ko sa online courses sa lain school?
+    - Unsay mahitabo kung wala nako makuha ang Honorable Dismissal sa akong current school?
+    - Pila ka adlaw ang kinahanglan aron makakuha og Honorable Dismissal gikan sa eskwelahan?
+    - Pwede ba ko mag enroll sa BukSU samtang nagkuha og online classes sa laing school?
+    - Unsa ang epekto sa pag enroll sa BukSU kung double enrolled ko sa laing school?
+
+- intent: buksu_gymnasium_facility
+  examples: |
+    - What is the University Gymnasium used for
+    - Can I attend PE classes in the gym
+    - Is the gym used for varsity training
+    - Are major events held in the gym
+    - Can intramurals be conducted in the gym
+    - Is the gym open during graduation ceremonies
+    - Where is BukSU Gymnasium located
+    - What facilities are available inside the gym
+    - Can students practice sports there
+    - How to reserve the gym for events
+    - Para sa unsa gigamit ang University Gymnasium
+    - Pwede ba mo attend og PE classes sa gym
+    - Gigamit ba ang gym para sa varsity training
+    - Gi-hold ba ang major events sa gym
+    - Pwede ba mag conduct og intramurals sa gym
+    - Bukas ba ang gym during graduation ceremonies
+    - Asa nahimutang ang BukSU Gymnasium
+    - Unsang facilities ang available sa sulod sa gym
+    - Pwede ba ang estudyante mo practice og sports didto
+    - Giunsa pag reserve ang gym para sa events
+
+- intent: new_student_orientation_purpose
+  examples: |
+    - What is the purpose of new student orientation
+    - What do students learn during orientation
+    - Are policies explained in orientation
+    - Does orientation cover academic expectations
+    - Are student services introduced in orientation
+    - How orientation helps in adjusting to campus life
+    - Who conducts the orientation program
+    - When is orientation held
+    - Is orientation mandatory for all new students
+    - How long does orientation last
+    - Unsay purpose sa new student orientation
+    - Unsay ma kat-onan sa estudyante during orientation
+    - Gi-explain ba ang policies sa orientation
+    - Gi-cover ba sa orientation ang academic expectations
+    - Gi-introduce ba ang student services sa orientation
+    - Giunsa pagtabang sa orientation sa pag adjust sa campus life
+    - Kinsa ang nag conduct sa orientation program
+    - Kanus-a ginahimo ang orientation
+    - Mandatory ba ang orientation para sa tanang new students
+    - Pila ka oras ang orientation

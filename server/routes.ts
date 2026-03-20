@@ -4,6 +4,7 @@ import { ChatController } from "./controllers/chatController";
 import { AdminController } from "./controllers/adminController";
 import { AuthController } from "./controllers/authController";
 import emailRoutes from "./routes/emailRoutes";
+import adminMigrationRoutes from "./routes/admin-migration.js";
 import jwt from "jsonwebtoken";
 
 export async function registerRoutes(
@@ -89,6 +90,9 @@ export async function registerRoutes(
 
   // PASSWORD CHANGE (ADMIN)
   app.post("/api/admin/change-password", requireAuth, AdminController.changePassword);
+
+  // MIGRATION ROUTES (ADMIN)
+  app.use("/api/admin", requireAuth, adminMigrationRoutes);
 
   // EMAIL VERIFICATION ROUTES
   app.use("/api/email", emailRoutes);

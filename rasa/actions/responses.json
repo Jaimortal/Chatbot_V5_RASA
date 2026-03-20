@@ -2789,6 +2789,2018 @@
   "metadata": {
     "source": "PolicyData"
   }
+},
+
+{
+  "intent": "cat_requirement_nursing_program",
+  "category": "Admissions",
+  "sub_category": "CAT",
+  "responses": {
+    "answer": {
+      "en": [
+        "To qualify for the College of Nursing at Bukidnon State University, applicants must pass the BukSU College Admission Test.",
+        "The expected CAT score is usually around 80 to 90 or above because the program has limited slots and high demand.",
+        "However, the required CAT score may vary depending on the number of applicants, available slots, and the admission policies set by the university for that academic year."
+      ],
+      "ceb": [
+        "Aron makasulod sa College of Nursing sa Bukidnon State University, kinahanglan makapasar ang aplikante sa BukSU College Admission Test.",
+        "Kasagaran ang gikinahanglan nga score kay mga 80 to 90 pataas tungod kay limitado ang slots ug daghan ang aplikante.",
+        "Apan ang required nga CAT score mahimong mag-usab depende sa kadaghan sa aplikante, available nga slots, ug sa admission policy sa unibersidad matag tuig."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "cat_requirement_nursing_program"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "cat_requirement_education_program",
+  "category": "Admissions",
+  "sub_category": "CAT",
+  "responses": {
+    "answer": {
+      "en": [
+        "To qualify for the College of Education at Bukidnon State University, applicants must pass the BukSU College Admission Test.",
+        "The typical expected CAT score is around 80 or above.",
+        "However the final requirement may vary depending on the number of applicants, available slots, and the admission policies set by the university for that academic year."
+      ],
+      "ceb": [
+        "Aron makasulod sa College of Education sa Bukidnon State University, kinahanglan makapasar ang aplikante sa BukSU College Admission Test.",
+        "Kasagaran ang gikinahanglan nga score kay mga 80 pataas.",
+        "Apan mahimo gihapon kini mag-usab depende sa kadaghan sa aplikante, available nga slots, ug sa admission policy sa unibersidad matag tuig."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "cat_requirement_education_program"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "reset_portal_password_buksu",
+  "category": "Student Portal",
+  "sub_category": "account_access",
+  "responses": {
+    "answer": {
+      "en": [
+        "If you forgot your BukSU portal password go to the BukSU Admission login page and click the Forgot Password option.",
+        "Enter the email address registered with your BukSU account.",
+        "The system will send instructions to your email so you can create a new password."
+      ],
+      "ceb": [
+        "Kung nakalimot ka sa imong BukSU portal password adto sa BukSU Admission login page ug i click ang Forgot Password nga option.",
+        "Ibutang ang email address nga naka register sa imong BukSU account.",
+        "Magpadala ang system ug instructions sa imong email aron makabuhat ka ug bag ong password."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "reset_portal_password_buksu"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PortalSupportData"
+  }
+},
+
+{
+  "intent": "portal_account_locked_issue",
+  "category": "Student Portal",
+  "sub_category": "account_access",
+  "responses": {
+    "answer": {
+      "en": [
+        "If your BukSU portal account is locked wait a few minutes and try logging in again.",
+        "Accounts may become locked after multiple incorrect login attempts.",
+        "If the problem continues contact the BukSU ICT support office or the registrar for assistance."
+      ],
+      "ceb": [
+        "Kung na lock ang imong BukSU portal account hulata una ang pila ka minuto ug sulayi pag login pag usab.",
+        "Kasagaran ma lock ang account kung daghan na kaayo ug sayop nga login attempts.",
+        "Kung padayon gihapon ang problema kontaka ang BukSU ICT support o ang registrar aron matabangan ka."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "portal_account_locked_issue"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PortalSupportData"
+  }
+},
+
+{
+  "intent": "portal_login_problem",
+  "category": "Student Portal",
+  "sub_category": "account_access",
+  "responses": {
+    "answer": {
+      "en": [
+        "You may not be able to log in to the BukSU Admission portal if the email or password is incorrect. It can also happen if your account is locked or if the portal is temporarily under maintenance. Check your login details carefully and try again."
+      ],
+      "ceb": [
+        "Dili ka makasulod sa BukSU Admission portal kung sayop ang imong email o password. Mahimo usab kini kung na lock ang imong account o kung adunay maintenance ang portal. Siguroa nga sakto ang imong login details ug sulayi pag login pag usab."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "portal_login_problem"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PortalSupportData"
+  }
+},
+
+{
+  "intent": "check_portal_enrollment_status",
+  "category": "Enrollment",
+  "sub_category": "student_portal",
+  "responses": {
+    "answer": {
+      "en": [
+        "To check your enrollment status log in to the BukSU Admission using your student ID and password.",
+        "Go to the enrollment or registration section.",
+        "Your enrollment status subjects and schedule will appear in your dashboard."
+      ],
+      "ceb": [
+        "Aron makita ang imong enrollment status mag login sa BukSU Admission gamit ang imong student ID ug password.",
+        "Human makasulod adto sa enrollment o registration section.",
+        "Makita didto ang imong enrollment status mga subject ug schedule sa dashboard."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "check_portal_enrollment_status"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "EnrollmentData"
+  }
+},
+
+{
+  "intent": "change_portal_password_buksu",
+  "category": "Student Portal",
+  "sub_category": "account_settings",
+  "responses": {
+    "answer": {
+      "en": [
+        "To change your BukSU portal password log in to your account and go to account settings.",
+        "Select change password and enter your current password and new password.",
+        "Save the changes to update your password."
+      ],
+      "ceb": [
+        "Aron mausab ang imong BukSU portal password mag login sa imong account ug adto sa account settings.",
+        "Pilia ang change password ug ibutang ang current ug bag ong password.",
+        "I save ang changes aron ma update ang imong password."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "change_portal_password_buksu"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PortalSupportData"
+  }
+},
+
+{
+  "intent": "request_good_moral_certificate_oss",
+  "category": "Student Services",
+  "sub_category": "documents",
+  "responses": {
+    "answer": {
+      "en": [
+        "You can request a Good Moral Certificate from the Office of Student Services.",
+        "The standard fee for issuing the certificate is fifty pesos."
+      ],
+      "ceb": [
+        "Mahimo nimong pangayoon ang Good Moral Certificate sa Office of Student Services.",
+        "Ang bayad sa certificate kay singkwenta pesos."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "request_good_moral_certificate_oss"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "lost_student_id_replacement_process",
+  "category": "Student Services",
+  "sub_category": "student_id",
+  "responses": {
+    "answer": {
+      "en": [
+        "If you lose your BukSU student ID you must first secure an affidavit of loss.",
+        "Then go to the Office of Student Services for an ID reissuance slip.",
+        "Pay the required fee at the University Cashier and bring the receipt to the University Press for a new ID."
+      ],
+      "ceb": [
+        "Kung mawala ang imong student ID kinahanglan una ka og affidavit of loss.",
+        "Dayon adto sa Office of Student Services para sa reissuance slip.",
+        "Bayad sa cashier ug dad a ang resibo sa University Press para sa bag ong ID."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "lost_student_id_replacement_process"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "continuing_students_enrollment_process",
+  "category": "Enrollment",
+  "sub_category": "process",
+  "responses": {
+    "answer": {
+      "en": [
+        "Continuing students must log in to the admissions portal.",
+        "Click proceed to account migration using the student number.",
+        "Fill in the required information verify the details and submit the application for evaluation."
+      ],
+      "ceb": [
+        "Ang continuing students kinahanglan mag login sa admissions portal.",
+        "I click ang proceed to account migration gamit ang student number.",
+        "Human masulatan ang info i verify ug i submit ang application para ma process sa evaluator."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "continuing_students_enrollment_process"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "EnrollmentData"
+  }
+},
+
+{
+  "intent": "gpat_admission_requirements",
+  "category": "Graduate Studies",
+  "sub_category": "admission_test",
+  "responses": {
+    "answer": {
+      "en": [
+        "Requirements for the Graduate Program Admission Test include a soft copy of a 2x2 ID picture.",
+        "You must also submit a scanned copy of your transcript of records.",
+        "Non BukSU graduates must submit an honorable dismissal.",
+        "A payment receipt is also required."
+      ],
+      "ceb": [
+        "Ang mga kinahanglanon sa GPAT naglakip sa soft copy sa 2x2 ID picture.",
+        "Kinahanglan usab ang scanned copy sa transcript of records.",
+        "Para sa dili BukSU graduates kinahanglan ang honorable dismissal.",
+        "Kinahanglan usab ang payment receipt."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "gpat_admission_requirements"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "GraduateProgramsData"
+  }
+},
+
+{
+  "intent": "campus_dress_code_policy",
+  "category": "Campus Policies",
+  "sub_category": "dress_code",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students must wear the prescribed university uniform on designated days.",
+        "During civilian days students must still follow the modest dress code.",
+        "Shorts sleeveless tops ripped jeans and slippers are not allowed inside the campus."
+      ],
+      "ceb": [
+        "Ang mga estudyante kinahanglan magsul ob sa saktong uniporme sa mga gitakdang adlaw.",
+        "Sa civilian days kinahanglan gihapon mosunod sa ligdong nga pamesti.",
+        "Bawal ang mag shorts mag sando gisi nga karsones ug mag tsinelas sulod sa campus."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "campus_dress_code_policy"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PolicyData"
+  }
+},
+
+{
+  "intent": "access_buksu_library_resources",
+  "category": "Student Services",
+  "sub_category": "library",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students can access BukSU library resources by presenting a valid BukSU ID.",
+        "For online resources students may log in to the library digital portal.",
+        "You may also visit the University Library to borrow physical books."
+      ],
+      "ceb": [
+        "Mahimong magamit sa estudyante ang library resources pinaagi sa pagpakita sa valid BukSU ID.",
+        "Para sa online ebooks mahimong gamiton ang digital library portal.",
+        "Pwede usab moadto sa University Library para manghulam og mga libro."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "access_buksu_library_resources"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+{
+  "intent": "evening_classes_working_students",
+  "category": "Academic Programs",
+  "sub_category": "class_schedule",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes BukSU offers evening programs specifically for working individuals particularly in the Graduate School including Masters and Doctorate degrees and in the College of Law.",
+        "Some undergraduate programs may also offer late afternoon or evening schedules depending on the department."
+      ],
+      "ceb": [
+        "Oo ang BukSU nagtanyag og mga klase sa gabii para sa mga nagtrabaho ilabina sa Graduate School sama sa Masters ug Doctorate ug sa College of Law.",
+        "Ang uban nga undergraduate programs mahimo usab adunay klase sa hapon o gabii depende sa departamento."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "evening_classes_working_students"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AcademicProgramsData"
+  }
+},
+
+{
+  "intent": "health_services_unit_location_hours",
+  "category": "Campus Facilities",
+  "sub_category": "clinic",
+  "responses": {
+    "answer": {
+      "en": [
+        "The University Health Services Unit or clinic is located within the main campus of BukSU.",
+        "It is generally open from Monday to Friday from 8 AM to 5 PM.",
+        "The clinic provides medical and dental consultations first aid and emergency treatment for students and staff."
+      ],
+      "ceb": [
+        "Ang University Health Services Unit o clinic nahimutang sa sulod sa main campus sa BukSU.",
+        "Kasagaran bukas kini gikan Lunes hangtod Biyernes gikan alas 8 sa buntag hangtod alas 5 sa hapon.",
+        "Nagahatag kini og medical ug dental consultation first aid ug emergency nga pagtambal para sa mga estudyante ug staff."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "health_services_unit_location_hours"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "CampusFacilitiesData"
+  }
+},
+
+{
+  "intent": "transferee_admission_requirements",
+  "category": "Admissions",
+  "sub_category": "transferees",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes BukSU accepts transferees depending on the availability of slots in the chosen program.",
+        "Transferees must submit an Honorable Dismissal and an Informative Copy of their Transcript of Records for evaluation.",
+        "Applicants must also meet the required GWA and pass the admission interview or exam."
+      ],
+      "ceb": [
+        "Oo ang BukSU modawat og transferees depende kung naay bakante nga slot sa napiling kurso.",
+        "Kinahanglan mag submit og Honorable Dismissal ug Informative Copy sa Transcript of Records para sa evaluation.",
+        "Kinahanglan usab makab-ot ang gikinahanglan nga GWA ug makapasar sa interview o exam."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "transferee_admission_requirements"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "buksu_admission_facebook_page",
+  "category": "Admissions",
+  "sub_category": "official_updates",
+  "responses": {
+    "answer": {
+      "en": [
+        "For official updates announcements and schedules regarding admissions you can follow the BukSU Admission and Testing Unit Facebook page.",
+        "https://www.facebook.com/BukSUATU"
+      ],
+      "ceb": [
+        "Para sa opisyal nga update pahibalo ug mga schedule bahin sa admissions mahimo nimong i follow ang Facebook page nga BukSU Admission and Testing Unit.",
+        "https://www.facebook.com/BukSUATU"
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_admission_facebook_page"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "change_program_after_application",
+  "category": "Admissions",
+  "sub_category": "application_rules",
+  "responses": {
+    "answer": {
+      "en": [
+        "Changing your program choice is generally not allowed once the BukSU CAT application is submitted online.",
+        "Applicants are strongly advised to finalize their chosen program before clicking the submit button."
+      ],
+      "ceb": [
+        "Kasagaran dili na pwede usabon ang napiling kurso kung na submit na ang BukSU CAT application online.",
+        "Girekomendar nga sigurohon una ang imong desisyon sa dili pa i click ang submit button."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "change_program_after_application"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "pwd_student_assistance_services",
+  "category": "Student Services",
+  "sub_category": "accessibility",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes BukSU supports inclusivity and provides assistance for students with disabilities.",
+        "PWD applicants and students may coordinate with the Office of Student Services for assistance and reasonable accommodations during exams and classes."
+      ],
+      "ceb": [
+        "Oo ang BukSU naghatag og importansya sa inclusivity ug naghatag og tabang para sa mga estudyante nga adunay disability.",
+        "Ang mga PWD nga aplikante o estudyante mahimong makig coordinate sa Office of Student Services para sa tabang ug espesyal nga accommodation sa exam o klase."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "pwd_student_assistance_services"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "contact_registrar_for_tor",
+  "category": "Student Records",
+  "sub_category": "transcript_request",
+  "responses": {
+    "answer": {
+      "en": [
+        "You can visit the Registrar Office at the BukSU Main Campus to request your Transcript of Records.",
+        "You may also send an inquiry through their official email or contact numbers listed on the BukSU website."
+      ],
+      "ceb": [
+        "Mahimo nimong bisitahon ang Registrar Office sa BukSU Main Campus para sa pag request sa Transcript of Records.",
+        "Pwede usab ka magpadala og email o inquiry gamit ang contact details nga makita sa BukSU website."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "contact_registrar_for_tor"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentRecordsData"
+  }
+},
+
+{
+  "intent": "missed_buksu_cat_schedule",
+  "category": "Admissions",
+  "sub_category": "exam_schedule",
+  "responses": {
+    "answer": {
+      "en": [
+        "If you miss your scheduled BukSU CAT exam date you should immediately contact the Admission and Testing Unit.",
+        "Rescheduling may be possible depending on the availability of slots and the validity of the reason."
+      ],
+      "ceb": [
+        "Kung mapalabay nimo ang imong schedule sa BukSU CAT exam kontaka dayon ang Admission and Testing Unit.",
+        "Mahimong ma reschedule kini depende kung naay bakante nga slot ug balido ang imong rason."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "missed_buksu_cat_schedule"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "buksu_dormitory_information",
+  "category": "Campus Facilities",
+  "sub_category": "dormitories",
+  "responses": {
+    "answer": {
+      "en": [
+        "BukSU has limited dormitory slots primarily for athletes and specific student groups.",
+        "Most students stay in private boarding houses or dormitories near the university.",
+        "Currently there are three dormitories inside BukSU known as Kilala Rubia and Mahogany."
+      ],
+      "ceb": [
+        "Naay limitado nga slots sa dormitoryo sulod sa BukSU kasagaran para sa mga atleta ug pinili nga grupo sa estudyante.",
+        "Kadaghanan sa estudyante nagpuyo sa pribado nga boarding house o dormitoryo duol sa unibersidad.",
+        "Sa karon adunay tulo ka dormitoryo sa BukSU nga Kilala Rubia ug Mahogany."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_dormitory_information"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "CampusFacilitiesData"
+  }
+},
+
+{
+  "intent": "als_graduate_buksu_cat_application",
+  "category": "Admissions",
+  "sub_category": "eligibility",
+  "responses": {
+    "answer": {
+      "en": [
+        "Graduates of the Alternative Learning System or ALS are allowed to apply for the BukSU College Admission Test.",
+        "Applicants must provide their ALS Certificate of Rating and other required identification documents."
+      ],
+      "ceb": [
+        "Ang mga graduate sa Alternative Learning System o ALS mahimong maka apply sa BukSU College Admission Test.",
+        "Kinahanglan i submit ang ALS Certificate of Rating ug uban pang identification requirements."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "als_graduate_buksu_cat_application"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+{
+  "intent": "free_tuition_undergraduate_buksu",
+  "category": "Student Fees",
+  "sub_category": "tuition_policy",
+  "responses": {
+    "answer": {
+      "en": [
+        "Under the Universal Access to Quality Tertiary Education Act tuition and miscellaneous fees are free for qualified Filipino students in undergraduate programs at BukSU."
+      ],
+      "ceb": [
+        "Ubos sa balaod nga Universal Access to Quality Tertiary Education Act libre ang tuition ug miscellaneous fees para sa mga kwalipikadong Filipino nga estudyante sa undergraduate programs sa BukSU."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "free_tuition_undergraduate_buksu"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentFeesData"
+  }
+},
+
+{
+  "intent": "apply_cat_using_mobile_phone",
+  "category": "Admissions",
+  "sub_category": "application_process",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes you can use a mobile phone to access the admission portal.",
+        "However using a desktop or laptop is recommended when uploading documents like photos and certificates to avoid technical errors."
+      ],
+      "ceb": [
+        "Oo pwede gamiton ang mobile phone para sa admission portal.",
+        "Apan mas maayo kung mogamit og desktop o laptop para mas sayon ang pag upload sa mga dokumento ug malikayan ang mga technical error."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "apply_cat_using_mobile_phone"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "join_student_organizations_process",
+  "category": "Student Life",
+  "sub_category": "organizations",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students can join recognized student organizations during Organization Days or Org Fair usually held at the start of the academic year.",
+        "You may also visit the Office of Student Services to see the list of accredited clubs and organizations."
+      ],
+      "ceb": [
+        "Ang mga estudyante mahimong moapil sa nagkalain lain nga organisasyon sa panahon sa Organization Days nga kasagarang ginahimo sa sugod sa ting eskwela.",
+        "Mahimo usab moadto sa Office of Student Services aron makita ang listahan sa mga accredited nga club ug organisasyon."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "join_student_organizations_process"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentLifeData"
+  }
+},
+
+{
+  "intent": "buksu_grading_system",
+  "category": "Academic Policies",
+  "sub_category": "grading",
+  "responses": {
+    "answer": {
+      "en": [
+        "BukSU uses a numerical grading system where 1.0 is the highest grade and 3.0 is the passing mark.",
+        "A grade of 5.0 means a failing mark while INC means the requirements for the subject are incomplete."
+      ],
+      "ceb": [
+        "Ang BukSU naggamit og numerical grading system diin ang 1.0 ang pinakataas ug 3.0 ang passing mark.",
+        "Ang grado nga 5.0 nagpasabot nga wala kapasar samtang ang INC nagpasabot nga kulang ang requirements sa subject."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_grading_system"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AcademicPoliciesData"
+  }
+},
+
+{
+  "intent": "sports_facilities_for_students",
+  "category": "Campus Facilities",
+  "sub_category": "sports",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes BukSU has sports facilities including a gymnasium basketball courts and open fields.",
+        "These facilities are used for PE classes intramurals and training of student athletes."
+      ],
+      "ceb": [
+        "Oo ang BukSU adunay sports facilities sama sa gymnasium basketball courts ug open fields.",
+        "Gigamit kini para sa PE classes intramurals ug training sa mga student athletes."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "sports_facilities_for_students"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "CampusFacilitiesData"
+  }
+},
+
+{
+  "intent": "buksu_courses_offered_list",
+  "category": "Academic Programs",
+  "sub_category": "courses",
+  "responses": {
+    "answer": {
+      "en": [
+        "The list of undergraduate and graduate programs can be found on the official BukSU website under the Academics section.",
+        "You may also inquire directly at the Admission and Testing Unit for the list of available courses."
+      ],
+      "ceb": [
+        "Ang listahan sa mga kurso makita sa opisyal nga website sa BukSU sa Academics nga section.",
+        "Mahimo usab mangutana diretso sa Admission and Testing Unit para sa listahan sa mga kurso."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_courses_offered_list"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AcademicProgramsData"
+  }
+},
+
+{
+  "intent": "student_assistant_application_process",
+  "category": "Student Services",
+  "sub_category": "student_assistant",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students who want to become Student Assistants may apply through the Office of Student Services.",
+        "Requirements usually include the required GWA a copy of the current study load and proof of financial need."
+      ],
+      "ceb": [
+        "Ang mga estudyante nga gusto mahimong Student Assistant mahimong mo apply sa Office of Student Services.",
+        "Ang mga kinahanglanon kasagaran naglakip sa gikinahanglan nga GWA kopya sa study load ug pamatuod sa financial need."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "student_assistant_application_process"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "guidance_counseling_services_buksu",
+  "category": "Student Services",
+  "sub_category": "guidance",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes the University Guidance and Counseling Unit provides services such as individual counseling career guidance and psychological testing.",
+        "These services support the mental health and well being of students."
+      ],
+      "ceb": [
+        "Oo ang University Guidance and Counseling Unit naghatag og serbisyo sama sa individual counseling career guidance ug psychological testing.",
+        "Kini nga serbisyo nagasuporta sa mental health ug kaayohan sa mga estudyante."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "guidance_counseling_services_buksu"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "buksu_history_background",
+  "category": "University Information",
+  "sub_category": "history",
+  "responses": {
+    "answer": {
+      "en": [
+        "Bukidnon State University started in 1924 as the Bukidnon Farm School.",
+        "In 1928 it became Bukidnon Secondary Normal School.",
+        "In 1976 it was converted into Bukidnon State College through Presidential Decree 944.",
+        "It became Bukidnon State University on June 15 2007 under Republic Act 9454."
+      ],
+      "ceb": [
+        "Ang Bukidnon State University nagsugod niadtong 1924 isip Bukidnon Farm School.",
+        "Niadtong 1928 nahimo kini nga Bukidnon Secondary Normal School.",
+        "Sa 1976 nahimo kini nga Bukidnon State College pinaagi sa Presidential Decree 944.",
+        "Nahimo kini nga Bukidnon State University niadtong June 15 2007 ubos sa Republic Act 9454."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_history_background"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "buksu_establishment_year",
+  "category": "University Information",
+  "sub_category": "history",
+  "responses": {
+    "answer": {
+      "en": [
+        "The institution was originally established in 1924 as a secondary school which later evolved into Bukidnon State University."
+      ],
+      "ceb": [
+        "Ang institusyon natukod niadtong 1924 isip usa ka secondary school nga sa ulahi nahimong Bukidnon State University."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_establishment_year"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "law_author_buksu_university_conversion",
+  "category": "University Information",
+  "sub_category": "history",
+  "responses": {
+    "answer": {
+      "en": [
+        "Republic Act 9454 which converted Bukidnon State College into Bukidnon State University was authored and sponsored by Juan Miguel Zubiri when he was a Congressman."
+      ],
+      "ceb": [
+        "Ang Republic Act 9454 nga naghimo sa Bukidnon State College nga Bukidnon State University gisponsor ug gisulat ni Juan Miguel Zubiri sa dihang siya Congressman pa."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "law_author_buksu_university_conversion"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "significance_year_1924_buksu",
+  "category": "University Information",
+  "sub_category": "history",
+  "responses": {
+    "answer": {
+      "en": [
+        "The year 1924 marks the founding of the Bukidnon Farm School which is the historical origin of Bukidnon State University."
+      ],
+      "ceb": [
+        "Ang tuig 1924 mao ang pagkatukod sa Bukidnon Farm School nga gigikanan sa karon nga Bukidnon State University."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "significance_year_1924_buksu"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "previous_name_buksu_college",
+  "category": "University Information",
+  "sub_category": "history",
+  "responses": {
+    "answer": {
+      "en": [
+        "Before becoming Bukidnon State University in 2007 the institution was known as Bukidnon State College starting from 1976."
+      ],
+      "ceb": [
+        "Sa wala pa kini nahimong Bukidnon State University niadtong 2007 ang institusyon nailhan isip Bukidnon State College sugod niadtong 1976."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "previous_name_buksu_college"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "second_courser_cat_application",
+  "category": "Admissions",
+  "sub_category": "eligibility",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes second coursers may apply for the BukSU CAT.",
+        "They are required to pay a 300 peso testing fee and submit their Transcript of Records.",
+        "Second coursers are not eligible for the Free Higher Education benefits."
+      ],
+      "ceb": [
+        "Oo ang mga second courser mahimong maka apply sa BukSU CAT.",
+        "Kinahanglan sila mobayad og 300 pesos nga testing fee ug mag submit sa Transcript of Records.",
+        "Dili sila kwalipikado sa libre nga tuition sa Free Higher Education program."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "second_courser_cat_application"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "library_book_borrowing_rules",
+  "category": "Library Services",
+  "sub_category": "borrowing",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students can borrow a maximum of five books per week from the BukSU Library.",
+        "Borrowers must present a barcoded library card.",
+        "Some materials like reserve books encyclopedias and theses are only for inside reading and photocopying."
+      ],
+      "ceb": [
+        "Ang mga estudyante pwede mohulam og hangtod lima ka libro matag semana sa BukSU Library.",
+        "Kinahanglan ipakita ang barcoded library card.",
+        "Ang ubang materyales sama sa reserve books encyclopedias ug thesis para lamang sa inside reading o photocopy."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "library_book_borrowing_rules"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "LibraryData"
+  }
+},
+
+{
+  "intent": "library_late_return_penalty",
+  "category": "Library Services",
+  "sub_category": "penalties",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students who fail to return borrowed materials on time will face fines.",
+        "For books rented from the Book Center for a semester the penalty for unreturned items is one hundred pesos."
+      ],
+      "ceb": [
+        "Ang mga estudyante nga mapakyas sa pag uli sa mga libro sa saktong oras multahan.",
+        "Para sa mga libro gikan sa Book Center ang multa sa wala nauli nga libro kay usa ka gatus ka pesos."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "library_late_return_penalty"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "LibraryData"
+  }
+},
+
+{
+  "intent": "oss_no_noon_break_policy",
+  "category": "Student Services",
+  "sub_category": "office_policy",
+  "responses": {
+    "answer": {
+      "en": [
+        "The Office of Student Services practices a No Noon Break Policy.",
+        "This means staff members remain available even during lunch time to provide continuous frontline services to students."
+      ],
+      "ceb": [
+        "Ang Office of Student Services nagpatuman og No Noon Break Policy.",
+        "Nagpasabot kini nga adunay staff nga available bisan sa oras sa paniudto aron mapadayon ang serbisyo sa mga estudyante."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "oss_no_noon_break_policy"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentServicesData"
+  }
+},
+
+{
+  "intent": "dasig_spirit_animal_buksu",
+  "category": "University Information",
+  "sub_category": "symbol",
+  "responses": {
+    "answer": {
+      "en": [
+        "Dasig is the official spirit animal of Bukidnon State University.",
+        "It was launched in February 2026 to represent the modern brand identity and heritage of the university."
+      ],
+      "ceb": [
+        "Ang Dasig mao ang opisyal nga spirit animal sa Bukidnon State University.",
+        "Gilunsad kini niadtong Pebrero 2026 aron magrepresentar sa modernong brand identity ug kabilin sa unibersidad."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "dasig_spirit_animal_buksu"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "buksu_academic_colleges",
+  "category": "University Information",
+  "sub_category": "colleges",
+  "responses": {
+    "answer": {
+      "en": [
+        "BukSU is composed of several colleges including the College of Arts and Sciences College of Education College of Business College of Nursing College of Technologies College of Public Administration and Governance and the College of Law."
+      ],
+      "ceb": [
+        "Ang BukSU gilangkuban sa pipila ka mga kolehiyo lakip ang College of Arts and Sciences College of Education College of Business College of Nursing College of Technologies College of Public Administration and Governance ug ang College of Law."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_academic_colleges"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "smart_buksu_vision",
+  "category": "University Information",
+  "sub_category": "strategic_plan",
+  "responses": {
+    "answer": {
+      "en": [
+        "Smart BukSU is a strategic roadmap launched under the administration of Dr Joy M Mirasol.",
+        "It focuses on digital transformation innovative instruction sustainable infrastructure and improved student services through technology."
+      ],
+      "ceb": [
+        "Ang Smart BukSU usa ka strategic roadmap nga gilunsad ubos sa pagdumala ni Dr Joy M Mirasol.",
+        "Nagtutok kini sa digital transformation innovative nga pagtudlo malungtarong imprastraktura ug mas maayong serbisyo para sa mga estudyante pinaagi sa teknolohiya."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "smart_buksu_vision"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "tor_request_for_graduates",
+  "category": "Student Records",
+  "sub_category": "tor_request",
+  "responses": {
+    "answer": {
+      "en": [
+        "Graduates can request their Transcript of Records at the University Registrar.",
+        "Applicants must fill out a request form pay the corresponding fee at the Cashier and present their clearance."
+      ],
+      "ceb": [
+        "Ang mga gradwar mahimong mo request og Transcript of Records sa University Registrar.",
+        "Kinahanglan sulatan ang request form bayad sa Cashier ug ipakita ang clearance."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "tor_request_for_graduates"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "StudentRecordsData"
+  }
+},
+
+{
+  "intent": "buksu_satellite_campuses",
+  "category": "University Information",
+  "sub_category": "campus_system",
+  "responses": {
+    "answer": {
+      "en": [
+        "BukSU operates several satellite campuses in different municipalities across Bukidnon and nearby provinces.",
+        "These campuses provide accessible education for students living in remote areas."
+      ],
+      "ceb": [
+        "Ang BukSU adunay daghang satellite campuses sa nagkalain laing lungsod sa Bukidnon ug silingang probinsya.",
+        "Gihimo kini aron mahatagan og accessible nga edukasyon ang mga estudyante sa layo nga lugar."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_satellite_campuses"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "program_shifting_policy",
+  "category": "Academic Policies",
+  "sub_category": "program_change",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students who wish to shift to another program must meet the grade requirements of the new college.",
+        "They must also obtain approval from both the current department and the receiving department.",
+        "Shifting is usually processed during the enrollment period for the next semester."
+      ],
+      "ceb": [
+        "Ang mga estudyante nga gusto mag shift sa laing kurso kinahanglan makab ot sa grade requirements sa bag ong kolehiyo.",
+        "Kinahanglan usab makakuha og approval gikan sa karaan ug bag ong departamento.",
+        "Kasagaran ginaproseso ang shifting sa panahon sa enrollment sa sunod nga semester."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "program_shifting_policy"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AcademicPoliciesData"
+  }
+},
+
+{
+  "intent": "buksu_alumni_association",
+  "category": "University Information",
+  "sub_category": "alumni",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes BukSU has an Alumni Association that connects graduates.",
+        "It organizes activities and initiatives that support the university and assist current students."
+      ],
+      "ceb": [
+        "Oo ang BukSU adunay Alumni Association nga nagkonektar sa mga gradwar.",
+        "Nagorganisar kini og mga kalihokan aron makatabang sa kalamboan sa unibersidad ug sa mga kasamtangang estudyante."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_alumni_association"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "UniversityInformationData"
+  }
+},
+
+{
+  "intent": "buksu_cat_definition",
+  "category": "Admissions",
+  "sub_category": "exam_information",
+  "responses": {
+    "answer": {
+      "en": [
+        "The BukSU CAT is the Bukidnon State University College Admission Test.",
+        "It is a mandatory exam for all incoming first year college students and second coursers who want to enroll in undergraduate programs."
+      ],
+      "ceb": [
+        "Ang BukSU CAT mao ang Bukidnon State University College Admission Test.",
+        "Kini mandatory nga exam para sa tanang incoming first year students ug second coursers nga gusto mo enroll sa undergraduate programs."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_cat_definition"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsData"
+  }
+},
+
+{
+  "intent": "update_student_portal_information",
+  "category": "Student Portal",
+  "sub_category": "account_management",
+  "responses": {
+    "answer": {
+      "en": [
+        "Log in to the BukSU student portal and go to the Profile or Student Information section.",
+        "Click Edit to update your personal details.",
+        "Major changes such as name or civil status may require legal documents to be submitted to the Registrar."
+      ],
+      "ceb": [
+        "Mag login sa BukSU student portal ug adto sa Profile o Student Information nga section.",
+        "I click ang Edit aron ma update ang imong personal nga impormasyon.",
+        "Ang dagkong kausaban sama sa ngalan o civil status mahimong manginahanglan og legal nga dokumento nga i submit sa Registrar."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "update_student_portal_information"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PortalSupportData"
+  }
+},
+
+{
+  "intent": "university_code_definition",
+  "category": "University Policies",
+  "sub_category": "governance",
+  "responses": {
+    "answer": {
+      "en": [
+        "The University Code is a compilation of the rules regulations and policies that govern the administration faculty and student body.",
+        "It serves as the legal framework for the operations of the university."
+      ],
+      "ceb": [
+        "Ang University Code mao ang pundok sa mga balaod regulasyon ug polisiya nga nagdumala sa administrasyon faculty ug mga estudyante.",
+        "Kini ang nagsilbing legal nga basehan sa operasyon sa unibersidad."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "university_code_definition"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "PolicyData"
+  }
+},
+
+{
+  "intent": "masters_degree_admission_requirements",
+  "category": "Graduate Studies",
+  "sub_category": "admission_requirements",
+  "responses": {
+    "answer": {
+      "en": [
+        "Applicants for a Masters degree must submit an Honorable Dismissal.",
+        "They must provide an original Transcript of Records with the remark Valid for Transfer.",
+        "A two by two ID picture is required and applicants must pass the Graduate Program Admission Test."
+      ],
+      "ceb": [
+        "Ang mga aplikante sa Masters degree kinahanglan mag submit og Honorable Dismissal.",
+        "Kinahanglan usab ang original Transcript of Records nga naay remark nga Valid for Transfer.",
+        "Kinahanglan ang duha sa duha nga ID picture ug kinahanglan makapasar sa Graduate Program Admission Test."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "masters_degree_admission_requirements"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "GraduateProgramsData"
+  }
+},
+
+{
+  "intent": "graduation_application_process",
+  "category": "Academic Processes",
+  "sub_category": "graduation",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students must undergo a pre evaluation of grades by the Registrar.",
+        "They must settle all financial obligations.",
+        "Finally they must file a formal Application for Graduation during their final semester."
+      ],
+      "ceb": [
+        "Ang estudyante kinahanglan moagi og pre evaluation sa mga grado sa Registrar.",
+        "Kinahanglan impasahon ang tanang bayranan.",
+        "Human niini mag file og formal Application for Graduation sa huling semester."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "graduation_application_process"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AcademicProcessesData"
+  }
+},
+
+{
+  "intent": "buksu_seal_significance",
+  "category": "University Information",
+  "sub_category": "identity",
+  "responses": {
+    "answer": {
+      "en": [
+        "The BukSU seal represents its heritage and aspirations featuring elements that symbolize education the province of Bukidnon represented by the pineapple and mountains and the flame of knowledge."
+      ],
+      "ceb": [
+        "Ang seal sa BukSU nagrepresentar sa kabilin ug mga tinguha niini nagpakita kini og mga simbolo sa edukasyon sa probinsya sa Bukidnon sama sa pinya ug kabukiran ug sa siga sa kahibalo."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_seal_significance"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU information"
+  }
+},
+
+{
+  "intent": "overload_units_policy",
+  "category": "Academic Policies",
+  "sub_category": "enrollment",
+  "responses": {
+    "answer": {
+      "en": [
+        "Overloading of units is generally only allowed for graduating students in their final year provided they have good academic standing and approval from the Dean and Registrar."
+      ],
+      "ceb": [
+        "Ang overload sa units gitugotan kasagaran sa mga graduating students sa ilang katapusang tuig basta adunay maayo nga academic standing ug adunay approval gikan sa Dean ug Registrar."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "overload_units_policy"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU academic policy"
+  }
+},
+
+{
+  "intent": "withdraw_enrollment_policy",
+  "category": "Academic Policies",
+  "sub_category": "enrollment",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students may officially withdraw their enrollment by submitting a Withdrawal Form to the Registrar. Failure to withdraw officially may result in a grade of 5.0 or Dropped in all subjects."
+      ],
+      "ceb": [
+        "Ang mga estudyante mahimong mo withdraw sa ilang enrollment pinaagi sa pag submit og Withdrawal Form sa Registrar. Kung dili kini ma withdraw og opisyal mahimong makadawat og grado nga 5.0 o Dropped sa tanang subjects."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "withdraw_enrollment_policy"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU academic policy"
+  }
+},
+
+{
+  "intent": "buksu_hymn",
+  "category": "University Information",
+  "sub_category": "culture",
+  "responses": {
+    "answer": {
+      "en": [
+        "The BukSU Hymn is the official song of the university performed during flag ceremonies and formal events and reflects the university commitment to excellence service and identity."
+      ],
+      "ceb": [
+        "Ang BukSU Hymn mao ang opisyal nga kanta sa unibersidad nga ginakanta sa mga flag ceremony ug pormal nga okasyon ug nagpakita sa dedikasyon sa unibersidad sa excellence ug serbisyo."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_hymn"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU information"
+  }
+},
+
+{
+  "intent": "second_courser_requirements",
+  "category": "Admissions",
+  "sub_category": "requirements",
+  "responses": {
+    "answer": {
+      "en": [
+        "Second coursers must submit a Transcript of Records for evaluation a 2x2 ID picture and a payment receipt of 300 pesos for the admission test and they are generally not covered by the Free Higher Education law."
+      ],
+      "ceb": [
+        "Ang second courser kinahanglan mag submit og Transcript of Records para sa evaluation 2x2 ID picture ug resibo sa bayad nga 300 pesos para sa admission test ug kasagaran dili na sila sakop sa Free Higher Education law."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "second_courser_requirements"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU admission policy"
+  }
+},
+
+{
+  "intent": "buksu_bsit_program",
+  "category": "Academic Programs",
+  "sub_category": "undergraduate",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes BukSU offers a Bachelor of Science in Information Technology under the College of Technologies focusing on software development network management and modern computing solutions."
+      ],
+      "ceb": [
+        "Oo ang BukSU nagtanyag og Bachelor of Science in Information Technology ubos sa College of Technologies nga nagtutok sa software development network management ug modernong computing solutions."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_bsit_program"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU academic programs"
+  }
+},
+
+{
+  "intent": "buksu_mpa_program",
+  "category": "Academic Programs",
+  "sub_category": "graduate",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes BukSU offers a Master in Public Administration under the College of Public Administration and Governance designed for professionals in government and non profit sectors."
+      ],
+      "ceb": [
+        "Oo ang BukSU nagtanyag og Master in Public Administration ubos sa College of Public Administration and Governance para sa mga propesyonal sa gobyerno ug non profit organizations."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_mpa_program"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU academic programs"
+  }
+},
+
+{
+  "intent": "buksu_graduation_honors",
+  "category": "Academic Policies",
+  "sub_category": "graduation",
+  "responses": {
+    "answer": {
+      "en": [
+        "BukSU awards Latin Honors to deserving graduates such as Summa Cum Laude Magna Cum Laude and Cum Laude based on their final GPA and residency rules."
+      ],
+      "ceb": [
+        "Ang BukSU naghatag og Latin Honors sa mga kwalipikadong gradwar sama sa Summa Cum Laude Magna Cum Laude ug Cum Laude base sa ilang final GPA ug sa pagsunod sa residency rules."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_graduation_honors"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU academic policy"
+  }
+},
+
+{
+  "intent": "buksu_admission_contact",
+  "category": "University Services",
+  "sub_category": "contact",
+  "responses": {
+    "answer": {
+      "en": [
+        "You can contact the Admission and Testing Unit through their official Facebook page BukSU Admission and Testing Unit or visit their office at the main campus in Malaybalay City."
+      ],
+      "ceb": [
+        "Mahimo nimong makontak ang Admission and Testing Unit pinaagi sa ilang Facebook page BukSU Admission and Testing Unit o bisitaha ang ilang opisina sa main campus sa Malaybalay City."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_admission_contact"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU contact information"
+  }
+},
+
+{
+  "intent": "law_admission_requirements",
+  "category": "Admissions",
+  "sub_category": "law_program",
+  "responses": {
+    "answer": {
+      "en": [
+        "Applicants for the Juris Doctor program must have a bachelor degree a Transcript of Records and must pass the Law School Admission Test followed by a panel interview."
+      ],
+      "ceb": [
+        "Ang mga aplikante sa Juris Doctor kinahanglan adunay bachelor degree Transcript of Records ug kinahanglan makapasar sa Law School Admission Test ug panel interview."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "law_admission_requirements"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU admission policy"
+  }
+},
+
+{
+  "intent": "student_id_replacement",
+  "category": "Student Services",
+  "sub_category": "documents",
+  "responses": {
+    "answer": {
+      "en": [
+        "To replace a lost student ID secure an Affidavit of Loss go to the Office of Student Services for a reissuance slip pay 150 pesos at the Cashier and present the receipt to the University Press."
+      ],
+      "ceb": [
+        "Para makakuha og replacement sa student ID kinahanglan magkuha og Affidavit of Loss adto sa Office of Student Services para sa reissuance slip bayad og 150 pesos sa Cashier ug ipakita ang resibo sa University Press."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "student_id_replacement"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU student services"
+  }
+},
+
+{
+  "intent": "buksu_clinic_services",
+  "category": "Student Services",
+  "sub_category": "health",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes the University Health Services Unit provides free medical and dental consultations first aid and emergency treatment for students and staff."
+      ],
+      "ceb": [
+        "Oo ang University Health Services Unit naghatag og libre nga medical ug dental consultations first aid ug emergency treatment para sa mga estudyante ug staff."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_clinic_services"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU health services"
+  }
+},
+
+{
+  "intent": "institutional_email_info",
+  "category": "University Services",
+  "sub_category": "ict",
+  "responses": {
+    "answer": {
+      "en": [
+        "The institutional email is the official buksu edu ph account used for university communications and it is usually issued by the ICT unit upon enrollment."
+      ],
+      "ceb": [
+        "Ang institutional email mao ang opisyal nga buksu edu ph account nga gigamit para sa komunikasyon sa unibersidad ug kasagaran ihatag sa ICT unit inig enroll."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "institutional_email_info"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU ICT services"
+  }
+},
+
+{
+  "intent": "good_moral_certificate_request",
+  "category": "Student Services",
+  "sub_category": "documents",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students can request a Good Moral Certificate from the Office of Student Services and the standard fee for this document is 50 pesos."
+      ],
+      "ceb": [
+        "Mahimo kang mo request og Good Moral Certificate sa Office of Student Services ug ang bayad niini kay 50 pesos."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "good_moral_certificate_request"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU student services"
+  }
+},
+
+{
+  "intent": "buksu_library_hours",
+  "category": "University Facilities",
+  "sub_category": "library",
+  "responses": {
+    "answer": {
+      "en": [
+        "The University Library is generally open from Monday to Friday from 8 AM to 5 PM though hours may extend during examination weeks."
+      ],
+      "ceb": [
+        "Ang University Library kasagaran bukas gikan Lunes hangtod Biyernes gikan alas 8 sa buntag hangtod alas 5 sa hapon apan mahimong ma extend ang oras inig panahon sa exam."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_library_hours"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU library information"
+  }
+},
+
+{
+  "intent": "student_assistant_application",
+  "category": "Student Services",
+  "sub_category": "employment",
+  "responses": {
+    "answer": {
+      "en": [
+        "Students interested in becoming Student Assistants can apply through the Office of Student Services and must submit their study load latest grades and proof of financial need."
+      ],
+      "ceb": [
+        "Ang mga estudyante nga gusto mahimong Student Assistant mahimong mo apply sa Office of Student Services ug kinahanglan mag submit og study load pinakaulahing grades ug proof sa pinansyal nga panginahanglan."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "student_assistant_application"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU student services"
+  }
+},
+
+{
+  "intent": "buksu_medical_dental_services",
+  "category": "Student Services",
+  "sub_category": "health",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes the University Health Services Unit offers free basic medical and dental consultations first aid and emergency treatment for officially enrolled students upon presentation of a valid ID."
+      ],
+      "ceb": [
+        "Oo ang University Health Services Unit nagtanyag og libre nga basic medical ug dental consultations first aid ug emergency treatment para sa officially enrolled students basta ipakita ang valid ID."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_medical_dental_services"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU health services"
+  }
+},
+
+{
+  "intent": "no_noon_break_policy",
+  "category": "University Policies",
+  "sub_category": "services",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes frontline offices such as the Registrar Cashier and Office of Student Services follow a No Noon Break policy to ensure continuous service to students."
+      ],
+      "ceb": [
+        "Oo ang mga frontline office sama sa Registrar Cashier ug Office of Student Services nagpatuman og No Noon Break nga polisiya aron masiguro ang padayon nga serbisyo sa mga estudyante."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "no_noon_break_policy"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU policy"
+  }
+},
+
+{
+  "intent": "buksu_official_anthem",
+  "category": "University Information",
+  "sub_category": "culture",
+  "responses": {
+    "answer": {
+      "en": [
+        "The BukSU Hymn is the official anthem of the university performed during flag ceremonies and formal events. It reflects the university commitment to academic excellence service and identity as an institution in the heart of Bukidnon. If you want I can provide a link for the Bukidnon State University anthem just say yes please."
+      ],
+      "ceb": [
+        "Ang BukSU Hymn mao ang opisyal nga kanta sa unibersidad nga ginakanta sa mga flag ceremony ug pormal nga okasyon. Gipakita niini ang dedikasyon sa unibersidad sa excellence ug serbisyo ug ang garbo niini isip institusyon sa Bukidnon. Kung gusto nimo maka provide ko og link para sa Bukidnon State University anthem pag sulti lang og yes please."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_official_anthem"
+    },
+    "follow_up": [
+      "Okay, here is the link to the Bukidnon State University anthem: ",
+      "https://bukidnononline.com/bukidnon-state-university-hymn/#google_vignette"
+    ],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU information"
+  }
+},
+
+{
+  "intent": "buksu_cat_calculator_policy",
+  "category": "Admissions",
+  "sub_category": "exam_rules",
+  "responses": {
+    "answer": {
+      "en": [
+        "No the use of any type of calculator basic or scientific is strictly prohibited during the BukSU CAT. Only pencils erasers and your permit are allowed inside the testing room."
+      ],
+      "ceb": [
+        "Dili ang paggamit og bisan unsang klase sa calculator basic o scientific hugot nga gidili sa panahon sa BukSU CAT. Lapis eraser ug permit lang ang gitugutan sa sulod sa testing room."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_cat_calculator_policy"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU admission policy"
+  }
+},
+
+{
+  "intent": "latin_honors_graduation_requirements",
+  "category": "Academic Policies",
+  "sub_category": "graduation",
+  "responses": {
+    "answer": {
+      "en": [
+        "To graduate with Latin Honors such as Summa Magna or Cum Laude a student must meet the required GPA have no failing grades and complete the residency requirements of the university."
+      ],
+      "ceb": [
+        "Aron makagradwar nga naay Latin Honors sama sa Summa Magna o Cum Laude kinahanglan makuha ang saktong GPA walay bagsak nga grado ug natuman ang residency requirements sa unibersidad."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "latin_honors_graduation_requirements"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU academic policy"
+  }
+},
+
+{
+  "intent": "latin_honors_average_gpa",
+  "category": "Academic Policies",
+  "sub_category": "grading",
+  "responses": {
+    "answer": {
+      "en": [
+        "Generally a student must maintain a GWA of 1.75 or higher to qualify for Latin Honors with 2.00 being the lowest individual grade allowed. For Summa Cum Laude the requirements are stricter usually requiring a GWA of 1.25 or higher with no grade falling below 1.50 or 1.75."
+      ],
+      "ceb": [
+        "Sa kasagaran kinahanglan mag maintain og GWA nga 1.75 o mas taas aron mahimong qualified sa Latin Honors ug ang pinakagamay nga individual grade nga pwede kay 2.00. Para sa Summa Cum Laude mas strikto ang requirement kasagaran kinahanglan ang GWA nga 1.25 o mas taas ug wala bisan usa ka grado nga mas ubos sa 1.50 o 1.75."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "latin_honors_average_gpa"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU academic guidelines"
+  }
+},
+
+{
+  "intent": "buksu_bsa_program",
+  "category": "Academic Programs",
+  "sub_category": "undergraduate",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes BukSU offers a Bachelor of Science in Accountancy under the College of Business and the program may require a qualifying exam for students to proceed to higher level accounting subjects."
+      ],
+      "ceb": [
+        "Oo ang BukSU nagtanyag og Bachelor of Science in Accountancy ubos sa College of Business ug kasagaran nagkinahanglan og qualifying exam aron makapadayon sa mas taas nga accounting subjects."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_bsa_program"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU academic programs"
+  }
+},
+
+{
+  "intent": "double_enrollment_policy",
+  "category": "Academic Policies",
+  "sub_category": "enrollment",
+  "responses": {
+    "answer": {
+      "en": [
+        "No double enrollment is not allowed. A student must first officially withdraw or secure an Honorable Dismissal from the current school before enrolling in BukSU."
+      ],
+      "ceb": [
+        "Dili bawal ang double enrollment. Kinahanglan una ka mo withdraw o mokuha og Honorable Dismissal gikan sa imong kasamtangang eskwelahan sa dili pa ka maka enroll sa BukSU."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "double_enrollment_policy"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU enrollment policy"
+  }
+},
+
+{
+  "intent": "buksu_gymnasium_facility",
+  "category": "University Facilities",
+  "sub_category": "sports",
+  "responses": {
+    "answer": {
+      "en": [
+        "Yes the University Gymnasium is used for physical education classes varsity training and major events such as intramurals and graduation ceremonies."
+      ],
+      "ceb": [
+        "Oo ang University Gymnasium gigamit para sa PE classes varsity training ug mga dagkong okasyon sama sa intramurals ug graduation ceremonies."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "buksu_gymnasium_facility"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU facilities"
+  }
+},
+
+{
+  "intent": "new_student_orientation_purpose",
+  "category": "Student Services",
+  "sub_category": "orientation",
+  "responses": {
+    "answer": {
+      "en": [
+        "The Orientation Program is designed to introduce new students to the university’s mission, vision, and academic policies. Its primary goal is to help you adjust to campus life and understand the essential academic expectations of Bukidnon State University.",
+        "During this session, you will learn about critical university policies, such as Incomplete (INC) rules and Failure Due to Absences (FDA) counts. Please note that attending your Departmental Orientation is highly required, as it provides specific guidance for your chosen program."
+      ],
+      "ceb": [
+        "Ang Orientation Program gihimo aron ipaila sa mga bag-ong estudyante ang mission, vision, ug academic policies sa unibersidad. Ang pangunang tumong niini mao ang pagtabang kanimo nga maka-adjust sa campus life ug masabtan ang mga importanteng academic expectations sa Bukidnon State University.",
+        "Sa maong session, makakat-on ka bahin sa mga importanteng patakaran sa unibersidad, sama sa Incomplete (INC) rules ug Failure Due to Absences (FDA) counts. Palihog hinumdumi nga importante kaayo ang pag-attend sa inyong Departmental Orientation, kay didto ihatag ang mga espesipikong giya para sa imong napiling programa."
+      ]
+    },
+    "context_slots": {
+      "last_topic": "new_student_orientation_purpose"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "BukSU student services"
+  }
 }
+
 
 ]

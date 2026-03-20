@@ -110,6 +110,85 @@ intents:
   - fda_meaning
   - fda_solution
   - college_shirt_allowed
+
+  - cat_requirement_nursing_program
+  - cat_requirement_education_program
+  - reset_portal_password_buksu
+  - portal_account_locked_issue
+  - portal_login_problem
+  - check_portal_enrollment_status
+  - change_portal_password_buksu
+  - request_good_moral_certificate_oss
+  - lost_student_id_replacement_process
+  - continuing_students_enrollment_process
+  - gpat_admission_requirements
+  - campus_dress_code_policy
+  - access_buksu_library_resources
+  - evening_classes_working_students
+  - health_services_unit_location_hours
+  - transferee_admission_requirements
+  - buksu_admission_facebook_page
+  - change_program_after_application
+  - pwd_student_assistance_services
+  - contact_registrar_for_tor
+  - missed_buksu_cat_schedule
+  - buksu_dormitory_information
+  - als_graduate_buksu_cat_application
+  - free_tuition_undergraduate_buksu
+  - apply_cat_using_mobile_phone
+  - join_student_organizations_process
+  - buksu_grading_system
+  - sports_facilities_for_students
+  - buksu_courses_offered_list
+  - student_assistant_application_process
+  - guidance_counseling_services_buksu
+  - buksu_history_background
+  - buksu_establishment_year
+  - law_author_buksu_university_conversion
+  - significance_year_1924_buksu
+  - previous_name_buksu_college
+  - second_courser_cat_application
+  - library_book_borrowing_rules
+  - library_late_return_penalty
+  - oss_no_noon_break_policy
+  - dasig_spirit_animal_buksu
+  - buksu_academic_colleges
+  - smart_buksu_vision
+  - tor_request_for_graduates
+  - buksu_satellite_campuses
+  - program_shifting_policy
+  - buksu_alumni_association
+  - buksu_cat_definition
+  - update_student_portal_information
+  - university_code_definition
+  - masters_degree_admission_requirements
+  - graduation_application_process
+  - buksu_seal_significance
+  - overload_units_policy
+  - withdraw_enrollment_policy
+  - buksu_hymn
+  - second_courser_requirements
+  - buksu_bsit_program
+  - buksu_mpa_program
+  - buksu_graduation_honors
+  - buksu_admission_contact
+  - law_admission_requirements
+  - student_id_replacement
+  - buksu_clinic_services
+  - institutional_email_info
+  - good_moral_certificate_request
+  - buksu_library_hours
+  - student_assistant_application
+  - buksu_medical_dental_services
+  - no_noon_break_policy
+  - buksu_official_anthem
+  - buksu_cat_calculator_policy
+  - latin_honors_graduation_requirements
+  - latin_honors_average_gpa
+  - buksu_bsa_program
+  - double_enrollment_policy
+  - buksu_gymnasium_facility
+  - new_student_orientation_purpose
   
 entities:
   - lab_number

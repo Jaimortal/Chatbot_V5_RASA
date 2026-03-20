@@ -210,3 +210,42 @@ export async function changePassword(
     return { success: false, message: 'Network error' };
   }
 }
+
+// Migration API functions
+export async function migrateResponses(): Promise<ApiResponse> {
+  try {
+    const response = await fetch(`${API_BASE}/migrate/responses`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error migrating responses:', error);
+    return { success: false, message: 'Network error' };
+  }
+}
+
+export async function migrateLocations(): Promise<ApiResponse> {
+  try {
+    const response = await fetch(`${API_BASE}/migrate/locations`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error migrating locations:', error);
+    return { success: false, message: 'Network error' };
+  }
+}
+
+export async function fetchMigrationStatus(): Promise<{ success: boolean; data?: { responsesCount: number; locationsCount: number } }> {
+  try {
+    const response = await fetch(`${API_BASE}/migrate/status`, {
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching migration status:', error);
+    return { success: false };
+  }
+}
