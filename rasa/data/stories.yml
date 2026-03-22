@@ -906,3 +906,93 @@ stories:
   steps:
     - intent: new_student_orientation_purpose
     - action: action_reply_from_json
+
+- story: ask about library id card location
+  steps:
+    - intent: library_id_card_location
+    - action: action_reply_from_json
+
+- story: ask about library id card payment
+  steps:
+    - intent: library_id_card_payment
+    - action: action_reply_from_json
+
+- story: ask about library id card requirements
+  steps:
+    - intent: library_id_card_requirements
+    - action: action_reply_from_json
+
+- story: ask about library borrow books
+  steps:
+    - intent: library_borrow_books
+    - action: action_reply_from_json
+
+- story: ask about library return books
+  steps:
+    - intent: library_return_books
+    - action: action_reply_from_json
+
+- story: ask about library available books info
+  steps:
+    - intent: library_available_books_info
+    - action: action_reply_from_json
+
+- story: ask about library thesis availability
+  steps:
+    - intent: library_thesis_availability
+    - action: action_reply_from_json
+
+- story: ask about admission application deadline
+  steps:
+    - intent: admission_application_deadline
+    - action: action_reply_from_json
+
+- story: ask about buksu mandates
+  steps:
+    - intent: buksu_mandates
+    - action: action_reply_from_json
+
+- story: ask about lost and found buksu
+  steps:
+    - intent: lost_and_found_buksu
+    - action: action_reply_from_json
+
+- story: ask about accounting office location
+  steps:
+    - intent: accounting_office_location
+    - action: action_reply_from_json
+
+- story: ask about cor validation location
+  steps:
+    - intent: cor_validation_location
+    - action: action_reply_from_json
+
+- story: ask about cor validation steps
+  steps:
+    - intent: cor_validation_steps
+    - action: action_reply_from_json
+
+- story: ask about student id process
+  steps:
+    - intent: student_id_process
+    - action: action_reply_from_json
+
+- story: ask about enrollment general process
+  steps:
+    - intent: enrollment_general_process
+    - action: action_reply_from_json
+
+- story: ask about online enrollment steps
+  steps:
+    - intent: online_enrollment_steps
+    - action: action_reply_from_json
+
+- story: ask about mixed enrollment process
+  steps:
+    - intent: mixed_enrollment_process
+    - action: action_reply_from_json
+
+- story: ask about request tor process
+  steps:
+    - intent: request_tor_process
+    - action: action_reply_from_json

@@ -168,10 +168,16 @@ LOCATION_ALIASES = {
     
     "cas deans office": "CAS Deans Office",
     "cas dean's office": "CAS Deans Office",
+    "deans office of cas": "CAS Deans Office",
+    "Dean's Office of Cas": "CAS Deans Office",
+    "Cas Deans Office": "CAS Deans Office",
     
     "cpag deans office": "CPAG Deans Office",
     "cpag dean's office": "CPAG Deans Office",
-    
+    "Dean's Office of CPAG": "CPAG Deans Office",
+    "dean's office of cpag": "CPAG Deans Office",
+    "Deans Office of cpag": "CPAG Deans Office",
+
     # === Building Aliases ===
     "old cot building": "Old COT Building",
     "new cot building": "New COT Building",
@@ -185,13 +191,22 @@ LOCATION_ALIASES = {
     
     "college of business building": "College of Business Building",
     "cob building": "College of Business Building",
+    "cob na building": "College of Business Building",
+    "Building of Cob ": "College of Business Building",
+    "building sa cob": "College of Business Building",
+    "Business Building": "College of Business Building",
+    "building of the COB": "College of Business Building",
     
     "registrars office": "Registrar Office",
     "registrar's office": "Registrar Office",
     "registrar office": "Registrar Office",
-    
-    "old college of nursing": "Old College of Nursing",
-    "old nursing building": "Old College of Nursing",
+    "office sa registrar": "Registrar Office",
+    "registrar building": "Registrar Office",
+    "office of the registrar": "Registrar Office",
+    "office of registrar": "Registrar Office",
+
+    # "old college of nursing": "Old College of Nursing",
+    # "old nursing building": "Old College of Nursing",
     
     # === Dormitory Aliases ===
     "mahogany dorm": "Mahogany Dorm",
@@ -208,6 +223,11 @@ LOCATION_ALIASES = {
     "mans dormitory": "Mahogany Dorm",
     "boy dormitory": "Mahogany Dorm",
     "boys dormitory": "Mahogany Dorm",
+    "dorm sa laki": "Mahogany Dorm",
+    "dormitory sa laki": "Mahogany Dorm",
+    "dorm sa mga laki": "Mahogany Dorm",
+    "pang lalaki na dorm": "Mahogany Dorm",
+    "lalaki nga dorm": "Mahogany Dorm",
 
     "female dorm": "Rubia Dorm",
     "rubia dorm": "Rubia Dorm",
@@ -220,6 +240,11 @@ LOCATION_ALIASES = {
     "rubia ladies dormitory": "Rubia Dorm",
     "woman dormitory": "Rubia Dorm",
     "ladies dormitory": "Rubia Dorm",
+    "dorm sa bae": "Rubia Dorm",
+    "dormitory sa bae": "Rubia Dorm",
+    "dorm sa mga bae": "Rubia Dorm",
+    "pang babae na dorm": "Rubia Dorm",
+    "babae nga dorm": "Rubia Dorm",
 
     "kilala dorm": "Kilala Dorm",
     "kilalas dorm": "Kilala Dorm",
@@ -611,6 +636,147 @@ LOCATION_ALIASES = {
     "info office": "Information Unit Office",
     "campus information office": "Information Unit Office",
     "information unit": "Information Unit Office",
+
+    # === BUKSU President Office Aliases ===
+    "buksu president office": "BUKSU President Office",
+    "president office": "BUKSU President Office",
+    "buksu pres office": "BUKSU President Office",
+    "pres office": "BUKSU President Office",
+
+    # === IAS Office Aliases ===
+    "ias office": "IAS Office",
+    "ias": "IAS Office",
+
+    # === OVPCAS Office Aliases ===
+    "ovpcas office": "OVPCAS Office",
+    "ovpcas": "OVPCAS Office",
+
+    # === Client Care Center Aliases ===
+    "client care center": "Client Care Center",
+    "client care": "Client Care Center",
+    "ccc": "Client Care Center",
+
+    # === Public Assistance Desk Aliases ===
+    "public assistance desk": "Public Assistance Desk",
+    "public assistance": "Public Assistance Desk",
+    "pad": "Public Assistance Desk",
+
+    # === HRDU Aliases ===
+    "hrdu": "HRDU",
+    "hr department unit": "HRDU",
+
+    # === DRRMO Office Aliases ===
+    "drrmo office": "DRRMO Office",
+    "drrmo": "DRRMO Office",
+
+    # === EHSO Aliases ===
+    "ehso": "EHSO",
+    "ehso office": "EHSO",
+
+    # === CAO-ADMIN Aliases ===
+    "cao-admin": "CAO-ADMIN",
+    "cao admin": "CAO-ADMIN",
+    "cao": "CAO-ADMIN",
+
+    # === RMU Aliases ===
+    "rmu": "RMU",
+    "rmu office": "RMU",
+
+    # === Office of the Board Secretary Aliases ===
+    "office of the board secretary": "Office of the Board Secretary",
+    "board secretary office": "Office of the Board Secretary",
+    "board secretary": "Office of the Board Secretary",
+    "obs": "Office of the Board Secretary",
+
+    # === Legal Unit Office Aliases ===
+    "legal unit office": "Legal Unit Office",
+    "legal unit": "Legal Unit Office",
+    "lu office": "Legal Unit Office",
+
+    # === HS-01 Aliases ===
+    "hs-01": "HS-01",
+    "hs01": "HS-01",
+    "hs 01": "HS-01",
+    "room hs-01": "HS-01",
+
+    # === HS-02 Aliases ===
+    "hs-02": "HS-02",
+    "hs02": "HS-02",
+    "hs 02": "HS-02",
+
+    # === HS-03 Aliases ===
+    "hs-03": "HS-03",
+    "hs03": "HS-03",
+    "hs 03": "HS-03",
+
+    # === HS-04 Aliases ===
+    "hs-04": "HS-04",
+    "hs04": "HS-04",
+    "hs 04": "HS-04",
+
+    # === HS-05 Aliases ===
+    "hs-05": "HS-05",
+    "hs05": "HS-05",
+    "hs 05": "HS-05",
+
+    # === HS-06 Aliases ===
+    "hs-06": "HS-06",
+    "hs06": "HS-06",
+    "hs 06": "HS-06",
+
+    # === HS-2-01 Aliases ===
+    "hs-2-01": "HS-2-01",
+    "hs2-01": "HS-2-01",
+    "hs201": "HS-2-01",
+    "hs 2 01": "HS-2-01",
+    "hs-2 01": "HS-2-01",
+    "room hs-2-01": "HS-2-01",
+
+    # === HS-2-02 Aliases ===
+    "hs-2-02": "HS-2-02",
+    "hs2-02": "HS-2-02",
+    "hs202": "HS-2-02",
+
+    # === HS-2-03 Aliases ===
+    "hs-2-03": "HS-2-03",
+    "hs2-03": "HS-2-03",
+    "hs203": "HS-2-03",
+
+    # === HS-2-04 Aliases ===
+    "hs-2-04": "HS-2-04",
+    "hs2-04": "HS-2-04",
+    "hs204": "HS-2-04",
+
+    # === HS-2-05 Aliases ===
+    "hs-2-05": "HS-2-05",
+    "hs2-05": "HS-2-05",
+    "hs205": "HS-2-05",
+
+    # === HS-2-06 Aliases ===
+    "hs-2-06": "HS-2-06",
+    "hs2-06": "HS-2-06",
+    "hs206": "HS-2-06",
+
+    # === HS-2-07 Aliases ===
+    "hs-2-07": "HS-2-07",
+    "hs2-07": "HS-2-07",
+    "hs207": "HS-2-07",
+
+    # === HS-2-08 Aliases ===
+    "hs-2-08": "HS-2-08",
+    "hs2-08": "HS-2-08",
+    "hs208": "HS-2-08",
+
+    # === Employees Multipurpose Cooperative Aliases ===
+    "employees multipurpose cooperative": "Employees Multipurpose Cooperative",
+    "employees coop": "Employees Multipurpose Cooperative",
+    "emp coop": "Employees Multipurpose Cooperative",
+    "multipurpose coop": "Employees Multipurpose Cooperative",
+
+    # === Business Affairs Office Aliases ===
+    "business affairs office": "Business Affairs Office",
+    "business affairs": "Business Affairs Office",
+    "bao": "Business Affairs Office",
 }
 
 
@@ -1544,15 +1710,31 @@ class ActionReplyFromJson(Action):
 
         # If NLU intent is not ask_locations but the text clearly contains a known location alias,
         # answer with location response instead of generic fallback.
+        # BUT: Skip this override if the user is asking about ID cards, enrollment, or services
+        # to prevent confusing service questions with location questions.
+        SERVICE_KEYWORDS = [
+            "id card", "library id", "library card", "library id card",
+            "school id", "get id", "how to get", "apply for",
+            "enroll", "enrollment", "application", "register", "registration",
+            "requirement", "requirements", "what do i need", "what should i bring",
+            "pay", "payment", "how much", "fee", "cost", "price",
+            "borrow", "return", "book", "thesis", "research"
+        ]
+        
         if intent not in {"ask_locations", "locate_comlab", "ask_faculty_room_location", "ask_more"}:
-            guessed = self.helper._guess_location_from_text(user_msg)
-            if guessed:
-                loc_resp = self.helper.get_location_response(guessed, user_msg)
-                if loc_resp and loc_resp.get("text") and not loc_resp["text"].startswith("Sorry, I don't have information"):
-                    dispatcher.utter_message(text=loc_resp["text"])
-                    if loc_resp.get("custom"):
-                        dispatcher.utter_message(json_message=loc_resp["custom"])
-                    return []
+            # Check if it's actually a service question, not a location question
+            text_lower = user_msg.lower()
+            is_service_question = any(keyword in text_lower for keyword in SERVICE_KEYWORDS)
+            
+            if not is_service_question:
+                guessed = self.helper._guess_location_from_text(user_msg)
+                if guessed:
+                    loc_resp = self.helper.get_location_response(guessed, user_msg)
+                    if loc_resp and loc_resp.get("text") and not loc_resp["text"].startswith("Sorry, I don't have information"):
+                        dispatcher.utter_message(text=loc_resp["text"])
+                        if loc_resp.get("custom"):
+                            dispatcher.utter_message(json_message=loc_resp["custom"])
+                        return []
         
         if isinstance(response, dict):
             if response.get("text"):

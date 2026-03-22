@@ -716,7 +716,7 @@
       ],
       "imageUrls": []
     },
-    "CAS Dean’s Office": {
+    "CAS Deans Office": {
       "type": "office",
       "building": "Pink Building",
       "floor": "Ground Floor",
@@ -772,7 +772,7 @@
       ],
       "imageUrls": []
     },
-    "CPAG Dean’s Office": {
+    "CPAG Deans Office": {
       "type": "office",
       "building": "CPAG Building",
       "floor": "First Floor",
@@ -2785,8 +2785,8 @@
       "building": "Administrative Building",
       "floor": "Ground Floor",
       "coordinates": [
-        823,
-        614
+        822,
+        606
       ],
       "map_id": "main_map",
       "responses": {
@@ -2801,12 +2801,534 @@
         {
           "name": "Information Unit",
           "coordinates": [
-            823,
-            614
+            822,
+            606
           ]
         }
       ],
       "imageUrls": []
+    },
+    "OSS": {
+      "type": "office",
+      "building": "Student Services Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        578,
+        647
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Here 👀."
+        ],
+        "ceb": [
+          "Naara 👀."
+        ]
+      }
+    },
+    "BUKSU President Office": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        826,
+        570
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The BUKSU President’s Office is located near the entrance of the university, next to the Information Unit Office."
+        ],
+        "ceb": [
+          "Ang Office sa Presidente sa BUKSU kay naa duol sa entrance sa unibersidad, tapad sa Information Unit Office."
+        ]
+      }
+    },
+    "IAS Office": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        831,
+        820
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The IAS Office is in the Administrative Building—that’s the first building you’ll see at the entrance. To be exact, it’s the last office on the right side if you’re coming from the BukSU entrance."
+        ],
+        "ceb": [
+          "Ang IAS Office naa sa Administrative Building—mao na ang unang building nga imong makita sa entrance. Aron mas klaro, kini ang katapusang opisina sa tuo nga bahin kung nagagikan ka sa BukSU nga entrada."
+        ]
+      }
+    },
+    "OVPCAS Office": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        833,
+        789
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Office of the Vice President of Academic Affairs (OVPCAS) is found in the Administrative Building, to be exact. This building position on the side of the Client Care Center Office, which is the first office, can be found on the right side of the Administrative Building when you're facing it from the main entrance of Buksu."
+        ],
+        "ceb": [
+          "Ang Opisina sa Bise Presidente sa Akademikong mga Butang (OVPCAS) makita sa Administrative Building, sa tukmang dapit. Kini nga building nahimutang sa kilid sa Client Care Center Office, nga mao ang unang opisina, makit-an sa tuo nga kilid sa Administrative Building kung nag-atubang ka niini gikan sa main entrance sa Buksu."
+        ]
+      }
+    },
+    "Client Care Center": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        831,
+        676
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Client Care Center is in the Administrative Building. It’s the first Office on the right side if you’re coming from the BukSU main entrance."
+        ],
+        "ceb": [
+          "Ang Client Care Center naa sa Administrative Building. Kini ang unang opisina sa tuo nga bahin kung gikan ka sa BukSU main entrance."
+        ]
+      }
+    },
+    "Public Assistance Desk": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        827,
+        619
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Public Assistance Desk is located in the Information Unit office, which is the office you just passed by on the left side of the Administrative building, the first building you can see on the main entrance of BukSU."
+        ],
+        "ceb": [
+          "Ang Public Assistance Desk naa sa opisina sa Information Unit, nga mao ang opisina nga imong milabay sa wala nga bahin sa Administrative building, ang unang building nga imong makita sa main entrance sa BukSU."
+        ]
+      }
+    },
+    "HRDU": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        826,
+        521
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Human Resource Development Unit is located in the Administrative Building, which is the building you can find at the main entrance; to be exact, it's the last office that can be found on the left side of the Administrative Building."
+        ],
+        "ceb": [
+          "Ang Human Resource Development Unit nahimutang sa Administrative Building, nga mao ang building nga imong makit-an sa main entrance; aron mas tukma, kini mao ang katapusang opisina nga makit-an sa wala nga bahin sa Administrative Building."
+        ]
+      }
+    },
+    "DRRMO Office": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        825,
+        464
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Disaster Risk Reduction Management Office (DRRMO) is located on the exit this is the last office you can see on the BukSU exit except the guard house."
+        ],
+        "ceb": [
+          "Ang Risk Reduction Management Office (DRRMO) nahimutang sa gawas, kini ang katapusang opisina nga imong makita sa BukSU exit gawas sa guard house."
+        ]
+      }
+    },
+    "EHSO": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        833,
+        657
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Environmental Health & Safety Office (EHSO) is located in the Administrative Building to be exact, it's located on the 2nd floor. You can easily find it since there's no other staircase going to the 2nd floor in the main entrance of the Administrative Building."
+        ],
+        "ceb": [
+          "Ang Environmental Health & Safety Office (EHSO) nahimutang sa Administrative Building, aron eksakto, nahimutang kini sa 2nd nga andana. Madali ra nimo kini makit-an kay walay lain hagdanan nga moadto sa 2nd floor sa main entrance sa Administrative Building."
+        ]
+      }
+    },
+    "CAO-ADMIN": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        833,
+        657
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Office of the Chief Administrative Officer For Administrative Division (CAO-ADMIN) is located in the Administrative Building to be exact, it's located on the 2nd floor. You can easily find it since there's no other staircase going to the 2nd floor in the main entrance of the Administrative Building."
+        ],
+        "ceb": [
+          "Office of the Chief Administrative Officer For Administrative Division (CAO-ADMIN) nahimutang sa Administrative Building, aron eksakto, nahimutang kini sa 2nd nga andana. Madali ra nimo kini makit-an kay walay lain hagdanan nga moadto sa 2nd floor sa main entrance sa Administrative Building."
+        ]
+      }
+    },
+    "RMU": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        833,
+        657
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Records Management Unit (RMU) is located in the Administrative Building to be exact, it's located on the 2nd floor. You can easily find it since there's no other staircase going to the 2nd floor in the main entrance of the Administrative Building."
+        ],
+        "ceb": [
+          "Records Management Unit (RMU) nahimutang sa Administrative Building, aron eksakto, nahimutang kini sa 2nd nga andana. Madali ra nimo kini makit-an kay walay lain hagdanan nga moadto sa 2nd floor sa main entrance sa Administrative Building."
+        ]
+      }
+    },
+    "Office of the Board Secretary": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        833,
+        657
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Office of the Board Secretary is located in the Administrative Building to be exact, it's located on the 2nd floor. You can easily find it since there's no other staircase going to the 2nd floor in the main entrance of the Administrative Building."
+        ],
+        "ceb": [
+          "Office of the Board Secretary nahimutang sa Administrative Building, aron eksakto, nahimutang kini sa 2nd nga andana. Madali ra nimo kini makit-an kay walay lain hagdanan nga moadto sa 2nd floor sa main entrance sa Administrative Building."
+        ]
+      }
+    },
+    "Legal Unit Office": {
+      "type": "office",
+      "building": "Administrative Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        833,
+        657
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Legal Unit Office is located in the Administrative Building to be exact, it's located on the 2nd floor. You can easily find it since there's no other staircase going to the 2nd floor in the main entrance of the Administrative Building."
+        ],
+        "ceb": [
+          "Legal Unit Office nahimutang sa Administrative Building, aron eksakto, nahimutang kini sa 2nd nga andana. Madali ra nimo kini makit-an kay walay lain hagdanan nga moadto sa 2nd floor sa main entrance sa Administrative Building."
+        ]
+      }
+    },
+    "HS-01": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        498,
+        946
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS-01 Room is located on the High School Laboratory Building Ground floor"
+        ],
+        "ceb": [
+          "HS-01 Room kay makita ra kini sa High School Laboratory Building unang andana"
+        ]
+      }
+    },
+    "HS-02": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        508,
+        946
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS-02 Room is located on the High School Laboratory Building Ground floor"
+        ],
+        "ceb": [
+          "HS-02 Room kay makita ra kini sa High School Laboratory Building unang andana"
+        ]
+      }
+    },
+    "HS-03": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        518,
+        946
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS-03 Room is located on the High School Laboratory Building Ground floor"
+        ],
+        "ceb": [
+          "HS-03 Room kay makita ra kini sa High School Laboratory Building unang andana"
+        ]
+      }
+    },
+    "HS-04": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        528,
+        946
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS-04 Room is located on the High School Laboratory Building Ground floor"
+        ],
+        "ceb": [
+          "HS-04 Room kay makita ra kini sa High School Laboratory Building unang andana"
+        ]
+      }
+    },
+    "HS-05": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        562,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS-05 Room is located on the High School Laboratory Building Ground floor"
+        ],
+        "ceb": [
+          "HS-05 Room kay makita ra kini sa High School Laboratory Building unang andana"
+        ]
+      }
+    },
+    "HS-06": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        597,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS-06 Room is located on the High School Laboratory Building Ground floor"
+        ],
+        "ceb": [
+          "HS-06 Room kay makita ra kini sa High School Laboratory Building unang andana"
+        ]
+      }
+    },
+    "HS-2-01": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        597,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS 2-01 Room is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "HS 2-01 Room kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "HS-2-02": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        449,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS 2-02 Room is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "HS 2-02 Room kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "HS-2-03": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        475,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS 2-03 Room is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "HS 2-03 Room kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "HS-2-04": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        512,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS 2-04 Room is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "HS 2-04 Room kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "HS-2-05": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        552,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS 2-05 Room is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "HS 2-05 Room kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "HS-2-06": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        588,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS 2-06 Room is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "HS 2-06 Room kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "HS-2-07": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        625,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS 2-07 Room is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "HS 2-07 Room kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "Employees Multipurpose Cooperative": {
+      "type": "office",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        642,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Employees Multipurpose Cooperative is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "Employees Multipurpose Cooperative kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "HS-2-08": {
+      "type": "room",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        674,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "HS 2-08 Room is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "HS 2-08 Room kay makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "Business Affairs Office": {
+      "type": "office",
+      "building": "High School Laboratory Building",
+      "floor": "Second Floor",
+      "coordinates": [
+        689,
+        941
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Business Affairs Office is located on the High School Laboratory Building 2nd Floor"
+        ],
+        "ceb": [
+          "Business Affairs Office makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
     }
   }
 }

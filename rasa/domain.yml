@@ -189,6 +189,25 @@ intents:
   - double_enrollment_policy
   - buksu_gymnasium_facility
   - new_student_orientation_purpose
+
+  - library_id_card_location
+  - library_id_card_payment
+  - library_id_card_requirements
+  - library_borrow_books
+  - library_return_books
+  - library_available_books_info
+  - library_thesis_availability
+  - admission_application_deadline
+  - buksu_mandates
+  - lost_and_found_buksu
+  - accounting_office_location
+  - cor_validation_location
+  - cor_validation_steps
+  - student_id_process
+  - enrollment_general_process
+  - online_enrollment_steps
+  - mixed_enrollment_process
+  - request_tor_process
   
 entities:
   - lab_number

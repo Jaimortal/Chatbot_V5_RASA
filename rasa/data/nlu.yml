@@ -214,6 +214,8 @@ nlu:
     - I want to know about cooking recipes
     - Random words here
     - Something unrelated to BukSU
+    - nganong gwapo kayo ko
+    - Hoy
 
 - intent: ask_more
   examples: |
@@ -363,23 +365,106 @@ nlu:
 
 - intent: take_exam
   examples: |
-    - How can I take the BukSU College Admission Test
-    - Can you tell me the steps to apply for the college admission test
-    - I want to know how to take the BukSU CAT
-    - What is the process for taking the BukSU College Admission Test
-    - Tell me how to register for the college admission exam
-    - How do I apply for the BukSU admission test
-    - Can you explain the procedure for taking the college entrance exam
-    - I need guidance on applying for the BukSU College Admission Test
-    - How can I complete the application for the admission test
-    - What steps should I follow to take the BukSU College Admission Test
-    - I want instructions for registering and taking the admission test
-    - Can you provide information on how to take the BukSU CAT
-    - How do I submit my documents for the college admission test
-    - Tell me how to select my schedule for the BukSU College Admission Test
-    - How will I receive notifications about my admission test application
-    - What do I need to do to successfully apply and take the BukSU College Admission Test
+    - how to apply buksu admission testing
+    - how to apply examination
+    - can you help me applying examination for buksu admission testing
+    - what do i need to do for applying buksu testing examination
+    - how do I apply for BukSU admission test
+    - how can I take the BukSU entrance exam
+    - what should I do to take the BukSU exam
+    - I want to apply for the BukSU college admission test
+    - how do I register for BukSU CAT
+    - can you guide me on how to apply for the exam
+    - I need help applying for BukSU admission test
+    - how do I start my application for the entrance exam
+    - what is the first step to apply for BukSU CAT
+    - how can I take the admission test in BukSU
+    - where do I apply for BukSU entrance exam
+    - how do I process my application for the exam
+    - what do I need before taking the admission test
+    - can you send me steps for BukSU exam application
+    - how do I complete my exam application
+    - what should I do to get a test permit
+    - What is the process for applying to the BukSU College Admission Test
+    - How can I register for the BukSU entrance examination
+    - What are the steps to apply for the college admission test
+    - How do I complete the application for the BukSU CAT
+    - What is the official procedure for admission test application
+    - How can I submit my application for the entrance exam
+    - What are the requirements for the BukSU admission test
+    - How do I access the admission portal for the exam
+    - What steps should I follow to take the BukSU CAT
+    - How can I ensure successful registration for the admission test
+    - Where can I apply for the BukSU entrance examination
+    - What is the workflow for applying to the admission test
+    - How do I upload requirements for the admission test
+    - How do I select a schedule for the entrance exam
+    - What is required to receive a test permit
+    - How will I know if my application is accepted
+    - What are the guidelines for BukSU CAT application
+    - How do I finalize my admission test application
+    - What is the standard process for entrance exam registration
+    - How can I track my admission test application status
+    - unsaon pag apply sa buksu admission test
+    - unsaon pag apply og exam sa BukSU
+    - tabangi ko unsaon pag apply sa entrance exam
+    - unsay buhaton para maka take og exam sa BukSU
+    - giunsa pag register sa BukSU CAT
+    - asa ko mag apply para sa admission test
+    - unsa ang first step para mag exam sa BukSU
+    - pwede ko nimo tabangan sa pag apply sa exam
+    - unsaon pag process sa akong application sa exam
+    - unsay kinahanglan para maka take og entrance exam
+    - giunsa pag complete sa exam application
+    - unsay buhaton para makakuha og test permit
+    - asa makita ang portal para sa exam
+    - unsaon pag start sa application sa exam
+    - unsay proseso sa BukSU admission test
+    - giunsa pag upload sa requirements
+    - unsaon pag pili og schedule sa exam
+    - unsa ang next step human register
+    - unsaon pag confirm sa application
+    - tabang unsaon pag apply exam
+    - unsay proseso sa pag apply sa BukSU College Admission Test
+    - giunsa pag register sa entrance examination
+    - unsay mga lakang sa pag apply sa admission test
+    - giunsa pag complete sa application sa BukSU CAT
+    - unsay official nga proseso sa exam application
+    - giunsa pag submit sa application para sa exam
+    - unsay requirements para sa admission test
+    - giunsa pag access sa admission portal
+    - unsay steps aron maka take sa BukSU CAT
+    - giunsa pag siguro nga successful ang registration
+    - asa pwede mag apply para sa entrance exam
+    - unsay workflow sa pag apply sa exam
+    - giunsa pag upload sa requirements
+    - giunsa pag pili og schedule sa exam
+    - unsay kinahanglan para makakuha og test permit
+    - giunsa pag hibalo kung accepted ang application
+    - unsay guidelines sa BukSU CAT application
+    - giunsa pag finalize ang exam application
+    - unsay standard nga proseso sa exam registration
+    - giunsa pag track sa application status
+    - buksu exam apply
+    - apply exam
+    - entrance exam buksu
+    - exam registration
+    - CAT apply
+    - how take exam
+    - apply CAT
+    - exam process
+    - buksu testing
+    - admission test apply
+    - exam unsaon
+    - apply exam asa
 
+- synonym: exam
+  examples: |
+    - test
+    - CAT
+    - entrance exam
+    - admission test
+    - testing
 
 - intent: application_next_step
   examples: |
@@ -945,6 +1030,62 @@ nlu:
     - Asa ang dalan padulong sa [Power Building](location_name)
     - Where is the [Information Unit Office](location_name) located
     - Asa dapit ang [Information Unit Office](location_name)
+    - Can you show me the exact location of [BUKSU President Office](location_name)
+    - Asa dapit ang [BUKSU President Office](location_name)
+    - How can I reach the [IAS Office](location_name) from the entrance
+    - Unsaon nako pag adto sa [IAS Office](location_name)
+    - Can you guide me going to the [OVPCAS Office](location_name)
+    - Tabangi ko pag navigate padulong sa [OVPCAS Office](location_name)
+    - I need a map for the [Client Care Center](location_name)
+    - Pwede nimo ihatag ang mapa para sa [Client Care Center](location_name)
+    - Where can I find the [Public Assistance Desk](location_name)
+    - Asa nako makita ang [Public Assistance Desk](location_name)
+    - Can you help me locate the [HRDU](location_name)
+    - Tabangi ko pangita ang [HRDU](location_name)
+    - I want directions going to [DRRMO Office](location_name)
+    - Asa ang dalan padulong sa [DRRMO Office](location_name)
+    - Please show me how to get to [EHSO](location_name)
+    - Unsaon pag navigate padulong sa [EHSO](location_name)
+    - Can you send me a map for [CAO-ADMIN](location_name)
+    - Pwede nimo i send ang mapa para sa [CAO-ADMIN](location_name)
+    - How do I go to the [RMU](location_name)
+    - Unsaon pag adto sa [RMU](location_name)
+    - I am trying to find the [Office of the Board Secretary](location_name)
+    - Nangita ko asa ang [Office of the Board Secretary](location_name)
+    - Can you point me to the [Legal Unit Office](location_name)
+    - Asa padulong ang [Legal Unit Office](location_name)
+    - Can you show me where [HS-01](location_name) is located
+    - Asa dapit ang [HS-01](location_name)
+    - I want to find the exact location of [HS-02](location_name)
+    - Asa nako makita ang [HS-02](location_name)
+    - How can I go to [HS-03](location_name)
+    - Unsaon pag adto sa [HS-03](location_name)
+    - Please guide me to [HS-04](location_name)
+    - Tabangi ko pag navigate padulong sa [HS-04](location_name)
+    - Can you provide a map for [HS-05](location_name)
+    - Pwede nimo ihatag ang mapa para sa [HS-05](location_name)
+    - I need directions to reach [HS-06](location_name)
+    - Asa ang dalan padulong sa [HS-06](location_name)
+    - Can you help me locate [HS-2-01](location_name)
+    - Tabangi ko pangita ang [HS-2-01](location_name)
+    - Show me how to get to [HS-2-02](location_name)
+    - Unsaon pag navigate padulong sa [HS-2-02](location_name)
+    - I am trying to find [HS-2-03](location_name)
+    - Nangita ko asa ang [HS-2-03](location_name)
+    - Can you send me a map for [HS-2-04](location_name)
+    - Pwede nimo i send ang mapa para sa [HS-2-04](location_name)
+    - Where can I locate [HS-2-05](location_name)
+    - Asa dapit ang [HS-2-05](location_name)
+    - I want to navigate to [HS-2-06](location_name)
+    - Unsaon nako pag navigate padulong sa [HS-2-06](location_name)
+    - Can you point me to [HS-2-07](location_name)
+    - Asa padulong ang [HS-2-07](location_name)
+    - Please help me find [Employees Multipurpose Cooperative](location_name)
+    - Tabangi ko pangita ang [Employees Multipurpose Cooperative](location_name)
+    - Can you give directions to [HS-2-08](location_name)
+    - Unsaon pag adto sa [HS-2-08](location_name)
+    - I need help locating the [Business Affairs Office](location_name)
+    - Asa nako makita ang [Business Affairs Office](location_name)
 
 - regex: location_name
   examples: |
@@ -1695,6 +1836,7 @@ nlu:
 
 - intent: deans_list
   examples: |
+    - Unsa ang passing rate para ma Dean’s List ka
     - What is the dean list
     - Can you explain the meaning of the dean list
     - Who are included in the dean list
@@ -1706,7 +1848,7 @@ nlu:
     - Are first year students eligible to be on the dean list
     - Does being on the dean list affect the eligibility for scholarships
     - Is the dean list determined only by academic grades
-    - Who is responsible for deciding the dean list
+    - Who is responsible for deciding the dean's list
     - How is academic excellence recognized through the dean list
     - Are students informed if they have qualified for the dean list
     - Can students inquire about their status on the dean list
@@ -2745,6 +2887,10 @@ nlu:
 
 - intent: get_inc_form
   examples: |
+    - Where can i download all the document for buksu
+    - asa manato madownload ang mga form sa buksu
+    - where can i download all the form for buksu
+    - all forms for buksu
     - Where can I download the INC form from the university
     - How can I get a copy of the INC form online
     - I need instructions on how to access the INC form from the Bukidnon State University website
@@ -5060,3 +5206,1002 @@ nlu:
     - Kanus-a ginahimo ang orientation
     - Mandatory ba ang orientation para sa tanang new students
     - Pila ka oras ang orientation
+
+- intent: library_id_card_location
+  examples: |
+    - Where can I get my library ID card in the university library
+    - Can you tell me where to apply for a library ID card
+    - Which floor should I go to process my library ID
+    - Where is the library ID processing area located
+    - How do I get a library ID card in BukSU library
+    - Who should I approach to request a library ID card
+    - Is there a specific section where I can apply for a library ID
+    - Can the staff help me get my library ID card
+    - Where do students usually go to process their library ID
+    - What is the exact location for library ID application
+    - Is the library ID processing on the second floor
+    - Where can I find the office for library ID concerns
+    - Can I go directly to the library to request an ID card
+    - Who can assist me in getting my library ID
+    - Where should I go if I want to apply for a library ID card
+    - Is there a help desk for library ID processing
+    - Can I ask any staff member about getting a library ID
+    - Where is the section for issuing library ID cards
+    - What should I do to get my library ID card in the library
+    - Where exactly in the library building can I process my ID
+    - Do I need to go to a specific floor to get my library ID
+    - Is the library ID card processed inside the library building
+    - Can you guide me where to get my library ID card
+    - Where do I inquire about getting a library ID card
+    - Is there a designated place for library ID applications
+    - Asa ko makakuha og library ID card sa library
+    - Asa dapit ko mag apply para sa library ID card
+    - Unsang andana ko moadto para mag process og library ID
+    - Asa dapit ang processing area sa library ID
+    - Giunsa nako pagkuha og library ID sa BukSU
+    - Kinsa akong duolon para magkuha og library ID card
+    - Naa bay specific nga section para sa library ID
+    - Matabangan ba ko sa staff sa pagkuha sa akong library ID
+    - Asa moadto ang estudyante para mag apply og library ID
+    - Asa dapit ang exact location sa pagkuha og library ID
+    - Tinuod ba nga sa second floor ang pag process sa library ID
+    - Asa nako makit-an ang office para sa library ID
+    - Pwede ba ko moadto diretso sa library para magkuha og ID
+    - Kinsa ang motabang nako sa pagkuha sa library ID
+    - Asa ko moadto kung gusto ko mag apply og library ID card
+    - Naa bay help desk para sa library ID processing
+    - Pwede ba ko mangutana sa bisan kinsa nga staff bahin sa ID
+    - Asa dapit ang section nga nag issue og library ID
+    - Unsay buhaton nako para makakuha og library ID card
+    - Asa gyud sa library building ko mag process sa akong ID
+    - Kinahanglan ba moadto sa specific nga andana para sa ID
+    - Sa sulod ra ba sa library building ang pagkuha sa ID
+    - Pwede ba nimo ko tudluan asa makakuha og library ID card
+    - Asa ko mangutana bahin sa pagkuha og library ID
+    - Naa bay designated nga lugar para sa library ID application
+    - library ID location
+    - where to get library ID
+    - library ID BukSU where
+    - asa library ID
+    - asa kuha ID library
+    - library ID asa dapit
+    
+
+- intent: library_id_card_payment
+  examples: |
+    # ENGLISH - payment + COR + borrowing condition + asking staff
+    - Do I need to pay to get a library ID card
+    - Is the library ID card free or do I need to pay
+    - How much do I need to pay for the library ID
+    - Is there a fee for getting a library ID card
+    - When am I required to pay for the library ID
+    - Do I need to pay before I can use the library
+    - Is payment required before borrowing books from the library
+    - Do all students need to pay for a library ID card
+    - Is the library ID fee already included in my COR
+    - How do I know if my library ID is already paid
+    - Can I still use the library even if I did not pay for the ID
+    - Do I only need to pay if I want to borrow books
+    - Is the payment for library ID optional or required
+    - Who can confirm if I need to pay for the library ID
+    - Where can I ask about library ID payment details
+    - Can the staff explain if payment is needed for my ID
+    - Is there a difference if I only use the library without borrowing
+    - Do I need to pay first before getting my library ID processed
+    - Is library ID free for all students or only some
+    - What does my COR say about library ID payment
+    - Can I check with staff if my ID is already included in fees
+    - Is payment needed only when borrowing books
+    - Can I still enter the library without paying for ID
+    - Do I need to settle payment before using library services
+    - Is there any charge for getting a library ID card
+    - Kinahanglan ba mubayad para makakuha og library ID card
+    - Libre ra ba ang library ID card o naay bayad
+    - Pila ang bayad para sa library ID
+    - Naa bay bayad ang pagkuha og library ID
+    - Kanus-a ko kinahanglan mubayad para sa library ID
+    - Kinahanglan ba mubayad bago ko makagamit sa library
+    - Kinahanglan ba mubayad before manghulam og libro
+    - Tanang estudyante ba kinahanglan mubayad para sa ID
+    - Apil na ba sa akong COR ang bayad sa library ID
+    - Giunsa nako paghibalo kung bayad na akong library ID
+    - Pwede ba ko makagamit sa library bisan wala ko kabayad
+    - Mubayad ra ba ko kung manghulam ko og libro
+    - Optional ra ba ang bayad sa library ID o required gyud
+    - Kinsa makasulti kung kinahanglan ba ko mubayad
+    - Asa ko mangutana bahin sa bayad sa library ID
+    - Pwede ba ko mangutana sa staff kung kinahanglan ba mubayad
+    - Lahi ba kung magamit ra ko sa library ug dili manghulam
+    - Kinahanglan ba mubayad una bago makakuha og ID
+    - Libre ba ang library ID para sa tanang estudyante
+    - Unsay nakabutang sa COR bahin sa library ID payment
+    - Pwede ba nako ipacheck sa staff kung apil na sa bayad
+    - Mubayad ra ba kung manghulam og libro
+    - Pwede ba mosulod sa library bisan wala pa kabayad
+    - Kinahanglan ba bayran una bago gamiton ang serbisyo
+    - Naa bay charge sa pagkuha og library ID card
+    - library ID payment
+    - library ID fee
+    - is library ID free
+    - do i pay ID
+    - ID payment required
+    - library ID libre ba
+    - bayad ba library ID
+    - pila bayad ID
+    - apil sa COR ID
+    - kinahanglan bayad ID
+    - libre ra ID
+    - need ba bayad ID
+
+- intent: library_id_card_requirements
+  examples: |
+    - What are the requirements for getting a library ID card
+    - What documents do I need to bring for library ID application
+    - What should I prepare before applying for a library ID
+    - Do I need to bring my COR for the library ID
+    - Is COR required when applying for a library ID card
+    - What proof do I need to show to get a library ID
+    - Do I need any documents to process my library ID
+    - Can I apply for a library ID without bringing COR
+    - Is a pen required when processing the library ID
+    - What materials should I bring when applying for a library ID
+    - Is there a checklist of requirements for library ID
+    - Do I need student verification to get a library ID
+    - What are the basic requirements for library ID application
+    - What do I need to show to prove I am a student
+    - Do I need to prepare anything before going to the library
+    - Is COR enough to get a library ID card
+    - Do I need to bring anything else aside from COR
+    - Is bringing a pen necessary for the application
+    - What should I not forget when applying for a library ID
+    - Can I process my ID without complete requirements
+    - Are there required items I need to bring to get my ID
+    - What are the needed things for library ID processing
+    - Do I need identification or just COR
+    - What should I bring with me for library ID registration
+    - Is there any required paperwork for library ID
+    - Unsay requirements para makakuha og library ID card
+    - Unsay mga kinahanglan dad on para sa library ID application
+    - Unsay akong andamon before ko mag apply og library ID
+    - Kinahanglan ba nako dad on ang akong COR
+    - Required ba ang COR para sa library ID
+    - Unsay proof nga kinahanglan ipakita para makakuha og ID
+    - Kinahanglan ba og documents para sa pag process sa ID
+    - Pwede ba ko mag apply nga walay COR
+    - Kinahanglan ba og bolpen sa pagkuha og library ID
+    - Unsay mga butang nga kinahanglan dad on para sa ID
+    - Naa bay checklist sa requirements para sa library ID
+    - Kinahanglan ba og student verification para sa ID
+    - Unsay basic requirements para sa library ID
+    - Unsay ipakita para mapamatud an nga estudyante ko
+    - Kinahanglan ba ko mag andam daan before moadto sa library
+    - Sakto na ba ang COR para makakuha og ID
+    - Naa pa bay lain kinahanglan gawas sa COR
+    - Importante ba magdala og bolpen sa application
+    - Unsay dili nako dapat kalimtan sa pag apply og ID
+    - Pwede ba ma process ang ID kung kulang ang requirements
+    - Unsay kinahanglan nga dad on para makakuha og ID
+    - Unsay mga kinahanglanon sa pagkuha og library ID
+    - Kinahanglan ba og ID o COR ra
+    - Unsay dad on nako para sa library ID registration
+    - Naa bay paperwork nga kinahanglan para sa ID
+    - library ID requirements
+    - requirements ID
+    - what to bring ID
+    - library ID needed
+    - need COR ID
+    - requirements library
+    - unsay requirements ID
+    - unsay dad on ID
+    - kinahanglan COR
+    - bolpen needed ID
+    - need ba COR
+    - unsay kinahanglan ID
+
+- intent: library_borrow_books
+  examples: |
+    - How do I borrow a book from the library
+    - What should I bring if I want to borrow a book
+    - Can I borrow books right away in the library
+    - Do I need my ID when borrowing books
+    - Who do I talk to if I want to borrow a book
+    - Can I just pick a book and borrow it
+    - What do I do if I want to take a book home
+    - Do I need to ask someone before borrowing a book
+    - Can I borrow a book without my library ID
+    - Where do I go if I want to borrow books
+    - Do I need to fill something out when borrowing
+    - Do I need a pen when borrowing books
+    - Is there someone who can help me borrow a book
+    - What’s the first step in borrowing a book
+    - Can I borrow books anytime in the library
+    - Do I need to register before borrowing books
+    - What happens when I borrow a book
+    - Can I ask staff for help in borrowing books
+    - What do I need before I can borrow a book
+    - Is borrowing books easy in the library
+    - How does borrowing books usually work
+    - What is the process for borrowing books from the library
+    - What are the requirements for borrowing a book
+    - Is a library ID card required to borrow books
+    - Who should I approach to borrow books from the library
+    - Are there forms that need to be completed when borrowing books
+    - Can books be borrowed without presenting a library ID
+    - Where is the borrowing section located in the library
+    - How can I request assistance for borrowing books
+    - Is it necessary to bring a pen when borrowing books
+    - What are the steps involved in borrowing a book
+    - Are library staff available to assist with borrowing books
+    - What documents are required to borrow a book
+    - Is there a standard procedure for borrowing books
+    - Can I consult staff before borrowing a book
+    - What should I prepare before borrowing books
+    - Are students required to present identification before borrowing
+    - Is assistance required when borrowing books
+    - How is book borrowing managed in the library
+    - What are the guidelines for borrowing books
+    - Where can I inquire about borrowing procedures
+    - Giunsa paghulam og libro sa library
+    - Unsay buhaton nako para makahulam og libro
+    - Unsay dad on kung manghulam kog libro
+    - Kailangan ba nako ang akong ID para manghulam
+    - Kinsa akong duolon kung manghulam ko og libro
+    - Pwede ra ba kuhaon ang libro dayon hulamon
+    - Unsay first step kung manghulam kog libro
+    - Pwede ba manghulam og libro nga walay ID
+    - Asa ko moadto kung manghulam kog libro
+    - Kinahanglan ba ko mangutana sa staff
+    - Naay fill out nga papel kung manghulam
+    - Kinahanglan ba og bolpen kung manghulam
+    - Naay mutabang nako kung manghulam kog libro
+    - Sayon ra ba manghulam og libro sa library
+    - Pwede ba mangayo og tabang sa staff
+    - Unsay kinahanglan before manghulam
+    - Unsay mahitabo kung manghulam kog libro
+    - Pwede ba manghulam anytime
+    - Kinahanglan ba mag register una
+    - Unsaon pagkuha og libro para madala nako
+    - Unsay proseso sa paghulam og libro sa library
+    - Unsay mga requirements para makahulam og libro
+    - Kinahanglan ba ang library ID para manghulam og libro
+    - Kinsa ang angay duolon para manghulam og libro
+    - Naay mga form nga kinahanglan fill out kung manghulam
+    - Pwede ba manghulam nga walay library ID
+    - Asa dapit ang borrowing section sa library
+    - Giunsa pag request og assistance sa paghulam og libro
+    - Kinahanglan ba magdala og bolpen kung manghulam
+    - Unsay mga lakang sa paghulam og libro
+    - Naa bay staff nga motabang sa paghulam og libro
+    - Unsay mga dokumento nga kinahanglan para manghulam
+    - Naa bay standard nga proseso sa paghulam
+    - Pwede ba mangutana sa staff before manghulam
+    - Unsay angay ihanda bago manghulam og libro
+    - Kinahanglan ba magpakita og ID ang estudyante
+    - Kinahanglan ba og assistance sa paghulam
+    - Giunsa pag manage ang paghulam sa library
+    - Unsay guidelines sa paghulam og libro
+    - Asa pwede mangutana bahin sa borrowing procedures
+    - borrow books
+    - how borrow book
+    - library borrow
+    - borrow process
+    - need ID borrow
+    - borrow without ID
+    - borrow asa
+    - hulam libro
+    - how hulam
+    - borrow unsa need
+    - ID needed borrow
+    - borrow book steps
+
+- intent: library_return_books
+  examples: |
+    - How do I return books to the library
+    - Where can I return borrowed books
+    - Do I need my library ID to return books
+    - Can I return books using the machine
+    - Is there a guide for returning books
+    - Who should I ask for returning books
+    - Can I return books outside the library
+    - What is the process for returning books
+    - Do I need assistance when returning books
+    - Are there instructions for book return machine
+    - Giunsa pagbalik sa libro sa library
+    - Asa ibalik ang hinulamang libro
+    - Kinahanglan ba ang library ID para ibalik ang libro
+    - Pwede ba gamiton ang machine para sa pagbalik
+    - Naay guide para sa pagbalik sa libro
+    - Kinsa akong pangutan on para sa pagbalik sa libro
+    - Pwede ba ibalik ang libro sa gawas sa library
+    - Unsay proseso sa pagbalik sa libro
+    - Kinahanglan ba og tabang sa pagbalik sa libro
+    - Naay instructions sa book return machine
+
+- intent: library_available_books_info
+  examples: |
+    - What books are currently available in the library that I can borrow
+    - How do I check if a specific book is available in the library
+    - Can I see a list of available books before going to the library
+    - Where can I check the availability of books in the university library
+    - Is there a way to know if the book I need is available right now
+    - How can I find out if a book is already borrowed or still available
+    - Does the library have a system to check available books
+    - Can I ask the staff to help me find available books
+    - Who should I approach to ask about book availability in the library
+    - Are all available books displayed on the shelves or some are hidden
+    - How often does the library update its book collection and availability
+    - Does the availability of books change frequently in the library
+    - If a book is not on the shelf, does that mean it is not available
+    - Can I check book availability per floor in the library
+    - Is there someone on each floor who can assist me in finding books
+    - Where do I inquire if I cannot find the book I am looking for
+    - Can library staff guide me in checking available resources
+    - Do I need to visit the library physically to check available books
+    - Is there an online or manual system to verify book availability
+    - What should I do if I cannot find a book on the shelf
+    - Can I ask the librarian about newly available books
+    - Does the library regularly update their book collections
+    - How will I know if new books are already available in the library
+    - Is it possible that book availability changes every day
+    - Where can I get help if I want to borrow a specific book
+    - Can I request assistance in locating available books in the library
+    - What is the process of checking available books in the library
+    - Are there staff assigned to help students find available books
+    - Can I confirm book availability before borrowing it
+    - Is there a help desk where I can ask about available books
+    - Unsay mga libro nga available karon sa library nga pwede nako hulamon
+    - Giunsa nako pag check kung available pa ba ang usa ka libro sa library
+    - Asa ko makakita og listahan sa available nga mga libro sa library
+    - Naa bay paagi nga mahibalo ko kung available pa ang libro nga akong gipangita
+    - Giunsa paghibalo kung ang libro nahulaman na ba o available pa
+    - Naa bay system ang library para ma check ang available nga mga libro
+    - Pwede ba ko mangutana sa staff para tabangan ko mangita og libro
+    - Kinsa akong duolon kung mangutana ko bahin sa availability sa libro
+    - Tanang available nga libro ba naa ra sa shelves o naa pay lain
+    - Kanus-a mag update ang library sa ilang koleksyon sa libro
+    - Mag usob-usob ba ang availability sa libro kada adlaw
+    - Kung wala sa shelf ang libro, pasabot ba dili na siya available
+    - Pwede ba ko mangutana sa matag andana para mangita og libro
+    - Naa bay staff sa matag floor nga motabang pangita og libro
+    - Asa ko mangutana kung dili nako makita ang libro nga akong gipangita
+    - Matabangan ba ko sa librarian sa pagpangita sa available nga libro
+    - Kinahanglan ba moadto gyud ko sa library para mahibalo ang availability
+    - Naa bay online o manual nga paagi para ma check ang libro
+    - Unsay buhaton nako kung dili nako makita ang libro sa shelf
+    - Pwede ba ko mangutana sa librarian bahin sa bag-ong mga libro
+    - Sige ba og update ang library sa ilang mga libro
+    - Giunsa nako paghibalo kung naa nay bag-ong libro nga available
+    - Posible ba nga mag change ang availability sa libro kada adlaw
+    - Asa ko makapangayo og tabang kung gusto ko manghulam og libro
+    - Pwede ba ko mangayo og assistance sa pagpangita sa libro
+    - Unsay proseso sa pag check sa available nga libro sa library
+    - Naa bay help desk para mangutana bahin sa available nga libro
+    - Pwede ba nako i-confirm kung available pa ang libro before hulam
+    - Asa ko moadto kung mangutana ko about library resources
+    - Tabangan ba ko sa staff kung mangita kog libro sa library
+
+- intent: library_thesis_availability
+  examples: |
+    - Does the library have thesis and research papers
+    - Can I access capstone papers in the library
+    - Where can I find thesis documents
+    - Are thesis available on Library
+    - Who can help me find thesis in the library
+    - Can students borrow thesis papers
+    - How to request thesis documents
+    - Are research papers available per college
+    - Can staff assist in finding thesis
+    - Is there a section for thesis in the library
+    - Naay thesis ug research papers ang library
+    - Pwede ba ma access ang capstone papers sa library
+    - Asa makakita og thesis documents
+    - Naa ba sa shelves ang thesis
+    - Kinsa makatabang sa pagpangita og thesis sa library
+    - Pwede ba mahulam ang thesis papers
+    - Giunsa pag request og thesis documents
+    - Naay research papers per college
+    - Matabangan ba sa staff sa pagpangita og thesis
+    - Naay section para sa thesis sa library
+
+- intent: admission_application_deadline
+  examples: |
+    - When does BukSU admission application end?
+    - What is the deadline for BukSU admission?
+    - Until when can I apply for BukSU admission?
+    - When is the last day of admission application in BukSU?
+    - What month does BukSU admission usually end?
+    - Is there a deadline for BukSU admission application?
+    - When will BukSU stop accepting applications?
+    - How long is the BukSU admission period?
+    - When does the application period close in BukSU?
+    - When is the last week for BukSU admission?
+    - Kanus a matapos ang admission sa BukSU?
+    - Kanus a ang deadline sa BukSU admission?
+    - Hangtod kanus a pwede mo apply sa BukSU?
+    - Unsang petsa matapos ang admission?
+    - Kanus a ang katapusang adlaw sa application?
+    - Naay deadline ang BukSU admission?
+    - Kanus a sila mohunong og dawat application?
+    - Pila ka adlaw ang admission period sa BukSU?
+    - Kanus a mag close ang application?
+    - Katapusang semana sa admission kanus a?
+
+- intent: buksu_mandates
+  examples: |
+    - What are the mandates of BukSU?
+    - What is BukSU mandate?
+    - What does BukSU aim to do?
+    - What is the mission mandate of BukSU?
+    - What are the responsibilities of BukSU?
+    - What does BukSU focus on?
+    - Can you explain BukSU mandates?
+    - What is the purpose of BukSU mandates?
+    - What are the core mandates of BukSU?
+    - What does BukSU commit to?
+    - Unsa ang mandates sa BukSU?
+    - Unsa ang tumong sa BukSU?
+    - Unsa ang responsibilidad sa BukSU?
+    - Unsay focus sa BukSU?
+    - Unsa ang ginabuhat sa BukSU?
+    - Unsay katuyoan sa mandates sa BukSU?
+    - Unsa ang gisuportahan sa BukSU?
+    - Unsay gi commit sa BukSU?
+    - Unsa ang official mandate sa BukSU?
+    - Unsa ang mga mandato sa BukSU?
+
+- intent: lost_and_found_buksu
+  examples: |
+    - Is there a lost and found in BukSU?
+    - Does BukSU have a lost and found office?
+    - Where can I find lost items in BukSU?
+    - Who should I contact for lost items in BukSU?
+    - Where do lost things go in BukSU?
+    - Is there a place to report lost items?
+    - What should I do if I lost something in BukSU?
+    - Where are found items kept in BukSU?
+    - Can I claim lost items in BukSU?
+    - Who handles lost items in campus?
+    - Naay lost and found sa BukSU?
+    - Asa makita ang nawala nga butang sa BukSU?
+    - Kinsa akong duolon kung naay nawala?
+    - Asa dad on ang nakit an nga butang?
+    - Unsay buhaton kung naay nawala sa campus?
+    - Asa nako i report ang nawala?
+    - Naay office para sa lost items?
+    - Asa kuhaon ang nakit an nga butang?
+    - Kinsa nag handle sa lost and found?
+    - Asa i claim ang nawala nga butang?
+
+- intent: accounting_office_location
+  examples: |
+    - Where is the Accounting Office?
+    - Where can I find the Accounting Office in BukSU?
+    - What floor is the Accounting Office located?
+    - Where is Accounting in the Finance Building?
+    - How do I go to the Accounting Office?
+    - Is the Accounting Office in the Finance Building?
+    - Where exactly is Accounting Office?
+    - Can you guide me to Accounting Office?
+    - Location of BukSU Accounting Office?
+    - Where is Window 9 and 03 near Accounting?
+    - Asa ang Accounting Office?
+    - Asa dapit ang Accounting sa BukSU?
+    - Asa makita ang Accounting Office?
+    - Unsang andana ang Accounting?
+    - Asa ang Finance Building Accounting?
+    - Giunsa pag adto sa Accounting Office?
+    - Asa dapit sa Finance Building ang Accounting?
+    - Duol ba sa Window 9 ang Accounting?
+    - Asa ko moadto para Accounting?
+    - Asa ang Accounting Office sa campus?
+
+- intent: cor_validation_location
+  examples: |
+    - where do i validate my cor
+    - where can I validate my COR
+    - where should I go to validate my COR
+    - where do I go for COR validation
+    - where is the place to validate my COR
+    - can you tell me where to validate my COR
+    - can you help me where do i validate my COR
+    - where exactly can I validate my COR
+    - where is the location for COR validation
+    - where can I go to process my COR validation
+    - where do students validate their COR
+    - where should I proceed for COR validation
+    - where can I get my COR validated
+    - where do I bring my COR for validation
+    - where is the validation area for COR
+    - where is window 7 located
+    - where is the finance building for validation
+    - where do I go after printing my COR for validation
+    - can you guide me where to validate my COR
+    - what is the exact place for COR validation
+    - What is the location for COR validation
+    - Where is COR validation conducted
+    - Which office handles COR validation
+    - Where is the designated area for COR validation
+    - Where should students go to validate their COR
+    - What window is assigned for COR validation
+    - Where is Window 7 in the Finance Building located
+    - Where is the Finance Building for COR validation
+    - Where can I officially validate my COR
+    - What is the exact location for processing COR validation
+    - Which department is responsible for COR validation
+    - Where can I inquire about COR validation location
+    - Where should I proceed for official COR validation
+    - What is the assigned validation window for COR
+    - Where can I complete my COR validation process
+    - Where is the proper place to validate registration forms
+    - Where is the office for COR validation located
+    - Where should I go within the campus for COR validation
+    - What building handles COR validation
+    - Where can I find the validation section for COR
+    - asa nako ipa validate ang COR
+    - asa ko moadto para ma validate ang COR
+    - asa dapit ang COR validation
+    - asa ang lugar para sa COR validation
+    - asa man i validate ang akong COR
+    - pwede nimo ko tudluan asa i validate ang COR
+    - asa ko moadto para magpa validate sa COR
+    - asa dapit ang window 7
+    - asa ang finance building
+    - asa dapit ang validation sa COR
+    - asa nako dad on ang COR para ma validate
+    - asa magpa validate ang mga estudyante sa COR
+    - asa ko mangutana para sa COR validation
+    - asa dapit ang exact location sa COR validation
+    - asa ko mo proceed para sa COR validation
+    - asa dapit ko moadto after print sa COR
+    - tabangi ko asa i validate ang COR
+    - asa i process ang COR validation
+    - asa ang area para validation
+    - asa ang building para sa COR validation
+    - asa ang location sa COR validation
+    - asa ginabuhat ang COR validation
+    - unsang opisina ang nag handle sa COR validation
+    - asa dapit ang designated area para COR validation
+    - asa moadto ang estudyante para magpa validate sa COR
+    - unsang window ang para sa COR validation
+    - asa dapit ang Window 7 sa Finance Building
+    - asa ang Finance Building para sa COR validation
+    - asa pwede officially ma validate ang COR
+    - unsay exact location sa pag process sa COR validation
+    - unsang department ang responsible sa COR validation
+    - asa pwede mangutana bahin sa location sa COR validation
+    - asa mo proceed para sa official COR validation
+    - unsay assigned nga window para sa COR validation
+    - asa mahuman ang COR validation process
+    - asa dapit i validate ang registration form
+    - asa ang opisina para sa COR validation
+    - asa dapit sa campus ang COR validation
+    - unsang building ang nag handle sa COR validation
+    - asa makita ang validation section sa COR
+    - cor validation location
+    - where validate cor
+    - cor validate where
+    - location cor validation
+    - window 7 where
+    - finance building where
+    - cor asa validate
+    - asa cor validation
+    - asa window 7
+    - asa validate cor
+    - cor location
+    - validate cor asa
+
+- intent: cor_validation_steps
+  examples: |
+    - help me whats the process on validating my cor
+    - can you help me validate my COR
+    - how do I validate my COR step by step
+    - what should I do to validate my COR
+    - I already printed my COR what do I do next
+    - how do I process my COR after printing
+    - what’s next after I download my COR
+    - can you guide me on COR validation
+    - I need help validating my COR
+    - where do I go to validate my COR
+    - what do I do after getting my COR
+    - how can I finish my COR validation
+    - how do I complete my COR processing
+    - what’s the next step after printing COR
+    - do I need to go somewhere to validate my COR
+    - where should I go after printing my COR
+    - what is the next process for COR validation
+    - how do I finalize my COR
+    - what should I do to complete my registration form
+    - can you explain how COR validation works
+    - What is the process for validating my COR
+    - What are the steps required for COR validation
+    - How can I complete the validation of my COR
+    - What is the procedure for COR validation in BukSU
+    - Where should I go for COR validation
+    - What are the required steps after downloading COR
+    - How is COR validation processed in the university
+    - What offices are involved in COR validation
+    - What is the standard procedure for validating COR
+    - How do I properly process my COR for validation
+    - What are the guidelines for COR validation
+    - Where should I proceed after printing my COR
+    - What is the complete process for COR approval
+    - How do I finalize my registration through COR validation
+    - What are the steps after printing the registration form
+    - What is required to complete COR validation
+    - How do I ensure my COR is fully validated
+    - What is the workflow for COR validation
+    - What is the official process for COR validation in BukSU
+    - Where can I inquire about COR validation steps
+    - tabangi ko unsaon pag validate sa akong COR
+    - unsaon pag process sa akong COR
+    - unsay buhaton nako para ma validate akong COR
+    - naka print na ko sa COR unsay sunod buhaton
+    - human nako download ang COR unsa na next
+    - asa ko moadto para ma validate ang COR
+    - unsay next step sa COR validation
+    - pwede ko nimo tabangan sa COR validation
+    - kinahanglan ba moadto kog office para sa COR
+    - unsaon nako pag finalize akong COR
+    - unsa ang sunod buhaton human print sa COR
+    - asa magsugod sa pag validate sa COR
+    - unsay proseso para ma complete ang COR
+    - unsay kinahanglan buhaton para ma approve ang COR
+    - giunsa pag human sa COR validation
+    - unsay lakang sa pag process sa COR
+    - asa ko mangutana bahin sa COR validation
+    - unsay buhaton para mahuman ang registration
+    - unsaon pag complete sa akong registration form
+    - tabang unsaon pag validate sa COR
+    - unsay proseso sa pag validate sa COR
+    - unsay mga lakang sa COR validation
+    - giunsa pag complete sa COR validation
+    - asa moadto para sa COR validation
+    - unsay procedure sa COR validation sa BukSU
+    - unsay kinahanglan buhaton human ma download ang COR
+    - giunsa pag process ang COR sa university
+    - unsang opisina ang involved sa COR validation
+    - unsay standard nga proseso sa COR validation
+    - giunsa pag finalize ang COR
+    - unsay guidelines sa COR validation
+    - asa mo proceed human ma print ang COR
+    - unsay complete process sa COR approval
+    - giunsa pag complete ang registration pinaagi sa COR
+    - unsay steps human sa pag print sa registration form
+    - unsay kinahanglan para mahuman ang COR validation
+    - giunsa pag siguro nga validated na ang COR
+    - unsay workflow sa COR validation
+    - unsay official nga proseso sa COR validation
+    - asa makapangutana bahin sa COR validation steps
+    - cor validation
+    - validate cor
+    - cor process
+    - cor steps
+    - how validate cor
+    - cor next step
+    - cor after print
+    - validate asa
+    - cor asa process
+    - cor unsaon
+    - cor next
+    - process cor
+
+- intent: student_id_process
+  examples: |
+    - How do I get my student ID
+    - Where should I go to get my school ID
+    - What do I do if I want to get a student ID
+    - Where can I process my student ID
+    - Who do I ask about getting a student ID
+    - Can I get my ID inside the campus
+    - Where do students usually go for ID processing
+    - What’s the first step to get a student ID
+    - Can I go directly somewhere to get my ID
+    - Where do I inquire about student ID
+    - Is there an office for student ID concerns
+    - Can I ask staff about getting my ID
+    - What should I prepare to get my ID
+    - Where can I request my BukSU ID
+    - Do I need to go to a specific office for ID
+    - Who handles student ID processing
+    - Where do I go if I lost my ID and need a new one
+    - Can I get help from staff for ID processing
+    - Is getting a student ID easy in BukSU
+    - What happens when I apply for a student ID
+    - What is the process for obtaining a student ID
+    - Where can I apply for a student ID card
+    - Which office handles student ID processing
+    - Where is the Office of Student Services located for ID concerns
+    - How can I formally request a student ID
+    - Where should I inquire regarding student ID application
+    - What are the steps involved in getting a student ID
+    - Is there a designated office for student ID issuance
+    - Who is responsible for processing student IDs
+    - Where can I get official information about student ID processing
+    - What is the standard procedure for acquiring a student ID
+    - Can I consult the Office of Student Services for ID concerns
+    - Where should students go for ID-related transactions
+    - Is there a specific department for student ID services
+    - How is student ID processing handled in the university
+    - Where can I clarify details about student ID issuance
+    - What office manages student ID applications
+    - Are there guidelines for student ID processing
+    - Where can I ask about updates regarding ID processing
+    - Is the process the same every academic year
+    - Unsaon pagkuha og student ID
+    - Asa ko moadto para makakuha og ID
+    - Unsay buhaton nako para makakuha og school ID
+    - Asa ko mangutana bahin sa student ID
+    - Kinsa akong duolon para sa ID
+    - Pwede ra ba ko moadto diretso para magkuha og ID
+    - Asa mag process og student ID
+    - Unsay first step para makakuha og ID
+    - Asa dapit ang office para sa ID
+    - Pwede ba mangutana sa staff bahin sa ID
+    - Asa kuhaon ang BukSU ID
+    - Kinsa ang mo assist sa pagkuha og ID
+    - Asa ko moadto kung gusto ko magpa ID
+    - Sayon ra ba pagkuha og student ID
+    - Asa ko mangayo og tabang para sa ID
+    - Unsay mahitabo kung mag apply ko og ID
+    - Pwede ba ko mangutana unsaon pagkuha og ID
+    - Asa ang office nga nag process og ID
+    - Asa ko moadto kung wala pa koy ID
+    - Asa ko mangutana kung naay problema sa ID
+    - Unsay proseso sa pagkuha og student ID
+    - Asa ko maka apply para sa student ID card
+    - Unsang opisina ang nag handle sa student ID processing
+    - Asa dapit ang Office of Student Services para sa ID
+    - Giunsa pag request og student ID
+    - Asa ko mangutana bahin sa student ID application
+    - Unsay mga lakang sa pagkuha og student ID
+    - Naa bay specific nga opisina para sa ID issuance
+    - Kinsa ang responsable sa pag process sa student ID
+    - Asa makakuha og opisyal nga impormasyon bahin sa ID
+    - Unsay standard nga proseso sa pagkuha og ID
+    - Pwede ba moadto sa OSS para sa ID concerns
+    - Asa moadto ang estudyante para sa ID transactions
+    - Naa bay department nga nag handle sa student ID
+    - Giunsa pag manage ang student ID processing
+    - Asa ko makapangutana bahin sa detalye sa ID
+    - Unsang opisina ang nagdumala sa ID application
+    - Naa bay guidelines sa pagkuha og ID
+    - Asa makapangutana sa updates sa ID processing
+    - Parehas ra ba ang proseso matag tuig
+    - student ID process
+    - how get ID
+    - where get ID
+    - ID asa
+    - asa ID process
+    - student ID BukSU
+    - OSS ID
+    - where OSS
+    - ID process where
+    - how apply ID
+    - kuha ID asa
+    - process ID
+
+- intent: enrollment_general_process
+  examples: |
+    - How to enroll in BukSU?
+    - What is the enrollment process?
+    - How does enrollment work in BukSU?
+    - Is enrollment online or face to face?
+    - How do students enroll?
+    - What are the steps for enrollment?
+    - Can I enroll online?
+    - How is BukSU enrollment done?
+    - What is general enrollment procedure?
+    - How do I start enrollment?
+    - Unsaon pag enroll sa BukSU?
+    - Unsa ang proseso sa enrollment?
+    - Giunsa ang enrollment system?
+    - Online ba ang enrollment?
+    - Pwede ba face to face?
+    - Giunsa pag enroll ang estudyante?
+    - Unsa ang mga lakang sa enrollment?
+    - Asa magsugod og enroll?
+    - Unsa ang general process?
+    - Giunsa pag process ang enrollment?
+
+- intent: online_enrollment_steps
+  examples: |
+    - help me enroll online
+    - can you help me enroll online
+    - how do I enroll online in BukSU
+    - how can I enroll through online
+    - how do I enroll using the BukSU website
+    - can you send me step by step process of enrolling online
+    - what should I do to enroll online
+    - I want to enroll online what should I do
+    - how do I start online enrollment
+    - where do I begin enrolling online
+    - how do I apply online for enrollment
+    - can you guide me in online enrollment
+    - I need help with online enrollment process
+    - what are the steps to enroll online in BukSU
+    - how do I use the admission website to enroll
+    - how can I access the enrollment portal
+    - what should I click to enroll online
+    - how do I fill up the online enrollment form
+    - what is the next step after opening the portal
+    - how do I finish my online enrollment
+    - What is the process for online enrollment in BukSU
+    - What are the steps involved in online enrollment
+    - How can I complete the online enrollment procedure
+    - What is the official procedure for enrolling online
+    - How do I access the online enrollment portal
+    - Where can I apply for online enrollment
+    - What are the guidelines for online enrollment
+    - How do I properly fill out the online enrollment form
+    - What is the workflow for online enrollment
+    - How can I enroll through the BukSU admission website
+    - What are the requirements for online enrollment
+    - Where should I begin the online enrollment process
+    - What is the correct procedure for enrollment using the portal
+    - How do I navigate the enrollment system online
+    - What steps should be followed for successful enrollment
+    - How can I ensure my online enrollment is completed
+    - What is the standard process for BukSU online enrollment
+    - Where can I find instructions for online enrollment
+    - How do I proceed with enrollment using the website
+    - What are the official steps in enrolling online
+    - tabangi ko mag enroll online
+    - unsaon pag enroll online sa BukSU
+    - giunsa pag enroll gamit ang website
+    - unsay buhaton para maka enroll online
+    - asa ko magsugod og enroll online
+    - unsay first step sa online enrollment
+    - pwede ko nimo tabangan sa pag enroll online
+    - unsaon paggamit sa enrollment portal
+    - giunsa pag fill up sa online form
+    - asa ko mo click para enroll
+    - unsay next step after open sa portal
+    - giunsa pag human sa online enrollment
+    - unsay proseso sa online enrollment
+    - tabang unsaon pag enroll online
+    - asa makita ang portal para enrollment
+    - unsaon pag apply online sa BukSU
+    - giunsa pag process ang online enrollment
+    - unsay lakang sa pag enroll online
+    - pwede ko mangayo og guide sa enrollment
+    - unsay kinahanglan buhaton para ma enroll online
+    - paano mag enroll online sa BukSU
+    - paano mag apply enrollment online
+    - paano gamitin ang enrollment website
+    - paano mag fill up ng online enrollment form
+    - saan mag click para mag enroll online
+    - paano simulan ang online enrollment
+    - paano ko matatapos ang enrollment online
+    - pwede mo ba akong tulungan mag enroll online
+    - ano ang steps ng online enrollment
+    - paano mag process ng enrollment sa website
+    - enroll online
+    - how enroll online
+    - online enrollment steps
+    - enrollment process online
+    - enroll BukSU online
+    - portal enrollment
+    - how use portal
+    - apply enrollment online
+    - enroll asa
+    - online enroll unsaon
+    - enrollment guide
+    - steps enroll
+
+- intent: mixed_enrollment_process
+  examples: |
+    - how do i apply enrollment face to face
+    - what do i do on face to face enrollment
+    - process of face to face enrollment
+    - can you guide me for face to face enrollment
+    - how does face to face enrollment work
+    - what should I do if I want to enroll face to face
+    - send me some guide to enroll face to face
+    - what is the next step for face to face enrollment
+    - how do I complete enrollment in person
+    - what do I do after enrolling online
+    - do I still need to go to school after online enrollment
+    - what happens after online application
+    - do I need to line up after applying online
+    - how do I continue enrollment after online process
+    - what should I do next after online enrollment
+    - is there still a face to face process after online
+    - do I need to visit my department after enrolling online
+    - what is the step after submitting online enrollment
+    - how does the mixed enrollment process work
+    - what should I do for combined enrollment
+    - What is the process for mixed enrollment
+    - How does the hybrid enrollment system work
+    - What are the steps for combined online and face to face enrollment
+    - What should I do after completing online enrollment
+    - Is it required to proceed to the department after online application
+    - What is the procedure for face to face enrollment after online submission
+    - How can I complete the mixed enrollment process
+    - What is the workflow for hybrid enrollment
+    - Are students required to follow a queue system during enrollment
+    - What are the next steps after online enrollment
+    - How is enrollment completed in a hybrid setup
+    - What is the official process for mixed mode enrollment
+    - Do I need to report to a department after applying online
+    - What is the standard procedure after online enrollment
+    - How does the enrollment process transition from online to onsite
+    - Are there additional steps after online enrollment
+    - What should students do after online application submission
+    - Is there a required in-person step after online enrollment
+    - How does the queue system work during enrollment
+    - What are the instructions for completing hybrid enrollment
+    - unsaon pag enroll online ug face to face
+    - unsa buhaton sa face to face enrollment
+    - giunsa ang face to face enrollment process
+    - unsay buhaton sa mixed enrollment
+    - unsa ang kinahanglan buhaton human online
+    - kinahanglan pa ba moadto sa department
+    - unsay next step human mag enroll online
+    - kinahanglan ba mo linya after online enrollment
+    - giunsa pag continue sa enrollment
+    - unsaon pag human sa enrollment process
+    - naay face to face pa after online
+    - kinahanglan ba moadto personally sa school
+    - unsay buhaton after online apply
+    - unsa ang sunod human online enrollment
+    - giunsa pag follow up sa enrollment
+    - naay queue system sa enrollment
+    - unsa ang mixed enrollment process
+    - giunsa pag process ang hybrid enrollment
+    - unsay lakang sa combined enrollment
+    - asa moadto after online enrollment
+    - unsay proseso sa mixed enrollment
+    - giunsa pag work ang hybrid enrollment system
+    - unsay mga lakang sa combined online ug face to face enrollment
+    - unsay buhaton human sa online enrollment
+    - kinahanglan ba moadto sa departamento human sa online
+    - unsay procedure sa face to face enrollment human online
+    - giunsa pag complete ang mixed enrollment process
+    - unsay workflow sa hybrid enrollment
+    - kinahanglan ba mo follow sa queue system sa enrollment
+    - unsay next steps human sa online enrollment
+    - giunsa pag finalize ang hybrid enrollment
+    - unsay official nga proseso sa mixed enrollment
+    - kinahanglan ba mo report sa department human sa online
+    - unsay standard nga proseso human sa online enrollment
+    - giunsa pag transition sa online ngadto sa onsite enrollment
+    - naa pay additional steps human sa online enrollment
+    - unsay buhaton human sa online application
+    - kinahanglan ba og in-person step human online
+    - giunsa pag gamit ang queue system sa enrollment
+    - unsay instructions sa hybrid enrollment
+    - mixed enrollment
+    - hybrid enrollment
+    - face to face enrollment
+    - enroll f2f
+    - enrollment after online
+    - next step enrollment
+    - queue enrollment
+    - enroll mixed
+    - online then f2f
+    - after online
+    - enrollment next
+    - enrollment asa next
+
+- intent: request_tor_process
+  examples: |
+    - How do I request my Transcript of Records?
+    - Where can I request TOR?
+    - How to get TOR in BukSU?
+    - What is the process of requesting TOR?
+    - Where is Registrar for TOR?
+    - What do I need to request TOR?
+    - How can I apply for Transcript of Records?
+    - Steps to request TOR?
+    - Where to submit TOR request?
+    - How to process TOR request?
+    - Unsaon pag request og TOR?
+    - Asa mangayo og Transcript of Records?
+    - Giunsa pagkuha og TOR?
+    - Unsa ang proseso sa TOR request?
+    - Asa ang Registrar para TOR?
+    - Unsay kinahanglan para TOR?
+    - Giunsa pag apply TOR?
+    - Asa i submit ang request?
+    - Unsa ang steps sa TOR?
+    - Giunsa pag process ang TOR?
