@@ -5217,5 +5217,434 @@
     "metadata": {
       "source": "RegistrarProcess"
     }
+  },
+  {
+    "intent": "ask_guidance_services",
+    "category": "Guidance Info",
+    "sub_category": "services_overview",
+    "responses": {
+      "answer": {
+        "en": [
+          "What are the services offered in the University Guidance Center?",
+          "The services that the UGC offers the following services:",
+          "Counseling Services: Counseling is considered as the core of guidance services. It aims to assist the students in their emotional, social, physical, spiritual, and cognitive needs. During this time of pandemic the University Guidance Center offers online counselling so that the guidance counselors can reach out to students easier and use the online platform to cater their personal issues, problems and concerns.",
+          "Career and Job Placement Services: It is a support service of the University Guidance Center, it aims to address the pre-employment and employment needs of the graduating students and alumnae. The UGC schedules an annual Job Fair. Various agencies and company are invited to take part of the school’s on-campus recruitment program. The UGC offers career seminars and orientation that cater the needs of the students.",
+          "Testing Services: The student’s individual strength and weaknesses in the area of personality, IQ and aptitude are assessed through the use of standardized tests. This is handled by the psychometricians. The center provides; Psychological testing for students and testing of faculty and staff applicants.",
+          "Exit Interview: The graduating students are given an opportunity to discuss their future plans, career choices and various options for employment."
+        ],
+        "ceb": [
+          "Unsa ang mga serbisyo nga gitanyag sa University Guidance Center?",
+          "Ang UGC nagatanyag sa mosunod nga mga serbisyo:",
+          "Counseling Services: Ang counseling mao ang pinakauyok sa mga serbisyo sa guidance. Tumong niini nga tabangan ang mga estudyante sa ilang emosyonal, sosyal, pisikal, espiritwal, ug panghunahuna nga panginahanglan. Niining panahon sa pandemya, nagtanyag ang UGC og online counseling aron mas dali maabot sa mga counselor ang mga estudyante gamit ang online platform para sa ilang personal nga mga isyu ug problema.",
+          "Career and Job Placement Services: Kini usa ka support service sa UGC nga nagtinguha sa pagtubag sa mga panginahanglanon sa pre-employment ug trabaho sa mga mogradwar nga estudyante ug alumni. Ang UGC nag-iskedyul og tinuig nga Job Fair diin lain-laing ahensya ug kompanya ang imbitahon. Nagtanyag usab sila og career seminars ug orientation.",
+          "Testing Services: Ang tagsa-tagsa ka kusog ug kahuyang sa estudyante sa aspeto sa personalidad, IQ, ug aptitude ginasusi pinaagi sa standardized tests nga gidumala sa mga psychometrician. Naghatag usab sila og psychological testing para sa mga aplikante nga faculty ug staff.",
+          "Exit Interview: Ang mga mogradwar nga estudyante hatagan og higayon nga hisgutan ang ilang mga plano sa umaabot, pagpili sa karera, ug mga opsyon sa trabaho."
+        ]
+      },
+      "follow_up": [
+        "Do you have a specific service you want to know more about?",
+        "Naa kay partikular nga serbisyo nga gusto nimong mahibal-an?"
+      ],
+      "context_slots": {
+        "last_topic": "guidance_services"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Guidance Center"
+    }
+  },
+  {
+    "intent": "ask_how_to_avail_guidance",
+    "category": "Guidance Info",
+    "sub_category": "avail_services",
+    "responses": {
+      "answer": {
+        "en": [
+          "How to avail the services?",
+          "You can visit the University Guidance Center located at the College of Arts and Sciences building or you can message us through our Facebook page Buksu – University Guidance Center."
+        ],
+        "ceb": [
+          "Unsaon pag-avail sa mga serbisyo?",
+          "Mahimo kang mobisita sa University Guidance Center nga nahimutang sa College of Arts and Sciences building o mahimo kang mag-message kanamo pinaagi sa among Facebook page nga Buksu – University Guidance Center."
+        ]
+      },
+      "follow_up": [
+        "Let me know if you need directions to the CAS building."
+      ],
+      "context_slots": {
+        "last_topic": "guidance_avail"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Guidance Center"
+    }
+  },
+  {
+    "intent": "ask_guidance_eligibility",
+    "category": "Guidance Info",
+    "sub_category": "eligibility",
+    "responses": {
+      "answer": {
+        "en": [
+          "Who is eligible to receive services?",
+          "Anyone who is currently enrolled in Bukidnon State University."
+        ],
+        "ceb": [
+          "Kinsa ang pwede makadawat sa mga serbisyo?",
+          "Bisan kinsa nga kasamtangang naka-enroll sa Bukidnon State University."
+        ]
+      },
+      "follow_up": [],
+      "context_slots": {
+        "last_topic": "guidance_eligibility"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Guidance Center"
+    }
+  },
+  {
+    "intent": "ask_guidance_schedule",
+    "category": "Guidance Info",
+    "sub_category": "schedule",
+    "responses": {
+      "answer": {
+        "en": [
+          "When are the services available?",
+          "The services are available from Mondays to Fridays, 8:00 AM to 5:00 PM"
+        ],
+        "ceb": [
+          "Kanus-a mahimong ma-avail ang mga serbisyo?",
+          "Ang mga serbisyo abli gikan Lunes hangtod Biyernes, 8:00 AM hangtod 5:00 PM."
+        ]
+      },
+      "follow_up": [],
+      "context_slots": {
+        "last_topic": "guidance_schedule"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Guidance Center"
+    }
+  },
+  {
+    "intent": "ask_guidance_fee",
+    "category": "Guidance Info",
+    "sub_category": "fees",
+    "responses": {
+      "answer": {
+        "en": [
+          "Is there a fee if we avail the services?",
+          "All the services are free for undergraduate students. However, testing fee is required for other students, such as in the Graduate Program and the College of Law",
+          "For Graduate Studies (LAW, PhD and Masters): 475.00php",
+          "For Applicants: Non-teaching: 100.00php; Teaching: 475.00php"
+        ],
+        "ceb": [
+          "Naa bay bayad kung mag avail sa mga serbisyo?",
+          "Libre ang tanang serbisyo para sa mga undergraduate nga estudyante. Apan adunay testing fee nga gikinahanglan para sa ubang estudyante sama sa Graduate Program ug College of Law",
+          "Para sa Graduate Studies (LAW, PhD ug Masters): 475.00php",
+          "Para sa mga Applicants: Non-teaching: 100.00php; Teaching: 475.00php"
+        ]
+      },
+      "follow_up": [],
+      "context_slots": {
+        "last_topic": "guidance_fees"
+      }
+    },
+    "metadata": {
+      "source": "BukSU Guidance Center"
+    }
+  },
+  {
+    "intent": "buksu_presidents_list",
+    "category": "University Info",
+    "sub_category": "history",
+    "responses": {
+      "answer": {
+        "en": [
+          "Here is the list of Bukidnon State University presidents and leaders over the years:",
+          "Dr. Joy M. Mirasol - 3rd University President (since 2023)",
+          "Atty. Ryan Estevez - OIC University President (2022 - 2023)",
+          "Dr. Oscar B. Cabañelez - 2nd University President (2015 - 2022)",
+          "Dr. Victor M. Barroso - 1st University President (2007 - 2015)",
+          "Dr. Victor M. Barroso - 3rd President, Bukidnon State College (1998 - 2007)",
+          "Dr. Teresita T. Tumapon - 2nd President, Bukidnon State College (1986 - 1998)",
+          "Dr. Jaime M. Gellor - 1st President, Bukidnon State College (1976 - 1986)",
+          "Dr. Jaime M. Gellor - 1st President, Bukidnon Normal College (1969 - 1976)",
+          "Mr. Pacifico A. Ramos - Superintendent, Bukidnon Normal School (1950 - 1969)",
+          "Mrs. Gliceria B. Soriano - Superintendent, Bukidnon Normal School (1949 - 1950)",
+          "Mr. Bartolome Monje - Superintendent, Bukidnon Normal School (1948 - 1949)",
+          "Mr. Primitivo Lara - Superintendent, Bukidnon Normal School (1945 - 1948)",
+          "War Years Period",
+          "William H. Pickell - Superintendent / Founder, Bukidnon Normal School (1928 - 1940)",
+          "William H. Pickell - Superintendent / Founder, Bukidnon Provincial High School (1924 - 1928)"
+        ],
+        "ceb": [
+          "Mao ni ang lista sa mga presidente ug lider sa Bukidnon State University sa nagkalain-laing panahon:",
+          "Dr. Joy M. Mirasol - 3rd University President (since 2023)",
+          "Atty. Ryan Estevez - OIC University President (2022 - 2023)",
+          "Dr. Oscar B. Cabañelez - 2nd University President (2015 - 2022)",
+          "Dr. Victor M. Barroso - 1st University President (2007 - 2015)",
+          "Dr. Victor M. Barroso - 3rd President, Bukidnon State College (1998 - 2007)",
+          "Dr. Teresita T. Tumapon - 2nd President, Bukidnon State College (1986 - 1998)",
+          "Dr. Jaime M. Gellor - 1st President, Bukidnon State College (1976 - 1986)",
+          "Dr. Jaime M. Gellor - 1st President, Bukidnon Normal College (1969 - 1976)",
+          "Mr. Pacifico A. Ramos - Superintendent, Bukidnon Normal School (1950 - 1969)",
+          "Mrs. Gliceria B. Soriano - Superintendent, Bukidnon Normal School (1949 - 1950)",
+          "Mr. Bartolome Monje - Superintendent, Bukidnon Normal School (1948 - 1949)",
+          "Mr. Primitivo Lara - Superintendent, Bukidnon Normal School (1945 - 1948)",
+          "Panahon sa Gubat",
+          "William H. Pickell - Superintendent / Founder, Bukidnon Normal School (1928 - 1940)",
+          "William H. Pickell - Superintendent / Founder, Bukidnon Provincial High School (1924 - 1928)"
+        ]
+      },
+      "context_slots": {
+        "last_topic": "buksu_presidents_list"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "UniversityHistory"
+    }
+  },
+  {
+    "intent": "freshmen_application_period",
+    "category": "Admissions",
+    "sub_category": "schedule",
+    "responses": {
+      "answer": {
+        "en": [
+          "The BukSU admission application does not have a fixed opening date.",
+          "It is usually open from October or November until the last week of March.",
+          "For updates and announcements, visit: https://www.facebook.com/BukSUATU"
+        ],
+        "ceb": [
+          "Ang BukSU admission application walay piho nga petsa sa pag-abli.",
+          "Kasagaran mag-abli kini gikan Oktubre o Nobyembre hangtod sa katapusan nga semana sa Marso.",
+          "Para sa updates ug pahibalo, bisitaha: https://www.facebook.com/BukSUATU"
+        ]
+      },
+      "context_slots": {
+        "last_topic": "freshmen_application_period"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AdmissionFAQ"
+    }
+  },
+  {
+    "intent": "freshman_admission_requirements",
+    "category": "Admissions",
+    "sub_category": "requirements",
+    "responses": {
+      "answer": {
+        "en": [
+          "Here are the requirements you need before applying for BukSU Admission Testing:",
+          "1. You need to have your own personal Gmail account to create an account on BukSU Admissions: https://admissions.buksu.edu.ph/",
+          "2. You need a digital copy of your 2x2 photo. Please make sure your photo meets the following specifications: plain white background, wearing a white T-shirt, no accessories, and the correct 2x2 size.",
+          "For documentary requirements:",
+          "Report card, Transcript of Records, Principal’s Certification, GWA, and Diploma. These are optional as long as you have the Principal’s Certification. Make sure it is signed by your principal and properly sealed.",
+          "After applying for BukSU Admission, please wait for approval.",
+          "Note: Your Gmail should be accessible, as all verification codes will be sent there."
+        ],
+        "ceb": [
+          "Ania ang mga kinahanglanon nga imong andamon sa dili pa mag-apply para sa BukSU Admission Testing:",
+          "1. Kinahanglan naa kay personal nga Gmail account aron makahimo og account sa BukSU Admissions: https://admissions.buksu.edu.ph/",
+          "2. Kinahanglan pud ka og digital copy sa imong 2x2 nga litrato. Siguroa nga ang imong litrato mosunod sa mosunod nga specifications: puti nga background, nagsul-ob og puti nga T-shirt, walay accessories, ug sakto nga 2x2 nga size.",
+          "Para sa documentary requirements:",
+          "Report card, Transcript of Records, Principal’s Certification, GWA, ug Diploma. Optional ra kini basta naa kay Principal’s Certification. Siguroa nga pirmado kini sa imong principal ug sakto ang pag-seal.",
+          "Human ka mag-apply para sa BukSU Admission, palihog hulata ang approval.",
+          "Note: Siguroa nga ma-access nimo ang imong Gmail, kay didto ipadala ang tanang verification codes."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "freshman_admission_requirements"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AdmissionFAQ"
+    }
+  },
+  {
+    "intent": "transferee_admission_requirements",
+    "category": "Admissions",
+    "sub_category": "transferee",
+    "responses": {
+      "answer": {
+        "en": [
+          "You need to take the BukSU Admission first before you can enroll as a transferee.",
+          "After you pass the admission, go to the BukSU main campus and proceed to the college department you want to enroll in.",
+          "Ask any faculty staff member in the office for assistance, as each department has its own rules, especially for transferees, so it’s best to ask directly."
+        ],
+        "ceb": [
+          "Kinahanglan una nimo kuhaon ang BukSU Admission sa dili ka maka-enroll isip transferee.",
+          "Human nimo makapasar sa admission, adtoa ang BukSU main campus ug diretso sa departamento sa kolehiyo nga imong gustong sudlan.",
+          "Pangutan-a ang bisan kinsang faculty staff sa opisina para sa tabang, kay matag departamento adunay kaugalingong mga patakaran, labi na para sa mga transferee, mao nga mas maayo nga mangutana diretso."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "transferee_admission_requirements"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AdmissionFAQ"
+    }
+  },
+  {
+    "intent": "program_cutoff_scores",
+    "category": "Admissions",
+    "sub_category": "criteria",
+    "responses": {
+      "answer": {
+        "en": [
+          "For the school year 2020-2021, BukSU-CAT has two rating status: “Passed” or “Failed”.",
+          "In order to be enrolled in BukSU, the exam taker must obtain at least 40% (passing rate).",
+          "Exam takers who obtained rating below the passing rate will not be admitted.",
+          "For board courses like Education, Nursing and Accountancy, their colleges require 50% and above BukSU-CAT rating.",
+          "The validity of the exam is for one year.",
+          "No retake is allowed within a year from the date of the exam.",
+          "HOWEVER this are old data so it might be change in every year, you can directly ask the Public Help Disk which is located on the entrance of BukSU."
+        ],
+        "ceb": [
+          "Para sa school year 2020-2021, ang BukSU-CAT adunay duha ka rating status: “Passed” o “Failed”.",
+          "Aron maka-enroll sa BukSU, ang exam taker kinahanglan makakuha og labing menos 40% (passing rate).",
+          "Ang mga exam taker nga nakakuha og rating ubos sa passing rate dili pasudlon.",
+          "Para sa board courses sama sa Education, Nursing, ug Accountancy, ang ilang kolehiyo nagkinahanglan og 50% ug pataas nga BukSU-CAT rating.",
+          "Ang validity sa exam kay usa ka tuig lamang.",
+          "Dili pwede mag-retake sulod sa usa ka tuig gikan sa petsa sa exam.",
+          "BISAN PA, kini daan nga datos ug posibleng mausab matag tuig, mao nga mas maayo nga mangutana diretso sa Public Help Desk nga naa sa entrance sa BukSU."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "program_cutoff_scores"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AdmissionFAQ"
+    }
+  },
+  {
+    "intent": "visitor_campus_access",
+    "category": "Campus Policies",
+    "sub_category": "visitors",
+    "responses": {
+      "answer": {
+        "en": [
+          "Yes, they are, but it depends if you are a special visitor.",
+          "Usually, special visitors have letters to show the guard to enter the campus freely.",
+          "However, if you are just visiting someone, such as a student, there are other rules to follow.",
+          "Go to the exit and ask the guard about the specific days and times you are allowed to enter."
+        ],
+        "ceb": [
+          "Oo, puwede sila, apan depende kung ikaw usa ka special visitor.",
+          "Kasagaran, ang special visitors adunay sulat nga ipakita sa guard aron makasulod sa campus nga walay problema.",
+          "Apan, kung bisita ra ka sa usa ka tawo, sama sa estudyante, adunay lain nga mga lagda nga sundon.",
+          "Adtoa ang exit ug pangutan-a ang guard bahin sa espesipikong mga adlaw ug oras nga pwede ka mosulod."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "visitor_campus_access"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "CampusFAQ"
+    }
+  },
+  {
+    "intent": "enrollment_documents",
+    "category": "Enrollment",
+    "sub_category": "requirements",
+    "responses": {
+      "answer": {
+        "en": [
+          "If you’re a freshman, you need to bring your Report of Ratings (ROR) and your application form, which can be downloaded from your BukSU Admission account.",
+          "You should also bring your birth certificate, report card (a photocopy is fine if you don’t have the original), LRN, diploma, and good moral certificate.",
+          "After that, you can proceed to the department where you want to enroll.",
+          "For those enrolling in the 2nd semester, you just need to apply for online enrollment for your continuing course and then proceed to the faculty to process your enrollment."
+        ],
+        "ceb": [
+          "Kung ikaw usa ka freshman, kinahanglan nimo dad-on ang imong Report of Ratings (ROR) ug ang imong application form, nga pwede nimo i-download gikan sa imong BukSU Admission account.",
+          "Kinahanglan usab nimo dad-on ang birth certificate, report card (pwede ang photocopy kung wala kay original), LRN, diploma, ug good moral certificate.",
+          "Human niini, mahimo ka na moadto sa departamento nga imong gustong sudlan.",
+          "Para sa mga mo-enroll sa 2nd semester, kinahanglan lang nga mag-apply sa online enrollment para sa imong padayon nga kurso, unya adtoa ang faculty aron iproseso ang imong enrollment."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "enrollment_documents"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "EnrollmentFAQ"
+    }
+  },
+  {
+    "intent": "graduating_clearance_requirements",
+    "category": "Enrollment",
+    "sub_category": "graduation",
+    "responses": {
+      "answer": {
+        "en": [
+          "To clear your enrollment for graduation, you must first secure a University Clearance Form from the Office of the Registrar or your respective College Dean.",
+          "This form requires official signatures from key offices, including the University Library (to confirm all borrowed books are returned), the Office of the Student Services (OSS), and the Cashier or Accounting Office to ensure all tuition and graduation fees (such as diploma, alumni, and legacy fees) are fully paid.",
+          "Additionally, you must submit vital documents to the Registrar, such as your PSA Birth Certificate, original High School Report Card (Form 138/137) or Transcript of Records (for transferees), and an Affidavit of Loss if you cannot surrender your Student ID.",
+          "Once all signatures are collected and requirements are submitted, your name will be included in the final list of candidates for graduation."
+        ],
+        "ceb": [
+          "Aron ma-clear ang imong enrollment para sa graduation sa BukSU, kinahanglan nimo nga makompleto ang University Clearance.",
+          "Sugdan kini pinaagi sa pagkuha og clearance form gikan sa Office of the Registrar o sa opisina sa imong Dean.",
+          "Kinahanglan nimo kining papirmahan sa nagkalain-lain nga mga opisina sama sa Library (siguruha nga wala kay wala na-uli nga libro), sa Office of the Student Services (OSS), ug sa Cashier o Accounting aron pamatud-an nga bayad na ang imong tuition ug graduation fees (sama sa diploma fee ug alumni fee).",
+          "Kinahanglan usab nimo isumite sa Registrar ang mga dokumento sama sa imong PSA Birth Certificate, orihinal nga Report Card o TOR, ug Affidavit of Loss kung nawala ang imong Student ID.",
+          "Kon makompleto na ang tanang pirma ug requirements, ang imong ngalan opisyal na nga i-apil sa listahan sa mga mo-graduate."
+        ]
+      },
+      "context_slots": {
+        "last_topic": "graduating_clearance_requirements"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "EnrollmentFAQ"
+    }
+  },
+  {
+  "intent": "admission_contact_help",
+  "category": "Admissions",
+  "sub_category": "contact",
+  "responses": {
+    "answer": {
+      "en": [
+        "You can contact the official Bukidnon State University Admission and Testing Unit for more information about admission.",
+        "It’s better to go in person to their office so they can assist you right away.",
+        "You can also contact them through their Facebook page: https://www.facebook.com/BukSUATU"
+      ],
+      "ceb": [
+        "Pwede nimo kontakon ang opisyal nga Bukidnon State University Admission and Testing Unit para sa dugang impormasyon bahin sa admission.",
+        "Mas maayo nga moadto ka personal sa ilang opisina aron matabangan ka dayon.",
+        "Pwede usab nimo sila kontakon pinaagi sa ilang Facebook page: https://www.facebook.com/BukSUATU"
+      ]
+    },
+    "context_slots": {
+      "last_topic": "admission_contact_help"
+    },
+    "follow_up": [],
+    "imageUrl": ""
+  },
+  "metadata": {
+    "source": "AdmissionsFAQ"
   }
+}
 ]

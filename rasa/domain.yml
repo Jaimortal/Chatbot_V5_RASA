@@ -208,7 +208,21 @@ intents:
   - online_enrollment_steps
   - mixed_enrollment_process
   - request_tor_process
-  
+  - ask_guidance_services
+  - ask_how_to_avail_guidance
+  - ask_guidance_eligibility
+  - ask_guidance_schedule
+  - ask_guidance_fee
+  - buksu_presidents_list
+  - freshmen_application_period
+  - freshman_admission_requirements
+  - program_cutoff_scores
+  - visitor_campus_access
+  - enrollment_documents
+  - graduating_clearance_requirements
+  - admission_contact_help
+
+
 entities:
   - lab_number
   - location_name

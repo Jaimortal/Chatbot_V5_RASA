@@ -381,7 +381,6 @@ nlu:
     - how can I take the admission test in BukSU
     - where do I apply for BukSU entrance exam
     - how do I process my application for the exam
-    - what do I need before taking the admission test
     - can you send me steps for BukSU exam application
     - how do I complete my exam application
     - what should I do to get a test permit
@@ -1020,8 +1019,8 @@ nlu:
     - Asa dapit ang [CAS Buildings](location_name)
     - Please send me a campus map for [College of Nursing Building](location_name)
     - Pwede nimo i send ang mapa para sa [College of Nursing Building](location_name)
-    - Can you help me find the [Health & Services Building](location_name)
-    - Tabangi ko pangita ang [Health & Services Building](location_name)
+    - Can you help me find the [Health and Services Building](location_name)
+    - Tabangi ko pangita ang [Health and Services Building](location_name)
     - Show me the map location of the [Gymnasium](location_name)
     - Asa makita sa mapa ang [Gymnasium](location_name)
     - I want to navigate to the [Alumni Building](location_name)
@@ -1086,6 +1085,36 @@ nlu:
     - Unsaon pag adto sa [HS-2-08](location_name)
     - I need help locating the [Business Affairs Office](location_name)
     - Asa nako makita ang [Business Affairs Office](location_name)
+    - Can you show me [Window 1 Scholarship and Financial Assistance](location_name)?
+    - Pwede nimo ipakita ang [Window 1 Scholarship and Financial Assistance](location_name)?
+    - Where is [Window 2 Scholarship and Financial Assistance](location_name)?
+    - Asa nako makita ang [Window 2 Scholarship and Financial Assistance](location_name)?
+    - I need directions to [Windows 3 Assessment](location_name)
+    - Unsaon nako pag adto sa [Windows 3 Assessment](location_name)?
+    - How can I go to [Windows 4 Assessment](location_name)?
+    - Unsaon pag adto sa [Windows 4 Assessment](location_name)?
+    - Show me [Windows 5 Assessment](location_name)
+    - Pwede nimo ipakita ang [Windows 5 Assessment](location_name)?
+    - Guide me to [Window 6 Payroll Regular Satellite Campus](location_name)
+    - Tabangi ko pag adto sa [Window 6 Payroll Regular Satellite Campus](location_name)?
+    - I want to find [Window 7 Payroll Regular](location_name)
+    - Gusto nako makita ang [Window 7 Payroll Regular](location_name)?
+    - How do I get to [Window 8 Payroll Regular and Casual](location_name)?
+    - Unsaon nako pag adto sa [Window 8 Payroll Regular and Casual](location_name)?
+    - Show me [Window 9 Information](location_name)
+    - Pwede nimo ipakita ang [Window 9 Information](location_name)?
+    - Where is [Window 03 Cashiers Office](location_name)?
+    - Asa nako makita ang [Window 03 Cashiers Office](location_name)?
+    - I need directions to [Window 02 Budget Office](location_name)
+    - Unsaon nako pag adto sa [Window 02 Budget Office](location_name)?
+    - Guide me to [Window 01 Finance and Management Division and Administrative Office](location_name)
+    - Tabangi ko pag adto sa [Window 01 Finance and Management Division and Administrative Office](location_name)?
+    - I want to locate [CARES](location_name)
+    - Tabangi ko pangita ang [CARES](location_name)
+    - Can you guide me to [GE Department](location_name)
+    - Asa dapit ang [GE Department](location_name)
+    - Show me the map for [Main Administration Building](location_name)
+    - Pwede nimo ihatag ang mapa para sa [Main Administration Building](location_name)
 
 - regex: location_name
   examples: |
@@ -2398,39 +2427,6 @@ nlu:
     - Unsay mga benepisyo sa seniors sa pagkuha ug extra subjects
     - Maka-human ba ang seniors sa tanang subjects sa saktong oras pinaagi sa overload
 
-- intent: academic_support
-  examples: |
-    - What academic support is available for students
-    - Can I get help for board examination preparation
-    - Are there review programs for college students
-    - Does BukSU provide support sessions for students
-    - Where can I find academic assistance for exams
-    - Are there any programs for board exam review
-    - How can students get academic guidance
-    - What support does the college offer for student success
-    - Can seniors attend board exam review sessions
-    - Are there organized review classes for students
-    - How do I join academic support programs
-    - Can I ask for academic help from the college
-    - What are the benefits of attending support sessions
-    - Is there help available for improving academic performance
-    - Are there tutoring or mentoring programs offered
-    - Unsay academic support nga gihatag sa mga estudyante
-    - Pwede ba ko makakuha ug tabang para sa board examination preparation
-    - Adunay review programs para sa college students
-    - Naghatag ba ang BukSU ug support sessions para sa mga estudyante
-    - Asa ko makakita ug academic assistance para sa exams
-    - Adunay ba mga programa para sa board exam review
-    - Giunsa pagkuha sa mga estudyante ug academic guidance
-    - Unsay suporta nga gihatag sa college para sa kalampusan sa estudyante
-    - Maka-apil ba ang seniors sa board exam review sessions
-    - Adunay ba mga organisadong review classes para sa mga estudyante
-    - Giunsa ko pag-apil sa academic support programs
-    - Pwede ba ko mangayo ug academic help gikan sa college
-    - Unsay mga benepisyo sa pag-apil sa support sessions
-    - Adunay ba tabang para mapauswag ang academic performance
-    - Naghatag ba ang college ug tutoring o mentoring programs
-
 - intent: eating_in_classroom
   examples: |
     - Is eating allowed inside the classroom
@@ -3613,6 +3609,106 @@ nlu:
     - Giunsa pag apply isip transferee sa BukSU
     - Naay available nga slots para sa transferees
     - Giunsa pag submit sa dokumento para sa transferee evaluation
+    - what are the requirements for transferees in buksu
+    - what documents are required for a college transfer application
+    - what do transferee applicants need
+    - what do I need to transfer to buksu
+    - what are the requirements for transfer students
+    - how can I apply as a transferee in buksu
+    - what is needed to enroll as a transferee
+    - what are the steps for transferee admission
+    - what should I prepare for transferring to buksu
+    - what are the requirements for transferee students
+    - what documents should I submit as a transferee
+    - how do I process my transfer application
+    - what do I do to become a transferee in buksu
+    - what is the process for transferee admission
+    - how can I transfer schools to buksu
+    - what are the qualifications for transferees
+    - what should a transferee bring
+    - what are the admission requirements for transferees
+    - what is needed before enrolling as a transferee
+    - what are the procedures for transfer students
+    - what do I need before I can enroll as transferee
+    - do I need to take admission test as transferee
+    - what should I do first as a transferee
+    - what are the rules for transferee applicants
+    - what documents are needed for transfer admission
+    - what are the steps after passing admission as transferee
+    - what is required for transferring to buksu
+    - how do I start my transfer application
+    - what is the process of transferring to buksu
+    - what should I do after passing admission as transferee
+    - transferee requirements buksu
+    - transfer student requirements
+    - buksu transferee requirements
+    - requirements for transfer
+    - what needed transferee
+    - requirements transfer buksu
+    - transferee process
+    - transfer application buksu
+    - how transfer buksu
+    - apply transferee buksu
+    - need for transferee
+    - transfer admission requirements
+    - what needed for transfer student
+    - process transferee
+    - transfer requirements list
+    - transferee admission steps
+    - what do transferee do
+    - needed documents transferee
+    - requirements for college transfer
+    - transfer to buksu how
+    - unsa ang requirements para sa transferee sa buksu
+    - unsa ang kinahanglan nga documents para transfer
+    - unsa kinahanglan sa transferee applicants
+    - unsa akong buhaton para maka transfer sa buksu
+    - unsa ang requirements para transfer students
+    - giunsa pag apply isip transferee
+    - unsa kinahanglan para maka enroll isip transferee
+    - unsay steps para transferee admission
+    - unsa akong ihanda para transfer sa buksu
+    - unsa ang kinahanglan sa transferee students
+    - unsa nga documents ang ipasa sa transferee
+    - giunsa pag process ang transfer application
+    - unsa buhaton para mahimong transferee
+    - unsa ang proseso sa transferee admission
+    - giunsa pag transfer school paingon sa buksu
+    - unsa ang qualifications sa transferee
+    - unsa dad on sa transferee
+    - unsa ang admission requirements sa transferee
+    - unsa kinahanglan before maka enroll isip transferee
+    - unsa ang procedures sa transfer students
+    - unsa akong buhaton una isip transferee
+    - kinahanglan ba mag admission test ang transferee
+    - unsa first step sa transferee
+    - unsa ang rules para transferee applicants
+    - unsa nga documents ang kinahanglan para transfer
+    - unsa ang steps human makapasar isip transferee
+    - unsa ang kinahanglan para maka transfer sa buksu
+    - giunsa pagsugod sa transfer application
+    - unsa ang proseso sa pag transfer sa buksu
+    - unsa buhaton human admission isip transferee
+    - transferee requirements buksu
+    - requirements sa transfer student
+    - buksu transferee requirements
+    - requirements para transfer
+    - unsa kinahanglan transferee
+    - requirements transfer buksu
+    - transferee process
+    - transfer application buksu
+    - unsaon transfer buksu
+    - apply transferee buksu
+    - kinahanglan sa transferee
+    - transfer admission requirements
+    - unsa kinahanglan para transfer student
+    - proseso sa transferee
+    - lista sa requirements sa transfer
+    - steps sa transferee admission
+    - unsa buhaton sa transferee
+    - kinahanglan nga documents transferee
+    - requirements sa college transfer
+    - transfer sa buksu unsaon
 
 - intent: buksu_admission_facebook_page
   examples: |
@@ -4165,6 +4261,8 @@ nlu:
     - Continuous ba ang services sa OSS tibuok adlaw
     - Kinsa ang nagsunod sa no noon break policy sa OSS
     - Unsay pasabot sa OSS sa No Noon Break Policy
+    - what is the meaning of no noon break policy 
+    - tell me the purpose of no noon break policy in OSs
 
 - intent: dasig_spirit_animal_buksu
   examples: |
@@ -4411,7 +4509,6 @@ nlu:
     - Unsay admission requirements para sa Masters degree
     - Kinahanglan ba og Honorable Dismissal para sa Masters application
     - Unsang Transcript of Records ang kinahanglan para sa Masters admission
-    - Kinahanglan ba ang 2x2 ID picture
     - Kinahanglan ba mo take sa Graduate Program Admission Test
     - Pwede nimo i list ang requirements para sa BukSU Masters program
     - Kinahanglan ba ang originals sa records para sa graduate admission
@@ -4712,7 +4809,6 @@ nlu:
     - Pwede ba makakuha og first aid ang estudyante sa BukSU
     - Kinsa ang pwede mo avail og emergency treatment sa clinic
     - Apil ba ang staff sa health services
-    - Asa nahimutang ang University Health Services Unit
     - Unsay services nga gi offer sa BukSU clinic
     - Pwede ba ko makakita og doktor sa BukSU libre
     - Apil ba ang dental consultation sa health services
@@ -5262,14 +5358,10 @@ nlu:
     - library ID location
     - where to get library ID
     - library ID BukSU where
-    - asa library ID
-    - asa kuha ID library
     - library ID asa dapit
-    
 
 - intent: library_id_card_payment
   examples: |
-    # ENGLISH - payment + COR + borrowing condition + asking staff
     - Do I need to pay to get a library ID card
     - Is the library ID card free or do I need to pay
     - How much do I need to pay for the library ID
@@ -5837,7 +5929,6 @@ nlu:
     - unsay buhaton nako para ma validate akong COR
     - naka print na ko sa COR unsay sunod buhaton
     - human nako download ang COR unsa na next
-    - asa ko moadto para ma validate ang COR
     - unsay next step sa COR validation
     - pwede ko nimo tabangan sa COR validation
     - kinahanglan ba moadto kog office para sa COR
@@ -6205,3 +6296,1351 @@ nlu:
     - Asa i submit ang request?
     - Unsa ang steps sa TOR?
     - Giunsa pag process ang TOR?
+
+- intent: ask_guidance_services
+  examples: |
+    - what are the services offered in the university guidance center
+    - can you tell me what the guidance center does
+    - list of services in guidance office
+    - what can the guidance counselor help me with
+    - do you have counseling services
+    - i need to know the guidance center offers
+    - help me understand guidance services
+    - guidance services list please
+    - what is ugc services
+    - career placement and testing info
+    - could you provide the comprehensive services of the guidance center
+    - please enumerate the offers of the university guidance office
+    - what kind of support does ugc provide to students
+    - i would like to know the functions of the guidance counselor
+    - what do you guys do at ugc
+    - what can ugc help me with
+    - do u have career seminars
+    - can you help me with my personal problems
+    - tell me about your online counseling
+    - what happens in an exit interview
+    - what service guidance
+    - guidance center offer what
+    - ugc do what
+    - help me guidance center
+    - what services you have
+    - guidance counseling what is
+    - ugc services what
+    - testing services meaning
+    - job fair ugc info
+    - ugc services
+    - guidance services
+    - counseling info
+    - career placement
+    - testing services
+    - job fair
+    - exit interview
+    - guidance help
+    - ugc offers
+    - counselor services
+    - what is online counseling
+    - psychological testing for students
+    - do you do iq tests
+    - i need help with my career choices
+    - pre employment needs help
+    - what does the psychometrician do
+    - what are the standardized tests for
+    - i need someone to talk to
+    - emotional support services
+    - cognitive needs help
+    - spiritual guidance services
+    - unsa ang mga serbisyo sa guidance center
+    - pwede ba ko mangutana unsa inyong services sa guidance
+    - unsa matabang sa guidance counselor nako
+    - naa ba moy counseling
+    - unsa mga offer sa ugc
+    - paki send sa listahan sa serbisyo sa guidance
+    - tabang para mahibaw an ang guidance services
+    - serbisyo sa guidance unsa man
+    - unsa trabaho sa guidance office
+    - naa moy job placement sa buksu
+    - mahimo ba nimo isaysay ang mga serbisyo sa guidance center
+    - unsa ang mga programa nga gitanyag sa ugc
+    - gusto ko masayod sa mga gibuhat sa inyong opisina
+    - palihug hatagi ko sa detalye sa inyong online counseling
+    - unsay mga naa sa guidance
+    - unsa inyong matabang sa akoa
+    - naa moy mga career seminar
+    - kinsa pwede makaistorya bahin sa problema
+    - unsay buhaton sa exit interview
+    - naa moy tabang para sa mangita trabaho
+    - unsa guidance serbisyo
+    - guidance center unsa buhat
+    - ugc unsa naa
+    - tabang guidance
+    - serbisyo ninyo unsa
+    - counseling unsa man
+    - trabaho sa guidance unsa
+    - job fair unsa
+    - mga serbisyo
+    - serbisyo sa ugc
+    - counseling
+    - testing sa iq
+    - tabang sa career
+    - exit interview info
+    - job placement buksu
+    - psychological test
+    - mga offer ninyo
+    - online nga counseling
+    - tabang sa emosyon
+    - unsay pulos sa psychometrician
+
+- intent: ask_how_to_avail_guidance
+  examples: |
+    - how to avail the services
+    - where can i find the guidance center
+    - how do i get counseling
+    - steps to avail guidance services
+    - i want to avail guidance services how
+    - point me to the guidance office
+    - how can i contact the guidance counselor
+    - avail services steps
+    - where is ugc located
+    - could you give me the directions to the university guidance center
+    - what is the process for setting an appointment with a counselor
+    - i would like to request counseling how do i proceed
+    - where exactly is the college of arts and sciences building
+    - what is the official facebook page of ugc
+    - how to go to ugc
+    - how do i message u guys
+    - where is the cas building
+    - i want to talk to someone how
+    - how can i reach the guidance office
+    - where ugc
+    - how go guidance
+    - avail service how
+    - steps counseling
+    - contact guidance how
+    - where is cas
+    - facebook page guidance what
+    - how to message ugc
+    - ugc location
+    - guidance location
+    - steps to avail
+    - how to contact
+    - cas building direction
+    - ugc facebook
+    - contact ugc
+    - find guidance center
+    - book counseling
+    - get counseling
+    - avail guidance
+    - i need directions to the cas building
+    - how to message buksu university guidance center
+    - can i contact you on facebook
+    - how to get psychological testing
+    - where do i go for the exit interview
+    - i need a job placement how do i apply
+    - guide me to the guidance center
+    - who do i contact for career seminars
+    - how to set counseling appointment online
+    - online counseling steps
+    - unsaon pag avail sa inyong serbisyo
+    - asa dapit ang guidance center
+    - unsaon nako pagpa counsel
+    - gusto ko mag avail sa guidance unsaon man
+    - asa dapit makita ang ugc
+    - kinsa pwede maistorya sa guidance
+    - unsaon pag contact sa guidance office
+    - paano mag avail sa inyong tabang
+    - tudlui ko unsaon pag adto sa guidance
+    - pwede ba ko mangayo sa direksyon paingon sa guidance center
+    - unsa ang mga lakang aron makakuha og counseling
+    - asa dapit nahimutang ang cas building
+    - unsa ang pangalan sa inyong facebook page
+    - unsaon pag adto sa inyoha
+    - unsaon pag chat sa guidance
+    - asa man ang cas building
+    - gusto ko magpa counsel unsaon man
+    - pwede raba mag message sa facebook
+    - asa ugc
+    - unsaon adto guidance
+    - avail serbisyo unsaon
+    - lakang counseling
+    - contact guidance unsaon
+    - asa cas
+    - facebook ugc unsa
+    - chat ugc unsaon
+    - lokasyon sa ugc
+    - asa ang guidance
+    - unsaon pag avail
+    - facebook page ninyo
+    - direksyon sa cas
+    - pangitaon ang guidance
+    - magpa counsel
+    - mangita ug counselor
+    - asa magpa test
+    - unsaon pag apil sa job fair
+    - kinsa akong pangitaon
+    - unsaon pag schedule sa online counseling
+    - adto ko ugc unsaon
+    - tudlui ko asa ang ugc
+
+- intent: ask_guidance_eligibility
+  examples: |
+    - who is eligible to receive services
+    - can anyone go to the guidance center
+    - am i allowed to use guidance services
+    - who can get counseling
+    - is guidance only for students
+    - who can avail ugc services
+    - eligibility for guidance office
+    - who is qualified to avail the counseling services
+    - are the guidance services exclusive to enrolled students
+    - can alumni access the job placement services
+    - who can take the psychological testing
+    - can anyone just walk in for counseling
+    - who is this for
+    - can i go to the guidance center
+    - am i allowed in ugc
+    - is this for college students only
+    - can staff use the guidance center
+    - who can go guidance
+    - am i allowed guidance
+    - only students guidance
+    - alumni can go
+    - who avail ugc
+    - eligibility guidance
+    - who counseling
+    - ugc for who
+    - who eligible
+    - who can avail
+    - allowed users
+    - student only
+    - for alumni
+    - faculty testing who
+    - ugc users
+    - guidance eligibility
+    - only enrolled students
+    - who can go
+    - is it for buksu students only
+    - can applicants go there
+    - who can take the iq test
+    - do you cater to non teaching applicants
+    - is the guidance center for faculty too
+    - can my friend get counseling
+    - who is the career orientation for
+    - am i qualified for guidance services
+    - who takes the exit interview
+    - kinsa ang pwede makadawat sa mga serbisyo
+    - pwede ba maka adto ang bisan kinsa sa guidance
+    - allowed ba ko magpa counsel
+    - para kang kinsa ang guidance center
+    - estudyante ra ba ang pwede sa guidance
+    - kinsa pwede mag avail sa inyong serbisyo
+    - kinsa makapahimulos sa ugc
+    - pwede raba mga shs sa guidance
+    - kinsa ang kwalipikado nga magamit ang mga serbisyo
+    - para lang ba ni sa mga naka enroll sa buksu
+    - pwede ba makapangayo og tabang ang mga alumni
+    - kinsa ang pwede mu test para sa faculty
+    - kinsa pwede maka adto
+    - pwede ba ko muadto sa guidance
+    - para ra ba ni sa college
+    - pwede ba maka avail ang mga staff
+    - kinsa pwede sa ugc
+    - kinsa adto guidance
+    - pwede ko guidance
+    - studyante ra guidance
+    - alumni pwede
+    - kinsa avail ugc
+    - kinsa counseling
+    - ugc para kinsa
+    - para kinsa
+    - kinsa pwede
+    - pwede ba alumni
+    - para sa studyante
+    - para sa aplikante
+    - kinsa maka avail
+    - buksu students ra
+    - pwede ba applicants
+    - kinsa magpa iq test
+    - pwede non teaching
+    - para ba ni sa mga mogradwar
+    - kinsa mag exit interview
+    - pwede raba ko magpa counsel
+    - studyante ko pwede ko
+    - kinsa pwede muapil sa job fair
+    - pwede ra bisan kinsa
+
+- intent: ask_guidance_schedule
+  examples: |
+    - when are the services available
+    - what are the operating hours of the guidance office
+    - guidance center schedule
+    - what time does the guidance open
+    - is guidance open on weekends
+    - ugc opening hours
+    - what days are you open
+    - time open for guidance
+    - what are the official business hours of the university guidance center
+    - until what time is the counseling service available
+    - are you operational from mondays to fridays
+    - is the guidance center open at 8 am
+    - do you close at 5 pm
+    - what time do u guys open
+    - are u open today
+    - what days can i visit ugc
+    - are u open on saturdays
+    - what is your schedule
+    - what time open guidance
+    - schedule guidance center
+    - ugc time open
+    - weekend open guidance
+    - open what day
+    - time close ugc
+    - ugc schedule
+    - 8 to 5 open
+    - ugc operating hours
+    - opening time
+    - closing time
+    - guidance schedule
+    - days open
+    - office hours
+    - weekend schedule
+    - open today
+    - when open
+    - are you open tomorrow
+    - what is the time for counseling
+    - when can i get an exit interview
+    - what time is the job fair
+    - is the cas building office open now
+    - when is the guidance counselor available
+    - what time are the psychometricians in
+    - kanus a pwede ma avail ang mga serbisyo
+    - unsa oras abli ang guidance office
+    - schedule sa guidance center
+    - abli ba ang guidance inig sabado
+    - unsa nga adlaw pwede muadto
+    - kanus a mo mag abli
+    - oras sa inyong opisina
+    - guidance oras abli
+    - unsa ang inyong opisyal nga oras sa pag abli
+    - kutob unsa orasa abli ang guidance
+    - abli ba mo gikan lunes hangtod biyernes
+    - sayo ba mo abli ug 8 am
+    - manira ba mo inig 5 pm
+    - unsa oras mo abli
+    - abli ba mo karon
+    - unsa nga mga adlaw pwede muadto
+    - abli ba mo inig dominggo
+    - unsa inyong schedule
+    - unsa oras abli guidance
+    - ting abli guidance
+    - ugc oras abli
+    - sabado abli guidance
+    - abli unsa adlaw
+    - oras sira ugc
+    - schedule sa ugc
+    - 8 to 5 abli
+    - ugc oras
+    - oras ting abli
+    - oras ting sira
+    - schedule sa guidance
+    - mga adlaw abli
+    - oras sa opisina
+    - schedule sa sabado
+    - abli karon
+    - kanus a abli
+    - abli ba mo ugma
+    - unsa oras pwede magpa counsel
+    - kanus a pwede mag exit interview
+    - unsa oras inyong online counseling
+    - abli ba inyong opisina karon
+    - kanus a naa ang counselor
+    - unsa oras muabot ang psychometrician
+
+- intent: ask_guidance_fee
+  examples: |
+    - is there a fee if we avail the services
+    - do i have to pay for counseling
+    - how much is the testing fee
+    - is guidance center free
+    - payment for guidance services
+    - fee for graduate studies testing
+    - how much for non teaching applicants
+    - is ugc free for undergrads
+    - are the counseling services completely free of charge
+    - how much does the psychological testing cost for graduate students
+    - what is the fee for teaching applicants
+    - do college of law students need to pay a testing fee
+    - how much is the required fee for phd applicants
+    - how much do i need to pay
+    - is counseling free
+    - how much for the test
+    - do i need money for guidance
+    - how much is 475 php for
+    - how much fee guidance
+    - pay counseling how much
+    - test fee ugc
+    - guidance free undergrad
+    - payment graduate studies
+    - non teaching fee how much
+    - teaching applicant fee
+    - fee college of law
+    - counseling cost
+    - guidance fee
+    - is it free
+    - testing fee
+    - undergrad free
+    - grad school fee
+    - applicant fee
+    - teaching fee
+    - non teaching fee
+    - how much to pay
+    - is it 100 php for non teaching
+    - is it 475 php for teaching
+    - do masters students pay 475
+    - is the exit interview free
+    - do i pay for career seminars
+    - how much is the job fair fee
+    - naa bay bayad kung mag avail sa mga serbisyo
+    - kailangan ba mubayad para magpa counsel
+    - pila ang testing fee sa guidance
+    - libre ba ang guidance center
+    - bayad para sa serbisyo sa guidance
+    - pila pangayo sa graduate studies
+    - pila bayad sa mga applicants
+    - libre ba ni para sa mga college
+    - libre ba gayod ang tanang serbisyo para sa mga undergraduate
+    - pila ang bayad sa psychological testing para sa mga masters
+    - unsa ang testing fee para sa mga teaching applicants
+    - mubayad ba ang mga estudyante sa law
+    - pila ang kinahanglan bayaran sa mga nagkuha ug phd
+    - pila akong bayaran
+    - libre ba ang counseling
+    - tag pila ang test
+    - kailangan ba ug kwarta sa guidance
+    - pila to ang 475 php
+    - pila bayad guidance
+    - bayad counsel pila
+    - bayad test ugc
+    - libre undergrad guidance
+    - bayad graduate studies
+    - bayad non teaching pila
+    - bayad teaching applicant
+    - bayad college law
+    - presyo counseling
+    - bayad sa guidance
+    - libre ra ba
+    - bayad sa test
+    - libre undergrad
+    - bayad grad school
+    - bayad sa applicant
+    - bayad sa teaching
+    - bayad sa non teaching
+    - pila ibayad
+    - 100 ba ang non teaching
+    - 475 ba ang teaching
+    - mubayad bag 475 ang masters
+    - libre ba ang exit interview
+    - naa bay bayad ang seminar
+    - pila bayad sa job fair
+
+- intent: buksu_presidents_list
+  examples: |
+    - can you give me the list of the presidency in bukidnon state university
+    - who are the presidents in bukidnon state university
+    - list of president in Bukidnon State University
+    - who are the presidents of BukSU
+    - can you list the presidents of BukSU
+    - I want to know the presidents of BukSU
+    - can you show me the list of BukSU presidents
+    - who became president in BukSU
+    - who are the past presidents of BukSU
+    - can you give me BukSU president list
+    - list all BukSU presidents
+    - who is the current president of BukSU and past ones
+    - can you tell me all presidents of BukSU
+    - I need the list of BukSU leaders
+    - who handled BukSU before
+    - can you show BukSU president history
+    - I want to see BukSU president names
+    - who are the leaders of BukSU over the years
+    - can you provide BukSU president info
+    - list down BukSU presidents
+    - What is the list of presidents of Bukidnon State University
+    - Can you provide the list of BukSU presidents
+    - Who are the past and present presidents of BukSU
+    - What is the historical list of BukSU presidents
+    - Can you enumerate the presidents of Bukidnon State University
+    - Who have served as presidents of BukSU
+    - What are the names of BukSU university presidents
+    - Can you provide information about BukSU leadership history
+    - What is the official list of BukSU presidents
+    - Who are the university presidents of BukSU over the years
+    - Can you list the former and current presidents of BukSU
+    - What is the record of BukSU presidents
+    - Can you give a complete list of BukSU presidents
+    - Who are the institutional leaders of BukSU
+    - What are the names of BukSU presidents in order
+    - Can you provide a timeline of BukSU presidents
+    - Who served as president of BukSU in the past
+    - What is the leadership history of BukSU
+    - Can you present the BukSU president list
+    - Who are the officials that led BukSU
+    - kinsa ang mga presidente sa BukSU
+    - unsa ang lista sa mga presidente sa Bukidnon State University
+    - kinsa ang naging presidente sa BukSU
+    - hatagi kog lista sa mga presidente sa BukSU
+    - unsa ang mga pangalan sa presidente sa BukSU
+    - kinsa ang mga leaders sa BukSU sauna
+    - pwede nimo ipakita ang lista sa BukSU presidents
+    - kinsa ang current ug past president sa BukSU
+    - unsa ang history sa presidente sa BukSU
+    - kinsa ang mga nag handle sa BukSU
+    - ipakita ang lista sa BukSU president
+    - unsa ang listahan sa mga presidente
+    - kinsa ang mga lider sa BukSU over the years
+    - tabangi ko unsay lista sa presidente
+    - pwede ko makakita sa lista sa BukSU presidents
+    - unsa ang mga pangalan sa BukSU leaders
+    - kinsa ang mga naging head sa BukSU
+    - unsa ang mga previous president sa BukSU
+    - kinsa ang mga official leaders sa BukSU
+    - hatag lista sa BukSU presidents
+    - kinsa ang mga presidente sa Bukidnon State University
+    - unsay opisyal nga lista sa mga presidente sa BukSU
+    - kinsa ang mga ni serve isip presidente sa BukSU
+    - unsay historical nga lista sa mga presidente sa BukSU
+    - pwede ba nimo ihatag ang lista sa mga presidente sa BukSU
+    - kinsa ang mga past ug present nga presidente sa BukSU
+    - unsay record sa mga presidente sa BukSU
+    - kinsa ang mga lider sa BukSU sa nagkalain laing panahon
+    - unsay timeline sa mga presidente sa BukSU
+    - kinsa ang mga opisyal nga lider sa BukSU
+    - unsay complete nga lista sa BukSU presidents
+    - kinsa ang mga nagdumala sa BukSU sauna
+    - unsay listahan sa mga university presidents sa BukSU
+    - pwede ba nimo i enumerate ang mga presidente
+    - unsay leadership history sa BukSU
+    - kinsa ang mga university leaders sa BukSU
+    - unsay mga pangalan sa presidente sa BukSU
+    - kinsa ang mga head sa BukSU institution
+    - unsay official nga record sa BukSU presidents
+    - kinsa ang mga previous leaders sa BukSU
+    - BukSU presidents
+    - presidents BukSU
+    - list presidents
+    - BukSU leader list
+    - president list BukSU
+    - kinsa presidente
+    - BukSU kinsa president
+    - list BukSU
+    - president history
+    - BukSU leaders
+    - kinsa leaders BukSU
+    - lista presidente
+
+- intent: freshmen_application_period
+  examples: |
+    - when the application for admission testing start
+    - what month do buksu admission start
+    - buksu admission application
+    - when does BukSU admission start
+    - when is the application period for incoming freshmen
+    - when can I apply for BukSU admission
+    - when does admission open in BukSU
+    - what time of the year does BukSU admission start
+    - when do freshmen apply for BukSU
+    - when can I start applying for BukSU
+    - what month does BukSU start accepting applicants
+    - when is the start of BukSU admission
+    - when does the application begin for BukSU
+    - when can I submit my application for BukSU
+    - is BukSU admission already open
+    - when will BukSU admission open
+    - when is the deadline for BukSU admission
+    - what months is BukSU admission open
+    - when do applications open for BukSU freshmen
+    - can you tell me when BukSU admission starts
+    - When is the application period for incoming freshmen at BukSU
+    - What is the official schedule for BukSU admission application
+    - When does the BukSU admission application period begin
+    - What months are included in the BukSU admission period
+    - When can prospective students apply for BukSU
+    - What is the timeframe for BukSU admission applications
+    - When does BukSU start accepting applications
+    - What is the opening date for BukSU admission
+    - When is the admission period for freshmen applicants
+    - What is the duration of BukSU admission application
+    - When should applicants begin submitting their requirements
+    - What is the schedule for admission testing application
+    - When does the admission cycle start at BukSU
+    - What is the official timeline for BukSU admissions
+    - When are applications typically accepted at BukSU
+    - What is the start and end date of BukSU admission
+    - When is the enrollment application period for freshmen
+    - What is the usual opening period for BukSU admission
+    - When can applicants begin their admission process
+    - What is the expected schedule for BukSU admission
+    - kanus a magsugod ang admission sa BukSU
+    - unsang buwan magsugod ang admission sa BukSU
+    - kanus a pwede mag apply sa BukSU
+    - kanus a mag open ang BukSU admission
+    - unsay month magsugod ang admission
+    - kanus a magsugod ang application sa freshmen
+    - pwede na ba mag apply sa BukSU karon
+    - kanus a mag start ang admission
+    - unsay schedule sa admission sa BukSU
+    - kanus a mag submit og application
+    - unsay buwan mag accept og applicants ang BukSU
+    - kanus a magsugod ang exam application
+    - kanus a mo open ang admission testing
+    - kanus a magsugod ang process sa admission
+    - unsay start sa BukSU admission
+    - kanus a mag apply ang freshmen
+    - unsa kadugay ang admission period
+    - kanus a mahuman ang admission
+    - unsay panahon sa admission sa BukSU
+    - kanus a ko pwede mag apply
+    - kanus a ang application period sa BukSU freshmen
+    - unsay opisyal nga schedule sa admission sa BukSU
+    - kanus a magsugod ang admission application period
+    - unsay mga bulan sakop sa admission period
+    - kanus a pwede mag apply ang mga aplikante
+    - unsay timeframe sa admission application
+    - kanus a magsugod pag accept og applicants ang BukSU
+    - unsay opening date sa admission
+    - kanus a ang admission period sa freshmen
+    - unsa kadugay ang admission application period
+    - kanus a dapat magsugod ang pag submit sa requirements
+    - unsay schedule sa admission testing application
+    - kanus a magsugod ang admission cycle sa BukSU
+    - unsay timeline sa admission process
+    - kanus a kasagaran mag open ang admission
+    - unsay start ug end date sa admission
+    - kanus a magsugod ang application process
+    - unsay expected schedule sa BukSU admission
+    - kanus a mo open ang application sa freshmen
+    - unsay opisyal nga panahon sa admission
+    - buksu admission when
+    - admission start
+    - when admission
+    - buksu apply when
+    - admission month
+    - when apply buksu
+    - kanus a admission
+    - admission start buksu
+    - when open admission
+    - apply when
+    - buksu application when
+    - admission period
+
+- intent: freshman_admission_requirements
+  examples: |
+    - what are the requirements for buksu freshman admission
+    - what are the admission requirements for freshman applicants at buksu
+    - requirements for buksu admission application
+    - what are the requirements for buksu admission testing
+    - what do I need to apply for buksu admission
+    - what are the documents required for freshman admission
+    - what should I prepare for buksu admission
+    - what are the requirements for new students in buksu
+    - what do freshmen need to apply in buksu
+    - what are the needed documents for admission test
+    - what should I bring for admission application
+    - what is required before applying for buksu
+    - what are the requirements for entrance exam
+    - what are the qualifications for freshman admission
+    - what do I need before taking the admission test
+    - what are the requirements to register for buksu admission
+    - what do I need to prepare for application
+    - what are the required files for admission
+    - what documents should I upload for buksu admission
+    - what are the basic requirements for freshmen
+    - what is needed for admission application
+    - what should I submit for buksu admission
+    - what are the necessary requirements for freshmen
+    - what are the documents needed for application
+    - what do I need for the admission portal
+    - what are the requirements to create account in buksu admission
+    - what are the requirements for admission testing
+    - what are the required documents for new applicants
+    - what are the things needed for admission
+    - what are the materials required for application
+    - buksu admission requirements
+    - freshman requirements buksu
+    - requirements admission buksu
+    - admission requirements list
+    - what needed for admission
+    - requirements for exam buksu
+    - documents for buksu admission
+    - admission application requirements
+    - what needed freshman
+    - requirements new student
+    - admission req buksu
+    - what to prepare admission
+    - requirements for portal registration
+    - what needed for exam application
+    - buksu admission needed
+    - admission requirement list
+    - freshman admission req
+    - what files needed admission
+    - admission documents needed
+    - how to prepare for buksu admission
+    - unsa ang requirements para sa freshman admission sa buksu
+    - unsa ang kinahanglan para mag apply sa buksu admission
+    - requirements para buksu admission application
+    - unsa ang requirements para admission testing
+    - unsa akong kinahanglan para makasulod sa buksu
+    - unsa ang documents kinahanglan para freshman
+    - unsa akong ihanda para sa admission
+    - unsa ang requirements para new students sa buksu
+    - unsa kinahanglan sa freshmen para mag apply
+    - unsa ang kinahanglan nga documents para exam
+    - unsa akong dad on para sa application
+    - unsa ang kinahanglan before mag apply
+    - unsa ang requirements para entrance exam
+    - unsa ang qualifications para freshman admission
+    - unsa kinahanglan before mag take og exam
+    - unsa ang requirements para maka register sa admission
+    - unsa akong ihanda para sa application
+    - unsa ang files kinahanglan para admission
+    - unsa nga documents ang i upload sa buksu admission
+    - unsa ang basic requirements sa freshmen
+    - unsa ang kinahanglan para admission application
+    - unsa akong ipasa para admission
+    - unsa ang necessary requirements para freshmen
+    - unsa ang documents kinahanglan para application
+    - unsa ang kinahanglan para sa admission portal
+    - unsa ang requirements para maghimo og account
+    - unsa ang requirements para admission testing
+    - unsa ang documents kinahanglan sa applicants
+    - unsa ang mga kinahanglan para admission
+    - unsa ang materials kinahanglan para application
+    - buksu admission requirements
+    - freshman requirements buksu
+    - requirements admission buksu
+    - admission requirements list
+    - unsa kinahanglan admission
+    - requirements para exam buksu
+    - documents para buksu admission
+    - admission application requirements
+    - unsa kinahanglan freshman
+    - requirements new student
+    - admission req buksu
+    - unsa ihanda para admission
+    - requirements para portal registration
+    - unsa kinahanglan para exam application
+    - buksu admission kinahanglan
+    - admission requirement list
+    - freshman admission req
+    - unsa files kinahanglan admission
+    - admission documents kinahanglan
+    - unsaon pag prepare sa buksu admission
+
+- intent: program_cutoff_scores
+  examples: |
+    - what is the cutoff score for buksu admission
+    - what is the cut off score in buksu
+    - what is the passing score for buksu cat
+    - what score do I need to pass the buksu exam
+    - what is the required score to enter buksu
+    - what is the passing rate for buksu admission test
+    - how many percent to pass buksu cat
+    - what is the minimum score for buksu
+    - what is the cut score for board courses in buksu
+    - what is the cut score for non board courses
+    - what score is needed for nursing in buksu
+    - what is the required score for education course
+    - what is the passing rate for accountancy in buksu
+    - can you send me the qualified cut score for buksu
+    - what are the cut off scores or criteria for competitive programs
+    - what is the required rating for buksu cat
+    - what score should I get to pass the exam
+    - what is the grade requirement for buksu admission
+    - what is the exam passing percentage
+    - what is the minimum passing rate for admission
+    - how do I pass the buksu admission test
+    - what is the score requirement for courses
+    - what is the required exam rating for enrollment
+    - what is the cut off for buksu programs
+    - what is the passing mark for buksu
+    - what is the score needed for admission test
+    - what is the standard passing score in buksu
+    - how high should my score be to pass
+    - what is the lowest score to get accepted
+    - what is the passing criteria for buksu
+    - what is the exam requirement score
+    - what is the cut off for education nursing accountancy
+    - what is the required percentage for board programs
+    - what is the passing rate for non board programs
+    - how much score needed for admission
+    - what is the passing level for exam
+    - what is the rating to pass buksu cat
+    - what is the score range to be accepted
+    - what score is considered passing
+    - what is the passing rule for buksu exam
+    - buksu cut off score
+    - cut off buksu
+    - passing score buksu
+    - buksu passing rate
+    - exam score requirement
+    - required score buksu
+    - score needed exam
+    - passing percent buksu
+    - buksu cat score
+    - admission score buksu
+    - unsa ang cutoff score sa buksu
+    - unsa ang passing score sa buksu cat
+    - pila ka percent para makapasar sa exam
+    - unsa ang kinahanglan nga score para makasulod sa buksu
+    - unsa ang passing rate sa admission test
+    - pila ang minimum score sa buksu
+    - unsa ang cut off score sa board courses
+    - unsa ang cut off score sa non board courses
+    - pila ang kinahanglan nga score sa nursing
+    - unsa ang passing rate sa education
+    - pila ang kinahanglan nga score sa accountancy
+    - unsa ang required rating sa buksu cat
+    - pila ka percent para makapasar
+    - unsa ang kinahanglan nga grado para admission
+    - unsa ang passing percentage sa exam
+    - pila ang minimum passing rate
+    - unsaon pag pasar sa buksu exam
+    - unsa ang score requirement sa mga kurso
+    - unsa ang required exam rating
+    - unsa ang cut off sa mga program sa buksu
+    - pila ang passing mark sa buksu
+    - unsa ang kinahanglan nga score para admission test
+    - unsa ang standard passing score
+    - pila ka taas ang score para makapasar
+    - unsa ang lowest score para madawat
+    - unsa ang passing criteria sa buksu
+    - unsa ang exam requirement score
+    - unsa ang cut off sa education nursing accountancy
+    - pila ka percent para sa board courses
+    - unsa ang passing rate sa non board
+    - pila ang kinahanglan nga score para admission
+    - unsa ang passing level sa exam
+    - unsa ang rating para makapasar sa buksu cat
+    - unsa ang score range para madawat
+    - unsa ang passing nga score
+    - unsa ang rules sa pag pasar sa exam
+    - buksu cutoff score
+    - cutoff buksu
+    - passing score buksu
+    - buksu passing rate
+    - exam score kinahanglan
+    - required score buksu
+    - score needed exam
+    - passing percent buksu
+    - buksu cat score
+    - admission score buksu
+    - pila score para pasar
+    - unsa score para sulod
+    - pila percent pasar
+    - score sa buksu exam
+
+- intent: visitor_campus_access
+  examples: |
+    - can visitors enter the buksu campus
+    - can i enter buksu even if im not a student
+    - am i allowed to visit buksu
+    - is buksu open for visitors
+    - can outsiders enter the buksu campus
+    - are visitors allowed inside buksu
+    - can non students go inside buksu
+    - can i go inside buksu campus without being a student
+    - is it allowed to enter buksu campus
+    - can i visit someone inside buksu
+    - do i need permission to enter buksu
+    - can guests enter the campus
+    - can i go inside the university as a visitor
+    - is buksu allowing visitors inside
+    - can i enter buksu just to visit
+    - are outsiders allowed to go inside the campus
+    - can i enter the campus if im not enrolled
+    - is campus open for public visitors
+    - can i visit my friend in buksu campus
+    - can i enter the campus as a guest
+    - do they allow people to enter buksu
+    - can i access buksu campus without id
+    - can i go inside even if im not from buksu
+    - is there rules for visitors in buksu
+    - how can a visitor enter the campus
+    - can i enter the school campus freely
+    - can i visit inside buksu campus
+    - are visitors accepted in buksu
+    - is it okay to enter buksu campus as visitor
+    - can i go in buksu campus
+    - buksu visitor allowed
+    - can enter buksu
+    - visitor access buksu
+    - buksu campus entry
+    - can i visit buksu
+    - outsider enter campus
+    - visit buksu allowed
+    - campus access visitor
+    - can go inside buksu
+    - entry rules buksu
+    - can i enter campus
+    - visit campus buksu
+    - allowed visitor campus
+    - buksu entrance visitor
+    - visitor policy buksu
+    - enter buksu how
+    - visitor allowed school
+    - can i go visit campus
+    - outsider allowed buksu
+    - buksu open visitor
+    - pwede ba mosulod ang bisita sa buksu
+    - pwede ko mosulod sa buksu bisan dili ko estudyante
+    - pwede ba mag visit sa buksu
+    - open ba ang buksu para sa visitors
+    - pwede ba mosulod ang outsider sa campus
+    - pwede ba ang dili estudyante mosulod sa buksu
+    - pwede ko mosulod sa campus bisan dili enrolled
+    - allowed ba ang bisita sa buksu
+    - pwede ba moadto sa buksu para lang mag visit
+    - kinahanglan ba og permiso para mosulod
+    - pwede ba ang guest mosulod sa campus
+    - pwede ba ko mosulod isip visitor
+    - gi allow ba ang visitors sa buksu
+    - pwede ba mosulod sa campus kung bisita ra
+    - pwede ba mo sulod ang dili taga buksu
+    - open ba sa public ang campus
+    - pwede ko mo visit sa akong amigo sa buksu
+    - pwede ba mosulod isip guest
+    - gi allow ba ang tao mosulod sa buksu
+    - pwede ba mosulod bisan walay id
+    - pwede ko mosulod bisan dili ko taga buksu
+    - naay rules para sa visitors
+    - unsaon pag sulod sa campus isip visitor
+    - pwede ba mosulod sa school campus
+    - pwede ba mag visit sulod sa buksu
+    - dawaton ba ang visitors sa buksu
+    - okay ra ba mosulod sa campus isip bisita
+    - pwede ko mosulod sa campus
+    - buksu visitor allowed
+    - mosulod buksu pwede
+    - visitor access buksu
+    - campus entry buksu
+    - pwede visit buksu
+    - outsider mosulod campus
+    - visit buksu allowed
+    - campus access bisita
+    - mosulod buksu pwede ba
+    - entry rules buksu
+    - pwede ko mosulod campus
+    - visit campus buksu
+    - allowed bisita campus
+    - buksu entrance bisita
+    - visitor policy buksu
+    - mosulod buksu unsaon
+    - bisita allowed school
+    - pwede ko mo visit campus
+    - outsider allowed buksu
+    - open ba visitor buksu
+
+- intent: enrollment_documents
+  examples: |
+    - what documents do I need to enroll at buksu
+    - what documents do I need to present during enrollment
+    - what do i bring during the first enrollment
+    - documents need during the enrollment interview
+    - papers need during first year enrollment
+    - enrolling first year first sem documents needed
+    - what should I bring for enrollment in buksu
+    - what are the requirements during enrollment
+    - what documents are required for enrollment
+    - what should I prepare for enrollment
+    - what are the needed documents for enrolling
+    - what do I need to submit during enrollment
+    - what are the files needed for enrollment
+    - what documents should I show during enrollment
+    - what do freshmen need to bring for enrollment
+    - what documents are needed for first year enrollment
+    - what papers should I bring when enrolling
+    - what are the enrollment requirements for students
+    - what should I prepare before enrollment
+    - what are the required documents for enrolling
+    - what do I need for first semester enrollment
+    - what documents are needed for buksu enrollment
+    - what are the necessary papers for enrollment
+    - what should I submit for enrollment
+    - what do I bring when enrolling in buksu
+    - what are the requirements for first year students
+    - what are the documents needed for admission and enrollment
+    - what do I need to show during enrollment
+    - what should I have for enrollment process
+    - what documents do I need for second semester enrollment
+    - enrollment documents buksu
+    - documents needed enrollment
+    - what needed for enrollment
+    - enrollment requirements list
+    - papers for enrollment
+    - bring for enrollment
+    - enrollment docs
+    - requirements enrollment
+    - what to bring enroll
+    - needed documents enroll
+    - first year enrollment docs
+    - second sem enrollment requirements
+    - enrollment files needed
+    - documents for school enrollment
+    - enrollment papers needed
+    - what documents needed enroll
+    - what bring enrollment
+    - enroll requirements buksu
+    - docs for enrollment
+    - enrollment requirement buksu
+    - unsa ang documents kinahanglan para enrollment sa buksu
+    - unsa akong dad on during enrollment
+    - unsa ang kinahanglan ipakita sa enrollment
+    - unsa ang papers kinahanglan sa first year enrollment
+    - unsa ang documents para sa first sem enrollment
+    - unsa akong ihanda para sa enrollment
+    - unsa ang requirements during enrollment
+    - unsa ang kinahanglan nga documents para enrollment
+    - unsa akong ipasa sa enrollment
+    - unsa ang files kinahanglan para enrollment
+    - unsa ang ipakita nga documents during enrollment
+    - unsa ang dad on sa freshmen para enrollment
+    - unsa ang documents kinahanglan sa first year
+    - unsa ang papers dad on kung mag enroll
+    - unsa ang enrollment requirements sa students
+    - unsa akong ihanda before enrollment
+    - unsa ang required documents para enrollment
+    - unsa ang kinahanglan sa first semester enrollment
+    - unsa ang documents sa buksu enrollment
+    - unsa ang necessary papers para enrollment
+    - unsa akong ipasa para enrollment
+    - unsa akong dad on kung mag enroll sa buksu
+    - unsa ang requirements sa first year students
+    - unsa ang documents para admission ug enrollment
+    - unsa akong ipakita during enrollment
+    - unsa akong kinahanglan para enrollment process
+    - unsa ang documents para second sem enrollment
+    - enrollment documents buksu
+    - documents kinahanglan enrollment
+    - unsa kinahanglan enrollment
+    - enrollment requirements list
+    - papers para enrollment
+    - dad on para enrollment
+    - enrollment docs
+    - requirements enrollment
+    - unsa dad on enroll
+    - documents kinahanglan enroll
+    - first year enrollment docs
+    - second sem enrollment requirements
+    - enrollment files kinahanglan
+    - documents para school enrollment
+    - enrollment papers kinahanglan
+    - unsa documents kinahanglan enroll
+    - unsa dad on enrollment
+    - enroll requirements buksu
+    - docs para enrollment
+    - enrollment requirement buksu
+    - unsa dad on first sem
+    - papers kinahanglan enroll
+    - unsa files para enrollment
+
+- intent: graduating_clearance_requirements
+  examples: |
+    - what documents and clearances do I need to graduate at buksu
+    - what are the requirements for graduating students to clear enrollment
+    - graduating student needs to clear what requirements
+    - help me what do i need to clear if im a graduating student
+    - what do I need to complete clearance for graduation
+    - what are the requirements for graduation clearance
+    - what documents are needed to graduate in buksu
+    - what should I prepare for graduation clearance
+    - what are the steps to clear for graduation
+    - what do I need to submit before graduation
+    - what are the required documents for graduating students
+    - what clearance is needed before graduation
+    - what offices do I need to clear for graduation
+    - what are the requirements to be included in graduation list
+    - what should I do to clear my name for graduation
+    - what documents are required for graduation
+    - what do I need to pass to the registrar for graduation
+    - what are the graduation requirements in buksu
+    - what should graduating students prepare
+    - what do I need to finish before graduating
+    - what is needed for graduation clearance
+    - what are the necessary papers for graduation
+    - what documents should I submit for graduation clearance
+    - what are the clearance steps for graduating students
+    - what do I need to process for graduation
+    - what are the requirements to complete clearance
+    - what do I need to sign for graduation clearance
+    - what are the needed signatures for graduation
+    - what do I need to do before I graduate
+    - what are the documents needed to be cleared for graduation
+    - graduation clearance requirements buksu
+    - graduating clearance requirements
+    - requirements for graduation clearance
+    - clearance for graduating students
+    - graduation requirements list
+    - what needed graduation
+    - documents for graduation clearance
+    - what needed for graduating student
+    - graduation clearance process
+    - clearance steps graduation
+    - what to submit graduation
+    - graduating requirements buksu
+    - clearance documents graduation
+    - what do graduating students need
+    - requirements before graduation
+    - what needed to graduate buksu
+    - graduation clearance docs
+    - process for graduation clearance
+    - what needed clearance
+    - graduate requirements list
+    - unsa ang documents ug clearance kinahanglan para mo graduate sa buksu
+    - unsa ang requirements para sa graduating student
+    - unsa kinahanglan i clear kung graduating ko
+    - tabangi ko unsa akong kinahanglan para clearance sa graduation
+    - unsa ang kinahanglan para ma clear sa graduation
+    - unsa ang requirements para graduation clearance
+    - unsa ang documents kinahanglan para mo graduate
+    - unsa akong ihanda para sa graduation clearance
+    - unsa ang steps para ma clear sa graduation
+    - unsa akong ipasa before graduation
+    - unsa ang required documents sa graduating students
+    - unsa nga clearance kinahanglan before graduation
+    - unsa nga offices akong adtuon para clearance
+    - unsa ang requirements para ma apil sa graduation list
+    - unsa akong buhaton para ma clear ang akong ngalan
+    - unsa ang documents para graduation
+    - unsa akong ipasa sa registrar para graduation
+    - unsa ang requirements sa graduation sa buksu
+    - unsa ang ihanda sa graduating students
+    - unsa akong buhaton before mo graduate
+    - unsa kinahanglan para graduation clearance
+    - unsa ang necessary papers para graduation
+    - unsa nga documents ang ipasa para clearance
+    - unsa ang steps sa clearance para graduating
+    - unsa akong iprocess para graduation
+    - unsa ang requirements para ma complete ang clearance
+    - unsa akong papirmahan para graduation
+    - unsa ang signatures kinahanglan para graduation
+    - unsa akong buhaton before graduation
+    - unsa ang documents para ma clear sa graduation
+    - graduation clearance requirements buksu
+    - graduating clearance requirements
+    - requirements para graduation clearance
+    - clearance para graduating students
+    - graduation requirements list
+    - unsa kinahanglan graduation
+    - documents para graduation clearance
+    - unsa kinahanglan graduating student
+    - graduation clearance process
+    - clearance steps graduation
+    - unsa ipasa graduation
+    - graduating requirements buksu
+    - clearance documents graduation
+    - unsa kinahanglan sa graduating
+    - requirements before graduation
+    - unsa kinahanglan para mo graduate sa buksu
+    - graduation clearance docs
+    - proseso sa graduation clearance
+    - unsa kinahanglan clearance
+    - graduate requirements list
+
+- intent: admission_contact_help
+  examples: |
+    - how can I contact buksu admission for help
+    - who can I contact for help with my admission requirements
+    - I need help for my buksu admission testing who can I ask
+    - help me who i can contact in terms of admission info
+    - where can I ask about buksu admission
+    - who should I contact for admission questions
+    - who do I talk to about admission requirements
+    - where can I go for help about admission
+    - who can assist me with admission testing
+    - who can I approach for admission help
+    - how to contact admission office in buksu
+    - where to ask about admission requirements
+    - who handles admission inquiries
+    - who can answer my questions about admission
+    - where can I get help for admission
+    - who can I ask about enrollment and admission
+    - where should I go for admission assistance
+    - who do I contact for admission support
+    - how can I reach admission office
+    - who can guide me about admission process
+    - who to ask about admission help
+    - where can I inquire about admission testing
+    - who is in charge of admission info
+    - who to contact for admission questions
+    - admission help contact who
+    - contact admission office buksu
+    - admission contact info
+    - who to ask admission
+    - admission help who to contact
+    - where admission help
+    - contact for admission
+    - ask admission help
+    - admission office contact
+    - help admission contact
+    - who admission help
+    - need help admission who
+    - admission inquiry contact
+    - admission support contact
+    - who can help admission
+    - contact buksu admission
+    - admission help line
+    - ask about admission who
+    - who to talk admission
+    - where ask admission
+    - admission question who contact
+    - who handles admission help
+    - admission help where
+    - contact person admission
+    - who can assist admission
+    - admission support who
+    - kinsa akong kontakon para sa help sa admission
+    - kinsa pwede nako pangutan-on about admission requirements
+    - tabangi ko kinsa akong kontakon para admission testing
+    - kinsa ang pwede nako kontakon sa admission info
+    - asa ko mangayo og tabang sa admission
+    - kinsa akong duolon para sa admission questions
+    - kinsa mag assist sa admission
+    - kinsa akong pangutan-on bahin sa admission
+    - asa ko pwede mo ask sa admission
+    - kinsa ang mo guide sa admission process
+    - unsaon pag contact sa admission office
+    - asa mangayo og help sa admission
+    - kinsa nag handle sa admission inquiries
+    - kinsa mo answer sa admission questions
+    - asa ko mangayo og help para admission
+    - kinsa akong duolon para sa enrollment ug admission
+    - asa ko moadto para sa admission assistance
+    - kinsa akong kontakon sa admission support
+    - unsaon pag reach sa admission office
+    - kinsa mo guide sa admission
+    - kinsa akong pangutan-on para sa help
+    - asa ko mangayo og info sa admission
+    - kinsa mo assist sa admission testing
+    - kinsa ang contact sa admission
+    - admission help kinsa kontakon
+    - contact admission office buksu
+    - admission contact info
+    - kinsa pangutan-on admission
+    - admission help kinsa
+    - asa admission help
+    - contact para admission
+    - ask admission help
+    - admission office contact
+    - help admission kinsa
+    - kinsa admission help
+    - kinahanglan help admission kinsa
+    - admission inquiry contact
+    - admission support contact
+    - kinsa mo help admission
+    - contact buksu admission
+    - admission help line
+    - ask admission kinsa
+    - kinsa mo talk admission
+    - asa ask admission
+    - admission question kinsa kontakon
+    - kinsa nag handle admission help
+    - admission help asa
+    - contact person admission
+    - kinsa mo assist admission
+    - admission support kinsa
+
+- synonym: requirements
+  examples: |
+    - needed
+    - documents
+    - requirements list
+    - req
+    - files
+    - papers
+    - docs
+    - files
+
+- synonym: freshman
+  examples: |
+    - new student
+    - first year
+    - freshie
+
+- synonym: transferee
+  examples: |
+    - transfer student
+    - transferee applicant
+    - transfer applicant
+
+- synonym: cutoff
+  examples: |
+    - cut off
+    - passing score
+    - passing rate
+    - required score
+    - minimum score
+    - rating
+    - percent
+
+- synonym: enrollment
+  examples: |
+    - enroll
+    - enrolling
+    - registration
+
+- synonym: visitor
+  examples: |
+    - guest
+    - outsider
+    - non student
+    - bisita
+
+- synonym: enter
+  examples: |
+    - go inside
+    - access
+    - visit
+    - sulod
+    - mosulod
+
+- synonym: graduation
+  examples: |
+    - graduate
+    - graduating
+    - grad
+
+- synonym: clearance
+  examples: |
+    - clear
+    - clearing
+    - sign off
+
+- synonym: contact
+  examples: |
+    - reach
+    - call
+    - message
+    - ask
+    - kontakon
+    - duolon
+
+- synonym: help
+  examples: |
+    - assistance
+    - support
+    - tabang
+    - guide
+
+- synonym: admission
+  examples: |
+    - admission testing
+    - admission process
+    - application
+    - entrance
+    - application
+    - apply
+
+- synonym: buksu
+  examples: |
+    - bukidnon state university
+    - bukidnon state
+    - bsu

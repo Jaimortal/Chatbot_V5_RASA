@@ -592,11 +592,6 @@ stories:
     - intent: health_services_unit_location_hours
     - action: action_reply_from_json
 
-- story: ask about transferee admission requirements
-  steps:
-    - intent: transferee_admission_requirements
-    - action: action_reply_from_json
-
 - story: ask about buksu admission facebook page
   steps:
     - intent: buksu_admission_facebook_page
@@ -995,4 +990,74 @@ stories:
 - story: ask about request tor process
   steps:
     - intent: request_tor_process
+    - action: action_reply_from_json
+
+- story: ask about guidance services
+  steps:
+    - intent: ask_guidance_services
+    - action: action_reply_from_json
+
+- story: ask about how to avail guidance
+  steps:
+    - intent: ask_how_to_avail_guidance
+    - action: action_reply_from_json
+
+- story: ask about guidance eligibility
+  steps:
+    - intent: ask_guidance_eligibility
+    - action: action_reply_from_json
+
+- story: ask about guidance schedule
+  steps:
+    - intent: ask_guidance_schedule
+    - action: action_reply_from_json
+
+- story: ask about guidance fee
+  steps:
+    - intent: ask_guidance_fee
+    - action: action_reply_from_json
+
+- story: ask about buksu presidents list
+  steps:
+    - intent: buksu_presidents_list
+    - action: action_reply_from_json
+
+- story: ask about freshmen application period
+  steps:
+    - intent: freshmen_application_period
+    - action: action_reply_from_json
+
+- story: ask about freshman admission requirements
+  steps:
+    - intent: freshman_admission_requirements
+    - action: action_reply_from_json
+
+- story: ask about transferee admission requirements
+  steps:
+    - intent: transferee_admission_requirements
+    - action: action_reply_from_json
+
+- story: ask about program cutoff scores
+  steps:
+    - intent: program_cutoff_scores
+    - action: action_reply_from_json
+
+- story: ask about visitor campus access
+  steps:
+    - intent: visitor_campus_access
+    - action: action_reply_from_json
+
+- story: ask about enrollment documents
+  steps:
+    - intent: enrollment_documents
+    - action: action_reply_from_json
+
+- story: ask about graduating clearance requirements
+  steps:
+    - intent: graduating_clearance_requirements
+    - action: action_reply_from_json
+
+- story: ask about admission contact help
+  steps:
+    - intent: admission_contact_help
     - action: action_reply_from_json

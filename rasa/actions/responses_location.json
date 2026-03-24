@@ -2698,7 +2698,7 @@
       ],
       "imageUrls": []
     },
-    "Health & Services Building": {
+    "Health and Services Building": {
       "type": "building",
       "building": "Health & Services",
       "floor": "Ground Floor",
@@ -3327,6 +3327,276 @@
         ],
         "ceb": [
           "Business Affairs Office makita ra kini sa High School Laboratory Building ikaduhang andana"
+        ]
+      }
+    },
+    "Window 1 Scholarship and Financial Assistance": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "1st Floor",
+      "coordinates": [
+        681,
+        657
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Window 1 for Scholarship and Financial Assistance is on the 1st floor at the finance counter. I will pin it on the map."
+        ],
+        "ceb": [
+          "Ang Window 1 (Scholarship ug Financial Assistance) naa sa 1st floor sa finance counter. I‑pin nako kini sa mapa."
+        ]
+      }
+    },
+    "Window 2 Scholarship and Financial Assistance": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "1st Floor",
+      "coordinates": [
+        681,
+        650
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Window 2 for Scholarship and Financial Assistance is on the 1st floor beside Window 1. I will pin it on the map."
+        ],
+        "ceb": [
+          "Ang Window 2 (Scholarship ug Financial Assistance) naa sa 1st floor tupad sa Window 1. I‑pin nako kini sa mapa."
+        ]
+      }
+    },
+    "Windows 3 Assessment": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        681,
+        644
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Windows 3 (Assessment) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Windows 3 (Assessment) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Windows 4 Assessment": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        681,
+        637
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Windows 3 (Assessment) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Windows 3 (Assessment) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Windows 5 Assessment": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        681,
+        635
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Windows 3 (Assessment) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Windows 3 (Assessment) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Window 6 Payroll Regular Satellite Campus": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        681,
+        634
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Window 6 (Payroll Regular Satellite Campus) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Window 6 (Payroll Regular Satellite Campus)  naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Window 7 Payroll Regular": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        689,
+        631
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Window 7 (Payroll Regular) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Window 7 (Payroll Regular) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Window 8 Payroll Regular and Casual": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        692,
+        633
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Window 8 (Payroll Regular & Casual) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Window 8 (Payroll Regular & Casual) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Window 9 Information": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        696,
+        632
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Window 9 (Information) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Window 9 (Information) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Window 03 Cashiers Office": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        700,
+        631
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Cashiers Office (Window 03) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Cashiers Office (Window 03) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Window 02 Budget Office": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        713,
+        632
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Budget Office (Window 02) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Budget Office (Window 02) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "Window 01 Finance and Management Division and Administrative Office": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        719,
+        632
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Finance and Management Division / Administrative Office (Window 01) Is located on the Ground floor at the assessment counter area of Finance Building. I'll provide some map for your navigation."
+        ],
+        "ceb": [
+          "Ang Finance and Management Division / Administrative Office (Window 01) naa sa unang andana sa assessment counter area sa Finance Building. Tagaan takag mapa para sa imong pag pangita."
+        ]
+      }
+    },
+    "CARES": {
+      "type": "office",
+      "building": "CPAG building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        712,
+        525
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Center for Advocacy and Well-Being Services (CARES) is located on the ground floor of the CPAG building, directly above the university canteen. Don’t worry, I will provide a map to help you navigate."
+        ],
+        "ceb": [
+          "Ang Center for Advocacy and Well-Being Services (CARES) nahimutang sa ground floor sa CPAG building, diretso ibabaw sa university canteen. Ayaw kabalaka, hatagan tika og mapa aron matabangan ka sa paglibot."
+        ]
+      }
+    },
+    "GE Department": {
+      "type": "office",
+      "building": "CPAG building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        735,
+        557
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The General Education Course Department (GE) is located on the ground floor of the CPAG building, near the exit."
+        ],
+        "ceb": [
+          "Ang General Education Course Department (GE) nahimutang sa ground floor sa CPAG building, duol sa exit."
+        ]
+      }
+    },
+    "Main Administration Building": {
+      "type": "building",
+      "building": "Administration Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        823,
+        639
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Administration Building is at the entrance; it is the first building you will see. I will also provide some maps so you can navigate the campus more easily."
+        ],
+        "ceb": [
+          "Ang Administration Building naa sa entrance; mao kini ang unang building nga imong makita. Hatagan pud tika og mga mapa aron mas sayon nimo malibot ang campus."
         ]
       }
     }

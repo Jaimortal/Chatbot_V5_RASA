@@ -591,14 +591,15 @@ LOCATION_ALIASES = {
     "bukidnon nursing building": "College of Nursing Building",
 
     # HEALTH & SERVICES BUILDING
-    "health & services building": "Health & Services Building",
-    "health and services building": "Health & Services Building",
-    "health services building": "Health & Services Building",
-    "health services": "Health & Services Building",
-    "health building": "Health & Services Building",
-    "services building": "Health & Services Building",
-    "health service center": "Health & Services Building",
-    "health services center": "Health & Services Building",
+    "health & services building": "Health and Services Building",
+    "health and services building": "Health and Services Building",
+    "health services building": "Health and Services Building",
+    "health services": "Health and Services Building",
+    "health building": "Health and Services Building",
+    "services building": "Health and Services Building",
+    "health service center": "Health and Services Building",
+    "health services center": "Health and Services Building",
+    "Health & Services Building": "Health and Services Building",
 
     # GYMNASIUM
     "gymnasium": "Gymnasium",
@@ -777,6 +778,98 @@ LOCATION_ALIASES = {
     "business affairs office": "Business Affairs Office",
     "business affairs": "Business Affairs Office",
     "bao": "Business Affairs Office",
+
+    # Windows 1–9 (Scholarship, Assessment, Payroll, Info)
+    # Window 1
+    "window 1": "Window 1 Scholarship and Financial Assistance",
+    "window one": "Window 1 Scholarship and Financial Assistance",
+    "finance window 1": "Window 1 Scholarship and Financial Assistance",
+    "scholarship window": "Window 1 Scholarship and Financial Assistance",
+    "financial assistance window": "Window 1 Scholarship and Financial Assistance",
+
+    # Window 2
+    "window 2": "Window 2 Scholarship and Financial Assistance",
+    "window two": "Window 2 Scholarship and Financial Assistance",
+    "finance window 2": "Window 2 Scholarship and Financial Assistance",
+    "scholarship window 2": "Window 2 Scholarship and Financial Assistance",
+
+    # Window 3
+    "window 3": "Windows 3 Assessment",
+    "window three": "Windows 3 Assessment",
+    "finance window 3": "Windows 3 Assessment",
+    "assessment window": "Windows 3 Assessment",
+
+    # Window 4
+    "window 4": "Windows 4 Assessment",
+    "window four": "Windows 4 Assessment",
+    "finance window 4": "Windows 4 Assessment",
+
+    # Window 5
+    "window 5": "Windows 5 Assessment",
+    "window five": "Windows 5 Assessment",
+    "finance window 5": "Windows 5 Assessment",
+
+    # Window 6
+    "window 6": "Window 6 Payroll Regular Satellite Campus",
+    "finance window 6": "Window 6 Payroll Regular Satellite Campus",
+    "payroll satellite": "Window 6 Payroll Regular Satellite Campus",
+
+    # Window 7
+    "window 7": "Window 7 Payroll Regular",
+    "finance window 7": "Window 7 Payroll Regular",
+    "payroll regular": "Window 7 Payroll Regular",
+
+    # Window 8
+    "window 8": "Window 8 Payroll Regular and Casual",
+    "finance window 8": "Window 8 Payroll Regular and Casual",
+    "Window 8 Payroll Regular & Casual": "Window 8 Payroll Regular and Casual",
+    "payroll regular and casual": "Window 8 Payroll Regular and Casual",
+
+    # Window 9
+    "window 9": "Window 9 Information",
+    "finance window 9": "Window 9 Information",
+    "information window": "Window 9 Information",
+    "info window": "Window 9 Information",
+
+    # Cashier
+    "cashiers office": "Window 03 Cashiers Office",
+    "Window 03": "Window 03 Cashiers Office",
+    "cashier": "Window 03 Cashiers Office",
+    "cashier office": "Window 03 Cashiers Office",
+
+    # Budget
+    "budget office": "Window 02 Budget Office",
+    "Window 02": "Window 02 Budget Office",
+    "budget": "Window 02 Budget Office",
+
+    # Finance / Admin
+    "finance office": "Window 01 Finance and Management Division and Administrative Office",
+    "administrative office": "Window 01 Finance and Management Division and Administrative Office",
+    "admin office": "Window 01 Finance and Management Division and Administrative Office",
+    "admin": "Window 01 Finance and Management Division and Administrative Office",
+    "Window 01": "Window 01 Finance and Management Division and Administrative Office",
+
+    "cares": "CARES",
+    "office of advocacy": "CARES",
+    "center for advocacy": "CARES",
+    "center for advocacy and well being services": "CARES",
+
+    "ge department": "GE Department",
+    "General Education Courses Department": "GE Department",
+    "general education department": "GE Department",
+    "general education courses": "GE Department",
+    "general education department courses": "GE Department",
+    "general education courses department": "GE Department",
+
+    "main administration building": "Main Administration Building",
+    "administration building": "Main Administration Building",
+    "admin building": "Main Administration Building",
+    "admin bldg": "Main Administration Building",
+    "admin": "Main Administration Building",
+    "main admin building": "Main Administration Building",
+    "administration": "Main Administration Building",
+    "main admin": "Main Administration Building"
+
 }
 
 
