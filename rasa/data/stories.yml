@@ -7,6 +7,11 @@ stories:
     - intent: greet
     - action: utter_greet
 
+- story: asking about the library informations books and other related to library
+  steps:
+    - intent: ask_library_info
+    - action: action_reply_from_json
+
 - story: ict info
   steps:
     - intent: about_ict
@@ -697,16 +702,6 @@ stories:
     - intent: second_courser_cat_application
     - action: action_reply_from_json
 
-- story: ask about library book borrowing rules
-  steps:
-    - intent: library_book_borrowing_rules
-    - action: action_reply_from_json
-
-- story: ask about library late return penalty
-  steps:
-    - intent: library_late_return_penalty
-    - action: action_reply_from_json
-
 - story: ask about oss no noon break policy
   steps:
     - intent: oss_no_noon_break_policy
@@ -789,7 +784,7 @@ stories:
 
 - story: ask about buksu hymn
   steps:
-    - intent: buksu_hymn
+    - intent: buksu_hymn_lyrics
     - action: action_reply_from_json
 
 - story: ask about second courser requirements
@@ -840,11 +835,6 @@ stories:
 - story: ask about good moral certificate request
   steps:
     - intent: good_moral_certificate_request
-    - action: action_reply_from_json
-
-- story: ask about buksu library hours
-  steps:
-    - intent: buksu_library_hours
     - action: action_reply_from_json
 
 - story: ask about student assistant application
@@ -900,36 +890,6 @@ stories:
 - story: ask about new student orientation purpose
   steps:
     - intent: new_student_orientation_purpose
-    - action: action_reply_from_json
-
-- story: ask about library id card location
-  steps:
-    - intent: library_id_card_location
-    - action: action_reply_from_json
-
-- story: ask about library id card payment
-  steps:
-    - intent: library_id_card_payment
-    - action: action_reply_from_json
-
-- story: ask about library id card requirements
-  steps:
-    - intent: library_id_card_requirements
-    - action: action_reply_from_json
-
-- story: ask about library borrow books
-  steps:
-    - intent: library_borrow_books
-    - action: action_reply_from_json
-
-- story: ask about library return books
-  steps:
-    - intent: library_return_books
-    - action: action_reply_from_json
-
-- story: ask about library available books info
-  steps:
-    - intent: library_available_books_info
     - action: action_reply_from_json
 
 - story: ask about library thesis availability
@@ -1012,11 +972,6 @@ stories:
     - intent: ask_guidance_schedule
     - action: action_reply_from_json
 
-- story: ask about guidance fee
-  steps:
-    - intent: ask_guidance_fee
-    - action: action_reply_from_json
-
 - story: ask about buksu presidents list
   steps:
     - intent: buksu_presidents_list
@@ -1060,4 +1015,24 @@ stories:
 - story: ask about admission contact help
   steps:
     - intent: admission_contact_help
+    - action: action_reply_from_json
+
+- story: ask about buksu courses offered
+  steps:
+    - intent: buksu_courses_offered
+    - action: action_reply_from_json
+
+- story: ask about buksu non board courses
+  steps:
+    - intent: buksu_non_board_courses
+    - action: action_reply_from_json
+
+- story: ask about buksu board courses
+  steps:
+    - intent: buksu_board_courses
+    - action: action_reply_from_json
+
+- story: ask about cat exam result
+  steps:
+    - intent: cat_exam_result
     - action: action_reply_from_json

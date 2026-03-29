@@ -1,0 +1,117 @@
+{
+  "intent": "ask_library_info",
+  "category": "Library Services",
+  "entities": ["topic", "library_item"],
+  "topics": [
+    {
+      "topic": "borrowing_rules",
+      "responses": {
+        "en": [
+          "Students can borrow a maximum of five books per week from the BukSU Library.",
+          "Borrowers must present a barcoded library card.",
+          "Some materials like reserve books, encyclopedias, and theses are only for inside reading and photocopying."
+        ],
+        "ceb": [
+          "Ang mga estudyante pwede mohulam og hangtod lima ka libro matag semana sa BukSU Library.",
+          "Kinahanglan ipakita ang barcoded library card.",
+          "Ang ubang materyales sama sa reserve books, encyclopedias ug thesis para lamang sa inside reading o photocopy."
+        ]
+      }
+    },
+    {
+      "topic": "late_return_penalty",
+      "responses": {
+        "en": [
+          "Students who fail to return borrowed materials on time will face fines.",
+          "For books rented from the Book Center for a semester, the penalty for unreturned items is one hundred pesos."
+        ],
+        "ceb": [
+          "Ang mga estudyante nga mapakyas sa pag uli sa mga libro sa saktong oras multahan.",
+          "Para sa mga libro gikan sa Book Center ang multa sa wala nauli nga libro kay usa ka gatus ka pesos."
+        ]
+      }
+    },
+    {
+      "topic": "library_hours",
+      "responses": {
+        "en": [
+          "The University Library is generally open from Monday to Friday from 8 AM to 5 PM, though hours may extend during examination weeks."
+        ],
+        "ceb": [
+          "Ang University Library kasagaran bukas gikan Lunes hangtod Biyernes gikan alas 8 sa buntag hangtod alas 5 sa hapon, apan mahimong ma extend ang oras inig panahon sa exam."
+        ]
+      }
+    },
+    {
+      "topic": "id_card",
+      "subtopics": [
+        {
+          "topic": "location",
+          "responses": {
+            "en": [
+              "There is no online process for getting a library ID card. Go to the 2nd floor of the library building and ask any staff member there."
+            ],
+            "ceb": [
+              "Walay online process sa pag kuha og library id card. Adto sa ikaduhang andana sa building sa librarya ug pangutana sa bisan kinsa nga staff didto."
+            ]
+          }
+        },
+        {
+          "topic": "requirements",
+          "responses": {
+            "en": [
+              "You need to bring your COR as proof that you are a student at Bukidnon State University and also bring a pen."
+            ],
+            "ceb": [
+              "Kinahanglan nimo dad on ang imong COR isip pamatuod nga estudyante ka sa Bukidnon State University ug pagdala usab og bolpen."
+            ]
+          }
+        },
+        {
+          "topic": "payment",
+          "responses": {
+            "en": [
+              "Depending on what is indicated in your COR, usually you do not need to pay for a library ID card unless you plan to borrow books."
+            ],
+            "ceb": [
+              "Depende sa nakabutang sa imong COR, kasagaran dili na kinahanglan mubayad para sa library ID card gawas kung plano nimo manghulam og libro."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "topic": "borrow_books",
+      "responses": {
+        "en": [
+          "To borrow a book, bring your library ID card and ask any staff member for assistance. Also bring a pen to fill out the necessary details."
+        ],
+        "ceb": [
+          "Aron makahulam og libro, kinahanglan nimo dad on ang imong library ID card ug mangutana sa bisan kinsang staff para sa tabang. Ayaw kalimti pagdala og bolpen aron mapunan ang mga detalye."
+        ]
+      }
+    },
+    {
+      "topic": "return_books",
+      "responses": {
+        "en": [
+          "To return books, bring your library ID card and ask any staff member inside the library for assistance. You can also use the machine outside the library which has a guide on how to return books."
+        ],
+        "ceb": [
+          "Aron ibalik ang mga libro, dad-a ang imong library ID card ug pangutana sa bisan kinsang staff sulod sa librarya para sa tabang. Pwede usab nimo gamiton ang makina sa gawas sa librarya nga adunay giya kung giunsa pagbalik sa mga libro."
+        ]
+      }
+    },
+    {
+      "topic": "available_books",
+      "responses": {
+        "en": [
+          "The library regularly updates its collection, so availability of books may change. For more information, visit the university library and ask staff on each floor for assistance."
+        ],
+        "ceb": [
+          "Ang librarya pirmi nag-update sa ilang koleksyon, busa ang availability sa mga libro mahimong mag-usab. Para sa dugang kasayuran, adto sa university library ug mangutana sa staff sa matag andana para sa tabang."
+        ]
+      }
+    }
+  ]
+}

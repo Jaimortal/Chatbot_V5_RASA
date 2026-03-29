@@ -163,6 +163,14 @@ LOCATION_ALIASES = {
     "cpag faculty room": "CPAG Faculty Room",
     
     "bsn faculty": "BSN Faculty Room",
+    "CON faculty": "BSN Faculty Room",
+    "con faculty": "BSN Faculty Room",
+    "college of nursing faculty office": "BSN Faculty Room",
+    "college of nursing faculty": "BSN Faculty Room",
+    "con faculty office": "BSN Faculty Room",
+    "faculty room of con": "BSN Faculty Room",
+    "faculty of CON": "BSN Faculty Room",
+    "faculty of college of nursing": "BSN Faculty Room",
     "bsn faculty room": "BSN Faculty Room",
     "nursing faculty": "BSN Faculty Room",
     
@@ -188,8 +196,11 @@ LOCATION_ALIASES = {
     "finance bldg": "Finance Building",
     
     "cpag building": "CPAG Building",
+    "building sa cpag": "CPAG Building",
+    "building cpag": "CPAG Building",
     
     "college of business building": "College of Business Building",
+    "cob buildin": "College of Business Building",
     "cob building": "College of Business Building",
     "cob na building": "College of Business Building",
     "Building of Cob ": "College of Business Building",
@@ -228,6 +239,8 @@ LOCATION_ALIASES = {
     "dorm sa mga laki": "Mahogany Dorm",
     "pang lalaki na dorm": "Mahogany Dorm",
     "lalaki nga dorm": "Mahogany Dorm",
+    "lalaki nga dormitory": "Mahogany Dorm",
+    "laki nga dormitory": "Mahogany Dorm",
 
     "female dorm": "Rubia Dorm",
     "rubia dorm": "Rubia Dorm",
@@ -245,7 +258,10 @@ LOCATION_ALIASES = {
     "dorm sa mga bae": "Rubia Dorm",
     "pang babae na dorm": "Rubia Dorm",
     "babae nga dorm": "Rubia Dorm",
-
+    "baba-e nga dorm": "Rubia Dorm",
+    "bae nga dorm": "Rubia Dorm",
+    "baba-e nga dormitory": "Rubia Dorm",
+    
     "kilala dorm": "Kilala Dorm",
     "kilalas dorm": "Kilala Dorm",
     "kilalas doorm": "Kilala Dorm",
@@ -269,7 +285,10 @@ LOCATION_ALIASES = {
     
     "cafeteria": "Cafeteria",
     "university cafeteria": "Cafeteria",
-    "canteen": "Cafeteria",
+
+    "Canteen": "Canteen",
+    "canteen": "Canteen",
+    "canten": "Canteen",
     
     "gym": "Fitness Gym",
     "fitness gym": "Fitness Gym",
@@ -538,6 +557,10 @@ LOCATION_ALIASES = {
     "cob 4th floor students organization": "COB 4th Floor Students Organization",
     "students organization cob 4th floor": "COB 4th Floor Students Organization",
     "cob 4th floor so": "COB 4th Floor Students Organization",
+    "cob SBO office": "COB 4th Floor Students Organization",
+    "cob student body organization office": "COB 4th Floor Students Organization",
+    "cob student body organization": "COB 4th Floor Students Organization",
+    "cob SBO room": "COB 4th Floor Students Organization",
 
 
     # New data
@@ -589,6 +612,10 @@ LOCATION_ALIASES = {
     "college nursing": "College of Nursing Building",
     "nursing dept building": "College of Nursing Building",
     "bukidnon nursing building": "College of Nursing Building",
+    "con building": "College of Nursing Building",
+    "building of nursing": "College of Nursing Building",
+    "building of con": "College of Nursing Building",
+    
 
     # HEALTH & SERVICES BUILDING
     "health & services building": "Health and Services Building",
@@ -603,6 +630,8 @@ LOCATION_ALIASES = {
 
     # GYMNASIUM
     "gymnasium": "Gymnasium",
+    "gynasium": "Gymnasium",
+    "gymnasiom": "Gymnasium",
     "gym": "Gymnasium",
     "school gym": "Gymnasium",
     "campus gym": "Gymnasium",
@@ -843,7 +872,7 @@ LOCATION_ALIASES = {
     "budget": "Window 02 Budget Office",
 
     # Finance / Admin
-    "finance office": "Window 01 Finance and Management Division and Administrative Office",
+    "Finance and Management Division": "Window 01 Finance and Management Division and Administrative Office",
     "administrative office": "Window 01 Finance and Management Division and Administrative Office",
     "admin office": "Window 01 Finance and Management Division and Administrative Office",
     "admin": "Window 01 Finance and Management Division and Administrative Office",
@@ -868,9 +897,317 @@ LOCATION_ALIASES = {
     "admin": "Main Administration Building",
     "main admin building": "Main Administration Building",
     "administration": "Main Administration Building",
-    "main admin": "Main Administration Building"
+    "main admin": "Main Administration Building",
+
+    "Guidance Office": "Guidance Office",
+    "guidance": "Guidance Office",
+    "office of the guidance": "Guidance Office",
+    "guidance department": "Guidance Office",
 
 }
+
+# Library topic patterns for detecting specific library-related questions
+# Structure: each topic has phrases (exact match), strong_keywords (high weight), 
+# weak_keywords (low weight), and required_context (must exist for match)
+LIBRARY_TOPIC_PATTERNS = {
+    "borrowing_rules": {
+        "phrases": [
+            "how many books can i borrow",
+            "how many books i can borrow",
+            "how many books may i borrow",
+            "maximum books",
+            "maximum books i can borrow",
+            "many of the books i can borrow",
+            "borrowing rules",
+            "borrow from the library",
+            "library borrowing rules",
+            "pila ka libro pwede hulamon",
+            "pwede ko makaborrow pila ka libro"
+        ],
+        "strong_keywords": ["borrow", "many", "limit", "pila", "pwede", "hulamon"],
+        "weak_keywords": ["books", "library", "libro", "many"],
+        "required_context": []
+    },
+    "late_return_penalty": {
+        "phrases": [
+            "late return",
+            "penalty",
+            "fine",
+            "overdue",
+            "multa",
+            "na late ug uli",
+            "i uli og dugay",
+            "i uli ang libro og dugay",
+            "dugay na uli",
+            "dugay nauli ang libro",
+        ],
+        "strong_keywords": ["late", "penalty", "fine", "overdue", "multa", "dugay", "uli"],
+        "weak_keywords": ["return", "book", "libro"],
+        "required_context": []
+    },
+    "library_hours": {
+        "phrases": [
+            "library hours",
+            "what time does the library open",
+            "what time library closed",
+            "when is the library open",
+            "open ang library",
+            "unsa oras open ang library",
+            "abri og sira ang library"
+        ],
+        "strong_keywords": ["hours", "time", "open", "closed", "abri", "sira", "oras"],
+        "weak_keywords": ["library", "when"],
+        "required_context": []
+    },
+    "library_id_card_location": {
+        "phrases": [
+            "where to get library id",
+            "where can i get library id",
+            "asa makakuha ug library id",
+            "library id location",
+            "getting library id",
+            "process of getting library id",
+            "how to get library id",
+            "unsaon pagkuha og library id",
+            "process sa library id",
+            "kuha og library id"
+        ],
+        "strong_keywords": ["where", "location", "asa", "process", "getting", "kuha", "unsaon"],
+        "weak_keywords": ["library", "id", "card"],
+        "required_context": ["library_id"]  # Must have library + id context
+    },
+    "library_id_card_requirements": {
+        "phrases": [
+            "requirements for library id",
+            "what do i need for library id",
+            "unsa kailangan para sa library id",
+            "requirements sa library id",
+            "needed for library id",
+            "kinahanglan para sa library id"
+        ],
+        "strong_keywords": [
+            "requirements", "needed", "kailangan", "kinahanglan", "bring",
+            "documents", "document", "needs", "cor"
+        ],
+        "weak_keywords": ["library", "id", "card", "for"],
+        "required_context": ["library_id"]
+    },
+    "library_id_card_payment": {
+        "phrases": [
+            "pay for library id",
+            "library id payment",
+            "how much is library id",
+            "bayad sa library id",
+            "presyo sa library id",
+            "pila ang bayad sa library id"
+        ],
+        "strong_keywords": 
+        [
+            "payment", "pay", "how much", "bayad", 
+            "presyo", "cost", "price", "pila"
+        ],
+        "weak_keywords": ["library", "id", "card", "for"],
+        "required_context": ["library_id"]
+    },
+    "borrow_books": {
+        "phrases": [
+            "how do i borrow books",
+            "borrow books",
+            "how to borrow",
+            "borrow a books",
+            "hulam og libro",
+            "how can i borrow some books on the library"
+        ],
+        "strong_keywords": ["borrow", "hulam"],
+        "weak_keywords": ["books", "how", "libro", "some"],
+        "required_context": []
+    },
+    "return_books": {
+        "phrases": [
+            "how do i return books",
+            "return books",
+            "uli sa libro"
+            "how can i return some books"
+            "book return"
+        ],
+        "strong_keywords": ["return", "uli", "returnment" "paguli"],
+        "weak_keywords": ["books", "how", "libro", "some"],
+        "required_context": []
+    },
+    "available_books": {
+        "phrases": [
+            "available books",
+            "are there books",
+            "naa bay libro",
+            "book available",
+            "libro nga available",
+            "libro nga pwedi ma hulman"
+            "what books are available"
+            "books that is available in the library"
+            "what books possibly i can borrow"
+        ],
+        "strong_keywords": ["available", "list", "naa", "pwedi", "ma hulman", "mahulman", "borrowed" ],
+        "weak_keywords": ["books", "libro", "there", "are", "possibly", "can", ],
+        "required_context": []
+    }
+}
+
+# Weak/common words that should score lower to avoid false matches
+WEAK_COMMON_WORDS = {
+    "get", "getting", "got", "the", "a", "an", "is", "are", "was", "were",
+    "be", "been", "being", "have", "has", "had", "do", "does", "did",
+    "will", "would", "could", "should", "may", "might", "must",
+    "can", "cant", "cannot", "to", "of", "in", "on", "at", "by",
+    "for", "with", "about", "against", "between", "into", "through",
+    "during", "before", "after", "above", "below", "from", "up", "down",
+    "out", "off", "over", "under", "again", "further", "then", "once",
+    "here", "there", "when", "where", "why", "how", "all", "any",
+    "both", "each", "few", "more", "most", "other", "some", "such",
+    "no", "nor", "not", "only", "own", "same", "so", "than", "too",
+    "very", "just", "and", "but", "if", "or", "because", "as", "until",
+    "while", "this", "that", "these", "those", "i", "me", "my", "myself",
+    "we", "our", "you", "your", "he", "him", "his", "she", "her",
+    "it", "its", "they", "them", "their", "what", "which", "who",
+    "whom", "whose", "this", "that", "am", "are", "was", "were",
+    # Cebuano common words
+    "ug", "sa", "ng", "ang", "si", "ni", "kay", "nga", "mga", "pag",
+    "ako", "ikaw", "siya", "kita", "kami", "sila", "mao", "diay"
+}
+
+# Strong context identifiers for library ID subtopics (must be present for ID card topics)
+LIBRARY_ID_CONTEXT = {"library", "id", "card", "libraryid", "schoolid"}
+
+
+def _has_library_id_context(text: str) -> bool:
+    """Check if text contains library ID context (both 'library' and 'id' nearby)."""
+    text_lower = text.lower()
+    # Check for compound forms first
+    if "libraryid" in text_lower or "library id" in text_lower or "schoolid" in text_lower:
+        return True
+    # Check for both words in close proximity (within 5 words)
+    words = re.findall(r'\b\w+\b', text_lower)
+    for i, word in enumerate(words):
+        if word in ("library", "school"):
+            # Look for "id" or "card" within next 3 words
+            window = words[i:min(i+4, len(words))]
+            if any(w in ("id", "card") for w in window):
+                return True
+        if word in ("id", "card"):
+            # Look for "library" or "school" within previous 3 words
+            start = max(0, i-3)
+            window = words[start:i+1]
+            if any(w in ("library", "school") for w in window):
+                return True
+    return False
+
+
+def _check_required_context(text: str, required_context: List[str]) -> bool:
+    """Check if text contains all required context markers."""
+    if not required_context:
+        return True
+    
+    for context in required_context:
+        if context == "library_id":
+            if not _has_library_id_context(text):
+                return False
+    return True
+
+
+def _calculate_topic_score(text: str, topic_data: Dict[str, Any]) -> float:
+    """
+    Calculate a matching score for a topic based on:
+    - Exact phrase matches (highest priority)
+    - Strong keyword matches (high weight)
+    - Weak keyword matches (low weight)
+    - Penalty for weak/common words
+    """
+    text_lower = text.lower()
+    words = set(re.findall(r'\b\w+\b', text_lower))
+    
+    # Check exact phrases first - return max score if found
+    phrases = topic_data.get("phrases", [])
+    for phrase in phrases:
+        if phrase.lower() in text_lower:
+            return 100.0  # Exact phrase match = highest score
+    
+    # Calculate keyword-based score
+    score = 0.0
+    
+    # Strong keywords: +3 points each (these are topic-specific)
+    strong_keywords = topic_data.get("strong_keywords", [])
+    for keyword in strong_keywords:
+        keyword_lower = keyword.lower()
+        if keyword_lower in text_lower:
+            score += 3.0
+        # Also check if any word contains this keyword
+        elif any(keyword_lower in word for word in words):
+            score += 2.5
+    
+    # Weak keywords: +1 point each (common across topics)
+    weak_keywords = topic_data.get("weak_keywords", [])
+    for keyword in weak_keywords:
+        if keyword.lower() in text_lower:
+            score += 1.0
+    
+    # Penalty for weak/common words (they dilute specificity)
+    common_word_count = sum(1 for word in words if word in WEAK_COMMON_WORDS)
+    if common_word_count > 0:
+        score -= common_word_count * 0.1
+    
+    return max(0, score)
+
+
+def detect_topic(text: str, topic_patterns: Dict[str, Any]) -> Optional[str]:
+    """
+    Detects the topic from user text using smart scoring.
+    
+    Scoring system:
+    - Exact phrase match: 100 (immediate return)
+    - Strong keywords: +3 each (topic-specific words)
+    - Weak keywords: +1 each (common words)
+    - Common words penalty: -0.1 each
+    - Required context must be present for certain topics
+    
+    Returns the topic key with highest score above threshold, or None.
+    """
+    if not text or not text.strip():
+        return None
+    
+    text_lower = text.lower()
+    best_topic = None
+    best_score = 0.0
+    min_score_threshold = 2.0  # Minimum score to be considered a match
+    
+    # Collect all scores for potential tie-breaking
+    topic_scores = []
+    
+    for topic, topic_data in topic_patterns.items():
+        # Check required context first (e.g., must have "library id" for ID topics)
+        required_context = topic_data.get("required_context", [])
+        if not _check_required_context(text_lower, required_context):
+            continue
+        
+        # Calculate score for this topic
+        score = _calculate_topic_score(text_lower, topic_data)
+        
+        if score > 0:
+            topic_scores.append((topic, score))
+        
+        # Track best match
+        if score > best_score:
+            best_score = score
+            best_topic = topic
+    
+    # Debug logging (remove in production if desired)
+    if topic_scores:
+        sorted_scores = sorted(topic_scores, key=lambda x: x[1], reverse=True)
+        print(f"DEBUG - Topic scores: {sorted_scores[:3]}")  # Top 3
+    
+    # Return best topic if it meets threshold
+    if best_score >= min_score_threshold:
+        return best_topic
+    
+    return None
 
 
 # -------------------------
@@ -922,6 +1259,8 @@ class ActionReplyFromJsonHelper:
         self.responses = self._load_responses()
         self.location_responses_path = os.path.join(os.path.dirname(responses_path), "responses_location.json")
         self.location_responses = self._load_location_responses()
+        self.library_info_path = os.path.join(os.path.dirname(responses_path), "Library_info.json")
+        self.library_info = self._load_library_info()
         self.context = ConversationContext()
 
     def _load_location_responses(self) -> Dict[str, Any]:
@@ -945,6 +1284,17 @@ class ActionReplyFromJsonHelper:
         except json.JSONDecodeError as e:
             print(f"Error: Invalid JSON in responses.json - {e}")
             return []
+
+    def _load_library_info(self) -> Dict[str, Any]:
+        try:
+            with open(self.library_info_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except FileNotFoundError:
+            print(f"Error: Library_info.json not found at {self.library_info_path}")
+            return {}
+        except json.JSONDecodeError as e:
+            print(f"Error: Invalid JSON in Library_info.json - {e}")
+            return {}
 
     # -------------------------
     # Get Main Response
@@ -1445,6 +1795,80 @@ class ActionReplyFromJsonHelper:
         
         return result
 
+    def get_library_response(self, user_message: str) -> Dict[str, Any]:
+        """Get library info response based on detected topic from user message.
+        
+        Uses LIBRARY_TOPIC_PATTERNS to detect the specific topic and returns
+        the appropriate response from Library_info.json with language detection.
+        """
+        if not self.library_info:
+            return {"text": "I'm sorry, I don't have library information available at the moment."}
+        
+        # Detect topic from user message
+        detected_topic = detect_topic(user_message, LIBRARY_TOPIC_PATTERNS)
+        
+        if not detected_topic:
+            return {"text": "I'm sorry, I didn't understand your library question. Could you please rephrase it?"}
+        
+        # Map detected pattern topic to JSON topic structure
+        # Some patterns map to subtopics within "id_card"
+        topic_mapping = {
+            "library_id_card_location": ("id_card", "location"),
+            "library_id_card_requirements": ("id_card", "requirements"),
+            "library_id_card_payment": ("id_card", "payment"),
+        }
+        
+        # Get topic info from library_info JSON
+        topics = self.library_info.get("topics", [])
+        
+        # Check if detected topic maps to a subtopic
+        if detected_topic in topic_mapping:
+            main_topic, subtopic = topic_mapping[detected_topic]
+            # Find the main topic with subtopics
+            topic_entry = next((t for t in topics if t.get("topic") == main_topic), None)
+            if topic_entry and "subtopics" in topic_entry:
+                # Find the specific subtopic
+                subtopic_entry = next(
+                    (st for st in topic_entry["subtopics"] if st.get("topic") == subtopic), 
+                    None
+                )
+                if subtopic_entry:
+                    responses_data = subtopic_entry.get("responses", {})
+                else:
+                    return {"text": f"I'm sorry, I don't have information about {subtopic.replace('_', ' ')}."}
+            else:
+                return {"text": f"I'm sorry, I don't have information about {main_topic.replace('_', ' ')}."}
+        else:
+            # Direct topic lookup
+            topic_entry = next((t for t in topics if t.get("topic") == detected_topic), None)
+            if not topic_entry:
+                return {"text": f"I'm sorry, I don't have information about {detected_topic.replace('_', ' ')}."}
+            responses_data = topic_entry.get("responses", {})
+        
+        # Detect language for bilingual support
+        bisaya_words = [
+            "asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay",
+            "dako", "mao", "ug", "uy", "man", "gani", "diay", "sige", "kinahanglan",
+            "bisan", "sab", "gud", "pod", "wala", "naa", "ikaw", "ako", "unsaon",
+            "hulam", "uli", "libro", "bayad", "multa"
+        ]
+        user_words = user_message.lower().split()
+        is_bisaya = any(word in bisaya_words for word in user_words)
+        lang_key = "ceb" if is_bisaya else "en"
+        
+        # Get responses for detected language
+        responses = responses_data.get(lang_key)
+        if not responses:
+            responses = responses_data.get("en", [])
+        
+        # Combine all response lines
+        if isinstance(responses, list):
+            response_text = "\n".join(responses)
+        else:
+            response_text = str(responses)
+        
+        return {"text": response_text}
+
 
 # -------------------------
 # Rasa Actions
@@ -1783,6 +2207,14 @@ class ActionReplyFromJson(Action):
             else:
                 dispatcher.utter_message(text=response)
             
+            return []
+
+        # Library info lookup with topic detection
+        if intent == "ask_library_info":
+            response = self.helper.get_library_response(user_msg)
+            
+            if response.get("text"):
+                dispatcher.utter_message(text=response["text"])
             return []
 
         # ✨ FIX: if intent == ask_more → DO NOT call main response

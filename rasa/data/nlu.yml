@@ -2,6 +2,81 @@ version: "3.1"
 
 nlu:
 
+- intent: ask_library_info
+  examples: |
+    - How many books can I borrow from the library
+    - What is the borrowing book limit for student
+    - Is there a limit to how many books I can borrow?
+    - pila ka libro ang pwedi ma hulaman sa library
+    - unsay limit sa pag hulaman og libro sa library
+    - Can students borrow more than five books?
+    - Unsa ang rules sa panghulam og libro?
+    - pwedi bao maka hulam og daghan nga libro sa library?
+    - What is the penalty for late return of books
+    - what if i return the book on late time
+    - Who pays the penalty for unreturned items
+    - What happens if I don't return the book on time
+    - pwedi i uli og dugay ang libro sa library
+    - unsay mahitabo kung malangan ko ug balik sa libro
+    - maka bayad bako og akong i uli ang libro og dugay sa library
+    - unsay amount sa penalty para sa late return
+    - When is the University Library open
+    - When does the library open and close
+    - Are library facilities accessible after hours
+    - what time library cloesed 
+    - Kanusa bukas ang University Library
+    - Kanusa moabri ug mosira ang library
+    - kanusa manirado ang library
+    - Ma access ba ang mga pasilidad sa librarya human sa oras?
+    - where do i get library ID card
+    - where can i process my library id card
+    - Location on where can i get my library id
+    - what floor of library do i need to go to get my Library card
+    - asa manko maka kuha og id sa library
+    - asa ko mo adto para mag kuha og id sa library
+    - unsa nga floor sa library ko mo adto para mokuha og library card
+    - asa dapita ta mo kohag Id para sa library
+    - What are the requirements to get library id
+    - what do i need to bring to get library id card
+    - requirements need to get library card
+    - do i need requirements for getting library card
+    - unsay mga kinahanglang sapag kuha og library card
+    - mga kinahanglanon aron makakuha og library ID
+    - gakinahanglan batag mga requirements para lang sa library id card
+    - unsay dalon nako pag kuha og library card id
+    - Do i need to pay for library id card
+    - is library card need to be payed during the process
+    - where do i pay for my libray Id 
+    - is the library card free? 
+    - kinahanglan pabako mag bayad para sa library card
+    - asa ko magbayad para sa library id card
+    - naa pabay bayronon para sa library ID
+    - pilay mabayran sa library card
+    - how to borrow a book in library
+    - what do i need to do to borrow a book from library
+    - can i borrow a book in library
+    - where do go if i want to borrow a books
+    - unsaon nako pag hulam og libro sa library
+    - asa ko mo adto para mang hulam og libro
+    - pwedi ko maka hulam og libro sa library
+    - aha manta maka hulam og libro sa library
+    - what do i need to during the book returnment in library
+    - do i need to bring my library id card for book returnment
+    - what else do i need for returning my book on the library
+    - how do i return the book i borrowed in library
+    - unsay kinahanglan sa pag uli og libro sa library
+    - mga dalunon para sapag uli og libro sa 
+    - unsaon nako pag uli sa akong gi hulman nga libro
+    - asa nako dapit i uli ang libro nga gikan sa library
+    - what books i can borrow on the library?
+    - books available in the library
+    - what spacific books can be borrow on the library
+    - what books available in the library to borrow
+    - unsa nga books ang pwedi nako mahulman sa library
+    - unsa nga mga libro ang available diris library 
+    - unsay mga libro ang pwedi nako hulaman diris library
+    - mga libro nga pwedi nako mahulan
+
 - intent: about_ict
   examples: |
     - What is the ICT Services Unit in BukSU and what does it do
@@ -456,14 +531,6 @@ nlu:
     - admission test apply
     - exam unsaon
     - apply exam asa
-
-- synonym: exam
-  examples: |
-    - test
-    - CAT
-    - entrance exam
-    - admission test
-    - testing
 
 - intent: application_next_step
   examples: |
@@ -1115,6 +1182,8 @@ nlu:
     - Asa dapit ang [GE Department](location_name)
     - Show me the map for [Main Administration Building](location_name)
     - Pwede nimo ihatag ang mapa para sa [Main Administration Building](location_name)
+    - where [Guidance Office](location_name) location
+    - asa [Guidance Office](location_name) lokasyon
 
 - regex: location_name
   examples: |
@@ -3048,6 +3117,7 @@ nlu:
 
 - intent: inc_grade_solution
   examples: |
+    - What should i do if i have an INC grade
     - What does an INC grade mean for a subject
     - How can I complete my INC requirements
     - Can you explain the INC form process
@@ -3429,26 +3499,46 @@ nlu:
 
 - intent: lost_student_id_replacement_process
   examples: |
-    - What should I do if I lose my BukSU student identification card
-    - How can I replace a lost student identification card at BukSU
-    - What is the process for getting a new student identification card
-    - Where do I report a lost student identification card
-    - How do students request a replacement for a lost student identification card
-    - Do I need an affidavit of loss for a missing student identification card
-    - What office handles the replacement of student identification cards
-    - What steps are required to get a new BukSU identification card
-    - I lost my student identification card how can I get a replacement
-    - Where should I go if my BukSU identification card is missing
-    - Unsa ang buhaton kung mawala ang akong BukSU student identification card
-    - Giunsa pag replace ang nawala nga student identification card sa BukSU
-    - Unsa ang proseso sa pagkuha og bag ong student identification card
-    - Asa nako i report kung mawala ang akong student identification card
-    - Giunsa pag request sa estudyante og replacement sa nawala nga identification card
-    - Kinahanglan ba og affidavit of loss kung mawala ang student identification card
-    - Unsa nga opisina ang mo process sa replacement sa identification card
-    - Unsang mga lakang ang sundon aron makakuha og bag ong BukSU identification card
-    - Nawala ang akong student identification card unsaon nako pagkuha og bag o
-    - Asa ko moadto kung mawala ang akong BukSU identification card
+    - what should I do if I lose my BukSU student ID
+    - how can I replace my lost BukSU student ID
+    - what is the process for replacing a lost student ID in BukSU
+    - I lost my school ID how can I get a replacement
+    - what should I do if my BukSU ID is missing
+    - how do I apply for replacement of a lost student ID
+    - where do I report a lost BukSU student ID
+    - what are the steps to replace a lost school ID in BukSU
+    - do I need affidavit of loss for lost student ID
+    - how can I request a new ID if I lost my BukSU ID
+    - what office handles lost student ID replacement
+    - I lost my identification card how can I get a new one in BukSU
+    - what should I prepare if I lost my student ID
+    - how to process replacement for lost school ID in BukSU
+    - where should I go if I lost my BukSU ID
+    - what is the procedure for lost identification card replacement
+    - can I get a new student ID if I lost my original one
+    - unsa ang buhaton kung mawala ang akong BukSU student ID
+    - unsaon pag replace sa nawala nga student ID sa BukSU
+    - nawala akong school ID unsaon pagkuha og bag o
+    - unsa ang proseso sa replacement sa lost BukSU ID
+    - asa nako i report kung nawala akong student ID
+    - kinahanglan ba og affidavit of loss kung mawala ang student ID
+    - unsaon pag request og replacement sa nawala nga school ID
+    - unsay mga lakang kung mawala ang BukSU ID
+    - asa ko moadto kung mawala akong identification card
+    - nawala akong ID unsaon nako pagkuha og bag o
+    - unsa ang process sa lost ID replacement sa BukSU
+    - unsa ang kinahanglan buhaton para makakuha og bag ong ID kung nawala
+    - lost student ID BukSU
+    - replace lost school ID BukSU
+    - lost BukSU ID unsaon
+    - student ID lost process
+    - school ID replacement BukSU
+    - identification card lost BukSU
+
+- synonym: ID
+  examples: |
+    - student Identification card
+    
 - intent: continuing_students_enrollment_process
   examples: |
     - What is the enrollment process for continuing students at BukSU
@@ -3782,7 +3872,6 @@ nlu:
 - intent: contact_registrar_for_tor
   examples: |
     - How can I request my Transcript of Records at BukSU
-    - Where is the Registrar Office located
     - Can I send an inquiry to request TOR
     - What is the process to get my transcript from BukSU
     - How to contact the registrar for transcript of records
@@ -3792,7 +3881,6 @@ nlu:
     - Where can I request my TOR at BukSU
     - What is the official channel for requesting TOR
     - Giunsa pag request sa akong Transcript of Records sa BukSU
-    - Asa nahimutang ang Registrar Office
     - Pwede ba ko magpadala og inquiry para request sa TOR
     - Unsay proseso sa pagkuha sa transcript sa BukSU
     - Giunsa pag contact sa registrar para sa transcript of records
@@ -4193,52 +4281,6 @@ nlu:
     - Naay specific fee para sa second courser sa CAT
     - Laing process ba para sa second courser sa application
 
-- intent: library_book_borrowing_rules
-  examples: |
-    - How many books can a student borrow from BukSU Library
-    - What is the weekly borrowing limit for students
-    - Are barcoded library cards required
-    - Which books are restricted to inside reading
-    - Can students photocopy reserve books or encyclopedias
-    - What are the rules for borrowing theses
-    - How does BukSU Library handle borrowing materials
-    - Are there special rules for certain library books
-    - What identification is needed to borrow books
-    - How many items can I borrow at a time from the library
-    - Pila ka libro pwede ma borrow sa estudyante sa BukSU Library
-    - Unsay weekly borrowing limit para sa students
-    - Kinahanglan ba og barcoded library card
-    - Unsang books ang restricted para sa inside reading
-    - Pwede ba mo photocopy sa reserve books o encyclopedias
-    - Unsay rules sa pag borrow sa theses
-    - Giunsa pag handle sa BukSU Library ang borrowing materials
-    - Naay special rules para sa pipila ka libro sa library
-    - Unsay identification nga kinahanglan para mo borrow og libro
-    - Pila ka items pwede i borrow sa library sa usa ka panahon
-
-- intent: library_late_return_penalty
-  examples: |
-    - What happens if I return library books late
-    - Are there fines for late returns at BukSU Library
-    - How much is the penalty for unreturned semester books
-    - Does Book Center charge for overdue books
-    - Are students fined for not returning borrowed materials
-    - What is the late return fee at BukSU
-    - How does the library enforce penalties for late books
-    - Who pays the penalty for unreturned items
-    - Is there a fee for failing to return borrowed books on time
-    - Are fines collected for semester books not returned
-    - Unsay mahitabo kung ma late ang pag return sa library books
-    - Naay multa kung ma late sa BukSU Library
-    - Pila ang penalty sa wala nauli nga semester books
-    - Nag charge ba ang Book Center para sa overdue books
-    - Multahan ba ang estudyante kung dili mubalik sa gi borrow nga libro
-    - Unsay late return fee sa BukSU
-    - Giunsa pag enforce sa library ang penalties para sa late books
-    - Kinsa ang mobayad sa penalty sa wala nauli nga items
-    - Naay fee kung mapakyas sa timely return sa borrowed books
-    - Nakolekta ba ang fines para sa semester books nga wala nauli
-
 - intent: oss_no_noon_break_policy
   examples: |
     - Does OSS have a no noon break policy
@@ -4289,26 +4331,50 @@ nlu:
 
 - intent: buksu_academic_colleges
   examples: |
-    - What colleges are part of BukSU
-    - How many academic colleges does BukSU have
-    - Which colleges are under BukSU administration
-    - Is there a College of Law at BukSU
-    - Can you list all colleges in BukSU
-    - Are there technology and nursing colleges at BukSU
-    - Which college handles business programs
-    - What is included in BukSU academic structure
-    - Does BukSU have a College of Public Administration
-    - Which colleges can students enroll in at BukSU
-    - Unsang mga kolehiyo ang kabahin sa BukSU
-    - Pila ka academic colleges ang naa sa BukSU
-    - Unsang mga kolehiyo ang ubos sa BukSU administration
-    - Naay College of Law sa BukSU
-    - Pwede nimo i list tanan kolehiyo sa BukSU
-    - Naay technology ug nursing colleges sa BukSU
-    - Unsang college ang mo handle sa business programs
-    - Unsay naa sa BukSU academic structure
-    - Naay College of Public Administration sa BukSU
-    - Unsang mga kolehiyo pwede sudlan sa estudyante sa BukSU
+    - what are the colleges in BukSU
+    - list of colleges in BukSU
+    - can you list all colleges in BukSU
+    - what colleges does BukSU have
+    - show me the colleges in BukSU
+    - what are the academic colleges in BukSU
+    - give me the list of BukSU colleges
+    - BukSU colleges list
+    - what are the different colleges in BukSU
+    - can you show all BukSU colleges department
+    - what colleges are part of BukSU
+    - list all academic colleges in BukSU
+    - what are the colleges under BukSU
+    - what are the college departments in BukSU
+    - list of college departments in BukSU
+    - show BukSU college departments
+    - what colleges are available in BukSU
+    - can you give BukSU college list
+    - what are the university colleges in BukSU
+    - BukSU academic colleges list
+    - unsa ang mga kolehiyo sa BukSU
+    - lista sa mga kolehiyo sa BukSU
+    - pwede nimo ihatag ang lista sa kolehiyo sa BukSU
+    - unsa nga mga colleges sa BukSU
+    - ipakita ang mga kolehiyo sa BukSU
+    - BukSU colleges listahan
+    - unsa ang academic colleges sa BukSU
+    - unsa ang lain lain nga kolehiyo sa BukSU
+    - ipakita tanan kolehiyo sa BukSU
+    - unsa nga mga kolehiyo ang kabahin sa BukSU
+    - lista tanan academic colleges sa BukSU
+    - unsa ang mga kolehiyo ubos sa BukSU
+    - unsa ang mga college departments sa BukSU
+    - lista sa college departments sa BukSU
+    - ipakita ang BukSU college departments
+    - unsa nga kolehiyo available sa BukSU
+    - hatagi ko listahan sa BukSU colleges
+    - unsa ang university colleges sa BukSU
+    - BukSU academic colleges listahan
+
+- synonym: colleges
+  examples: |
+    - academic colleges
+    - university colleges
 
 - intent: smart_buksu_vision
   examples: |
@@ -4450,12 +4516,12 @@ nlu:
 
 - intent: update_student_portal_information
   examples: |
-    - How can I update my information on the student portal
+    - How can I update my information on the student admission
     - Where do I change my profile details
     - Can I edit my student info online
     - Do I need documents to change major or name
     - How to update personal details in BukSU portal
-    - Is there an edit option in the student portal
+    - Is there an edit option in the student admission
     - How to correct civil status on the portal
     - Can I update my contact information online
     - What steps to follow to update profile information
@@ -4608,34 +4674,50 @@ nlu:
     - Unsay procedure para sa official withdrawal
     - Giunsa pag penalize sa BukSU ang unofficial withdrawal
 
-- intent: buksu_hymn
+- intent: buksu_hymn_lyrics
   examples: |
-    - What is the BukSU Hymn
-    - When is the university hymn performed
-    - Does the hymn reflect BukSU values
-    - Can you sing the BukSU Hymn
-    - Is the hymn mandatory at ceremonies
-    - What is the meaning of BukSU Hymn
-    - Who composed the BukSU Hymn
-    - What occasions feature the hymn
-    - How is the hymn related to university culture
-    - Is the hymn part of student tradition
-    - Unsay BukSU Hymn
-    - Kanus-a ginakanta ang university hymn
-    - Nag reflect ba ang hymn sa BukSU values
-    - Pwede nimo kantaon ang BukSU Hymn
-    - Mandatory ba ang hymn sa ceremonies
-    - Unsay kahulugan sa BukSU Hymn
-    - Kinsa ang composer sa BukSU Hymn
-    - Unsang occasions ang nag feature sa hymn
-    - Giunsa pag relate ang hymn sa university culture
-    - Kabahin ba ang hymn sa student tradition
+    - can you give me the lyrics of the BukSU hymn
+    - what are the lyrics of BukSU hymn
+    - show me the BukSU hymn lyrics
+    - I want the lyrics of the BukSU hymn
+    - can you provide the lyrics of BukSU hymn
+    - can you send me the BukSU hymn lyrics
+    - what are the words of the BukSU hymn
+    - give me the BukSU hymn lyrics
+    - can I see the lyrics of the BukSU hymn
+    - please show the lyrics of BukSU hymn
+    - I want to read the BukSU hymn lyrics
+    - can you share the BukSU hymn lyrics
+    - where can I find the BukSU hymn lyrics
+    - do you have the lyrics of BukSU hymn
+    - can you give the full lyrics of BukSU hymn
+    - I need the BukSU hymn lyrics
+    - show me the words of BukSU hymn
+    - can you provide the full lyrics of BukSU hymn
+    - give me the full BukSU hymn lyrics
+    - BukSU hymn lyrics please
+    - unsa ang lyrics sa BukSU hymn
+    - pwede nimo ihatag ang lyrics sa BukSU hymn
+    - ipakita ang lyrics sa BukSU hymn
+    - gusto ko makabalo sa lyrics sa BukSU hymn
+    - pwede ko makakita sa lyrics sa BukSU hymn
+    - ihatag ang lyrics sa BukSU hymn
+    - unsa ang mga words sa BukSU hymn
+    - asa nako makita ang lyrics sa BukSU hymn
+    - naa ba kay lyrics sa BukSU hymn
+    - pwede nimo i send ang lyrics sa BukSU hymn
+    - unsa ang full lyrics sa BukSU hymn
+    - ihatag ang full lyrics sa BukSU hymn
+    - gusto ko basahon ang lyrics sa BukSU hymn
+    - pwede nimo i share ang lyrics sa BukSU hymn
+    - asa makita ang lyrics sa BukSU hymn
+
+
 
 - intent: second_courser_requirements
   examples: |
     - What are requirements for second coursers
     - Do second coursers need a Transcript of Records
-    - Is a 2x2 ID picture required
     - How much is the admission test fee
     - Are second coursers covered by Free Higher Education law
     - Can second coursers apply for undergraduate programs
@@ -4860,28 +4942,6 @@ nlu:
     - Kinahanglan ba kini para sa graduation
     - Giunsa pag submit ang bayad para sa Good Moral Certificate
 
-- intent: buksu_library_hours
-  examples: |
-    - What are the University Library hours
-    - Is the library open on weekends
-    - Can students stay late during exams
-    - When does the library open and close
-    - Are there extended hours for exam weeks
-    - How to check library schedule
-    - Are library facilities accessible after hours
-    - Can staff use library during off-hours
-    - What is the library opening time
-    - How long is the library open each day
-    - Unsay oras sa University Library
-    - Bukas ba ang library sa weekends
-    - Pwede ba magpabilin ang estudyante sa library during exams
-    - Kanus-a magsugod ug magtapos ang library
-    - Naay extended hours sa panahon sa exam
-    - Giunsa pag check sa library schedule
-    - Accessible ba ang library facilities after hours
-    - Pwede ba ang staff mo gamit sa library sa off-hours
-    - Unsay oras sa pag open sa library
-    - Pila ka oras ang library bukas kada adlaw
 
 - intent: student_assistant_application
   examples: |
@@ -4954,112 +5014,41 @@ nlu:
 
 - intent: buksu_official_anthem
   examples: |
-    - What is the official anthem of BukSU?
-    - What is the BukSU Hymn?
-    - What is the BukSU anthem?
-    - When is the BukSU Hymn performed?
-    - When is the BukSU anthem sung?
-    - Does the BukSU hymn reflect university values?
-    - Does the BukSU anthem reflect university values?
-    - Who composed the BukSU Hymn?
-    - Who wrote the BukSU anthem?
-    - Is the BukSU Hymn sung during ceremonies?
-    - Is the BukSU anthem sung during formal events?
-    - Can I listen to the BukSU Hymn online?
-    - Can I listen to the BukSU anthem online?
-    - What occasions feature the BukSU Hymn?
-    - What occasions feature the BukSU anthem?
-    - How important is the BukSU Hymn to university culture?
-    - How important is the BukSU anthem to university culture?
-    - Does BukSU have an official anthem?
-    - Does BukSU have an official hymn?
-    - How can I get the link to the BukSU Hymn?
-    - How can I get the link to the BukSU anthem?
-    - Is the BukSU Hymn part of university events?
-    - Is the BukSU anthem performed at university events?
-    - What events feature the BukSU hymn?
-    - What events feature the BukSU anthem?
-    - How often is the BukSU Hymn performed?
-    - How often is the BukSU anthem sung?
-    - Where can I hear the BukSU Hymn?
-    - Where can I hear the BukSU anthem?
-    - Can I find the BukSU Hymn on YouTube?
-    - Can I find the BukSU anthem online?
-    - Is the BukSU Hymn mandatory at ceremonies?
-    - Is the BukSU anthem mandatory during formal events?
-    - What does the BukSU Hymn represent?
-    - What does the BukSU anthem represent?
-    - Can I perform the BukSU Hymn during school events?
-    - Can I perform the BukSU anthem during events?
-    - Is there a video of the BukSU Hymn I can watch?
-    - Is there a video of the BukSU anthem I can watch?
-    - When should the BukSU Hymn be sung?
-    - When should the BukSU anthem be sung?
-    - Who are the people that sing the BukSU Hymn?
-    - Who are the people who perform the BukSU anthem?
-    - How can I learn the BukSU Hymn?
-    - How can I learn the BukSU anthem?
-    - Is the BukSU Hymn part of the graduation ceremony?
-    - Is the BukSU anthem part of the graduation ceremony?
-    - Where can I find the lyrics of the BukSU Hymn?
-    - Where can I find the lyrics of the BukSU anthem?
-    - Who composed the BukSU Anthem?
-    - When was the BukSU Hymn composed?
-    - What is the meaning of the BukSU Hymn?
-    - What is the meaning of the BukSU anthem?
-    - Unsay opisyal nga kanta sa BukSU?
-    - Unsay BukSU Hymn?
-    - Unsay BukSU anthem?
-    - Kanus-a ginakanta ang BukSU Hymn?
-    - Kanus-a ginakanta ang BukSU anthem?
-    - Nag reflect ba ang BukSU Hymn sa mga values sa unibersidad?
-    - Nag reflect ba ang BukSU anthem sa mga values sa unibersidad?
-    - Kinsa ang composer sa BukSU Hymn?
-    - Kinsa ang nagsulat sa BukSU anthem?
-    - Ginakanta ba ang BukSU Hymn sa mga ceremonies?
-    - Ginakanta ba ang BukSU anthem sa mga pormal nga okasyon?
-    - Pwede ba paminawon ang BukSU Hymn online?
-    - Pwede ba paminawon ang BukSU anthem online?
-    - Unsang okasyon ang nag feature sa BukSU Hymn?
-    - Unsang okasyon ang nag feature sa BukSU anthem?
-    - Unsa ka importante ang BukSU Hymn sa kultura sa unibersidad?
-    - Unsa ka importante ang BukSU anthem sa kultura sa unibersidad?
-    - Naay official anthem ang BukSU?
-    - Naay official hymn ang BukSU?
-    - Giunsa pagkuha ang link sa BukSU Hymn?
-    - Giunsa pagkuha ang link sa BukSU anthem?
-    - Apil ba ang BukSU Hymn sa mga unibersidad nga okasyon?
-    - Apil ba ang BukSU anthem sa mga formal nga okasyon?
-    - Unsang events ang nag feature sa BukSU Hymn?
-    - Unsang events ang nag feature sa BukSU anthem?
-    - Kanus-a kasagaran ginakanta ang BukSU Hymn?
-    - Kanus-a kasagaran ginakanta ang BukSU anthem?
-    - Asa ko makapaminaw sa BukSU Hymn?
-    - Asa ko makapaminaw sa BukSU anthem?
-    - Makita ba ang BukSU Hymn sa YouTube?
-    - Makita ba ang BukSU anthem online?
-    - Mandatory ba ang BukSU Hymn sa mga ceremonies?
-    - Mandatory ba ang BukSU anthem sa mga formal nga events?
-    - Unsay girepresenta sa BukSU Hymn?
-    - Unsay girepresenta sa BukSU anthem?
-    - Pwede ba nako i-perform ang BukSU Hymn sa school events?
-    - Pwede ba nako i-perform ang BukSU anthem sa events?
-    - Naay video sa BukSU Hymn nga pwede nako tan-awon?
-    - Naay video sa BukSU anthem nga pwede nako tan-awon?
-    - Kanus-a dapat ginakanta ang BukSU Hymn?
-    - Kanus-a dapat ginakanta ang BukSU anthem?
-    - Kinsa ang mga tao nga mag perform sa BukSU Hymn?
-    - Kinsa ang mag perform sa BukSU anthem?
-    - Giunsa nako pagkat-on sa BukSU Hymn?
-    - Giunsa nako pagkat-on sa BukSU anthem?
-    - Apil ba ang BukSU Hymn sa graduation ceremony?
-    - Apil ba ang BukSU anthem sa graduation ceremony?
-    - Asa ko makakita sa lyrics sa BukSU Hymn?
-    - Asa ko makakita sa lyrics sa BukSU anthem?
-    - Kinsa ang composer sa BukSU anthem?
-    - Kanus-a gi-compose ang BukSU Hymn?
-    - Unsa ang kahulugan sa BukSU Hymn?
-    - Unsa ang kahulugan sa BukSU anthem?
+    - what is the BukSU hymn
+    - what is the BukSU anthem
+    - what is the official anthem of BukSU
+    - what is the official hymn of BukSU
+    - what is Bukidnon State University hymn
+    - what is Bukidnon State University anthem
+    - can you tell me what the BukSU hymn is
+    - can you explain what the BukSU anthem is
+    - what is the university hymn of BukSU
+    - what is the university anthem of BukSU
+    - what is BukSU official hymn
+    - what is BukSU official anthem
+    - what does BukSU hymn refer to
+    - what does BukSU anthem refer to
+    - what is the hymn of Bukidnon State University
+    - what is the anthem of Bukidnon State University
+    - can you describe the BukSU hymn
+    - can you describe the BukSU anthem
+    - what is meant by BukSU hymn
+    - what is meant by BukSU anthem
+    - unsa ang BukSU hymn
+    - unsa ang BukSU anthem
+    - unsay opisyal nga hymn sa BukSU
+    - unsay opisyal nga anthem sa BukSU
+    - unsa ang hymn sa Bukidnon State University
+    - unsa ang anthem sa Bukidnon State University
+    - pwede nimo isaysay unsa ang BukSU hymn
+    - pwede nimo isaysay unsa ang BukSU anthem
+    - unsa ang university hymn sa BukSU
+    - unsa ang university anthem sa BukSU
+    - unsa ang official hymn sa BukSU
+    - unsa ang official anthem sa BukSU
+    - unsay pasabot sa BukSU hymn
+    - unsay pasabot sa BukSU anthem
+    - unsa ang ginatawag nga BukSU hymn
 
 - intent: buksu_cat_calculator_policy
   examples: |
@@ -5260,6 +5249,7 @@ nlu:
 - intent: buksu_gymnasium_facility
   examples: |
     - What is the University Gymnasium used for
+    - what do gymnasium used for?
     - Can I attend PE classes in the gym
     - Is the gym used for varsity training
     - Are major events held in the gym
@@ -5279,6 +5269,7 @@ nlu:
     - Unsang facilities ang available sa sulod sa gym
     - Pwede ba ang estudyante mo practice og sports didto
     - Giunsa pag reserve ang gym para sa events
+    - para asa magamit ang gymnasium
 
 - intent: new_student_orientation_purpose
   examples: |
@@ -5303,375 +5294,6 @@ nlu:
     - Mandatory ba ang orientation para sa tanang new students
     - Pila ka oras ang orientation
 
-- intent: library_id_card_location
-  examples: |
-    - Where can I get my library ID card in the university library
-    - Can you tell me where to apply for a library ID card
-    - Which floor should I go to process my library ID
-    - Where is the library ID processing area located
-    - How do I get a library ID card in BukSU library
-    - Who should I approach to request a library ID card
-    - Is there a specific section where I can apply for a library ID
-    - Can the staff help me get my library ID card
-    - Where do students usually go to process their library ID
-    - What is the exact location for library ID application
-    - Is the library ID processing on the second floor
-    - Where can I find the office for library ID concerns
-    - Can I go directly to the library to request an ID card
-    - Who can assist me in getting my library ID
-    - Where should I go if I want to apply for a library ID card
-    - Is there a help desk for library ID processing
-    - Can I ask any staff member about getting a library ID
-    - Where is the section for issuing library ID cards
-    - What should I do to get my library ID card in the library
-    - Where exactly in the library building can I process my ID
-    - Do I need to go to a specific floor to get my library ID
-    - Is the library ID card processed inside the library building
-    - Can you guide me where to get my library ID card
-    - Where do I inquire about getting a library ID card
-    - Is there a designated place for library ID applications
-    - Asa ko makakuha og library ID card sa library
-    - Asa dapit ko mag apply para sa library ID card
-    - Unsang andana ko moadto para mag process og library ID
-    - Asa dapit ang processing area sa library ID
-    - Giunsa nako pagkuha og library ID sa BukSU
-    - Kinsa akong duolon para magkuha og library ID card
-    - Naa bay specific nga section para sa library ID
-    - Matabangan ba ko sa staff sa pagkuha sa akong library ID
-    - Asa moadto ang estudyante para mag apply og library ID
-    - Asa dapit ang exact location sa pagkuha og library ID
-    - Tinuod ba nga sa second floor ang pag process sa library ID
-    - Asa nako makit-an ang office para sa library ID
-    - Pwede ba ko moadto diretso sa library para magkuha og ID
-    - Kinsa ang motabang nako sa pagkuha sa library ID
-    - Asa ko moadto kung gusto ko mag apply og library ID card
-    - Naa bay help desk para sa library ID processing
-    - Pwede ba ko mangutana sa bisan kinsa nga staff bahin sa ID
-    - Asa dapit ang section nga nag issue og library ID
-    - Unsay buhaton nako para makakuha og library ID card
-    - Asa gyud sa library building ko mag process sa akong ID
-    - Kinahanglan ba moadto sa specific nga andana para sa ID
-    - Sa sulod ra ba sa library building ang pagkuha sa ID
-    - Pwede ba nimo ko tudluan asa makakuha og library ID card
-    - Asa ko mangutana bahin sa pagkuha og library ID
-    - Naa bay designated nga lugar para sa library ID application
-    - library ID location
-    - where to get library ID
-    - library ID BukSU where
-    - library ID asa dapit
-
-- intent: library_id_card_payment
-  examples: |
-    - Do I need to pay to get a library ID card
-    - Is the library ID card free or do I need to pay
-    - How much do I need to pay for the library ID
-    - Is there a fee for getting a library ID card
-    - When am I required to pay for the library ID
-    - Do I need to pay before I can use the library
-    - Is payment required before borrowing books from the library
-    - Do all students need to pay for a library ID card
-    - Is the library ID fee already included in my COR
-    - How do I know if my library ID is already paid
-    - Can I still use the library even if I did not pay for the ID
-    - Do I only need to pay if I want to borrow books
-    - Is the payment for library ID optional or required
-    - Who can confirm if I need to pay for the library ID
-    - Where can I ask about library ID payment details
-    - Can the staff explain if payment is needed for my ID
-    - Is there a difference if I only use the library without borrowing
-    - Do I need to pay first before getting my library ID processed
-    - Is library ID free for all students or only some
-    - What does my COR say about library ID payment
-    - Can I check with staff if my ID is already included in fees
-    - Is payment needed only when borrowing books
-    - Can I still enter the library without paying for ID
-    - Do I need to settle payment before using library services
-    - Is there any charge for getting a library ID card
-    - Kinahanglan ba mubayad para makakuha og library ID card
-    - Libre ra ba ang library ID card o naay bayad
-    - Pila ang bayad para sa library ID
-    - Naa bay bayad ang pagkuha og library ID
-    - Kanus-a ko kinahanglan mubayad para sa library ID
-    - Kinahanglan ba mubayad bago ko makagamit sa library
-    - Kinahanglan ba mubayad before manghulam og libro
-    - Tanang estudyante ba kinahanglan mubayad para sa ID
-    - Apil na ba sa akong COR ang bayad sa library ID
-    - Giunsa nako paghibalo kung bayad na akong library ID
-    - Pwede ba ko makagamit sa library bisan wala ko kabayad
-    - Mubayad ra ba ko kung manghulam ko og libro
-    - Optional ra ba ang bayad sa library ID o required gyud
-    - Kinsa makasulti kung kinahanglan ba ko mubayad
-    - Asa ko mangutana bahin sa bayad sa library ID
-    - Pwede ba ko mangutana sa staff kung kinahanglan ba mubayad
-    - Lahi ba kung magamit ra ko sa library ug dili manghulam
-    - Kinahanglan ba mubayad una bago makakuha og ID
-    - Libre ba ang library ID para sa tanang estudyante
-    - Unsay nakabutang sa COR bahin sa library ID payment
-    - Pwede ba nako ipacheck sa staff kung apil na sa bayad
-    - Mubayad ra ba kung manghulam og libro
-    - Pwede ba mosulod sa library bisan wala pa kabayad
-    - Kinahanglan ba bayran una bago gamiton ang serbisyo
-    - Naa bay charge sa pagkuha og library ID card
-    - library ID payment
-    - library ID fee
-    - is library ID free
-    - do i pay ID
-    - ID payment required
-    - library ID libre ba
-    - bayad ba library ID
-    - pila bayad ID
-    - apil sa COR ID
-    - kinahanglan bayad ID
-    - libre ra ID
-    - need ba bayad ID
-
-- intent: library_id_card_requirements
-  examples: |
-    - What are the requirements for getting a library ID card
-    - What documents do I need to bring for library ID application
-    - What should I prepare before applying for a library ID
-    - Do I need to bring my COR for the library ID
-    - Is COR required when applying for a library ID card
-    - What proof do I need to show to get a library ID
-    - Do I need any documents to process my library ID
-    - Can I apply for a library ID without bringing COR
-    - Is a pen required when processing the library ID
-    - What materials should I bring when applying for a library ID
-    - Is there a checklist of requirements for library ID
-    - Do I need student verification to get a library ID
-    - What are the basic requirements for library ID application
-    - What do I need to show to prove I am a student
-    - Do I need to prepare anything before going to the library
-    - Is COR enough to get a library ID card
-    - Do I need to bring anything else aside from COR
-    - Is bringing a pen necessary for the application
-    - What should I not forget when applying for a library ID
-    - Can I process my ID without complete requirements
-    - Are there required items I need to bring to get my ID
-    - What are the needed things for library ID processing
-    - Do I need identification or just COR
-    - What should I bring with me for library ID registration
-    - Is there any required paperwork for library ID
-    - Unsay requirements para makakuha og library ID card
-    - Unsay mga kinahanglan dad on para sa library ID application
-    - Unsay akong andamon before ko mag apply og library ID
-    - Kinahanglan ba nako dad on ang akong COR
-    - Required ba ang COR para sa library ID
-    - Unsay proof nga kinahanglan ipakita para makakuha og ID
-    - Kinahanglan ba og documents para sa pag process sa ID
-    - Pwede ba ko mag apply nga walay COR
-    - Kinahanglan ba og bolpen sa pagkuha og library ID
-    - Unsay mga butang nga kinahanglan dad on para sa ID
-    - Naa bay checklist sa requirements para sa library ID
-    - Kinahanglan ba og student verification para sa ID
-    - Unsay basic requirements para sa library ID
-    - Unsay ipakita para mapamatud an nga estudyante ko
-    - Kinahanglan ba ko mag andam daan before moadto sa library
-    - Sakto na ba ang COR para makakuha og ID
-    - Naa pa bay lain kinahanglan gawas sa COR
-    - Importante ba magdala og bolpen sa application
-    - Unsay dili nako dapat kalimtan sa pag apply og ID
-    - Pwede ba ma process ang ID kung kulang ang requirements
-    - Unsay kinahanglan nga dad on para makakuha og ID
-    - Unsay mga kinahanglanon sa pagkuha og library ID
-    - Kinahanglan ba og ID o COR ra
-    - Unsay dad on nako para sa library ID registration
-    - Naa bay paperwork nga kinahanglan para sa ID
-    - library ID requirements
-    - requirements ID
-    - what to bring ID
-    - library ID needed
-    - need COR ID
-    - requirements library
-    - unsay requirements ID
-    - unsay dad on ID
-    - kinahanglan COR
-    - bolpen needed ID
-    - need ba COR
-    - unsay kinahanglan ID
-
-- intent: library_borrow_books
-  examples: |
-    - How do I borrow a book from the library
-    - What should I bring if I want to borrow a book
-    - Can I borrow books right away in the library
-    - Do I need my ID when borrowing books
-    - Who do I talk to if I want to borrow a book
-    - Can I just pick a book and borrow it
-    - What do I do if I want to take a book home
-    - Do I need to ask someone before borrowing a book
-    - Can I borrow a book without my library ID
-    - Where do I go if I want to borrow books
-    - Do I need to fill something out when borrowing
-    - Do I need a pen when borrowing books
-    - Is there someone who can help me borrow a book
-    - What’s the first step in borrowing a book
-    - Can I borrow books anytime in the library
-    - Do I need to register before borrowing books
-    - What happens when I borrow a book
-    - Can I ask staff for help in borrowing books
-    - What do I need before I can borrow a book
-    - Is borrowing books easy in the library
-    - How does borrowing books usually work
-    - What is the process for borrowing books from the library
-    - What are the requirements for borrowing a book
-    - Is a library ID card required to borrow books
-    - Who should I approach to borrow books from the library
-    - Are there forms that need to be completed when borrowing books
-    - Can books be borrowed without presenting a library ID
-    - Where is the borrowing section located in the library
-    - How can I request assistance for borrowing books
-    - Is it necessary to bring a pen when borrowing books
-    - What are the steps involved in borrowing a book
-    - Are library staff available to assist with borrowing books
-    - What documents are required to borrow a book
-    - Is there a standard procedure for borrowing books
-    - Can I consult staff before borrowing a book
-    - What should I prepare before borrowing books
-    - Are students required to present identification before borrowing
-    - Is assistance required when borrowing books
-    - How is book borrowing managed in the library
-    - What are the guidelines for borrowing books
-    - Where can I inquire about borrowing procedures
-    - Giunsa paghulam og libro sa library
-    - Unsay buhaton nako para makahulam og libro
-    - Unsay dad on kung manghulam kog libro
-    - Kailangan ba nako ang akong ID para manghulam
-    - Kinsa akong duolon kung manghulam ko og libro
-    - Pwede ra ba kuhaon ang libro dayon hulamon
-    - Unsay first step kung manghulam kog libro
-    - Pwede ba manghulam og libro nga walay ID
-    - Asa ko moadto kung manghulam kog libro
-    - Kinahanglan ba ko mangutana sa staff
-    - Naay fill out nga papel kung manghulam
-    - Kinahanglan ba og bolpen kung manghulam
-    - Naay mutabang nako kung manghulam kog libro
-    - Sayon ra ba manghulam og libro sa library
-    - Pwede ba mangayo og tabang sa staff
-    - Unsay kinahanglan before manghulam
-    - Unsay mahitabo kung manghulam kog libro
-    - Pwede ba manghulam anytime
-    - Kinahanglan ba mag register una
-    - Unsaon pagkuha og libro para madala nako
-    - Unsay proseso sa paghulam og libro sa library
-    - Unsay mga requirements para makahulam og libro
-    - Kinahanglan ba ang library ID para manghulam og libro
-    - Kinsa ang angay duolon para manghulam og libro
-    - Naay mga form nga kinahanglan fill out kung manghulam
-    - Pwede ba manghulam nga walay library ID
-    - Asa dapit ang borrowing section sa library
-    - Giunsa pag request og assistance sa paghulam og libro
-    - Kinahanglan ba magdala og bolpen kung manghulam
-    - Unsay mga lakang sa paghulam og libro
-    - Naa bay staff nga motabang sa paghulam og libro
-    - Unsay mga dokumento nga kinahanglan para manghulam
-    - Naa bay standard nga proseso sa paghulam
-    - Pwede ba mangutana sa staff before manghulam
-    - Unsay angay ihanda bago manghulam og libro
-    - Kinahanglan ba magpakita og ID ang estudyante
-    - Kinahanglan ba og assistance sa paghulam
-    - Giunsa pag manage ang paghulam sa library
-    - Unsay guidelines sa paghulam og libro
-    - Asa pwede mangutana bahin sa borrowing procedures
-    - borrow books
-    - how borrow book
-    - library borrow
-    - borrow process
-    - need ID borrow
-    - borrow without ID
-    - borrow asa
-    - hulam libro
-    - how hulam
-    - borrow unsa need
-    - ID needed borrow
-    - borrow book steps
-
-- intent: library_return_books
-  examples: |
-    - How do I return books to the library
-    - Where can I return borrowed books
-    - Do I need my library ID to return books
-    - Can I return books using the machine
-    - Is there a guide for returning books
-    - Who should I ask for returning books
-    - Can I return books outside the library
-    - What is the process for returning books
-    - Do I need assistance when returning books
-    - Are there instructions for book return machine
-    - Giunsa pagbalik sa libro sa library
-    - Asa ibalik ang hinulamang libro
-    - Kinahanglan ba ang library ID para ibalik ang libro
-    - Pwede ba gamiton ang machine para sa pagbalik
-    - Naay guide para sa pagbalik sa libro
-    - Kinsa akong pangutan on para sa pagbalik sa libro
-    - Pwede ba ibalik ang libro sa gawas sa library
-    - Unsay proseso sa pagbalik sa libro
-    - Kinahanglan ba og tabang sa pagbalik sa libro
-    - Naay instructions sa book return machine
-
-- intent: library_available_books_info
-  examples: |
-    - What books are currently available in the library that I can borrow
-    - How do I check if a specific book is available in the library
-    - Can I see a list of available books before going to the library
-    - Where can I check the availability of books in the university library
-    - Is there a way to know if the book I need is available right now
-    - How can I find out if a book is already borrowed or still available
-    - Does the library have a system to check available books
-    - Can I ask the staff to help me find available books
-    - Who should I approach to ask about book availability in the library
-    - Are all available books displayed on the shelves or some are hidden
-    - How often does the library update its book collection and availability
-    - Does the availability of books change frequently in the library
-    - If a book is not on the shelf, does that mean it is not available
-    - Can I check book availability per floor in the library
-    - Is there someone on each floor who can assist me in finding books
-    - Where do I inquire if I cannot find the book I am looking for
-    - Can library staff guide me in checking available resources
-    - Do I need to visit the library physically to check available books
-    - Is there an online or manual system to verify book availability
-    - What should I do if I cannot find a book on the shelf
-    - Can I ask the librarian about newly available books
-    - Does the library regularly update their book collections
-    - How will I know if new books are already available in the library
-    - Is it possible that book availability changes every day
-    - Where can I get help if I want to borrow a specific book
-    - Can I request assistance in locating available books in the library
-    - What is the process of checking available books in the library
-    - Are there staff assigned to help students find available books
-    - Can I confirm book availability before borrowing it
-    - Is there a help desk where I can ask about available books
-    - Unsay mga libro nga available karon sa library nga pwede nako hulamon
-    - Giunsa nako pag check kung available pa ba ang usa ka libro sa library
-    - Asa ko makakita og listahan sa available nga mga libro sa library
-    - Naa bay paagi nga mahibalo ko kung available pa ang libro nga akong gipangita
-    - Giunsa paghibalo kung ang libro nahulaman na ba o available pa
-    - Naa bay system ang library para ma check ang available nga mga libro
-    - Pwede ba ko mangutana sa staff para tabangan ko mangita og libro
-    - Kinsa akong duolon kung mangutana ko bahin sa availability sa libro
-    - Tanang available nga libro ba naa ra sa shelves o naa pay lain
-    - Kanus-a mag update ang library sa ilang koleksyon sa libro
-    - Mag usob-usob ba ang availability sa libro kada adlaw
-    - Kung wala sa shelf ang libro, pasabot ba dili na siya available
-    - Pwede ba ko mangutana sa matag andana para mangita og libro
-    - Naa bay staff sa matag floor nga motabang pangita og libro
-    - Asa ko mangutana kung dili nako makita ang libro nga akong gipangita
-    - Matabangan ba ko sa librarian sa pagpangita sa available nga libro
-    - Kinahanglan ba moadto gyud ko sa library para mahibalo ang availability
-    - Naa bay online o manual nga paagi para ma check ang libro
-    - Unsay buhaton nako kung dili nako makita ang libro sa shelf
-    - Pwede ba ko mangutana sa librarian bahin sa bag-ong mga libro
-    - Sige ba og update ang library sa ilang mga libro
-    - Giunsa nako paghibalo kung naa nay bag-ong libro nga available
-    - Posible ba nga mag change ang availability sa libro kada adlaw
-    - Asa ko makapangayo og tabang kung gusto ko manghulam og libro
-    - Pwede ba ko mangayo og assistance sa pagpangita sa libro
-    - Unsay proseso sa pag check sa available nga libro sa library
-    - Naa bay help desk para mangutana bahin sa available nga libro
-    - Pwede ba nako i-confirm kung available pa ang libro before hulam
-    - Asa ko moadto kung mangutana ko about library resources
-    - Tabangan ba ko sa staff kung mangita kog libro sa library
-
 - intent: library_thesis_availability
   examples: |
     - Does the library have thesis and research papers
@@ -5694,6 +5316,22 @@ nlu:
     - Naay research papers per college
     - Matabangan ba sa staff sa pagpangita og thesis
     - Naay section para sa thesis sa library
+    - Is there any capstone available in the library
+
+- synonym: thesis
+  examples: |
+    - thesis
+    - capstone
+    - research
+    - research paper
+    - capstone paper
+    - research document
+    - academic paper
+    - scholarly paper
+    - graduate thesis
+    - undergraduate thesis
+    - final year project
+    - dissertation
 
 - intent: admission_application_deadline
   examples: |
@@ -5978,98 +5616,41 @@ nlu:
 
 - intent: student_id_process
   examples: |
-    - How do I get my student ID
-    - Where should I go to get my school ID
-    - What do I do if I want to get a student ID
-    - Where can I process my student ID
-    - Who do I ask about getting a student ID
-    - Can I get my ID inside the campus
-    - Where do students usually go for ID processing
-    - What’s the first step to get a student ID
-    - Can I go directly somewhere to get my ID
-    - Where do I inquire about student ID
-    - Is there an office for student ID concerns
-    - Can I ask staff about getting my ID
-    - What should I prepare to get my ID
-    - Where can I request my BukSU ID
-    - Do I need to go to a specific office for ID
-    - Who handles student ID processing
-    - Where do I go if I lost my ID and need a new one
-    - Can I get help from staff for ID processing
-    - Is getting a student ID easy in BukSU
-    - What happens when I apply for a student ID
-    - What is the process for obtaining a student ID
-    - Where can I apply for a student ID card
-    - Which office handles student ID processing
-    - Where is the Office of Student Services located for ID concerns
-    - How can I formally request a student ID
-    - Where should I inquire regarding student ID application
-    - What are the steps involved in getting a student ID
-    - Is there a designated office for student ID issuance
-    - Who is responsible for processing student IDs
-    - Where can I get official information about student ID processing
-    - What is the standard procedure for acquiring a student ID
-    - Can I consult the Office of Student Services for ID concerns
-    - Where should students go for ID-related transactions
-    - Is there a specific department for student ID services
-    - How is student ID processing handled in the university
-    - Where can I clarify details about student ID issuance
-    - What office manages student ID applications
-    - Are there guidelines for student ID processing
-    - Where can I ask about updates regarding ID processing
-    - Is the process the same every academic year
-    - Unsaon pagkuha og student ID
-    - Asa ko moadto para makakuha og ID
-    - Unsay buhaton nako para makakuha og school ID
-    - Asa ko mangutana bahin sa student ID
-    - Kinsa akong duolon para sa ID
-    - Pwede ra ba ko moadto diretso para magkuha og ID
-    - Asa mag process og student ID
-    - Unsay first step para makakuha og ID
-    - Asa dapit ang office para sa ID
-    - Pwede ba mangutana sa staff bahin sa ID
-    - Asa kuhaon ang BukSU ID
-    - Kinsa ang mo assist sa pagkuha og ID
-    - Asa ko moadto kung gusto ko magpa ID
-    - Sayon ra ba pagkuha og student ID
-    - Asa ko mangayo og tabang para sa ID
-    - Unsay mahitabo kung mag apply ko og ID
-    - Pwede ba ko mangutana unsaon pagkuha og ID
-    - Asa ang office nga nag process og ID
-    - Asa ko moadto kung wala pa koy ID
-    - Asa ko mangutana kung naay problema sa ID
-    - Unsay proseso sa pagkuha og student ID
-    - Asa ko maka apply para sa student ID card
-    - Unsang opisina ang nag handle sa student ID processing
-    - Asa dapit ang Office of Student Services para sa ID
-    - Giunsa pag request og student ID
-    - Asa ko mangutana bahin sa student ID application
-    - Unsay mga lakang sa pagkuha og student ID
-    - Naa bay specific nga opisina para sa ID issuance
-    - Kinsa ang responsable sa pag process sa student ID
-    - Asa makakuha og opisyal nga impormasyon bahin sa ID
-    - Unsay standard nga proseso sa pagkuha og ID
-    - Pwede ba moadto sa OSS para sa ID concerns
-    - Asa moadto ang estudyante para sa ID transactions
-    - Naa bay department nga nag handle sa student ID
-    - Giunsa pag manage ang student ID processing
-    - Asa ko makapangutana bahin sa detalye sa ID
-    - Unsang opisina ang nagdumala sa ID application
-    - Naa bay guidelines sa pagkuha og ID
-    - Asa makapangutana sa updates sa ID processing
-    - Parehas ra ba ang proseso matag tuig
-    - student ID process
-    - how get ID
-    - where get ID
-    - ID asa
-    - asa ID process
-    - student ID BukSU
-    - OSS ID
-    - where OSS
-    - ID process where
-    - how apply ID
-    - kuha ID asa
-    - process ID
+    - how do I get my student ID in BukSU
+    - where can I get my BukSU student ID
+    - what is the process to get a student ID
+    - how can I apply for a student ID
+    - where should I go to get a school ID
+    - what are the steps to get a student ID
+    - how do students get their ID in BukSU
+    - where do I process my student ID
+    - what should I do to get my student ID
+    - who handles student ID processing in BukSU
+    - where is the office for student ID
+    - can I get my ID inside the campus
+    - where do I inquire about student ID
+    - what office should I go to for student ID
+    - how do I request a student ID in BukSU
+    - what is the procedure for getting a school ID
+    - where can I start the student ID process
+    - how to process student ID in BukSU
+    - student ID process BukSU
+    - where to get BukSU ID
+    - unsaon pagkuha og student ID sa BukSU
+    - asa ko moadto para makakuha og student ID
+    - unsay proseso sa pagkuha og BukSU ID
+    - giunsa pag apply og student ID
+    - unsay mga lakang para makakuha og school ID
+    - asa mag process og student ID sa BukSU
+    - kinsa ang mo handle sa student ID
+    - asa dapit ang opisina para sa student ID
+    - pwede ba ko magkuha og ID sa campus
+    - asa ko mangutana para makakuha og student ID
+    - unsay buhaton para makakuha og BukSU ID
+    - giunsa pag request og student ID
+    - asa magsugod sa pag process og student ID
+    - asa ang Office of Student Services para sa ID
+    - student ID asa kuhaon
 
 - intent: enrollment_general_process
   examples: |
@@ -6096,183 +5677,99 @@ nlu:
 
 - intent: online_enrollment_steps
   examples: |
-    - help me enroll online
-    - can you help me enroll online
-    - how do I enroll online in BukSU
-    - how can I enroll through online
-    - how do I enroll using the BukSU website
-    - can you send me step by step process of enrolling online
-    - what should I do to enroll online
-    - I want to enroll online what should I do
-    - how do I start online enrollment
-    - where do I begin enrolling online
-    - how do I apply online for enrollment
-    - can you guide me in online enrollment
-    - I need help with online enrollment process
-    - what are the steps to enroll online in BukSU
-    - how do I use the admission website to enroll
-    - how can I access the enrollment portal
-    - what should I click to enroll online
-    - how do I fill up the online enrollment form
-    - what is the next step after opening the portal
-    - how do I finish my online enrollment
-    - What is the process for online enrollment in BukSU
-    - What are the steps involved in online enrollment
-    - How can I complete the online enrollment procedure
-    - What is the official procedure for enrolling online
-    - How do I access the online enrollment portal
-    - Where can I apply for online enrollment
-    - What are the guidelines for online enrollment
-    - How do I properly fill out the online enrollment form
-    - What is the workflow for online enrollment
-    - How can I enroll through the BukSU admission website
-    - What are the requirements for online enrollment
-    - Where should I begin the online enrollment process
-    - What is the correct procedure for enrollment using the portal
-    - How do I navigate the enrollment system online
-    - What steps should be followed for successful enrollment
-    - How can I ensure my online enrollment is completed
-    - What is the standard process for BukSU online enrollment
-    - Where can I find instructions for online enrollment
-    - How do I proceed with enrollment using the website
-    - What are the official steps in enrolling online
-    - tabangi ko mag enroll online
-    - unsaon pag enroll online sa BukSU
-    - giunsa pag enroll gamit ang website
-    - unsay buhaton para maka enroll online
-    - asa ko magsugod og enroll online
-    - unsay first step sa online enrollment
-    - pwede ko nimo tabangan sa pag enroll online
-    - unsaon paggamit sa enrollment portal
-    - giunsa pag fill up sa online form
-    - asa ko mo click para enroll
-    - unsay next step after open sa portal
-    - giunsa pag human sa online enrollment
-    - unsay proseso sa online enrollment
-    - tabang unsaon pag enroll online
-    - asa makita ang portal para enrollment
-    - unsaon pag apply online sa BukSU
-    - giunsa pag process ang online enrollment
-    - unsay lakang sa pag enroll online
-    - pwede ko mangayo og guide sa enrollment
-    - unsay kinahanglan buhaton para ma enroll online
-    - paano mag enroll online sa BukSU
-    - paano mag apply enrollment online
-    - paano gamitin ang enrollment website
-    - paano mag fill up ng online enrollment form
-    - saan mag click para mag enroll online
-    - paano simulan ang online enrollment
-    - paano ko matatapos ang enrollment online
-    - pwede mo ba akong tulungan mag enroll online
-    - ano ang steps ng online enrollment
-    - paano mag process ng enrollment sa website
-    - enroll online
-    - how enroll online
-    - online enrollment steps
-    - enrollment process online
-    - enroll BukSU online
-    - portal enrollment
-    - how use portal
-    - apply enrollment online
-    - enroll asa
-    - online enroll unsaon
-    - enrollment guide
-    - steps enroll
+    - how do I enroll online in BukSU admission step by step
+    - what are the steps for online enrollment in BukSU admission
+    - can you guide me through BukSU admission online enrollment process
+    - how can I enroll online using the BukSU admission website
+    - what should I do to enroll online in BukSU admission step by step
+    - I want to enroll online in BukSU admission what are the steps
+    - how do I start the BukSU admission online enrollment process
+    - can you show me how to enroll online in BukSU admission
+    - what is the process of enrolling online in BukSU admission
+    - how do I complete my online enrollment in BukSU admission
+    - how do I use the BukSU admission website for enrollment
+    - can you give me instructions for BukSU admission online enrollment
+    - what are the procedures for online enrollment in BukSU admission
+    - how do I apply for enrollment online in BukSU admission step by step
+    - how do I fill up the BukSU admission online enrollment form
+    - what should I click in BukSU admission to enroll online
+    - what is the next step in BukSU admission online enrollment
+    - how do I finish the BukSU admission online enrollment process
+    - how do I navigate the BukSU admission enrollment system online
+    - can you explain the BukSU admission online enrollment steps
+    - unsaon pag enroll online sa BukSU admission step by step
+    - unsay mga lakang sa online enrollment sa BukSU admission
+    - tabangi ko sa proseso sa BukSU admission online enrollment
+    - giunsa pag enroll online gamit ang BukSU admission website
+    - unsay buhaton para maka enroll online sa BukSU admission step by step
+    - asa ko magsugod sa BukSU admission online enrollment
+    - unsay first step sa pag enroll online sa BukSU admission
+    - pwede ko nimo tudluan unsaon pag enroll online sa BukSU admission
+    - unsaon pag human sa BukSU admission online enrollment process
+    - unsay proseso sa online enrollment sa BukSU admission
+    - giunsa paggamit sa BukSU admission website para enrollment
+    - unsay sunod nga step sa BukSU admission online enrollment
+    - unsaon pag fill up sa BukSU admission online form
+    - unsay saktong paagi sa pag enroll online sa BukSU admission
+    - tabang unsaon pag enroll online sa BukSU admission step by step
+    - unsay kinahanglan buhaton para sa BukSU admission online enrollment
+    - unsaon pag complete sa BukSU admission online enrollment
+    - unsaon pag navigate sa BukSU admission enrollment system
+    - pwede ko mangayo og guide sa BukSU admission online enrollment
+    - unsaon pag process sa BukSU admission online enrollment
+
+- synonym: online
+  examples: |
+    - website
+    - online system
 
 - intent: mixed_enrollment_process
   examples: |
-    - how do i apply enrollment face to face
-    - what do i do on face to face enrollment
-    - process of face to face enrollment
-    - can you guide me for face to face enrollment
-    - how does face to face enrollment work
-    - what should I do if I want to enroll face to face
-    - send me some guide to enroll face to face
-    - what is the next step for face to face enrollment
-    - how do I complete enrollment in person
-    - what do I do after enrolling online
-    - do I still need to go to school after online enrollment
-    - what happens after online application
-    - do I need to line up after applying online
-    - how do I continue enrollment after online process
-    - what should I do next after online enrollment
-    - is there still a face to face process after online
-    - do I need to visit my department after enrolling online
-    - what is the step after submitting online enrollment
-    - how does the mixed enrollment process work
-    - what should I do for combined enrollment
-    - What is the process for mixed enrollment
-    - How does the hybrid enrollment system work
-    - What are the steps for combined online and face to face enrollment
-    - What should I do after completing online enrollment
-    - Is it required to proceed to the department after online application
-    - What is the procedure for face to face enrollment after online submission
-    - How can I complete the mixed enrollment process
-    - What is the workflow for hybrid enrollment
-    - Are students required to follow a queue system during enrollment
-    - What are the next steps after online enrollment
-    - How is enrollment completed in a hybrid setup
-    - What is the official process for mixed mode enrollment
-    - Do I need to report to a department after applying online
-    - What is the standard procedure after online enrollment
-    - How does the enrollment process transition from online to onsite
-    - Are there additional steps after online enrollment
-    - What should students do after online application submission
-    - Is there a required in-person step after online enrollment
-    - How does the queue system work during enrollment
-    - What are the instructions for completing hybrid enrollment
-    - unsaon pag enroll online ug face to face
-    - unsa buhaton sa face to face enrollment
-    - giunsa ang face to face enrollment process
-    - unsay buhaton sa mixed enrollment
-    - unsa ang kinahanglan buhaton human online
-    - kinahanglan pa ba moadto sa department
-    - unsay next step human mag enroll online
-    - kinahanglan ba mo linya after online enrollment
-    - giunsa pag continue sa enrollment
-    - unsaon pag human sa enrollment process
-    - naay face to face pa after online
-    - kinahanglan ba moadto personally sa school
-    - unsay buhaton after online apply
-    - unsa ang sunod human online enrollment
-    - giunsa pag follow up sa enrollment
-    - naay queue system sa enrollment
-    - unsa ang mixed enrollment process
-    - giunsa pag process ang hybrid enrollment
-    - unsay lakang sa combined enrollment
-    - asa moadto after online enrollment
-    - unsay proseso sa mixed enrollment
-    - giunsa pag work ang hybrid enrollment system
-    - unsay mga lakang sa combined online ug face to face enrollment
-    - unsay buhaton human sa online enrollment
-    - kinahanglan ba moadto sa departamento human sa online
-    - unsay procedure sa face to face enrollment human online
-    - giunsa pag complete ang mixed enrollment process
-    - unsay workflow sa hybrid enrollment
-    - kinahanglan ba mo follow sa queue system sa enrollment
-    - unsay next steps human sa online enrollment
-    - giunsa pag finalize ang hybrid enrollment
-    - unsay official nga proseso sa mixed enrollment
-    - kinahanglan ba mo report sa department human sa online
-    - unsay standard nga proseso human sa online enrollment
-    - giunsa pag transition sa online ngadto sa onsite enrollment
-    - naa pay additional steps human sa online enrollment
-    - unsay buhaton human sa online application
-    - kinahanglan ba og in-person step human online
-    - giunsa pag gamit ang queue system sa enrollment
-    - unsay instructions sa hybrid enrollment
-    - mixed enrollment
+    - what should I do after online enrollment for face to face process
+    - do I need to go to the department after online enrollment
+    - what is the next step after online enrollment in face to face
+    - how does mixed enrollment work in BukSU
+    - what is the process of mixed enrollment
+    - how do I continue my enrollment after online application
+    - do I need to visit the school after enrolling online
+    - what happens after I complete online enrollment
+    - is there a face to face step after online enrollment
+    - do I need to go to my department after online enrollment
+    - how do I proceed with face to face enrollment after online
+    - what is the process after submitting online enrollment
+    - do I need to line up after online enrollment
+    - how does the queue system work during enrollment
+    - what should I do for mixed enrollment process
+    - what are the steps for hybrid enrollment after online
+    - how do I complete mixed enrollment
+    - what is the next step after applying online enrollment
+    - is there an in person step after online enrollment
+    - what should I do after online enrollment approval
+    - unsa ang buhaton human sa online enrollment para face to face
+    - kinahanglan ba moadto sa department human sa online enrollment
+    - unsay next step human sa online enrollment sa face to face
+    - unsa ang proseso sa mixed enrollment
+    - giunsa pag work ang mixed enrollment sa BukSU
+    - unsaon pag continue sa enrollment human sa online
+    - kinahanglan ba moadto sa eskwelahan human mag enroll online
+    - unsay mahitabo human sa online enrollment
+    - naa pay face to face nga step human sa online enrollment
+    - kinahanglan ba moadto sa imong department human sa online
+    - unsaon pag proceed sa face to face enrollment human online
+    - unsay proseso human sa pag submit sa online enrollment
+    - kinahanglan ba mo linya human sa online enrollment
+    - giunsa pag work ang queue system sa enrollment
+    - unsay buhaton sa mixed enrollment process
+    - unsay mga lakang sa hybrid enrollment human sa online
+    - unsaon pag complete sa mixed enrollment
+    - unsay next step human sa online application
+    - naa bay in person nga step human sa online enrollment
+    - unsay buhaton human ma approve ang online enrollment
+
+- synonym: mixed enrollment
+  examples: |
     - hybrid enrollment
-    - face to face enrollment
-    - enroll f2f
-    - enrollment after online
-    - next step enrollment
-    - queue enrollment
-    - enroll mixed
-    - online then f2f
-    - after online
-    - enrollment next
-    - enrollment asa next
+    - combined enrollment
 
 - intent: request_tor_process
   examples: |
@@ -6299,187 +5796,92 @@ nlu:
 
 - intent: ask_guidance_services
   examples: |
-    - what are the services offered in the university guidance center
-    - can you tell me what the guidance center does
-    - list of services in guidance office
-    - what can the guidance counselor help me with
-    - do you have counseling services
-    - i need to know the guidance center offers
-    - help me understand guidance services
-    - guidance services list please
-    - what is ugc services
-    - career placement and testing info
-    - could you provide the comprehensive services of the guidance center
-    - please enumerate the offers of the university guidance office
-    - what kind of support does ugc provide to students
-    - i would like to know the functions of the guidance counselor
-    - what do you guys do at ugc
-    - what can ugc help me with
-    - do u have career seminars
-    - can you help me with my personal problems
-    - tell me about your online counseling
-    - what happens in an exit interview
-    - what service guidance
-    - guidance center offer what
-    - ugc do what
-    - help me guidance center
-    - what services you have
-    - guidance counseling what is
-    - ugc services what
-    - testing services meaning
-    - job fair ugc info
-    - ugc services
-    - guidance services
-    - counseling info
-    - career placement
-    - testing services
-    - job fair
-    - exit interview
-    - guidance help
-    - ugc offers
-    - counselor services
-    - what is online counseling
-    - psychological testing for students
-    - do you do iq tests
-    - i need help with my career choices
-    - pre employment needs help
-    - what does the psychometrician do
-    - what are the standardized tests for
-    - i need someone to talk to
-    - emotional support services
-    - cognitive needs help
-    - spiritual guidance services
+    - what services does the guidance center offer
+    - what are the services in the university guidance center
+    - can you list the services of the guidance office
+    - what can the guidance center help me with
+    - what does ugc offer to students
+    - what kind of support does the guidance center provide
+    - what are the available services in ugc
+    - tell me the services of the guidance center
+    - what do you offer in guidance office
+    - what are your guidance services
+    - what services are available for students
+    - can you explain the guidance services
+    - what can a guidance counselor do
+    - what help can i get from ugc
+    - do you offer counseling and career services
+    - what are the programs of the guidance center
+    - what services can i avail in guidance
+    - what support does ugc give
+    - what are the functions of the guidance office
+    - what services do you provide
     - unsa ang mga serbisyo sa guidance center
-    - pwede ba ko mangutana unsa inyong services sa guidance
-    - unsa matabang sa guidance counselor nako
-    - naa ba moy counseling
-    - unsa mga offer sa ugc
-    - paki send sa listahan sa serbisyo sa guidance
-    - tabang para mahibaw an ang guidance services
-    - serbisyo sa guidance unsa man
-    - unsa trabaho sa guidance office
-    - naa moy job placement sa buksu
-    - mahimo ba nimo isaysay ang mga serbisyo sa guidance center
-    - unsa ang mga programa nga gitanyag sa ugc
-    - gusto ko masayod sa mga gibuhat sa inyong opisina
-    - palihug hatagi ko sa detalye sa inyong online counseling
-    - unsay mga naa sa guidance
+    - unsa inyong mga serbisyo sa ugc
+    - unsa matabang sa guidance center
+    - unsa ang mga offer sa guidance office
+    - unsa inyong matabang sa mga estudyante
+    - unsa ang mga serbisyo nga inyong gihatag
+    - unsa ang mga programa sa guidance center
+    - unsa inyong gina offer sa ugc
+    - unsa ang guidance services ninyo
+    - unsa ang mahimo sa guidance counselor
+    - unsa akong makuha nga tabang sa guidance
+    - unsa inyong supporta sa estudyante
+    - unsa ang mga buhat sa guidance office
+    - unsa inyong ginaserbisyo
+    - unsa ang mga serbisyo nga available sa ugc
     - unsa inyong matabang sa akoa
-    - naa moy mga career seminar
-    - kinsa pwede makaistorya bahin sa problema
-    - unsay buhaton sa exit interview
-    - naa moy tabang para sa mangita trabaho
-    - unsa guidance serbisyo
-    - guidance center unsa buhat
-    - ugc unsa naa
-    - tabang guidance
-    - serbisyo ninyo unsa
-    - counseling unsa man
-    - trabaho sa guidance unsa
-    - job fair unsa
-    - mga serbisyo
-    - serbisyo sa ugc
-    - counseling
-    - testing sa iq
-    - tabang sa career
-    - exit interview info
-    - job placement buksu
-    - psychological test
-    - mga offer ninyo
-    - online nga counseling
-    - tabang sa emosyon
-    - unsay pulos sa psychometrician
+    - unsa ang mga function sa guidance center
+    - unsa ang inyong mga programa
+    - unsa inyong gina offer
+    - unsa ang guidance center services
 
 - intent: ask_how_to_avail_guidance
   examples: |
-    - how to avail the services
-    - where can i find the guidance center
-    - how do i get counseling
-    - steps to avail guidance services
+    - how to avail guidance services
+    - how can i avail your guidance services
+    - what should i do to get guidance services
+    - how do i get help from the guidance office
+    - how can i contact the guidance center
+    - how do i reach the guidance office
+    - how to message the guidance center
+    - can i contact you on guidance facebook
+    - how do i message your guidance facebook page
+    - how can i talk to a guidance counselor
     - i want to avail guidance services how
-    - point me to the guidance office
-    - how can i contact the guidance counselor
-    - avail services steps
-    - where is ugc located
-    - could you give me the directions to the university guidance center
-    - what is the process for setting an appointment with a counselor
-    - i would like to request counseling how do i proceed
-    - where exactly is the college of arts and sciences building
-    - what is the official facebook page of ugc
-    - how to go to ugc
-    - how do i message u guys
-    - where is the cas building
-    - i want to talk to someone how
-    - how can i reach the guidance office
-    - where ugc
-    - how go guidance
-    - avail service how
-    - steps counseling
-    - contact guidance how
-    - where is cas
-    - facebook page guidance what
-    - how to message ugc
-    - ugc location
-    - guidance location
-    - steps to avail
-    - how to contact
-    - cas building direction
-    - ugc facebook
-    - contact ugc
-    - find guidance center
-    - book counseling
-    - get counseling
-    - avail guidance
-    - i need directions to the cas building
-    - how to message buksu university guidance center
-    - can i contact you on facebook
-    - how to get psychological testing
-    - where do i go for the exit interview
-    - i need a job placement how do i apply
-    - guide me to the guidance center
-    - who do i contact for career seminars
-    - how to set counseling appointment online
-    - online counseling steps
-    - unsaon pag avail sa inyong serbisyo
-    - asa dapit ang guidance center
-    - unsaon nako pagpa counsel
+    - how do i proceed with guidance services
+    - how can i get counseling help in guidance
+    - how to reach guidance
+    - how do i contact guidance
+    - how to go to guidance center
+    - guide me to the guidance office
+    - i want to talk to someone in guidance how
+    - where can i contact guidance
+    - unsaon pag avail sa guidance services
+    - unsaon nako pagkuha og tabang sa guidance
+    - unsaon pag contact sa guidance center
+    - pwede ba ko mag message sa facebook page sa guidance
+    - unsaon pag reach sa guidance office
+    - unsaon pag adto sa guidance center
     - gusto ko mag avail sa guidance unsaon man
-    - asa dapit makita ang ugc
-    - kinsa pwede maistorya sa guidance
-    - unsaon pag contact sa guidance office
-    - paano mag avail sa inyong tabang
-    - tudlui ko unsaon pag adto sa guidance
-    - pwede ba ko mangayo sa direksyon paingon sa guidance center
-    - unsa ang mga lakang aron makakuha og counseling
-    - asa dapit nahimutang ang cas building
-    - unsa ang pangalan sa inyong facebook page
-    - unsaon pag adto sa inyoha
-    - unsaon pag chat sa guidance
-    - asa man ang cas building
-    - gusto ko magpa counsel unsaon man
-    - pwede raba mag message sa facebook
-    - asa ugc
-    - unsaon adto guidance
-    - avail serbisyo unsaon
-    - lakang counseling
-    - contact guidance unsaon
-    - asa cas
-    - facebook ugc unsa
-    - chat ugc unsaon
-    - lokasyon sa ugc
-    - asa ang guidance
-    - unsaon pag avail
-    - facebook page ninyo
-    - direksyon sa cas
-    - pangitaon ang guidance
-    - magpa counsel
-    - mangita ug counselor
-    - asa magpa test
-    - unsaon pag apil sa job fair
-    - kinsa akong pangitaon
-    - unsaon pag schedule sa online counseling
-    - adto ko ugc unsaon
-    - tudlui ko asa ang ugc
+    - unsaon pag istorya sa guidance counselor
+    - kinsa akong pwede maistorya sa guidance
+    - unsa ang mga lakang para maka avail sa serbisyo sa guidance
+    - unsaon pag kuha og counseling sa guidance
+    - unsaon pag duol sa guidance
+    - unsaon pag contact sa guidance
+    - unsaon pag message sa guidance
+    - asa ko makakontak sa guidance
+    - gusto ko magpa counsel sa guidance unsaon
+    - unsaon pag avail sa inyong tabang gikan sa guidance
+    - tudlui ko unsaon pag contact sa guidance
+
+- synonym: guidance
+  examples: |
+    - guidance office
+    - office guidance
+    - ugc
 
 - intent: ask_guidance_eligibility
   examples: |
@@ -6655,282 +6057,97 @@ nlu:
     - kanus a naa ang counselor
     - unsa oras muabot ang psychometrician
 
-- intent: ask_guidance_fee
+- intent: board_exam_review
   examples: |
-    - is there a fee if we avail the services
-    - do i have to pay for counseling
-    - how much is the testing fee
-    - is guidance center free
-    - payment for guidance services
-    - fee for graduate studies testing
-    - how much for non teaching applicants
-    - is ugc free for undergrads
-    - are the counseling services completely free of charge
-    - how much does the psychological testing cost for graduate students
-    - what is the fee for teaching applicants
-    - do college of law students need to pay a testing fee
-    - how much is the required fee for phd applicants
-    - how much do i need to pay
-    - is counseling free
-    - how much for the test
-    - do i need money for guidance
-    - how much is 475 php for
-    - how much fee guidance
-    - pay counseling how much
-    - test fee ugc
-    - guidance free undergrad
-    - payment graduate studies
-    - non teaching fee how much
-    - teaching applicant fee
-    - fee college of law
-    - counseling cost
-    - guidance fee
-    - is it free
-    - testing fee
-    - undergrad free
-    - grad school fee
-    - applicant fee
-    - teaching fee
-    - non teaching fee
-    - how much to pay
-    - is it 100 php for non teaching
-    - is it 475 php for teaching
-    - do masters students pay 475
-    - is the exit interview free
-    - do i pay for career seminars
-    - how much is the job fair fee
-    - naa bay bayad kung mag avail sa mga serbisyo
-    - kailangan ba mubayad para magpa counsel
-    - pila ang testing fee sa guidance
-    - libre ba ang guidance center
-    - bayad para sa serbisyo sa guidance
-    - pila pangayo sa graduate studies
-    - pila bayad sa mga applicants
-    - libre ba ni para sa mga college
-    - libre ba gayod ang tanang serbisyo para sa mga undergraduate
-    - pila ang bayad sa psychological testing para sa mga masters
-    - unsa ang testing fee para sa mga teaching applicants
-    - mubayad ba ang mga estudyante sa law
-    - pila ang kinahanglan bayaran sa mga nagkuha ug phd
-    - pila akong bayaran
-    - libre ba ang counseling
-    - tag pila ang test
-    - kailangan ba ug kwarta sa guidance
-    - pila to ang 475 php
-    - pila bayad guidance
-    - bayad counsel pila
-    - bayad test ugc
-    - libre undergrad guidance
-    - bayad graduate studies
-    - bayad non teaching pila
-    - bayad teaching applicant
-    - bayad college law
-    - presyo counseling
-    - bayad sa guidance
-    - libre ra ba
-    - bayad sa test
-    - libre undergrad
-    - bayad grad school
-    - bayad sa applicant
-    - bayad sa teaching
-    - bayad sa non teaching
-    - pila ibayad
-    - 100 ba ang non teaching
-    - 475 ba ang teaching
-    - mubayad bag 475 ang masters
-    - libre ba ang exit interview
-    - naa bay bayad ang seminar
-    - pila bayad sa job fair
+    - do buksu offer a board exam review program
+    - is there any board exam review program for graduates student
+    - naa bay mga board exam nga program gina hatag ang buksu
 
 - intent: buksu_presidents_list
   examples: |
-    - can you give me the list of the presidency in bukidnon state university
-    - who are the presidents in bukidnon state university
-    - list of president in Bukidnon State University
+    - can you give me the list of BukSU presidents
+    - what is the list of presidents of Bukidnon State University
     - who are the presidents of BukSU
-    - can you list the presidents of BukSU
-    - I want to know the presidents of BukSU
-    - can you show me the list of BukSU presidents
-    - who became president in BukSU
-    - who are the past presidents of BukSU
-    - can you give me BukSU president list
-    - list all BukSU presidents
-    - who is the current president of BukSU and past ones
-    - can you tell me all presidents of BukSU
-    - I need the list of BukSU leaders
-    - who handled BukSU before
-    - can you show BukSU president history
-    - I want to see BukSU president names
-    - who are the leaders of BukSU over the years
-    - can you provide BukSU president info
-    - list down BukSU presidents
-    - What is the list of presidents of Bukidnon State University
-    - Can you provide the list of BukSU presidents
-    - Who are the past and present presidents of BukSU
-    - What is the historical list of BukSU presidents
-    - Can you enumerate the presidents of Bukidnon State University
-    - Who have served as presidents of BukSU
-    - What are the names of BukSU university presidents
-    - Can you provide information about BukSU leadership history
-    - What is the official list of BukSU presidents
-    - Who are the university presidents of BukSU over the years
-    - Can you list the former and current presidents of BukSU
-    - What is the record of BukSU presidents
-    - Can you give a complete list of BukSU presidents
-    - Who are the institutional leaders of BukSU
-    - What are the names of BukSU presidents in order
-    - Can you provide a timeline of BukSU presidents
-    - Who served as president of BukSU in the past
-    - What is the leadership history of BukSU
-    - Can you present the BukSU president list
-    - Who are the officials that led BukSU
+    - can you list all presidents of BukSU
+    - I want to see the list of BukSU presidents
+    - can you show all BukSU presidents
+    - what are the names of BukSU presidents
+    - can you provide the list of BukSU presidents
+    - list all presidents of Bukidnon State University
+    - can you enumerate the BukSU presidents
+    - what is the complete list of BukSU presidents
+    - who are the past and present presidents of BukSU
+    - can you give a full list of BukSU presidents
+    - what is the official list of BukSU presidents
+    - can you show the history list of BukSU presidents
+    - what are the presidents of BukSU in order
+    - can you provide all names of BukSU presidents
+    - who have served as presidents of BukSU
+    - can you present the BukSU presidents list
+    - what is the historical list of BukSU presidents
     - kinsa ang mga presidente sa BukSU
-    - unsa ang lista sa mga presidente sa Bukidnon State University
-    - kinsa ang naging presidente sa BukSU
+    - unsa ang lista sa mga presidente sa BukSU
     - hatagi kog lista sa mga presidente sa BukSU
-    - unsa ang mga pangalan sa presidente sa BukSU
-    - kinsa ang mga leaders sa BukSU sauna
-    - pwede nimo ipakita ang lista sa BukSU presidents
-    - kinsa ang current ug past president sa BukSU
-    - unsa ang history sa presidente sa BukSU
-    - kinsa ang mga nag handle sa BukSU
-    - ipakita ang lista sa BukSU president
-    - unsa ang listahan sa mga presidente
-    - kinsa ang mga lider sa BukSU over the years
-    - tabangi ko unsay lista sa presidente
+    - ipakita ang lista sa BukSU presidents
+    - unsa ang listahan sa mga presidente sa BukSU
+    - kinsa ang mga naging presidente sa BukSU
+    - unsa ang mga pangalan sa mga presidente sa BukSU
     - pwede ko makakita sa lista sa BukSU presidents
-    - unsa ang mga pangalan sa BukSU leaders
-    - kinsa ang mga naging head sa BukSU
-    - unsa ang mga previous president sa BukSU
-    - kinsa ang mga official leaders sa BukSU
     - hatag lista sa BukSU presidents
-    - kinsa ang mga presidente sa Bukidnon State University
+    - unsay complete nga lista sa BukSU presidents
     - unsay opisyal nga lista sa mga presidente sa BukSU
     - kinsa ang mga ni serve isip presidente sa BukSU
     - unsay historical nga lista sa mga presidente sa BukSU
     - pwede ba nimo ihatag ang lista sa mga presidente sa BukSU
     - kinsa ang mga past ug present nga presidente sa BukSU
     - unsay record sa mga presidente sa BukSU
-    - kinsa ang mga lider sa BukSU sa nagkalain laing panahon
     - unsay timeline sa mga presidente sa BukSU
-    - kinsa ang mga opisyal nga lider sa BukSU
-    - unsay complete nga lista sa BukSU presidents
-    - kinsa ang mga nagdumala sa BukSU sauna
     - unsay listahan sa mga university presidents sa BukSU
-    - pwede ba nimo i enumerate ang mga presidente
-    - unsay leadership history sa BukSU
-    - kinsa ang mga university leaders sa BukSU
-    - unsay mga pangalan sa presidente sa BukSU
-    - kinsa ang mga head sa BukSU institution
+    - pwede ba nimo i enumerate ang mga presidente sa BukSU
     - unsay official nga record sa BukSU presidents
-    - kinsa ang mga previous leaders sa BukSU
-    - BukSU presidents
-    - presidents BukSU
-    - list presidents
-    - BukSU leader list
-    - president list BukSU
-    - kinsa presidente
-    - BukSU kinsa president
-    - list BukSU
-    - president history
-    - BukSU leaders
-    - kinsa leaders BukSU
-    - lista presidente
 
 - intent: freshmen_application_period
   examples: |
-    - when the application for admission testing start
-    - what month do buksu admission start
-    - buksu admission application
-    - when does BukSU admission start
-    - when is the application period for incoming freshmen
-    - when can I apply for BukSU admission
-    - when does admission open in BukSU
+    - when does BukSU admission testing start
+    - when does BukSU admission application start
+    - when does BukSU admission open for freshmen
+    - when can I start applying for BukSU admission testing
+    - what month does BukSU admission testing start
+    - when is the start of BukSU admission application
+    - when do applications open for BukSU admission testing
+    - when does BukSU start accepting admission applications
+    - when will BukSU admission testing open
+    - when can freshmen start applying for BukSU admission
+    - what is the opening date for BukSU admission testing
+    - when does the BukSU admission application begin
+    - when does admission testing application start in BukSU
+    - when can I apply for BukSU admission testing
+    - when is the admission testing application opening
+    - when does BukSU admission open for application
     - what time of the year does BukSU admission start
-    - when do freshmen apply for BukSU
-    - when can I start applying for BukSU
-    - what month does BukSU start accepting applicants
-    - when is the start of BukSU admission
-    - when does the application begin for BukSU
-    - when can I submit my application for BukSU
-    - is BukSU admission already open
-    - when will BukSU admission open
-    - when is the deadline for BukSU admission
-    - what months is BukSU admission open
-    - when do applications open for BukSU freshmen
-    - can you tell me when BukSU admission starts
-    - When is the application period for incoming freshmen at BukSU
-    - What is the official schedule for BukSU admission application
-    - When does the BukSU admission application period begin
-    - What months are included in the BukSU admission period
-    - When can prospective students apply for BukSU
-    - What is the timeframe for BukSU admission applications
-    - When does BukSU start accepting applications
-    - What is the opening date for BukSU admission
-    - When is the admission period for freshmen applicants
-    - What is the duration of BukSU admission application
-    - When should applicants begin submitting their requirements
-    - What is the schedule for admission testing application
-    - When does the admission cycle start at BukSU
-    - What is the official timeline for BukSU admissions
-    - When are applications typically accepted at BukSU
-    - What is the start and end date of BukSU admission
-    - When is the enrollment application period for freshmen
-    - What is the usual opening period for BukSU admission
-    - When can applicants begin their admission process
-    - What is the expected schedule for BukSU admission
-    - kanus a magsugod ang admission sa BukSU
-    - unsang buwan magsugod ang admission sa BukSU
-    - kanus a pwede mag apply sa BukSU
-    - kanus a mag open ang BukSU admission
-    - unsay month magsugod ang admission
-    - kanus a magsugod ang application sa freshmen
-    - pwede na ba mag apply sa BukSU karon
-    - kanus a mag start ang admission
-    - unsay schedule sa admission sa BukSU
-    - kanus a mag submit og application
-    - unsay buwan mag accept og applicants ang BukSU
-    - kanus a magsugod ang exam application
-    - kanus a mo open ang admission testing
-    - kanus a magsugod ang process sa admission
-    - unsay start sa BukSU admission
-    - kanus a mag apply ang freshmen
-    - unsa kadugay ang admission period
-    - kanus a mahuman ang admission
-    - unsay panahon sa admission sa BukSU
-    - kanus a ko pwede mag apply
-    - kanus a ang application period sa BukSU freshmen
-    - unsay opisyal nga schedule sa admission sa BukSU
-    - kanus a magsugod ang admission application period
-    - unsay mga bulan sakop sa admission period
-    - kanus a pwede mag apply ang mga aplikante
-    - unsay timeframe sa admission application
+    - when do BukSU admission applications begin
+    - can you tell me when BukSU admission testing starts
+    - when is the opening period for BukSU admission testing
+    - kanus a magsugod ang admission testing sa BukSU
+    - kanus a mag open ang BukSU admission testing
+    - kanus a magsugod ang admission application sa BukSU
+    - kanus a pwede magsugod og apply sa admission testing
+    - unsang buwan magsugod ang admission testing
+    - kanus a magsugod ang BukSU admission para freshmen
+    - kanus a mag open ang application sa BukSU admission
     - kanus a magsugod pag accept og applicants ang BukSU
-    - unsay opening date sa admission
-    - kanus a ang admission period sa freshmen
-    - unsa kadugay ang admission application period
-    - kanus a dapat magsugod ang pag submit sa requirements
-    - unsay schedule sa admission testing application
-    - kanus a magsugod ang admission cycle sa BukSU
-    - unsay timeline sa admission process
-    - kanus a kasagaran mag open ang admission
-    - unsay start ug end date sa admission
-    - kanus a magsugod ang application process
-    - unsay expected schedule sa BukSU admission
-    - kanus a mo open ang application sa freshmen
-    - unsay opisyal nga panahon sa admission
-    - buksu admission when
-    - admission start
-    - when admission
-    - buksu apply when
-    - admission month
-    - when apply buksu
-    - kanus a admission
-    - admission start buksu
-    - when open admission
-    - apply when
-    - buksu application when
-    - admission period
+    - kanus a mo open ang admission testing
+    - kanus a magsugod ang application sa admission testing
+    - unsa ang opening date sa BukSU admission testing
+    - kanus a magsugod ang admission application period
+    - kanus a magsugod ang proseso sa admission testing
+    - kanus a pwede mag apply para sa admission testing
+    - kanus a mag sugod ang BukSU admission application
+    - kanus a magsugod ang pag apply sa freshmen admission
+    - unsa nga panahon magsugod ang admission testing
+    - kanus a magsugod ang BukSU admission
+    - pwede ba mahibal an kanus a magsugod ang admission testing
+    - kanus a ang opening sa admission testing sa BukSU
 
 - intent: freshman_admission_requirements
   examples: |
@@ -7140,104 +6357,46 @@ nlu:
 
 - intent: visitor_campus_access
   examples: |
-    - can visitors enter the buksu campus
-    - can i enter buksu even if im not a student
-    - am i allowed to visit buksu
-    - is buksu open for visitors
-    - can outsiders enter the buksu campus
-    - are visitors allowed inside buksu
-    - can non students go inside buksu
-    - can i go inside buksu campus without being a student
-    - is it allowed to enter buksu campus
-    - can i visit someone inside buksu
-    - do i need permission to enter buksu
-    - can guests enter the campus
-    - can i go inside the university as a visitor
-    - is buksu allowing visitors inside
-    - can i enter buksu just to visit
-    - are outsiders allowed to go inside the campus
-    - can i enter the campus if im not enrolled
-    - is campus open for public visitors
-    - can i visit my friend in buksu campus
-    - can i enter the campus as a guest
-    - do they allow people to enter buksu
-    - can i access buksu campus without id
-    - can i go inside even if im not from buksu
-    - is there rules for visitors in buksu
-    - how can a visitor enter the campus
-    - can i enter the school campus freely
-    - can i visit inside buksu campus
-    - are visitors accepted in buksu
-    - is it okay to enter buksu campus as visitor
-    - can i go in buksu campus
-    - buksu visitor allowed
-    - can enter buksu
-    - visitor access buksu
-    - buksu campus entry
-    - can i visit buksu
-    - outsider enter campus
-    - visit buksu allowed
-    - campus access visitor
-    - can go inside buksu
-    - entry rules buksu
-    - can i enter campus
-    - visit campus buksu
-    - allowed visitor campus
-    - buksu entrance visitor
-    - visitor policy buksu
-    - enter buksu how
-    - visitor allowed school
-    - can i go visit campus
-    - outsider allowed buksu
-    - buksu open visitor
-    - pwede ba mosulod ang bisita sa buksu
-    - pwede ko mosulod sa buksu bisan dili ko estudyante
-    - pwede ba mag visit sa buksu
-    - open ba ang buksu para sa visitors
-    - pwede ba mosulod ang outsider sa campus
-    - pwede ba ang dili estudyante mosulod sa buksu
-    - pwede ko mosulod sa campus bisan dili enrolled
-    - allowed ba ang bisita sa buksu
-    - pwede ba moadto sa buksu para lang mag visit
-    - kinahanglan ba og permiso para mosulod
-    - pwede ba ang guest mosulod sa campus
-    - pwede ba ko mosulod isip visitor
-    - gi allow ba ang visitors sa buksu
-    - pwede ba mosulod sa campus kung bisita ra
-    - pwede ba mo sulod ang dili taga buksu
-    - open ba sa public ang campus
-    - pwede ko mo visit sa akong amigo sa buksu
-    - pwede ba mosulod isip guest
-    - gi allow ba ang tao mosulod sa buksu
-    - pwede ba mosulod bisan walay id
-    - pwede ko mosulod bisan dili ko taga buksu
-    - naay rules para sa visitors
+    - are visitors allowed to enter BukSU campus
+    - can visitors go inside BukSU campus
+    - is BukSU open for visitors
+    - can a visitor enter the BukSU campus
+    - are guests allowed inside BukSU campus
+    - can outsiders visit BukSU campus
+    - can I enter BukSU as a visitor
+    - is a visitor allowed to go inside the campus
+    - can non students visit BukSU as visitors
+    - are public visitors allowed in BukSU campus
+    - can I visit someone inside BukSU as a visitor
+    - are visitors permitted to enter BukSU
+    - can guests access the BukSU campus
+    - what are the rules for visitors entering BukSU
+    - do visitors need permission to enter BukSU campus
+    - how can a visitor enter BukSU campus
+    - is it allowed for a visitor to enter the campus
+    - can I go inside BukSU if I am just a visitor
+    - are visitors accepted inside BukSU campus
+    - can a visitor enter BukSU to visit a student
+    - pwede ba ang bisita mosulod sa BukSU campus
+    - allowed ba ang visitors sa BukSU
+    - pwede ba mosulod ang visitor sa campus
+    - pwede ba ang guest mosulod sa BukSU
+    - pwede ba ang outsider mosulod isip visitor
+    - pwede ko mosulod sa BukSU isip bisita
+    - pwede ba ang dili estudyante mosulod isip visitor
+    - open ba ang BukSU para sa visitors
+    - dawaton ba ang bisita sa BukSU campus
+    - pwede ba ko mo visit sa campus isip visitor
+    - pwede ba ko mosulod aron mo visit sa estudyante
+    - unsa ang rules para sa visitors sa BukSU
+    - kinahanglan ba og permiso ang visitor mosulod
     - unsaon pag sulod sa campus isip visitor
-    - pwede ba mosulod sa school campus
-    - pwede ba mag visit sulod sa buksu
-    - dawaton ba ang visitors sa buksu
-    - okay ra ba mosulod sa campus isip bisita
-    - pwede ko mosulod sa campus
-    - buksu visitor allowed
-    - mosulod buksu pwede
-    - visitor access buksu
-    - campus entry buksu
-    - pwede visit buksu
-    - outsider mosulod campus
-    - visit buksu allowed
-    - campus access bisita
-    - mosulod buksu pwede ba
-    - entry rules buksu
-    - pwede ko mosulod campus
-    - visit campus buksu
-    - allowed bisita campus
-    - buksu entrance bisita
-    - visitor policy buksu
-    - mosulod buksu unsaon
-    - bisita allowed school
-    - pwede ko mo visit campus
-    - outsider allowed buksu
-    - open ba visitor buksu
+    - pwede ba mosulod ang bisita sa campus
+    - pwede ba ang visitors mosulod sa BukSU campus
+    - pwede ba ko mosulod kung bisita ra ko
+    - pwede ba ang guest makasulod sa campus
+    - gi allow ba ang visitors sa BukSU campus
+    - pwede ba ang bisita mosulod para mo visit og estudyante
 
 - intent: enrollment_documents
   examples: |
@@ -7447,106 +6606,242 @@ nlu:
 
 - intent: admission_contact_help
   examples: |
-    - how can I contact buksu admission for help
-    - who can I contact for help with my admission requirements
-    - I need help for my buksu admission testing who can I ask
-    - help me who i can contact in terms of admission info
-    - where can I ask about buksu admission
-    - who should I contact for admission questions
-    - who do I talk to about admission requirements
-    - where can I go for help about admission
-    - who can assist me with admission testing
-    - who can I approach for admission help
-    - how to contact admission office in buksu
-    - where to ask about admission requirements
-    - who handles admission inquiries
-    - who can answer my questions about admission
-    - where can I get help for admission
-    - who can I ask about enrollment and admission
-    - where should I go for admission assistance
-    - who do I contact for admission support
-    - how can I reach admission office
-    - who can guide me about admission process
-    - who to ask about admission help
-    - where can I inquire about admission testing
-    - who is in charge of admission info
-    - who to contact for admission questions
-    - admission help contact who
-    - contact admission office buksu
-    - admission contact info
-    - who to ask admission
-    - admission help who to contact
-    - where admission help
-    - contact for admission
-    - ask admission help
-    - admission office contact
-    - help admission contact
-    - who admission help
-    - need help admission who
-    - admission inquiry contact
-    - admission support contact
-    - who can help admission
-    - contact buksu admission
-    - admission help line
-    - ask about admission who
-    - who to talk admission
-    - where ask admission
-    - admission question who contact
-    - who handles admission help
-    - admission help where
-    - contact person admission
-    - who can assist admission
-    - admission support who
-    - kinsa akong kontakon para sa help sa admission
-    - kinsa pwede nako pangutan-on about admission requirements
-    - tabangi ko kinsa akong kontakon para admission testing
-    - kinsa ang pwede nako kontakon sa admission info
-    - asa ko mangayo og tabang sa admission
-    - kinsa akong duolon para sa admission questions
-    - kinsa mag assist sa admission
-    - kinsa akong pangutan-on bahin sa admission
-    - asa ko pwede mo ask sa admission
-    - kinsa ang mo guide sa admission process
-    - unsaon pag contact sa admission office
-    - asa mangayo og help sa admission
-    - kinsa nag handle sa admission inquiries
-    - kinsa mo answer sa admission questions
-    - asa ko mangayo og help para admission
-    - kinsa akong duolon para sa enrollment ug admission
-    - asa ko moadto para sa admission assistance
-    - kinsa akong kontakon sa admission support
+    - how can I contact BukSU admission office
+    - who can I contact for BukSU admission inquiries
+    - where can I contact BukSU admission for information
+    - how do I reach BukSU admission office
+    - who should I contact for admission concerns in BukSU
+    - how to contact the admission office in BukSU
+    - where can I message BukSU admission
+    - how can I contact admission and testing unit
+    - who handles BukSU admission inquiries that I can contact
+    - where can I reach admission office for questions
+    - how do I contact BukSU admission through facebook
+    - can I contact BukSU admission online
+    - where can I find BukSU admission contact details
+    - who can I reach for admission help in BukSU
+    - how do I get in touch with BukSU admission office
+    - what is the contact of BukSU admission office
+    - who can I talk to in BukSU admission office
+    - how can I contact admission office for assistance
+    - where do I go to contact BukSU admission
+    - how can I directly contact BukSU admission
+    - unsaon pag contact sa BukSU admission office
+    - kinsa akong kontakon sa BukSU admission
+    - asa ko makakontak sa admission office sa BukSU
     - unsaon pag reach sa admission office
-    - kinsa mo guide sa admission
-    - kinsa akong pangutan-on para sa help
-    - asa ko mangayo og info sa admission
-    - kinsa mo assist sa admission testing
-    - kinsa ang contact sa admission
-    - admission help kinsa kontakon
-    - contact admission office buksu
-    - admission contact info
-    - kinsa pangutan-on admission
-    - admission help kinsa
-    - asa admission help
-    - contact para admission
-    - ask admission help
-    - admission office contact
-    - help admission kinsa
-    - kinsa admission help
-    - kinahanglan help admission kinsa
-    - admission inquiry contact
-    - admission support contact
-    - kinsa mo help admission
-    - contact buksu admission
-    - admission help line
-    - ask admission kinsa
-    - kinsa mo talk admission
-    - asa ask admission
-    - admission question kinsa kontakon
-    - kinsa nag handle admission help
-    - admission help asa
-    - contact person admission
-    - kinsa mo assist admission
-    - admission support kinsa
+    - kinsa akong pwede kontakon para sa admission inquiries
+    - asa ko pwede mag message sa BukSU admission
+    - unsaon pag contact sa admission and testing unit
+    - kinsa nag handle sa admission nga pwede nako kontakon
+    - asa nako makuha ang contact sa admission office
+    - unsaon pag message sa BukSU admission sa facebook
+    - pwede ba nako kontakon ang BukSU admission online
+    - asa makita ang contact details sa BukSU admission
+    - kinsa akong duolon para makontak ang admission office
+    - unsaon nako pag contact sa admission office
+    - kinsa akong kaistorya sa admission office sa BukSU
+    - unsa ang contact sa BukSU admission office
+    - asa ko moadto para makontak ang admission
+    - unsaon pag direct contact sa BukSU admission
+    - kinsa akong kontakon para sa admission support
+    - unsaon pag reach sa BukSU admission
+
+- intent: buksu_courses_offered
+  examples: |
+    - what courses does BukSU offer
+    - what are the courses offered in BukSU
+    - list of courses in BukSU
+    - can you list all courses in BukSU
+    - what programs are available in BukSU
+    - what degree programs does BukSU offer
+    - show me the courses offered by BukSU
+    - what are the available courses in BukSU main campus
+    - can you give me the list of BukSU courses
+    - what are the college programs in BukSU
+    - what courses can I take in BukSU
+    - what are the offered programs in BukSU
+    - list all programs in BukSU
+    - what are the academic programs in BukSU
+    - what courses are available at Bukidnon State University
+    - can you show BukSU program list
+    - what degrees are offered in BukSU
+    - what courses are open in BukSU
+    - what are the study programs in BukSU
+    - BukSU courses list
+    - unsa nga mga kurso ang gi offer sa BukSU
+    - unsa ang mga courses sa BukSU
+    - lista sa mga kurso sa BukSU
+    - pwede nimo ihatag ang listahan sa kurso sa BukSU
+    - unsa nga mga programa ang available sa BukSU
+    - unsa nga degree programs sa BukSU
+    - ipakita ang mga kurso sa BukSU
+    - unsa ang mga kurso sa BukSU main campus
+    - unsa ang tanan kurso sa BukSU
+    - unsa ang mga college programs sa BukSU
+    - unsa nga kurso pwede kuhaon sa BukSU
+    - unsa ang mga offered programs sa BukSU
+    - lista tanan programs sa BukSU
+    - unsa ang academic programs sa BukSU
+    - unsa nga kurso available sa Bukidnon State University
+    - ipakita ang program list sa BukSU
+    - unsa nga degree ang gi offer sa BukSU
+    - unsa nga kurso open sa BukSU
+    - unsa nga mga study programs sa BukSU
+    - BukSU kurso listahan
+
+- intent: buksu_non_board_courses
+  examples: |
+    - what are the non board courses in BukSU
+    - list of non board courses in BukSU
+    - can you list the non board courses in BukSU
+    - what non board programs does BukSU offer
+    - what are the available non board courses in BukSU
+    - show me non board courses in BukSU
+    - BukSU non board courses list
+    - what courses in BukSU are non board
+    - which courses in BukSU are non board programs
+    - can you give me BukSU non board programs
+    - what are the non board degree programs in BukSU
+    - list all non board programs in BukSU
+    - what are the non board courses offered in BukSU main campus
+    - what non board degrees are available in BukSU
+    - can you show all non board courses in BukSU
+    - what programs in BukSU are considered non board
+    - BukSU courses non board list
+    - what are BukSU non board offerings
+    - give me non board courses BukSU
+    - non board courses in Bukidnon State University
+    - unsa ang mga non board courses sa BukSU
+    - lista sa non board courses sa BukSU
+    - pwede nimo ihatag ang non board courses sa BukSU
+    - unsa nga non board programs sa BukSU
+    - unsa ang available nga non board courses sa BukSU
+    - ipakita ang non board courses sa BukSU
+    - BukSU non board courses listahan
+    - unsa nga kurso sa BukSU ang non board
+    - unsa nga programs sa BukSU ang non board
+    - pwede nimo ihatag ang non board programs sa BukSU
+    - unsa ang non board degree programs sa BukSU
+    - lista tanan non board programs sa BukSU
+    - unsa ang non board courses sa BukSU main campus
+    - unsa nga non board degrees ang available sa BukSU
+    - ipakita tanan non board courses sa BukSU
+    - unsa nga programs sa BukSU ang gi consider non board
+    - BukSU non board offerings unsa
+    - hatagi ko non board courses sa BukSU
+    - non board courses sa Bukidnon State University
+
+- intent: buksu_board_courses
+  examples: |
+    - what are the board courses in BukSU
+    - list of board courses in BukSU
+    - can you list the board courses in BukSU
+    - what board programs does BukSU offer
+    - what are the available board courses in BukSU
+    - show me board courses in BukSU
+    - BukSU board courses list
+    - what courses in BukSU are board courses
+    - which courses in BukSU are board programs
+    - can you give me BukSU board programs
+    - what are the board degree programs in BukSU
+    - list all board programs in BukSU
+    - what are the board courses offered in BukSU main campus
+    - what board degrees are available in BukSU
+    - can you show all board courses in BukSU
+    - what programs in BukSU are considered board courses
+    - BukSU courses board list
+    - what are BukSU board course offerings
+    - give me board courses BukSU
+    - board courses in Bukidnon State University
+    - unsa ang mga board courses sa BukSU
+    - lista sa board courses sa BukSU
+    - pwede nimo ihatag ang board courses sa BukSU
+    - unsa nga board programs sa BukSU
+    - unsa ang available nga board courses sa BukSU
+    - ipakita ang board courses sa BukSU
+    - BukSU board courses listahan
+    - unsa nga kurso sa BukSU ang board courses
+    - unsa nga programs sa BukSU ang board courses
+    - pwede nimo ihatag ang board programs sa BukSU
+    - unsa ang board degree programs sa BukSU
+    - lista tanan board programs sa BukSU
+    - unsa ang board courses sa BukSU main campus
+    - unsa nga board degrees ang available sa BukSU
+    - ipakita tanan board courses sa BukSU
+    - unsa nga programs sa BukSU ang gi consider board courses
+    - BukSU board offerings unsa
+    - hatagi ko board courses sa BukSU
+    - board courses sa Bukidnon State University
+
+- intent: cat_exam_result
+  examples: |
+    - how can I check my CAT exam result in BukSU
+    - how do I check my BukSU CAT result
+    - how can I know my CAT exam result
+    - how do I know if I passed the BukSU CAT exam
+    - where can I see my CAT exam result in BukSU
+    - how to view my BukSU CAT exam result
+    - how can I access my CAT examination result
+    - how do I check if I passed the CAT exam in BukSU
+    - where do I find my CAT exam score
+    - how to check CAT result in BukSU admission account
+    - how can I see my CAT score in BukSU
+    - how do I open my CAT exam result
+    - how do i know if i pass the buksu cat examination
+    - how can I view my report of ratings in BukSU
+    - how to know if I passed CAT exam BukSU
+    - how to know if i pass the buksu admission examination?
+    - where can I check my BukSU admission CAT result
+    - how to access CAT exam result in admission portal
+    - how do I see my CAT exam result in BukSU website
+    - how to check my CAT exam result step by step
+    - how can I confirm my CAT exam result in BukSU
+    - how to see my busku catscore?
+    - unsaon nako pag check sa CAT exam result sa BukSU
+    - unsaon pag tan aw sa akong CAT result
+    - unsaon nako pagkahibalo sa akong CAT exam result
+    - unsaon nako paghibalo kung nakapasar ko sa CAT exam
+    - asa nako makita ang CAT exam result sa BukSU
+    - unsaon pag view sa CAT exam result
+    - unsaon nako pag access sa CAT result
+    - unsaon pag check kung nakapasar sa CAT exam BukSU
+    - asa makita ang CAT exam score
+    - unsaon pag check sa CAT result sa admission account
+    - unsaon nako pagtan aw sa akong CAT score sa BukSU
+    - unsaon pag open sa CAT exam result
+    - unsaon pag tan aw sa report of ratings sa BukSU
+    - unsaon pagkahibalo kung nakapasar sa CAT exam
+    - unsaon pag check sa CAT result online sa BukSU
+    - asa nako ma check ang CAT exam result sa BukSU
+    - unsaon pag access sa CAT result sa portal
+    - unsaon pag tan aw sa CAT result sa website sa BukSU
+    - unsaon pag check sa CAT exam result step by step
+    - unsaon pag confirm sa CAT exam result sa BukSU
+    - how to know my buksu CAT passing score
+
+- synonym: exam
+  examples: |
+    - examination
+    - testing
+
+- synonym: board courses
+  examples: |
+    - board programs
+    - courses with board exam
+
+- synonym: non board
+  examples: |
+    - nonboard
+    - non board programs
+    - courses without board exam
+
+- synonym: courses
+  examples: |
+    - programs
+    - degrees
+    - course list
+    - academic programs
 
 - synonym: requirements
   examples: |
@@ -7557,7 +6852,13 @@ nlu:
     - files
     - papers
     - docs
-    - files
+
+- synonym: list
+  examples: |
+    - enumerate
+    - list down
+    - show all
+    - full list
 
 - synonym: freshman
   examples: |
@@ -7632,15 +6933,36 @@ nlu:
 
 - synonym: admission
   examples: |
-    - admission testing
     - admission process
     - application
     - entrance
     - application
     - apply
+    - portal
 
 - synonym: buksu
   examples: |
     - bukidnon state university
     - bukidnon state
     - bsu
+
+- synonym: lyrics
+  examples: |
+    - kanta
+    - lyrics
+    - words of a song
+    - song lyrics
+
+- synonym: hymn
+  examples: |
+    - anthem
+    - official anthem
+    - university hymn
+    - school hymn
+
+- synonym: exam
+  examples: |
+    - test
+    - entrance exam
+    - admission test
+    - testing

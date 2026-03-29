@@ -2,6 +2,7 @@ version: "3.1"
 
 intents:
   - ask_locations
+  - ask_library_info
   - greet
   - goodbye
   - about_ict
@@ -38,7 +39,7 @@ intents:
   - contact_scholarship_unit
   - all_comlab_locations
   - bot_challenge
-
+  - buksu_grading_system
   - transferee_enrollment
   - student_fees
   - student_organizations
@@ -137,7 +138,6 @@ intents:
   - free_tuition_undergraduate_buksu
   - apply_cat_using_mobile_phone
   - join_student_organizations_process
-  - buksu_grading_system
   - sports_facilities_for_students
   - buksu_courses_offered_list
   - student_assistant_application_process
@@ -148,8 +148,6 @@ intents:
   - significance_year_1924_buksu
   - previous_name_buksu_college
   - second_courser_cat_application
-  - library_book_borrowing_rules
-  - library_late_return_penalty
   - oss_no_noon_break_policy
   - dasig_spirit_animal_buksu
   - buksu_academic_colleges
@@ -166,7 +164,7 @@ intents:
   - buksu_seal_significance
   - overload_units_policy
   - withdraw_enrollment_policy
-  - buksu_hymn
+  - buksu_hymn_lyrics
   - second_courser_requirements
   - buksu_bsit_program
   - buksu_mpa_program
@@ -177,7 +175,6 @@ intents:
   - buksu_clinic_services
   - institutional_email_info
   - good_moral_certificate_request
-  - buksu_library_hours
   - student_assistant_application
   - buksu_medical_dental_services
   - no_noon_break_policy
@@ -189,13 +186,6 @@ intents:
   - double_enrollment_policy
   - buksu_gymnasium_facility
   - new_student_orientation_purpose
-
-  - library_id_card_location
-  - library_id_card_payment
-  - library_id_card_requirements
-  - library_borrow_books
-  - library_return_books
-  - library_available_books_info
   - library_thesis_availability
   - admission_application_deadline
   - buksu_mandates
@@ -212,7 +202,6 @@ intents:
   - ask_how_to_avail_guidance
   - ask_guidance_eligibility
   - ask_guidance_schedule
-  - ask_guidance_fee
   - buksu_presidents_list
   - freshmen_application_period
   - freshman_admission_requirements
@@ -221,6 +210,13 @@ intents:
   - enrollment_documents
   - graduating_clearance_requirements
   - admission_contact_help
+  - buksu_courses_offered
+  - buksu_non_board_courses
+  - buksu_board_courses
+  - cat_exam_result
+
+
+
 
 
 entities:

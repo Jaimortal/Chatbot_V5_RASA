@@ -386,7 +386,7 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse mt-1" />
           <div className="flex flex-col leading-tight">
             <h3 className="font-semibold text-sm text-white">Buksu Chatbot</h3>
-            <p className="text-xs text-white/90 font-light">Ask me everything about BukSU</p>
+            <p className="text-xs text-white/90 font-light">Ask me about BukSU</p>
           </div>
         </div>
         <div className="flex gap-1">
@@ -520,7 +520,7 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
 
       {/* Input - Hidden when in fullscreen map mode */}
       {!fullscreenMapId && (
-        <div className="p-3 border-t bg-background shrink-0">
+        <div className="p-3 border-t bg-background shrink-0 pb-1">
           {/* FAQs Section - Only show when not typing */}
           {!isTyping && (
             <div className="mb-3">
@@ -592,6 +592,9 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
           </div>
         </div>
       )}
+      <a className="text-xs text-muted-foreground/60 hover:text-muted-foreground text-center mt-0 mb-0" href="#" target="_blank" rel="noopener noreferrer">
+        Chatbot might also make mistakes
+      </a>
     </div>
   );
 }

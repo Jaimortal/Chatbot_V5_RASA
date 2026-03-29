@@ -2531,8 +2531,8 @@
       "building": "College of Business Building",
       "floor": "Fourth Floor",
       "coordinates": [
-        652,
-        245
+        653,
+        408
       ],
       "map_id": "main_map",
       "responses": {
@@ -2542,7 +2542,17 @@
         "ceb": [
           "Ang COB 4th floor students organization makita sa College of Business building sa 4th floor."
         ]
-      }
+      },
+      "pins": [
+        {
+          "name": "COB SBO",
+          "coordinates": [
+            653,
+            408
+          ]
+        }
+      ],
+      "imageUrls": []
     },
     "New COT Building": {
       "type": "building",
@@ -3548,7 +3558,7 @@
     },
     "CARES": {
       "type": "office",
-      "building": "CPAG building",
+      "building": "CPAG Building",
       "floor": "Ground Floor",
       "coordinates": [
         712,
@@ -3566,7 +3576,7 @@
     },
     "GE Department": {
       "type": "office",
-      "building": "CPAG building",
+      "building": "CPAG Building",
       "floor": "Ground Floor",
       "coordinates": [
         735,
@@ -3597,6 +3607,24 @@
         ],
         "ceb": [
           "Ang Administration Building naa sa entrance; mao kini ang unang building nga imong makita. Hatagan pud tika og mga mapa aron mas sayon nimo malibot ang campus."
+        ]
+      }
+    },
+    "Guidance Office": {
+      "type": "office",
+      "building": "CPAG Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        710,
+        530
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Guidance Office is located on the ground floor of the CPAG building, just above the canteen and in front of the CPAG Dean’s Office. Don’t worry, I will provide some maps."
+        ],
+        "ceb": [
+          "Ang Guidance Office nahimutang sa ground floor sa CPAG building, ibabaw sa canteen ug atbang sa CPAG Dean’s Office. Ayaw kabalaka, hatagan tika og mga mapa."
         ]
       }
     }

@@ -1,7 +1,7 @@
 [
   {
     "intent": "about_ict",
-    "category": "comlab",
+    "category": "ICT info",
     "sub_category": "general",
     "responses": {
       "answer": {
@@ -24,7 +24,7 @@
   },
   {
     "intent": "get_wifi_access",
-    "category": "Location",
+    "category": "ICT info",
     "sub_category": "services",
     "responses": {
       "answer": {
@@ -62,7 +62,7 @@
   },
   {
     "intent": "ict_mission",
-    "category": "comlab",
+    "category": "ICT info",
     "sub_category": "mission",
     "responses": {
       "answer": [
@@ -82,7 +82,7 @@
   },
   {
     "intent": "about_buksu",
-    "category": "FAQ",
+    "category": "General Info",
     "sub_category": "general",
     "responses": {
       "answer": [
@@ -219,7 +219,7 @@
   },
   {
     "intent": "buksu_med_loc",
-    "category": "Location",
+    "category": "buksuMedical",
     "sub_category": "medical_clinic_location",
     "responses": {
       "image": "",
@@ -238,13 +238,15 @@
         "last_topic": "medical_clinic_location"
       },
       "mapData": {
-        "locationName": "The University Medical Clinic is located at the Ground Floor of the Health Services Building near the old College of Nursing Building.",
+        "locationName": "Medical Clinic",
         "coordinates": [
           281,
           654
         ],
         "mapId": "main_map"
-      }
+      },
+      "imageUrl": "",
+      "imageUrls": []
     },
     "metadata": {
       "source": "BuksuMedical"
@@ -252,6 +254,8 @@
   },
   {
     "intent": "nlu_fallback",
+    "category": "fallback",
+    "sub_category": "No Answer",
     "responses": {
       "answer": {
         "en": [
@@ -742,7 +746,7 @@
   },
   {
     "intent": "denied_applications",
-    "category": "admissions_info",
+    "category": "admissions",
     "sub_category": "application_status",
     "responses": {
       "answer": {
@@ -784,7 +788,7 @@
   },
   {
     "intent": "main_campus_full",
-    "category": "admissions_info",
+    "category": "admissions",
     "sub_category": "application_status",
     "responses": {
       "answer": {
@@ -919,7 +923,7 @@
   },
   {
     "intent": "system_error",
-    "category": "technical_support",
+    "category": "admissions",
     "sub_category": "website_issues",
     "responses": {
       "answer": [
@@ -1720,7 +1724,7 @@
   },
   {
     "intent": "student_stress_support",
-    "category": "Student Wellness",
+    "category": "Student Concerns",
     "sub_category": "mental_health",
     "responses": {
       "answer": {
@@ -3211,14 +3215,16 @@
     "responses": {
       "answer": {
         "en": [
-          "Yes BukSU accepts transferees depending on the availability of slots in the chosen program.",
-          "Transferees must submit an Honorable Dismissal and an Informative Copy of their Transcript of Records for evaluation.",
-          "Applicants must also meet the required GWA and pass the admission interview or exam."
+          "Yes BukSU accepts transferees depending on the availability of slots in the chosen program. You must first take and pass the BukSU Admission before you can enroll as a transferee.",
+          "Once you pass the admission, proceed to the BukSU main campus and go to the college department where you plan to enroll.",
+          "Transferees must submit an Honorable Dismissal and an Informative Copy of their Transcript of Records for evaluation, meet the required GWA, and pass any admission interview or exam.",
+          "Since each department may have its own specific rules for transferees, it is best to ask a faculty or staff member directly in the office for proper guidance."
         ],
         "ceb": [
-          "Oo ang BukSU modawat og transferees depende kung naay bakante nga slot sa napiling kurso.",
-          "Kinahanglan mag submit og Honorable Dismissal ug Informative Copy sa Transcript of Records para sa evaluation.",
-          "Kinahanglan usab makab-ot ang gikinahanglan nga GWA ug makapasar sa interview o exam."
+          "Oo, modawat ang BukSU og transferees depende sa available nga slots sa imong pilion nga kurso. Kinahanglan una ka mopasar sa BukSU Admission bago ka maka-enroll isip transferee.",
+          "Human nimo makapasar sa admission, adto sa BukSU main campus ug diretso sa college department nga imong gustong enrollan.",
+          "Ang transferees kinahanglan mo-submit og Honorable Dismissal ug Informative Copy sa ilang Transcript of Records para sa evaluation, maabot ang required GWA, ug mopasar sa admission interview o exam.",
+          "Tungod kay ang matag department adunay kaugalingong mga patakaran para sa transferees, mas maayo nga mangutana diretso sa faculty o staff sa opisina para sa hustong giya ug tabang."
         ]
       },
       "context_slots": {
@@ -3764,33 +3770,6 @@
     }
   },
   {
-    "intent": "library_book_borrowing_rules",
-    "category": "Library Services",
-    "sub_category": "borrowing",
-    "responses": {
-      "answer": {
-        "en": [
-          "Students can borrow a maximum of five books per week from the BukSU Library.",
-          "Borrowers must present a barcoded library card.",
-          "Some materials like reserve books encyclopedias and theses are only for inside reading and photocopying."
-        ],
-        "ceb": [
-          "Ang mga estudyante pwede mohulam og hangtod lima ka libro matag semana sa BukSU Library.",
-          "Kinahanglan ipakita ang barcoded library card.",
-          "Ang ubang materyales sama sa reserve books encyclopedias ug thesis para lamang sa inside reading o photocopy."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "library_book_borrowing_rules"
-      },
-      "follow_up": [],
-      "imageUrl": ""
-    },
-    "metadata": {
-      "source": "LibraryData"
-    }
-  },
-  {
     "intent": "library_late_return_penalty",
     "category": "Library Services",
     "sub_category": "penalties",
@@ -3872,10 +3851,24 @@
     "responses": {
       "answer": {
         "en": [
-          "BukSU is composed of several colleges including the College of Arts and Sciences College of Education College of Business College of Nursing College of Technologies College of Public Administration and Governance and the College of Law."
+          "BukSU is composed of several colleges including the:",
+          "- College of Arts and Sciences",
+          "- College of Education",
+          "- College of Business",
+          "- College of Nursing",
+          "- College of Technologies",
+          "- College of Public Administration and Governance",
+          "- College of Law"
         ],
         "ceb": [
-          "Ang BukSU gilangkuban sa pipila ka mga kolehiyo lakip ang College of Arts and Sciences College of Education College of Business College of Nursing College of Technologies College of Public Administration and Governance ug ang College of Law."
+          "Ang BukSU gilangkuban sa pipila ka mga kolehiyo lakip ang:",
+          "- College of Arts and Sciences",
+          "- College of Education",
+          "- College of Business",
+          "- College of Nursing",
+          "- College of Technologies",
+          "- College of Public Administration and Governance",
+          "- College of Law"
         ]
       },
       "context_slots": {
@@ -4094,8 +4087,8 @@
   },
   {
     "intent": "masters_degree_admission_requirements",
-    "category": "Graduate Studies",
-    "sub_category": "admission_requirements",
+    "category": "Graduate Courses",
+    "sub_category": "Masters Requirements",
     "responses": {
       "answer": {
         "en": [
@@ -4149,14 +4142,45 @@
   {
     "intent": "buksu_seal_significance",
     "category": "University Information",
-    "sub_category": "identity",
+    "sub_category": "Buksu seal",
     "responses": {
       "answer": {
         "en": [
-          "The BukSU seal represents its heritage and aspirations featuring elements that symbolize education the province of Bukidnon represented by the pineapple and mountains and the flame of knowledge."
+          "The BukSU Seal is the “sacred” and official emblem of Bukidnon State University, used primarily for high level academic and legal documents like diplomas and transcripts.",
+          "Each element within the seal has a specific meaning:",
+          " ",
+          "The Lamp: Symbolizes the light of truth and the university's commitment to academic, moral, and spiritual enlightenment.",
+          " ",
+          "The Book: Represents knowledge and the historical record of the institution.",
+          " ",
+          "The Adult and Child: Signifies the university's roots in teacher training, showing a teacher guiding a child toward a better future.",
+          " ",
+          "The Mountains: Represents the university's location in Bukidnon and symbolizes the heights of wisdom.",
+          " ",
+          "The Shield: Serves as the base for all symbols, representing education as a person's defense or shield against life's challenges.",
+          " ",
+          "Laurel Leaves: Represents the excellence the university strives for in its graduates and faculty.",
+          " ",
+          "Sheaf of Palay and Flask: These symbolize the university's goal of progress and prosperity for the region."
+
         ],
         "ceb": [
-          "Ang seal sa BukSU nagrepresentar sa kabilin ug mga tinguha niini nagpakita kini og mga simbolo sa edukasyon sa probinsya sa Bukidnon sama sa pinya ug kabukiran ug sa siga sa kahibalo."
+          "Ang BukSU Seal mao ang “sagrado” ug opisyal nga simbolo sa Bukidnon State University, nga kasagarang gigamit alang sa high-level academic ug legal nga mga dokumento sama sa diplomas ug transcripts.",
+          "Ang matag elemento sulod sa seal adunay espesipikong kahulogan:",
+          " ",
+          "Ang Lampara: Nagsimbolo sa kahayag sa kamatuoran ug sa komitment sa unibersidad sa akademiko, moral, ug espiritwal nga kahayag.",
+          " ",
+          "Ang Libro: Nagrepresentar sa kahibalo ug sa historikal nga rekord sa institusyon.",
+          " ",
+          "Ang Hamtong ug Bata: Nagpasabot sa gigikanan sa unibersidad sa teacher training, nga nagpakita sa usa ka magtutudlo nga naggiya sa bata padulong sa mas maayong kaugmaon.",
+          " ",
+          "Ang Kabukiran: Nagrepresentar sa lokasyon sa unibersidad sa Bukidnon ug nagsimbolo sa kataas sa kaalam.",
+          " ",
+          "Ang Panagang (Shield): Mao ang base sa tanang simbolo, nga nagpasabot sa edukasyon isip panagang sa tawo batok sa mga hagit sa kinabuhi.",
+          " ",
+          "Ang Dahon sa Laurel: Nagrepresentar sa kahusayan nga gipaningkamotan sa unibersidad para sa iyang mga gradwado ug faculty.",
+          " ",
+          "Ang Bugkos sa Palay ug Flask: Kini nagsimbolo sa tumong sa unibersidad alang sa pag-uswag ug kauswagan sa rehiyon."
         ]
       },
       "context_slots": {
@@ -4172,7 +4196,7 @@
   {
     "intent": "overload_units_policy",
     "category": "Academic Policies",
-    "sub_category": "enrollment",
+    "sub_category": "Overloading units",
     "responses": {
       "answer": {
         "en": [
@@ -4195,7 +4219,7 @@
   {
     "intent": "withdraw_enrollment_policy",
     "category": "Academic Policies",
-    "sub_category": "enrollment",
+    "sub_category": "Enrollment withdrawal",
     "responses": {
       "answer": {
         "en": [
@@ -4216,16 +4240,18 @@
     }
   },
   {
-    "intent": "buksu_hymn",
-    "category": "University Information",
-    "sub_category": "culture",
+    "intent": "buksu_hymn_lyrics",
+    "category": "Univeristy Information",
+    "sub_category": "buksu Hymn Lyrics",
     "responses": {
       "answer": {
         "en": [
-          "The BukSU Hymn is the official song of the university performed during flag ceremonies and formal events and reflects the university commitment to excellence service and identity."
+          "Unfortunately I cannot display the full lyrics of the BukSU Hymn due to larg amount of text but i can send you the link, note this is not official link but it contains the lyrics of the BukSU Hymn",
+          "https://bukidnononline.com/bukidnon-state-university-hymn/#google_vignette"
         ],
         "ceb": [
-          "Ang BukSU Hymn mao ang opisyal nga kanta sa unibersidad nga ginakanta sa mga flag ceremony ug pormal nga okasyon ug nagpakita sa dedikasyon sa unibersidad sa excellence ug serbisyo."
+          "Pasensya na dili nako ma display ang full lyrics sa BukSU Hymn tungod sa kadaghan sa teksto pero pwede nako ipadala ang link, note nga dili ni official link pero naglakip kini sa lyrics sa BukSU Hymn",
+          "https://bukidnononline.com/bukidnon-state-university-hymn/#google_vignette"
         ]
       },
       "context_slots": {
@@ -4241,7 +4267,7 @@
   {
     "intent": "second_courser_requirements",
     "category": "Admissions",
-    "sub_category": "requirements",
+    "sub_category": "second course requirements",
     "responses": {
       "answer": {
         "en": [
@@ -4264,7 +4290,7 @@
   {
     "intent": "buksu_bsit_program",
     "category": "Academic Programs",
-    "sub_category": "undergraduate",
+    "sub_category": "Undergraduate Programs",
     "responses": {
       "answer": {
         "en": [
@@ -4287,7 +4313,7 @@
   {
     "intent": "buksu_mpa_program",
     "category": "Academic Programs",
-    "sub_category": "graduate",
+    "sub_category": "Graduate Programs",
     "responses": {
       "answer": {
         "en": [
@@ -4332,8 +4358,8 @@
   },
   {
     "intent": "buksu_admission_contact",
-    "category": "University Services",
-    "sub_category": "contact",
+    "category": "Admissions",
+    "sub_category": "admission office contact",
     "responses": {
       "answer": {
         "en": [
@@ -4356,7 +4382,7 @@
   {
     "intent": "law_admission_requirements",
     "category": "Admissions",
-    "sub_category": "law_program",
+    "sub_category": "Law Program requirement",
     "responses": {
       "answer": {
         "en": [
@@ -4379,7 +4405,7 @@
   {
     "intent": "student_id_replacement",
     "category": "Student Services",
-    "sub_category": "documents",
+    "sub_category": "Replacement student ID",
     "responses": {
       "answer": {
         "en": [
@@ -4411,7 +4437,7 @@
   {
     "intent": "buksu_clinic_services",
     "category": "Student Services",
-    "sub_category": "health",
+    "sub_category": "FIrst aid",
     "responses": {
       "answer": {
         "en": [
@@ -4434,7 +4460,7 @@
   {
     "intent": "institutional_email_info",
     "category": "University Services",
-    "sub_category": "ict",
+    "sub_category": "institutional email purpose",
     "responses": {
       "answer": {
         "en": [
@@ -4457,7 +4483,7 @@
   {
     "intent": "good_moral_certificate_request",
     "category": "Student Services",
-    "sub_category": "documents",
+    "sub_category": "Good Moral Certificate",
     "responses": {
       "answer": {
         "en": [
@@ -4479,8 +4505,8 @@
   },
   {
     "intent": "buksu_library_hours",
-    "category": "University Facilities",
-    "sub_category": "library",
+    "category": "Library",
+    "sub_category": "library hours",
     "responses": {
       "answer": {
         "en": [
@@ -4503,7 +4529,7 @@
   {
     "intent": "student_assistant_application",
     "category": "Student Services",
-    "sub_category": "employment",
+    "sub_category": "Student assistant application",
     "responses": {
       "answer": {
         "en": [
@@ -4526,7 +4552,7 @@
   {
     "intent": "buksu_medical_dental_services",
     "category": "Student Services",
-    "sub_category": "health",
+    "sub_category": "clinic free basic services",
     "responses": {
       "answer": {
         "en": [
@@ -4549,7 +4575,7 @@
   {
     "intent": "no_noon_break_policy",
     "category": "University Policies",
-    "sub_category": "services",
+    "sub_category": "No noon break policy",
     "responses": {
       "answer": {
         "en": [
@@ -4572,7 +4598,7 @@
   {
     "intent": "buksu_official_anthem",
     "category": "University Information",
-    "sub_category": "culture",
+    "sub_category": "whats BukSU hymn",
     "responses": {
       "answer": {
         "en": [
@@ -4598,7 +4624,7 @@
   {
     "intent": "buksu_cat_calculator_policy",
     "category": "Admissions",
-    "sub_category": "exam_rules",
+    "sub_category": "calculator policy during exam",
     "responses": {
       "answer": {
         "en": [
@@ -4621,7 +4647,7 @@
   {
     "intent": "latin_honors_graduation_requirements",
     "category": "Academic Policies",
-    "sub_category": "graduation",
+    "sub_category": "honor graduate requirements",
     "responses": {
       "answer": {
         "en": [
@@ -4644,7 +4670,7 @@
   {
     "intent": "latin_honors_average_gpa",
     "category": "Academic Policies",
-    "sub_category": "grading",
+    "sub_category": "Deans lister rule",
     "responses": {
       "answer": {
         "en": [
@@ -4667,7 +4693,7 @@
   {
     "intent": "buksu_bsa_program",
     "category": "Academic Programs",
-    "sub_category": "undergraduate",
+    "sub_category": "Accountancy Offer",
     "responses": {
       "answer": {
         "en": [
@@ -4690,7 +4716,7 @@
   {
     "intent": "double_enrollment_policy",
     "category": "Academic Policies",
-    "sub_category": "enrollment",
+    "sub_category": "Double Enrollment",
     "responses": {
       "answer": {
         "en": [
@@ -4713,7 +4739,7 @@
   {
     "intent": "buksu_gymnasium_facility",
     "category": "University Facilities",
-    "sub_category": "sports",
+    "sub_category": "Gymnasium Used for",
     "responses": {
       "answer": {
         "en": [
@@ -4736,7 +4762,7 @@
   {
     "intent": "new_student_orientation_purpose",
     "category": "Student Services",
-    "sub_category": "orientation",
+    "sub_category": "Orientation",
     "responses": {
       "answer": {
         "en": [
@@ -4759,154 +4785,16 @@
     }
   },
   {
-    "intent": "library_id_card_location",
-    "category": "Library",
-    "sub_category": "id_card",
-    "responses": {
-      "answer": {
-        "en": [
-          "Go to the 2nd floor of the library building and ask any staff member there. They can help you get a library ID card."
-        ],
-        "ceb": [
-          "Adtoa sa ikaduhang andana sa building sa librarya ug pangutana sa bisan kinsa nga staff didto. Matabangan ka nila sa pagkuha og library ID card."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "library_id_card_location"
-      },
-      "follow_up": [],
-      "imageUrl": ""
-    },
-    "metadata": {
-      "source": "Library Guide"
-    }
-  },
-  {
-    "intent": "library_id_card_payment",
-    "category": "Library",
-    "sub_category": "id_card",
-    "responses": {
-      "answer": {
-        "en": [
-          "Depending on what is indicated in your COR you usually do not need to pay for a library ID card unless you plan to borrow books. You can also ask any staff member on the 2nd floor of the university library building for assistance."
-        ],
-        "ceb": [
-          "Depende sa nakabutang sa imong COR kasagaran dili na kinahanglan mubayad para sa library ID card gawas kung plano nimo manghulam og libro. Pwede gihapon ka mangutana sa bisan kinsang staff sa ikaduhang andana sa university library building para sa tabang."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "library_id_card_payment"
-      },
-      "follow_up": [],
-      "imageUrl": ""
-    },
-    "metadata": {
-      "source": "Library Guide"
-    }
-  },
-  {
-    "intent": "library_id_card_requirements",
-    "category": "Library",
-    "sub_category": "id_card",
-    "responses": {
-      "answer": {
-        "en": [
-          "You need to bring your COR as proof that you are a student at Bukidnon State University and also bring a pen."
-        ],
-        "ceb": [
-          "Kinahanglan nimo dad on ang imong COR isip pamatuod nga estudyante ka sa Bukidnon State University ug pagdala usab og bolpen."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "library_id_card_requirements"
-      },
-      "follow_up": [],
-      "imageUrl": ""
-    },
-    "metadata": {
-      "source": "Library Guide"
-    }
-  },
-  {
-    "intent": "library_borrow_books",
-    "category": "Library",
-    "sub_category": "borrowing",
-    "responses": {
-      "answer": {
-        "en": [
-          "To borrow a book bring your library ID card and ask any staff member for assistance. Also bring a pen to fill out the necessary details."
-        ],
-        "ceb": [
-          "Aron makahulam og libro kinahanglan nimo dad on ang imong library ID card ug mangutana sa bisan kinsang staff para sa tabang. Ayaw kalimti pagdala og bolpen aron mapunan ang mga detalye."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "library_borrow_books"
-      },
-      "follow_up": [],
-      "imageUrl": ""
-    },
-    "metadata": {
-      "source": "Library Guide"
-    }
-  },
-  {
-    "intent": "library_return_books",
-    "category": "Library",
-    "sub_category": "borrowing",
-    "responses": {
-      "answer": {
-        "en": [
-          "To return books bring your library ID card and ask any staff member inside the library for assistance. You can also use the machine outside the library which has a guide on how to return books."
-        ],
-        "ceb": [
-          "Aron ibalik ang mga libro dad a ang imong library ID card ug pangutan a ang bisan kinsang staff sulod sa librarya para sa tabang. Pwede usab nimo gamiton ang makina sa gawas sa librarya nga adunay giya kung giunsa pagbalik sa mga libro."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "library_return_books"
-      },
-      "follow_up": [],
-      "imageUrl": ""
-    },
-    "metadata": {
-      "source": "Library Guide"
-    }
-  },
-  {
-    "intent": "library_available_books_info",
-    "category": "Library",
-    "sub_category": "resources",
-    "responses": {
-      "answer": {
-        "en": [
-          "The library regularly updates its collection so availability of books may change. For more information visit the university library and ask staff on each floor for assistance."
-        ],
-        "ceb": [
-          "Ang librarya pirmi nag update sa ilang koleksyon busa ang availability sa mga libro mahimong mag usab. Para sa dugang kasayuran adto sa university library ug mangutana sa staff sa matag andana para sa tabang."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "library_available_books_info"
-      },
-      "follow_up": [],
-      "imageUrl": ""
-    },
-    "metadata": {
-      "source": "Library Guide"
-    }
-  },
-  {
     "intent": "library_thesis_availability",
     "category": "Library",
-    "sub_category": "resources",
+    "sub_category": "Library thesis availability",
     "responses": {
       "answer": {
         "en": [
-          "Yes the library has thesis research and capstone papers for different colleges. Some are not displayed on shelves so you should ask a library staff member for assistance in finding them."
+          "Library has thesis research and capstone papers for different colleges. Some are not displayed on shelves so you should ask a library staff member for assistance in finding them."
         ],
         "ceb": [
-          "Oo ang librarya adunay thesis research ug capstone papers para sa nagkalain laing kolehiyo. Ang uban wala gipahimutang sa estante busa pangutan a ang staff sa librarya para matabangan ka sa pagpangita."
+          "Ang Librarya adunay thesis research ug capstone papers para sa nagkalain laing kolehiyo. Ang uban wala gipahimutang sa estante busa pangutan a ang staff sa librarya para matabangan ka sa pagpangita."
         ]
       },
       "context_slots": {
@@ -4922,7 +4810,7 @@
   {
     "intent": "admission_application_deadline",
     "category": "Admissions",
-    "sub_category": "schedule",
+    "sub_category": "Admission application deadline",
     "responses": {
       "answer": {
         "en": [
@@ -4946,8 +4834,8 @@
   },
   {
     "intent": "buksu_mandates",
-    "category": "University Info",
-    "sub_category": "policies",
+    "category": "University Information",
+    "sub_category": "BUksu Mandates",
     "responses": {
       "answer": {
         "en": [
@@ -4971,7 +4859,7 @@
   {
     "intent": "lost_and_found_buksu",
     "category": "Campus Services",
-    "sub_category": "general_services",
+    "sub_category": "Lost and Found center",
     "responses": {
       "answer": {
         "en": [
@@ -4998,7 +4886,7 @@
   {
     "intent": "accounting_office_location",
     "category": "Campus Services",
-    "sub_category": "office_location",
+    "sub_category": "Accounting office location",
     "responses": {
       "answer": {
         "en": [
@@ -5025,7 +4913,7 @@
   {
     "intent": "cor_validation_location",
     "category": "Registrar",
-    "sub_category": "document_process",
+    "sub_category": "COR Validation location",
     "responses": {
       "answer": {
         "en": [
@@ -5050,7 +4938,7 @@
   {
     "intent": "cor_validation_steps",
     "category": "Registrar",
-    "sub_category": "document_process",
+    "sub_category": "COR validation process",
     "responses": {
       "answer": {
         "en": [
@@ -5088,7 +4976,7 @@
   {
     "intent": "student_id_process",
     "category": "Student Services",
-    "sub_category": "id_processing",
+    "sub_category": "Student ID process",
     "responses": {
       "answer": {
         "en": [
@@ -5111,7 +4999,7 @@
   {
     "intent": "enrollment_general_process",
     "category": "Enrollment",
-    "sub_category": "general",
+    "sub_category": "general enrollment",
     "responses": {
       "answer": {
         "en": [
@@ -5136,7 +5024,7 @@
   {
     "intent": "online_enrollment_steps",
     "category": "Enrollment",
-    "sub_category": "online",
+    "sub_category": "Online enrollment",
     "responses": {
       "answer": {
         "en": [
@@ -5169,18 +5057,14 @@
   {
     "intent": "mixed_enrollment_process",
     "category": "Enrollment",
-    "sub_category": "mixed_mode",
+    "sub_category": "Face-to-face Enrollment",
     "responses": {
       "answer": {
         "en": [
-          "Mixed enrollment starts with online application.",
-          "Then proceed to your department to complete the process.",
-          "You may need to follow a queue system."
+          "For mixed enrollment, the process is similar to online enrollment fill up all the requirements on bukSU Admission, for the process just ask about online enrollment. but this time you need to go to your department to process your pending online enrollment. There are specific faculty staff who handle enrollment. Sometimes there is a queue system that you need to scan to know your number in line for your turn."
         ],
         "ceb": [
-          "Ang mixed enrollment magsugod sa online.",
-          "Dayon adto sa departamento para iproseso.",
-          "Posibleng naay queue system."
+          "Para sa mixed enrollment, parehas ra ang proseso sa online enrollment pun-a lang ang tanan requirements sa BUKSU Admissions. Para sa proseso, pangutan-a lang bahin sa online enrollment. Apan karon, kinahanglan ka moadto sa imong departamento aron iproseso ang imong pending online enrollment. Adunay espesipikong mga faculty staff nga nagdumala sa enrollment. Usahay adunay queue system nga kinahanglan nimo i-scan aron mahibaloan ang imong numero sa linya para sa imong turn."
         ]
       },
       "context_slots": {
@@ -5196,7 +5080,7 @@
   {
     "intent": "request_tor_process",
     "category": "Registrar",
-    "sub_category": "documents",
+    "sub_category": "TOR request",
     "responses": {
       "answer": {
         "en": [
@@ -5221,7 +5105,7 @@
   {
     "intent": "ask_guidance_services",
     "category": "Guidance Info",
-    "sub_category": "services_overview",
+    "sub_category": "Services offered by guidance",
     "responses": {
       "answer": {
         "en": [
@@ -5256,7 +5140,7 @@
   {
     "intent": "ask_how_to_avail_guidance",
     "category": "Guidance Info",
-    "sub_category": "avail_services",
+    "sub_category": "Guidance avail services",
     "responses": {
       "answer": {
         "en": [
@@ -5282,7 +5166,7 @@
   {
     "intent": "ask_guidance_eligibility",
     "category": "Guidance Info",
-    "sub_category": "eligibility",
+    "sub_category": "Guidance Services Eligibility",
     "responses": {
       "answer": {
         "en": [
@@ -5306,7 +5190,7 @@
   {
     "intent": "ask_guidance_schedule",
     "category": "Guidance Info",
-    "sub_category": "schedule",
+    "sub_category": "Guidance Services Schedule",
     "responses": {
       "answer": {
         "en": [
@@ -5328,37 +5212,9 @@
     }
   },
   {
-    "intent": "ask_guidance_fee",
-    "category": "Guidance Info",
-    "sub_category": "fees",
-    "responses": {
-      "answer": {
-        "en": [
-          "Is there a fee if we avail the services?",
-          "All the services are free for undergraduate students. However, testing fee is required for other students, such as in the Graduate Program and the College of Law",
-          "For Graduate Studies (LAW, PhD and Masters): 475.00php",
-          "For Applicants: Non-teaching: 100.00php; Teaching: 475.00php"
-        ],
-        "ceb": [
-          "Naa bay bayad kung mag avail sa mga serbisyo?",
-          "Libre ang tanang serbisyo para sa mga undergraduate nga estudyante. Apan adunay testing fee nga gikinahanglan para sa ubang estudyante sama sa Graduate Program ug College of Law",
-          "Para sa Graduate Studies (LAW, PhD ug Masters): 475.00php",
-          "Para sa mga Applicants: Non-teaching: 100.00php; Teaching: 475.00php"
-        ]
-      },
-      "follow_up": [],
-      "context_slots": {
-        "last_topic": "guidance_fees"
-      }
-    },
-    "metadata": {
-      "source": "BukSU Guidance Center"
-    }
-  },
-  {
     "intent": "buksu_presidents_list",
     "category": "University Info",
-    "sub_category": "history",
+    "sub_category": "Presidentcy timeline",
     "responses": {
       "answer": {
         "en": [
@@ -5411,7 +5267,7 @@
   {
     "intent": "freshmen_application_period",
     "category": "Admissions",
-    "sub_category": "schedule",
+    "sub_category": "Admission schedule",
     "responses": {
       "answer": {
         "en": [
@@ -5438,7 +5294,7 @@
   {
     "intent": "freshman_admission_requirements",
     "category": "Admissions",
-    "sub_category": "requirements",
+    "sub_category": "Apply Admission requirements",
     "responses": {
       "answer": {
         "en": [
@@ -5471,36 +5327,9 @@
     }
   },
   {
-    "intent": "transferee_admission_requirements",
-    "category": "Admissions",
-    "sub_category": "transferee",
-    "responses": {
-      "answer": {
-        "en": [
-          "You need to take the BukSU Admission first before you can enroll as a transferee.",
-          "After you pass the admission, go to the BukSU main campus and proceed to the college department you want to enroll in.",
-          "Ask any faculty staff member in the office for assistance, as each department has its own rules, especially for transferees, so it’s best to ask directly."
-        ],
-        "ceb": [
-          "Kinahanglan una nimo kuhaon ang BukSU Admission sa dili ka maka-enroll isip transferee.",
-          "Human nimo makapasar sa admission, adtoa ang BukSU main campus ug diretso sa departamento sa kolehiyo nga imong gustong sudlan.",
-          "Pangutan-a ang bisan kinsang faculty staff sa opisina para sa tabang, kay matag departamento adunay kaugalingong mga patakaran, labi na para sa mga transferee, mao nga mas maayo nga mangutana diretso."
-        ]
-      },
-      "context_slots": {
-        "last_topic": "transferee_admission_requirements"
-      },
-      "follow_up": [],
-      "imageUrl": ""
-    },
-    "metadata": {
-      "source": "AdmissionFAQ"
-    }
-  },
-  {
     "intent": "program_cutoff_scores",
     "category": "Admissions",
-    "sub_category": "criteria",
+    "sub_category": "Cut off scores",
     "responses": {
       "answer": {
         "en": [
@@ -5564,7 +5393,7 @@
   {
     "intent": "enrollment_documents",
     "category": "Enrollment",
-    "sub_category": "requirements",
+    "sub_category": "Freshman Enrollment requirements",
     "responses": {
       "answer": {
         "en": [
@@ -5593,7 +5422,7 @@
   {
     "intent": "graduating_clearance_requirements",
     "category": "Enrollment",
-    "sub_category": "graduation",
+    "sub_category": "Enrollment clearance for graduation",
     "responses": {
       "answer": {
         "en": [
@@ -5621,30 +5450,298 @@
     }
   },
   {
-  "intent": "admission_contact_help",
-  "category": "Admissions",
-  "sub_category": "contact",
-  "responses": {
-    "answer": {
-      "en": [
-        "You can contact the official Bukidnon State University Admission and Testing Unit for more information about admission.",
-        "It’s better to go in person to their office so they can assist you right away.",
-        "You can also contact them through their Facebook page: https://www.facebook.com/BukSUATU"
-      ],
-      "ceb": [
-        "Pwede nimo kontakon ang opisyal nga Bukidnon State University Admission and Testing Unit para sa dugang impormasyon bahin sa admission.",
-        "Mas maayo nga moadto ka personal sa ilang opisina aron matabangan ka dayon.",
-        "Pwede usab nimo sila kontakon pinaagi sa ilang Facebook page: https://www.facebook.com/BukSUATU"
-      ]
+    "intent": "admission_contact_help",
+    "category": "Admissions",
+    "sub_category": "Buksu ATU contact",
+    "responses": {
+      "answer": {
+        "en": [
+          "You can contact the official Bukidnon State University Admission and Testing Unit for more information about admission.",
+          "It’s better to go in person to their office so they can assist you right away.",
+          "You can also contact them through their Facebook page: https://www.facebook.com/BukSUATU"
+        ],
+        "ceb": [
+          "Pwede nimo kontakon ang opisyal nga Bukidnon State University Admission and Testing Unit para sa dugang impormasyon bahin sa admission.",
+          "Mas maayo nga moadto ka personal sa ilang opisina aron matabangan ka dayon.",
+          "Pwede usab nimo sila kontakon pinaagi sa ilang Facebook page: https://www.facebook.com/BukSUATU"
+        ]
+      },
+      "context_slots": {
+        "last_topic": "admission_contact_help"
+      },
+      "follow_up": [],
+      "imageUrl": ""
     },
-    "context_slots": {
-      "last_topic": "admission_contact_help"
-    },
-    "follow_up": [],
-    "imageUrl": ""
+    "metadata": {
+      "source": "AdmissionsFAQ"
+    }
   },
-  "metadata": {
-    "source": "AdmissionsFAQ"
+  {
+    "intent": "buksu_courses_offered",
+    "category": "Academics",
+    "sub_category": "All Courses",
+    "responses": {
+      "answer": {
+        "en": [
+          "Bukidnon State University (BukSU) provides an extensive selection of college programs, empowering students to pursue their passions and build their future with confidence. Here are the programs that they can offer to us",
+          "Bachelor of Science in Environmental Science Major in Environmental Heritage Studies",
+          "Bachelor of Science in Automotive Technology",
+          "Bachelor of Arts in Philosophy",
+          "Bachelor of Secondary Education Major in Filipino",
+          "Bachelor of Science in Nursing",
+          "Bachelor of Secondary Education Major in Mathematics",
+          "Bachelor of Arts in English Language",
+          "Bachelor of Elementary Education",
+          "Bachelor of Science in Information Technology",
+          "Bachelor of Arts in Social Science",
+          "Bachelor of Science in Electronics Technology",
+          "Bachelor of Science in Development Communication",
+          "Bachelor of Science in Biology Major in Biotechnology",
+          "Bachelor of Arts in Economics",
+          "Bachelor of Early Childhood Education",
+          "Bachelor of Science in Community Development",
+          "Bachelor of Arts in Sociology",
+          "Bachelor of Science in Hospitality Management",
+          "Bachelor of Science in Mathematics",
+          "Bachelor of Science in Food Technology",
+          "Bachelor of Physical Education",
+          "Bachelor of Public Administration",
+          "Bachelor of Science in Entertainment and Multimedia Computing Major in Digital Animation Technology",
+          "Bachelor of Science in Accountancy",
+          "Bachelor of Secondary Education Major in Science",
+          "Bachelor of Secondary Education Major in English",
+          "Bachelor of Science in Business Administration major in Financial Management",
+          "Bachelor of Secondary Education Major in Social Studies",
+          "And those are the only courses that Buksu Main campus can provide as of 2025, for more information you can check the buksu admission list of courses",
+          "https://admissions.buksu.edu.ph/courses"
+        ],
+        "ceb": [
+          "Ang Bukidnon State University (BukSU) naghatag og halapad nga kapilian sa mga kurso sa kolehiyo, nga nagtugot sa mga estudyante nga sundon ang ilang mga hilig ug tukuron ang ilang kaugmaon nga may pagsalig. Mao kini ang mga programa nga ilang ma-offer kanato:",
+          "Bachelor of Science in Environmental Science Major in Environmental Heritage Studies",
+          "Bachelor of Science in Automotive Technology",
+          "Bachelor of Arts in Philosophy",
+          "Bachelor of Secondary Education Major in Filipino",
+          "Bachelor of Science in Nursing",
+          "Bachelor of Secondary Education Major in Mathematics",
+          "Bachelor of Arts in English Language",
+          "Bachelor of Elementary Education",
+          "Bachelor of Science in Information Technology",
+          "Bachelor of Arts in Social Science",
+          "Bachelor of Science in Electronics Technology",
+          "Bachelor of Science in Development Communication",
+          "Bachelor of Science in Biology Major in Biotechnology",
+          "Bachelor of Arts in Economics",
+          "Bachelor of Early Childhood Education",
+          "Bachelor of Science in Community Development",
+          "Bachelor of Arts in Sociology",
+          "Bachelor of Science in Hospitality Management",
+          "Bachelor of Science in Mathematics",
+          "Bachelor of Science in Food Technology",
+          "Bachelor of Physical Education",
+          "Bachelor of Public Administration",
+          "Bachelor of Science in Entertainment and Multimedia Computing Major in Digital Animation Technology",
+          "Bachelor of Science in Accountancy",
+          "Bachelor of Secondary Education Major in Science",
+          "Bachelor of Secondary Education Major in English",
+          "Bachelor of Science in Business Administration major in Financial Management",
+          "Bachelor of Secondary Education Major in Social Studies",
+          "Ug mao ra kana ang mga kurso nga ma-offer sa BukSU Main Campus as of 2025. Para sa dugang impormasyon, pwede nimo tan-awon ang BukSU admission list sa mga kurso.",
+          "https://admissions.buksu.edu.ph/courses"
+        ]
+      },
+      "context_slots": {
+        "last_topic": "buksu_courses_offered"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPrograms"
+    }
+  },
+  {
+    "intent": "buksu_non_board_courses",
+    "category": "Academics",
+    "sub_category": "Non-board Courses",
+    "responses": {
+      "answer": {
+        "en": [
+          "here are the non-board courses that BukSU Offers.",
+          "COLLEGE OF PUBLIC ADMINISTRATION AND GOVERNANCE",
+          "Bachelor of Public Administration",
+          "COLLEGE OF ARTS AND SCIENCES",
+          "Bachelor of Arts in Economics",
+          "Bachelor of Arts in English Language",
+          "Bachelor of Arts in Philosophy",
+          "Bachelor of Arts in Sociology",
+          "Bachelor of Science in Community Development",
+          "Bachelor of Science in Development Communication",
+          "Bachelor of Science in Mathematics",
+          "Bachelor of Science in Biology major in Biotechnology",
+          "Bachelor of Science in Environmental Science major in Environmental Heritage Studies",
+          "COLLEGE OF BUSINESS",
+          "Bachelor of Science in Business Administration major in Financial Management",
+          "Bachelor of Science in Hospitality Management",
+          "COLLEGE OF TECHNOLOGIES",
+          "Bachelor of Science in Automotive Technology",
+          "Bachelor of Science in Electronics Technology",
+          "Bachelor of Science in Entertainment and Multimedia Computing Major in Digital Animation Technology",
+          "Bachelor of Science in Information Technology",
+          "If you want, I can also provide the list of board courses. Would you like to see it?"
+        ],
+        "ceb": [
+          "Ania ang mga non-board courses nga gi-offer sa BukSU.",
+          "COLLEGE OF PUBLIC ADMINISTRATION AND GOVERNANCE",
+          "Bachelor of Public Administration",
+          "COLLEGE OF ARTS AND SCIENCES",
+          "Bachelor of Arts in Economics",
+          "Bachelor of Arts in English Language",
+          "Bachelor of Arts in Philosophy",
+          "Bachelor of Arts in Sociology",
+          "Bachelor of Science in Community Development",
+          "Bachelor of Science in Development Communication",
+          "Bachelor of Science in Mathematics",
+          "Bachelor of Science in Biology major in Biotechnology",
+          "Bachelor of Science in Environmental Science major in Environmental Heritage Studies",
+          "COLLEGE OF BUSINESS",
+          "Bachelor of Science in Business Administration major in Financial Management",
+          "Bachelor of Science in Hospitality Management",
+          "COLLEGE OF TECHNOLOGIES",
+          "Bachelor of Science in Automotive Technology",
+          "Bachelor of Science in Electronics Technology",
+          "Bachelor of Science in Entertainment and Multimedia Computing Major in Digital Animation Technology",
+          "Bachelor of Science in Information Technology",
+          "Kung gusto nimo, pwede pud nako ihatag ang listahan sa mga board courses. Gusto ba nimo kini makita?"
+        ]
+      },
+      "follow_up": [
+        "Here are the board courses that bukSU offers",
+        "COLLEGE OF BUSINESS",
+        "Bachelor of Science in Accountancy",
+        "COLLEGE OF EDUCATION",
+        "Bachelor of Early Childhood Education",
+        "Bachelor of Elementary Education",
+        "Bachelor of Physical Education",
+        "Bachelor of Secondary Education Major in English",
+        "Bachelor of Secondary Education Major in Filipino",
+        "Bachelor of Secondary Education Major in Mathematics",
+        "Bachelor of Secondary Education Major in Social Studies",
+        "Bachelor of Secondary Education Major in Science",
+        "COLLEGE OF TECHNOLOGIES",
+        "Bachelor of Science in Food Technology",
+        "COLLEGE OF NURSING",
+        "Bachelor of Science in Nursing"
+      ],
+      "context_slots": {
+        "last_topic": "buksu_non_board_courses"
+      },
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPrograms"
+    }
+  },
+  {
+    "intent": "buksu_board_courses",
+    "category": "Academics",
+    "sub_category": "Board Courses",
+    "responses": {
+      "answer": {
+        "en": [
+          "here are the board courses that BukSU Offers.",
+          "COLLEGE OF BUSINESS",
+          "Bachelor of Science in Accountancy",
+          "COLLEGE OF EDUCATION",
+          "Bachelor of Early Childhood Education",
+          "Bachelor of Elementary Education",
+          "Bachelor of Physical Education",
+          "Bachelor of Secondary Education Major in English",
+          "Bachelor of Secondary Education Major in Filipino",
+          "Bachelor of Secondary Education Major in Mathematics",
+          "Bachelor of Secondary Education Major in Social Studies",
+          "Bachelor of Secondary Education Major in Science",
+          "COLLEGE OF TECHNOLOGIES",
+          "Bachelor of Science in Food Technology",
+          "COLLEGE OF NURSING",
+          "Bachelor of Science in Nursing",
+          "If you want, I can also provide the list of non-board courses. Would you like to see it?"
+        ],
+        "ceb": [
+          "Ania ang mga board courses nga gi-offer sa BukSU.",
+          "COLLEGE OF BUSINESS",
+          "Bachelor of Science in Accountancy",
+          "COLLEGE OF EDUCATION",
+          "Bachelor of Early Childhood Education",
+          "Bachelor of Elementary Education",
+          "Bachelor of Physical Education",
+          "Bachelor of Secondary Education Major in English",
+          "Bachelor of Secondary Education Major in Filipino",
+          "Bachelor of Secondary Education Major in Mathematics",
+          "Bachelor of Secondary Education Major in Social Studies",
+          "Bachelor of Secondary Education Major in Science",
+          "COLLEGE OF TECHNOLOGIES",
+          "Bachelor of Science in Food Technology",
+          "COLLEGE OF NURSING",
+          "Bachelor of Science in Nursing",
+          "Kung gusto nimo, pwede pud nako ihatag ang listahan sa mga non-board courses. Gusto ba nimo kini makita?"
+        ]
+      },
+      "follow_up": [
+        "here are the non-board courses that BukSU Offers.",
+        "COLLEGE OF PUBLIC ADMINISTRATION AND GOVERNANCE",
+        "Bachelor of Public Administration",
+        "COLLEGE OF ARTS AND SCIENCES",
+        "Bachelor of Arts in Economics",
+        "Bachelor of Arts in English Language",
+        "Bachelor of Arts in Philosophy",
+        "Bachelor of Arts in Sociology",
+        "Bachelor of Science in Community Development",
+        "Bachelor of Science in Development Communication",
+        "Bachelor of Science in Mathematics",
+        "Bachelor of Science in Biology major in Biotechnology",
+        "Bachelor of Science in Environmental Science major in Environmental Heritage Studies",
+        "COLLEGE OF BUSINESS",
+        "Bachelor of Science in Business Administration major in Financial Management",
+        "Bachelor of Science in Hospitality Management",
+        "COLLEGE OF TECHNOLOGIES",
+        "Bachelor of Science in Automotive Technology",
+        "Bachelor of Science in Electronics Technology",
+        "Bachelor of Science in Entertainment and Multimedia Computing Major in Digital Animation Technology",
+        "Bachelor of Science in Information Technology"
+      ],
+      "context_slots": {
+        "last_topic": "buksu_board_courses"
+      },
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AcademicPrograms"
+    }
+  },
+  {
+    "intent": "cat_exam_result",
+    "category": "Admissions",
+    "sub_category": "View CAT Scores",
+    "responses": {
+      "answer": {
+        "en": [
+          "The only way to know if you passed the BukSU Admission CAT Examination is to log in to your BukSU Admission account and go to the Admission tab. You can also quickly access it through notifications from BukSU Admissions. Once you see your Report of Ratings, as shown in the photo I provided, click <b>Show Exam Result</b> to check if you passed or failed.",
+          "You can also watch this video for step by step guid:",
+          "https://www.facebook.com/share/v/1CRFdU3vM5/"
+        ],
+        "ceb": [
+          "Ang pinakasayon nga paagi aron mahibal-an kung nakapasar ka sa BukSU Admission CAT Examination mao ang pag-log in sa imong BukSU Admission account ug adto sa Admission tab. Pwede pud nimo dali nga ma-access kini pinaagi sa notifications gikan sa BukSU Admissions. Kung makita nimo ang imong Report of Ratings, sama sa litrato nga akong gihatag, i-click ang ‘Show Exam Result’ aron tan-awon kung nakapasar o napakyas ka.",
+          "Pwede pud nimo tan-awon kini nga video para sa step by step guide:",
+          "https://www.facebook.com/share/v/1CRFdU3vM5/"
+        ]
+      },
+      "context_slots": {
+        "last_topic": "cat_exam_result"
+      },
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "AdmissionsTesting"
+    }
   }
-}
 ]
