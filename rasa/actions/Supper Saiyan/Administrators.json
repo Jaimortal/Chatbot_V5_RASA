@@ -1,0 +1,112 @@
+{
+  "intent": "ask_buksuadmin_info",
+  "category": "Administrators Info",
+  "entities": [
+    "topic"
+  ],
+  "topics": [
+    {
+      "topic": "Buksu_vice_pres",
+      "responses": {
+        "en": [
+          "As of 2026, Bukidnon State University (BukSU) has a team of vice presidents specializing in different areas rather than a single vice president. Key officials include:",
+          " ",
+          "Vice President for Academic Affairs: Dr. Hazel Jean M. Abejuela ",
+          " ",
+          "Vice President for Research, Extension and Innovations: Dr. Carina Joane V. Barroso",
+          " ",
+          "Vice President for Administration and Finance: Mr. Dante S. Victoria, Jr.",
+          " ",
+          "Vice President for Culture, Arts, Sports and Student Services: Dr. Lincoln V. Tan",
+          " ",
+          "Dr. Joy M. Mirasol serves as the University President.",
+          "for more Information you can visit the Official BukSU Website",
+          "https://buksu.edu.ph/board-of-regents/"
+        ],
+        "ceb": [
+          "As of 2026, ang Bukidnon State University (BukSU) adunay team sa mga vice presidents nga nag-specialize sa lain-laing mga natad imbes usa ra ka vice president. Ang mga key officials mao ang mosunod:",
+          " ",
+          "Vice President for Academic Affairs: Dr. Hazel Jean M. Abejuela",
+          " ",
+          "Vice President for Research, Extension and Innovations: Dr. Carina Joane V. Barroso",
+          " ",
+          "Vice President for Administration and Finance: Mr. Dante S. Victoria, Jr.",
+          " ",
+          "Vice President for Culture, Arts, Sports and Student Services: Dr. Lincoln V. Tan",
+          " ",
+          "Si Dr. Joy M. Mirasol nagsilbi isip University President.",
+          "para sa dungag nga ipormasyon bisitaha anng official website sa buksu",
+          "https://buksu.edu.ph/board-of-regents/"
+        ]
+      }
+    },
+    {
+      "topic": "vicepres_academic_affairs",
+      "responses": {
+        "en": [
+          "The Vice President for Academic Affairs: Dr. Hazel Jean M. Abejuela."
+        ],
+        "ceb": [
+          "Ang Vice President for Academic Affairs kay si: Dr. Hazel Jean M. Abejuela."
+        ]
+      }
+    },
+    {
+      "topic": "vicepres_research_extension_innovations",
+      "responses": {
+        "en": [
+          "The Vice President for Research, Extension and Innovations: Dr. Carina Joane V. Barroso"
+        ],
+        "ceb": [
+          "Ang Vice President for Research, Extension and Innovations kay si: Dr. Carina Joane V. Barroso"
+        ]
+      }
+    },
+    {
+      "topic": "vicepres_administration_finance",
+      "responses": {
+        "en": [
+          "Vice President for Administration and Finance: Mr. Dante S. Victoria, Jr."
+        ],
+        "ceb": [
+          "Ang Vice President for Administration and Finance kay si: Mr. Dante S. Victoria, Jr."
+        ]
+      }
+    },
+    {
+      "topic": "vicepres_culture_arts_sports_student_services",
+      "responses": {
+        "en": [
+          "Vice President for Culture, Arts, Sports and Student Services: Dr. Lincoln V. Tan "
+        ],
+        "ceb": [
+          "Ang Vice President for Culture, Arts, Sports and Student Services Kay si: Dr. Lincoln V. Tan "
+        ]
+      }
+    },
+    {
+      "topic": "buksu_secretary",
+      "responses": {
+        "en": [
+          "Mr. Dante S. Victoria, Jr. serves as the Board Secretary and concurrently the Vice President for Administration and Finance at Bukidnon State University. He holds a key role in the university's board of regents. For more information you can visit the Buksu official website",
+          "https://buksu.edu.ph/board-of-regents/"
+        ],
+        "ceb": [
+          "Si Mr. Dante S. Victoria, Jr. nagsilbi isip Board Secretary ug concurrently ang Vice President for Administration and Finance sa Bukidnon State University. Siya adunay importante nga papel sa board of regents sa unibersidad. Para sa dugang nga impormasyon, bisitaha ang opisyal nga website sa Buksu",
+          "https://buksu.edu.ph/board-of-regents/"
+        ]
+      }
+    },
+    {
+      "topic": "",
+      "responses": {
+        "en": [
+          ""
+        ],
+        "ceb": [
+          ""
+        ]
+      }
+    }
+  ]
+}

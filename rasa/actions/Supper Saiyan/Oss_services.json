@@ -1,0 +1,70 @@
+{
+  "intent": "ask_oss_services",
+  "category": "oss services",
+  "entities": [
+    "topic"
+  ],
+  "topics": [
+    {
+      "topic": "Student_id_fee",
+      "responses": {
+        "en": [
+          "Yes and no. Yes, if you are someone who frequently loses your ID and ends up getting a new one. But no, if you are a freshman or a newly enrolled student at BukSU Note that you can only get a free ID in first time, in 2nd time you need to pay for it."
+        ],
+        "ceb": [
+          "Oo ug dili. Oo, kung ikaw usa ka tawo nga kanunay mawalaan og ID ug magkuha na usab og bag-o. Apan dili, kung ikaw usa ka freshman o bag-ong enrolled nga estudyante sa BukSU. Hinumdomi nga makakuha ra ka og libre nga ID sa unang higayon; sa ikaduhang higayon, kinahanglan na ka mubayad para niini."
+        ]
+      }
+    },
+    {
+      "topic": "Requirement_get_id",
+      "responses": {
+        "en": [
+          "The requirements for getting a BukSU student ID are: you need to bring your validated COR and a digital 1x1 picture. Note: this is for freshmen or new students of BukSU. For those who have lost their ID, you need to ask the OSS, as they may require additional documents for you to get a replacement ID. For payment, if you are a freshman or a new student, it is free. However, if it is your second time getting an ID, you will need to pay. The exact amount is not specified, so please ask the OSS staff for more information."
+        ],
+        "ceb": [
+          "Ang mga kinahanglanon para makakuha og BukSU student ID mao ang mosunod: kinahanglan nimo dad-on ang imong validated COR ug digital nga 1x1 nga litrato. Note: para kini sa mga freshmen o bag-ong estudyante sa BukSU. Para sa mga nawad-an og ID, kinahanglan nimo mangutana sa OSS, kay posible mangayo sila og dugang nga mga dokumento para makakuha ka og replacement ID. Bahin sa bayad, kung freshman o bag-ong estudyante ka, libre ra kini. Apan kung ikaduha na nimo nga pagkuha og ID, kinahanglan na ka mubayad. Ang eksaktong kantidad wala gi-specify, mao nga pangutan-a lang ang OSS staff para sa dugang impormasyon."
+        ]
+      }
+    },
+    {
+      "topic": "lost_student_id_replacement_process",
+      "responses": {
+        "en": [
+          "If you lose your BukSU student ID you must first secure an affidavit of loss.",
+          "Then go to the Office of Student Services for an ID reissuance slip.",
+          "Pay the required fee at the University Cashier and bring the receipt to the University Press for a new ID."
+        ],
+        "ceb": [
+          "Kung mawala ang imong student ID kinahanglan una ka og affidavit of loss.",
+          "Dayon adto sa Office of Student Services para sa reissuance slip.",
+          "Bayad sa cashier ug dad a ang resibo sa University Press para sa bag ong ID."
+        ]
+      }
+    },
+    {
+      "topic": "request_good_moral_certificate_oss",
+      "responses": {
+        "en": [
+          "Students can request a Good Moral Certificate from the Office of Student Services.",
+          "The standard fee for issuing the certificate is fifty pesos."
+        ],
+        "ceb": [
+          "Ang mga estudyante pwede mangayo og Good Moral Certificate sa Office of Student Services.",
+          "Ang bayad sa certificate kay singkwenta pesos."
+        ]
+      }
+    },
+    {
+      "topic": "student_id_process",
+      "responses": {
+        "en": [
+          "Go to the OSS to ask how to get a student ID, since the process may change every year. It’s better to ask directly at the Office of Student Services (OSS)."
+        ],
+        "ceb": [
+          "Adtoa ang OSS aron mangutana kung giunsa pagkuha og student ID, kay ang proseso mahimo usab mausab matag tuig. Mas maayo nga mangutana diretso sa Office of Student Services (OSS)."
+        ]
+      }
+    }
+  ]
+}

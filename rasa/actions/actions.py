@@ -904,6 +904,12 @@ LOCATION_ALIASES = {
     "office of the guidance": "Guidance Office",
     "guidance department": "Guidance Office",
 
+    # CLINIC
+    "Medical clinic": "Medical clinic",
+    "buksu med clinic": "Medical clinic",
+    "bukidnon state university medical clinic": "Medical clinic",
+    "medical clinic office": "Medical clinic"
+
 }
 
 # Library topic patterns for detecting specific library-related questions
@@ -1026,11 +1032,11 @@ LIBRARY_TOPIC_PATTERNS = {
         "phrases": [
             "how do i return books",
             "return books",
-            "uli sa libro"
-            "how can i return some books"
+            "uli sa libro",
+            "how can i return some books",
             "book return"
         ],
-        "strong_keywords": ["return", "uli", "returnment" "paguli"],
+        "strong_keywords": ["return", "uli", "returnment", "paguli"],
         "weak_keywords": ["books", "how", "libro", "some"],
         "required_context": []
     },
@@ -1041,13 +1047,271 @@ LIBRARY_TOPIC_PATTERNS = {
             "naa bay libro",
             "book available",
             "libro nga available",
-            "libro nga pwedi ma hulman"
-            "what books are available"
-            "books that is available in the library"
+            "libro nga pwedi ma hulman",
+            "what books are available",
+            "books that is available in the library",
             "what books possibly i can borrow"
         ],
-        "strong_keywords": ["available", "list", "naa", "pwedi", "ma hulman", "mahulman", "borrowed" ],
-        "weak_keywords": ["books", "libro", "there", "are", "possibly", "can", ],
+        "strong_keywords": ["available", "list", "naa", "pwedi", "ma hulman", "mahulman", "borrowed"],
+        "weak_keywords": ["books", "libro", "there", "are", "possibly", "can"],
+        "required_context": []
+    }
+}
+
+# Academic Policy topic patterns for detecting specific academic policy questions
+# Same structure as LIBRARY_TOPIC_PATTERNS for consistency
+ACADEMIC_POLICY_TOPIC_PATTERNS = {
+    "failed_subject_policy": {
+        "phrases": [
+            "fail subject policy",
+            "failed subject retake",
+            "consequences failing subject",
+            "nabagsak subject",
+            "retake nabagsak",
+            "multiple failures subject"
+        ],
+        "strong_keywords": 
+        [
+            "failed subject", "fail subject", "nabagsak subject", "retake", "failed", "subject",
+            "multiple", "subjects", "nabagsak"
+        ],
+        "weak_keywords": ["retake", "consequences", "multiple", "policy", "same", "what", "retake", "balikon", "mabagsak"],
+        "required_context": []
+    },
+    "deans_list": {
+        "phrases": [
+            "deans list requirements",
+            "qualify deans list",
+            "deans list GWA",
+            "deans honor list",
+            "maka deans list"
+        ],
+        "strong_keywords": ["deans list", "dean", "list" "dean's"  ],
+        "weak_keywords": 
+        [
+            "qualify", "requirements", "GWA", "maka", "qualify", "qualified", "for", "what", 
+            "GWA", "GPA", "Grades", "grade", "honor", "unsaon", "maapil", "ma", "apil"
+        ],
+        "required_context": []
+    },
+    "academic_probation": {
+        "phrases": [
+            "academic probation",
+            "probation status",
+            "low performance probation",
+            "academic probation policy",
+            "ma academic probation"
+        ],
+        "strong_keywords": ["academic probation", "probation status", "probation", "probe", "academic"],
+        "weak_keywords": ["low", "performance", "policy", "mean", "meaning", "explain", "what", "of", "pasabot", "unsay"],
+        "required_context": []
+    },
+    "buksu_grading_system": {
+        "phrases": [
+            "buksu grading system",
+            "grading scale",
+            "grade meaning",
+            "what is the grading system of buksu",
+            "grading mechanism"
+        ],
+        "strong_keywords": ["grading system", "buksu grading", "grading", "system", "explain", "grade" "is"],
+        "weak_keywords": ["scale", "meaning", "1.0", "INC", "what", "buksu" "mechanism"],
+        "required_context": []
+    },
+    "inc_grade_solution": {
+        "phrases": [
+            "complete INC grade",
+            "INC form process",
+            "solve INC grade",
+            "INC requirements",
+            "pag complete INC"
+        ],
+        "strong_keywords": ["INC", "should", "help", "inc", "solve", "steps", "complete", "process", "steps"],
+        "weak_keywords": ["complete", "solve", "requirements", "grade", "i", "do", "what"],
+        "required_context": []
+    },
+    "inc_grade_consequences": {
+        "phrases": [
+            "INC grade consequences",
+            "not complete INC",
+            "INC deadline miss",
+            "INC block enrollment",
+            "dili ma completo INC"
+        ],
+        "strong_keywords": ["INC", "consequences", "happened", "happen", "fail", "complete", "inc" "completing"],
+        "weak_keywords": ["deadline", "block", "miss", "dili", "failed", "not complete" "grade"],
+        "required_context": []
+    },
+    "fda_meaning": {
+        "phrases": [
+            "FDA meaning",
+            "FDA absences",
+            "failure due absences",
+            "FDA grade explanation",
+            "FDA absence count"
+        ],
+        "strong_keywords": ["FDA", "meaning", "mean", "absences", "given", "absence", "get fda", ""],
+        "weak_keywords": ["absences", "failure", "due"],
+        "required_context": []
+    },
+    "fda_solution": {
+        "phrases": [
+            "FDA next steps",
+            "after FDA grade",
+            "what do FDA",
+            "FDA actions",
+            "nakadawat FDA"
+        ],
+        "strong_keywords": ["FDA", "should", "buhaton", "sulotion", "do", "need", "should i", "unsay buhaton"],
+        "weak_keywords": ["after", "next", "steps", "what", "unsa", "buhaton"],
+        "required_context": []
+    },
+    "overload_units_policy": {
+        "phrases": [
+            "overload units",
+            "more units policy",
+            "maximum units load",
+            "sobra units",
+            "pwede daghang units"
+        ],
+        "strong_keywords": ["units", "regular", "load" ],
+        "weak_keywords": 
+        [
+            "maximum", "sobra", "pwede", "add", "load", "more", "daghang", "pwede", "sobra", "allowed"
+        ],
+        "required_context": []
+    },
+    "subject_overload": {
+        "phrases": [
+            "subject overloading",
+            "subject overload meaning",
+            "pag overload subjects",
+            "subject overload pasabot"
+        ],
+        "strong_keywords": ["subject", "overload", "overloading", "loaded"],
+        "weak_keywords": ["meaning", "pag", "pasabot", "purpose", "reason", "main", "more"],
+        "required_context": []
+    },
+    "attendance_requirement": {
+        "phrases": [
+            "attendance policy",
+            "attendance important",
+            "sign attendance",
+            "attendance sheet",
+            "pwede absent"
+        ],
+        "strong_keywords": ["attendance policy", "attendance"],
+        "weak_keywords": ["sheet", "sign", "important" "required", "need", "kinahanglan", ],
+        "required_context": []
+    },
+    "thesis_defense_failure": {
+        "phrases": [
+            "thesis defense fail",
+            "failed thesis defense",
+            "mabagsak thesis",
+            "thesis defense consequences",
+            "defense failure"
+        ],
+        "strong_keywords": ["thesis", "capstone", "research", "defense", "failed", "mabagsak", "failing"],
+        "weak_keywords": ["fail", "mabagsak", "failure", "consequences", "mahitabo", "happened"],
+        "required_context": []
+    },
+    "thesis_topic_selection": {
+        "phrases": [
+            "thesis topic propose",
+            "thesis title choose",
+            "propose thesis topic",
+            "thesis title selection",
+            "thesis topic process"
+        ],
+        "strong_keywords": ["topic", "thesis", "capstone", "research", "title", "own"],
+        "weak_keywords": ["propose", "choose", "my" "akoang", "akoa"],
+        "required_context": []
+    },
+
+    "College_Honors_gpa": {
+        "phrases": [
+            "college honors GWA",
+            "college honor grades",
+            "college honors requirements",
+            "college honor list"
+        ],
+        "strong_keywords": ["college", "honors", "honor", "list" ],
+        "weak_keywords": 
+        [
+           "qualify", "requirements", "GWA", "maka", "qualify", "qualified", "for", "what", 
+            "GWA", "GPA", "Grades", "grade", "honor", "unsaon", "maapil", "ma", "apil"
+        ],
+        "required_context": []
+    },
+    "University_Scholar_gpa": {
+        "phrases": [
+            "university scholar GWA",
+            "university scholar grades",
+            "university scholar requirements",
+            "university scholar qualify"
+            "what grades do i need to achive to be qualified as a university scholar in buksu"
+        ],
+        "strong_keywords": ["university", "scholar", "honors", "honor", "list"],
+        "weak_keywords": 
+        [
+            "qualify", "requirements", "GWA", "maka", "qualify", "qualified", "for", "what", 
+            "GWA", "GPA", "Grades", "grade", "honor", "unsaon", "maapil", "ma", "apil"
+        ],
+        "required_context": []
+    },
+    "office_schedule": {
+        "phrases": [
+            "office hours",
+            "what time does the registrar office open in buksu"
+            "registrar schedule",
+            "office open time",
+            "oras opisina",
+            "registrar open"
+        ],
+        "strong_keywords": ["office", "oras", "hours", "open", "closed", "close", ],
+        "weak_keywords": ["registrar", "open", "schedule", "registrar", "time"],
+        "required_context": []
+    },
+    "add_drop_subject": {
+        "phrases": [
+            "add drop subject",
+            "add subject period",
+            "drop subject deadline",
+            "pwedi add drop",
+            "last day add drop"
+            "how to add a subject for this semester"
+        ],
+        "strong_keywords": ["add", "drop", "adding", "dropping", "dungag", "kulang"],
+        "weak_keywords": ["subject", "period", "deadline", "semester"],
+        "required_context": []
+    },
+    "request_cor": {
+        "phrases": [
+            "request COR",
+            "certificate registration",
+            "get COR copy",
+            "pag request COR",
+            "kuha COR"
+            "where can i request a copy of my cor "
+        ],
+        "strong_keywords": ["COR", "certificate registration", "certificate of registration", "cor", ],
+        "weak_keywords": ["get", "copy", "kuha", "request", "process", "pag"],
+        "required_context": []
+    },
+    "withdraw_enrollment_policy": {
+        "phrases": [
+            "withdraw enrollment",
+            "withdrawal form",
+            "official withdrawal",
+            "pag withdraw enrollment",
+            "enrollment withdrawal",
+            "How can i process some withdraw enrollment",
+            "Where to submit Withdrawal Form",
+            "When to file withdrawal form"
+        ],
+        "strong_keywords": ["withdraw enrollment", "withdrawal form", "withdrawal", "withdraw", "withdrawing"],
+        "weak_keywords": ["official", "policy", "process", "procedure", "file"],
         "required_context": []
     }
 }
@@ -1259,8 +1523,11 @@ class ActionReplyFromJsonHelper:
         self.responses = self._load_responses()
         self.location_responses_path = os.path.join(os.path.dirname(responses_path), "responses_location.json")
         self.location_responses = self._load_location_responses()
+        # Load structured knowledge bases
         self.library_info_path = os.path.join(os.path.dirname(responses_path), "Library_info.json")
-        self.library_info = self._load_library_info()
+        self.library_info = self._load_json_file(self.library_info_path)
+        self.academic_policy_path = os.path.join(os.path.dirname(responses_path), "Academic_policy.json")
+        self.academic_policy = self._load_json_file(self.academic_policy_path)
         self.context = ConversationContext()
 
     def _load_location_responses(self) -> Dict[str, Any]:
@@ -1285,15 +1552,22 @@ class ActionReplyFromJsonHelper:
             print(f"Error: Invalid JSON in responses.json - {e}")
             return []
 
-    def _load_library_info(self) -> Dict[str, Any]:
+    def _load_json_file(self, filepath: str) -> Dict[str, Any]:
+        """
+        Generic JSON file loader for structured knowledge bases.
+        Returns empty dict if file not found or invalid.
+        """
         try:
-            with open(self.library_info_path, "r", encoding="utf-8") as f:
+            with open(filepath, "r", encoding="utf-8") as f:
                 return json.load(f)
         except FileNotFoundError:
-            print(f"Error: Library_info.json not found at {self.library_info_path}")
+            print(f"Warning: JSON file not found at {filepath}")
             return {}
         except json.JSONDecodeError as e:
-            print(f"Error: Invalid JSON in Library_info.json - {e}")
+            print(f"Error: Invalid JSON in {filepath} - {e}")
+            return {}
+        except Exception as e:
+            print(f"Error loading {filepath}: {e}")
             return {}
 
     # -------------------------
@@ -1795,31 +2069,45 @@ class ActionReplyFromJsonHelper:
         
         return result
 
-    def get_library_response(self, user_message: str) -> Dict[str, Any]:
-        """Get library info response based on detected topic from user message.
-        
-        Uses LIBRARY_TOPIC_PATTERNS to detect the specific topic and returns
-        the appropriate response from Library_info.json with language detection.
+    def get_structured_response(
+        self,
+        user_message: str,
+        data_source: Dict[str, Any],
+        topic_patterns: Dict[str, Any],
+        topic_mapping: Optional[Dict[str, tuple]] = None,
+        fallback_message: str = "I'm sorry, I don't have information about that topic.",
+        language_keywords: Optional[List[str]] = None
+    ) -> Dict[str, Any]:
         """
-        if not self.library_info:
-            return {"text": "I'm sorry, I don't have library information available at the moment."}
+        Generic structured response handler for super intent + topic routing architecture.
+        
+        Args:
+            user_message: The user's input text
+            data_source: The JSON data source containing topics and responses
+            topic_patterns: Pattern dictionary for topic detection (e.g., LIBRARY_TOPIC_PATTERNS)
+            topic_mapping: Optional mapping of detected topics to (main_topic, subtopic) tuples
+            fallback_message: Message to return when topic not detected or data missing
+            language_keywords: Optional list of keywords to detect non-English language
+        
+        Returns:
+            Dict with "text" key containing the response
+        """
+        if not data_source:
+            return {"text": fallback_message}
         
         # Detect topic from user message
-        detected_topic = detect_topic(user_message, LIBRARY_TOPIC_PATTERNS)
+        detected_topic = detect_topic(user_message, topic_patterns)
         
         if not detected_topic:
-            return {"text": "I'm sorry, I didn't understand your library question. Could you please rephrase it?"}
+            return {"text": fallback_message}
         
-        # Map detected pattern topic to JSON topic structure
-        # Some patterns map to subtopics within "id_card"
-        topic_mapping = {
-            "library_id_card_location": ("id_card", "location"),
-            "library_id_card_requirements": ("id_card", "requirements"),
-            "library_id_card_payment": ("id_card", "payment"),
-        }
+        # Default topic mapping if not provided
+        if topic_mapping is None:
+            topic_mapping = {}
         
-        # Get topic info from library_info JSON
-        topics = self.library_info.get("topics", [])
+        # Get topic info from data_source JSON
+        topics = data_source.get("topics", [])
+        responses_data = {}
         
         # Check if detected topic maps to a subtopic
         if detected_topic in topic_mapping:
@@ -1829,7 +2117,7 @@ class ActionReplyFromJsonHelper:
             if topic_entry and "subtopics" in topic_entry:
                 # Find the specific subtopic
                 subtopic_entry = next(
-                    (st for st in topic_entry["subtopics"] if st.get("topic") == subtopic), 
+                    (st for st in topic_entry["subtopics"] if st.get("topic") == subtopic),
                     None
                 )
                 if subtopic_entry:
@@ -1846,14 +2134,17 @@ class ActionReplyFromJsonHelper:
             responses_data = topic_entry.get("responses", {})
         
         # Detect language for bilingual support
-        bisaya_words = [
-            "asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay",
-            "dako", "mao", "ug", "uy", "man", "gani", "diay", "sige", "kinahanglan",
-            "bisan", "sab", "gud", "pod", "wala", "naa", "ikaw", "ako", "unsaon",
-            "hulam", "uli", "libro", "bayad", "multa"
-        ]
+        # Default language keywords if not provided
+        if language_keywords is None:
+            language_keywords = [
+                "asa", "unsay", "ngano", "diin", "kinsa", "kanus-a", "pila", "gamay",
+                "dako", "mao", "ug", "uy", "man", "gani", "diay", "sige", "kinahanglan",
+                "bisan", "sab", "gud", "pod", "wala", "naa", "ikaw", "ako", "unsaon",
+                "hulam", "uli", "libro", "bayad", "multa"
+            ]
+        
         user_words = user_message.lower().split()
-        is_bisaya = any(word in bisaya_words for word in user_words)
+        is_bisaya = any(word in language_keywords for word in user_words)
         lang_key = "ceb" if is_bisaya else "en"
         
         # Get responses for detected language
@@ -1868,6 +2159,39 @@ class ActionReplyFromJsonHelper:
             response_text = str(responses)
         
         return {"text": response_text}
+
+    def get_library_response(self, user_message: str) -> Dict[str, Any]:
+        """
+        Library-specific wrapper around get_structured_response.
+        Uses LIBRARY_TOPIC_PATTERNS and Library_info.json.
+        """
+        library_topic_mapping = {
+            "library_id_card_location": ("id_card", "location"),
+            "library_id_card_requirements": ("id_card", "requirements"),
+            "library_id_card_payment": ("id_card", "payment"),
+        }
+        
+        return self.get_structured_response(
+            user_message=user_message,
+            data_source=self.library_info,
+            topic_patterns=LIBRARY_TOPIC_PATTERNS,
+            topic_mapping=library_topic_mapping,
+            fallback_message="I'm sorry, I didn't understand your library question. Could you please rephrase it?"
+        )
+
+    def get_academic_policy_response(self, user_message: str) -> Dict[str, Any]:
+        """
+        Academic Policy-specific wrapper around get_structured_response.
+        Uses ACADEMIC_POLICY_TOPIC_PATTERNS and Academic_policy.json.
+        """
+        # Academic policy has no subtopic mapping - all topics are direct
+        return self.get_structured_response(
+            user_message=user_message,
+            data_source=self.academic_policy,
+            topic_patterns=ACADEMIC_POLICY_TOPIC_PATTERNS,
+            topic_mapping=None,  # No subtopics for academic policy
+            fallback_message="I'm sorry, I didn't understand your academic policy question. Could you please rephrase it?"
+        )
 
 
 # -------------------------
@@ -2217,6 +2541,14 @@ class ActionReplyFromJson(Action):
                 dispatcher.utter_message(text=response["text"])
             return []
 
+        # Academic Policy info lookup with topic detection
+        if intent == "ask_academic_policy":
+            response = self.helper.get_academic_policy_response(user_msg)
+            
+            if response.get("text"):
+                dispatcher.utter_message(text=response["text"])
+            return []
+
         # ✨ FIX: if intent == ask_more → DO NOT call main response
         if intent == "ask_more":
             last_topic = self.helper.get_dynamic_slot("last_topic")
@@ -2243,7 +2575,8 @@ class ActionReplyFromJson(Action):
             "enroll", "enrollment", "application", "register", "registration",
             "requirement", "requirements", "what do i need", "what should i bring",
             "pay", "payment", "how much", "fee", "cost", "price",
-            "borrow", "return", "book", "thesis", "research"
+            "borrow", "return", "book", "thesis", "research", "contact registrar",
+            "contact the registrar", "contact", "how to contact"
         ]
         
         if intent not in {"ask_locations", "locate_comlab", "ask_faculty_room_location", "ask_more"}:

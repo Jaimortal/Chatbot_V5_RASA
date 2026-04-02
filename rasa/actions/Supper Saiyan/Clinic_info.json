@@ -1,0 +1,63 @@
+{
+  "intent": "ask_clinic_info",
+  "category": "Clinic Services Info Form",
+  "entities": [
+    "topic"
+  ],
+  "topics": [
+    {
+      "topic": "medic_clinic",
+      "responses": {
+        "en": [
+          "The University Medical Clinic is a primary health care facility that is available to render primary health care services and selected specialized services to the Bukidnon State University community. The health service unit is staffed with trained registered professional health personnel. The clinic is responsible in documenting all consulted health cases, collaborative care is practiced for cases that need extended evaluation and apt referral is done for further management.."
+        ],
+        "ceb": [
+          "Ang University Medical Clinic usa ka pasilidad sa pag-atiman sa panglawas nga magamit aron maghatag mga serbisyo sa pag-atiman sa panglawas ug gipili nga mga espesyalista nga serbisyo sa komunidad sa Bukidnon State University. Ang yunit sa serbisyo sa kahimsog adunay kawani sa nabansay nga narehistro nga propesyonal nga mga kawani sa kahimsog. Ang klinika mao ang responsable sa pagdokumento sa tanan nga mga kaso sa kahimsog sa panglawas, ang pag-atiman sa pagtinabangay gihimo alang sa mga kaso nga kinahanglan ang dugang nga pagsusi ug tukma nga referral gihimo alang sa dugang nga pagdumala .."
+        ]
+      }
+    },
+    {
+      "topic": "med_mission",
+      "responses": {
+        "en": [
+          "Bukidnon State University Medical Clinic Mission",
+          "MISSION",
+          "We commit ourselves to:",
+          "Proficient and eminent health services to students, faculty and non-teaching personnel. Participate actively in activities which will sustain the wellness and health of the students."
+        ],
+        "ceb": [
+          "Bukidnon State University Medical Clinic Mission",
+          "MISSION",
+          "Gisaad namo nga:",
+          "Naghatag og hanas ug de-kalidad nga serbisyong panglawas para sa mga estudyante, magtutudlo, ug mga kawani sa tunghaan. Aktibo sab nga nagpartisipar sa mga kalihokan nga magmentinar sa maayong panglawas ug kaayuhan sa mga estudyante."
+        ]
+      }
+    },
+    {
+      "topic": "med_vision",
+      "responses": {
+        "en": [
+          "Bukidnon State University Medical Clinic Vision",
+          "VISION",
+          "The University Medical Clinic is a part of the primary health care delivery system that provides holistic health services to ensure optimal well-being of the students, faculty and non-teaching personnel."
+        ],
+        "ceb": [
+          "Bukidnon State University Medical Clinic Vision",
+          "VISION",
+          "Ang University Medical Clinic kay kabahin sa sistema sa paghatag og serbisyo sa panglawas nga nagtanyag og kompleto nga tabang-medikal aron masiguro ang kaayuhan sa mga estudyante, mga magtutudlo, ug sa mga kawani sa tunghaan."
+        ]
+      }
+    },
+    {
+      "topic": "buksu_medical_dental_services",
+      "responses": {
+        "en": [
+          "Yes the University Health Services Unit offers free basic medical and dental consultations first aid and emergency treatment for officially enrolled students upon presentation of a valid ID."
+        ],
+        "ceb": [
+          "Oo ang University Health Services Unit nagtanyag og libre nga basic medical ug dental consultations first aid ug emergency treatment para sa officially enrolled students basta ipakita ang valid ID."
+        ]
+      }
+    }
+  ]
+}

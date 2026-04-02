@@ -2,179 +2,84 @@ version: "3.1"
 
 stories:
 
-- story: greetings 
+- story: ask about comlab location
   steps:
-    - intent: greet
-    - action: utter_greet
+    - intent: ask_locations
+    - action: action_reply_from_json
+
+- story: User ask all about the academic policy and other related staff
+  steps:
+    - intent: ask_academic_policy
+    - action: action_reply_from_json
+
+- story: ask about who are the administrators in buksu
+  steps:
+    - intent: ask_buksuadmin_info
+    - action: action_reply_from_json
+
+- story: ask all about the admission related topics and tips
+  steps:
+    - intent: ask_admissions_info
+    - action: action_reply_from_json
+
+- story: all about classroom policy student can ask
+  steps:
+    - intent: ask_classroom_policy
+    - action: action_reply_from_json
+
+- story: asking about the clinics related topics
+  steps:
+    - intent: ask_clinic_info
+    - action: action_reply_from_json
+
+- story: all about the courses information in buksu that student can ask
+  steps:
+    - intent: ask_courses_info
+    - action: action_reply_from_json
+
+- story: list of the faculty staf in different department that user can ask
+  steps:
+    - intent: departments_faculty_staff
+    - action: action_reply_from_json
+
+- story: all about departments info the user can ask
+  steps:
+    - intent: ask_department_info
+    - action: action_reply_from_json
+
+- story: all about enrollment info the user can ask
+  steps:
+    - intent: ask_enrollment_info
+    - action: action_reply_from_json
+
+- story: all about ict info the user can ask
+  steps:
+    - intent: ask_ict_info
+    - action: action_reply_from_json
 
 - story: asking about the library informations books and other related to library
   steps:
     - intent: ask_library_info
     - action: action_reply_from_json
 
-- story: ict info
+- story: all about oss services the user can ask
   steps:
-    - intent: about_ict
+    - intent: ask_oss_services
     - action: action_reply_from_json
 
-- story: wifi access
+- story: all about university info the user can ask
   steps:
-    - intent: get_wifi_access
+    - intent: ask_university_info
     - action: action_reply_from_json
 
-- story: ict mission
+- story: greetings 
   steps:
-    - intent: ict_mission
-    - action: action_reply_from_json
-
-- story: about buksu
-  steps:
-    - intent: about_buksu
-    - action: action_reply_from_json
-
-- story: medical clinic info
-  steps:
-    - intent: medic_clinic
-    - action: action_reply_from_json
-
-- story: medical mission
-  steps:
-    - intent: med_mission
-    - action: action_reply_from_json
-
-- story: medical vision
-  steps:
-    - intent: med_vision
-    - action: action_reply_from_json
-
-- story: medical location
-  steps:
-    - intent: buksu_med_loc
-    - action: action_reply_from_json
+    - intent: greet
+    - action: utter_greet
 
 - story: ask more follow-up
   steps:
     - intent: ask_more
-    - action: action_reply_from_json
-
-- story : ask about information technology
-  steps:
-    - intent: buksu_IT
-    - action: action_reply_from_json
-
-- story : ask about food technology
-  steps:
-    - intent: buksu_FT
-    - action: action_reply_from_json
-
-- story : ask about electronic technology
-  steps:
-    - intent: buksu_ET
-    - action: action_reply_from_json
-
-- story : ask about entertainment and multimedia computing
-  steps:
-    - intent: buksu_EMC
-    - action: action_reply_from_json
-
-
-
-
-- story : ask about examination requirements
-  steps:
-    - intent: exam_requirements
-    - action: action_reply_from_json
-
-- story : ask about how to know examination results
-  steps:
-    - intent: exam_results
-    - action: action_reply_from_json
-
-
-- story : ask about how to take admission test
-  steps:
-    - intent: take_exam
-    - action: action_reply_from_json
-
-- story : ask about what is the next step after application
-  steps:
-    - intent: application_next_step
-    - action: action_reply_from_json
-
-- story : ask about no slot available 
-  steps:
-    - intent: no_slots
-    - action: action_reply_from_json
-
-- story : ask about application status 
-  steps:
-    - intent: status_application
-    - action: action_reply_from_json
-
-- story : ask about how much is the application fee
-  steps:
-    - intent: exam_fees
-    - action: action_reply_from_json
-
-
-- story : ask about office hours of registrar
-  steps:
-    - intent: office_schedule
-    - action: action_reply_from_json
-
-- story : ask about bukSU CAT online application schedule
-  steps:
-    - intent: online_application_schedule
-    - action: action_reply_from_json
-
-- story : ask about reason of application testing site denied
-  steps:
-    - intent: denied_applications
-    - action: action_reply_from_json
-
-- story : ask about main campus admission slot is full
-  steps:
-    - intent: main_campus_full
-    - action: action_reply_from_json
-
-- story : ask about the contact info of registrar
-  steps:
-    - intent: contact_registrar
-    - action: action_reply_from_json
-
-- story : ask about contact info of admission testing unit
-  steps:
-    - intent: contact_atu
-    - action: action_reply_from_json
-
-- story : ask about location of entrance exam determine may preferred campus?
-  steps:
-    - intent: exam_location_vs_campus
-    - action: action_reply_from_json
-
-- story : ask about how to fix encountered system error
-  steps:
-    - intent: system_error
-    - action: action_reply_from_json
-
-- story : ask about what to do if theres no slot available
-  steps:
-    - intent: additional_slots
-    - action: action_reply_from_json
-
-- story : ask about contact information of scholarship
-  steps:
-    - intent: contact_scholarship_unit
-    - action: action_reply_from_json
-
-- story: ask about comlab locations
-  steps:
-    - intent: all_comlab_locations
-    - action: action_reply_from_json
-    
-- story: ask about comlab location
-  steps:
-    - intent: ask_locations
     - action: action_reply_from_json
 
 - story: transferee enrollment info
@@ -182,34 +87,9 @@ stories:
     - intent: transferee_enrollment
     - action: action_reply_from_json
 
-- story: student fees info
-  steps:
-    - intent: student_fees
-    - action: action_reply_from_json
-
 - story: student organizations info
   steps:
     - intent: student_organizations
-    - action: action_reply_from_json
-
-- story: nstp info
-  steps:
-    - intent: about_nstp
-    - action: action_reply_from_json
-
-- story: pe info
-  steps:
-    - intent: about_pe
-    - action: action_reply_from_json
-
-- story: failed subject policy info
-  steps:
-    - intent: failed_subject_policy
-    - action: action_reply_from_json
-
-- story: course shifting info
-  steps:
-    - intent: course_shifting
     - action: action_reply_from_json
 
 - story: campus safety info
@@ -220,11 +100,6 @@ stories:
 - story: lost on campus info
   steps:
     - intent: lost_on_campus
-    - action: action_reply_from_json
-
-- story: access sias info
-  steps:
-    - intent: access_sias
     - action: action_reply_from_json
 
 - story: peer mentoring info
@@ -252,66 +127,6 @@ stories:
     - intent: early_document_request
     - action: action_reply_from_json
 
-- story: course shifting later years info
-  steps:
-    - intent: course_shifting_later_years
-    - action: action_reply_from_json
-
-- story: thesis defense failure info
-  steps:
-    - intent: thesis_defense_failure
-    - action: action_reply_from_json
-
-- story: thesis defense info
-  steps:
-    - intent: thesis_defense
-    - action: action_reply_from_json
-
-- story: thesis defense panelists info
-  steps:
-    - intent: thesis_defense_panelists
-    - action: action_reply_from_json
-
-- story: thesis topic selection info
-  steps:
-    - intent: thesis_topic_selection
-    - action: action_reply_from_json
-
-- story: internship requirement info
-  steps:
-    - intent: internship_requirement
-    - action: action_reply_from_json
-
-- story: campus transfer info
-  steps:
-    - intent: campus_transfer
-    - action: action_reply_from_json
-
-- story: deans list info
-  steps:
-    - intent: deans_list
-    - action: action_reply_from_json
-
-- story: academic probation info
-  steps:
-    - intent: academic_probation
-    - action: action_reply_from_json
-
-- story: attendance requirement info
-  steps:
-    - intent: attendance_requirement
-    - action: action_reply_from_json
-
-- story: add drop subject info
-  steps:
-    - intent: add_drop_subject
-    - action: action_reply_from_json
-
-- story: request cor info
-  steps:
-    - intent: request_cor
-    - action: action_reply_from_json
-
 - story: inactive group member info
   steps:
     - intent: inactive_group_member
@@ -322,26 +137,6 @@ stories:
     - intent: student_stress_support
     - action: action_reply_from_json
 
-- story: submit assignments online info
-  steps:
-    - intent: submit_assignments_online
-    - action: action_reply_from_json
-
-- story: phone use in class info
-  steps:
-    - intent: phone_use_in_class
-    - action: action_reply_from_json
-
-- story: subject overload info
-  steps:
-    - intent: subject_overload
-    - action: action_reply_from_json
-
-- story: class concerns info
-  steps:
-    - intent: class_concerns
-    - action: action_reply_from_json
-
 - story: freshmen intramurals info
   steps:
     - intent: freshmen_intramurals
@@ -350,51 +145,6 @@ stories:
 - story: about intramurals info
   steps:
     - intent: about_intramurals
-    - action: action_reply_from_json
-
-- story: end of semester info
-  steps:
-    - intent: end_of_semester
-    - action: action_reply_from_json
-
-- story: minor subject info
-  steps:
-    - intent: minor_subject
-    - action: action_reply_from_json
-
-- story: access grades info
-  steps:
-    - intent: access_grades
-    - action: action_reply_from_json
-
-- story: senior academic overload info
-  steps:
-    - intent: senior_academic_overload
-    - action: action_reply_from_json
-
-- story: board exam review info
-  steps:
-    - intent: board_exam_review
-    - action: action_reply_from_json
-
-- story: eating in classroom info
-  steps:
-    - intent: eating_in_classroom
-    - action: action_reply_from_json
-
-- story: licensure examination info
-  steps:
-    - intent: licensure_examination
-    - action: action_reply_from_json
-
-- story: mock board exam info
-  steps:
-    - intent: mock_board_exam
-    - action: action_reply_from_json
-
-- story: on the job training info
-  steps:
-    - intent: on_the_job_training
     - action: action_reply_from_json
 
 - story: ask about cannot upload 2x2 picture
@@ -427,11 +177,6 @@ stories:
     - intent: tes_release_delay
     - action: action_reply_from_json
 
-- story: ask about reschedule entrance exam
-  steps:
-    - intent: reschedule_entrance_exam
-    - action: action_reply_from_json
-
 - story: ask about tes with other scholarships
   steps:
     - intent: tes_with_other_scholarships
@@ -462,74 +207,9 @@ stories:
     - intent: shorts_on_campus
     - action: action_reply_from_json
 
-- story: ask about get inc form
-  steps:
-    - intent: get_inc_form
-    - action: action_reply_from_json
-
-- story: ask about prerequisite subjects purpose
-  steps:
-    - intent: prerequisite_subjects_purpose
-    - action: action_reply_from_json
-
-- story: ask about rotc meaning
-  steps:
-    - intent: rotc_meaning
-    - action: action_reply_from_json
-
-- story: ask about buksu mission
-  steps:
-    - intent: buksu_mission
-    - action: action_reply_from_json
-
-- story: ask about buksu vision
-  steps:
-    - intent: buksu_vision
-    - action: action_reply_from_json
-
-- story: ask about buksu core values
-  steps:
-    - intent: buksu_core_values
-    - action: action_reply_from_json
-
-- story: ask about buksu president
-  steps:
-    - intent: buksu_president
-    - action: action_reply_from_json
-
-- story: ask about inc grade solution
-  steps:
-    - intent: inc_grade_solution
-    - action: action_reply_from_json
-
-- story: ask about inc grade consequences
-  steps:
-    - intent: inc_grade_consequences
-    - action: action_reply_from_json
-
-- story: ask about fda meaning
-  steps:
-    - intent: fda_meaning
-    - action: action_reply_from_json
-
-- story: ask about fda solution
-  steps:
-    - intent: fda_solution
-    - action: action_reply_from_json
-
 - story: ask about college shirt allowed
   steps:
     - intent: college_shirt_allowed
-    - action: action_reply_from_json
-
-- story: ask about cat requirement nursing program
-  steps:
-    - intent: cat_requirement_nursing_program
-    - action: action_reply_from_json
-
-- story: ask about cat requirement education program
-  steps:
-    - intent: cat_requirement_education_program
     - action: action_reply_from_json
 
 - story: ask about reset portal password buksu
@@ -557,49 +237,14 @@ stories:
     - intent: change_portal_password_buksu
     - action: action_reply_from_json
 
-- story: ask about request good moral certificate oss
-  steps:
-    - intent: request_good_moral_certificate_oss
-    - action: action_reply_from_json
-
-- story: ask about lost student id replacement process
-  steps:
-    - intent: lost_student_id_replacement_process
-    - action: action_reply_from_json
-
 - story: ask about continuing students enrollment process
   steps:
     - intent: continuing_students_enrollment_process
     - action: action_reply_from_json
 
-- story: ask about gpat admission requirements
-  steps:
-    - intent: gpat_admission_requirements
-    - action: action_reply_from_json
-
 - story: ask about campus dress code policy
   steps:
     - intent: campus_dress_code_policy
-    - action: action_reply_from_json
-
-- story: ask about access buksu library resources
-  steps:
-    - intent: access_buksu_library_resources
-    - action: action_reply_from_json
-
-- story: ask about evening classes working students
-  steps:
-    - intent: evening_classes_working_students
-    - action: action_reply_from_json
-
-- story: ask about health services unit location hours
-  steps:
-    - intent: health_services_unit_location_hours
-    - action: action_reply_from_json
-
-- story: ask about buksu admission facebook page
-  steps:
-    - intent: buksu_admission_facebook_page
     - action: action_reply_from_json
 
 - story: ask about change program after application
@@ -612,24 +257,9 @@ stories:
     - intent: pwd_student_assistance_services
     - action: action_reply_from_json
 
-- story: ask about contact registrar for tor
-  steps:
-    - intent: contact_registrar_for_tor
-    - action: action_reply_from_json
-
-- story: ask about missed buksu cat schedule
-  steps:
-    - intent: missed_buksu_cat_schedule
-    - action: action_reply_from_json
-
 - story: ask about buksu dormitory information
   steps:
     - intent: buksu_dormitory_information
-    - action: action_reply_from_json
-
-- story: ask about als graduate buksu cat application
-  steps:
-    - intent: als_graduate_buksu_cat_application
     - action: action_reply_from_json
 
 - story: ask about free tuition undergraduate buksu
@@ -637,29 +267,14 @@ stories:
     - intent: free_tuition_undergraduate_buksu
     - action: action_reply_from_json
 
-- story: ask about apply cat using mobile phone
-  steps:
-    - intent: apply_cat_using_mobile_phone
-    - action: action_reply_from_json
-
 - story: ask about join student organizations process
   steps:
     - intent: join_student_organizations_process
     - action: action_reply_from_json
 
-- story: ask about buksu grading system
-  steps:
-    - intent: buksu_grading_system
-    - action: action_reply_from_json
-
 - story: ask about sports facilities for students
   steps:
     - intent: sports_facilities_for_students
-    - action: action_reply_from_json
-
-- story: ask about buksu courses offered list
-  steps:
-    - intent: buksu_courses_offered_list
     - action: action_reply_from_json
 
 - story: ask about student assistant application process
@@ -670,11 +285,6 @@ stories:
 - story: ask about guidance counseling services buksu
   steps:
     - intent: guidance_counseling_services_buksu
-    - action: action_reply_from_json
-
-- story: ask about buksu history background
-  steps:
-    - intent: buksu_history_background
     - action: action_reply_from_json
 
 - story: ask about buksu establishment year
@@ -697,24 +307,9 @@ stories:
     - intent: previous_name_buksu_college
     - action: action_reply_from_json
 
-- story: ask about second courser cat application
-  steps:
-    - intent: second_courser_cat_application
-    - action: action_reply_from_json
-
-- story: ask about oss no noon break policy
-  steps:
-    - intent: oss_no_noon_break_policy
-    - action: action_reply_from_json
-
 - story: ask about dasig spirit animal buksu
   steps:
     - intent: dasig_spirit_animal_buksu
-    - action: action_reply_from_json
-
-- story: ask about buksu academic colleges
-  steps:
-    - intent: buksu_academic_colleges
     - action: action_reply_from_json
 
 - story: ask about smart buksu vision
@@ -722,29 +317,14 @@ stories:
     - intent: smart_buksu_vision
     - action: action_reply_from_json
 
-- story: ask about tor request for graduates
-  steps:
-    - intent: tor_request_for_graduates
-    - action: action_reply_from_json
-
 - story: ask about buksu satellite campuses
   steps:
     - intent: buksu_satellite_campuses
     - action: action_reply_from_json
 
-- story: ask about program shifting policy
-  steps:
-    - intent: program_shifting_policy
-    - action: action_reply_from_json
-
 - story: ask about buksu alumni association
   steps:
     - intent: buksu_alumni_association
-    - action: action_reply_from_json
-
-- story: ask about buksu cat definition
-  steps:
-    - intent: buksu_cat_definition
     - action: action_reply_from_json
 
 - story: ask about update student portal information
@@ -757,94 +337,9 @@ stories:
     - intent: university_code_definition
     - action: action_reply_from_json
 
-- story: ask about masters degree admission requirements
-  steps:
-    - intent: masters_degree_admission_requirements
-    - action: action_reply_from_json
-
-- story: ask about graduation application process
-  steps:
-    - intent: graduation_application_process
-    - action: action_reply_from_json
-
-- story: ask about buksu seal significance
-  steps:
-    - intent: buksu_seal_significance
-    - action: action_reply_from_json
-
-- story: ask about overload units policy
-  steps:
-    - intent: overload_units_policy
-    - action: action_reply_from_json
-
-- story: ask about withdraw enrollment policy
-  steps:
-    - intent: withdraw_enrollment_policy
-    - action: action_reply_from_json
-
-- story: ask about buksu hymn
-  steps:
-    - intent: buksu_hymn_lyrics
-    - action: action_reply_from_json
-
-- story: ask about second courser requirements
-  steps:
-    - intent: second_courser_requirements
-    - action: action_reply_from_json
-
-- story: ask about buksu bsit program
-  steps:
-    - intent: buksu_bsit_program
-    - action: action_reply_from_json
-
-- story: ask about buksu mpa program
-  steps:
-    - intent: buksu_mpa_program
-    - action: action_reply_from_json
-
-- story: ask about buksu graduation honors
-  steps:
-    - intent: buksu_graduation_honors
-    - action: action_reply_from_json
-
-- story: ask about buksu admission contact
-  steps:
-    - intent: buksu_admission_contact
-    - action: action_reply_from_json
-
-- story: ask about law admission requirements
-  steps:
-    - intent: law_admission_requirements
-    - action: action_reply_from_json
-
-- story: ask about student id replacement
-  steps:
-    - intent: student_id_replacement
-    - action: action_reply_from_json
-
-- story: ask about buksu clinic services
-  steps:
-    - intent: buksu_clinic_services
-    - action: action_reply_from_json
-
-- story: ask about institutional email info
-  steps:
-    - intent: institutional_email_info
-    - action: action_reply_from_json
-
-- story: ask about good moral certificate request
-  steps:
-    - intent: good_moral_certificate_request
-    - action: action_reply_from_json
-
 - story: ask about student assistant application
   steps:
     - intent: student_assistant_application
-    - action: action_reply_from_json
-
-- story: ask about buksu medical dental services
-  steps:
-    - intent: buksu_medical_dental_services
     - action: action_reply_from_json
 
 - story: ask about no noon break policy
@@ -857,31 +352,6 @@ stories:
     - intent: buksu_official_anthem
     - action: action_reply_from_json
 
-- story: ask about buksu cat calculator policy
-  steps:
-    - intent: buksu_cat_calculator_policy
-    - action: action_reply_from_json
-
-- story: ask about latin honors graduation requirements
-  steps:
-    - intent: latin_honors_graduation_requirements
-    - action: action_reply_from_json
-
-- story: ask about latin honors average gpa
-  steps:
-    - intent: latin_honors_average_gpa
-    - action: action_reply_from_json
-
-- story: ask about buksu bsa program
-  steps:
-    - intent: buksu_bsa_program
-    - action: action_reply_from_json
-
-- story: ask about double enrollment policy
-  steps:
-    - intent: double_enrollment_policy
-    - action: action_reply_from_json
-
 - story: ask about buksu gymnasium facility
   steps:
     - intent: buksu_gymnasium_facility
@@ -890,16 +360,6 @@ stories:
 - story: ask about new student orientation purpose
   steps:
     - intent: new_student_orientation_purpose
-    - action: action_reply_from_json
-
-- story: ask about library thesis availability
-  steps:
-    - intent: library_thesis_availability
-    - action: action_reply_from_json
-
-- story: ask about admission application deadline
-  steps:
-    - intent: admission_application_deadline
     - action: action_reply_from_json
 
 - story: ask about buksu mandates
@@ -927,31 +387,6 @@ stories:
     - intent: cor_validation_steps
     - action: action_reply_from_json
 
-- story: ask about student id process
-  steps:
-    - intent: student_id_process
-    - action: action_reply_from_json
-
-- story: ask about enrollment general process
-  steps:
-    - intent: enrollment_general_process
-    - action: action_reply_from_json
-
-- story: ask about online enrollment steps
-  steps:
-    - intent: online_enrollment_steps
-    - action: action_reply_from_json
-
-- story: ask about mixed enrollment process
-  steps:
-    - intent: mixed_enrollment_process
-    - action: action_reply_from_json
-
-- story: ask about request tor process
-  steps:
-    - intent: request_tor_process
-    - action: action_reply_from_json
-
 - story: ask about guidance services
   steps:
     - intent: ask_guidance_services
@@ -972,29 +407,9 @@ stories:
     - intent: ask_guidance_schedule
     - action: action_reply_from_json
 
-- story: ask about buksu presidents list
-  steps:
-    - intent: buksu_presidents_list
-    - action: action_reply_from_json
-
 - story: ask about freshmen application period
   steps:
     - intent: freshmen_application_period
-    - action: action_reply_from_json
-
-- story: ask about freshman admission requirements
-  steps:
-    - intent: freshman_admission_requirements
-    - action: action_reply_from_json
-
-- story: ask about transferee admission requirements
-  steps:
-    - intent: transferee_admission_requirements
-    - action: action_reply_from_json
-
-- story: ask about program cutoff scores
-  steps:
-    - intent: program_cutoff_scores
     - action: action_reply_from_json
 
 - story: ask about visitor campus access
@@ -1007,32 +422,7 @@ stories:
     - intent: enrollment_documents
     - action: action_reply_from_json
 
-- story: ask about graduating clearance requirements
+- story: asking who is the developer created you
   steps:
-    - intent: graduating_clearance_requirements
-    - action: action_reply_from_json
-
-- story: ask about admission contact help
-  steps:
-    - intent: admission_contact_help
-    - action: action_reply_from_json
-
-- story: ask about buksu courses offered
-  steps:
-    - intent: buksu_courses_offered
-    - action: action_reply_from_json
-
-- story: ask about buksu non board courses
-  steps:
-    - intent: buksu_non_board_courses
-    - action: action_reply_from_json
-
-- story: ask about buksu board courses
-  steps:
-    - intent: buksu_board_courses
-    - action: action_reply_from_json
-
-- story: ask about cat exam result
-  steps:
-    - intent: cat_exam_result
+    - intent: Bot_creator
     - action: action_reply_from_json

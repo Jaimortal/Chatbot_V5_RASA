@@ -1,7 +1,10 @@
 {
   "intent": "ask_library_info",
   "category": "Library Services",
-  "entities": ["topic", "library_item"],
+  "entities": [
+    "topic",
+    "library_item"
+  ],
   "topics": [
     {
       "topic": "borrowing_rules",
@@ -110,6 +113,17 @@
         ],
         "ceb": [
           "Ang librarya pirmi nag-update sa ilang koleksyon, busa ang availability sa mga libro mahimong mag-usab. Para sa dugang kasayuran, adto sa university library ug mangutana sa staff sa matag andana para sa tabang."
+        ]
+      }
+    },
+    {
+      "topic": "access_buksu_library_resources",
+      "responses": {
+        "en": [
+          "Students can access BukSU library resources by presenting a valid Library ID."
+        ],
+        "ceb": [
+          "Mahimong magamit sa estudyante ang library resources pinaagi sa pagpakita sa valid Library ID."
         ]
       }
     }

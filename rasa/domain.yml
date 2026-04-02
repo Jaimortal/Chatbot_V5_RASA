@@ -2,88 +2,39 @@ version: "3.1"
 
 intents:
   - ask_locations
+  - ask_academic_policy
+  - ask_buksuadmin_info
+  - ask_admissions_info
+  - ask_classroom_policy
+  - ask_clinic_info
+  - ask_courses_info
+  - departments_faculty_staff
+  - ask_department_info
+  - ask_enrollment_info
+  - ask_ict_info
   - ask_library_info
+  - ask_oss_services
+  - ask_university_info
+
+  
   - greet
   - goodbye
-  - about_ict
-  - get_wifi_access
-  - ict_mission
-  - about_buksu
-  - medic_clinic
-  - med_mission
-  - med_vision
-  - buksu_med_loc
   - ask_more
   - nlu_fallback
-  - buksu_IT
-  - buksu_FT
-  - buksu_ET
-  - buksu_EMC
-  - exam_requirements
-  - exam_results
-  - take_exam
-  - application_next_step
-  - no_slots
-  - status_application
-  - exam_fees
-
-  - office_schedule
-  - online_application_schedule
-  - denied_applications
-  - main_campus_full
-  - contact_registrar
-  - contact_atu
-  - exam_location_vs_campus
-  - system_error
-  - additional_slots
-  - contact_scholarship_unit
-  - all_comlab_locations
   - bot_challenge
-  - buksu_grading_system
   - transferee_enrollment
-  - student_fees
   - student_organizations
-  - about_nstp
-  - about_pe
-  - failed_subject_policy
-  - course_shifting
   - campus_safety
   - lost_on_campus
-  - access_sias
   - peer_mentoring
   - graduation_attendance
   - graduation_rehearsal_attendance
   - tracer_study
   - early_document_request
-  - course_shifting_later_years
-  - thesis_defense_failure
-  - thesis_defense
-  - thesis_defense_panelists
-  - thesis_topic_selection
-  - internship_requirement
-  - campus_transfer
-  - deans_list
-  - academic_probation
-  - attendance_requirement
-  - add_drop_subject
-  - request_cor
   - inactive_group_member
   - student_stress_support
-  - submit_assignments_online
-  - phone_use_in_class
-  - subject_overload
-  - class_concerns
   - freshmen_intramurals
   - about_intramurals
-  - end_of_semester
-  - minor_subject
-  - access_grades
-  - senior_academic_overload
-  - board_exam_review
-  - eating_in_classroom
-  - licensure_examination
-  - mock_board_exam
-  - on_the_job_training
 
   - cannot_upload_2x2_picture
   - application_always_denied
@@ -91,131 +42,57 @@ intents:
   - application_pending
   - intramurals_week_classes
   - tes_release_delay
-  - reschedule_entrance_exam
   - tes_with_other_scholarships
   - wear_civilian_attire
   - campus_dormitories
   - dormitory_pros_cons
   - cancel_tabuk_assistance
   - shorts_on_campus
-  
-  - get_inc_form
-  - prerequisite_subjects_purpose
-  - rotc_meaning
-  - buksu_mission
-  - buksu_vision
-  - buksu_core_values
-  - buksu_president
-  - inc_grade_solution
-  - inc_grade_consequences
-  - fda_meaning
-  - fda_solution
-  - college_shirt_allowed
 
-  - cat_requirement_nursing_program
-  - cat_requirement_education_program
+  - college_shirt_allowed
   - reset_portal_password_buksu
   - portal_account_locked_issue
   - portal_login_problem
   - check_portal_enrollment_status
   - change_portal_password_buksu
-  - request_good_moral_certificate_oss
-  - lost_student_id_replacement_process
   - continuing_students_enrollment_process
-  - gpat_admission_requirements
   - campus_dress_code_policy
-  - access_buksu_library_resources
-  - evening_classes_working_students
-  - health_services_unit_location_hours
-  - transferee_admission_requirements
-  - buksu_admission_facebook_page
   - change_program_after_application
   - pwd_student_assistance_services
-  - contact_registrar_for_tor
-  - missed_buksu_cat_schedule
   - buksu_dormitory_information
-  - als_graduate_buksu_cat_application
   - free_tuition_undergraduate_buksu
-  - apply_cat_using_mobile_phone
   - join_student_organizations_process
   - sports_facilities_for_students
-  - buksu_courses_offered_list
   - student_assistant_application_process
   - guidance_counseling_services_buksu
-  - buksu_history_background
   - buksu_establishment_year
   - law_author_buksu_university_conversion
   - significance_year_1924_buksu
   - previous_name_buksu_college
-  - second_courser_cat_application
-  - oss_no_noon_break_policy
   - dasig_spirit_animal_buksu
-  - buksu_academic_colleges
   - smart_buksu_vision
-  - tor_request_for_graduates
   - buksu_satellite_campuses
-  - program_shifting_policy
   - buksu_alumni_association
-  - buksu_cat_definition
   - update_student_portal_information
   - university_code_definition
-  - masters_degree_admission_requirements
-  - graduation_application_process
-  - buksu_seal_significance
-  - overload_units_policy
-  - withdraw_enrollment_policy
-  - buksu_hymn_lyrics
-  - second_courser_requirements
-  - buksu_bsit_program
-  - buksu_mpa_program
-  - buksu_graduation_honors
-  - buksu_admission_contact
-  - law_admission_requirements
-  - student_id_replacement
-  - buksu_clinic_services
-  - institutional_email_info
-  - good_moral_certificate_request
   - student_assistant_application
-  - buksu_medical_dental_services
   - no_noon_break_policy
   - buksu_official_anthem
-  - buksu_cat_calculator_policy
-  - latin_honors_graduation_requirements
-  - latin_honors_average_gpa
-  - buksu_bsa_program
-  - double_enrollment_policy
   - buksu_gymnasium_facility
   - new_student_orientation_purpose
-  - library_thesis_availability
-  - admission_application_deadline
   - buksu_mandates
   - lost_and_found_buksu
   - accounting_office_location
   - cor_validation_location
   - cor_validation_steps
-  - student_id_process
-  - enrollment_general_process
-  - online_enrollment_steps
-  - mixed_enrollment_process
-  - request_tor_process
   - ask_guidance_services
   - ask_how_to_avail_guidance
   - ask_guidance_eligibility
   - ask_guidance_schedule
-  - buksu_presidents_list
   - freshmen_application_period
-  - freshman_admission_requirements
-  - program_cutoff_scores
   - visitor_campus_access
   - enrollment_documents
-  - graduating_clearance_requirements
-  - admission_contact_help
-  - buksu_courses_offered
-  - buksu_non_board_courses
-  - buksu_board_courses
-  - cat_exam_result
-
-
+  - Bot_creator
 
 
 

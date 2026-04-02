@@ -3627,6 +3627,24 @@
           "Ang Guidance Office nahimutang sa ground floor sa CPAG building, ibabaw sa canteen ug atbang sa CPAG Dean’s Office. Ayaw kabalaka, hatagan tika og mga mapa."
         ]
       }
+    },
+    "Medical clinic": {
+      "type": "office",
+      "building": "Health & Services",
+      "floor": "Ground Floor",
+      "coordinates": [
+        282,
+        664
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The University Medical Clinic is located at the Ground Floor of the Health Services Building near the old College of Nursing Building."
+        ],
+        "ceb": [
+          "Ang University Medical Clinic nahimutang sa Ground Floor sa Health Services Building, duol sa karaang College of Nursing Building."
+        ]
+      }
     }
   }
 }

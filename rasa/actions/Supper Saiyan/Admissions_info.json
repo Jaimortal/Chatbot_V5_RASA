@@ -1,0 +1,811 @@
+{
+  "intent": "ask_admissions_info",
+  "category": "Admissions Info Form",
+  "entities": [
+    "topic"
+  ],
+  "topics": [
+    {
+      "topic": "exam_requirements",
+      "responses": {
+        "en": [
+          "What to bring on the examination day",
+          "Test takers must bring the following items:",
+          "1. Test Permit (can be downloaded from the BukSU admission website)",
+          "2. Application Form (can be downloaded from the BukSU admission website)",
+          "3. Pen",
+          "4. Pencil No. 2, eraser, and sharpener",
+          "Please be reminded that this is for Admission examination, not for college course examinations. For college course examinations, please refer to the specific requirements provided by your respective colleges."
+        ],
+        "ceb": [
+          "Unsa ang dad-on sa adlaw sa examination",
+          "Kinahanglan dad-on sa mga test takers ang mosunod:",
+          "1. Test Permit (ma-download gikan sa BukSU admission website)",
+          "2. Application Form (ma-download gikan sa BukSU admission website)",
+          "3. Pen",
+          "4. Pencil No. 2, eraser, ug sharpener",
+          "Palihog hinumdumi nga kini para sa Admission examination, dili para sa mga college course examinations. Para sa mga college course examinations, palihog tan-awa ang espesipikong mga requirements nga gihatag sa inyong mga respective colleges."
+        ]
+      }
+    },
+    {
+      "topic": "exam_results",
+      "responses": {
+        "en": [
+          "How and when will I know my examination result?",
+          "The schedule of releasing examination results will be posted on the BukSU Admission and Testing Facebook page.",
+          "Examination results will also be posted on your admission account around May to June."
+        ],
+        "ceb": [
+          "Unsaon ug kanus-a nako makuha ang resulta sa akong examination?",
+          "Ang schedule sa pag-release sa examination results ipost sa BukSU Admission and Testing Facebook page.",
+          "Ang resulta sa examination ipost usab sa imong admission account mga bulan sa Mayo hangtod Hunyo."
+        ]
+      }
+    },
+    {
+      "topic": "take_exam",
+      "responses": {
+        "en": [
+          "How can I take the BukSU College Admission Test?",
+          "Follow these steps to apply for the BukSU College Admission Test:",
+          "Step 1: Access http://admissions.buksu.edu.ph. Register using your active Gmail account. Create your password and re-type it for verification.",
+          "Step 2: After creating an account, an email containing a confirmation link will be sent to your Gmail. Check your inbox and click the link to activate your account.",
+          "Step 3: Fill out all the necessary information and upload the documentary requirements.",
+          "Step 4: Select your preferred schedule (venue, date, and time) based on the availability of slots.",
+          "Step 5: You will get notifications when your application is accepted. Once accepted, download and print your Test Permit."
+        ],
+        "ceb": [
+          "Unsaon nako pagkuha sa BukSU College Admission Test?",
+          "Sunod kining mga lakang aron mag-apply sa BukSU College Admission Test:",
+          "Step 1: Bisitaha ang http://admissions.buksu.edu.ph. Mag-register gamit ang imong active nga Gmail account. Himoa ang imong password ug i-type pag-usab para sa verification.",
+          "Step 2: Human makahimo og account, usa ka email nga adunay confirmation link ipadala sa imong Gmail. Tan-awa ang imong inbox ug i-klik ang link aron ma-activate ang imong account.",
+          "Step 3: Pun-a ang tanan nga kinahanglan nga impormasyon ug i-upload ang mga documentary requirements.",
+          "Step 4: Pilia ang imong preferred schedule (venue, petsa, ug oras) base sa available nga slots.",
+          "Step 5: Makadawat ka og notifications kung gi-accept ang imong aplikasyon. Kung ma-accept, i-download ug i-print ang imong Test Permit."
+        ]
+      }
+    },
+    {
+      "topic": "application_next_step",
+      "responses": {
+        "en": [
+          "I have already filled out the online application. What is the next step?",
+          "After you have filled out the application, select your preferred schedule and venue.",
+          "Make sure that you have completed the application process and prepare all the necessary requirements before the day of testing."
+        ],
+        "ceb": [
+          "Nakahuman na ko sa online application. Unsa ang sunod nga buhaton?",
+          "Human nimo mapuno ang application, pilia ang imong preferred nga schedule ug venue.",
+          "Siguroha nga nahuman nimo ang tibuok application process ug andama ang tanan nga kinahanglanon sa wala pa ang adlaw sa testing."
+        ]
+      }
+    },
+    {
+      "topic": "no_slots",
+      "responses": {
+        "en": [
+          "No Slots Available?",
+          "Evaluators are still checking applications. Stay logged in, go to Step 4, and refresh between 8 AM and 5 PM.",
+          "New slots may appear if others are denied."
+        ],
+        "ceb": [
+          "Walay Available nga Slots?",
+          "Ang mga evaluators nag-check pa sa mga aplikasyon. Pabilin naka naka-login, adto sa Step 4, ug i-refresh gikan 8 AM hangtod 5 PM.",
+          "Bag-ong slots mahimong mogawas kung ang uban gi-deny."
+        ]
+      }
+    },
+    {
+      "topic": "status_application",
+      "responses": {
+        "en": [
+          "How would I know that my application to take the College Admission Test is accepted?",
+          "Applicants will be notified of the status of their application in their BukSU Admissions Account.",
+          "Login to the BukSU Admissions account from time to time to receive updates and feedback."
+        ],
+        "ceb": [
+          "Unsaon nako pagkahibalo nga gi-accept ang akong aplikasyon para mo-take sa College Admission Test?",
+          "Ang mga aplikante pahibaloan sa status sa ilang aplikasyon pinaagi sa ilang BukSU Admissions Account.",
+          "Mag-login sa BukSU Admissions account kada panahon aron makadawat og updates ug feedback."
+        ]
+      }
+    },
+    {
+      "topic": "exam_fees",
+      "responses": {
+        "en": [
+          "Are there fees for the College Admission Test?",
+          "College Admission Tests are offered for FREE at Bukidnon State University.",
+          "However, applicants who have already completed a bachelors degree (second course takers) need to pay 300 Php for the Admission Test.",
+          "They are not qualified to avail of the benefits of the Free Higher Education."
+        ],
+        "ceb": [
+          "Naay bayad ang College Admission Test?",
+          "Ang College Admission Tests libre ra sa Bukidnon State University.",
+          "Apan, ang mga aplikante nga nakakompleto na og bachelor's degree (second course takers) kinahanglan magbayad og 300 Php para sa Admission Test.",
+          "Dili sila kwalipikado sa mga benepisyo sa Free Higher Education."
+        ]
+      }
+    },
+    {
+      "topic": "all_office_schedule",
+      "responses": {
+        "en": [
+          "What are the office hours of Bukidnon State University?",
+          "Bukidnon State University offices, including the Registrar’s Office and the Accounting Office, operate only from Monday to Friday.",
+          "Office hours are 8:00 AM to 12:00 NN and 1:00 PM to 5:00 PM.",
+          "They are closed on Saturdays and Sundays.",
+          " ",
+          "Make sure to plan your visits during the official office hours.",
+          "For urgent matters, you can check if services are available online or contact the offices directly.",
+          "📱 Contact Number: 0975 758 3157",
+          "✉️ Email: registrar@buksu.edu.ph",
+          "🖥️ Facebook Page: https://www.facebook.com/BSURegistrar",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ],
+        "ceb": [
+          "Unsa ang oras sa opisina sa Bukidnon State University?",
+          "Ang mga opisina sa Bukidnon State University, lakip na ang Registrar’s Office ug Accounting Office, bukas lang gikan Lunes hangtod Biyernes.",
+          "Ang oras sa opisina kay 8:00 AM hangtod 12:00 NN ug 1:00 PM hangtod 5:00 PM.",
+          "Sirado kini sa Sabado ug Domingo.",
+          " ",
+          "Siguroha nga imong i-plan ang imong pagbisita sa opisyal nga oras sa opisina.",
+          "Para sa mga urgent nga butang, pwede nimo tan-awon kung available ang serbisyo online o kontaka diretso ang opisina.",
+          "📱 Contact Number: 0975 758 3157",
+          "✉️ Email: registrar@buksu.edu.ph",
+          "🖥️ Facebook Page: https://www.facebook.com/BSURegistrar",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ]
+      }
+    },
+    {
+      "topic": "online_application_schedule",
+      "responses": {
+        "en": [
+          "Where can I find the BukSU-CAT online application schedule for AY 2026-2027?",
+          "Please refer to the official announcement posted through this link: https://www.facebook.com/share/p/19fuWqGGe3/",
+          "For updates and further announcements, follow the official BukSU Facebook page.",
+          "For additional inquiries, you may contact the BukSU Admission and Testing Unit (ATU):",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ],
+        "ceb": [
+          "Asa nako makit-an ang BukSU-CAT online application schedule para sa AY 2026-2027?",
+          "Palihog tan-awa ang opisyal nga pahibalo nga gipost pinaagi sa kini nga link: https://www.facebook.com/share/p/19fuWqGGe3/",
+          "Para sa updates ug dugang nga pahibalo, i-follow ang opisyal nga BukSU Facebook page.",
+          "Para sa dugang pangutana, pwede nimo kontakon ang BukSU Admission and Testing Unit (ATU):",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ]
+      }
+    },
+    {
+      "topic": "denied_applications",
+      "responses": {
+        "en": [
+          "Why was my application from a testing site denied?",
+          "Applications from some testing sites may have been denied due to full application slots, as they have already reached their maximum capacity.",
+          "You may consider applying to our other satellite campuses for admission.",
+          " ",
+          "For further inquiries, you may contact the BukSU Admission and Testing Unit (ATU):",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ],
+        "ceb": [
+          "Ngano nga gideny ang akong aplikasyon gikan sa usa ka testing site?",
+          "Ang aplikasyon gikan sa ubang testing sites basin gideny tungod kay puno na ang application slots, ug nakaabot na kini sa ilang maximum capacity.",
+          "Pwede nimo hunahunaon ang pag-apply sa among ubang satellite campuses para sa admission.",
+          " ",
+          "Para sa dugang pangutana, pwede nimo kontakon ang BukSU Admission and Testing Unit (ATU):",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ]
+      }
+    },
+    {
+      "topic": "main_campus_full",
+      "responses": {
+        "en": [
+          "What if the admission slots at the Main Campus are full?",
+          "Currently, the admission slots at the Main Campus are already full.",
+          "You may consider applying to one of our other satellite campuses instead.",
+          "Please note that the location of your entrance examination does not automatically determine the campus where you will study.",
+          "Your preferred campus is indicated in your admission account based on the information you provided during your application.",
+          " ",
+          "For further inquiries or assistance, you can contact the BukSU Admission and Testing Unit (ATU):",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ],
+        "ceb": [
+          "Unsaon kung puno na ang admission slots sa Main Campus?",
+          "Sa karon, puno na ang admission slots sa Main Campus.",
+          "Pwede nimo hunahunaon nga mag-apply sa usa sa among ubang satellite campuses.",
+          "Palihog hinumdomi nga ang lokasyon sa imong entrance examination dili dayon nagpasabot kung asa nga campus ka mag-eskwela.",
+          "Ang imong preferred campus makita sa imong admission account base sa impormasyon nga imong gihatag panahon sa aplikasyon.",
+          " ",
+          "Para sa dugang pangutana o tabang, pwede nimo kontakon ang BukSU Admission and Testing Unit (ATU):",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ]
+      }
+    },
+    {
+      "topic": "contact_registrar",
+      "responses": {
+        "en": [
+          "Looking to contact the University Registrar Office?",
+          "You can get in touch with them directly using the following contact information:",
+          "Here are the contact details for the University Registrar Office (URO):",
+          "📱 Contact Number: 0975 758 3157",
+          "✉️ Email: registrar@buksu.edu.ph",
+          "🖥️ Facebook Page: https://www.facebook.com/BSURegistrar",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ],
+        "ceb": [
+          "Nangita ba ka og paagi para makontak ang University Registrar Office?",
+          "Pwede nimo sila kontakon diretso gamit ang mosunod nga contact information:",
+          "Ania ang mga detalye sa kontak sa University Registrar Office (URO):",
+          "📱 Contact Number: 0975 758 3157",
+          "✉️ Email: registrar@buksu.edu.ph",
+          "🖥️ Facebook Page: https://www.facebook.com/BSURegistrar",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ]
+      }
+    },
+    {
+      "topic": "contact_atu",
+      "responses": {
+        "en": [
+          "How can I contact the BukSU Admission and Testing Unit (ATU)?",
+          "To expedite the response to your query or concern, please contact the appropriate office directly.",
+          "BukSU Admission and Testing Unit (ATU) contact details:",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ],
+        "ceb": [
+          "How can I contact the BukSU Admission and Testing Unit (ATU)?",
+          "To expedite the response to your query or concern, please contact the appropriate office directly.",
+          "BukSU Admission and Testing Unit (ATU) contact details:",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ]
+      }
+    },
+    {
+      "topic": "exam_location_vs_campus",
+      "responses": {
+        "en": [
+          "Does the location of my entrance exam determine my preferred campus?",
+          "The **location of your entrance exam** does not automatically indicate the **preferred campus** where you wish to pursue your studies.",
+          "Your **preferred campus is clearly indicated in your admission account,** based on the information you provided during your application.",
+          "For further clarification or assistance, you may contact the Admissions and Testing Unit (ATU).",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ],
+        "ceb": [
+          "Does the location of my entrance exam determine my preferred campus?",
+          "The **location of your entrance exam** does not automatically indicate the **preferred campus** where you wish to pursue your studies.",
+          "Your **preferred campus is clearly indicated in your admission account,** based on the information you provided during your application.",
+          "For further clarification or assistance, you may contact the Admissions and Testing Unit (ATU).",
+          "📱 Contact Number: 0968 568 1435",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUATU",
+          "✉️ Email: admissionandtesting@buksu.edu.ph",
+          "🌐 Website: admissions.buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ]
+      }
+    },
+    {
+      "topic": "system_error",
+      "responses": {
+        "en": [
+          "It seems you've encountered a system error. Let's try to resolve it together.",
+          "Please refresh the page or reopen the link, as this may be caused by temporary high traffic or a minor system glitch.",
+          "We truly appreciate your patience while we work to fix this issue.",
+          "Thank you for your understanding and cooperation."
+        ],
+        "ceb": [
+          "It seems you've encountered a system error. Let's try to resolve it together.",
+          "Please refresh the page or reopen the link, as this may be caused by temporary high traffic or a minor system glitch.",
+          "We truly appreciate your patience while we work to fix this issue.",
+          "Thank you for your understanding and cooperation."
+        ]
+      }
+    },
+    {
+      "topic": "additional_slots",
+      "responses": {
+        "en": [
+          "Wondering what to do if no slots are available?",
+          "Keep checking the admissions portal regularly and try submitting your application again.",
+          "Additional slots may open up if some applications are denied due to incomplete or missing requirements.",
+          "Since these openings can appear at any time, frequent monitoring is recommended."
+        ],
+        "ceb": [
+          "Wondering unsa ang buhaton kung walay slots nga available?",
+          "padayon og check ang admissions portal kanunay and sulayi og submit imong application pag-usab.",
+          "dugang slots posibleng mo open if some application kay nanga deny tungod sa kulang or walay requirements.",
+          "kay these openings pwede mo gawas bisan kanus-a, kanunay nga pag check girekomenda."
+        ]
+      }
+    },
+    {
+      "topic": "contact_scholarship_unit",
+      "responses": {
+        "en": [
+          "Need to get in touch with the Scholarships and Financial Grants Unit?",
+          "To ensure a quicker response, please contact the appropriate office directly.",
+          "Here are the contact details for the Scholarships and Financial Grants Unit:",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUSFGU",
+          "✉️ Email: sfgu@buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ],
+        "ceb": [
+          "Need to get in touch with the Scholarships and Financial Grants Unit?",
+          "To ensure a quicker response, please contact the appropriate office directly.",
+          "Here are the contact details for the Scholarships and Financial Grants Unit:",
+          "🖥️ Facebook Page: https://www.facebook.com/BukSUSFGU",
+          "✉️ Email: sfgu@buksu.edu.ph",
+          "📞 BukSU Contact Number: 088-813-5661"
+        ]
+      }
+    },
+    {
+      "topic": "board_exam_review",
+      "responses": {
+        "en": [
+          "Some colleges offer board examination review programs or support sessions for students."
+        ],
+        "ceb": [
+          "Ang ubang mga college naghatag ug review programs o support sessions para sa board exam."
+        ]
+      }
+    },
+    {
+      "topic": "licensure_examination",
+      "responses": {
+        "en": [
+          "A licensure examination is a national exam required to legally practice certain professions."
+        ],
+        "ceb": [
+          "Ang licensure examination kay national exam nga gikinahanglan para makapraktis sa pipila ka profession."
+        ]
+      }
+    },
+    {
+      "topic": "mock_board_exam",
+      "responses": {
+        "en": [
+          "A mock board exam is a practice examination designed to prepare students for the actual licensure examination."
+        ],
+        "ceb": [
+          "Ang mock board exam kay practice exam nga gituyo aron andamon ang mga estudyante para sa tinuod nga board exam."
+        ]
+      }
+    },
+    {
+      "topic": "reschedule_entrance_exam",
+      "responses": {
+        "en": [
+          "The BukSU Entrance Examination cannot be rescheduled once your exam date has been assigned.",
+          "If you are unable to attend your scheduled exam, you may need to wait for the next admission cycle.",
+          "I recommend ensuring your availability on your assigned exam date to avoid delays in your admission."
+        ],
+        "ceb": [
+          "Dili ma-reschedule ang BukSU Entrance Examination kung naa na kay assigned exam date.",
+          "Kung dili ka makatunga sa imong scheduled exam, mahimo nga kinahanglan ka maghulat sa sunod nga admission cycle.",
+          "Mas maayo nga siguroon ang imong availability sa imong exam date aron malikayan ang delay sa imong admission."
+        ]
+      }
+    },
+    {
+      "topic": "cat_requirement_nursing_program",
+      "responses": {
+        "en": [
+          "To qualify for the College of Nursing at Bukidnon State University, applicants must pass the BukSU College Admission Test.",
+          "The expected CAT score is usually around 80 to 90 or above because the program has limited slots and high demand.",
+          "However, the required CAT score may vary depending on the number of applicants, available slots, and the admission policies set by the university for that academic year."
+        ],
+        "ceb": [
+          "Aron makasulod sa College of Nursing sa Bukidnon State University, kinahanglan makapasar ang aplikante sa BukSU College Admission Test.",
+          "Kasagaran ang gikinahanglan nga score kay mga 80 to 90 pataas tungod kay limitado ang slots ug daghan ang aplikante.",
+          "Apan ang required nga CAT score mahimong mag-usab depende sa kadaghan sa aplikante, available nga slots, ug sa admission policy sa unibersidad matag tuig."
+        ]
+      }
+    },
+    {
+      "topic": "cat_requirement_education_program",
+      "responses": {
+        "en": [
+          "To qualify for the College of Education at Bukidnon State University, applicants must pass the BukSU College Admission Test.",
+          "The typical expected CAT score is around 80 or above.",
+          "However the final requirement may vary depending on the number of applicants, available slots, and the admission policies set by the university for that academic year."
+        ],
+        "ceb": [
+          "Aron makasulod sa College of Education sa Bukidnon State University, kinahanglan makapasar ang aplikante sa BukSU College Admission Test.",
+          "Kasagaran ang gikinahanglan nga score kay mga 80 pataas.",
+          "Apan mahimo gihapon kini mag-usab depende sa kadaghan sa aplikante, available nga slots, ug sa admission policy sa unibersidad matag tuig."
+        ]
+      }
+    },
+    {
+      "topic": "gpat_admission_requirements",
+      "responses": {
+        "en": [
+          "Requirements for the Graduate Program Admission Test include a soft copy of a 2x2 ID picture.",
+          "You must also submit a scanned copy of your transcript of records.",
+          "Non BukSU graduates must submit an honorable dismissal.",
+          "A payment receipt is also required."
+        ],
+        "ceb": [
+          "Ang mga kinahanglanon sa GPAT naglakip sa soft copy sa 2x2 ID picture.",
+          "Kinahanglan usab ang scanned copy sa transcript of records.",
+          "Para sa dili BukSU graduates kinahanglan ang honorable dismissal.",
+          "Kinahanglan usab ang payment receipt."
+        ]
+      }
+    },
+    {
+      "topic": "transferee_admission_requirements",
+      "responses": {
+        "en": [
+          "Yes BukSU accepts transferees depending on the availability of slots in the chosen program. You must first take and pass the BukSU Admission before you can enroll as a transferee.",
+          "Once you pass the admission, proceed to the BukSU main campus and go to the college department where you plan to enroll.",
+          "Transferees must submit an Honorable Dismissal and an Informative Copy of their Transcript of Records for evaluation, meet the required GWA, and pass any admission interview or exam.",
+          "Since each department may have its own specific rules for transferees, it is best to ask a faculty or staff member directly in the office for proper guidance."
+        ],
+        "ceb": [
+          "Oo, modawat ang BukSU og transferees depende sa available nga slots sa imong pilion nga kurso. Kinahanglan una ka mopasar sa BukSU Admission bago ka maka-enroll isip transferee.",
+          "Human nimo makapasar sa admission, adto sa BukSU main campus ug diretso sa college department nga imong gustong enrollan.",
+          "Ang transferees kinahanglan mo-submit og Honorable Dismissal ug Informative Copy sa ilang Transcript of Records para sa evaluation, maabot ang required GWA, ug mopasar sa admission interview o exam.",
+          "Tungod kay ang matag department adunay kaugalingong mga patakaran para sa transferees, mas maayo nga mangutana diretso sa faculty o staff sa opisina para sa hustong giya ug tabang."
+        ]
+      }
+    },
+    {
+      "topic": "buksu_admission_facebook_page",
+      "responses": {
+        "en": [
+          "For official updates announcements and schedules regarding admissions you can follow the BukSU Admission and Testing Unit Facebook page.",
+          "https://www.facebook.com/BukSUATU"
+        ],
+        "ceb": [
+          "Para sa opisyal nga update pahibalo ug mga schedule bahin sa admissions mahimo nimong i follow ang Facebook page nga BukSU Admission and Testing Unit.",
+          "https://www.facebook.com/BukSUATU"
+        ]
+      }
+    },
+    {
+      "topic": "missed_buksu_cat_schedule",
+      "responses": {
+        "en": [
+          "If you miss your scheduled BukSU CAT exam date you should immediately contact the Admission and Testing Unit.",
+          "Rescheduling may be possible depending on the availability of slots and the validity of the reason."
+        ],
+        "ceb": [
+          "Kung mapalabay nimo ang imong schedule sa BukSU CAT exam kontaka dayon ang Admission and Testing Unit.",
+          "Mahimong ma reschedule kini depende kung naay bakante nga slot ug balido ang imong rason."
+        ]
+      }
+    },
+    {
+      "topic": "als_graduate_buksu_cat_application",
+      "responses": {
+        "en": [
+          "Graduates of the Alternative Learning System or ALS are allowed to apply for the BukSU College Admission Test.",
+          "Applicants must provide their ALS Certificate of Rating and other required identification documents."
+        ],
+        "ceb": [
+          "Ang mga graduate sa Alternative Learning System o ALS mahimong maka apply sa BukSU College Admission Test.",
+          "Kinahanglan i submit ang ALS Certificate of Rating ug uban pang identification requirements."
+        ]
+      }
+    },
+    {
+      "topic": "apply_cat_using_mobile_phone",
+      "responses": {
+        "en": [
+          "Yes you can use a mobile phone to access the admission portal.",
+          "However using a desktop or laptop is recommended when uploading documents like photos and certificates to avoid technical errors."
+        ],
+        "ceb": [
+          "Oo pwede gamiton ang mobile phone para sa admission portal.",
+          "Apan mas maayo kung mogamit og desktop o laptop para mas sayon ang pag upload sa mga dokumento ug malikayan ang mga technical error."
+        ]
+      }
+    },
+    {
+      "topic": "second_courser_cat_application",
+      "responses": {
+        "en": [
+          "Yes second coursers may apply for the BukSU CAT.",
+          "They are required to pay a 300 peso testing fee and submit their Transcript of Records.",
+          "Second coursers are not eligible for the Free Higher Education benefits."
+        ],
+        "ceb": [
+          "Oo ang mga second courser mahimong maka apply sa BukSU CAT.",
+          "Kinahanglan sila mobayad og 300 pesos nga testing fee ug mag submit sa Transcript of Records.",
+          "Dili sila kwalipikado sa libre nga tuition sa Free Higher Education program."
+        ]
+      }
+    },
+    {
+      "topic": "buksu_cat_definition",
+      "responses": {
+        "en": [
+          "The BukSU CAT is the Bukidnon State University College Admission Test.",
+          "It is a mandatory exam for all incoming first year college students and second coursers who want to enroll in undergraduate programs."
+        ],
+        "ceb": [
+          "Ang BukSU CAT mao ang Bukidnon State University College Admission Test.",
+          "Kini mandatory nga exam para sa tanang incoming first year students ug second coursers nga gusto mo enroll sa undergraduate programs."
+        ]
+      }
+    },
+    {
+      "topic": "masters_degree_admission_requirements",
+      "responses": {
+        "en": [
+          "Applicants for a Masters degree must submit an Honorable Dismissal.",
+          "They must provide an original Transcript of Records with the remark Valid for Transfer.",
+          "A two by two ID picture is required and applicants must pass the Graduate Program Admission Test."
+        ],
+        "ceb": [
+          "Ang mga aplikante sa Masters degree kinahanglan mag submit og Honorable Dismissal.",
+          "Kinahanglan usab ang original Transcript of Records nga naay remark nga Valid for Transfer.",
+          "Kinahanglan ang duha sa duha nga ID picture ug kinahanglan makapasar sa Graduate Program Admission Test."
+        ]
+      }
+    },
+    {
+      "topic": "second_courser_requirements",
+      "responses": {
+        "en": [
+          "Second coursers must submit a Transcript of Records for evaluation a 2x2 ID picture and a payment receipt of 300 pesos for the admission test and they are generally not covered by the Free Higher Education law."
+        ],
+        "ceb": [
+          "Ang second courser kinahanglan mag submit og Transcript of Records para sa evaluation 2x2 ID picture ug resibo sa bayad nga 300 pesos para sa admission test ug kasagaran dili na sila sakop sa Free Higher Education law."
+        ]
+      }
+    },
+    {
+      "topic": "buksu_admission_contact",
+      "responses": {
+        "en": [
+          "You can contact the Admission and Testing Unit through their official Facebook page BukSU Admission and Testing Unit or visit their office at the main campus in Malaybalay City."
+        ],
+        "ceb": [
+          "Mahimo nimong makontak ang Admission and Testing Unit pinaagi sa ilang Facebook page BukSU Admission and Testing Unit o bisitaha ang ilang opisina sa main campus sa Malaybalay City."
+        ]
+      }
+    },
+    {
+      "topic": "law_admission_requirements",
+      "responses": {
+        "en": [
+          "Applicants for the Juris Doctor program must have a bachelor degree a Transcript of Records and must pass the Law School Admission Test followed by a panel interview."
+        ],
+        "ceb": [
+          "Ang mga aplikante sa Juris Doctor kinahanglan adunay bachelor degree Transcript of Records ug kinahanglan makapasar sa Law School Admission Test ug panel interview."
+        ]
+      }
+    },
+    {
+      "topic": "buksu_cat_calculator_policy",
+      "responses": {
+        "en": [
+          "No the use of any type of calculator basic or scientific is strictly prohibited during the BukSU CAT. Only pencils erasers and your permit are allowed inside the testing room."
+        ],
+        "ceb": [
+          "Dili ang paggamit og bisan unsang klase sa calculator basic o scientific hugot nga gidili sa panahon sa BukSU CAT. Lapis eraser ug permit lang ang gitugutan sa sulod sa testing room."
+        ]
+      }
+    },
+    {
+      "topic": "admission_application_deadline",
+      "responses": {
+        "en": [
+          "There is no exact deadline, but BukSU admission applications usually end during the last week of March.",
+          "You can visit their official Facebook page for updates: https://www.facebook.com/BukSUATU"
+        ],
+        "ceb": [
+          "Walay eksaktong petsa, apan kasagaran matapos ang admission sa katapusang semana sa Marso.",
+          "Mahimo nimo bisitahon ang ilang FB page para sa updates: https://www.facebook.com/BukSUATU"
+        ]
+      }
+    },
+    {
+      "topic": "freshman_admission_requirements",
+      "responses": {
+        "en": [
+          "Here are the requirements you need before applying for BukSU Admission Testing:",
+          "1. You need to have your own personal Gmail account to create an account on BukSU Admissions: https://admissions.buksu.edu.ph/",
+          "2. You need a digital copy of your 2x2 photo. Please make sure your photo meets the following specifications: plain white background, wearing a white T-shirt, no accessories, and the correct 2x2 size.",
+          "For documentary requirements:",
+          "Report card, Transcript of Records, Principal’s Certification, GWA, and Diploma. These are optional as long as you have the Principal’s Certification. Make sure it is signed by your principal and properly sealed.",
+          "After applying for BukSU Admission, please wait for approval.",
+          "Note: Your Gmail should be accessible, as all verification codes will be sent there."
+        ],
+        "ceb": [
+          "Ania ang mga kinahanglanon nga imong andamon sa dili pa mag-apply para sa BukSU Admission Testing:",
+          "1. Kinahanglan naa kay personal nga Gmail account aron makahimo og account sa BukSU Admissions: https://admissions.buksu.edu.ph/",
+          "2. Kinahanglan pud ka og digital copy sa imong 2x2 nga litrato. Siguroa nga ang imong litrato mosunod sa mosunod nga specifications: puti nga background, nagsul-ob og puti nga T-shirt, walay accessories, ug sakto nga 2x2 nga size.",
+          "Para sa documentary requirements:",
+          "Report card, Transcript of Records, Principal’s Certification, GWA, ug Diploma. Optional ra kini basta naa kay Principal’s Certification. Siguroa nga pirmado kini sa imong principal ug sakto ang pag-seal.",
+          "Human ka mag-apply para sa BukSU Admission, palihog hulata ang approval.",
+          "Note: Siguroa nga ma-access nimo ang imong Gmail, kay didto ipadala ang tanang verification codes."
+        ]
+      }
+    },
+    {
+      "topic": "program_cutoff_scores",
+      "responses": {
+        "en": [
+          "For the school year 2020-2021, BukSU-CAT has two rating status: “Passed” or “Failed”.",
+          "In order to be enrolled in BukSU, the exam taker must obtain at least 40% (passing rate).",
+          "Exam takers who obtained rating below the passing rate will not be admitted.",
+          "For board courses like Education, Nursing and Accountancy, their colleges require 50% and above BukSU-CAT rating.",
+          "The validity of the exam is for one year.",
+          "No retake is allowed within a year from the date of the exam.",
+          "HOWEVER this are old data so it might be change in every year, you can directly ask the Public Help Disk which is located on the entrance of BukSU."
+        ],
+        "ceb": [
+          "Para sa school year 2020-2021, ang BukSU-CAT adunay duha ka rating status: “Passed” o “Failed”.",
+          "Aron maka-enroll sa BukSU, ang exam taker kinahanglan makakuha og labing menos 40% (passing rate).",
+          "Ang mga exam taker nga nakakuha og rating ubos sa passing rate dili pasudlon.",
+          "Para sa board courses sama sa Education, Nursing, ug Accountancy, ang ilang kolehiyo nagkinahanglan og 50% ug pataas nga BukSU-CAT rating.",
+          "Ang validity sa exam kay usa ka tuig lamang.",
+          "Dili pwede mag-retake sulod sa usa ka tuig gikan sa petsa sa exam.",
+          "BISAN PA, kini daan nga datos ug posibleng mausab matag tuig, mao nga mas maayo nga mangutana diretso sa Public Help Desk nga naa sa entrance sa BukSU."
+        ]
+      }
+    },
+    {
+      "topic": "admission_contact_help",
+      "responses": {
+        "en": [
+          "You can contact the official Bukidnon State University Admission and Testing Unit for more information about admission.",
+          "It’s better to go in person to their office so they can assist you right away.",
+          "You can also contact them through their Facebook page: https://www.facebook.com/BukSUATU"
+        ],
+        "ceb": [
+          "Pwede nimo kontakon ang opisyal nga Bukidnon State University Admission and Testing Unit para sa dugang impormasyon bahin sa admission.",
+          "Mas maayo nga moadto ka personal sa ilang opisina aron matabangan ka dayon.",
+          "Pwede usab nimo sila kontakon pinaagi sa ilang Facebook page: https://www.facebook.com/BukSUATU"
+        ]
+      }
+    },
+    {
+      "topic": "cat_exam_result",
+      "responses": {
+        "en": [
+          "The only way to know if you passed the BukSU Admission CAT Examination is to log in to your BukSU Admission account and go to the Admission tab. You can also quickly access it through notifications from BukSU Admissions. Once you see your Report of Ratings, as shown in the photo I provided, click <b>Show Exam Result</b> to check if you passed or failed.",
+          "You can also watch this video for step by step guid:",
+          "https://www.facebook.com/share/v/1CRFdU3vM5/"
+        ],
+        "ceb": [
+          "Ang pinakasayon nga paagi aron mahibal-an kung nakapasar ka sa BukSU Admission CAT Examination mao ang pag-log in sa imong BukSU Admission account ug adto sa Admission tab. Pwede pud nimo dali nga ma-access kini pinaagi sa notifications gikan sa BukSU Admissions. Kung makita nimo ang imong Report of Ratings, sama sa litrato nga akong gihatag, i-click ang ‘Show Exam Result’ aron tan-awon kung nakapasar o napakyas ka.",
+          "Pwede pud nimo tan-awon kini nga video para sa step by step guide:",
+          "https://www.facebook.com/share/v/1CRFdU3vM5/"
+        ]
+      }
+    },
+    {
+      "topic": "Cat_score_for_nonboard",
+      "responses": {
+        "en": [
+          "As of the previous data of 2020 - 2021 the buksu CAT score for non-board courses was in 40% to be eligible. now probably since its 2026"
+        ],
+        "ceb": [
+          "Base sa datos sa 2020–2021, ang BukSU CAT score para sa non-board nga kurso kinahanglan mga 40% aron mahimong eligible. Karon tingali, sukad kay 2026"
+        ]
+      }
+    },
+    {
+      "topic": "Change_info_admission",
+      "responses": {
+        "en": [
+          "You can change your admission info by just logging in to your account",
+          "got to dashboard, and click <b>Update personal Information</b> or <b>Update Academic Information</B> to update any of those informations",
+          "https://admissions.buksu.edu.ph"
+        ],
+        "ceb": [
+          "Pwede nimo usbon ang imong admission info pinaagi sa pag-login lang sa imong account",
+          "Adto sa dashboard, ug i-click ang <b>Update personal Information</b> o <b>Update Academic Information</b> aron i-update bisan unsa sa maong impormasyon",
+          "https://admissions.buksu.edu.ph"
+        ]
+      }
+    },
+    {
+      "topic": "Change_Pass_admission",
+      "responses": {
+        "en": [
+          "To change your admission password, follow these steps:",
+          "Go to <b>https://admissions.buksu.edu.ph/login</b>",
+          "Login your credentials and proceed to your dashboard",
+          "click your Profile icon to view the choices logout or My Account, and choose <b>My Account</b>",
+          "you can now change your password by just clicking the <b>Change Password</b> button"
+        ],
+        "ceb": [
+          "Para usbon ang imong admission password, sunda kini nga mga steps:",
+          "Adto sa <b>https://admissions.buksu.edu.ph/login</b>",
+          "Login sa imong credentials ug adto sa imong dashboard",
+          "i-click ang imong Profile icon para makita ang choices logout o My Account, ug pilia ang <b>My Account</b>",
+          "pwede na nimo usbon ang imong password pinaagi lang sa pag-click sa <b>Change Password</b> button"
+        ]
+      }
+    },
+    {
+      "topic": "Find_Institutional_Account",
+      "responses": {
+        "en": [
+          "You can find your Institutional account by just logging in your Buksu Admission account to <b>https://admissions.buksu.edu.ph/login</b>",
+          "Once you logged in, here is the step by step to see your Institutional account",
+          "1. Click the <b>Institutional Account</b> tab and scroll down",
+          "2. You can now see your Institutional account",
+          "3. Click the <b>Show</b> button to see your Institutional account password and other details",
+          "They also provide the change password link for you to be able to change it right after you have your account password and users",
+          "You can also view your Sias account by just scrolling down to see the other details."
+        ],
+        "ceb": [
+          "Makita nimo ang imong Institutional account pinaagi sa pag-login sa imong Buksu Admission account sa <b>https://admissions.buksu.edu.ph/login</b>",
+          "Sa higayon nga naka-login ka, ania ang step by step sa pagtan-aw sa imong Institutional account",
+          "1. I-click ang <b>Institutional Account</b> tab ug scroll down",
+          "2. Makita na nimo ang imong Institutional account",
+          "3. I-click ang <b>Show</b> button aron makita ang password sa imong Institutional account ug uban pang detalye",
+          "Naghatag usab sila og link sa pag-ilis og password aron mahimo nimo kini dayon human nimo makuha ang password ug users sa imong account",
+          "Makita usab nimo ang imong Sias account pinaagi lang sa pag-scroll down aron makita ang ubang mga detalye."
+        ]
+      }
+    },
+    {
+      "topic": "Find_Sias_Account",
+      "responses": {
+        "en": [
+          "You can find your Sias account by just logging in your Buksu Admission account to <b>https://admissions.buksu.edu.ph/login</b>",
+          "Once you logged in, here is the step by step to see your Sias account",
+          "1. Click the <b>Institutional Account</b> tab and scroll down",
+          "2. You can now see your Sias account",
+          "3. Click the <b>Show</b> button to see your Sias account password and other details",
+          "They also provide the change password link for you to be able to change it right after you have your account password and users"
+        ],
+        "ceb": [
+          "Makita nimo ang imong Sias account pinaagi sa pag-login sa imong Buksu Admission account sa <b>https://admissions.buksu.edu.ph/login</b>",
+          "Sa higayon nga naka-login ka, ania ang step by step sa pagtan-aw sa imong Sias account",
+          "1. I-click ang <b>Institutional Account</b> tab ug scroll down",
+          "2. Makita na nimo ang imong Sias account",
+          "3. I-click ang <b>Show</b> button aron makita ang password sa imong Sias account ug uban pang detalye",
+          "Naghatag usab sila og link sa pag-ilis og password aron mahimo nimo kini dayon human nimo makuha ang password ug users sa imong account"
+        ]
+      }
+    }
+  ]
+}
