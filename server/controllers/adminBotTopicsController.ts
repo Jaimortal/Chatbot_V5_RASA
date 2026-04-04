@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { Request, Response } from 'express';
 import { promises as fsPromises } from 'fs';
+import { deleteImage } from '../db/images.js';
 
 // Define the TS structures matching the frontend expectations
 export interface BotTopic {
@@ -206,10 +207,26 @@ export class AdminBotTopicsController {
         };
       }
 
+      // Sync image deletions
       if (images !== undefined) {
-        updated.images = Array.isArray(images)
+        const newImages = Array.isArray(images)
           ? images.map((s: any) => String(s).trim()).filter(Boolean)
           : (existing.images || []);
+        
+        const oldImages = Array.isArray(existing.images) ? existing.images : [];
+        const removedImages = oldImages.filter((url: any) => !newImages.includes(url));
+        
+        for (const url of removedImages) {
+          if (typeof url === 'string' && url.startsWith('/api/images/')) {
+            const id = url.split('/').pop();
+            if (id) {
+              console.log(`[Database Sync] Deleting image ${id} removed from super intent topic ${topicKey} in ${file}`);
+              await deleteImage(id).catch(err => console.error("Failed to delete image from DB:", err));
+            }
+          }
+        }
+        
+        updated.images = newImages;
       }
 
       if (map !== undefined) {

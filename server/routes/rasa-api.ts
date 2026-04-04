@@ -4,8 +4,9 @@
  */
 
 import { Router } from "express";
-import * as dbResponses from "./db/responses.js";
-import * as dbLocations from "./db/locations.js";
+import * as dbResponses from "../db/responses.js";
+import * as dbLocations from "../db/locations.js";
+import * as dbSuperIntents from "../db/superIntents.js";
 
 const router = Router();
 
@@ -171,7 +172,7 @@ router.get("/locations", async (_req, res) => {
   try {
     const locations = await dbLocations.getAllLocations();
     
-    const results = locations.map(location => ({
+    const results = locations.map((location: any) => ({
       name: location.name,
       type: location.type,
       building: location.building,
@@ -224,6 +225,84 @@ router.get("/locations/type/:type", async (req, res) => {
 });
 
 /**
+ * GET /api/rasa/super-intents/:superIntent
+ * Get all topics for a super intent
+ */
+router.get("/super-intents/:superIntent", async (req, res) => {
+  try {
+    const { superIntent } = req.params;
+    const topics = await dbSuperIntents.getSuperIntentByName(superIntent);
+    
+    const results = topics.map((topic: any) => ({
+      super_intent: topic.superIntent,
+      topic: topic.topic,
+      ui_name: topic.uiName,
+      responses: {
+        en: topic.responsesEn || [],
+        ceb: topic.responsesCeb || [],
+      },
+      imageUrls: topic.imageUrls || [],
+      mapData: topic.mapData,
+      pins: topic.pins || [],
+    }));
+
+    res.json({
+      success: true,
+      count: results.length,
+      data: results
+    });
+  } catch (error) {
+    console.error("Error fetching super intent topics:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error fetching super intent topics"
+    });
+  }
+});
+
+/**
+ * GET /api/rasa/super-intents/:superIntent/:topic
+ * Get a specific topic from a super intent
+ */
+router.get("/super-intents/:superIntent/:topic", async (req, res) => {
+  try {
+    const { superIntent, topic } = req.params;
+    const response = await dbSuperIntents.getSuperIntentTopic(superIntent, topic);
+    
+    if (!response) {
+      return res.status(404).json({
+        success: false,
+        message: `Topic not found: ${topic} in ${superIntent}`
+      });
+    }
+
+    const result = {
+      super_intent: response.superIntent,
+      topic: response.topic,
+      ui_name: response.uiName,
+      responses: {
+        en: response.responsesEn || [],
+        ceb: response.responsesCeb || [],
+      },
+      imageUrls: response.imageUrls || [],
+      mapData: response.mapData,
+      pins: response.pins || [],
+    };
+
+    res.json({
+      success: true,
+      data: result
+    });
+  } catch (error) {
+    console.error("Error fetching super intent topic:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error fetching super intent topic"
+    });
+  }
+});
+
+/**
  * GET /api/rasa/health
  * Health check endpoint
  */
@@ -232,6 +311,7 @@ router.get("/health", async (_req, res) => {
     // Test database connection
     const responses = await dbResponses.getAllResponses();
     const locations = await dbLocations.getAllLocations();
+    const superIntents = await dbSuperIntents.getAllSuperIntents();
     
     res.json({
       success: true,
@@ -239,6 +319,7 @@ router.get("/health", async (_req, res) => {
       data: {
         responses_count: responses.length,
         locations_count: locations.length,
+        super_intents_count: superIntents.length,
       }
     });
   } catch (error) {

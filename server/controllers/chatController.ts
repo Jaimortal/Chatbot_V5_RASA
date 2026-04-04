@@ -97,9 +97,17 @@ export class ChatController {
       
       // Extract ALL mapData from all responses (not just the first one)
       const allMapDataFromRasa: any[] = [];
+      
+      // Extract ALL images from all responses
+      const allImageUrls: string[] = [];
+      
       for (const response of result) {
         if (!isFallback && response.custom?.mapData) {
           allMapDataFromRasa.push(response.custom.mapData);
+        }
+        // Extract images from response
+        if (response.image) {
+          allImageUrls.push(response.image);
         }
       }
 
@@ -163,7 +171,9 @@ export class ChatController {
         answer: answerText,
         follow_up: result?.[0]?.custom?.follow_up ?? [],
         mapData: formattedMapData,
-        mapDataList: formattedMapDataList.length > 0 ? formattedMapDataList : undefined
+        mapDataList: formattedMapDataList.length > 0 ? formattedMapDataList : undefined,
+        imageUrls: allImageUrls.length > 0 ? allImageUrls : undefined,
+        imageUrl: allImageUrls.length > 0 ? allImageUrls[0] : undefined
       });
     } catch (error) {
       console.error("Chat controller error:", error);

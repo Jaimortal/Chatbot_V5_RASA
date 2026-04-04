@@ -13,6 +13,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { Edit2, Plus, Trash2, Search, Zap, ZapOff } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { ChevronDown, AlertCircle } from "lucide-react";
 
 export function AdminFAQs() {
   const queryClient = useQueryClient();
@@ -104,126 +106,152 @@ export function AdminFAQs() {
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader className="flex flex-col items-start space-y-4">
-          <div className="flex flex-col md:flex-row justify-between w-full gap-4">
-            <div>
-              <CardTitle className="text-xl">FAQ Editor</CardTitle>
-              <CardDescription>Select chatbot topics securely routed to Rasa and add them to the User FAQ Carousel.</CardDescription>
-            </div>
-          </div>
+        <CardHeader className="flex flex-col items-start space-y-2">
+          <CardTitle className="text-xl px-2 mt-2">FAQ Configuration</CardTitle>
+          <CardDescription className="px-2">Select chatbot topics securely routed to Rasa and add them to the User FAQ Carousel.</CardDescription>
         </CardHeader>
-        <CardContent>
-          <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="mb-4 flex-wrap h-auto">
-              {botCategories.map((cat: BotCategory) => (
-                <TabsTrigger key={cat.id} value={cat.id} className="text-sm px-4 py-2">
-                  {cat.displayName}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            
-            <div className="mb-4 relative max-w-md">
-               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-               <Input 
-                 placeholder={`Search topics in ${currentCategory?.displayName || ""}...`}
-                 value={searchTerm}
-                 onChange={e => setSearchTerm(e.target.value)}
-                 className="pl-9"
-               />
+        <CardContent className="p-0 border-t">
+          <div className="flex gap-0 h-[640px] rounded-b-xl overflow-hidden bg-white">
+            {/* ── LEFT: Bot Categories vertical nav ── */}
+            <div className="w-56 shrink-0 border-r bg-gray-50 flex flex-col">
+              <div
+                className="px-4 py-3 border-b shrink-0"
+                style={{ background: "linear-gradient(to right, #001C38, #0356a9ff)" }}
+              >
+                <p className="text-white font-semibold text-xs uppercase tracking-wider">Categories</p>
+                <p className="text-blue-200 text-[10px] mt-0.5">{botCategories.length} available files</p>
+              </div>
+
+              <nav
+                className="flex-1 overflow-y-auto py-2"
+                style={{ scrollbarWidth: "thin", scrollbarColor: "#cbd5e1 transparent" }}
+              >
+                {botCategories.map((cat: BotCategory) => {
+                  const isActive = cat.id === activeTab;
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => setActiveTab(cat.id)}
+                      className={`w-full text-left px-4 py-2.5 text-sm transition-all duration-150 flex items-center justify-between gap-2 ${
+                        isActive
+                          ? "text-white font-semibold shadow-sm"
+                          : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                      }`}
+                      style={isActive ? { background: "linear-gradient(to right, #001C38, #0356a9ff)" } : undefined}
+                    >
+                      <span className="leading-tight truncate max-w-[130px]">{cat.displayName}</span>
+                      <span className={`text-[10px] px-1.5 py-0.5 rounded-full shrink-0 ${isActive ? "bg-white/20 text-white" : "bg-gray-200 text-gray-500"}`}>
+                        {cat.topics.length}
+                      </span>
+                    </button>
+                  );
+                })}
+              </nav>
             </div>
 
-            <div className="border rounded-md">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Topic (Internal)</TableHead>
-                    <TableHead>Display Preview</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {currentTopics.map((topic: BotTopic) => {
-                    // Match with DB config
-                    const existingFaq = faqs.find(f => f.topicKey === topic.topicKey && f.superIntent === topic.superIntent);
-                    
-                    return (
-                      <TableRow key={topic.topicKey}>
-                        <TableCell className="max-w-[300px]">
-                          <p className="font-mono text-xs font-semibold">{topic.topicKey}</p>
-                          <p className="text-[10px] text-muted-foreground truncate" title={topic.payload}>
-                            Payload: {topic.payload}
-                          </p>
-                          {topic.previewResponse && (
-                            <p className="text-xs text-muted-foreground mt-1 truncate max-w-[280px]" title={topic.previewResponse}>
-                              <span className="font-medium">Bot says:</span> {topic.previewResponse}
-                            </p>
-                          )}
-                        </TableCell>
-                        <TableCell>
-                          {existingFaq ? (
-                            <div className="flex items-center gap-2">
-                              <span className="text-lg">{existingFaq.icon}</span>
-                              <div>
-                                <p className="font-medium text-sm">{existingFaq.displayLabel}</p>
-                                {existingFaq.subtitle && <p className="text-xs text-muted-foreground limit-1-line max-w-[250px] truncate">{existingFaq.subtitle}</p>}
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="opacity-50 flex items-center gap-2">
-                              <span className="text-lg">{topic.defaultIcon}</span>
-                              <p className="font-medium text-sm text-muted-foreground">{topic.defaultLabel}</p>
-                            </div>
-                          )}
-                        </TableCell>
-                        <TableCell>
-                          {existingFaq ? (
-                             <Badge variant={existingFaq.enabled ? "default" : "secondary"}>
-                               {existingFaq.enabled ? "Active FAQ" : "Disabled FAQ"}
-                             </Badge>
-                          ) : (
-                             <Badge variant="outline" className="text-muted-foreground line-through decoration-muted-foreground/30">
-                               Not in FAQ
-                             </Badge>
-                          )}
-                        </TableCell>
-                        <TableCell className="text-right">
-                          <div className="flex justify-end gap-2">
-                            {existingFaq ? (
-                              <>
-                                <Switch 
-                                  checked={existingFaq.enabled} 
-                                  onCheckedChange={(checked) => toggleEnabled(existingFaq, checked)} 
-                                  title="Toggle Visibility"
-                                />
-                                <Button variant="outline" size="sm" onClick={() => handleCreateOrEdit(topic, existingFaq)}>
-                                  <Edit2 className="h-4 w-4 mr-1" /> Edit
-                                </Button>
-                                <Button variant="ghost" size="sm" className="text-red-500 hover:text-red-700 hover:bg-red-50" onClick={() => handleDelete(existingFaq.id!)}>
-                                  <Trash2 className="h-4 w-4" />
-                                </Button>
-                              </>
-                            ) : (
-                              <Button variant="default" size="sm" onClick={() => handleCreateOrEdit(topic)}>
-                                <Plus className="h-4 w-4 mr-1" /> Add to FAQ
-                              </Button>
-                            )}
+            {/* ── RIGHT: Topics panel ── */}
+            <div className="flex-1 min-w-0 p-5 flex flex-col bg-slate-50/50">
+              <div className="mb-4 relative max-w-sm shrink-0">
+                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                 <Input 
+                   placeholder={`Search ${currentCategory?.displayName || ""}...`}
+                   value={searchTerm}
+                   onChange={e => setSearchTerm(e.target.value)}
+                   className="pl-9 bg-white"
+                 />
+              </div>
+
+              <div className="flex-1 overflow-y-auto px-1 pb-4" style={{ scrollbarWidth: "thin", scrollbarColor: "#cbd5e1 transparent" }}>
+                {currentTopics.length === 0 ? (
+                  <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
+                    No topics found.
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
+                    {currentTopics.map((topic: BotTopic) => {
+                      const existingFaq = faqs.find(f => f.topicKey === topic.topicKey && f.superIntent === topic.superIntent);
+                      
+                      return (
+                        <div key={topic.topicKey} className={`group flex flex-col rounded-xl border bg-white shadow-sm hover:shadow-md transition-all p-4 ${existingFaq ? 'border-primary/20' : 'border-gray-200'}`}>
+                          
+                          <div className="flex justify-between items-start mb-2">
+                             {/* Header Icon + Titles */}
+                             <div className="flex items-start gap-2.5 max-w-[85%]">
+                                <span className="text-3xl bg-secondary/30 rounded flex items-center justify-center p-1.5 leading-none shrink-0 border">
+                                  {existingFaq ? existingFaq.icon : topic.defaultIcon}
+                                </span>
+                                <div>
+                                   <p className="font-bold text-[14px] text-gray-800 leading-tight">
+                                     {existingFaq ? existingFaq.displayLabel : topic.defaultLabel}
+                                   </p>
+                                   <p className="text-[10px] text-muted-foreground font-mono mt-0.5 truncate max-w-[130px]">{topic.topicKey}</p>
+                                </div>
+                             </div>
+
+                             {/* Status Dropdown (only for existing FAQs) */}
+                             {existingFaq && (
+                               <DropdownMenu>
+                                 <DropdownMenuTrigger asChild>
+                                   <button className={`flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded-full border transition-colors shrink-0 ${existingFaq.enabled ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' : 'bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-200'}`}>
+                                     {existingFaq.enabled ? 'Active' : 'Disabled'}
+                                     <ChevronDown className="h-3 w-3" />
+                                   </button>
+                                 </DropdownMenuTrigger>
+                                 <DropdownMenuContent align="end" className="w-32 z-50">
+                                   <DropdownMenuItem onClick={() => toggleEnabled(existingFaq, true)} className="text-green-600 font-medium cursor-pointer">
+                                     Active FAQ
+                                   </DropdownMenuItem>
+                                   <DropdownMenuItem onClick={() => toggleEnabled(existingFaq, false)} className="text-gray-600 font-medium cursor-pointer">
+                                     Deactivate
+                                   </DropdownMenuItem>
+                                 </DropdownMenuContent>
+                               </DropdownMenu>
+                             )}
                           </div>
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                  {currentTopics.length === 0 && (
-                    <TableRow>
-                      <TableCell colSpan={4} className="text-center text-muted-foreground py-6">
-                        No topics matched your search...
-                      </TableCell>
-                    </TableRow>
-                  )}
-                </TableBody>
-              </Table>
+
+                          <div className="flex-1 mt-1 mb-3">
+                             <p className="text-xs text-muted-foreground line-clamp-3">
+                               {existingFaq?.subtitle ? (
+                                 <span className="italic">"{existingFaq.subtitle}"</span>
+                               ) : topic.previewResponse ? (
+                                 topic.previewResponse
+                               ) : (
+                                 "No preview available."
+                               )}
+                             </p>
+                          </div>
+
+                          <div className="pt-3 border-t mt-auto flex justify-between items-center bg-gray-50/50 -mx-4 -mb-4 px-4 py-2.5 rounded-b-xl border-t-gray-100">
+                             {!existingFaq ? (
+                               <div className="w-full">
+                                 <Button variant="default" size="sm" className="w-full bg-blue-600 hover:bg-blue-700 text-xs h-8" onClick={() => handleCreateOrEdit(topic)}>
+                                   <Plus className="h-3.5 w-3.5 mr-1.5" /> Add to FAQs
+                                 </Button>
+                               </div>
+                             ) : (
+                               <>
+                                 <p className="text-[9px] text-gray-400 font-mono tracking-tighter truncate max-w-[100px]">
+                                   {topic.payload}
+                                 </p>
+                                 <div className="flex gap-1.5">
+                                   <Button variant="outline" size="sm" className="h-7 px-2.5 hover:bg-gray-100 border-gray-200" onClick={() => handleCreateOrEdit(topic, existingFaq)}>
+                                     <Edit2 className="h-3.5 w-3.5 text-blue-600" />
+                                   </Button>
+                                   <Button variant="outline" size="sm" className="h-7 px-2.5 hover:bg-red-50 hover:text-red-600 hover:border-red-200 border-gray-200" onClick={() => handleDelete(existingFaq.id!)}>
+                                     <Trash2 className="h-3.5 w-3.5 text-red-500" />
+                                   </Button>
+                                 </div>
+                               </>
+                             )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
-          </Tabs>
+          </div>
         </CardContent>
       </Card>
 

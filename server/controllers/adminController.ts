@@ -15,7 +15,9 @@ import {
   upsertLocation,
   deleteLocation,
   getUserPrivileges,
-  upsertUserPrivileges
+  upsertUserPrivileges,
+  getMapSettings,
+  saveMapSettings
 } from "../admin";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -373,6 +375,31 @@ export class AdminController {
       });
     } catch (error) {
       res.status(500).json({ success: false, message: "Failed to fetch auto-translate status" });
+    }
+  }
+
+  // Map Settings Management
+  static async getMapSettings(req: Request, res: Response) {
+    try {
+      const settings = await getMapSettings();
+      res.json({ success: true, data: settings });
+    } catch (error) {
+      console.error("Error fetching map settings:", error);
+      res.status(500).json({ success: false, message: "Failed to fetch map settings" });
+    }
+  }
+
+  static async updateMapSettings(req: Request, res: Response) {
+    try {
+      const result = await saveMapSettings(req.body);
+      res.json({ 
+        success: result, 
+        message: result ? "Map settings saved successfully" : "Failed to save map settings",
+        data: req.body
+      });
+    } catch (error) {
+      console.error("Error saving map settings:", error);
+      res.status(500).json({ success: false, message: "Failed to save map settings" });
     }
   }
 

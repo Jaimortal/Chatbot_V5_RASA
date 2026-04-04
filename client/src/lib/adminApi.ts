@@ -1,4 +1,4 @@
-import type { ResponseData, Location, ApiResponse, UserPrivileges } from '@/types/admin';
+import type { ResponseData, Location, ApiResponse, UserPrivileges, MigrationResult } from '@/types/admin';
 
 const API_BASE = '/api/admin';
 
@@ -144,6 +144,45 @@ export async function fetchAutoTranslateStatus(): Promise<any> {
   }
 }
 
+// Map Settings API functions
+export interface MapData {
+  id: string;
+  url: string;
+  active: boolean;
+  name?: string;
+}
+
+export interface MapSettings {
+  maps: MapData[];
+}
+
+export async function fetchMapSettings(): Promise<MapSettings> {
+  try {
+    const response = await fetch(`/api/map-settings`, {
+      headers: getAuthHeaders(),
+    });
+    const result: ApiResponse = await response.json();
+    return result.success ? result.data : { maps: [] };
+  } catch (error) {
+    console.error('Error fetching map settings:', error);
+    return { maps: [] };
+  }
+}
+
+export async function saveMapSettings(settings: MapSettings): Promise<ApiResponse> {
+  try {
+    const response = await fetch(`${API_BASE}/map-settings`, {
+      method: 'POST',
+      headers: getJsonAuthHeaders(),
+      body: JSON.stringify(settings),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error saving map settings:', error);
+    return { success: false, message: 'Network error' };
+  }
+}
+
 // Email verification API functions
 export async function sendVerificationCode(email: string): Promise<ApiResponse> {
   try {
@@ -208,45 +247,6 @@ export async function changePassword(
   } catch (error) {
     console.error('Error changing password:', error);
     return { success: false, message: 'Network error' };
-  }
-}
-
-// Migration API functions
-export async function migrateResponses(): Promise<ApiResponse> {
-  try {
-    const response = await fetch(`${API_BASE}/migrate/responses`, {
-      method: 'POST',
-      headers: getAuthHeaders(),
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error migrating responses:', error);
-    return { success: false, message: 'Network error' };
-  }
-}
-
-export async function migrateLocations(): Promise<ApiResponse> {
-  try {
-    const response = await fetch(`${API_BASE}/migrate/locations`, {
-      method: 'POST',
-      headers: getAuthHeaders(),
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error migrating locations:', error);
-    return { success: false, message: 'Network error' };
-  }
-}
-
-export async function fetchMigrationStatus(): Promise<{ success: boolean; data?: { responsesCount: number; locationsCount: number } }> {
-  try {
-    const response = await fetch(`${API_BASE}/migrate/status`, {
-      headers: getAuthHeaders(),
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching migration status:', error);
-    return { success: false };
   }
 }
 
@@ -420,5 +420,70 @@ export async function updateSuperIntentTopic(
   } catch (error) {
     console.error('Error updating topic:', error);
     return { success: false, message: 'Network error' };
+  }
+}
+
+// ─── Migration API ────────────────────────────────────────────────────────────
+
+export async function fetchMigrationStatus(): Promise<ApiResponse & { data?: any }> {
+  try {
+    const response = await fetch(`${API_BASE}/migrate/status`, {
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching migration status:', error);
+    return { success: false, message: 'Network error' };
+  }
+}
+
+export async function migrateResponses(): Promise<MigrationResult> {
+  try {
+    const response = await fetch(`${API_BASE}/migrate/responses`, {
+      method: "POST",
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error migrating responses:', error);
+    return { success: false, message: 'Network error', imported: 0, errors: [] };
+  }
+}
+
+export async function migrateLocations(): Promise<MigrationResult> {
+  try {
+    const response = await fetch(`${API_BASE}/migrate/locations`, {
+      method: "POST",
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error migrating locations:', error);
+    return { success: false, message: 'Network error', imported: 0, errors: [] };
+  }
+}
+
+export async function migrateSuperIntents(): Promise<MigrationResult> {
+  try {
+    const response = await fetch(`${API_BASE}/migrate/super-intents`, {
+      method: "POST",
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error migrating super intents:', error);
+    return { success: false, message: 'Network error', imported: 0, errors: [] };
+  }
+}
+export async function syncKnowledgeBaseApi(force: boolean = false): Promise<MigrationResult> {
+  try {
+    const response = await fetch(`${API_BASE}/migrate/sync?force=${force}`, {
+      method: "POST",
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error syncing knowledge base:', error);
+    return { success: false, message: 'Network error', imported: 0, errors: [] };
   }
 }

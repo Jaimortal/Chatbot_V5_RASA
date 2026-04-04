@@ -9,10 +9,11 @@ OSS_SERVICES_TOPIC_PATTERNS = {
             "are we paying for school id"
         ],
         "strong_keywords": [
-            "free", "libre", "cost", "price"
+            "free", "libre", "cost", "price", "pay", "fee", "payment"
         ],
         "weak_keywords": [
-            "fee", "pay", "bayad", "id", "pila", "student", "school", "naa"
+            "fee", "pay", "bayad", "id", "pila", "student", "school", "naa",
+            "getting", "gets", "get"
         ],
         "required_context": []
     },
@@ -73,10 +74,12 @@ OSS_SERVICES_TOPIC_PATTERNS = {
             "unsaon pag process sa id"
         ],
         "strong_keywords": [
-            "procedure", "where", "asa", "steps"
+            "procedure", "where", "asa", "steps",
+            "process", "steps"
         ],
         "weak_keywords": [
-            "id", "process", "how", "unsaon", "get", "kuha", "student", "go", "dapit"
+            "id", "process", "how", "unsaon", "get", "kuha", "student", "go", "dapit",
+            "getting", "gets", 
         ],
         "required_context": []
     }

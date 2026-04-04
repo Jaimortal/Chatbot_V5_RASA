@@ -1,38 +1,24 @@
-/**
- * Migration service for admin panel
- * Provides functions to migrate JSON data to PostgreSQL
- */
-
 import { db } from "../db.js";
-import { botResponses, locationResponses } from "../../shared/schema.js";
-import { eq } from "drizzle-orm";
+import { botResponses, locationResponses, superIntentResponses, migrationTracking } from "../../shared/schema.js";
+import { eq, and } from "drizzle-orm";
 import * as fs from "fs";
 import * as path from "path";
 
 // Production-ready path resolution
-// Tries multiple strategies to find the JSON files
 function resolveJsonPath(relativePath: string): string | null {
-  // Strategy 1: Use environment variable if set
   if (process.env.RASA_ACTIONS_PATH) {
     const envPath = path.join(process.env.RASA_ACTIONS_PATH, relativePath);
     if (fs.existsSync(envPath)) return envPath;
   }
 
-  // Strategy 2: Use process.cwd() (where the server was started)
   const cwdPath = path.join(process.cwd(), "rasa/actions", relativePath);
   if (fs.existsSync(cwdPath)) return cwdPath;
 
-  // Strategy 3: Try common production paths
   const possiblePaths = [
-    // Standard production deployments
     path.join(process.cwd(), "rasa/actions", relativePath),
-    // Docker/container paths
     path.join("/app", "rasa/actions", relativePath),
-    // Relative to dist/server/db (compiled output)
     path.join(__dirname, "../../rasa/actions", relativePath),
-    // Relative to project root
     path.join(__dirname, "../../../rasa/actions", relativePath),
-    // One more level up
     path.join(__dirname, "../../../../rasa/actions", relativePath),
   ];
 
@@ -40,63 +26,91 @@ function resolveJsonPath(relativePath: string): string | null {
     if (fs.existsSync(testPath)) return testPath;
   }
 
-  // Return the process.cwd() path as default (most production-ready)
   return cwdPath;
 }
 
-// Resolve paths dynamically
 const RESPONSES_JSON_PATH = resolveJsonPath("responses.json");
 const LOCATIONS_JSON_PATH = resolveJsonPath("responses_location.json");
+const SUPER_INTENTS_DIR = resolveJsonPath("Supper Saiyan");
 
 export interface MigrationResult {
   success: boolean;
   message: string;
   imported: number;
   errors: string[];
+  skipped?: boolean;
+}
+
+/**
+ * Helper to check if a file should be migrated based on mtime
+ */
+async function shouldMigrate(filePath: string): Promise<{ should: boolean, currentMtime: number, version: number }> {
+  if (!fs.existsSync(filePath)) {
+    console.log(`[Migration] File not found: ${filePath}`);
+    return { should: false, currentMtime: 0, version: 0 };
+  }
+  
+  const stats = fs.statSync(filePath);
+  const currentMtime = Math.round(stats.mtimeMs); // Use round to avoid sub-millisecond drift
+  const fileName = path.basename(filePath);
+  
+  const existing = await db.select().from(migrationTracking).where(eq(migrationTracking.fileName, fileName)).limit(1);
+  
+  if (existing.length === 0) {
+    console.log(`[Migration] First time sync for ${fileName}`);
+    return { should: true, currentMtime, version: 1 };
+  }
+  
+  const record = existing[0];
+  const should = currentMtime > record.lastMtime;
+  console.log(`[Migration] File: ${fileName}, current: ${currentMtime}, last: ${record.lastMtime}, should: ${should}`);
+  return { should, currentMtime, version: should ? record.version + 1 : record.version };
+}
+
+/**
+ * Helper to update migration tracking record
+ */
+async function updateMigrationRecord(filePath: string, mtime: number, version: number) {
+  const fileName = path.basename(filePath);
+  await db.insert(migrationTracking).values({
+    fileName,
+    lastMtime: mtime,
+    version,
+    updatedAt: new Date()
+  }).onConflictDoUpdate({
+    target: migrationTracking.fileName,
+    set: {
+      lastMtime: mtime,
+      version,
+      updatedAt: new Date()
+    }
+  });
 }
 
 /**
  * Migrate bot responses from responses.json to PostgreSQL
  */
-export async function migrateResponsesFromJSON(): Promise<MigrationResult> {
+export async function migrateResponsesFromJSON(force: boolean = false): Promise<MigrationResult> {
   const errors: string[] = [];
   let imported = 0;
 
   try {
-    // Check if file path was resolved
-    if (!RESPONSES_JSON_PATH) {
-      return {
-        success: false,
-        message: "Could not resolve path to responses.json",
-        imported: 0,
-        errors: ["Path resolution failed - ensure rasa/actions/responses.json exists"],
-      };
+    if (!RESPONSES_JSON_PATH || !fs.existsSync(RESPONSES_JSON_PATH)) {
+      return { success: false, message: "responses.json not found", imported: 0, errors: ["Missing file"] };
     }
 
-    // Check if file exists
-    if (!fs.existsSync(RESPONSES_JSON_PATH)) {
-      return {
-        success: false,
-        message: "responses.json not found in rasa/actions/",
-        imported: 0,
-        errors: ["File not found: rasa/actions/responses.json"],
-      };
+    const check = await shouldMigrate(RESPONSES_JSON_PATH);
+    if (!check.should && !force) {
+      return { success: true, message: "Responses already up to date", imported: 0, errors: [], skipped: true };
     }
 
-    // Read and parse JSON
     const rawData = fs.readFileSync(RESPONSES_JSON_PATH, "utf-8");
     const responses = JSON.parse(rawData);
 
     if (!Array.isArray(responses)) {
-      return {
-        success: false,
-        message: "Invalid JSON format: expected array",
-        imported: 0,
-        errors: ["Invalid format"],
-      };
+      return { success: false, message: "Invalid JSON format: expected array", imported: 0, errors: ["Invalid format"] };
     }
 
-    // Process each response
     for (const item of responses) {
       try {
         const answer = item.responses?.answer;
@@ -104,7 +118,6 @@ export async function migrateResponsesFromJSON(): Promise<MigrationResult> {
         let answerCeb: string[] | null = null;
         let simpleAnswer: string[] | null = null;
 
-        // Handle multilingual or simple format
         if (Array.isArray(answer)) {
           simpleAnswer = answer;
         } else if (answer && typeof answer === "object") {
@@ -112,9 +125,6 @@ export async function migrateResponsesFromJSON(): Promise<MigrationResult> {
           answerCeb = answer.ceb || null;
         }
 
-        const mapData = item.responses?.mapData || null;
-
-        // Upsert to database
         await db
           .insert(botResponses)
           .values({
@@ -128,7 +138,7 @@ export async function migrateResponsesFromJSON(): Promise<MigrationResult> {
             contextSlots: item.responses?.context_slots || {},
             imageUrl: item.responses?.imageUrl || "",
             imageUrls: item.responses?.imageUrls || [],
-            mapData: mapData,
+            mapData: item.responses?.mapData || null,
             metadata: item.metadata || {},
           } as any)
           .onConflictDoUpdate({
@@ -143,7 +153,7 @@ export async function migrateResponsesFromJSON(): Promise<MigrationResult> {
               contextSlots: item.responses?.context_slots || {},
               imageUrl: item.responses?.imageUrl || "",
               imageUrls: item.responses?.imageUrls || [],
-              mapData: mapData,
+              mapData: item.responses?.mapData || null,
               metadata: item.metadata || {},
               updatedAt: new Date(),
             },
@@ -155,78 +165,41 @@ export async function migrateResponsesFromJSON(): Promise<MigrationResult> {
       }
     }
 
-    return {
-      success: errors.length === 0,
-      message: `Successfully migrated ${imported} responses${errors.length > 0 ? ` with ${errors.length} errors` : ""}`,
-      imported,
-      errors,
-    };
+    await updateMigrationRecord(RESPONSES_JSON_PATH, check.currentMtime, check.version);
+    return { success: errors.length === 0, message: `Migrated ${imported} responses`, imported, errors };
   } catch (err) {
-    return {
-      success: false,
-      message: `Migration failed: ${(err as Error).message}`,
-      imported,
-      errors: [...errors, (err as Error).message],
-    };
+    return { success: false, message: `Migration failed: ${(err as Error).message}`, imported, errors };
   }
 }
 
 /**
  * Migrate locations from responses_location.json to PostgreSQL
  */
-export async function migrateLocationsFromJSON(): Promise<MigrationResult> {
+export async function migrateLocationsFromJSON(force: boolean = false): Promise<MigrationResult> {
   const errors: string[] = [];
   let imported = 0;
 
   try {
-    // Check if file path was resolved
-    if (!LOCATIONS_JSON_PATH) {
-      return {
-        success: false,
-        message: "Could not resolve path to responses_location.json",
-        imported: 0,
-        errors: ["Path resolution failed - ensure rasa/actions/responses_location.json exists"],
-      };
+    if (!LOCATIONS_JSON_PATH || !fs.existsSync(LOCATIONS_JSON_PATH)) {
+      return { success: false, message: "responses_location.json not found", imported: 0, errors: ["Missing file"] };
     }
 
-    // Check if file exists
-    if (!fs.existsSync(LOCATIONS_JSON_PATH)) {
-      return {
-        success: false,
-        message: "responses_location.json not found in rasa/actions/",
-        imported: 0,
-        errors: ["File not found: rasa/actions/responses_location.json"],
-      };
+    const check = await shouldMigrate(LOCATIONS_JSON_PATH);
+    if (!check.should && !force) {
+      return { success: true, message: "Locations already up to date", imported: 0, errors: [], skipped: true };
     }
 
-    // Read and parse JSON
     const rawData = fs.readFileSync(LOCATIONS_JSON_PATH, "utf-8");
     const data = JSON.parse(rawData);
-    const locations = data.locations;
+    const locationsList = data.locations;
 
-    if (!locations || typeof locations !== "object") {
-      return {
-        success: false,
-        message: "Invalid JSON format: expected locations object",
-        imported: 0,
-        errors: ["Invalid format"],
-      };
+    if (!locationsList || typeof locationsList !== "object") {
+      return { success: false, message: "Invalid JSON format: expected locations object", imported: 0, errors: ["Invalid format"] };
     }
 
-    // Process each location
-    for (const [name, locData] of Object.entries(locations)) {
+    for (const [name, locData] of Object.entries(locationsList)) {
       try {
         const location = locData as any;
-
-        // Debug: Log the data being imported
-        console.log(`Importing location: ${name}`, {
-          type: location.type,
-          building: location.building,
-          floor: location.floor,
-          coordinates: location.coordinates,
-          map_id: location.map_id,
-        });
-
         const insertData = {
           name: name,
           type: location.type || "",
@@ -240,48 +213,138 @@ export async function migrateLocationsFromJSON(): Promise<MigrationResult> {
           imageUrls: location.imageUrls || [],
         };
 
-        // Delete existing record first (to avoid unique constraint issues)
         await db.delete(locationResponses).where(eq(locationResponses.name, name));
-
-        // Insert new record
         await db.insert(locationResponses).values(insertData as any);
-
         imported++;
       } catch (err) {
-        const errorMsg = `Failed to import ${name}: ${(err as Error).message}`;
-        console.error(errorMsg, err); // Log full error details
-        errors.push(errorMsg);
+        errors.push(`Failed to import ${name}: ${(err as Error).message}`);
       }
     }
 
-    return {
-      success: errors.length === 0,
-      message: `Successfully migrated ${imported} locations${errors.length > 0 ? ` with ${errors.length} errors` : ""}`,
-      imported,
-      errors,
-    };
+    await updateMigrationRecord(LOCATIONS_JSON_PATH, check.currentMtime, check.version);
+    return { success: errors.length === 0, message: `Migrated ${imported} locations`, imported, errors };
   } catch (err) {
-    return {
-      success: false,
-      message: `Migration failed: ${(err as Error).message}`,
-      imported,
-      errors: [...errors, (err as Error).message],
-    };
+    return { success: false, message: `Migration failed: ${(err as Error).message}`, imported, errors };
   }
 }
 
 /**
- * Get migration status - counts of current data in database
+ * Migrate all Super Intent JSON files to PostgreSQL
+ */
+export async function migrateSuperIntentsFromJSON(force: boolean = false): Promise<MigrationResult> {
+  const errors: string[] = [];
+  let imported = 0;
+  let filesProcessed = 0;
+  let filesSkipped = 0;
+
+  try {
+    if (!SUPER_INTENTS_DIR || !fs.existsSync(SUPER_INTENTS_DIR)) {
+      return { success: false, message: "Supper Saiyan directory not found", imported: 0, errors: ["Missing directory"] };
+    }
+
+    const files = fs.readdirSync(SUPER_INTENTS_DIR).filter(f => f.endsWith('.json'));
+    
+    for (const file of files) {
+      try {
+        const filePath = path.join(SUPER_INTENTS_DIR, file);
+        const check = await shouldMigrate(filePath);
+        
+        if (!check.should && !force) {
+          filesSkipped++;
+          continue;
+        }
+
+        const rawData = fs.readFileSync(filePath, "utf-8");
+        const data = JSON.parse(rawData);
+        const superIntentKey = data.intent || file.replace('.json', '');
+
+        if (Array.isArray(data.topics)) {
+          for (const topic of data.topics) {
+            if (!topic.topic) continue;
+
+            const insertData = {
+              superIntent: superIntentKey,
+              topic: topic.topic,
+              uiName: topic.ui_name || "",
+              responsesEn: topic.responses?.en || [],
+              responsesCeb: topic.responses?.ceb || [],
+              imageUrls: topic.images || [],
+              mapData: topic.map || null,
+              pins: topic.pins || [],
+            };
+
+            await db.delete(superIntentResponses).where(
+              and(
+                eq(superIntentResponses.superIntent, superIntentKey),
+                eq(superIntentResponses.topic, topic.topic)
+              )
+            );
+            
+            await db.insert(superIntentResponses).values(insertData as any);
+            imported++;
+          }
+        }
+        
+        await updateMigrationRecord(filePath, check.currentMtime, check.version);
+        filesProcessed++;
+      } catch (err) {
+        errors.push(`File ${file}: ${(err as Error).message}`);
+      }
+    }
+
+    const message = `Processed ${filesProcessed} files, skipped ${filesSkipped}. Total ${imported} topics imported.`;
+    return { success: errors.length === 0, message, imported, errors };
+  } catch (err) {
+    return { success: false, message: `Super Intent Migration failed: ${(err as Error).message}`, imported, errors };
+  }
+}
+
+/**
+ * Perform full synchronization of all knowledge base files
+ */
+export async function syncKnowledgeBase(force: boolean = false): Promise<MigrationResult> {
+  console.log(`[Migration] Starting sync (force: ${force})`);
+  const results = {
+    responses: await migrateResponsesFromJSON(force),
+    locations: await migrateLocationsFromJSON(force),
+    superIntents: await migrateSuperIntentsFromJSON(force),
+  };
+
+  const totalImported = results.responses.imported + results.locations.imported + results.superIntents.imported;
+  const errors = [...results.responses.errors, ...results.locations.errors, ...results.superIntents.errors];
+  
+  const success = results.responses.success && results.locations.success && results.superIntents.success;
+  
+  console.log(`[Migration] Sync Summary: ${totalImported} imported, ${errors.length} errors`);
+  
+  let message = "Sync completed. ";
+  if (totalImported === 0 && errors.length === 0) {
+    message += "All data is already up to date.";
+  } else {
+    message += `Imported ${results.responses.imported} responses, ${results.locations.imported} locations, and ${results.superIntents.imported} super intent topics.`;
+  }
+
+  return { success, message, imported: totalImported, errors };
+}
+
+/**
+ * Get migration status - counts and version info
  */
 export async function getMigrationStatus(): Promise<{
   responsesCount: number;
   locationsCount: number;
+  superIntentCount: number;
+  tracking: any[];
 }> {
   const responses = await db.select({ count: botResponses.id }).from(botResponses);
-  const locations = await db.select({ count: locationResponses.id }).from(locationResponses);
+  const locationsList = await db.select({ count: locationResponses.id }).from(locationResponses);
+  const superIntents = await db.select().from(superIntentResponses);
+  const tracking = await db.select().from(migrationTracking);
 
   return {
     responsesCount: responses.length,
-    locationsCount: locations.length,
+    locationsCount: locationsList.length,
+    superIntentCount: superIntents.length,
+    tracking
   };
 }

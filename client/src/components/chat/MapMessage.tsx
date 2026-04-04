@@ -1,10 +1,10 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MapContainer, ImageOverlay, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Maximize2, Minimize2 } from "lucide-react";
+import { useMapSettings } from "@/hooks/useMapSettings";
 
-import mapImage from "./assets/nobackHD.png";
 // Fix for default marker icon in React Leaflet
 // @ts-ignore
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
@@ -187,6 +187,20 @@ export default function MapMessage({
       iconAnchor: [0, 0],
     });
 
+  const [activeMapUrl, setActiveMapUrl] = useState<string>('/nobackHD.png');
+  
+  const { data: mapSettings } = useMapSettings();
+
+  // Update map URL when settings load
+  useEffect(() => {
+    if (mapSettings?.maps && mapSettings.maps.length > 0) {
+      const active = mapSettings.maps.find((m: {active?: boolean}) => m.active) || mapSettings.maps[0];
+      if (active?.url) {
+        setActiveMapUrl(active.url);
+      }
+    }
+  }, [mapSettings]);
+
   return (
     <div className={`rounded-lg overflow-hidden border border-border mt-2 relative z-2 ${isFullscreen ? 'w-full h-full' : 'w-60 h-48'}`}>
       {/* Fullscreen Toggle Button */}
@@ -214,7 +228,7 @@ export default function MapMessage({
         className="w-full h-full bg-slate-100"
         attributionControl={false}
       >
-        <ImageOverlay url={mapImage} bounds={imageBounds} />
+        <ImageOverlay url={activeMapUrl} bounds={imageBounds} />
         {flippedMarkers.map((p, idx) => (
           <Marker key={`pin-${idx}`} position={p.coordinates} icon={labeledIcon(p.name)}>
             <Popup>{p.name}</Popup>

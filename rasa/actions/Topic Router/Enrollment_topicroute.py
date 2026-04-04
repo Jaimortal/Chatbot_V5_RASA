@@ -1,6 +1,8 @@
-# This is where all the enrollment related topic and other like tools that used during enrollment will be stored
-# please be inform that theres other topics that is far more related to enrollment but we decide to store it on this file
-# as we can tell it is still used during the enrollment, while the admission is not stored in here since admission has its own merge file
+# This file stores enrollment-related topics and tools commonly used during enrollment.
+# Some topics may overlap with admission or academic processes, but if they are mainly used
+# during enrollment, they are intentionally grouped here.
+# Admission-specific concerns should remain in their own merge file.
+
 ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "transferee_enrollment": {
@@ -10,15 +12,20 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
             "transferring from another school",
             "enrollment for transferee students",
             "mobalhin sa BukSU",
+            "how to transfer to BukSU",
+            "requirements for transferee",
+            "can I transfer to BukSU",
+            "transferee from private school",
+            "transferee from public school"
         ],
         "strong_keywords": [
             "transferee", "transfer", "transferring", "mobalhin",
-            "institution", "private", "public", "credited",
-            "ipasabot", "nagplano", "policy"
+            "private school", "public school",
+            "credited", "credit", "subjects credited",
+            "honorable dismissal", "academic records"
         ],
         "weak_keywords": [
-            "enrollment", "enroll", "school", "university", "student",
-            "students", "process", "buksu", "requirements"
+            "enrollment", "requirements", "student", "process", "buksu"
         ],
         "required_context": []
     },
@@ -29,16 +36,21 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
             "fees during enrollment",
             "bayranan sa enrollment",
             "required fees at BukSU",
+            "how much are the fees",
+            "what do I need to pay",
+            "do I need to pay anything",
+            "payment for enrollment",
+            "tuition and miscellaneous fees"
         ],
         "strong_keywords": [
-            "fees", "fee", "bayranan", "tuition", "laboratory",
-            "miscellaneous", "textbooks", "equipment", "materials",
-            "costs", "bayad", "pay", "payment", "accounting",
-            "charges", "settle", "collected", "gasto", "dugang"
+            "fees", "fee", "bayranan", "tuition",
+            "miscellaneous", "laboratory", "lab fee",
+            "id fee", "payment", "bayad", "charges",
+            "accounting", "cost", "gasto", "textbooks",
+            "equipment", "materials"
         ],
         "weak_keywords": [
-            "enrollment", "student", "students", "university", "buksu",
-            "semester", "course", "kurso", "required"
+            "enrollment", "student", "semester", "required", "buksu"
         ],
         "required_context": []
     },
@@ -50,14 +62,18 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
             "login sias",
             "sias account",
             "ma access ang SIAS",
+            "how to open SIAS",
+            "how to login to SIAS",
+            "where is SIAS",
+            "sias link",
+            "student portal"
         ],
         "strong_keywords": [
             "sias", "portal", "login", "credentials", "account",
-            "access", "maka", "moadto", "grado", "grades",
-            "link", "website", "web"
+            "username", "password", "access", "website", "link"
         ],
         "weak_keywords": [
-            "buksu", "student", "help", "tell", "tabangi"
+            "student", "grades", "record", "buksu", "help"
         ],
         "required_context": []
     },
@@ -68,14 +84,18 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
             "another campus",
             "move to different campus",
             "mobalhin sa lain nga campus",
+            "can I transfer to another campus",
+            "campus shifting",
+            "balhin campus"
         ],
         "strong_keywords": [
-            "campus", "transfer", "mobalhin", "move",
-            "another", "different", "lain", "possible",
-            "posible", "semester"
+            "another campus", "different campus",
+            "campus transfer", "campus shifting",
+            "mobalhin campus", "lain nga campus",
+            "balhin campus"
         ],
         "weak_keywords": [
-            "buksu", "student", "students", "university", "enroll"
+            "campus", "transfer", "move", "possible", "semester", "buksu"
         ],
         "required_context": []
     },
@@ -87,16 +107,18 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
             "enrolled in two schools",
             "studying at two universities",
             "naka-enroll sa duha ka eskwelahan",
+            "can I enroll in two schools at the same time",
+            "can I study in two schools"
         ],
         "strong_keywords": [
-            "double", "dual", "simultaneously", "active",
-            "allowed", "permitted", "gitugotan", "okay",
-            "withdraw", "dismissal", "honorable", "currently",
-            "parehas", "same", "time", "another"
+            "double enrollment", "dual enrollment",
+            "two schools", "two universities",
+            "same time enrollment", "simultaneous enrollment",
+            "duha ka eskwelahan", "honorable dismissal", "withdraw first"
         ],
         "weak_keywords": [
-            "enrollment", "enroll", "school", "university", "college",
-            "buksu", "student", "institution"
+            "enroll", "school", "university", "college",
+            "allowed", "permitted", "another"
         ],
         "required_context": []
     },
@@ -107,15 +129,20 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
             "enrollment process",
             "unsaon pag enroll sa BukSU",
             "how does enrollment work",
-            "online or face to face enrollment",
+            "general enrollment guide",
+            "how to start enrollment",
+            "unsa ang proseso sa enrollment",
+            "how is BukSU enrollment done"
         ],
         "strong_keywords": [
-            "how", "process", "work", "online", "face",
-            "unsaon", "proseso", "giunsa", "enroll",
-            "general", "kolehiyo", "college"
+            "how to enroll", "enrollment process",
+            "how does enrollment work", "start enrollment",
+            "unsaon pag enroll", "proseso sa enrollment",
+            "general enrollment"
         ],
         "weak_keywords": [
-            "enrollment", "buksu", "student", "students", "university"
+            "enrollment", "process", "guide", "registration",
+            "college", "department", "online", "onsite", "buksu"
         ],
         "required_context": []
     },
@@ -124,18 +151,25 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
         "phrases": [
             "online enrollment steps",
             "step by step online enrollment BukSU",
-            "how to enroll online BukSU admission",
-            "steps para sa online enrollment sa BukSU admission",
+            "how to enroll online BukSU",
+            "steps para sa online enrollment",
+            "online enrollment procedure",
+            "how to apply online",
+            "how to use BukSU admissions for enrollment",
+            "where do I apply for enrollment",
+            "Online Enrollment",
+            "Online Enrollment Steps"
         ],
         "strong_keywords": [
-            "step", "steps", "guide", "admission", "website",
-            "lakang", "COR", "LRN", "download", "fill",
-            "pun-a", "apply", "click", "upload", "skip",
-            "navigate", "process", "validate", "validation"
+            "online enrollment", "enroll online",
+            "online procedure", "online steps",
+            "step by step", "apply online",
+            "buksu admissions", "apply enrollment",
+            "enrollment tab", "fill in details", "download cor"
         ],
         "weak_keywords": [
-            "online", "enrollment", "enroll", "buksu", "student",
-            "university", "course"
+            "website", "portal", "fill up", "upload",
+            "form", "application", "process", "buksu", "admissions"
         ],
         "required_context": []
     },
@@ -148,17 +182,21 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
             "in person enrollment after online",
             "physical enrollment process",
             "face to face human sa online",
+            "what to do after online enrollment",
+            "do I still need to go to the department"
         ],
         "strong_keywords": [
-            "face", "onsite", "physical", "person", "department",
-            "queue", "scan", "faculty", "pending", "staff",
-            "moadto", "linya", "numero", "turn", "proceed",
-            "continue", "human", "after", "finish", "done",
-            "sunod", "lakang", "iproseso"
+            "face to face enrollment", "onsite enrollment",
+            "mixed enrollment", "in person enrollment",
+            "physical enrollment", "after online enrollment",
+            "go to department", "pending online enrollment",
+            "queue system", "faculty staff", "scan queue",
+            "enroll face to face"
         ],
         "weak_keywords": [
-            "online", "enrollment", "enroll", "buksu", "student",
-            "process", "registration", "university"
+            "department", "queue", "scan", "faculty", "enroll",
+            "staff", "proceed", "continue", "linya", "moadto",
+            "face to face"
         ],
         "required_context": []
     },
@@ -170,17 +208,21 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
             "what to bring for enrollment",
             "requirements for freshman enrollment",
             "mga dokumento para sa enrollment",
+            "what are the enrollment requirements",
+            "what documents do I need",
+            "unsa akong dad-on para enroll"
         ],
         "strong_keywords": [
-            "documents", "document", "dokumento", "bring", "dalhon",
-            "freshman", "first-year", "requirements", "ROR",
-            "birth", "certificate", "diploma", "moral",
-            "application", "form", "report", "card", "LRN",
-            "photocopy", "papeles", "continuing", "2nd"
+            "documents", "document", "requirements",
+            "dokumento", "papeles", "what to bring",
+            "dad-on", "bring", "birth certificate",
+            "report card", "form 138", "ror",
+            "application form", "lrn", "diploma",
+            "good moral", "photocopy"
         ],
         "weak_keywords": [
-            "enrollment", "enroll", "buksu", "student", "university",
-            "semester", "required", "school"
+            "freshman", "continuing", "enrollment", "student",
+            "required", "school", "buksu", "2nd semester"
         ],
         "required_context": []
     },

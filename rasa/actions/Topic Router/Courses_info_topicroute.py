@@ -527,7 +527,13 @@ COURSES_TOPIC_PATTERNS = {
         [
             "non_board_token"
         ],
-        "weak_keywords": ['bukidnon', 'buksu', 'courses', 'offer', 'programs', 'state', 'students', 'university', 'list', 'listahan'],
+        "weak_keywords": 
+        [
+            'bukidnon', 'buksu', 'courses', 'offer', 'programs', 
+            'state', 'students', 'university', 'list', 'listahan',
+            "are", "what", "can", "you", "provide", "the", 
+            "all", "by", "listahan", "sa", "tanang", "nga", "gi", "offer", "sa"
+        ],
         "required_context": []
     },
     "buksu_board_courses": {
@@ -540,12 +546,18 @@ COURSES_TOPIC_PATTERNS = {
         "strong_keywords": 
         [
             "board course",
+            "board courses",
             "board exam",
             "licensure",
             "licensed",
             "board degree"
         ],
-        "weak_keywords": ['board', 'bukidnon', 'offer', 'programs', 'state', 'university', 'list', 'listahan', 'courses'],
+        "weak_keywords": 
+        [
+            'board', 'bukidnon', 'offer', 'programs', 'state', 'university', 
+            'list', 'listahan', 'courses', "are", "what", "can", "you", "provide", "the", 
+            "all", "by", "listahan", "sa", "tanang", "nga", "gi", "offer", "sa"
+        ],
         "required_context": []
     },
     "about_nstp": {

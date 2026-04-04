@@ -1,0 +1,10 @@
+{
+  "maps": [
+    {
+      "id": "default_map",
+      "url": "/nobackHD.png",
+      "active": true,
+      "name": "Default Map (Local)"
+    }
+  ]
+}

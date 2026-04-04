@@ -81,6 +81,24 @@ class RasaBackend {
 
         // Extract custom data (follow_up, map, etc.)
         if (r.custom) {
+          // Extract custom images
+          if (typeof r.custom.imageUrl === "string" && r.custom.imageUrl.trim()) {
+            imageUrls.push(r.custom.imageUrl.trim());
+          }
+          if (Array.isArray(r.custom.imageUrls)) {
+            r.custom.imageUrls.forEach((img: unknown) => {
+              if (typeof img === "string" && img.trim()) imageUrls.push(img.trim());
+            });
+          }
+          if (typeof r.custom.image === "string" && r.custom.image.trim()) {
+             imageUrls.push(r.custom.image.trim());
+          }
+          if (Array.isArray(r.custom.images)) {
+             r.custom.images.forEach((img: unknown) => {
+                if (typeof img === "string" && img.trim()) imageUrls.push(img.trim());
+             });
+          }
+
           if (r.custom.follow_up) {
             combinedText += "\n" + r.custom.follow_up.join("\n") + "\n";
           }

@@ -17,9 +17,11 @@ export async function sendMessageToRasa(message: string, language?: string, sess
     
     return [{ 
       text: data.answer || "No response received.",
+      image: data.imageUrl,
       custom: {
         mapData: data.mapData,
-        follow_up: data.follow_up || []
+        follow_up: data.follow_up || [],
+        imageUrls: data.imageUrls
       }
     }];
   } catch (error) {

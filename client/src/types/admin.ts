@@ -89,3 +89,9 @@ export interface FaqConfig {
   enabled: boolean;
   sortOrder: number;
 }
+export interface MigrationResult {
+  success: boolean;
+  message: string;
+  imported: number;
+  errors: string[];
+}

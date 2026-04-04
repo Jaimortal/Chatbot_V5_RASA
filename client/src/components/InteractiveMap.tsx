@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useMapSettings } from '@/hooks/useMapSettings';
 
 interface InteractiveMapProps {
   initialCoordinates?: [number, number];
@@ -28,18 +29,35 @@ export default function InteractiveMap({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
+  const { data: mapSettings } = useMapSettings();
+
+  // Load map image when settings are available
   useEffect(() => {
-    const img = new Image();
-    img.onload = () => {
-      setMapImage(img);
-      drawMap();
+    const loadMap = () => {
+      const activeMap = mapSettings?.maps?.find((m: {active?: boolean}) => m.active) || mapSettings?.maps?.[0];
+      const mapUrl = activeMap?.url || '/nobackHD.png';
+
+      const img = new Image();
+      img.onload = () => {
+        setMapImage(img);
+        drawMap();
+      };
+      img.onerror = () => {
+        console.log('Map image not found, using fallback grid');
+        drawMap();
+      };
+      img.src = mapUrl;
     };
-    img.onerror = () => {
-      console.log('Map image not found, using fallback grid');
-      drawMap(); // Draw fallback grid
-    };
-    img.src = '/nobackHD.png'; // Default map image
-  }, []);
+
+    if (mapSettings) {
+      loadMap();
+    } else {
+      // Use fallback if no settings yet
+      const img = new Image();
+      img.src = '/nobackHD.png';
+      img.onload = () => setMapImage(img);
+    }
+  }, [mapSettings]);
 
   useEffect(() => {
     drawMap();

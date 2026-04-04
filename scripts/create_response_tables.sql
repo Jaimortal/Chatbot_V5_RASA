@@ -87,3 +87,35 @@ COMMENT ON COLUMN bot_responses.answer_en IS 'English answers stored as JSON arr
 COMMENT ON COLUMN bot_responses.answer_ceb IS 'Cebuano answers stored as JSON array';
 COMMENT ON COLUMN location_responses.coordinates IS 'Map coordinates in [y, x] format';
 COMMENT ON COLUMN location_responses.pins IS 'Additional map pins with name and coordinates';
+
+-- Table for Super Intent module topics (Supper Saiyan/*.json)
+CREATE TABLE IF NOT EXISTS super_intent_responses (
+    id SERIAL PRIMARY KEY,
+    super_intent TEXT NOT NULL, -- The source file identifier (e.g. "University_info")
+    topic TEXT NOT NULL,        -- The technical topic key (e.g. "mission_vision")
+    ui_name TEXT DEFAULT '',    -- Display name
+    responses_en JSONB DEFAULT '[]'::jsonb,
+    responses_ceb JSONB DEFAULT '[]'::jsonb,
+    image_urls JSONB DEFAULT '[]'::jsonb,
+    map_data JSONB DEFAULT NULL,
+    pins JSONB DEFAULT '[]'::jsonb,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Unique constraint to prevent duplicate topics per super intent
+CREATE UNIQUE INDEX IF NOT EXISTS idx_super_intent_topic ON super_intent_responses(super_intent, topic);
+CREATE INDEX IF NOT EXISTS idx_super_intent_responses_super_intent ON super_intent_responses(super_intent);
+CREATE INDEX IF NOT EXISTS idx_super_intent_responses_topic ON super_intent_responses(topic);
+
+COMMENT ON TABLE super_intent_responses IS 'Stores Super Intent module topics migrated from Supper Saiyan/*.json files';
+
+-- Table for tracking JSON file migrations
+CREATE TABLE IF NOT EXISTS migration_tracking (
+    file_name TEXT PRIMARY KEY,
+    last_mtime BIGINT NOT NULL,
+    version INTEGER DEFAULT 1 NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+COMMENT ON TABLE migration_tracking IS 'Tracks JSON file modification times for versioning/migration purposes';

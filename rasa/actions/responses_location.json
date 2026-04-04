@@ -3604,7 +3604,7 @@
     },
     "Main Administration Building": {
       "type": "building",
-      "building": "Administration Building",
+      "building": "Administrative Building",
       "floor": "Ground Floor",
       "coordinates": [
         823,

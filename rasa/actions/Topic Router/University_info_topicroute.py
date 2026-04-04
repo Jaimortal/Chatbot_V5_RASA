@@ -75,7 +75,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "president", "presidente", "mirasol", "joy"
         ],
         "weak_keywords": [
-            "who", "buksu", "kinsa", "ang", "current", "nato", "university", "is"
+            "who", "buksu", "kinsa", "ang", "current", "nato", "university", "is", 'the'
         ],
         "required_context": []
     },
@@ -136,11 +136,11 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "kinsa mga niaging presidente"
         ],
         "strong_keywords": [
-            "list", "past", "niaging"
+            "list", "past", "niaging", 'presidents', 'president'
         ],
         "weak_keywords": [
-            "buksu", "president", "presidents", "mga", "kinsa", "sa", "university",
-            "years", "few", "are"
+            "buksu", "mga", "kinsa", "sa", "university",
+            "years", "few", "are", 'who', 'the'
         ],
         "required_context": []
     },

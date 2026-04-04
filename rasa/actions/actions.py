@@ -1008,7 +1008,21 @@ class ActionReplyFromJsonHelper:
         else:
             response_text = str(responses)
         
-        return {"text": response_text}
+        # Build result with text
+        result = {"text": response_text}
+        
+        # Extract images from topic entry if available
+        images = None
+        if isinstance(topic_entry.get("images"), list):
+            images = [str(x) for x in topic_entry.get("images") if x]
+        elif topic_entry.get("image"):
+            images = [str(topic_entry.get("image"))]
+        
+        if images:
+            result["images"] = images
+            result["image"] = images[0]  # backward compatibility
+        
+        return result
 
     def get_library_response(self, user_message: str) -> Dict[str, Any]:
         """
@@ -1189,6 +1203,64 @@ class ActionReplyFromJsonHelper:
             topic_mapping=None,
             fallback_message="I'm sorry, I didn't understand your university question. Could you please rephrase it?"
         )
+
+    def get_structured_response_with_topic(
+        self,
+        topic: str,
+        data_source: Dict[str, Any],
+        fallback_message: str = "I'm sorry, I don't have information about that topic."
+    ) -> Dict[str, Any]:
+        """
+        Get structured response using a pre-determined topic (from entity).
+        Skips topic detection since topic is already known.
+        
+        Args:
+            topic: The topic key to look up (e.g., "online_enrollment_steps")
+            data_source: The JSON data source containing topics and responses
+            fallback_message: Message to return when topic not found
+        
+        Returns:
+            Dict with "text" key containing the response
+        """
+        if not data_source:
+            return {"text": fallback_message}
+        
+        # Direct topic lookup from data_source
+        topics = data_source.get("topics", [])
+        topic_entry = next((t for t in topics if t.get("topic") == topic), None)
+        
+        if not topic_entry:
+            return {"text": fallback_message}
+        
+        # Get responses for the topic
+        responses_data = topic_entry.get("responses", {})
+        
+        # Default to English
+        responses = responses_data.get("en")
+        if not responses:
+            responses = responses_data.get("en", [])
+        
+        # Combine all response lines
+        if isinstance(responses, list):
+            response_text = "\n".join(responses)
+        else:
+            response_text = str(responses)
+        
+        # Build result with text
+        result = {"text": response_text}
+        
+        # Extract images from topic entry if available
+        images = None
+        if isinstance(topic_entry.get("images"), list):
+            images = [str(x) for x in topic_entry.get("images") if x]
+        elif topic_entry.get("image"):
+            images = [str(topic_entry.get("image"))]
+        
+        if images:
+            result["images"] = images
+            result["image"] = images[0]  # backward compatibility
+        
+        return result
 
 
 # -------------------------
@@ -1604,7 +1676,26 @@ class ActionReplyFromJson(Action):
 
         # Enrollment info lookup with topic detection
         if intent == "ask_enrollment_info":
-            response = self.helper.get_enrollment_response(user_msg)
+            # Check if topic entity was provided (e.g., from quick access payload)
+            topic_entity = None
+            for entity in tracker.latest_message.get("entities", []):
+                if entity.get("entity") == "topic":
+                    topic_entity = entity.get("value")
+                    break
+            
+            # If no topic entity from this message, check slot
+            if not topic_entity:
+                topic_entity = tracker.get_slot("topic")
+            
+            # Use entity if available, otherwise detect from message
+            if topic_entity:
+                response = self.helper.get_structured_response_with_topic(
+                    topic_entity,
+                    self.helper.enrollment_info,
+                    fallback_message="I'm sorry, I don't have information about that enrollment topic."
+                )
+            else:
+                response = self.helper.get_enrollment_response(user_msg)
             
             if response.get("text"):
                 dispatcher.utter_message(text=response["text"])
@@ -1632,6 +1723,15 @@ class ActionReplyFromJson(Action):
             
             if response.get("text"):
                 dispatcher.utter_message(text=response["text"])
+            
+            # Send images if available
+            if isinstance(response.get("images"), list):
+                for img in response.get("images"):
+                    if img:
+                        dispatcher.utter_message(image=img)
+            elif response.get("image"):
+                dispatcher.utter_message(image=response["image"])
+            
             return []
 
         # ✨ FIX: if intent == ask_more → DO NOT call main response
@@ -1661,10 +1761,11 @@ class ActionReplyFromJson(Action):
             "requirement", "requirements", "what do i need", "what should i bring",
             "pay", "payment", "how much", "fee", "cost", "price",
             "borrow", "return", "book", "thesis", "research", "contact registrar",
-            "contact the registrar", "contact", "how to contact"
+            "contact the registrar", "contact", "how to contact", "created you",
+            "who created", "who created you"
         ]
         
-        if intent not in {"ask_locations", "locate_comlab", "ask_faculty_room_location", "ask_more"}:
+        if intent not in {"ask_locations", "locate_comlab", "ask_faculty_room_location", "ask_more", "Bot_creator"}:
             # Check if it's actually a service question, not a location question
             text_lower = user_msg.lower()
             is_service_question = any(keyword in text_lower for keyword in SERVICE_KEYWORDS)

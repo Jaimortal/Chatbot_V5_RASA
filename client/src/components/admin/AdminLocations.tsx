@@ -16,6 +16,8 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { AdminMapPinsEditor, type AdminPin } from "@/components/admin/AdminMapPinsEditor";
+import { AdminImageUploader } from "@/components/admin/AdminImageUploader";
+import { AdminRichTextEditor } from "@/components/admin/AdminRichTextEditor";
 import {
   Save, Loader2, ImagePlus, Trash2, MapPin,
   MessageSquareText, ChevronRight,
@@ -41,24 +43,6 @@ function previewText(loc: Location): string {
   return plain.length > 85 ? plain.slice(0, 85) + "…" : plain;
 }
 
-function applyBold(
-  ref: React.RefObject<HTMLTextAreaElement>,
-  value: string,
-  onChange: (v: string) => void
-) {
-  const el = ref.current;
-  if (!el) return;
-  const start = el.selectionStart;
-  const end = el.selectionEnd;
-  const newVal = value.slice(0, start) + `<b>${value.slice(start, end)}</b>` + value.slice(end);
-  onChange(newVal);
-  requestAnimationFrame(() => {
-    el.selectionStart = start + 3;
-    el.selectionEnd = end + 3;
-    el.focus();
-  });
-}
-
 // ─── Modal ────────────────────────────────────────────────────────────────────
 
 interface LocationModalProps {
@@ -75,7 +59,6 @@ function LocationModal({ location, open, onClose, onSaved }: LocationModalProps)
   const [enLines, setEnLines] = useState<string[]>(location.responses?.en?.length ? location.responses.en : [""]);
   const [cebLines, setCebLines] = useState<string[]>(location.responses?.ceb?.length ? location.responses.ceb : [""]);
   const [images, setImages] = useState<string[]>(location.imageUrls ?? []);
-  const [newImgUrl, setNewImgUrl] = useState("");
   const [coords, setCoords] = useState<[number, number]>(
     location.coordinates?.length === 2 ? [location.coordinates[0], location.coordinates[1]] : [500, 500]
   );
@@ -93,7 +76,6 @@ function LocationModal({ location, open, onClose, onSaved }: LocationModalProps)
     setEnLines(location.responses?.en?.length ? location.responses.en : [""]);
     setCebLines(location.responses?.ceb?.length ? location.responses.ceb : [""]);
     setImages(location.imageUrls ?? []);
-    setNewImgUrl("");
     setCoords(location.coordinates?.length === 2 ? [location.coordinates[0], location.coordinates[1]] : [500, 500]);
     setPins((location.pins ?? []).map(p => ({
       name: p.name,
@@ -133,22 +115,6 @@ function LocationModal({ location, open, onClose, onSaved }: LocationModalProps)
       toast({ title: "Error", description: err?.message || "Failed", variant: "destructive" }),
   });
 
-  const enRefs = useRef<(HTMLTextAreaElement | null)[]>([]);
-  const cebRefs = useRef<(HTMLTextAreaElement | null)[]>([]);
-
-  const handleKD = useCallback((
-    e: React.KeyboardEvent<HTMLTextAreaElement>,
-    refs: React.MutableRefObject<(HTMLTextAreaElement | null)[]>,
-    idx: number, lines: string[], setLines: (v: string[]) => void
-  ) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === "b") {
-      e.preventDefault();
-      applyBold({ current: refs.current[idx] } as any, lines[idx], v => {
-        const n = [...lines]; n[idx] = v; setLines(n);
-      });
-    }
-  }, []);
-
   return (
     <>
       <Dialog open={open} onOpenChange={v => !v && onClose()}>
@@ -174,22 +140,22 @@ function LocationModal({ location, open, onClose, onSaved }: LocationModalProps)
 
               {/* Responses */}
               <TabsContent value="responses" className="p-3 space-y-4 mt-0">
-                <p className="text-xs text-muted-foreground">
-                  <kbd className="bg-gray-100 border rounded px-1.5 py-0.5 text-[11px] font-mono">Ctrl+B</kbd> to bold. Each line = one chat bubble.
-                </p>
                 {/* EN */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <Label className="font-semibold text-sm flex items-center gap-2"><span className="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded font-mono">EN</span>English</Label>
-                    <Button variant="outline" size="sm" className="h-7 text-xs" onClick={() => setEnLines([...enLines, ""])}>+ Add line</Button>
+                    <Button variant="outline" size="sm" className="h-7 text-xs" onClick={() => setEnLines([...enLines, ""])}>+ Add message</Button>
                   </div>
                   {enLines.map((l, i) => (
                     <div key={i} className="flex gap-2">
-                      <textarea ref={el => { enRefs.current[i] = el; }} value={l}
-                        onChange={e => { const n = [...enLines]; n[i] = e.target.value; setEnLines(n); }}
-                        onKeyDown={e => handleKD(e, enRefs, i, enLines, setEnLines)}
-                        rows={2} className="flex-1 resize-y border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder={`Line ${i + 1}…`} />
-                      {enLines.length > 1 && <button onClick={() => setEnLines(enLines.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 mt-1"><Trash2 className="h-4 w-4" /></button>}
+                      <div className="flex-1 min-w-0">
+                        <AdminRichTextEditor 
+                          value={l} 
+                          onChange={(v) => { const n = [...enLines]; n[i] = v; setEnLines(n); }} 
+                          placeholder={`Bubble ${i + 1}…`} 
+                        />
+                      </div>
+                      {enLines.length > 1 && <button onClick={() => setEnLines(enLines.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 mt-1 shrink-0"><Trash2 className="h-4 w-4" /></button>}
                     </div>
                   ))}
                 </div>
@@ -197,15 +163,18 @@ function LocationModal({ location, open, onClose, onSaved }: LocationModalProps)
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <Label className="font-semibold text-sm flex items-center gap-2"><span className="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded font-mono">CEB</span>Cebuano</Label>
-                    <Button variant="outline" size="sm" className="h-7 text-xs" onClick={() => setCebLines([...cebLines, ""])}>+ Add line</Button>
+                    <Button variant="outline" size="sm" className="h-7 text-xs" onClick={() => setCebLines([...cebLines, ""])}>+ Add message</Button>
                   </div>
                   {cebLines.map((l, i) => (
                     <div key={i} className="flex gap-2">
-                      <textarea ref={el => { cebRefs.current[i] = el; }} value={l}
-                        onChange={e => { const n = [...cebLines]; n[i] = e.target.value; setCebLines(n); }}
-                        onKeyDown={e => handleKD(e, cebRefs, i, cebLines, setCebLines)}
-                        rows={2} className="flex-1 resize-y border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400" placeholder={`Line ${i + 1}…`} />
-                      {cebLines.length > 1 && <button onClick={() => setCebLines(cebLines.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 mt-1"><Trash2 className="h-4 w-4" /></button>}
+                      <div className="flex-1 min-w-0">
+                        <AdminRichTextEditor 
+                          value={l} 
+                          onChange={(v) => { const n = [...cebLines]; n[i] = v; setCebLines(n); }} 
+                          placeholder={`Bubble ${i + 1}…`} 
+                        />
+                      </div>
+                      {cebLines.length > 1 && <button onClick={() => setCebLines(cebLines.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 mt-1 shrink-0"><Trash2 className="h-4 w-4" /></button>}
                     </div>
                   ))}
                 </div>
@@ -213,13 +182,8 @@ function LocationModal({ location, open, onClose, onSaved }: LocationModalProps)
 
               {/* Images */}
               <TabsContent value="images" className="p-5 space-y-4 mt-0">
-                <div className="flex gap-2">
-                  <Input placeholder="Paste image URL…" value={newImgUrl} onChange={e => setNewImgUrl(e.target.value)} className="flex-1"
-                    onKeyDown={e => { if (e.key === "Enter" && newImgUrl.trim()) { setImages([...images, newImgUrl.trim()]); setNewImgUrl(""); } }} />
-                  <Button size="sm" disabled={!newImgUrl.trim()} onClick={() => { if (newImgUrl.trim()) { setImages([...images, newImgUrl.trim()]); setNewImgUrl(""); } }}>
-                    <ImagePlus className="h-4 w-4 mr-1" /> Add
-                  </Button>
-                </div>
+                <AdminImageUploader onAddImage={(url) => setImages([...images, url])} />
+                
                 {images.length === 0
                   ? <div className="text-center py-10 text-muted-foreground text-sm border-2 border-dashed rounded-lg"><ImagePlus className="h-8 w-8 mx-auto mb-2 opacity-30" />No images yet.</div>
                   : <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -283,6 +247,8 @@ function LocationCard({ location, onClick }: { location: Location; onClick: () =
   const preview = previewText(location);
   const hasImg = !!(location.imageUrls?.length);
   const hasPins = !!(location.pins?.length);
+  const hasCoordinates = !!(location.coordinates?.length === 2);
+  const hasMapData = hasPins || hasCoordinates;
 
   return (
     <button onClick={onClick} className="group w-full text-left rounded-xl border bg-white hover:border-blue-400 hover:shadow-md transition-all duration-200 p-4 flex flex-col gap-2 relative overflow-hidden">
@@ -297,11 +263,11 @@ function LocationCard({ location, onClick }: { location: Location; onClick: () =
         <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-blue-500 transition-colors shrink-0 mt-0.5" />
       </div>
       <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 relative">{preview}</p>
-      {(hasImg || hasPins) && (
+      {(hasImg || hasMapData) && (
         <div className="flex gap-1 flex-wrap relative">
           {hasImg && <span className="text-[10px] bg-purple-50 text-purple-600 border border-purple-200 rounded-full px-2 py-0.5">🖼 {location.imageUrls!.length} image{location.imageUrls!.length > 1 ? "s" : ""}</span>}
           {hasPins && <span className="text-[10px] bg-amber-50 text-amber-600 border border-amber-200 rounded-full px-2 py-0.5">📌 {location.pins!.length} pin{location.pins!.length > 1 ? "s" : ""}</span>}
-          <span className="text-[10px] bg-green-50 text-green-600 border border-green-200 rounded-full px-2 py-0.5">📍 Map</span>
+          {hasMapData && <span className="text-[10px] bg-green-50 text-green-600 border border-green-200 rounded-full px-2 py-0.5">📍 Map</span>}
         </div>
       )}
     </button>

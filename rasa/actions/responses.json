@@ -16,11 +16,13 @@
         "last_topic": "student_organizations"
       },
       "follow_up": [],
-      "imageUrl": ""
+      "imageUrl": "",
+      "imageUrls": []
     },
     "metadata": {
       "source": "StudentAffairsData"
-    }
+    },
+    "ui_name": "Student join for buksu oraganization"
   },
   {
     "intent": "campus_safety",
@@ -287,7 +289,7 @@
       "answer": {
         "en": [
           "This issue commonly occurs among first- and second-year applicants.",
-          "Please ensure that your photo meets the required specifications: it must have a pure white background, show you wearing a plain white t-shirt, and contain no accessories.",
+          "Please ensure that your photo meets the required specifications: it must have a <b>pure white background</b>, show you wearing a plain <b>white t-shirt</b>, and contain <b>no accessories</b>.",
           "The photo must also follow the 2x2 format and have a small file size to ensure successful uploading.",
           "After uploading your photo, please allow time for the Admission Officers to review and approve it.",
           "If the issue persists, I recommend visiting the Registrar’s Office for further assistance."
@@ -304,7 +306,8 @@
         "last_topic": "cannot_upload_2x2_picture"
       },
       "follow_up": [],
-      "imageUrl": ""
+      "imageUrl": "",
+      "imageUrls": []
     },
     "metadata": {
       "source": "AdmissionsData"

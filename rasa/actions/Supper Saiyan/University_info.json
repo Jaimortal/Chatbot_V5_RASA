@@ -55,14 +55,19 @@
       "topic": "buksu_president",
       "responses": {
         "en": [
-          "The current president of Bukidnon State University is Dr. Joy Mirasol.",
+          "The current president of Bukidnon State University is <b>Dr. Joy M Mirasol.</b>",
           "She leads the university in promoting quality education, research, and community service."
         ],
         "ceb": [
-          "Ang kasamtangang presidente sa Bukidnon State University mao si Dr. Joy Mirasol.",
+          "Ang kasamtangang presidente sa Bukidnon State University mao si <b>Dr. Joy M. Mirasol.</b>",
           "Siya ang nanguna sa unibersidad sa pagpalambo sa kalidad nga edukasyon, panukiduki, ug serbisyo sa komunidad."
         ]
-      }
+      },
+      "images": [
+        "/api/images/6b9b0e9d-de21-4ba5-b66d-4b2c4cfaa205"
+      ],
+      "map": null,
+      "pins": []
     },
     {
       "topic": "buksu_history_background",
@@ -87,40 +92,31 @@
         "en": [
           "The BukSU Seal is the “sacred” and official emblem of Bukidnon State University, used primarily for high level academic and legal documents like diplomas and transcripts.",
           "Each element within the seal has a specific meaning:",
-          " ",
           "The Lamp: Symbolizes the light of truth and the university's commitment to academic, moral, and spiritual enlightenment.",
-          " ",
           "The Book: Represents knowledge and the historical record of the institution.",
-          " ",
           "The Adult and Child: Signifies the university's roots in teacher training, showing a teacher guiding a child toward a better future.",
-          " ",
           "The Mountains: Represents the university's location in Bukidnon and symbolizes the heights of wisdom.",
-          " ",
           "The Shield: Serves as the base for all symbols, representing education as a person's defense or shield against life's challenges.",
-          " ",
           "Laurel Leaves: Represents the excellence the university strives for in its graduates and faculty.",
-          " ",
           "Sheaf of Palay and Flask: These symbolize the university's goal of progress and prosperity for the region."
         ],
         "ceb": [
           "Ang BukSU Seal mao ang “sagrado” ug opisyal nga simbolo sa Bukidnon State University, nga kasagarang gigamit alang sa high-level academic ug legal nga mga dokumento sama sa diplomas ug transcripts.",
           "Ang matag elemento sulod sa seal adunay espesipikong kahulogan:",
-          " ",
           "Ang Lampara: Nagsimbolo sa kahayag sa kamatuoran ug sa komitment sa unibersidad sa akademiko, moral, ug espiritwal nga kahayag.",
-          " ",
           "Ang Libro: Nagrepresentar sa kahibalo ug sa historikal nga rekord sa institusyon.",
-          " ",
           "Ang Hamtong ug Bata: Nagpasabot sa gigikanan sa unibersidad sa teacher training, nga nagpakita sa usa ka magtutudlo nga naggiya sa bata padulong sa mas maayong kaugmaon.",
-          " ",
           "Ang Kabukiran: Nagrepresentar sa lokasyon sa unibersidad sa Bukidnon ug nagsimbolo sa kataas sa kaalam.",
-          " ",
           "Ang Panagang (Shield): Mao ang base sa tanang simbolo, nga nagpasabot sa edukasyon isip panagang sa tawo batok sa mga hagit sa kinabuhi.",
-          " ",
           "Ang Dahon sa Laurel: Nagrepresentar sa kahusayan nga gipaningkamotan sa unibersidad para sa iyang mga gradwado ug faculty.",
-          " ",
           "Ang Bugkos sa Palay ug Flask: Kini nagsimbolo sa tumong sa unibersidad alang sa pag-uswag ug kauswagan sa rehiyon."
         ]
-      }
+      },
+      "images": [
+        "/api/images/b279c810-c2cf-437f-a2b6-36b3c3ee7fac"
+      ],
+      "map": null,
+      "pins": []
     },
     {
       "topic": "buksu_hymn_lyrics",

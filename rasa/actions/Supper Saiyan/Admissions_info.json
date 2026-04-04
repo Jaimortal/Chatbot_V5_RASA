@@ -751,8 +751,8 @@
           "To change your admission password, follow these steps:",
           "Go to <b>https://admissions.buksu.edu.ph/login</b>",
           "Login your credentials and proceed to your dashboard",
-          "click your Profile icon to view the choices logout or My Account, and choose <b>My Account</b>",
-          "you can now change your password by just clicking the <b>Change Password</b> button"
+          "click your <b>Profile icon</b> to view the choices logout or My Account, and choose <b>My Account</b>",
+          "you can now change your password by just clicking the <b>Change Password button</b>"
         ],
         "ceb": [
           "Para usbon ang imong admission password, sunda kini nga mga steps:",
@@ -761,7 +761,13 @@
           "i-click ang imong Profile icon para makita ang choices logout o My Account, ug pilia ang <b>My Account</b>",
           "pwede na nimo usbon ang imong password pinaagi lang sa pag-click sa <b>Change Password</b> button"
         ]
-      }
+      },
+      "images": [
+        "/api/images/e9c2fe0a-16fb-431c-be26-5f1bbe4b0836",
+        "/api/images/93ad649d-21aa-456b-9547-eb59216358e1"
+      ],
+      "map": null,
+      "pins": []
     },
     {
       "topic": "Find_Institutional_Account",

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Mic, Send, Minimize2 } from "lucide-react";
+import { Mic, Send, Minimize2, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -9,7 +9,7 @@ import MapMessage from "./MapMessage";
 import { cn } from "@/lib/utils";
 import { rasaBackend, generateId, type ChatMessage } from "@/lib/rasaApi";
 import type { UserPrivileges } from "@/types/admin";
-import { FAQCarouselMessage } from "./FAQCarouselMessage";
+import { QuickAccessBar } from "./QuickAccessBar";
 import { fetchActiveFaqs } from "@/lib/adminApi";
 
 // Helper for Web Speech API
@@ -131,6 +131,8 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
 
   // Fullscreen map state - stores the message ID of the map currently in fullscreen
   const [fullscreenMapId, setFullscreenMapId] = useState<string | null>(null);
+  
+  const [showQuickAccess, setShowQuickAccess] = useState(true);
 
   // Generate or retrieve session ID for conversation tracking
   const [sessionId] = useState(() => {
@@ -167,28 +169,7 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     ];
   });
 
-  // Inject Carousel right after Welcome message
-  useEffect(() => {
-    if (activeFaqs && activeFaqs.length > 0) {
-      setMessages(prev => {
-        // Only append if it's the start of a conversation
-        if (prev.length === 1 && prev[0].id === 'welcome') {
-          return [
-            ...prev,
-            {
-              id: generateId(),
-              text: '',
-              sender: 'bot',
-              type: 'faq_carousel',
-              faqs: activeFaqs,
-              timestamp: new Date()
-            }
-          ];
-        }
-        return prev;
-      });
-    }
-  }, [activeFaqs]);
+  // Removed in-timeline FAQ Carousel injection. Now handled by QuickAccessBar floating UI.
 
   // Compute the fullscreen map message
   const fullscreenMapMessage = useMemo(() => {
@@ -355,17 +336,20 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     }
   };
 
-  const handleSend = async (text: string) => {
+  const handleSend = async (displayStr?: string, payloadStr?: string) => {
     if (!privileges.chatEnabled) {
       return;
     }
-    const trimmedText = text.trim();
-    if (!trimmedText) return;
+    const rawDisplay = typeof displayStr === "string" ? displayStr : inputValue;
+    const trimmedDisplay = rawDisplay.trim();
+    if (!trimmedDisplay) return;
+
+    const payloadToSend = payloadStr || trimmedDisplay;
 
     // User message
     const userMsg: ChatMessage = {
       id: Date.now().toString(),
-      text: trimmedText,
+      text: trimmedDisplay,
       sender: "user",
       type: "text",
       timestamp: new Date(),
@@ -376,7 +360,7 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     setIsTyping(true);
 
     try {
-      const response = await rasaBackend.sendMessage(trimmedText, sessionId);
+      const response = await rasaBackend.sendMessage(payloadToSend, sessionId);
       
       // Convert bot response to correct message types
       const botMessages = convertResponseToMessages(response);
@@ -525,11 +509,6 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
                       </div>
                     )
                   )}
-
-                  {/* FAQ Carousel */}
-                  {msg.type === "faq_carousel" && msg.faqs && (
-                    <FAQCarouselMessage faqs={msg.faqs} onSelect={handleSend} />
-                  )}
                 </div>
 
                 <div className="text-xs opacity-60 mt-1 text-center">
@@ -557,49 +536,76 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
 
       {/* Input - Hidden when in fullscreen map mode */}
       {!fullscreenMapId && (
-        <div className="p-3 border-t bg-background shrink-0 pb-1">
+        <div className="flex flex-col shrink-0 bg-background border-t">
+          
+          {/* Collapse/Expand Quick Access */}
+          {activeFaqs && activeFaqs.length > 0 && !showQuickAccess && (
+            <div className="flex justify-center -mt-3 z-20">
+              <button 
+                onClick={() => setShowQuickAccess(true)}
+                className="bg-white border rounded-full p-1 shadow-sm hover:bg-gray-50 text-gray-400 group"
+                title="Show Quick Access"
+              >
+                <ChevronUp className="h-4 w-4 group-hover:text-gray-600 transition-colors" />
+              </button>
+            </div>
+          )}
 
-          <div className="flex items-center gap-2">
-            {privileges.chatEnabled ? (
-              <>
-                {privileges.audioInputEnabled ? (
-                  <Button
-                    variant={isListening ? "destructive" : "secondary"}
-                    size="icon"
-                    className="rounded-full shrink-0 h-10 w-10 transition-all duration-300"
-                    onClick={toggleListening}
+          {/* Quick Access Bar */}
+          {activeFaqs?.length ? (
+            <div className={cn("transition-all duration-300 ease-in-out origin-bottom", showQuickAccess ? "max-h-[60px] opacity-100" : "max-h-0 opacity-0 overflow-hidden")}>
+              <QuickAccessBar 
+                faqs={activeFaqs} 
+                onSelect={(payload, label) => handleSend(label, payload)}
+                onClose={() => setShowQuickAccess(false)}
+              />
+            </div>
+          ) : null}
+
+          {/* Chat Input Field */}
+          <div className="p-3 pb-1">
+            <div className="flex items-center gap-2">
+              {privileges.chatEnabled ? (
+                <>
+                  {privileges.audioInputEnabled ? (
+                    <Button
+                      variant={isListening ? "destructive" : "secondary"}
+                      size="icon"
+                      className="rounded-full shrink-0 h-10 w-10 transition-all duration-300"
+                      onClick={toggleListening}
+                      disabled={isTyping}
+                    >
+                      <Mic className={cn("h-5 w-5", isListening && "animate-pulse")} />
+                    </Button>
+                  ) : null}
+
+                  <Input
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder={isListening ? "Listening..." : "Type a message..."}
+                    className={cn(
+                      "rounded-full bg-muted/50 border-transparent focus-visible:bg-background focus-visible:border-primary/20 transition-all text-sm h-10",
+                      isListening && "bg-red-50 border-red-200 animate-pulse"
+                    )}
                     disabled={isTyping}
+                  />
+
+                  <Button
+                    onClick={() => handleSend(inputValue)}
+                    size="icon"
+                    disabled={!inputValue.trim() || isTyping || isListening}
+                    className="rounded-full shrink-0 h-10 w-10"
                   >
-                    <Mic className={cn("h-5 w-5", isListening && "animate-pulse")} />
+                    <Send className="h-4 w-4" />
                   </Button>
-                ) : null}
-
-                <Input
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder={isListening ? "Listening..." : "Type a message..."}
-                  className={cn(
-                    "rounded-full bg-muted/50 border-transparent focus-visible:bg-background focus-visible:border-primary/20 transition-all",
-                    isListening && "bg-red-50 border-red-200 animate-pulse"
-                  )}
-                  disabled={isTyping}
-                />
-
-                <Button
-                  onClick={() => handleSend(inputValue)}
-                  size="icon"
-                  disabled={!inputValue.trim() || isTyping || isListening}
-                  className="rounded-full shrink-0 h-10 w-10"
-                >
-                  <Send className="h-4 w-4" />
-                </Button>
-              </>
-            ) : (
-              <div className="w-full text-center text-sm text-muted-foreground py-2">
-                Chat is currently disabled.
-              </div>
-            )}
+                </>
+              ) : (
+                <div className="w-full text-center text-sm text-muted-foreground py-2">
+                  Chat is currently disabled.
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

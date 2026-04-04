@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, boolean, timestamp, jsonb, integer, serial } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, boolean, timestamp, jsonb, integer, serial, bigint } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -125,7 +125,45 @@ export const faqConfigs = pgTable("faq_configs", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
-// Schema definitions for validation
+// Table for Super Intent module topics (Supper Saiyan/*.json)
+export const superIntentResponses = pgTable("super_intent_responses", {
+  id: serial("id").primaryKey(),
+  superIntent: text("super_intent").notNull(), // The source file identifier (e.g. "University_info")
+  topic: text("topic").notNull(),              // The technical topic key (e.g. "mission_vision")
+  uiName: text("ui_name").default(""),         // Display name
+  // Multilingual answer support
+  responsesEn: jsonb("responses_en").$type<string[]>().default([]),
+  responsesCeb: jsonb("responses_ceb").$type<string[]>().default([]),
+  // Media slots
+  imageUrls: jsonb("image_urls").$type<string[]>().default([]),
+  // Map slots
+  mapData: jsonb("map_data").$type<{lat: number, lng: number} | null>().default(null),
+  pins: jsonb("pins").$type<{name: string, lat: number, lng: number}[]>().default([]),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Table for storing uploaded images in PostgreSQL
+export const images = pgTable("images", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  filename: text("filename").notNull(),
+  mimeType: text("mime_type").notNull(),
+  data: text("data").notNull(), // base64 encoded image data
+  size: integer("size").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// Table for tracking JSON file migrations
+export const migrationTracking = pgTable("migration_tracking", {
+  fileName: text("file_name").primaryKey(),
+  lastMtime: bigint("last_mtime", { mode: "number" }).notNull(),
+  version: integer("version").default(1).notNull(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const insertMigrationTrackingSchema = createInsertSchema(migrationTracking);
+export type MigrationTracking = typeof migrationTracking.$inferSelect;
+export type InsertMigrationTracking = z.infer<typeof insertMigrationTrackingSchema>;
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -139,6 +177,12 @@ export const insertBotResponseSchema = createInsertSchema(botResponses).omit({
 });
 
 export const insertLocationResponseSchema = createInsertSchema(locationResponses).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertSuperIntentResponseSchema = createInsertSchema(superIntentResponses).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
@@ -180,6 +224,9 @@ export type BotResponse = typeof botResponses.$inferSelect;
 export type InsertLocationResponse = z.infer<typeof insertLocationResponseSchema>;
 export type LocationResponse = typeof locationResponses.$inferSelect;
 
+export type InsertSuperIntentResponse = z.infer<typeof insertSuperIntentResponseSchema>;
+export type SuperIntentResponse = typeof superIntentResponses.$inferSelect;
+
 export type InsertAdminResponse = z.infer<typeof insertAdminResponseSchema>;
 export type AdminResponse = typeof adminResponses.$inferSelect;
 
@@ -197,3 +244,11 @@ export type UserSession = typeof userSessions.$inferSelect;
 
 export type InsertFaqConfig = z.infer<typeof insertFaqConfigSchema>;
 export type FaqConfig = typeof faqConfigs.$inferSelect;
+
+export const insertImageSchema = createInsertSchema(images).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertImage = z.infer<typeof insertImageSchema>;
+export type Image = typeof images.$inferSelect;

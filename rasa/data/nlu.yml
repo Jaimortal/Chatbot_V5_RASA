@@ -298,6 +298,36 @@ nlu:
     - who is the secretary of the board of regents in buksu
     - tell me who the buksu board secretary is right now
     - who holds the position of board secretary at buksu
+    - kinsa ang vice president sa BukSU
+    - kinsa ang mga vice president sa BukSU
+    - istorya nako kinsa ang vice president sa BukSU
+    - pwede ba nimo istorya nako kinsa ang vice president sa BukSU
+    - pwede ba nimo ilista ang tanan vice presidents sa Bukidnon State University
+    - kinsa ang vice president para sa academic affairs sa BukSU
+    - pwede ba nimo istorya nako kinsa ang VP para sa academic affairs sa Bukidnon State University
+    - kinsa ang na asign sa academic affairs sa BukSU isip vice president
+    - istorya nako ang ngalan sa vice president sa BukSU para sa academic affairs
+    - kinsa ang na asign sa academic affairs sa BukSU karon
+    - kinsa ang vice president para sa research, extension ug innovations sa BukSU
+    - pwede ba nimo istorya nako kinsa ang VP para sa research ug innovations sa Bukidnon State University
+    - kinsa ang na asign sa research, extension ug innovations sa Bukidnon State University
+    - istorya nako kinsa ang vice president sa BukSU para sa research ug extension
+    - kinsa ang na asign sa research ug innovations sa BukSU
+    - kinsa ang vice president para sa administration ug finance sa BukSU
+    - pwede ba nimo istorya nako kinsa ang VP para sa admin ug finance sa Bukidnon State University
+    - kinsa ang na asign sa administration ug finance sa BukSU isip vice president
+    - istorya nako ang ngalan sa vice president sa BukSU para sa administration ug finance
+    - kinsa ang na asign sa admin ug finance sa BukSU karon
+    - kinsa ang vice president para sa culture, arts, sports ug student services sa BukSU
+    - pwede ba nimo istorya nako kinsa ang VP para sa student services sa Bukidnon State University
+    - kinsa ang na asign sa culture, arts, sports ug student services sa BukSU
+    - istorya nako ang ngalan sa vice president sa BukSU para sa student services
+    - kinsa ang na asign sa culture, sports ug student services sa BukSU
+    - kinsa ang board secretary sa Bukidnon State University
+    - pwede ba nimo istorya nako kinsa ang ga serves isip board secretary sa BukSU
+    - kinsa ang secretary sa board of regents sa BukSU
+    - istorya nako kinsa ang board secretary sa BukSU karon
+    - kinsa ang na asign isip board secretary sa BukSU
 
 
 - intent: ask_admissions_info
@@ -1414,6 +1444,7 @@ nlu:
     - Giunsa pag work ang enrollment sa BukSU
     - Online ba ang enrollment o face to face
     - Unsaon pag enroll sa mga estudyante
+    - online enrollment
     - how do I enroll online in BukSU admission step by step
     - what are the steps for online enrollment in BukSU admission
     - can you guide me through BukSU admission online enrollment process
@@ -1658,6 +1689,8 @@ nlu:
     - unsa nga mga values ang ginabarugan sa buksu
     - storyahi ko bahin sa core values sa bukidnon state university
     - ganahan ko makabalo sa core values sa buksu
+    - who is the president of the buksu
+    - who is the president of buksu
     - who is the current president of bukidnon state university
     - can you tell me who is the president of buksu right now
     - who leads buksu currently

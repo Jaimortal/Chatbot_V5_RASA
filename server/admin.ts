@@ -2,6 +2,9 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import type { ResponseData, Location, ApiResponse, UserPrivileges } from '../client/src/types/admin';
+import * as dbResponses from './db/responses.js';
+import * as dbLocations from './db/locations.js';
+import { deleteImage } from './db/images.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,6 +13,54 @@ const DATA_DIR = path.join(__dirname, '..', 'data');
 const RESPONSES_FILE = path.join(__dirname, '..', 'rasa', 'actions', 'responses.json');
 const RESPONSES_LOCATION_FILE = path.join(__dirname, '..', 'rasa', 'actions', 'responses_location.json');
 const PRIVILEGES_FILE = path.join(DATA_DIR, 'user_privileges.json');
+const MAP_SETTINGS_FILE = path.join(DATA_DIR, 'map_settings.json');
+
+export interface MapData {
+  id: string;
+  url: string;
+  active: boolean;
+  name?: string;
+}
+
+export interface MapSettings {
+  maps: MapData[];
+}
+
+const DEFAULT_MAP_SETTINGS: MapSettings = {
+  maps: [
+    {
+      id: "default_map",
+      url: "/nobackHD.png",
+      active: true,
+      name: "Default Map (Local)"
+    }
+  ]
+};
+
+export async function getMapSettings(): Promise<MapSettings> {
+  try {
+    await ensureDataDir();
+    const data = await fs.readFile(MAP_SETTINGS_FILE, 'utf-8');
+    const parsed = JSON.parse(data);
+    return {
+      ...DEFAULT_MAP_SETTINGS,
+      ...(parsed || {})
+    };
+  } catch (error) {
+    return { ...DEFAULT_MAP_SETTINGS };
+  }
+}
+
+export async function saveMapSettings(settings: MapSettings): Promise<boolean> {
+  try {
+    await ensureDataDir();
+    await fs.writeFile(MAP_SETTINGS_FILE, JSON.stringify(settings, null, 2), 'utf-8');
+    return true;
+  } catch (error) {
+    console.error('Error saving map settings:', error);
+    return false;
+  }
+}
 
 // Ensure data directory exists
 async function ensureDataDir() {
@@ -27,24 +78,39 @@ const DEFAULT_PRIVILEGES: UserPrivileges = {
   autoTranslateEnabled: true
 };
 
-// Read responses from responses.json
+// Read responses from database (primary source)
 export async function getResponses(): Promise<ResponseData[]> {
   try {
-    const data = await fs.readFile(RESPONSES_FILE, 'utf-8');
-    return JSON.parse(data);
+    const dbResults = await dbResponses.getAllResponses();
+    return dbResults.map(row => ({
+      intent: row.intent,
+      category: row.category || '',
+      sub_category: row.subCategory || '',
+      responses: {
+        answer: row.answerEn?.length ? { en: row.answerEn, ceb: row.answerCeb || [] } : row.answer || [],
+        follow_up: row.followUp || [],
+        context_slots: row.contextSlots || {},
+        imageUrl: row.imageUrl || undefined,
+        imageUrls: row.imageUrls || undefined,
+        mapData: row.mapData || undefined,
+      },
+      metadata: row.metadata || {},
+    }));
   } catch (error) {
-    console.error('Error reading responses:', error);
+    console.error('Error fetching responses from database:', error);
     return [];
   }
 }
 
-// Write responses to responses.json
+// Write responses to database (primary source)
 export async function saveResponses(responses: ResponseData[]): Promise<boolean> {
   try {
-    await fs.writeFile(RESPONSES_FILE, JSON.stringify(responses, null, 2), 'utf-8');
+    for (const response of responses) {
+      await upsertResponse(response);
+    }
     return true;
   } catch (error) {
-    console.error('Error saving responses:', error);
+    console.error('Error saving responses to database:', error);
     return false;
   }
 }
@@ -206,29 +272,61 @@ export async function upsertUserPrivileges(privileges: UserPrivileges): Promise<
   }
 }
 
-// Add or update a response
+import { deleteImage } from './db/images.js';
+
+// Add or update a response in database
 export async function upsertResponse(responseData: ResponseData): Promise<ApiResponse> {
   try {
-    const responses = await getResponses();
-    const existingIndex = responses.findIndex(r => r.intent === responseData.intent);
-    
-    if (existingIndex >= 0) {
-      const existing = responses[existingIndex];
-      responses[existingIndex] = {
-        ...existing,
-        ...responseData,
-        intent: existing.intent,
-        category: existing.category,
-        sub_category: existing.sub_category,
-      };
-    } else {
-      responses.push(responseData);
+    const answer = responseData.responses?.answer;
+    let answerEn: string[] = [];
+    let answerCeb: string[] = [];
+    let simpleAnswer: string[] = [];
+
+    if (Array.isArray(answer)) {
+      simpleAnswer = answer;
+    } else if (typeof answer === 'object' && answer !== null) {
+      answerEn = answer.en || [];
+      answerCeb = answer.ceb || [];
     }
-    
-    const success = await saveResponses(responses);
+
+    // Check if images were removed by fetching existing record
+    const existing = await dbResponses.getResponseByIntent(responseData.intent);
+    if (existing) {
+      const oldImages = existing.imageUrls || [];
+      const newImages = responseData.responses?.imageUrls || [];
+      
+      const removedImages = oldImages.filter(url => !newImages.includes(url));
+      for (const url of removedImages) {
+        if (typeof url === 'string' && url.startsWith('/api/images/')) {
+          const id = url.split('/').pop();
+          if (id) {
+            console.log(`[Database Sync] Deleting image ${id} removed from intent ${existing.intent}`);
+            await deleteImage(id).catch(err => console.error("Failed to delete image from DB:", err));
+          }
+        }
+      }
+    }
+
+    const dbData = {
+      intent: responseData.intent,
+      category: responseData.category || '',
+      subCategory: responseData.sub_category || '',
+      answerEn,
+      answerCeb,
+      answer: simpleAnswer,
+      followUp: responseData.responses?.follow_up || [],
+      contextSlots: responseData.responses?.context_slots || {},
+      imageUrl: responseData.responses?.imageUrl || '',
+      imageUrls: responseData.responses?.imageUrls || [],
+      mapData: responseData.responses?.mapData || null,
+      metadata: responseData.metadata || {},
+    };
+
+    await dbResponses.upsertResponse(dbData);
+
     return {
-      success,
-      message: success ? 'Response saved successfully' : 'Failed to save response',
+      success: true,
+      message: 'Response saved successfully',
       data: responseData
     };
   } catch (error) {
@@ -239,12 +337,41 @@ export async function upsertResponse(responseData: ResponseData): Promise<ApiRes
   }
 }
 
-// Delete a response
+// Delete a response from database
 export async function deleteResponse(intent: string): Promise<ApiResponse> {
-  return {
-    success: false,
-    message: 'Deleting intents is disabled.'
-  };
+  try {
+    const existing = await dbResponses.getResponseByIntent(intent);
+    
+    if (!existing) {
+      return { success: false, message: 'Intent not found' };
+    }
+    
+    const imagesToPurge = existing.imageUrls || [];
+    
+    // Purge images from DB
+    for (const url of imagesToPurge) {
+      if (typeof url === 'string' && url.startsWith('/api/images/')) {
+        const id = url.split('/').pop();
+        if (id) {
+          console.log(`[Database Sync] Deleting image ${id} associated with deleted intent ${intent}`);
+          await deleteImage(id).catch(err => console.error("Failed to delete image from DB:", err));
+        }
+      }
+    }
+    
+    // Delete from database
+    const success = await dbResponses.deleteResponse(intent);
+    
+    return {
+      success,
+      message: success ? 'Intent deleted successfully' : 'Failed to delete intent'
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: 'Error deleting intent: ' + error
+    };
+  }
 }
 
 // Add or update a location
@@ -267,6 +394,19 @@ export async function upsertLocation(location: Location): Promise<ApiResponse> {
     const nextImageUrls: string[] = Array.isArray((location as any)?.imageUrls)
       ? (location as any).imageUrls.map((s: any) => String(s).trim()).filter(Boolean)
       : (Array.isArray(existing.imageUrls) ? existing.imageUrls : []);
+
+    // Check if images were removed
+    const oldImages = Array.isArray(existing.imageUrls) ? existing.imageUrls : [];
+    const removedImages = oldImages.filter((url: any) => !nextImageUrls.includes(url));
+    for (const url of removedImages) {
+      if (typeof url === 'string' && url.startsWith('/api/images/')) {
+        const id = url.split('/').pop();
+        if (id) {
+          console.log(`[Database Sync] Deleting image ${id} removed from location ${key}`);
+          await deleteImage(id).catch(err => console.error("Failed to delete image from DB:", err));
+        }
+      }
+    }
 
     const pinsRaw: any = (location as any)?.pins;
     const pinsProvided = Object.prototype.hasOwnProperty.call((location as any) || {}, 'pins');
@@ -334,6 +474,20 @@ export async function deleteLocation(id: string): Promise<ApiResponse> {
     const next = { ...(file.locations || {}) } as any;
     if (!next[key]) {
       return { success: false, message: 'Location not found' };
+    }
+
+    const existing = next[key];
+    const imagesToPurge = Array.isArray(existing.imageUrls) ? existing.imageUrls : [];
+    
+    // Purge images from DB
+    for (const url of imagesToPurge) {
+      if (typeof url === 'string' && url.startsWith('/api/images/')) {
+        const id = url.split('/').pop();
+        if (id) {
+          console.log(`[Database Sync] Deleting image ${id} associated with deleted location ${key}`);
+          await deleteImage(id).catch(err => console.error("Failed to delete image from DB:", err));
+        }
+      }
     }
 
     delete next[key];

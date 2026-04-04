@@ -826,6 +826,7 @@ LOCATION_ALIASES = {
     "president office": "BUKSU President Office",
     "buksu pres office": "BUKSU President Office",
     "pres office": "BUKSU President Office",
+    "office of the president": "BUKSU President Office",
 
     # === IAS Office Aliases ===
     "ias office": "IAS Office",

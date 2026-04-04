@@ -12,11 +12,9 @@ import {
   sendVerificationCode,
   verifyCodeAndUpdateEmail,
   changePassword,
-  migrateResponses,
-  migrateLocations,
-  fetchMigrationStatus
+  syncKnowledgeBaseApi
 } from "@/lib/adminApi";
-import type { ResponseData, Location, UserPrivileges } from "@/types/admin";
+import type { ResponseData, Location, UserPrivileges, MigrationResult } from "@/types/admin";
 import { 
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow 
 } from "@/components/ui/table";
@@ -30,7 +28,39 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock, Eye, EyeOff, Menu, X, Database, LayoutList } from "lucide-react";
+import { 
+  Users, 
+  MessageSquare, 
+  Settings, 
+  Map as MapIcon, 
+  LogOut, 
+  Shield, 
+  HelpCircle,
+  Database,
+  Image as ImageIcon,
+  CheckCircle2,
+  AlertCircle,
+  Menu,
+  X,
+  ChevronRight,
+  TrendingDown,
+  TrendingUp,
+  User as UserIcon,
+  Search,
+  Filter,
+  Plus,
+  Trash2,
+  Edit,
+  Save,
+  TriangleAlert,
+  Loader2,
+  FileJson,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  RefreshCw
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -38,6 +68,8 @@ import { AdminFAQs } from "@/components/admin/AdminFAQs";
 import { AdminSuperIntents } from "@/components/admin/AdminSuperIntents";
 import { AdminGeneralResponses } from "@/components/admin/AdminGeneralResponses";
 import { AdminLocations } from "@/components/admin/AdminLocations";
+import { AdminMapSettings } from "@/components/admin/AdminMapSettings";
+import { AdminGallery } from "@/components/admin/AdminGallery";
 
 export default function AdminDashboard() {
   const queryClient = useQueryClient();
@@ -46,12 +78,9 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("responses");
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
+  const [showSyncDialog, setShowSyncDialog] = useState(false);
   const [responsesSubTab, setResponsesSubTab] = useState<"general" | "locations" | "super-intents">("general");
   
-  // Migration state
-  const [showMigrateDialog, setShowMigrateDialog] = useState(false);
-  const [migrationStatus, setMigrationStatus] = useState<{ responsesCount: number; locationsCount: number } | null>(null);
-
   const DEFAULT_PRIVILEGES: UserPrivileges = {
     chatEnabled: true,
     audioInputEnabled: true,
@@ -189,70 +218,30 @@ export default function AdminDashboard() {
     }
   });
 
-  // Migration mutations
-  const migrateResponsesMutation = useMutation({
-    mutationFn: migrateResponses,
-    onSuccess: (result) => {
-      if (result.success) {
-        queryClient.invalidateQueries({ queryKey: ["responses"] });
-        toast({ 
-          title: "Migration Complete", 
-          description: result.message || "Responses migrated successfully" 
-        });
-      } else {
-        toast({ 
-          title: "Migration Failed", 
-          description: result.message || "Failed to migrate responses",
-          variant: "destructive"
-        });
-      }
-      setShowMigrateDialog(false);
+  const syncKnowledgeBaseMutation = useMutation({
+    mutationFn: (force: boolean) => syncKnowledgeBaseApi(force),
+    onSuccess: (result: MigrationResult) => {
+      queryClient.invalidateQueries({ queryKey: ["responses"] });
+      queryClient.invalidateQueries({ queryKey: ["locations"] });
+      queryClient.invalidateQueries({ queryKey: ["super-intent-meta"] });
+      queryClient.invalidateQueries({ queryKey: ["migration-status"] });
+      const description = result.message + (result.errors?.length ? ` (${result.errors.length} errors)` : "");
+      toast({ 
+        title: result.success ? (result.imported > 0 ? "Sync Complete" : "Already Up to Date") : "Sync Issues", 
+        description: result.errors?.length ? `${description}. Errors: ${result.errors.join(", ")}` : description,
+        variant: result.success ? "default" : "destructive" 
+      });
+      setShowSyncDialog(false);
     },
     onError: (error: any) => {
       toast({ 
-        title: "Migration Error", 
-        description: error?.message || "An error occurred during migration",
+        title: "Sync Error", 
+        description: error?.message || "An error occurred during synchronization",
         variant: "destructive"
       });
-      setShowMigrateDialog(false);
+      setShowSyncDialog(false);
     }
   });
-
-  const migrateLocationsMutation = useMutation({
-    mutationFn: migrateLocations,
-    onSuccess: (result) => {
-      if (result.success) {
-        queryClient.invalidateQueries({ queryKey: ["locations"] });
-        toast({ 
-          title: "Migration Complete", 
-          description: result.message || "Locations migrated successfully" 
-        });
-      } else {
-        toast({ 
-          title: "Migration Failed", 
-          description: result.message || "Failed to migrate locations",
-          variant: "destructive"
-        });
-      }
-      setShowMigrateDialog(false);
-    },
-    onError: (error: any) => {
-      toast({ 
-        title: "Migration Error", 
-        description: error?.message || "An error occurred during migration",
-        variant: "destructive"
-      });
-      setShowMigrateDialog(false);
-    }
-  });
-
-  const handleMigrate = () => {
-    if (responsesSubTab === "general") {
-      migrateResponsesMutation.mutate();
-    } else {
-      migrateLocationsMutation.mutate();
-    }
-  };
 
   const handlePrivilegeToggle = (key: keyof UserPrivileges, checked: boolean) => {
     const updated: UserPrivileges = {
@@ -266,8 +255,9 @@ export default function AdminDashboard() {
   // --- UI ---
   const menuItems = [
     { id: "responses", label: "Responses", icon: MessageSquare },
-    { id: "faqs", label: "FAQs", icon: LayoutList },
-    { id: "privileges", label: "User Privilege", icon: User },
+    { id: "gallery", label: "Gallery", icon: ImageIcon },
+    { id: "faqs", label: "FAQs", icon: FileJson },
+    { id: "privileges", label: "User Privilege", icon: Users },
     { id: "admin-settings", label: "Admin Settings", icon: Settings },
     { id: "logout", label: "Logout", icon: LogOut, isLogout: true },
   ];
@@ -359,106 +349,34 @@ export default function AdminDashboard() {
         <div className="max-w-6xl mx-auto">
           {activeTab === "responses" && (
             <div className="space-y-6">
-              <Card>
-                <CardHeader className="flex flex-col items-start space-y-4">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4">
-                    <div>
-                      <CardTitle className="text-lg sm:text-xl">Chatbot Responses</CardTitle>
-                      <CardDescription className="text-sm">Manage chatbot responses and their location data</CardDescription>
-                    </div>
-                    {responsesSubTab !== "super-intents" && (
-                      <div className="flex gap-2">
-                        <Button
-                          variant="outline"
-                          onClick={() => setShowMigrateDialog(true)}
-                          className="w-full sm:w-auto"
-                        >
-                          <Database className="mr-2 h-4 w-4" />
-                          Migrate from JSON
-                        </Button>
-                        {responsesSubTab === "general" ? (
-                          <ResponseDialog
-                            onSave={saveResponseMutation.mutateAsync}
-                            translationBusy={translationBusy}
-                            translationBusyIntent={translationBusyIntent}
-                          />
-                        ) : (
-                          <LocationDialog
-                            onSave={(l) => saveLocationMutation.mutate(l)}
-                          />
-                        )}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4">
-                    <Tabs value={responsesSubTab} onValueChange={(v) => setResponsesSubTab(v as any)}>
-                      <TabsList>
-                        <TabsTrigger value="general">General</TabsTrigger>
-                        <TabsTrigger value="locations">Locations</TabsTrigger>
-                        <TabsTrigger value="super-intents">Super Intents</TabsTrigger>
+              <Card className="border-0 shadow-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <div className="p-4 border-b bg-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="flex items-center justify-between w-full">
+                    <Tabs value={responsesSubTab} onValueChange={(v) => setResponsesSubTab(v as any)} className="w-full sm:w-auto">
+                      <TabsList className="bg-slate-100 p-1">
+                        <TabsTrigger value="general" className="data-[state=active]:bg-white data-[state=active]:shadow-sm">General</TabsTrigger>
+                        <TabsTrigger value="locations" className="data-[state=active]:bg-white data-[state=active]:shadow-sm">Locations</TabsTrigger>
+                        <TabsTrigger value="super-intents" className="data-[state=active]:bg-white data-[state=active]:shadow-sm">Super Intents</TabsTrigger>
                       </TabsList>
                     </Tabs>
                     
-                    {/* Search Bar - Beside Tabs - hidden for Super Intents (has its own search) */}
-                    {responsesSubTab === "general" ? (
-                      <div className="flex gap-2 items-center">
-                        <Input
-                          placeholder="Search by intent or category..."
-                          value={searchTerm}
-                          onChange={(e) => setSearchTerm(e.target.value)}
-                          className="w-48 sm:w-64"
-                        />
-                        <div className="w-32 sm:w-40">
-                          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Category" />
-                            </SelectTrigger>
-                            <SelectContent className="max-h-48 overflow-y-auto">
-                              <SelectItem value="all">All Categories</SelectItem>
-                              {categories.map(category => (
-                                <SelectItem key={category} value={category}>
-                                  {category}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      </div>
-                    ) : responsesSubTab === "locations" ? (
-                      <div className="flex gap-2 items-center">
-                        <Input
-                          placeholder="Search locations..."
-                          value={locationSearchTerm}
-                          onChange={(e) => setLocationSearchTerm(e.target.value)}
-                          className="w-32 sm:w-48"
-                        />
-                        <div className="w-32 sm:w-40">
-                          <Select value={buildingFilter} onValueChange={setBuildingFilter}>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Building" />
-                            </SelectTrigger>
-                            <SelectContent className="max-h-48 overflow-y-auto">
-                              <SelectItem value="all">All Buildings</SelectItem>
-                              {buildings.map(building => (
-                                <SelectItem key={building} value={building}>
-                                  {building}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      </div>
-                    ) : null}
+                    <Button 
+                      onClick={() => setShowSyncDialog(true)}
+                      className="bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center gap-2 shadow-sm"
+                    >
+                      <RefreshCw className={`w-4 h-4 ${syncKnowledgeBaseMutation.isPending ? "animate-spin" : ""}`} />
+                      Sync Knowledge Base
+                    </Button>
                   </div>
-                </CardHeader>
-                <CardContent className={responsesSubTab === "super-intents" ? "p-4" : responsesSubTab === "general" ? "p-4" : "p-4"}>
+                </div>
+
+                <CardContent className="p-0">
                   {responsesSubTab === "super-intents" ? (
-                    <AdminSuperIntents />
+                    <div className="p-4"><AdminSuperIntents /></div>
                   ) : responsesSubTab === "general" ? (
-                    <AdminGeneralResponses />
+                    <div className="p-4"><AdminGeneralResponses /></div>
                   ) : (
-                    <AdminLocations />
+                    <div className="p-4"><AdminLocations /></div>
                   )}
                 </CardContent>
               </Card>
@@ -535,6 +453,8 @@ export default function AdminDashboard() {
                 </CardContent>
               </Card>
 
+              <AdminMapSettings />
+
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg sm:text-xl">Account Settings</CardTitle>
@@ -550,6 +470,10 @@ export default function AdminDashboard() {
 
           {activeTab === "faqs" && (
             <AdminFAQs />
+          )}
+
+          {activeTab === "gallery" && (
+            <AdminGallery />
           )}
         </div>
       </div>
@@ -584,35 +508,38 @@ export default function AdminDashboard() {
         </AlertDialogContent>
       </AlertDialog>
 
-      {/* Migration Confirmation Dialog */}
-      <AlertDialog open={showMigrateDialog} onOpenChange={setShowMigrateDialog}>
+      {/* Knowledge Base Sync Confirmation Dialog */}
+      <AlertDialog open={showSyncDialog} onOpenChange={setShowSyncDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Confirm Migration</AlertDialogTitle>
-            <AlertDialogDescription>
-              {responsesSubTab === "general" 
-                ? "Are you sure you want to migrate all data from responses.json to the database? This will update existing responses and add new ones."
-                : "Are you sure you want to migrate all data from responses_location.json to the database? This will update existing locations and add new ones."
-              }
+            <AlertDialogTitle className="flex items-center gap-2">
+              <Database className="h-5 w-5 text-blue-600" />
+              Sync Knowledge Base from JSON
+            </AlertDialogTitle>
+            <AlertDialogDescription className="space-y-3">
+              <p>This will synchronize your database with the local JSON knowledge base files. </p>
+              <ul className="list-disc list-inside text-sm space-y-1">
+                <li>Only <b>modified files</b> will be updated.</li>
+                <li>New topics found in JSON will be added.</li>
+                <li>Manual updates in this panel might be overwritten if the JSON version is newer.</li>
+              </ul>
+              <p className="font-semibold text-red-600 mt-2">Are you sure you want to proceed?</p>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel 
               className="bg-white text-gray-800 hover:bg-gray-100 border-0"
-              onClick={() => setShowMigrateDialog(false)}
+              onClick={() => setShowSyncDialog(false)}
             >
               Cancel
             </AlertDialogCancel>
             <AlertDialogAction 
               className="text-white border-0"
               style={{ background: "linear-gradient(to right, #001C38, #0356a9ff)" }}
-              onClick={handleMigrate}
-              disabled={migrateResponsesMutation.isPending || migrateLocationsMutation.isPending}
+              onClick={() => syncKnowledgeBaseMutation.mutate(false)}
+              disabled={syncKnowledgeBaseMutation.isPending}
             >
-              {migrateResponsesMutation.isPending || migrateLocationsMutation.isPending 
-                ? "Migrating..." 
-                : "Confirm Migration"
-              }
+              {syncKnowledgeBaseMutation.isPending ? "Syncing..." : "Confirm Sync"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

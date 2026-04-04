@@ -30,6 +30,8 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { AdminMapPinsEditor, type AdminPin } from "@/components/admin/AdminMapPinsEditor";
+import { AdminImageUploader } from "@/components/admin/AdminImageUploader";
+import { AdminRichTextEditor } from "@/components/admin/AdminRichTextEditor";
 import {
   Save,
   Loader2,
@@ -113,7 +115,6 @@ function TopicModal({ file, topic, open, onClose, onSaved }: TopicModalProps) {
   const [enLines, setEnLines] = useState<string[]>(topic.responses.en.length ? topic.responses.en : [""]);
   const [cebLines, setCebLines] = useState<string[]>(topic.responses.ceb.length ? topic.responses.ceb : [""]);
   const [images, setImages] = useState<string[]>(topic.images || []);
-  const [newImageUrl, setNewImageUrl] = useState("");
   const [mapCoords, setMapCoords] = useState<[number, number]>(
     topic.map ? ([topic.map.lat ?? 500, topic.map.lng ?? 500] as [number, number]) : [500, 500]
   );
@@ -130,7 +131,6 @@ function TopicModal({ file, topic, open, onClose, onSaved }: TopicModalProps) {
     setEnLines(topic.responses.en.length ? topic.responses.en : [""]);
     setCebLines(topic.responses.ceb.length ? topic.responses.ceb : [""]);
     setImages(topic.images || []);
-    setNewImageUrl("");
     setMapCoords(topic.map ? [topic.map.lat ?? 500, topic.map.lng ?? 500] : [500, 500]);
     setHasMap(!!topic.map);
     setPins((topic.pins || []).map(p => ({ name: p.name, coordinates: [p.lat ?? 500, p.lng ?? 500] as [number, number] })));
@@ -165,31 +165,6 @@ function TopicModal({ file, topic, open, onClose, onSaved }: TopicModalProps) {
     },
   });
 
-  // textarea refs for bold shortcut
-  const enRefs = useRef<(HTMLTextAreaElement | null)[]>([]);
-  const cebRefs = useRef<(HTMLTextAreaElement | null)[]>([]);
-
-  const handleKeyDown = useCallback(
-    (
-      e: React.KeyboardEvent<HTMLTextAreaElement>,
-      ref: React.MutableRefObject<(HTMLTextAreaElement | null)[]>,
-      idx: number,
-      lines: string[],
-      setLines: (v: string[]) => void
-    ) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === "b") {
-        e.preventDefault();
-        const fakeRef = { current: ref.current[idx] } as React.RefObject<HTMLTextAreaElement>;
-        applyBold(fakeRef, lines[idx], (v) => {
-          const next = [...lines];
-          next[idx] = v;
-          setLines(next);
-        });
-      }
-    },
-    []
-  );
-
   return (
     <>
       <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
@@ -197,7 +172,6 @@ function TopicModal({ file, topic, open, onClose, onSaved }: TopicModalProps) {
           {/* Header */}
           <DialogHeader className="px-5 pt-4 pb-3 border-b bg-gradient-to-r from-[#001C38] to-[#0356a9] rounded-t-lg">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">{guessIcon(topic.topic)}</span>
               <div>
                 <DialogTitle className="text-white text-lg font-bold leading-tight">
                   {topic.ui_name || topic.displayName}
@@ -219,90 +193,45 @@ function TopicModal({ file, topic, open, onClose, onSaved }: TopicModalProps) {
 
               {/* ── Responses tab ── */}
               <TabsContent value="responses" className="p-3 space-y-4 mt-0">
-                <p className="text-xs text-muted-foreground flex items-center gap-1">
-                  <kbd className="bg-gray-100 border rounded px-1.5 py-0.5 text-[11px] font-mono">Ctrl+B</kbd>
-                  to bold selected text. Each line is a separate message bubble.
-                </p>
-
-                {/* English */}
+                {/* EN */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <Label className="font-semibold text-sm flex items-center gap-2">
-                      <span className="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded font-mono">EN</span>
-                      English Responses
-                    </Label>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-7 text-xs"
-                      onClick={() => setEnLines([...enLines, ""])}
-                    >
-                      + Add line
-                    </Button>
+                    <Label className="font-semibold text-sm flex items-center gap-2"><span className="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded font-mono">EN</span>English</Label>
+                    <Button variant="outline" size="sm" className="h-7 text-xs" onClick={() => setEnLines([...enLines, ""])}>+ Add message</Button>
                   </div>
-                  {enLines.map((line, i) => (
+                  {enLines.map((l, i) => (
                     <div key={i} className="flex gap-2">
-                      <textarea
-                        ref={(el) => { enRefs.current[i] = el; }}
-                        value={line}
-                        onChange={(e) => {
-                          const next = [...enLines]; next[i] = e.target.value; setEnLines(next);
-                        }}
-                        onKeyDown={(e) => handleKeyDown(e, enRefs, i, enLines, setEnLines)}
-                        rows={2}
-                        className="flex-1 resize-y border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        placeholder={`Line ${i + 1}…`}
-                      />
+                       <div className="flex-1 min-w-0">
+                         <AdminRichTextEditor 
+                           value={l} 
+                           onChange={(v) => { const n = [...enLines]; n[i] = v; setEnLines(n); }} 
+                           placeholder={`Bubble ${i + 1}…`} 
+                         />
+                       </div>
                       {enLines.length > 1 && (
-                        <button
-                          onClick={() => setEnLines(enLines.filter((_, j) => j !== i))}
-                          className="text-red-400 hover:text-red-600 mt-1"
-                          title="Remove line"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
+                        <button onClick={() => setEnLines(enLines.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 mt-1 shrink-0"><Trash2 className="h-4 w-4" /></button>
                       )}
                     </div>
                   ))}
                 </div>
 
-                {/* Cebuano */}
+                {/* CEB */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <Label className="font-semibold text-sm flex items-center gap-2">
-                      <span className="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded font-mono">CEB</span>
-                      Cebuano Responses
-                    </Label>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-7 text-xs"
-                      onClick={() => setCebLines([...cebLines, ""])}
-                    >
-                      + Add line
-                    </Button>
+                    <Label className="font-semibold text-sm flex items-center gap-2"><span className="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded font-mono">CEB</span>Cebuano</Label>
+                    <Button variant="outline" size="sm" className="h-7 text-xs" onClick={() => setCebLines([...cebLines, ""])}>+ Add message</Button>
                   </div>
-                  {cebLines.map((line, i) => (
+                  {cebLines.map((l, i) => (
                     <div key={i} className="flex gap-2">
-                      <textarea
-                        ref={(el) => { cebRefs.current[i] = el; }}
-                        value={line}
-                        onChange={(e) => {
-                          const next = [...cebLines]; next[i] = e.target.value; setCebLines(next);
-                        }}
-                        onKeyDown={(e) => handleKeyDown(e, cebRefs, i, cebLines, setCebLines)}
-                        rows={2}
-                        className="flex-1 resize-y border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
-                        placeholder={`Line ${i + 1}…`}
-                      />
+                       <div className="flex-1 min-w-0">
+                         <AdminRichTextEditor 
+                           value={l} 
+                           onChange={(v) => { const n = [...cebLines]; n[i] = v; setCebLines(n); }} 
+                           placeholder={`Bubble ${i + 1}…`} 
+                         />
+                       </div>
                       {cebLines.length > 1 && (
-                        <button
-                          onClick={() => setCebLines(cebLines.filter((_, j) => j !== i))}
-                          className="text-red-400 hover:text-red600 mt-1"
-                          title="Remove line"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
+                        <button onClick={() => setCebLines(cebLines.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 mt-1 shrink-0"><Trash2 className="h-4 w-4" /></button>
                       )}
                     </div>
                   ))}
@@ -311,32 +240,7 @@ function TopicModal({ file, topic, open, onClose, onSaved }: TopicModalProps) {
 
               {/* ── Images tab ── */}
               <TabsContent value="images" className="p-3 space-y-3 mt-0">
-                <div className="flex gap-2">
-                  <Input
-                    placeholder="Paste image URL…"
-                    value={newImageUrl}
-                    onChange={(e) => setNewImageUrl(e.target.value)}
-                    className="flex-1"
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" && newImageUrl.trim()) {
-                        setImages([...images, newImageUrl.trim()]);
-                        setNewImageUrl("");
-                      }
-                    }}
-                  />
-                  <Button
-                    size="sm"
-                    disabled={!newImageUrl.trim()}
-                    onClick={() => {
-                      if (newImageUrl.trim()) {
-                        setImages([...images, newImageUrl.trim()]);
-                        setNewImageUrl("");
-                      }
-                    }}
-                  >
-                    <ImagePlus className="h-4 w-4 mr-1" /> Add
-                  </Button>
-                </div>
+                <AdminImageUploader onAddImage={(url) => setImages([...images, url])} />
 
                 {images.length === 0 ? (
                   <div className="text-center py-8 text-muted-foreground text-sm border-2 border-dashed rounded-lg">

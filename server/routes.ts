@@ -8,6 +8,17 @@ import { AdminBotTopicsController } from "./controllers/adminBotTopicsController
 import emailRoutes from "./routes/emailRoutes";
 import adminMigrationRoutes from "./routes/admin-migration.js";
 import jwt from "jsonwebtoken";
+import multer from "multer";
+import * as dbImages from "./db/images.js";
+
+// Configure multer for memory storage (to save to PostgreSQL)
+const storage = multer.memoryStorage();
+const upload = multer({ 
+  storage,
+  limits: {
+    fileSize: 10 * 1024 * 1024, // 10MB limit
+  }
+});
 
 export async function registerRoutes(
   httpServer: Server,
@@ -57,10 +68,106 @@ export async function registerRoutes(
   app.get("/api/faqs", FaqController.getActiveFaqs);
 
   // PUBLIC USER PRIVILEGES
+  app.get("/api/user-privileges", AdminController.getUserPrivileges);
+
+
+  // IMAGE UPLOAD ROUTE (Admin only) - Saves to PostgreSQL
+  app.post("/api/admin/upload-image", requireAuth, upload.single("image"), async (req, res) => {
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: "No image file provided" });
+    }
+    
+    try {
+      // Convert buffer to base64
+      const base64Data = req.file.buffer.toString('base64');
+      const mimeType = req.file.mimetype;
+      const filename = req.file.originalname;
+      const size = req.file.size;
+      
+      // Save to database
+      const image = await dbImages.saveImage({
+        filename,
+        mimeType,
+        data: base64Data,
+        size,
+      });
+      
+      if (!image) {
+        return res.status(500).json({ success: false, message: "Failed to save image" });
+      }
+      
+      // Return URL that can be used to retrieve the image
+      const url = `/api/images/${image.id}`;
+      return res.json({ success: true, url, id: image.id });
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      return res.status(500).json({ success: false, message: "Failed to upload image" });
+    }
+  });
+
+  // Get all images (Admin only)
+  app.get("/api/admin/images", requireAuth, async (req, res) => {
+    try {
+      const images = await dbImages.getAllImages();
+      return res.json({ success: true, data: images.map(img => ({
+        id: img.id,
+        filename: img.filename,
+        mimeType: img.mimeType,
+        size: img.size,
+        createdAt: img.createdAt,
+        url: `/api/images/${img.id}`,
+      }))});
+    } catch (error) {
+      console.error("Error fetching images:", error);
+      return res.status(500).json({ success: false, message: "Failed to fetch images" });
+    }
+  });
+
+  // Delete image (Admin only)
+  app.delete("/api/admin/images/:id", requireAuth, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const result = await dbImages.deleteImage(id);
+      if (result) {
+        return res.json({ success: true, message: "Image deleted successfully" });
+      }
+      return res.status(500).json({ success: false, message: "Failed to delete image" });
+    } catch (error) {
+      console.error("Error deleting image:", error);
+      return res.status(500).json({ success: false, message: "Failed to delete image" });
+    }
+  });
+
+  // PUBLIC ROUTE: Serve image by ID
+  app.get("/api/images/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const image = await dbImages.getImageById(id);
+      
+      if (!image) {
+        return res.status(404).json({ success: false, message: "Image not found" });
+      }
+      
+      // Convert base64 back to buffer and send
+      const buffer = Buffer.from(image.data, 'base64');
+      res.setHeader('Content-Type', image.mimeType);
+      res.setHeader('Content-Length', buffer.length);
+      res.send(buffer);
+    } catch (error) {
+      console.error("Error serving image:", error);
+      return res.status(500).json({ success: false, message: "Failed to serve image" });
+    }
+  });
+
+  // ADMIN DASHBOARD ROUTES
 
   app.get("/api/privileges", AdminController.getUserPrivileges);
 
+  // MAP SETTINGS PUBLIC
+  app.get("/api/map-settings", AdminController.getMapSettings);
+
   // ADMIN ROUTES
+  app.post("/api/admin/map-settings", requireAuth, AdminController.updateMapSettings);
   
   // Get all responses
   app.get("/api/admin/responses", requireAuth, AdminController.getResponses);
@@ -108,7 +215,7 @@ export async function registerRoutes(
   app.post("/api/admin/change-password", requireAuth, AdminController.changePassword);
 
   // MIGRATION ROUTES (ADMIN)
-  app.use("/api/admin", requireAuth, adminMigrationRoutes);
+  app.use("/api/admin/migrate", requireAuth, adminMigrationRoutes);
 
   // EMAIL VERIFICATION ROUTES
   app.use("/api/email", emailRoutes);

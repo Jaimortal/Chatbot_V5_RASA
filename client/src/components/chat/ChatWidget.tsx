@@ -11,15 +11,19 @@ export default function ChatWidget() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none">
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="mb-4 w-[90vw] sm:w-[380px] h-[600px] max-h-[80vh] bg-background rounded-2xl shadow-2xl overflow-hidden border border-border/50 pointer-events-auto origin-bottom-center sm:origin-bottom-right sm:mr-0 mr-auto"
-          >
+          <>
+            {/* 💬 EDIT CHATBOX HEIGHT & WIDTH HERE 💬 */}
+            {/* Find 'h-[700px]' below and change 700px to any height you prefer (e.g. 800px) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="mb-4 w-[90vw] sm:w-[400px] h-[700px] max-h-[85vh] bg-background rounded-2xl shadow-2xl overflow-hidden border border-border/50 pointer-events-auto origin-bottom-center sm:origin-bottom-right sm:mr-0 mr-auto"
+            >
             <ChatWindow onClose={() => setIsOpen(false)} isOpen={isOpen} />
           </motion.div>
+          </>
         )}
       </AnimatePresence>
 
