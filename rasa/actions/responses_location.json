@@ -2822,10 +2822,6 @@
       "type": "office",
       "building": "Student Services Building",
       "floor": "Ground Floor",
-      "coordinates": [
-        578,
-        647
-      ],
       "map_id": "main_map",
       "responses": {
         "en": [
@@ -2834,7 +2830,21 @@
         "ceb": [
           "Naara 👀."
         ]
-      }
+      },
+      "imageUrls": [],
+      "coordinates": [
+        577,
+        632
+      ],
+      "pins": [
+        {
+          "name": "OSS",
+          "coordinates": [
+            577,
+            632
+          ]
+        }
+      ]
     },
     "BUKSU President Office": {
       "type": "office",
@@ -3643,6 +3653,439 @@
         ],
         "ceb": [
           "Ang University Medical Clinic nahimutang sa Ground Floor sa Health Services Building, duol sa karaang College of Nursing Building."
+        ]
+      }
+    },
+    "OVPAPD": {
+      "type": "office",
+      "building": "Finance Building",
+      "floor": "2nd Floor",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Office of the Vice President for Administration, Planning, and Development (OVPAPD) is located on the 2nd floor of the Finance Building."
+        ],
+        "ceb": [
+          "Ang Office of the Vice President for Administration, Planning, and Development (OVPAPD) nahimutang sa 2nd floor sa Finance Building."
+        ]
+      }
+    },
+    "Finance Building": {
+      "type": "building",
+      "building": "Finance Building",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Finance Building is located behind the Administration Building. You can easily spot it, as many students refer to it as the Airport because of the chairs outside and the payment windows located there. Don’t worry, I will provide a map to help you navigate."
+        ],
+        "ceb": [
+          "Ang Finance Building nahimutang sa luyo sa Administration Building. Dali ra kini mailhan, kay daghang estudyante ang nagtawag niini og Airport tungod sa mga lingkuranan sa gawas ug sa mga payment windows nga naa didto. Ayaw kabalaka, hatagan tika og mapa aron matabangan ka sa navigate."
+        ]
+      }
+    },
+    "CPAG building": {
+      "type": "building",
+      "building": "CPAG Building",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The CPAG building is located next to the Finance Building, near the university exit path. Keep in mind that the Finance and CPAG buildings are connected, so you might walk into the Finance Building without realizing it. You can easily identify them: the CPAG building is the older one, while the Finance Building has tiled flooring and the CPAG building does not. I will provide a map to help you navigate."
+        ],
+        "ceb": [
+          "Ang CPAG building nahimutang tapad sa Finance Building, duol sa exit path sa university. Hinumdomi nga konektado ang Finance ug CPAG buildings, mao nga posible nga makasulod ka sa Finance Building nga wala nimo mabantayi. Dali ra nimo sila mailhan: ang CPAG building mao ang mas karaan, samtang ang Finance Building adunay tiled flooring ug ang CPAG building wala. Hatagan tika og mapa aron matabangan ka sa paglibot."
+        ]
+      }
+    },
+    "COB Accreditation Room": {
+      "type": "room",
+      "building": "COB Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        648,
+        388
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "COB Accreditation Room is located on the ground floor of the COB Building. It is the first room you will see on the left side of the building."
+        ],
+        "ceb": [
+          "Ang COB Accreditation Room nahimutang sa ground floor sa COB Building. Mao kini ang unang room nga imong makita sa left side sa building."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            648,
+            388
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Accountancy Faculty Department Room": {
+      "type": "room",
+      "building": "COB Building",
+      "floor": "Ground Floor",
+      "room_number": "B-1-02 to B-1-03",
+      "coordinates": [
+        634,
+        368
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Accountancy Faculty Department Room is located on the ground floor of the COB building room number B-1-02 to B-1-03."
+        ],
+        "ceb": [
+          "Ang Accountancy Faculty Department Room nahimutang sa ground floor sa COB building nga room number B-1-02 hangtod B-1-03."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            634,
+            368
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Business Administration Faculty Room": {
+      "type": "room",
+      "building": "COB Building",
+      "floor": "Ground Floor",
+      "room_number": "B-1-04 to B-1-05",
+      "coordinates": [
+        625,
+        316
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Business administration faculty room is located on the ground floor of the COB building, room number B-1-04 to B-1-05."
+        ],
+        "ceb": [
+          "Ang Business administration faculty room nahimutang sa ground floor sa COB building, room number B-1-04 hangtod B-1-05."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            625,
+            316
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Hospitality Management Faculty Room": {
+      "type": "room",
+      "building": "COB Building",
+      "floor": "Ground Floor",
+      "room_number": "B-1-06",
+      "coordinates": [
+        618,
+        262
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Hospitality Management Faculty located on the Ground floor of the COB building, room number B-1-06."
+        ],
+        "ceb": [
+          "Ang Hospitality Management Faculty nahimutang sa ground floor sa COB building, room number B-1-06."
+        ]
+      }
+    },
+    "Rondala Room": {
+      "type": "room",
+      "building": "University Press Building",
+      "floor": "3rd Floor",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Rondala room is on the University Press building 3rd floor"
+        ],
+        "ceb": [
+          "And Rondala room naa sa University Press building 3rd floor"
+        ]
+      }
+    },
+    "I Love BukSU": {
+      "type": "facility",
+      "building": "University Frontage",
+      "floor": "Ground",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Its located on the University Frontage ground, in the main entrance"
+        ],
+        "ceb": [
+          "Nahimutang kini sa University Frontage ground, na-a dapit sa main entrance"
+        ]
+      },
+      "coordinates": [
+        854,
+        534
+      ],
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            854,
+            534
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Learning Commons": {
+      "type": "facility",
+      "building": "Library Building",
+      "floor": "4th Floor",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Learning commons located on the 4th floor of the library building."
+        ],
+        "ceb": [
+          "Ang Learning commons nahimutang sa 4th floor sa library building."
+        ]
+      },
+      "coordinates": [
+        548,
+        367
+      ],
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            548,
+            367
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Buksu Clinic (general)": {
+      "type": "facility",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Which clinic are you referring to: the medical clinic or the dental clinic? Since you mentioned Clinic I assume you mean both the dental and medical clinics. I will provide a map to help you navigate."
+        ],
+        "ceb": [
+          "Kinahanglan nimo nga pilia kon ano nga klinik ang imo ginpangutana: ang medical clinic o ang dental clinic? Pwede nimo ako i-tell kon ano nga klinik ang imo ginpangutana. Akong ihatag ang map para makatabang nimo sa pag-navigate."
+        ]
+      },
+      "coordinates": [
+        268,
+        648
+      ],
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            268,
+            648
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Dental Clinic": {
+      "type": "clinic",
+      "building": "Health and Services Center",
+      "floor": "Ground Floor",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Dental clinic is located on the health and Services Center ground floor."
+        ],
+        "ceb": [
+          "Ang Dental clinic nahimutang sa health and Services Center ground floor."
+        ]
+      },
+      "coordinates": [
+        279,
+        647
+      ],
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            279,
+            647
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "COT Dean's Office": {
+      "type": "office",
+      "building": "New COT Building",
+      "floor": "3rd Floor",
+      "coordinates": [
+        450,
+        801
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The COT Dean's office located on the new COT building 3rd floor you can easily identify it since faculty offices and deans office you can only see on this floor"
+        ],
+        "ceb": [
+          " Ang COT Dean’s Office nahimutang sa 3rd floor sa new COT building. Dali ra kini mailhan kay ang mga faculty offices ug Dean’s Office makita ra sa kini nga andana."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            450,
+            801
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CON Dean's Office": {
+      "type": "office",
+      "building": "Health and Services Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        272,
+        658
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "College of Nursing (CON) is Dean's officelocated on the Health and Services Building Ground floor."
+        ],
+        "ceb": [
+          "Ang College of Nursing (CON) nahimutang sa Health and Services Building Ground floor."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            272,
+            658
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "COB SBO Office": {
+      "type": "sbo_office",
+      "building": "COB Building",
+      "location_note": "mid 4th and 3rd floor staircase COB Building entrance",
+      "coordinates": [
+        628,
+        387
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "COB Student Body Organization (SBO) Office can be found on the mid 4th and 3rd floor staircase COB Building entrance"
+        ],
+        "ceb": [
+          "COB Student Body Organization (SBO) Office makita sa tunga-tunga sa 4th ug 3rd floor staircase sa entrance sa COB Building."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            628,
+            387
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "COT SBO Office": {
+      "type": "sbo_office",
+      "building": "Old COT Building",
+      "floor": "Ground Floor",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "COT Student Body Organization (SBO) office located on the Old COT building Ground floor."
+        ],
+        "ceb": [
+          "Ang COT Student Body Organization (SBO) Office nahimutang sa Old COT building Ground floor."
+        ]
+      },
+      "coordinates": [
+        592,
+        779
+      ],
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            592,
+            779
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CAS SBO Office": {
+      "type": "sbo_office",
+      "building": "Pink Building",
+      "floor": "Ground Floor",
+      "coordinates": [
+        504,
+        548
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "CAS Student Body Organization (SBO) office located on the pink building ground floor."
+        ],
+        "ceb": [
+          "Ang CAS Student Body Organization (SBO) Office nahimutang sa pink building ground floor."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            504,
+            548
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CON SBO Office (no data)": {
+      "type": "sbo_office",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Sorry to inform you that I don’t have data for that, but you can ask any staff or student."
+        ],
+        "ceb": [
+          "Pasensya, wala ko’y datos bahin ana, apan pwede ka mangutana sa bisan kinsang staff o estudyante."
+        ]
+      }
+    },
+    "COA SBO Office (no data)": {
+      "type": "sbo_office",
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Sorry to inform you that I don’t have any information about the COA SBO office, but you can ask any staff or student."
+        ],
+        "ceb": [
+          "Pasensya, wala ko’y datos bahin ana, apan pwede ka mangutana sa bisan kinsang staff o estudyante."
         ]
       }
     }

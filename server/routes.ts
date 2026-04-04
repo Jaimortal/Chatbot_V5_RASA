@@ -3,6 +3,8 @@ import { type Server } from "http";
 import { ChatController } from "./controllers/chatController";
 import { AdminController } from "./controllers/adminController";
 import { AuthController } from "./controllers/authController";
+import { FaqController } from "./controllers/faqController";
+import { AdminBotTopicsController } from "./controllers/adminBotTopicsController";
 import emailRoutes from "./routes/emailRoutes";
 import adminMigrationRoutes from "./routes/admin-migration.js";
 import jwt from "jsonwebtoken";
@@ -52,6 +54,7 @@ export async function registerRoutes(
   
   // CHAT ROUTE
   app.post("/api/chat", ChatController.handleChat);
+  app.get("/api/faqs", FaqController.getActiveFaqs);
 
   // PUBLIC USER PRIVILEGES
 
@@ -81,6 +84,19 @@ export async function registerRoutes(
 
   // Delete a location
   app.delete("/api/admin/locations/:id", requireAuth, AdminController.deleteLocation);
+
+  // FAQs (ADMIN)
+  app.get("/api/admin/faqs", requireAuth, FaqController.getAllFaqs);
+  app.post("/api/admin/faqs", requireAuth, FaqController.upsertFaq);
+  app.delete("/api/admin/faqs/:id", requireAuth, FaqController.deleteFaq);
+
+  // BOT TOPICS (ADMIN)
+  app.get("/api/admin/bot-topics", requireAuth, AdminBotTopicsController.getTopics);
+
+  // SUPER INTENTS (ADMIN) - list, topics, update
+  app.get("/api/admin/super-intents", requireAuth, AdminBotTopicsController.getSuperIntents);
+  app.get("/api/admin/super-intents/:file", requireAuth, AdminBotTopicsController.getSuperIntentTopics);
+  app.post("/api/admin/super-intents/:file/topic", requireAuth, AdminBotTopicsController.updateTopic);
 
   // USER PRIVILEGES (ADMIN)
 

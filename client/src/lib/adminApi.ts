@@ -249,3 +249,176 @@ export async function fetchMigrationStatus(): Promise<{ success: boolean; data?:
     return { success: false };
   }
 }
+
+// FAQ API functions
+export async function fetchAllFaqs(): Promise<any[]> {
+  try {
+    const response = await fetch(`${API_BASE}/faqs`, {
+      headers: getAuthHeaders(),
+    });
+    const result = await response.json();
+    return result.success ? result.data : [];
+  } catch (error) {
+    console.error('Error fetching FAQs:', error);
+    return [];
+  }
+}
+
+export async function fetchActiveFaqs(): Promise<any[]> {
+  try {
+    const response = await fetch(`/api/faqs`, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const result = await response.json();
+    return result.success ? result.data : [];
+  } catch (error) {
+    console.error('Error fetching active FAQs:', error);
+    return [];
+  }
+}
+
+export async function saveFaq(faqData: any): Promise<ApiResponse> {
+  try {
+    const response = await fetch(`${API_BASE}/faqs`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...getAuthHeaders()
+      },
+      body: JSON.stringify(faqData),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error saving FAQ:', error);
+    return { success: false, message: 'Network error' };
+  }
+}
+
+export async function deleteFaqApi(id: string): Promise<ApiResponse> {
+  try {
+    const response = await fetch(`${API_BASE}/faqs/${encodeURIComponent(id)}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders(),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error deleting FAQ:', error);
+    return { success: false, message: 'Network error' };
+  }
+}
+
+// Bot Topics API
+export interface BotTopic {
+  topicKey: string;
+  payload: string;
+  superIntent: string;
+  defaultLabel: string;
+  defaultIcon: string;
+  routingType: string;
+  previewResponse?: string;
+}
+
+export interface BotCategory {
+  id: string; 
+  displayName: string;
+  sourceFile: string;
+  topics: BotTopic[];
+}
+
+export async function fetchBotTopics(): Promise<BotCategory[]> {
+  try {
+    const response = await fetch(`${API_BASE}/bot-topics`, {
+      headers: getAuthHeaders(),
+    });
+    
+    if (response.ok) {
+      const result = await response.json();
+      return result.categories || [];
+    }
+    return [];
+  } catch (error) {
+    console.error('Error fetching bot topics:', error);
+    return [];
+  }
+}
+
+// ─── Super Intents API ────────────────────────────────────────────────────────
+
+export interface SuperIntentMeta {
+  file: string;
+  intent: string;
+  displayName: string;
+  topicCount: number;
+}
+
+export interface TopicPin {
+  name: string;
+  lat: number;
+  lng: number;
+}
+
+export interface TopicData {
+  topic: string;
+  ui_name: string | null;
+  displayName: string;
+  responses: { en: string[]; ceb: string[] };
+  images: string[];
+  map: { lat: number; lng: number } | null;
+  pins: TopicPin[];
+}
+
+export interface SuperIntentTopicsResult {
+  intent: string;
+  displayName: string;
+  topics: TopicData[];
+}
+
+export async function fetchSuperIntents(): Promise<SuperIntentMeta[]> {
+  try {
+    const response = await fetch(`${API_BASE}/super-intents`, {
+      headers: getAuthHeaders(),
+    });
+    const result = await response.json();
+    return result.success ? result.superIntents : [];
+  } catch (error) {
+    console.error('Error fetching super intents:', error);
+    return [];
+  }
+}
+
+export async function fetchSuperIntentTopics(file: string): Promise<SuperIntentTopicsResult | null> {
+  try {
+    const response = await fetch(`${API_BASE}/super-intents/${encodeURIComponent(file)}`, {
+      headers: getAuthHeaders(),
+    });
+    const result = await response.json();
+    return result.success ? result : null;
+  } catch (error) {
+    console.error('Error fetching super intent topics:', error);
+    return null;
+  }
+}
+
+export async function updateSuperIntentTopic(
+  file: string,
+  topicData: {
+    topic: string;
+    ui_name?: string;
+    responses?: { en: string[]; ceb: string[] };
+    images?: string[];
+    map?: { lat: number; lng: number } | null;
+    pins?: TopicPin[];
+  }
+): Promise<ApiResponse> {
+  try {
+    const response = await fetch(`${API_BASE}/super-intents/${encodeURIComponent(file)}/topic`, {
+      method: 'POST',
+      headers: getJsonAuthHeaders(),
+      body: JSON.stringify(topicData),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('Error updating topic:', error);
+    return { success: false, message: 'Network error' };
+  }
+}

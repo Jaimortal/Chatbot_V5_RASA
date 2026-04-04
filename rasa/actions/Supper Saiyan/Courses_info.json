@@ -981,6 +981,32 @@
       }
     },
     {
+      "topic": "meaning_of_nonboard_course",
+      "responses": {
+        "en": [
+          "In the context of Bukidnon State University (BukSU) and the Philippine education system, non-board courses are degree programs that <b>do not require</b> a graduate to pass a national licensure examination (commonly known as a Board Exam) to legally practice their profession.",
+          "While Board Courses (like Nursing, Teacher Education, or Accountancy) require passing an exam conducted by the Professional Regulation Commission (PRC), graduates of non-board programs are considered profession-ready upon receiving their college diploma."
+        ],
+        "ceb": [
+          "Sa konteksto sa Bukidnon State University (BukSU) ug sa sistema sa edukasyon sa Pilipinas, ang non-board courses mao ang mga degree program nga dili na kinahanglan nga makapasar ang usa ka graduate sa national licensure examination (kasagarang gitawag og Board Exam) aron legal nga makapraktis sa ilang propesyon.",
+          "Samtang ang Board Courses (sama sa Nursing, Teacher Education, o Accountancy) nagkinahanglan nga makapasar sa exam nga gipahigayon sa Professional Regulation Commission (PRC), ang mga graduate sa non-board programs giisip nga andam na sa propesyon pagkadawat nila sa ilang college diploma."
+        ]
+      }
+    },
+    {
+      "topic": "meaning_of_board_course",
+      "responses": {
+        "en": [
+          "At Bukidnon State University (BukSU), board courses are degree programs that require graduates to pass a national licensure examination before they can legally practice their profession. These exams are regulated by the Professional Regulation Commission (PRC) or other government bodies.",
+          "Unlike non-board courses, completing the degree is only the first step; the Board Exam serves as the final gateway to becoming a registered professional."
+        ],
+        "ceb": [
+          "Sa Bukidnon State University (BukSU), ang board courses mao ang mga degree program nga nagkinahanglan nga makapasar ang mga graduate sa national licensure examination sa dili pa sila legal nga makapraktis sa ilang propesyon. Kini nga mga exam ginadumala sa Professional Regulation Commission (PRC) o uban pang ahensya sa gobyerno.",
+          "Kalahi sa non-board courses, ang paghuman sa degree mao pa lang ang unang lakang; ang <b>Board Exam</b> maoy katapusang agianan aron mahimong rehistradong propesyonal."
+        ]
+      }
+    },
+    {
       "topic": "",
       "responses": {
         "en": [],

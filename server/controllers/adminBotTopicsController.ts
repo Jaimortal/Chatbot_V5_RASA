@@ -1,0 +1,378 @@
+import fs from 'fs';
+import path from 'path';
+import { Request, Response } from 'express';
+import { promises as fsPromises } from 'fs';
+
+// Define the TS structures matching the frontend expectations
+export interface BotTopic {
+  topicKey: string;
+  payload: string;
+  superIntent: string;
+  defaultLabel: string;
+  defaultIcon: string;
+  routingType: string;
+  previewResponse?: string;
+}
+
+export interface BotCategory {
+  id: string; 
+  displayName: string;
+  sourceFile: string;
+  topics: BotTopic[];
+}
+
+// Utility to generate clean labels from keys like: "restroom_location" -> "Restroom Location"
+function formatLabel(topicKey: string): string {
+  if (!topicKey) return "Unknown Topic";
+  return topicKey
+    .replace(/[_-]/g, ' ')
+    .replace(/([A-Z])/g, ' $1')
+    .split(' ')
+    .filter(word => word.length > 0)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ')
+    .trim();
+}
+
+// Smart Icon mapping based on keywords
+function guessIcon(labelOrKey: string): string {
+  const lowered = labelOrKey.toLowerCase();
+  if (lowered.includes('location') || lowered.includes('map') || lowered.includes('building') || lowered.includes('where')) return '📍';
+  if (lowered.includes('exam') || lowered.includes('test') || lowered.includes('quiz') || lowered.includes('cat')) return '📝';
+  if (lowered.includes('enrollment') || lowered.includes('admission') || lowered.includes('apply')) return '📋';
+  if (lowered.includes('policy') || lowered.includes('rule') || lowered.includes('guideline')) return '⚖️';
+  if (lowered.includes('money') || lowered.includes('fee') || lowered.includes('payment') || lowered.includes('finance') || lowered.includes('cashier')) return '💸';
+  if (lowered.includes('academic') || lowered.includes('course') || lowered.includes('class') || lowered.includes('subject')) return '📚';
+  if (lowered.includes('dorm') || lowered.includes('housing') || lowered.includes('room')) return '🏠';
+  if (lowered.includes('clinic') || lowered.includes('health') || lowered.includes('medical')) return '🏥';
+  if (lowered.includes('library') || lowered.includes('book')) return '📖';
+  if (lowered.includes('ict') || lowered.includes('tech') || lowered.includes('internet') || lowered.includes('wifi') || lowered.includes('computer')) return '💻';
+  if (lowered.includes('sports') || lowered.includes('gym') || lowered.includes('intramural') || lowered.includes('oval')) return '🏅';
+  if (lowered.includes('contact') || lowered.includes('email') || lowered.includes('phone') || lowered.includes('reach')) return '📞';
+  if (lowered.includes('schedule') || lowered.includes('date') || lowered.includes('time') || lowered.includes('calendar')) return '📅';
+  if (lowered.includes('scholar') || lowered.includes('grant') || lowered.includes('tes')) return '🎓';
+  if (lowered.includes('staff') || lowered.includes('faculty') || lowered.includes('admin') || lowered.includes('personnel')) return '👨‍🏫';
+  if (lowered.includes('password') || lowered.includes('account') || lowered.includes('login') || lowered.includes('portal')) return '🔐';
+  if (lowered.includes('result') || lowered.includes('grade') || lowered.includes('report') || lowered.includes('score')) return '📊';
+  if (lowered.includes('safet') || lowered.includes('guard')) return '🛡️';
+  
+  return '💡'; // Fallback
+}
+
+// Utility to format a display name from intent string
+// e.g. "ask_ict_info" -> "ICT Info",  "departments_faculty_staff" -> "Departments Faculty Staff"
+function formatIntentDisplayName(intent: string): string {
+  if (!intent) return 'Unknown';
+  // Remove leading "ask_" prefix if present
+  let name = intent.replace(/^ask_/, '');
+  // Replace underscores with spaces
+  name = name.replace(/_/g, ' ');
+  // Title-case each word
+  return name
+    .split(' ')
+    .filter(w => w.length > 0)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .join(' ')
+    .trim();
+}
+
+export class AdminBotTopicsController {
+
+  // -----------------------------------------------------------------------
+  // GET /api/admin/super-intents
+  // Returns a list of all Super Intent files with their display names
+  // -----------------------------------------------------------------------
+  static async getSuperIntents(req: Request, res: Response) {
+    try {
+      const basePath = path.join(process.cwd(), 'rasa', 'actions', 'Supper Saiyan');
+      if (!fs.existsSync(basePath)) {
+        return res.status(404).json({ success: false, message: 'Supper Saiyan directory not found' });
+      }
+
+      const files = fs.readdirSync(basePath).filter(f => f.endsWith('.json'));
+      const superIntents = files.map(file => {
+        try {
+          const filePath = path.join(basePath, file);
+          const content = fs.readFileSync(filePath, 'utf-8');
+          const data = JSON.parse(content);
+          const intent = data.intent || file.replace('.json', '');
+          return {
+            file,
+            intent,
+            displayName: formatIntentDisplayName(intent),
+            topicCount: Array.isArray(data.topics)
+              ? data.topics.filter((t: any) => t.topic && t.topic.trim()).length
+              : 0,
+          };
+        } catch {
+          return null;
+        }
+      }).filter(Boolean);
+
+      res.json({ success: true, superIntents });
+    } catch (error) {
+      console.error('Error fetching super intents:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // GET /api/admin/super-intents/:file
+  // Returns all topics for a given JSON file
+  // -----------------------------------------------------------------------
+  static async getSuperIntentTopics(req: Request, res: Response) {
+    try {
+      const { file } = req.params;
+      // Security: only allow .json files with safe names
+      if (!file || !file.endsWith('.json') || file.includes('..') || file.includes('/')) {
+        return res.status(400).json({ success: false, message: 'Invalid file name' });
+      }
+
+      const filePath = path.join(process.cwd(), 'rasa', 'actions', 'Supper Saiyan', file);
+      if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ success: false, message: 'File not found' });
+      }
+
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const data = JSON.parse(content);
+      const intent = data.intent || file.replace('.json', '');
+
+      const topics = (Array.isArray(data.topics) ? data.topics : [])
+        .filter((t: any) => t.topic && t.topic.trim())
+        .map((t: any) => ({
+          topic: t.topic,
+          ui_name: t.ui_name || null,
+          displayName: t.ui_name || formatLabel(t.topic),
+          responses: {
+            en: Array.isArray(t.responses?.en) ? t.responses.en : [],
+            ceb: Array.isArray(t.responses?.ceb) ? t.responses.ceb : [],
+          },
+          images: Array.isArray(t.images) ? t.images : [],
+          map: t.map || null,
+          pins: Array.isArray(t.pins) ? t.pins : [],
+        }));
+
+      res.json({ success: true, intent, displayName: formatIntentDisplayName(intent), topics });
+    } catch (error) {
+      console.error('Error fetching super intent topics:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // POST /api/admin/super-intents/:file/topic
+  // Body: { topic: string, ui_name?, responses?, images?, map?, pins? }
+  // Updates ONLY the matching topic object — never changes the `topic` key
+  // -----------------------------------------------------------------------
+  static async updateTopic(req: Request, res: Response) {
+    try {
+      const { file } = req.params;
+      if (!file || !file.endsWith('.json') || file.includes('..') || file.includes('/')) {
+        return res.status(400).json({ success: false, message: 'Invalid file name' });
+      }
+
+      const { topic: topicKey, ui_name, responses, images, map, pins } = req.body;
+      if (!topicKey) {
+        return res.status(400).json({ success: false, message: 'topic key is required' });
+      }
+
+      const filePath = path.join(process.cwd(), 'rasa', 'actions', 'Supper Saiyan', file);
+      if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ success: false, message: 'File not found' });
+      }
+
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const data = JSON.parse(content);
+
+      if (!Array.isArray(data.topics)) {
+        return res.status(400).json({ success: false, message: 'Invalid JSON structure: missing topics array' });
+      }
+
+      const idx = data.topics.findIndex((t: any) => t.topic === topicKey);
+      if (idx === -1) {
+        return res.status(404).json({ success: false, message: `Topic "${topicKey}" not found in ${file}` });
+      }
+
+      // Merge — NEVER overwrite the topic key itself
+      const existing = data.topics[idx];
+      const updated: any = { ...existing };
+
+      if (ui_name !== undefined) updated.ui_name = ui_name || undefined;
+
+      if (responses !== undefined) {
+        updated.responses = {
+          en: Array.isArray(responses.en) ? responses.en : (existing.responses?.en || []),
+          ceb: Array.isArray(responses.ceb) ? responses.ceb : (existing.responses?.ceb || []),
+        };
+      }
+
+      if (images !== undefined) {
+        updated.images = Array.isArray(images)
+          ? images.map((s: any) => String(s).trim()).filter(Boolean)
+          : (existing.images || []);
+      }
+
+      if (map !== undefined) {
+        updated.map = map;
+      }
+
+      if (pins !== undefined) {
+        updated.pins = Array.isArray(pins) ? pins : (existing.pins || []);
+      }
+
+      // Clean up undefined ui_name
+      if (updated.ui_name === undefined) delete updated.ui_name;
+
+      data.topics[idx] = updated;
+
+      await fsPromises.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
+
+      res.json({ success: true, message: 'Topic updated successfully', topic: updated });
+    } catch (error) {
+      console.error('Error updating topic:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // GET /api/admin/bot-topics  (existing endpoint kept)
+  // -----------------------------------------------------------------------
+  static async getTopics(req: Request, res: Response) {
+    try {
+      const categories: BotCategory[] = [];
+      const basePath = path.join(process.cwd(), 'rasa', 'actions');
+      
+      // 1. Parse Supper Saiyan/ JSON files
+      const supperSaiyanPath = path.join(basePath, 'Supper Saiyan');
+      if (fs.existsSync(supperSaiyanPath)) {
+        const files = fs.readdirSync(supperSaiyanPath).filter(f => f.endsWith('.json'));
+        
+        for (const file of files) {
+          try {
+            const filePath = path.join(supperSaiyanPath, file);
+            const content = fs.readFileSync(filePath, 'utf-8');
+            const data = JSON.parse(content);
+            const superIntent = data.intent; 
+            
+            if (data.topics && Array.isArray(data.topics)) {
+              const botTopics: BotTopic[] = [];
+              for (const top of data.topics) {
+                if (top.topic) { // Ensure topicKey isn't empty
+                  const topicKey = top.topic;
+                  let preview = "";
+                  if (top.responses?.en && Array.isArray(top.responses.en)) {
+                    preview = top.responses.en.join(" ");
+                  }
+                  
+                  botTopics.push({
+                    topicKey: topicKey,
+                    payload: `/${superIntent}{"topic": "${topicKey}"}`,
+                    superIntent: superIntent,
+                    defaultLabel: formatLabel(topicKey),
+                    defaultIcon: guessIcon(topicKey + ' ' + file),
+                    routingType: 'supper_saiyan',
+                    previewResponse: preview
+                  });
+                }
+              }
+              
+              if (botTopics.length > 0) {
+                categories.push({
+                  id: file,
+                  displayName: formatLabel(file.replace('.json', '')),
+                  sourceFile: `Supper Saiyan/${file}`,
+                  topics: botTopics
+                });
+              }
+            }
+          } catch (err) {
+            console.error(`Error parsing file ${file}:`, err);
+          }
+        }
+      }
+      
+      // 2. Parse responses_location.json
+      const locationFile = path.join(basePath, 'responses_location.json');
+      if (fs.existsSync(locationFile)) {
+        try {
+          const content = fs.readFileSync(locationFile, 'utf-8');
+          const data = JSON.parse(content);
+          
+          if (data.locations && typeof data.locations === 'object') {
+            const locTopics: BotTopic[] = [];
+            for (const key of Object.keys(data.locations)) {
+              let preview = "";
+              if (data.locations[key]?.responses?.en && Array.isArray(data.locations[key].responses.en)) {
+                preview = data.locations[key].responses.en.join(" ");
+              }
+              locTopics.push({
+                topicKey: key,
+                payload: `/ask_locations{"location_name": "${key}"}`,
+                superIntent: 'ask_locations',
+                defaultLabel: formatLabel(key),
+                defaultIcon: guessIcon(key + ' location map building'),
+                routingType: 'location',
+                previewResponse: preview
+              });
+            }
+            
+            categories.push({
+              id: 'responses_location.json',
+              displayName: 'Locations & Mapping',
+              sourceFile: 'responses_location.json',
+              topics: locTopics
+            });
+          }
+        } catch (err) {
+          console.error("Error parsing responses_location.json:", err);
+        }
+      }
+      
+      // 3. Parse responses.json
+      const responsesFile = path.join(basePath, 'responses.json');
+      if (fs.existsSync(responsesFile)) {
+        try {
+          const content = fs.readFileSync(responsesFile, 'utf-8');
+          const data = JSON.parse(content);
+          
+          if (Array.isArray(data)) {
+            const resTopics: BotTopic[] = [];
+            for (const item of data) {
+              if (item.intent) {
+                let preview = "";
+                if (item.responses?.answer) {
+                  preview = typeof item.responses.answer === 'string' 
+                    ? item.responses.answer 
+                    : Array.isArray(item.responses.answer) ? item.responses.answer.join(" ") : "";
+                }
+                resTopics.push({
+                  topicKey: item.intent,
+                  payload: `/${item.intent}`,
+                  superIntent: item.intent,
+                  defaultLabel: formatLabel(item.intent),
+                  defaultIcon: guessIcon(item.intent + ' ' + (item.category || '')),
+                  routingType: 'response',
+                  previewResponse: preview
+                });
+              }
+            }
+            
+            categories.push({
+              id: 'responses.json',
+              displayName: 'General Responses',
+              sourceFile: 'responses.json',
+              topics: resTopics
+            });
+          }
+        } catch (err) {
+          console.error("Error parsing responses.json:", err);
+        }
+      }
+      
+      res.json({ categories });
+    } catch (error) {
+      console.error('Error fetching bot topics:', error);
+      res.status(500).json({ message: 'Internal server error while fetching bot topics' });
+    }
+  }
+}

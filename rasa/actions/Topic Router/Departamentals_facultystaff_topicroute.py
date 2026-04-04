@@ -10,7 +10,7 @@ DEPARTMENTS_FACULTY_STAFF_TOPIC_PATTERNS = {
             "pangalan sa dean sa cot"
         ],
         "strong_keywords": [
-            "COT", "technologies", "college", "dean", "Dean's"
+            "COT", "technologies", "college", "dean", "Dean's", "technology"
         ],
         "weak_keywords": [
             "dean", "who", "kinsa", "pangalan", "sino", "college", "technologies"
@@ -205,7 +205,7 @@ DEPARTMENTS_FACULTY_STAFF_TOPIC_PATTERNS = {
             "COE", "education", "college", "head"
         ],
         "weak_keywords": [
-            "head", "chair", "program", "department", "chairperson", "coe", "education", "laboratory"
+            "head", "chair", "program", "department", "chairperson", "coe", "education"
         ],
         "required_context": []
     },
@@ -221,7 +221,7 @@ DEPARTMENTS_FACULTY_STAFF_TOPIC_PATTERNS = {
             "col", "law", "college ", "head"
         ],
         "weak_keywords": [
-            "head", "chair", "program", "department", "chairperson", "law", "zamora", "rubio", "college"
+            "head", "chair", "program", "department", "chairperson", "law", "zamora", "rubio"
         ],
         "required_context": []
     }

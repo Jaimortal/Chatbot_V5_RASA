@@ -30,10 +30,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock, Eye, EyeOff, Menu, X, Database } from "lucide-react";
+import { Plus, Edit2, Save, MessageSquare, Shield, LogOut, Settings, User, Mail, Lock, Eye, EyeOff, Menu, X, Database, LayoutList } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import InteractiveMap from "@/components/InteractiveMap";
+import { AdminFAQs } from "@/components/admin/AdminFAQs";
+import { AdminSuperIntents } from "@/components/admin/AdminSuperIntents";
+import { AdminGeneralResponses } from "@/components/admin/AdminGeneralResponses";
+import { AdminLocations } from "@/components/admin/AdminLocations";
 
 export default function AdminDashboard() {
   const queryClient = useQueryClient();
@@ -42,7 +46,7 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("responses");
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
-  const [responsesSubTab, setResponsesSubTab] = useState<"general" | "locations">("general");
+  const [responsesSubTab, setResponsesSubTab] = useState<"general" | "locations" | "super-intents">("general");
   
   // Migration state
   const [showMigrateDialog, setShowMigrateDialog] = useState(false);
@@ -262,6 +266,7 @@ export default function AdminDashboard() {
   // --- UI ---
   const menuItems = [
     { id: "responses", label: "Responses", icon: MessageSquare },
+    { id: "faqs", label: "FAQs", icon: LayoutList },
     { id: "privileges", label: "User Privilege", icon: User },
     { id: "admin-settings", label: "Admin Settings", icon: Settings },
     { id: "logout", label: "Logout", icon: LogOut, isLogout: true },
@@ -289,21 +294,20 @@ export default function AdminDashboard() {
         </Button>
       </div>
 
-      {/* Sidebar Navigation */}
+      {/* Sidebar Navigation — always fixed, never scrolls with page */}
       <div className={`
-        fixed lg:relative w-64 bg-white shadow-lg z-50 lg:z-auto
+        fixed top-0 left-0 w-64 bg-white shadow-lg z-50
+        flex flex-col h-screen
         transform transition-transform duration-300 ease-in-out
         ${isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-        h-full lg:h-auto
       `}>
-        <div className="p-6" >
+        <div className="p-6 shrink-0">
           <div className="flex items-center gap-3 mb-2">
             <img 
               src="/LOGO.png" 
               alt="Admin Logo" 
               className="w-10 h-10 rounded-lg"
               onError={(e) => {
-                // Fallback if image doesn't exist
                 e.currentTarget.style.display = 'none';
               }}
             />
@@ -314,7 +318,7 @@ export default function AdminDashboard() {
           </div>
         </div>
         
-        <nav className="p-4 gap-2 flex flex-col">
+        <nav className="px-4 gap-2 flex flex-col flex-1 overflow-y-auto pb-6">
           {menuItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -350,8 +354,8 @@ export default function AdminDashboard() {
         </nav>
       </div>
 
-      {/* Main Content */}
-      <div className="flex-1 p-4 lg:p-8 mt-5">
+      {/* Main Content — offset by sidebar width on desktop */}
+      <div className="flex-1 p-4 lg:p-8 mt-5 lg:ml-64">
         <div className="max-w-6xl mx-auto">
           {activeTab === "responses" && (
             <div className="space-y-6">
@@ -362,27 +366,29 @@ export default function AdminDashboard() {
                       <CardTitle className="text-lg sm:text-xl">Chatbot Responses</CardTitle>
                       <CardDescription className="text-sm">Manage chatbot responses and their location data</CardDescription>
                     </div>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        onClick={() => setShowMigrateDialog(true)}
-                        className="w-full sm:w-auto"
-                      >
-                        <Database className="mr-2 h-4 w-4" />
-                        Migrate from JSON
-                      </Button>
-                      {responsesSubTab === "general" ? (
-                        <ResponseDialog
-                          onSave={saveResponseMutation.mutateAsync}
-                          translationBusy={translationBusy}
-                          translationBusyIntent={translationBusyIntent}
-                        />
-                      ) : (
-                        <LocationDialog
-                          onSave={(l) => saveLocationMutation.mutate(l)}
-                        />
-                      )}
-                    </div>
+                    {responsesSubTab !== "super-intents" && (
+                      <div className="flex gap-2">
+                        <Button
+                          variant="outline"
+                          onClick={() => setShowMigrateDialog(true)}
+                          className="w-full sm:w-auto"
+                        >
+                          <Database className="mr-2 h-4 w-4" />
+                          Migrate from JSON
+                        </Button>
+                        {responsesSubTab === "general" ? (
+                          <ResponseDialog
+                            onSave={saveResponseMutation.mutateAsync}
+                            translationBusy={translationBusy}
+                            translationBusyIntent={translationBusyIntent}
+                          />
+                        ) : (
+                          <LocationDialog
+                            onSave={(l) => saveLocationMutation.mutate(l)}
+                          />
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4">
@@ -390,10 +396,11 @@ export default function AdminDashboard() {
                       <TabsList>
                         <TabsTrigger value="general">General</TabsTrigger>
                         <TabsTrigger value="locations">Locations</TabsTrigger>
+                        <TabsTrigger value="super-intents">Super Intents</TabsTrigger>
                       </TabsList>
                     </Tabs>
                     
-                    {/* Search Bar - Beside Tabs */}
+                    {/* Search Bar - Beside Tabs - hidden for Super Intents (has its own search) */}
                     {responsesSubTab === "general" ? (
                       <div className="flex gap-2 items-center">
                         <Input
@@ -418,7 +425,7 @@ export default function AdminDashboard() {
                           </Select>
                         </div>
                       </div>
-                    ) : (
+                    ) : responsesSubTab === "locations" ? (
                       <div className="flex gap-2 items-center">
                         <Input
                           placeholder="Search locations..."
@@ -442,94 +449,16 @@ export default function AdminDashboard() {
                           </Select>
                         </div>
                       </div>
-                    )}
+                    ) : null}
                   </div>
                 </CardHeader>
-                <CardContent>
-                  {responsesSubTab === "general" ? (
-                    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-                      <Table>
-                        <TableHeader>
-                          <TableRow>
-                            <TableHead className="min-w-[120px]">Intent</TableHead>
-                            <TableHead className="min-w-[100px] hidden sm:table-cell">Category</TableHead>
-                            <TableHead className="min-w-[120px] hidden sm:table-cell">Has Map Data</TableHead>
-                            <TableHead className="w-[80px] sm:w-[100px]">Actions</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {filteredResponses.map((response) => (
-                            <TableRow key={response.intent}>
-                              <TableCell className="font-medium text-sm sm:text-base">{response.intent}</TableCell>
-                              <TableCell className="text-sm sm:text-base hidden sm:table-cell">{response.category}</TableCell>
-                              <TableCell className="hidden sm:table-cell">
-                                <span className={`inline-block px-2 py-1 rounded text-xs sm:text-sm font-medium ${response.responses?.mapData ? "text-blue-600 bg-blue-50" : "text-gray-500 bg-gray-50"}`}>
-                                  {response.responses?.mapData ? "YES" : "NO"}
-                                </span>
-                              </TableCell>
-                              <TableCell>
-                                <div className="flex gap-1 sm:gap-2">
-                                   <ResponseDialog 
-                                      response={response} 
-                                      onSave={saveResponseMutation.mutateAsync} 
-                                      translationBusy={translationBusy}
-                                      translationBusyIntent={translationBusyIntent}
-                                      trigger={<Button variant="ghost" size="sm" className="h-8 w-8 sm:h-9 sm:w-9"><Edit2 className="h-3 w-3 sm:h-4 sm:w-4"/></Button>}
-                                   />
-                                </div>
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                          {filteredResponses.length === 0 && (
-                            <TableRow>
-                              <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
-                                No responses found matching your filters.
-                              </TableCell>
-                            </TableRow>
-                          )}
-                        </TableBody>
-                      </Table>
-                    </div>
+                <CardContent className={responsesSubTab === "super-intents" ? "p-4" : responsesSubTab === "general" ? "p-4" : "p-4"}>
+                  {responsesSubTab === "super-intents" ? (
+                    <AdminSuperIntents />
+                  ) : responsesSubTab === "general" ? (
+                    <AdminGeneralResponses />
                   ) : (
-                    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-                      <Table>
-                        <TableHeader>
-                          <TableRow>
-                            <TableHead className="min-w-[160px]">Location</TableHead>
-                            <TableHead className="min-w-[120px] hidden sm:table-cell">Type</TableHead>
-                            <TableHead className="min-w-[160px] hidden sm:table-cell">Building</TableHead>
-                            <TableHead className="min-w-[120px] hidden sm:table-cell">Floor</TableHead>
-                            <TableHead className="w-[80px] sm:w-[100px]">Actions</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {filteredLocations.map((loc) => (
-                            <TableRow key={loc.id}>
-                              <TableCell className="font-medium text-sm sm:text-base">{loc.name}</TableCell>
-                              <TableCell className="text-sm sm:text-base hidden sm:table-cell">{loc.type || ""}</TableCell>
-                              <TableCell className="text-sm sm:text-base hidden sm:table-cell">{loc.building || ""}</TableCell>
-                              <TableCell className="text-sm sm:text-base hidden sm:table-cell">{loc.floor || ""}</TableCell>
-                              <TableCell>
-                                <div className="flex gap-1 sm:gap-2">
-                                  <LocationDialog
-                                    location={loc}
-                                    onSave={(l) => saveLocationMutation.mutate(l)}
-                                    trigger={<Button variant="ghost" size="sm" className="h-8 w-8 sm:h-9 sm:w-9"><Edit2 className="h-3 w-3 sm:h-4 sm:w-4"/></Button>}
-                                  />
-                                </div>
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                          {filteredLocations.length === 0 && (
-                            <TableRow>
-                              <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
-                                No locations found matching your filters.
-                              </TableCell>
-                            </TableRow>
-                          )}
-                        </TableBody>
-                      </Table>
-                    </div>
+                    <AdminLocations />
                   )}
                 </CardContent>
               </Card>
@@ -617,6 +546,10 @@ export default function AdminDashboard() {
                 </CardContent>
               </Card>
             </div>
+          )}
+
+          {activeTab === "faqs" && (
+            <AdminFAQs />
           )}
         </div>
       </div>

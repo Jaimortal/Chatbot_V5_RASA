@@ -268,42 +268,31 @@ nlu:
 
 - intent: ask_buksuadmin_info
   examples: |
-    # Buksu_vice_pres
     - who is the vice president of buksu
     - who are the buksu vice presidents
     - tell me who are the vice president of buksu
     - can you tell me who is the vice president of buksu
     - can you list down all the bukidnon state university vice presidents
-
-    # vicepres_academic_affairs
     - who is the vice president for academic affairs in buksu
     - can you tell me who is the vp for academic affairs at bukidnon state university
     - who handles academic affairs in buksu as vice president
     - tell me the name of the buksu vice president for academic affairs
     - who is in charge of academic affairs at buksu right now
-
-    # vicepres_research_extension_innovations
     - who is the vice president for research extension and innovations in buksu
     - can you tell me who is the vp for research and innovations at buksu
     - who handles research extension and innovations in bukidnon state university
     - tell me who the buksu vice president for research and extension is
     - who is in charge of research and innovations at buksu
-
-    # vicepres_administration_finance
     - who is the vice president for administration and finance in buksu
     - can you tell me who is the vp for admin and finance at bukidnon state university
     - who handles administration and finance in buksu as vice president
     - tell me the name of the buksu vice president for administration and finance
     - who is in charge of admin and finance at buksu right now
-
-    # vicepres_culture_arts_sports_student_services
     - who is the vice president for culture arts sports and student services in buksu
     - can you tell me who is the vp for student services at bukidnon state university
     - who handles culture arts sports and student services in buksu
     - tell me the name of the buksu vice president for student services
     - who is in charge of culture sports and student services at buksu
-
-    # buksu_secretary
     - who is the board secretary of bukidnon state university
     - can you tell me who serves as the buksu board secretary
     - who is the secretary of the board of regents in buksu
@@ -313,7 +302,6 @@ nlu:
 
 - intent: ask_admissions_info
   examples: |
-    # exam_requirements
     - what should i bring on the examination day
     - can you tell me the requirements do i need to bring for the exam
     - what do i need to bring for exam
@@ -324,8 +312,6 @@ nlu:
     - unsa akong kinahanglan dad-on para sa exam
     - unsa ang mga butang nga akong andamon bago ang adlaw sa admission exam
     - lista sa mga kinahanglan dad-on sa buksu admission exam
-
-    # exam_results
     - when will the examination results be released
     - how can i check my admission exam results
     - where will buksu post the examination results
@@ -336,8 +322,6 @@ nlu:
     - asa i-post sa buksu ang resulta sa exam
     - kanus-a nila i-release ang resulta sa admission test
     - unsaon ug kanus-a nako mahibal-an akong resulta sa buksu exam
-
-    # take_exam
     - how can i take the buksu college admission test
     - what are the steps to apply for the buksu cat
     - step by step process on how to take the admission test in buksu
@@ -348,8 +332,6 @@ nlu:
     - step by step nga proseso unsaon pag-take sa admission test sa buksu
     - unsaon nako pag-register sa buksu entrance exam online
     - pwede nimo isulti ang proseso sa pag-apply sa buksu admission test
-
-    # application_next_step
     - i already filled out the online application what do i do next
     - what is the next step after completing the buksu application form
     - i finished my online application so what should i do after
@@ -360,8 +342,6 @@ nlu:
     - nahuman na nako akong online application unsa akong buhaton sunod
     - human nako submit sa application unsa na sunod buhaton
     - nahuman na nako ang application form unsa na sunod
-
-    # no_slots
     - what should i do if there are no available slots for the exam
     - no slots available in the admission portal what do i do
     - the admission test slots are all taken what can i do
@@ -372,8 +352,6 @@ nlu:
     - puno na tanan slots sa admission test unsa akong mahimo
     - dili ko kakita og available slot para sa buksu cat exam
     - wala nay nagpakita nga slots sa akong admission account
-
-    # status_application
     - how will i know if my admission application is accepted
     - where can i check the status of my buksu admission application
     - how do i find out if my application for the cat exam was approved
@@ -384,8 +362,6 @@ nlu:
     - unsaon nako pagkahibalo kung approved akong cat exam application
     - unsaon nako pagkahibalo kung gidawat akong application sa exam
     - asa nako ma-check kung nadawat akong buksu cat application
-
-    # exam_fees
     - is there a fee for the buksu college admission test
     - do i need to pay for the buksu entrance exam
     - how much is the admission test fee in buksu
@@ -396,8 +372,6 @@ nlu:
     - pila ang bayad sa admission test sa buksu
     - libre ba ang buksu cat exam o kinahanglan mobayad
     - naa bay bayad sa pag-take sa college admission test sa buksu
-
-    # office_schedule
     - what are the office hours of buksu
     - what time does the buksu office open and close
     - when are the buksu offices open during the week
@@ -408,8 +382,6 @@ nlu:
     - kanus-a open ang buksu offices sa semana
     - unsang mga adlaw open ang buksu offices para sa students
     - open ba ang buksu office sa weekend o weekdays lang
-
-    # online_application_schedule
     - where can i find the buksu cat online application schedule
     - when is the online application for buksu cat open for next school year
     - where can i see the schedule for the buksu admission application
@@ -420,8 +392,6 @@ nlu:
     - asa nako makita ang schedule sa buksu admission application
     - pwede nimo isulti ang schedule sa online application sa buksu admission test
     - kanus-a mag-open ang buksu cat application para ay 2026 2027
-
-    # denied_applications
     - why was my admission application denied from the testing site
     - my application got denied what is the reason
     - why did they deny my buksu cat application from my testing site
@@ -432,8 +402,6 @@ nlu:
     - ngano gi-deny akong buksu cat application sa testing site
     - gi-deny sa testing site akong application ngano nahitabo ni
     - unsa akong buhaton kung gi-deny akong application sa testing site
-
-    # main_campus_full
     - what if the admission slots at the main campus are already full
     - the main campus has no more slots left what can i do
     - main campus admission slots are full where else can i apply
@@ -444,8 +412,6 @@ nlu:
     - puno na ang slots sa main campus asa pa ko pwede mo-apply
     - puno na ang slots sa buksu main campus asa ko adto
     - unsa akong options kung wala nay slots sa main campus
-
-    # contact_registrar
     - how can i contact the buksu registrar office
     - what is the contact number of the university registrar
     - can you give me the email and phone number of the registrar office
@@ -456,8 +422,6 @@ nlu:
     - pwede nimo ihatag ang email ug phone number sa registrar office
     - asa nako ma-contact ang buksu registrar para sa inquiries
     - contact details sa buksu university registrar office
-
-    # contact_atu
     - how can i contact the buksu admission and testing unit
     - what is the contact number of the admission and testing unit
     - can you give me the contact details of the atu office
@@ -468,8 +432,6 @@ nlu:
     - pwede nimo ihatag ang contact details sa atu office
     - asa nako ma-contact ang buksu atu para sa admission concerns
     - contact information sa buksu admission and testing unit
-
-    # exam_location_vs_campus
     - does the location of my entrance exam determine my preferred campus
     - if i took the exam in a satellite campus does that mean i will study there
     - is the exam venue the same as the campus where i will enroll
@@ -480,8 +442,6 @@ nlu:
     - parehas ba ang exam venue ug ang campus nga akong enrollan
     - importante ba kung asa ko nag-take sa exam para sa akong campus
     - ang location ba sa exam magbuot kung asa ko nga campus
-
-    # system_error
     - i got a system error when i tried to open the admission website
     - the admission portal is showing an error what should i do
     - i encountered a glitch on the buksu admission page
@@ -492,8 +452,6 @@ nlu:
     - naka-encounter ko og glitch sa buksu admission page
     - naay system error sa admissions website unsaon pag-ayo ani
     - sige og error ang buksu admission site kung i-access nako
-
-    # additional_slots
     - will there be additional slots for the admission test
     - is there a chance that new slots will open up for the cat exam
     - what should i do if i missed the slots and waiting for new ones
@@ -504,8 +462,6 @@ nlu:
     - unsa akong buhaton kung na-miss nako ang slots ug naghulat ko og bag-o
     - mugawas ba og additional slots kung naay ma-deny nga applications
     - unsaon nako pagkuha og slot kung puno na ang current
-
-    # contact_scholarship_unit
     - how can i contact the scholarships and financial grants unit
     - what is the contact info of the buksu scholarship office
     - can you give me the contact details of the scholarship unit in buksu
@@ -516,8 +472,6 @@ nlu:
     - pwede nimo ihatag ang contact details sa scholarship unit sa buksu
     - asa nako ma-contact ang financial grants unit para sa scholarship
     - contact details sa buksu scholarships ug financial grants unit
-
-    # board_exam_review
     - does buksu offer board exam review programs for students
     - are there any review sessions offered by the college for board exams
     - do they have board examination review at buksu
@@ -528,8 +482,6 @@ nlu:
     - naa bay board exam review sa buksu
     - naa bay support sa board exam review sa mga college sa buksu
     - pwede ba ko mo-apil sa board exam review program sa buksu
-
-    # licensure_examination
     - what is a licensure examination
     - can you explain what a licensure exam is
     - what does licensure examination mean for college graduates
@@ -540,8 +492,6 @@ nlu:
     - unsa ang pasabot sa licensure examination para sa college graduates
     - unsa ang kahulugan sa licensure examination
     - pwede nimo isulti unsa ang licensure exam ug para unsa ni
-
-    # mock_board_exam
     - what is a mock board exam
     - can you explain what a mock board examination is
     - what does mock board exam mean for students
@@ -552,8 +502,6 @@ nlu:
     - unsa ang pasabot sa mock board exam para sa students
     - unsa ang purpose sa mock board exam
     - parehas ba ang mock board exam sa tinuod nga board exam
-
-    # reschedule_entrance_exam
     - can i reschedule my buksu entrance exam date
     - is it possible to change my exam schedule for the buksu admission test
     - what happens if i cant attend my assigned exam date
@@ -564,8 +512,6 @@ nlu:
     - unsa mahitabo kung dili ko ka-attend sa akong exam date
     - pwede ba nako ilipat akong exam date sa laing schedule
     - dili ko ka-attend sa akong exam day pwede ba mag-reschedule
-
-    # cat_requirement_nursing_program
     - what is the required cat score for the nursing program in buksu
     - how high should my admission score be to qualify for nursing at buksu
     - what cat score do i need to enter the college of nursing
@@ -576,8 +522,6 @@ nlu:
     - unsa nga cat score ang kinahanglan para makasulod sa college of nursing
     - pila ang passing score sa buksu cat para sa nursing
     - pila ka score ang kinahanglan sa admission test para sa nursing sa buksu
-
-    # cat_requirement_education_program
     - what is the required cat score for the education program in buksu
     - how high should my admission score be to qualify for education at buksu
     - what cat score do i need to enter the college of education
@@ -588,8 +532,6 @@ nlu:
     - unsa nga cat score ang kinahanglan para makasulod sa college of education
     - pila ang passing score sa buksu cat para sa education
     - pila ka score ang kinahanglan sa admission test para sa education course sa buksu
-
-    # gpat_admission_requirements
     - what are the requirements for the graduate program admission test
     - what do i need to submit for the gpat application
     - can you tell me the requirements for the gpat in buksu
@@ -600,8 +542,6 @@ nlu:
     - pwede nimo isulti ang requirements sa gpat sa buksu
     - unsa nga mga dokumento ang kinahanglan para sa graduate admission test
     - lista sa requirements para sa buksu gpat application
-
-    # transferee_admission_requirements
     - what are the requirements for transferee students at buksu
     - can a transferee enroll in buksu and what are the requirements
     - what do transferees need to submit to apply at buksu
@@ -612,8 +552,6 @@ nlu:
     - unsa ang ipasa sa transferee para maka-apply sa buksu
     - unsaon nako pag-transfer sa buksu gikan sa laing school ug unsa ang kinahanglan
     - unsa ang proseso ug requirements para sa transferee admission sa buksu
-
-    # buksu_admission_facebook_page
     - where can i find the official buksu admission facebook page
     - what is the facebook page of the buksu admission and testing unit
     - can you give me the link for the buksu admission facebook page
@@ -624,8 +562,6 @@ nlu:
     - pwede nimo ihatag ang link sa buksu admission facebook page
     - asa ko mo-follow para sa buksu admission updates sa facebook
     - link sa official admission and testing unit facebook page
-
-    # missed_buksu_cat_schedule
     - what should i do if i missed my buksu cat exam schedule
     - i was not able to attend my scheduled exam date what do i do
     - i missed my admission test schedule can i still take the exam
@@ -636,8 +572,6 @@ nlu:
     - na-miss nako ang admission test schedule pwede pa ba ko maka-take
     - unsa mahitabo kung wala ko naka-adto sa akong buksu cat exam
     - nakalimot ko sa akong exam date ug na-miss nako unsa akong buhaton
-
-    # als_graduate_buksu_cat_application
     - can als graduates apply for the buksu cat admission test
     - are als passers allowed to take the buksu college admission test
     - im an als graduate can i apply for buksu admission
@@ -648,8 +582,6 @@ nlu:
     - als graduate ko pwede ba ko mo-apply sa buksu
     - mudawat ba ang buksu og als graduates para sa entrance exam
     - unsa ang ipasa sa als graduates para maka-apply sa buksu cat
-
-    # apply_cat_using_mobile_phone
     - can i use my phone to apply for the buksu cat online
     - is it okay to access the admission portal using a mobile phone
     - can i apply for buksu admission test using my cellphone
@@ -660,8 +592,6 @@ nlu:
     - pwede ba ko mo-apply sa buksu admission gamit akong cellphone
     - posible ba gamiton ang smartphone para mag-register sa buksu cat
     - pwede ba nako mahuman ang buksu admission application gamit akong phone
-
-    # second_courser_cat_application
     - can second coursers apply for the buksu cat admission test
     - are second course takers allowed to take the buksu cat exam
     - im a second courser can i still apply for buksu admission test
@@ -672,8 +602,6 @@ nlu:
     - second courser ko pwede pa ba ko mo-apply sa buksu admission test
     - unsa ang requirements para sa second coursers sa buksu cat
     - kinahanglan ba mobayad ang second coursers sa admission test
-
-    # buksu_cat_definition
     - what is the buksu cat
     - what does buksu cat stand for
     - can you explain what the buksu college admission test is
@@ -684,8 +612,6 @@ nlu:
     - pwede nimo ipasabot unsa ang buksu college admission test
     - unsa ang kahulugan sa buksu cat
     - isulti unsa ang buksu cat exam
-
-    # masters_degree_admission_requirements
     - what are the requirements for masters degree admission at buksu
     - what do i need to submit to apply for a masters program in buksu
     - can you tell me the admission requirements for the graduate school
@@ -696,8 +622,6 @@ nlu:
     - pwede nimo isulti ang requirements para sa graduate school
     - unsa nga dokumento ang kinahanglan para sa masters application
     - lista sa requirements para sa buksu masters program
-
-    # second_courser_requirements
     - what are the requirements for second coursers at buksu
     - what do second course takers need to submit for admission
     - what documents should second coursers prepare for buksu admission
@@ -708,8 +632,6 @@ nlu:
     - unsa nga dokumento ang andamon sa second coursers para sa buksu
     - pwede nimo ilista ang requirements para sa second coursers sa buksu
     - unsa ang kinahanglan sa second courser para maka-apply sa buksu
-
-    # buksu_admission_contact
     - how can i contact the buksu admission office directly
     - where is the buksu admission and testing unit office located
     - how do i reach the admission office for my concerns
@@ -720,8 +642,6 @@ nlu:
     - unsaon nako pag-adto o pag-reach sa admission office para sa akong concerns
     - pwede ba ko moadto sa buksu admission office para mangutana
     - unsa ang pinakamaayong paagi sa pag-contact sa buksu admission and testing unit
-
-    # law_admission_requirements
     - what are the requirements to apply for the law program at buksu
     - what do i need to submit for the juris doctor program admission
     - can you tell me the admission requirements for buksu law school
@@ -732,8 +652,6 @@ nlu:
     - pwede nimo isulti ang admission requirements sa buksu law school
     - unsa ang mga steps para madawat sa buksu law program
     - unsa nga dokumento ug exam ang kinahanglan para makasulod sa buksu law school
-
-    # buksu_cat_calculator_policy
     - am i allowed to bring a calculator during the buksu cat exam
     - can i use a calculator inside the testing room for the admission test
     - is it okay to bring a scientific calculator for the buksu cat
@@ -744,8 +662,6 @@ nlu:
     - okay ra ba magdala og scientific calculator sa buksu cat
     - allowed ba ang calculator sa buksu college admission test
     - unsa nga mga butang ang dili pwede sulod sa testing room
-
-    # admission_application_deadline
     - when is the deadline for buksu admission application
     - what is the last day to apply for the buksu cat
     - until when can i submit my admission application for buksu
@@ -756,8 +672,6 @@ nlu:
     - hangtod kanus-a pwede mo-submit sa admission application
     - naa bay specific deadline sa buksu admission application
     - kanus-a mahuman ang buksu admission application period
-
-    # freshman_admission_requirements
     - what are the requirements for freshman admission at buksu
     - what do incoming first year students need to submit for buksu admission
     - can you tell me the documentary requirements for freshman applicants
@@ -768,8 +682,16 @@ nlu:
     - pwede nimo isulti ang documentary requirements para sa freshman
     - unsa ang akong andamon bago mo-apply sa buksu isip freshman
     - lista sa mga kinahanglan para maka-apply sa buksu isip incoming student
-
-    # program_cutoff_scores
+    - what requirements do i need to apply admission examination
+    - what are the requirements for applying to buksu admission examination
+    - what do i need to apply for buksu admission testing
+    - requirements needed to apply for buksu admission examination
+    - unsa ang requirements para maka apply sa buksu admission examination
+    - what documents do i need to apply for admission testing
+    - unsa ang kailangan para maka apply sa admission examination
+    - requirements for applying to the buksu college admission test
+    - what requirements do i need for admission testing
+    - unsa ang mga requirements para mag apply sa buksu admission testing
     - what is the passing score for the buksu cat exam
     - what is the minimum cat score to get admitted at buksu
     - how much score do i need to pass the buksu admission test
@@ -780,8 +702,6 @@ nlu:
     - pila ka score ang kinahanglan para makapasar sa admission test
     - unsa ang cutoff score para sa board courses sama sa nursing ug education
     - pila ang required passing rate sa buksu admission test
-
-    # admission_contact_help
     - who should i contact for help with my buksu admission concerns
     - where can i go for help with my admission application
     - can i visit the admission office in person for assistance
@@ -792,8 +712,6 @@ nlu:
     - pwede ba ko moadto sa admission office para mangayo og tabang
     - unsaon nako pagkuha og tabang sa akong admission questions
     - kinsa makatabang nako sa akong admission concerns sa buksu
-
-    # cat_exam_result
     - how can i check if i passed the buksu cat exam
     - where do i see my buksu admission exam result
     - how do i view my cat exam result in my admission account
@@ -804,8 +722,6 @@ nlu:
     - unsaon nako pagtan-aw sa cat exam result sa akong account
     - step by step unsaon pag-check sa buksu cat result
     - unsaon nako pagkahibalo kung pasar o fail ko sa exam
-
-    # Cat_score_for_nonboard
     - what is the required cat score for non board courses at buksu
     - how much score do i need in the cat exam for non board programs
     - what is the passing score for non board courses in buksu admission
@@ -816,8 +732,6 @@ nlu:
     - pila ang passing score para sa non board courses sa buksu
     - lahi ba ang cat score requirement sa non board ug board courses
     - unsa nga score ang kinahanglan para makasulod sa non board course
-
-    # Change_info_admission
     - how can i change my personal information in my admission account
     - can i update my academic info in the buksu admission portal
     - how do i edit my information in my buksu admission account
@@ -828,8 +742,6 @@ nlu:
     - unsaon nako pag-edit sa akong info sa admission account
     - step by step unsaon pag-update sa admission info
     - asa nako pwede ilisan o i-update akong details sa website
-
-    # Change_Pass_admission
     - can you tell me how could i change my buksu admission password
     - step by step process on how could i change my admission password
     - how do i change my admission account password
@@ -840,8 +752,6 @@ nlu:
     - unsaon nako pag-ilis sa akong admission account password
     - asa nako pwede ilisan ang password sa admission website
     - unsaon pag-update sa password sa admission account
-
-    # Find_Institutional_Account
     - how can i find my institutional account in buksu
     - where do i see my institutional email and password in the admission portal
     - step by step on how to check my buksu institutional account
@@ -852,8 +762,6 @@ nlu:
     - step by step unsaon pag-check sa institutional account
     - unsaon nako pagtan-aw sa institutional account details
     - unsaon nako pag-access ang institutional account
-
-    # Find_Sias_Account
     - how can i find my sias account in buksu admission
     - where do i see my sias account details in the admission portal
     - step by step on how to check my buksu sias account
@@ -1073,14 +981,26 @@ nlu:
     - unsa ang mga courses nga gina offer sa bukidnon state university
     - pwede ko nimo hatagan sa listahan sa mga courses nga gi offer sa buksu
     - listahan sa mga courses nga gi offer sa bukidnon state university para sa mga incoming first year
+    - what is the non board course in buksu
     - All the non board courses that buksu can offer to their students
     - what are the list of non board degree programs that bukidnon state university offer
     - tanang non board courses nga gi offer sa buksu para sa ilang mga estudyante
     - unsa ang listahan sa mga non board degree programs nga gi offer sa bukidnon state university
-    - can you provide the list of board degree programs 
-    - all board degree list offer by bukidnon state university
-    - pwede ba nimo ihatag ang listahan sa mga board degree programs
-    - listahan sa tanang board degree programs nga gi offer sa bukidnon state university
+    - can you provide the list of non board degree programs 
+    - all non board degree list offer by bukidnon state university
+    - pwede ba nimo ihatag ang listahan sa mga non board degree programs
+    - listahan sa tanang non board degree programs nga gi offer sa bukidnon state university
+    - what is the board courses in buksu
+    - list of the board courses
+    - what are the board course that buksu offer to us
+    - send me all the board degree programs
+    - can you send me all the list of the board courses
+    - send me the board course list
+    - unsa ang listahan sa mga board courses
+    - unsa nga mga board course ang gina-offer sa BukSU
+    - pwede nimo ipadala ang tanang board degree programs
+    - pwede nimo ihatag ang kumpletong listahan sa mga board courses
+    - ihatag ang listahan sa mga board courses
     - What is the National Service Training Program at Bukidnon State University
     - Can you explain the purpose of the NSTP program for students
     - can you tell me what is nstp for?
@@ -1191,182 +1111,141 @@ nlu:
 
 - intent: departments_faculty_staff
   examples: |
-    # Dean_0f_COT
     - who is the dean of college of technology in buksu
     - can you tell me who is the dean of college of technology at bukidnon state university
     - who handles college of technology in buksu as dean
     - tell me the name of the buksu dean of college of technology
     - who is in charge of college of technology at buksu right now
-
     - kinsa ang dean sa college of technology sa buksu
     - pwede nimo isulti kinsa ang dean sa college of technology sa bukidnon state university
     - kinsa ang nagdumala sa college of technology isip dean sa buksu
     - isulti ang ngalan sa dean sa college of technology sa buksu
     - kinsa ang nagdumala sa college of technology karon sa buksu
-
-    # Dean_0f_COB
     - who is the dean of the college of business in buksu
     - can you tell me the name of the cob dean at bukidnon state university
     - tell me who leads the college of business at buksu
     - who is currently the dean of cob in buksu
     - who is in charge of the college of business at bukidnon state university
-
     - kinsa ang dean sa college of business sa buksu
     - pwede nimo isulti ang ngalan sa dean sa cob sa bukidnon state university
     - kinsa ang nagdumala sa college of business sa buksu
     - kinsa karon ang dean sa cob sa buksu
     - kinsa ang nagdumala sa college of business sa bukidnon state university
-
-    # Dean_0f_CAS
     - who is the dean of the college of arts and sciences in buksu
     - tell me who leads the cas department at bukidnon state university
     - can you give me the name of the buksu cas dean
     - who handles college of arts and sciences as dean at buksu
     - who is the current dean of cas in bukidnon state university
-
     - kinsa ang dean sa college of arts and sciences sa buksu
     - isulti kinsa ang nagdumala sa cas department sa bukidnon state university
     - pwede nimo ihatag ang ngalan sa dean sa cas sa buksu
     - kinsa ang nagdumala sa college of arts and sciences isip dean sa buksu
     - kinsa ang kasamtangang dean sa cas sa bukidnon state university
-
-    # Dean_0f_CPAG
     - who is the dean of college of public administration and governance in buksu
     - tell me the name of the cpag dean at bukidnon state university
     - who currently leads the cpag college at buksu
     - can you tell me who is the dean of cpag in buksu
     - who is in charge of college of public administration and governance at buksu
-
     - kinsa ang dean sa college of public administration and governance sa buksu
     - isulti ang ngalan sa dean sa cpag sa bukidnon state university
     - kinsa karon ang nagdumala sa cpag college sa buksu
     - pwede nimo isulti kinsa ang dean sa cpag sa buksu
     - kinsa ang nagdumala sa college of public administration and governance sa buksu
-
-    # Dean_0f_CON
     - who is the dean of the college of nursing in buksu
     - can you tell me who leads the nursing college at bukidnon state university
     - tell me the name of the current con dean at buksu
     - who is in charge of the college of nursing right now at buksu
     - who handles the nursing department as dean at bukidnon state university
-
     - kinsa ang dean sa college of nursing sa buksu
     - pwede nimo isulti kinsa ang nagdumala sa nursing college sa bukidnon state university
     - isulti ang ngalan sa kasamtangang con dean sa buksu
     - kinsa ang nagdumala sa college of nursing karon sa buksu
     - kinsa ang nagdumala sa nursing department isip dean sa bukidnon state university
-
-    # Dean_0f_COE
     - who is the dean of the college of education in buksu
     - can you give me the name of the coe dean at bukidnon state university
     - who currently leads the college of education at buksu
     - tell me who is the dean of coe right now in buksu
     - who handles college of education as dean at bukidnon state university
-
     - kinsa ang dean sa college of education sa buksu
     - pwede nimo isulti ang ngalan sa coe dean sa bukidnon state university
     - kinsa karon ang nagdumala sa college of education sa buksu
     - isulti kinsa ang dean sa coe karon sa buksu
     - kinsa ang nagdumala sa college of education isip dean sa bukidnon state university
-
-    # Dean_0f_LAW
     - who is the dean of the college of law in buksu
     - can you tell me who leads the law college at bukidnon state university
     - tell me the name of the current law dean at buksu
     - who is in charge of the college of law at buksu right now
     - who handles the law department as dean at bukidnon state university
-
     - kinsa ang dean sa college of law sa buksu
     - pwede nimo isulti kinsa ang nagdumala sa law college sa bukidnon state university
     - isulti ang ngalan sa kasamtangang law dean sa buksu
     - kinsa ang nagdumala sa college of law karon sa buksu
     - kinsa ang nagdumala sa law department isip dean sa bukidnon state university
-
-    # Head_of_BSIT
     - who is the department head of information technology in buksu
     - can you tell me who leads the bsit department at bukidnon state university
     - who is the head of the it department under the college of technologies
     - tell me the name of the head of information technology department in buksu
     - who is in charge of the bsit program at the college of technologies
-
     - kinsa ang department head sa information technology sa buksu
     - pwede nimo isulti kinsa ang nagdumala sa bsit department sa bukidnon state university
     - kinsa ang head sa it department ilawom sa college of technologies
     - isulti ang ngalan sa head sa information technology department sa buksu
     - kinsa ang nagdumala sa bsit program sa college of technologies
-
-    # Head_of_COB
     - who are the department heads of the college of business in buksu
     - can you tell me who leads each department under cob at bukidnon state university
     - who is the head of accountancy department in the college of business
     - tell me the names of the department heads in the cob at buksu
     - who handles the business administration and hospitality management departments in the cob
-
     - kinsa ang mga department heads sa college of business sa buksu
     - pwede nimo isulti kinsa ang nagdumala sa matag department ilawom sa cob sa bukidnon state university
     - kinsa ang head sa accountancy department sa college of business
     - isulti ang mga ngalan sa department heads sa cob sa buksu
     - kinsa ang nagdumala sa business administration ug hospitality management departments sa cob
-
-    # Head_of_CAS
     - who are the department heads of the college of arts and sciences in buksu
     - can you tell me who leads each department under cas at bukidnon state university
     - who is the chairperson of the mathematics department in the college of arts and sciences
     - tell me the names of the department chairs under cas in buksu
     - who handles the different departments inside the college of arts and sciences at buksu
-
     - kinsa ang mga department heads sa college of arts and sciences sa buksu
     - pwede nimo isulti kinsa ang nagdumala sa matag department ilawom sa cas sa bukidnon state university
     - kinsa ang chairperson sa mathematics department sa college of arts and sciences
     - isulti ang mga ngalan sa department chairs ilawom sa cas sa buksu
     - kinsa ang nagdumala sa lain-laing departments sa college of arts and sciences sa buksu
-
-    # Head_of_CPAG
     - who are the department heads of the college of public administration and governance in buksu
     - can you tell me who leads cpag departments at bukidnon state university
     - who is the chairperson of the public administration department in cpag
     - tell me the names of the officials under the cpag in buksu
     - who handles the different programs inside the college of public administration and governance
-
     - kinsa ang mga department heads sa college of public administration and governance sa buksu
     - pwede nimo isulti kinsa ang nagdumala sa mga cpag departments sa bukidnon state university
     - kinsa ang chairperson sa public administration department sa cpag
     - isulti ang mga ngalan sa mga officials ilawom sa cpag sa buksu
     - kinsa ang nagdumala sa lain-laing programs sa college of public administration and governance
-
-    # Head_of_CON
     - who is the department head of the college of nursing in buksu
     - can you tell me who chairs the nursing department at bukidnon state university
     - tell me the name of the department head of con in buksu
     - who is in charge of the nursing department under the college of nursing at buksu
     - who leads the nursing department operations at bukidnon state university
-
     - kinsa ang department head sa college of nursing sa buksu
     - pwede nimo isulti kinsa ang nag-chair sa nursing department sa bukidnon state university
     - isulti ang ngalan sa department head sa con sa buksu
     - kinsa ang nagdumala sa nursing department ilawom sa college of nursing sa buksu
     - kinsa ang nagdumala sa operasyon sa nursing department sa bukidnon state university
-
-    # Head_of_COE
     - who are the department heads of the college of education in buksu
     - can you tell me who leads each program under coe at bukidnon state university
     - who is the program chair of secondary education in the college of education
     - tell me the names of the program chairs under coe in buksu
     - who handles physical education and elementary education departments in the coe
-
     - kinsa ang mga department heads sa college of education sa buksu
     - pwede nimo isulti kinsa ang nagdumala sa matag program ilawom sa coe sa bukidnon state university
     - kinsa ang program chair sa secondary education sa college of education
     - isulti ang mga ngalan sa program chairs ilawom sa coe sa buksu
     - kinsa ang nagdumala sa physical education ug elementary education departments sa coe
-
-    # Head_of_LAW
     - who leads the college of law at buksu
     - who is the head of the law college at bukidnon state university
     - is there a separate department head in the college of law at buksu
     - who is in charge of the law college administration at buksu
     - tell me who oversees the college of law at bukidnon state university
-
     - kinsa ang nagdumala sa college of law sa buksu
     - kinsa ang head sa law college sa bukidnon state university
     - naay laing department head sa college of law sa buksu?
@@ -1376,7 +1255,6 @@ nlu:
 
 - intent: ask_department_info
   examples: |
-    # buksu_academic_colleges
     - what are the colleges in buksu
     - list of college departments in buksu
     - can you tell me what colleges are available in bukidnon state university
@@ -1387,8 +1265,6 @@ nlu:
     - pwede nimo isulti unsa ang mga colleges nga naa sa bukidnon state university
     - palihug ihatag ang lista sa mga college departments sa buksu
     - unsa nga colleges ang naa karon sa buksu
-
-    # course_offer_CAS
     - what are the courses offered in the college of arts and sciences in buksu
     - list of courses offered in college of arts and sciences in buksu
     - please tell me what courses the college of arts and sciences offer in buksu
@@ -1399,8 +1275,6 @@ nlu:
     - palihug isulti unsa ang mga kurso nga gi-offer sa college of arts and sciences sa buksu
     - pwede nimo ihatag ang lista sa mga kurso nga available ilawom sa cas sa bukidnon state university
     - unsa nga mga programa ang naa sa college of arts and sciences sa buksu
-
-    # course_offer_COB
     - what are the courses offered in the college of business in buksu
     - can you list the programs available under the college of business at bukidnon state university
     - what courses does cob offer in buksu
@@ -1411,8 +1285,6 @@ nlu:
     - unsa ang mga kurso nga gi-offer sa cob sa buksu
     - palihug isulti unsa ang mga programa ilawom sa college of business sa buksu
     - ihatag ang lista sa mga kurso nga pwede kuhaon sa college of business sa buksu
-
-    # course_offer_COT
     - what are the courses offered in the college of technologies in buksu
     - can you list the programs available under the college of technology at bukidnon state university
     - what courses does cot offer in buksu
@@ -1423,8 +1295,6 @@ nlu:
     - unsa ang mga kurso nga gi-offer sa cot sa buksu
     - palihug isulti unsa ang mga programa ilawom sa college of technologies sa buksu
     - ihatag ang lista sa mga kurso nga pwede kuhaon sa college of technologies sa buksu
-
-    # course_offer_CON
     - what course does the college of nursing offer in buksu
     - is nursing the only program available in the college of nursing at bukidnon state university
     - what program can i take in the college of nursing at buksu
@@ -1435,8 +1305,6 @@ nlu:
     - unsa nga programa ang pwede kuhaon sa college of nursing sa buksu
     - isulti unsa nga kurso ang gi-offer ilawom sa con sa buksu
     - unsa ang kurso nga available sa buksu college of nursing
-
-    # course_offer_COE
     - what are the courses offered in the college of education in buksu
     - can you list the programs available under the college of education at bukidnon state university
     - what courses does coe offer in buksu
@@ -1447,8 +1315,6 @@ nlu:
     - unsa ang mga kurso nga gi-offer sa coe sa buksu
     - palihug isulti unsa ang mga programa ilawom sa college of education sa buksu
     - ihatag ang lista sa kurso sa college of education sa buksu
-
-    # course_offer_LAW
     - what course does the college of law offer in buksu
     - is juris doctor the only program in the buksu college of law
     - what program can i take in the college of law at bukidnon state university
@@ -1459,8 +1325,6 @@ nlu:
     - unsa nga programa ang pwede kuhaon sa college of law sa bukidnon state university
     - isulti unsa nga kurso ang gi-offer ilawom sa law college sa buksu
     - unsa ang programa nga available sa buksu law school
-
-    # course_offer_COA
     - what course does the college of public administration offer in buksu
     - what program is available under the college of administration and governance at bukidnon state university
     - tell me the course offered in the cpag at buksu
@@ -1535,8 +1399,13 @@ nlu:
     - Gitugotan ba ang dual enrollment sa BukSU ug lain nga eskwelahan
     - Pwede ba ko magpa enroll sa BukSU bisan naa pa koy active enrollment sa lain nga kolehiyo
     - Okay ra ba nga naka-enroll ko sa BukSU ug sa lain nga eskwelahan sa parehas nga panahon
+    - can you tell me how to enroll
+    - how student enroll in bukidnon state university
     - How to enroll in BukSU
+    - can you tell me how do i enroll in buksu
+    - help me how could i enroll in buksu
     - What is the enrollment process
+    - can you tell me whats the enrollment process in buksu
     - How does enrollment work in BukSU
     - Is enrollment online or face to face
     - How do students enroll
@@ -1614,65 +1483,51 @@ nlu:
 
 - intent: ask_oss_services
   examples: |
-    # Student_id_fee
     - do i need to pay for the buksu student id
     - is the bukidnon state university student id free or do i need to pay
     - is there a fee for getting a buksu student id
     - how much does a buksu student id cost
     - do freshmen need to pay for their student id at buksu
-
     - kinahanglan ba ko mobayad para sa buksu student id
     - libre ba ang bukidnon state university student id o kinahanglan bayaran
     - naa bay bayad sa pagkuha sa buksu student id
     - pila ang presyo sa buksu student id
     - kinahanglan ba sa mga freshmen mobayad sa ilang student id sa buksu
-
-    # Requirement_get_id
     - what are the requirements for getting a buksu student id
     - what do i need to bring to get a student id at bukidnon state university
     - what documents are needed to get a buksu student id
     - can you tell me the requirements for getting a buksu student id
     - what should i prepare to get my student id from buksu
-
     - unsa ang mga requirements sa pagkuha sa buksu student id
     - unsa ang kinahanglan dalhon aron makakuha og student id sa bukidnon state university
     - unsa nga mga dokumento ang kinahanglan para makakuha og buksu student id
     - pwede nimo isulti ang requirements sa pagkuha og buksu student id
     - unsa ang akong ipreparar aron makuha ang akong student id sa buksu
-
-    # lost_student_id_replacement_process
     - what should i do if i lost my buksu student id
     - how do i get a replacement id if i lost my buksu student id
     - what is the process if my buksu student id got lost
     - step by step on what to do if i lose my student id at bukidnon state university
     - my buksu student id is missing what do i do to get a new one
-
     - unsa akong buhaton kung mawala ang akong buksu student id
     - unsaon nako pagkuha og replacement id kung mawala ang akong buksu student id
     - unsa ang proseso kung mawala ang akong buksu student id
     - step by step unsaon pagkuha og bag-ong student id kung mawala sa bukidnon state university
     - nawala ang akong buksu student id unsaon nako pagkuha og bag-o
-
-    # request_good_moral_certificate_oss
     - where can i get a good moral certificate in buksu
     - how do i request a good moral certificate from the office of student services
     - how much does a good moral certificate cost at buksu
     - where do i go to request my good moral certificate at bukidnon state university
     - can you tell me the process of getting a good moral certificate from the oss
-
     - asa ko makakuha og good moral certificate sa buksu
     - unsaon nako pag-request og good moral certificate gikan sa office of student services
     - pila ang bayad sa good moral certificate sa buksu
     - asa ko moadto para i-request ang akong good moral certificate sa bukidnon state university
     - pwede nimo isulti ang proseso sa pagkuha og good moral certificate gikan sa oss
-
-    # student_id_process
     - what is the process for getting a student id at buksu
     - how do i get a student id at bukidnon state university
     - where do i go to get my student id at buksu
     - can you explain the steps on how to get a buksu student id
     - what office handles student id processing at buksu
-
     - unsa ang proseso sa pagkuha og student id sa buksu
     - unsaon nako pagkuha og student id sa bukidnon state university
     - asa ko moadto para makakuha og student id sa buksu
@@ -1761,14 +1616,8 @@ nlu:
     - pwedi ko nimo storyahan unsaon nako pag access sa university library resources
     - unsaon pag access sa library resources
 
-- intent: ask_oss_services
-  examples: |
-    -
-
-# THIs need a topic router
 - intent: ask_university_info
   examples: |
-    #about_buksu
     - can you tell me about bukidnon state university
     - what can you tell me about buksu
     - can you give me some background info about buksu
@@ -1779,8 +1628,6 @@ nlu:
     - pwede ko nimo hatagan og background info about sa buksu
     - storyahi ko gamay bahin sa bukidnon state university
     - ganahan ko makabalo bahin sa buksu
-
-    #buksu_mission
     - what is the mission of bukidnon state university
     - can you tell me the mission of buksu
     - what is buksu mission all about
@@ -1791,8 +1638,6 @@ nlu:
     - unsa gyud ang tumong sa mission sa buksu
     - storyahi ko bahin sa mission sa bukidnon state university
     - ganahan ko makabalo sa mission sa buksu
-
-    #buksu_vision
     - what is the vision of bukidnon state university
     - can you tell me the vision of buksu
     - what is buksu vision all about
@@ -1803,8 +1648,6 @@ nlu:
     - unsa gyud ang kahulugan sa vision sa buksu
     - storyahi ko bahin sa vision sa bukidnon state university
     - ganahan ko makabalo sa vision sa buksu
-
-    #buksu_core_values
     - what are the core values of bukidnon state university
     - can you tell me the core values of buksu
     - what values does buksu stand for
@@ -1815,8 +1658,6 @@ nlu:
     - unsa nga mga values ang ginabarugan sa buksu
     - storyahi ko bahin sa core values sa bukidnon state university
     - ganahan ko makabalo sa core values sa buksu
-
-    #buksu_president
     - who is the current president of bukidnon state university
     - can you tell me who is the president of buksu right now
     - who leads buksu currently
@@ -1827,8 +1668,6 @@ nlu:
     - kinsa ang nagdumala sa buksu karon
     - storyahi ko kung kinsa ang president sa bukidnon state university
     - ganahan ko makabalo kung kinsa ang current president sa buksu
-
-    #buksu_history_background
     - can you tell me about the history of bukidnon state university
     - what is the background of buksu
     - tell me about the history of buksu
@@ -1839,8 +1678,6 @@ nlu:
     - storyahi ko bahin sa history sa buksu
     - hatagi ko og info bahin sa background sa bukidnon state university
     - ganahan ko makabalo sa history sa buksu
-
-    #buksu_seal_significance
     - what is the meaning of the buksu seal
     - can you tell me what the buksu seal stands for
     - what does the buksu seal represent
@@ -1851,8 +1688,6 @@ nlu:
     - unsa ang ginarepresenta sa buksu seal
     - storyahi ko bahin sa significance sa buksu seal
     - ganahan ko makabalo unsay pasabot sa kada parte sa buksu seal
-
-    #buksu_hymn_lyrics
     - where can i find the buksu hymn lyrics
     - can you give me the lyrics of the buksu hymn
     - i want to see the lyrics of the bukidnon state university hymn
@@ -1863,8 +1698,6 @@ nlu:
     - ganahan ko makita ang lyrics sa bukidnon state university hymn
     - storyahi ko asa makita ang buksu hymn
     - naa bay link para sa lyrics sa buksu hymn
-
-    #buksu_presidents_list
     - who are all the presidents of bukidnon state university
     - can you give me the list of buksu presidents
     - tell me all the presidents that led buksu over the years
@@ -1875,8 +1708,6 @@ nlu:
     - storyahi ko sa tanang president nga nagdumala sa buksu
     - ganahan ko makita ang listahan sa president sa bukidnon state university
     - kinsa ang mga niaging president sa buksu
-
-    #meaning_of_buksu
     - what does buksu stand for
     - can you tell me what buksu means
     - what is the meaning of the abbreviation buksu
@@ -1887,8 +1718,6 @@ nlu:
     - unsa ang kahulugan sa abbreviation nga buksu
     - storyahi ko unsay pasabot sa buksu
     - unsa gyud ang tinuod nga meaning sa word nga buksu
-
-    #founding
     - when was bukidnon state university founded
     - can you tell me when buksu was established
     - what year was buksu founded
@@ -1899,8 +1728,6 @@ nlu:
     - unsa nga tuig gitukod ang buksu
     - storyahi ko kanus a gitukod ang bukidnon state university
     - ganahan ko makabalo kanus a nagsugod ang buksu
-
-    #current_rank
     - what is the current ranking of bukidnon state university
     - can you tell me the ranking of buksu right now
     - how high is buksu ranked in the philippines
@@ -1911,8 +1738,6 @@ nlu:
     - unsa ka taas ang rank sa buksu sa pilipinas
     - storyahi ko bahin sa current rank sa buksu
     - ganahan ko makabalo sa ranking sa bukidnon state university
-
-    #buksu_become_university
     - when did buksu become a university
     - can you tell me when bukidnon state university became a university
     - how did buksu become a university
@@ -1923,8 +1748,6 @@ nlu:
     - unsaon pagkahimong university sa buksu
     - storyahi ko kanus a nausab ang buksu ngadto sa university
     - ganahan ko makabalo kanusa opisyal nga nahimong university ang buksu
-
-    #Pres_thetime_university
     - who was the president of buksu when it became a university
     - can you tell me who led buksu when it became a university in 2007
     - who was in charge of buksu when it became a university
@@ -1935,8 +1758,6 @@ nlu:
     - kinsa ang in charge sa buksu pag nahimong university kini
     - storyahi ko kung kinsa ang president sa buksu ato nga time
     - ganahan ko makabalo kung kinsa ang president sa buksu pag nahimo kini university
-
-    #Buksu_age
     - how old is bukidnon state university
     - can you tell me the age of buksu
     - how many years has buksu been around
@@ -1947,8 +1768,6 @@ nlu:
     - pila na ka tuig nag exist ang buksu
     - storyahi ko unsa na ka dugay ang buksu
     - ganahan ko makabalo pila na ka tuig ang bukidnon state university
-
-    #bukus_location
     - where is bukidnon state university located
     - can you tell me where buksu is located
     - what is the location of buksu
@@ -1959,8 +1778,6 @@ nlu:
     - unsa ang location sa buksu
     - storyahi ko asa ang bukidnon state university
     - ganahan ko makabalo asa dapit ang buksu
-
-    #Whats_buksu_gazette
     - what is the buksu gazette
     - can you tell me about the buksu gazette
     - what is the gazette of bukidnon state university
@@ -1971,8 +1788,6 @@ nlu:
     - unsa ang gazette sa bukidnon state university
     - storyahi ko bahin sa gazette sa buksu
     - ganahan ko makabalo unsa ang buksu gazette
-
-    #Buksu_worth_it
     - is it worth it to study in buksu
     - can you tell me if buksu is a good school to study in
     - is bukidnon state university worth enrolling in
@@ -1983,8 +1798,6 @@ nlu:
     - worth it ba mag enroll sa bukidnon state university
     - storyahi ko kung worth it ba mag study sa buksu
     - ganahan ko makabalo kung worth it ba ang buksu
-
-    #buksu_study_place
     - where is a good place to study inside buksu
     - can you tell me where i can study in bukidnon state university
     - where can i go to study quietly in buksu
@@ -1995,8 +1808,6 @@ nlu:
     - asa ko pwede mag study nga hilom sa buksu
     - storyahi ko asa nindot nga studyhan sa buksu
     - ganahan ko makabalo asa ko pwede mag study sulod sa bukidnon state university
-
-    #Campus_tour
     - is there a campus tour in buksu
     - can you tell me if buksu has a campus tour for new students
     - does bukidnon state university offer campus tours
@@ -2637,6 +2448,9 @@ nlu:
     - Asa ang dalan padulong sa [Power Building](location_name)
     - Where is the [Information Unit Office](location_name) located
     - Asa dapit ang [Information Unit Office](location_name)
+    - tell me the location of [OSS](location_name)
+    - where is [OSS](location_name)
+    - isaba ang location sa [OSS](location_name)
     - Can you show me the exact location of [BUKSU President Office](location_name)
     - Asa dapit ang [BUKSU President Office](location_name)
     - How can I reach the [IAS Office](location_name) from the entrance
@@ -2727,6 +2541,44 @@ nlu:
     - asa [Guidance Office](location_name) lokasyon
     - the location of this [Medical clinic](location_name)
     - ang location sa [Medical clinic](location_name)
+    - Can you tell me where [OVPAPD](location_name) is located
+    - Kabalo ka asa nahimutang ang [OVPAPD](location_name)
+    - I’m trying to find the [Finance Building](location_name)
+    - Asa nako makita ang [Finance Building](location_name)
+    - How do I get to the [CPAG building](location_name)
+    - Unsaon nako pag adto sa [CPAG building](location_name)
+    - I need directions to the [COB Accreditation Room](location_name)
+    - Tabangi ko pangita ang [COB Accreditation Room](location_name)
+    - Can you guide me to the [Accountancy Faculty Department Room](location_name)
+    - Asa ko moadto para makita ang [Accountancy Faculty Department Room](location_name)
+    - I’m looking for the [Business Administration Faculty Room](location_name)
+    - Nangita ko asa ang [Business Administration Faculty Room](location_name)
+    - How can I reach the [Hospitality Management Faculty Room](location_name)
+    - Unsay dalan padulong sa [Hospitality Management Faculty Room](location_name)
+    - Do you know where the [Rondala Room](location_name) is
+    - Kabalo ka asa ang [Rondala Room](location_name)
+    - I want to visit the [I Love BukSU](location_name)
+    - Gusto ko moadto sa [I Love BukSU](location_name)
+    - Where can I study like the [Learning Commons](location_name)
+    - Asa ko pwede makatuon parehas sa [Learning Commons](location_name)
+    - I need to go to the [Buksu Clinic](location_name)
+    - Asa dapit ang klinika sa BukSU o ang [Buksu Clinic](location_name)
+    - Can you point me to the [Dental Clinic](location_name)
+    - Asa padulong ang [Dental Clinic](location_name)
+    - I have business at the [COT Dean's Office](location_name)
+    - Adto ko sa [COT Dean's Office](location_name] asa man ni
+    - I need to visit the [CON Dean's Office](location_name)
+    - Asa dapit makita ang [CON Dean's Office](location_name)
+    - Can you help me locate the [COB SBO Office](location_name)
+    - Tabangi ko pangita ang [COB SBO Office](location_name)
+    - I’m heading to the [COT SBO Office](location_name)
+    - Paingon ko sa [COT SBO Office](location_name) asa ni dapit
+    - Do you know where the [CAS SBO Office](location_name) is located
+    - Kabalo ka asa nahimutang ang [CAS SBO Office](location_name)
+    - I want to go to the [CON SBO Office](location_name)
+    - Asa ko moadto para sa [CON SBO Office](location_name)
+    - Can you guide me going to the [COA SBO Office](location_name)
+    - Tabangi ko pag adto sa [COA SBO Office](location_name)
 
 - regex: location_name
   examples: |
@@ -3353,6 +3205,8 @@ nlu:
 
 - intent: campus_dormitories
   examples: |
+    - is the buksu has its own dormitory
+    - do the bukidnons state university provide dormitory
     - Does Bukidnon State University have dormitories for students
     - Are there dormitory facilities available inside the campus
     - I want to know if the university provides student dormitories
@@ -3373,6 +3227,16 @@ nlu:
     - Asa makakita ug dormitory sulod sa campus
     - Tugotan ba ang students nga mopuyo sa campus dormitory
     - Gusto nako mahibal an ang availability sa dormitory sa university
+
+- intent: number_of_dormitories
+  examples: |
+    - how many dormitory are inside the buksu main campus
+    - can you tell me how many dormitory are there
+    - number of dorm existing in buksu
+    - pila ka dormitory ang naa sa buksu
+    - pila ka dormitory ang naa sa bukidnons state university
+    - pila ka dormitory ang naa sa bukidnons state university main campus
+
 
 - intent: dormitory_pros_cons
   examples: |
@@ -3396,6 +3260,13 @@ nlu:
     - Unsa ang akong ma expect kung mopuyo ko sa dormitory
     - Mas maayo ba ang pagpuyo sa dormitory o sa gawas sa campus
     - Pwede ba ka mohatag ug impormasyon bahin sa dormitory living conditions ug rules
+
+- synonym: dormitory
+  examples: |
+    - dorm
+    - dormitory
+    - dormitories
+    - dorms
 
 - intent: cancel_tabuk_assistance
   examples: |
@@ -3701,6 +3572,8 @@ nlu:
     - Unsay mga pangalan sa BukSU dormitories
     - Naay dormitories para sa specific student groups
     - Giunsa pag pangita sa estudyante og dormitory duol sa BukSU
+
+
 
 - intent: free_tuition_undergraduate_buksu
   examples: |

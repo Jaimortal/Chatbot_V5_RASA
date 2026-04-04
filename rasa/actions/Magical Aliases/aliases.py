@@ -1,4 +1,3 @@
-
 # Location aliases for normalizing user input
 LOCATION_ALIASES = {
     # === Computer Laboratory Aliases ===
@@ -85,6 +84,149 @@ LOCATION_ALIASES = {
     "cl12": "ComLab 12",
     "lab 12": "ComLab 12",
     "computer lab 12": "ComLab 12",
+
+    # === OVPAPD ===
+    "ovpapd": "OVPAPD",
+    "ovpapd office": "OVPAPD",
+    "vice president administration planning development": "OVPAPD",
+
+    # === Finance Building ===
+    "finance building": "Finance Building",
+    "finance bldg": "Finance Building",
+    "airport": "Finance Building",
+
+    # === CPAG Building ===
+    "cpag building": "CPAG building",
+    "cpag": "CPAG building",
+    "cpag building": "CPAG Building",
+    "building sa cpag": "CPAG Building",
+    "building cpag": "CPAG Building",
+
+    # === COB Accreditation Room ===
+    "cob accreditation room": "COB Accreditation Room",
+    "accreditation room": "COB Accreditation Room",
+    "accreditation room for cob": "COB Accreditation Room",
+    "accreditation office": "COB Accreditation Room",
+    "cob accreditation office": "COB Accreditation Room",
+
+    # === Accountancy Faculty Department Room ===
+    "accountancy faculty department room": "Accountancy Faculty Department Room",
+    "accountancy department room": "Accountancy Faculty Department Room",
+    "accountancy faculty": "Accountancy Faculty Department Room",
+    "accountancy department": "Accountancy Faculty Department Room",
+    "accountancy faculty department": "Accountancy Faculty Department Room",
+
+    # === Business Administration Faculty Room ===
+    "business administration faculty room": "Business Administration Faculty Room",
+    "business administration faculty": "Business Administration Faculty Room",
+    "business ad faculty": "Business Administration Faculty Room",
+    "business ad faculty office": "Business Administration Faculty Room",
+    "business ad department office": "Business Administration Faculty Room",
+    "business administration department": "Business Administration Faculty Room",
+    "business administration department office": "Business Administration Faculty Room",
+    
+
+    # === Hospitality Management Faculty Room ===
+    "hospitality management faculty room": "Hospitality Management Faculty Room",
+    "hospitality management faculty office": "Hospitality Management Faculty Room",
+
+    "hospitality faculty room": "Hospitality Management Faculty Room",
+    "hospitality faculty office": "Hospitality Management Faculty Room",
+    "HM faculty room": "Hospitality Management Faculty Room",
+    "HM faculty office": "Hospitality Management Faculty Room",
+    "HM faculty": "Hospitality Management Faculty Room",
+    "hm faculty room": "Hospitality Management Faculty Room",
+    "hm faculty office": "Hospitality Management Faculty Room",
+    "hm faculty": "Hospitality Management Faculty Room",
+
+
+    # === Rondala Room ===
+    "rondala room": "Rondala Room",
+    "rondala": "Rondala Room",
+    "rondala office": "Rondala Room",
+
+    # === I Love BukSU ===
+    "i love buksu": "I Love BukSU",
+    "ily": "I Love BukSU",
+    "buksu sign": "I Love BukSU",
+
+    # === Learning Commons ===
+    "learning commons": "Learning Commons",
+    "lc": "Learning Commons",
+    "library learning commons": "Learning Commons",
+    
+
+    # === Buksu Clinic (general) ===
+    "buksu clinic": "Buksu Clinic (general)",
+    "clinic": "Buksu Clinic (general)",
+
+    # === Dental Clinic ===
+    "dental clinic": "Dental Clinic",
+    "dental": "Dental Clinic",
+
+    # === COT Dean's Office ===
+    "cot dean's office": "COT Dean's Office",
+    "cot deans office": "COT Dean's Office",
+    "college of technology deans office": "COT Dean's Office",
+    "college of technologies deans office": "COT Dean's Office",
+    "cot dean's office": "COT Dean's Office",
+    "cot office of dean's": "COT Dean's Office",
+    "cot office of the dean's": "COT Dean's Office",
+    "cot deans office": "COT Dean's Office",
+    "cot office of deans": "COT Dean's Office",
+    "cot office of the deans": "COT Dean's Office",
+    "cot dean office": "COT Dean's Office",
+    "cot office of dean": "COT Dean's Office",
+    "cot office of the dean": "COT Dean's Office",
+
+
+    # === CON Dean's Office ===
+    "con dean's office": "CON Dean's Office",
+    "con deans office": "CON Dean's Office",
+    "college of nursing deans office": "CON Dean's Office",
+    "college of nursing dean office": "CON Dean's Office",
+    "college of nursing office of the dean": "CON Dean's Office",
+    "con office of dean's": "CON Dean's Office",
+    "con office of the dean's": "CON Dean's Office",
+    "con office of deans": "CON Dean's Office",
+    "con office of the deans": "CON Dean's Office",
+    "con dean office": "CON Dean's Office",
+    "con office of dean": "CON Dean's Office",
+    "con office of the dean": "CON Dean's Office",
+
+    # === COB SBO Office ===
+    "cob sbo office": "COB SBO Office",
+    "cob sbo": "COB SBO Office",
+
+    # === COT SBO Office ===
+    "cot sbo office": "COT SBO Office",
+    "cot sbo": "COT SBO Office",
+
+    # === CAS SBO Office ===
+    "cas sbo office": "CAS SBO Office",
+    "cas sbo": "CAS SBO Office",
+
+    # === CON SBO Office (no data) ===
+    "con sbo office": "CON SBO Office (no data)",
+    "con sbo": "CON SBO Office (no data)",
+
+    # === COA SBO Office (no data) ===
+    "coa sbo office": "COA SBO Office (no data)",
+    "coa sbo": "COA SBO Office (no data)",
+
+    # === ComLab 1 ===
+    "comlab 1": "ComLab 1",
+    "computer laboratory 1": "ComLab 1",
+    "com lab 1": "ComLab 1",
+    "cl1": "ComLab 1",
+    "lab 1": "ComLab 1",
+
+    # === ComLab 2 ===
+    "comlab 2": "ComLab 2",
+    "computer laboratory 2": "ComLab 2",
+    "com lab 2": "ComLab 2",
+    "cl2": "ComLab 2",
+    "lab 2": "ComLab 2",
     
     # === Electronics Laboratory Aliases ===
     "electronics laboratory 1": "Electronics Laboratory 1",
@@ -166,30 +308,39 @@ LOCATION_ALIASES = {
     "bsn faculty room": "BSN Faculty Room",
     "nursing faculty": "BSN Faculty Room",
     
-    "cas deans office": "CAS Deans Office",
-    "cas dean's office": "CAS Deans Office",
-    "deans office of cas": "CAS Deans Office",
-    "Dean's Office of Cas": "CAS Deans Office",
-    "Cas Deans Office": "CAS Deans Office",
+    # === CAS Dean's Office ===
+    "cas dean's office": "CAS Dean's Office",
+    "cas deans office": "CAS Dean's Office",
+    "college of arts and sciences deans office": "CAS Dean's Office",
+    "college of arts and sciences dean office": "CAS Dean's Office",
+    "college of arts and sciences office of the dean": "CAS Dean's Office",
+    "cas office of dean's": "CAS Dean's Office",
+    "cas office of the dean's": "CAS Dean's Office",
+    "cas office of deans": "CAS Dean's Office",
+    "cas office of the deans": "CAS Dean's Office",
+    "cas dean office": "CAS Dean's Office",
+    "cas office of dean": "CAS Dean's Office",
+    "cas office of the dean": "CAS Dean's Office",
     
-    "cpag deans office": "CPAG Deans Office",
-    "cpag dean's office": "CPAG Deans Office",
-    "Dean's Office of CPAG": "CPAG Deans Office",
-    "dean's office of cpag": "CPAG Deans Office",
-    "Deans Office of cpag": "CPAG Deans Office",
+    # === CPAG Dean's Office ===
+    "cpag dean's office": "CPAG Dean's Office",
+    "cpag deans office": "CPAG Dean's Office",
+    "college of public administration and governance deans office": "CPAG Dean's Office",
+    "college of public administration and governance dean office": "CPAG Dean's Office",
+    "college of public administration and governance office of the dean": "CPAG Dean's Office",
+    "cpag office of dean's": "CPAG Dean's Office",
+    "cpag office of the dean's": "CPAG Dean's Office",
+    "cpag office of deans": "CPAG Dean's Office",
+    "cpag office of the deans": "CPAG Dean's Office",
+    "cpag dean office": "CPAG Dean's Office",
+    "cpag office of dean": "CPAG Dean's Office",
+    "cpag office of the dean": "CPAG Dean's Office",
 
     # === Building Aliases ===
     "old cot building": "Old COT Building",
     "new cot building": "New COT Building",
     "college of technology building": "New COT Building",
     "cot building": "Old COT Building",
-    
-    "finance building": "Finance Building",
-    "finance bldg": "Finance Building",
-    
-    "cpag building": "CPAG Building",
-    "building sa cpag": "CPAG Building",
-    "building cpag": "CPAG Building",
     
     "college of business building": "College of Business Building",
     "cob buildin": "College of Business Building",
@@ -659,6 +810,17 @@ LOCATION_ALIASES = {
     "campus information office": "Information Unit Office",
     "information unit": "Information Unit Office",
 
+    # OSS
+    "oss": "OSS",
+    "office of student services": "OSS",
+    "office of student services building": "OSS",
+    "office of student services bldg": "OSS",
+    "oss office": "OSS",
+    "building of oss": "OSS",
+    "office of student services office": "OSS",
+    "building of office of student services office": "OSS",
+    "building of oss office": "OSS",
+
     # === BUKSU President Office Aliases ===
     "buksu president office": "BUKSU President Office",
     "president office": "BUKSU President Office",
@@ -895,5 +1057,11 @@ LOCATION_ALIASES = {
     "guidance": "Guidance Office",
     "office of the guidance": "Guidance Office",
     "guidance department": "Guidance Office",
+
+    # CLINIC
+    "Medical clinic": "Medical clinic",
+    "buksu med clinic": "Medical clinic",
+    "bukidnon state university medical clinic": "Medical clinic",
+    "medical clinic office": "Medical clinic"
 
 }

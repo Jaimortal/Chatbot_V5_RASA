@@ -8,7 +8,7 @@ ADMISSIONS_TOPIC_PATTERNS = {
             "unsa dad on sa buksu cat"
         ],
         "strong_keywords": [
-            "dala", "dalhon", "dad", "permit", "pencil", "sharpener"
+            "dala", "dalhon", "dad", "permit", "pencil", "sharpener", "bring"
         ],
         "weak_keywords": [
             "exam", "test", "bring", "what", "unsa", "requirements", "cat"
@@ -344,10 +344,10 @@ ADMISSIONS_TOPIC_PATTERNS = {
             "gwa for nursing"
         ],
         "strong_keywords": [
-            "nursing", "nurse"
+            "nursing", "nurse", "nursing course"
         ],
         "weak_keywords": [
-            "cat", "score", "passing", "pila", "what", "needed", "requirement"
+            "cat", "score", "passing", "pila", "what", "needed", "requirement", "rate"
         ],
         "required_context": []
     },
@@ -472,7 +472,7 @@ ADMISSIONS_TOPIC_PATTERNS = {
             "pwede maka test usab if human na nig college"
         ],
         "strong_keywords": [
-            "course", "degree", "graduated", "nakahuman"
+            "courser", "degree", "graduated", "nakahuman"
         ],
         "weak_keywords": [
             "second", "courser", "apply", "cat", "exam", "pwede", "can", "bayad"
@@ -555,7 +555,7 @@ ADMISSIONS_TOPIC_PATTERNS = {
             "law", "juris", "doctor", "lsat"
         ],
         "weak_keywords": [
-            "requirements", "school", "admission", "what", "unsa", "apply"
+            "requirements", "school"
         ],
         "required_context": []
     },
@@ -597,13 +597,21 @@ ADMISSIONS_TOPIC_PATTERNS = {
             "what are the requirements for first year application",
             "unsa kailangan para maghimo ug account",
             "freshmen admission requirements",
-            "what to prepare for first year college incoming"
+            "what to prepare for first year college incoming",
+            "what requirements do i need to apply admission examination",
+            "what are the requirements to apply for admission examination",
+            "requirements needed to apply for buksu admission testing",
+            "what do i need to apply for admission examination",
+            "requirements for applying to buksu admission testing",
+            "unsa ang requirements para maka apply sa admission examination",
+            "unsa ang kailangan para mo apply sa buksu admission testing"
         ],
         "strong_keywords": [
-            "freshman", "incoming", "freshmen"
+            "freshman", "incoming", "freshmen", "documentary", "documents"
         ],
         "weak_keywords": [
-            "requirements", "first", "year", "application", "account", "what", "unsa"
+            "requirements", "first", "year", "application", "account", "what", "unsa",
+            "apply", "admission", "examination", "testing", "need"
         ],
         "required_context": []
     },

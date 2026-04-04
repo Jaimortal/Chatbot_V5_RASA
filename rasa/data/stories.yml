@@ -82,11 +82,6 @@ stories:
     - intent: ask_more
     - action: action_reply_from_json
 
-- story: transferee enrollment info
-  steps:
-    - intent: transferee_enrollment
-    - action: action_reply_from_json
-
 - story: student organizations info
   steps:
     - intent: student_organizations
@@ -185,6 +180,11 @@ stories:
 - story: ask about college shirt allowed
   steps:
     - intent: wear_civilian_attire
+    - action: action_reply_from_json
+
+- story: ask about number of dormitories
+  steps:
+    - intent: number_of_dormitories
     - action: action_reply_from_json
 
 - story: ask about campus dormitories
@@ -296,6 +296,12 @@ stories:
   steps:
     - intent: law_author_buksu_university_conversion
     - action: action_reply_from_json
+
+- story: ask about what is the institutional email
+  steps:
+    - intent: institutional_email_info
+    - action: action_reply_from_json
+
 
 - story: ask about significance year 1924 buksu
   steps:

@@ -12,7 +12,8 @@ export function cn(...inputs: ClassValue[]) {
 export const generateId = () => Math.random().toString(36).substr(2, 9);
 
 // --- Types ---
-export type MessageType = "text" | "map";
+export type MessageType = "text" | "map" | "faq_carousel";
+
 
 export interface ChatMessage {
   id: string;
@@ -28,6 +29,7 @@ export interface ChatMessage {
     mapId?: string;
     pins?: Array<{ name: string; coordinates: { lat: number; lng: number } }>;
   };
+  faqs?: import("../types/admin").FaqConfig[];
 }
 
 // Interface for the response format expected by ChatWindow

@@ -560,6 +560,29 @@
     }
   },
   {
+    "intent": "number_of_dormitories",
+    "category": "Student Life",
+    "sub_category": "dormitories",
+    "responses": {
+      "answer": {
+        "en": [
+          "Bukidnon State University has currently have 3 existing dormitories"
+        ],
+        "ceb": [
+          "Ang Bukidnon State University kasamtangang aduna'y 3 ka existing dormitories"
+        ]
+      },
+      "context_slots": {
+        "last_topic": "number_of_dormitories"
+      },
+      "follow_up": [],
+      "imageUrl": ""
+    },
+    "metadata": {
+      "source": "StudentServicesData"
+    }
+  },
+  {
     "intent": "dormitory_pros_cons",
     "category": "Student Life",
     "sub_category": "dormitories",

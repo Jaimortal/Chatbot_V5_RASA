@@ -28,7 +28,7 @@ OSS_SERVICES_TOPIC_PATTERNS = {
             "requirements", "requirement", "bring", "dal", "dalahon"
         ],
         "weak_keywords": [
-            "id", "what", "need", "unsa", "kuha", "get", "para", "maka"
+            "id", "what", "need", "unsa", "kuha", "get", "para", "maka", "get"
         ],
         "required_context": []
     },
@@ -44,7 +44,7 @@ OSS_SERVICES_TOPIC_PATTERNS = {
             "lost", "nawala", "replacement", "replace", "affidavit"
         ],
         "weak_keywords": [
-            "id", "process", "what", "how", "unsaon", "if", "kung", "akoang"
+            "id", "process", "what", "how", "unsaon", "if", "kung", "akoang", "if", "need",
         ],
         "required_context": []
     },

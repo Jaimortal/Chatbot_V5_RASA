@@ -112,6 +112,19 @@ export const conversationLogs = pgTable("conversation_logs", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+export const faqConfigs = pgTable("faq_configs", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  superIntent: text("super_intent").notNull(),
+  topicKey: text("topic_key").notNull(),
+  displayLabel: text("display_label").notNull(),
+  subtitle: text("subtitle"),
+  icon: text("icon"),
+  payload: text("payload").notNull(),
+  enabled: boolean("enabled").default(true).notNull(),
+  sortOrder: integer("sort_order").default(0).notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 // Schema definitions for validation
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
@@ -152,6 +165,11 @@ export const insertConversationLogSchema = createInsertSchema(conversationLogs).
   createdAt: true,
 });
 
+export const insertFaqConfigSchema = createInsertSchema(faqConfigs).omit({
+  id: true,
+  createdAt: true,
+});
+
 // Type definitions
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
@@ -174,5 +192,8 @@ export type UserPrivileges = typeof userPrivileges.$inferSelect;
 export type InsertConversationLog = z.infer<typeof insertConversationLogSchema>;
 export type ConversationLog = typeof conversationLogs.$inferSelect;
 
-export type LoginAttempt = typeof loginAttempts.$inferSelect;
+export const LoginAttempt = typeof loginAttempts.$inferSelect;
 export type UserSession = typeof userSessions.$inferSelect;
+
+export type InsertFaqConfig = z.infer<typeof insertFaqConfigSchema>;
+export type FaqConfig = typeof faqConfigs.$inferSelect;

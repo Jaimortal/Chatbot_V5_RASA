@@ -9,6 +9,8 @@ import MapMessage from "./MapMessage";
 import { cn } from "@/lib/utils";
 import { rasaBackend, generateId, type ChatMessage } from "@/lib/rasaApi";
 import type { UserPrivileges } from "@/types/admin";
+import { FAQCarouselMessage } from "./FAQCarouselMessage";
+import { fetchActiveFaqs } from "@/lib/adminApi";
 
 // Helper for Web Speech API
 const SpeechRecognition =
@@ -120,6 +122,13 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
     enabled: isOpen
   });
 
+  const { data: activeFaqs } = useQuery({
+    queryKey: ["activeFaqs"],
+    queryFn: fetchActiveFaqs,
+    staleTime: 5 * 60 * 1000,
+    enabled: isOpen
+  });
+
   // Fullscreen map state - stores the message ID of the map currently in fullscreen
   const [fullscreenMapId, setFullscreenMapId] = useState<string | null>(null);
 
@@ -157,6 +166,29 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
       },
     ];
   });
+
+  // Inject Carousel right after Welcome message
+  useEffect(() => {
+    if (activeFaqs && activeFaqs.length > 0) {
+      setMessages(prev => {
+        // Only append if it's the start of a conversation
+        if (prev.length === 1 && prev[0].id === 'welcome') {
+          return [
+            ...prev,
+            {
+              id: generateId(),
+              text: '',
+              sender: 'bot',
+              type: 'faq_carousel',
+              faqs: activeFaqs,
+              timestamp: new Date()
+            }
+          ];
+        }
+        return prev;
+      });
+    }
+  }, [activeFaqs]);
 
   // Compute the fullscreen map message
   const fullscreenMapMessage = useMemo(() => {
@@ -493,6 +525,11 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
                       </div>
                     )
                   )}
+
+                  {/* FAQ Carousel */}
+                  {msg.type === "faq_carousel" && msg.faqs && (
+                    <FAQCarouselMessage faqs={msg.faqs} onSelect={handleSend} />
+                  )}
                 </div>
 
                 <div className="text-xs opacity-60 mt-1 text-center">
@@ -521,32 +558,6 @@ export default function ChatWindow({ onClose, isOpen }: ChatWindowProps) {
       {/* Input - Hidden when in fullscreen map mode */}
       {!fullscreenMapId && (
         <div className="p-3 border-t bg-background shrink-0 pb-1">
-          {/* FAQs Section - Only show when not typing */}
-          {!isTyping && (
-            <div className="mb-3">
-              <p className="text-xs text-muted-foreground mb-2 font-medium">Frequently Asked Questions:</p>
-              <div className="flex flex-wrap gap-2">
-                <button
-                  onClick={() => handleSend("Where is the restroom?")}
-                  className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                >
-                  Where is the restroom?
-                </button>
-                <button
-                  onClick={() => handleSend("Where is the registrar office?")}
-                  className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                >
-                  Where is the registrar office?
-                </button>
-                <button
-                  onClick={() => handleSend("Where is the COT faculty room?")}
-                  className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                >
-                  Where is the COT faculty room?
-                </button>
-              </div>
-            </div>
-          )}
 
           <div className="flex items-center gap-2">
             {privileges.chatEnabled ? (

@@ -22,7 +22,6 @@ intents:
   - ask_more
   - nlu_fallback
   - bot_challenge
-  - transferee_enrollment
   - student_organizations
   - campus_safety
   - lost_on_campus
@@ -35,7 +34,7 @@ intents:
   - student_stress_support
   - freshmen_intramurals
   - about_intramurals
-
+  - institutional_email_info
   - cannot_upload_2x2_picture
   - application_always_denied
   - test_permit_corrupted
@@ -45,6 +44,7 @@ intents:
   - tes_with_other_scholarships
   - wear_civilian_attire
   - campus_dormitories
+  - number_of_dormitories
   - dormitory_pros_cons
   - cancel_tabuk_assistance
   - shorts_on_campus
@@ -103,6 +103,7 @@ entities:
   - sub_category
   - slot_name
   - slot_value
+  - topic
 
 slots:
   category:

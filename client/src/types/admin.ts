@@ -77,3 +77,15 @@ export interface UserPrivileges {
   mapAccessEnabled: boolean;
   autoTranslateEnabled: boolean;
 }
+
+export interface FaqConfig {
+  id?: string;
+  superIntent: string;
+  topicKey: string;
+  displayLabel: string;
+  subtitle?: string | null;
+  icon?: string | null;
+  payload: string;
+  enabled: boolean;
+  sortOrder: number;
+}

@@ -523,8 +523,11 @@ COURSES_TOPIC_PATTERNS = {
             "tanang non board courses nga gi offer sa buksu para sa ilang mga estudyante",
             "unsa ang listahan sa mga non board degree programs nga gi offer sa bukidnon state university",
         ],
-        "strong_keywords": ['board', 'degree', 'estudyante', 'ilang', 'list', 'listahan', 'non', 'para', 'tanang', 'their'],
-        "weak_keywords": ['bukidnon', 'buksu', 'courses', 'offer', 'programs', 'state', 'students', 'university'],
+        "strong_keywords": 
+        [
+            "non_board_token"
+        ],
+        "weak_keywords": ['bukidnon', 'buksu', 'courses', 'offer', 'programs', 'state', 'students', 'university', 'list', 'listahan'],
         "required_context": []
     },
     "buksu_board_courses": {
@@ -534,8 +537,15 @@ COURSES_TOPIC_PATTERNS = {
             "pwede ba nimo ihatag ang listahan sa mga board degree programs",
             "listahan sa tanang board degree programs nga gi offer sa bukidnon state university",
         ],
-        "strong_keywords": ['board', 'degree', 'ihatag', 'list', 'listahan', 'provide', 'tanang'],
-        "weak_keywords": ['bukidnon', 'offer', 'programs', 'state', 'university'],
+        "strong_keywords": 
+        [
+            "board course",
+            "board exam",
+            "licensure",
+            "licensed",
+            "board degree"
+        ],
+        "weak_keywords": ['board', 'bukidnon', 'offer', 'programs', 'state', 'university', 'list', 'listahan', 'courses'],
         "required_context": []
     },
     "about_nstp": {

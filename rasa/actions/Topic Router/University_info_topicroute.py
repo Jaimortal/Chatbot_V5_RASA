@@ -75,7 +75,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "president", "presidente", "mirasol", "joy"
         ],
         "weak_keywords": [
-            "who", "buksu", "kinsa", "ang", "current", "nato", "university"
+            "who", "buksu", "kinsa", "ang", "current", "nato", "university", "is"
         ],
         "required_context": []
     },
@@ -139,7 +139,8 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "list", "past", "niaging"
         ],
         "weak_keywords": [
-            "buksu", "president", "presidents", "mga", "kinsa", "sa", "university"
+            "buksu", "president", "presidents", "mga", "kinsa", "sa", "university",
+            "years", "few", "are"
         ],
         "required_context": []
     },
@@ -216,10 +217,10 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "who was president in 2007"
         ],
         "strong_keywords": [
-            "first", "ato", "2007", "barroso"
+            "first", "ato", "2007", "barroso", "become", "university"
         ],
         "weak_keywords": [
-            "buksu", "president", "when", "became", "university", "kinsa", "time"
+            "buksu", "president", "when", "became", "university", "kinsa", "time", "did", "buksu", "who"
         ],
         "required_context": []
     },
