@@ -4,6 +4,7 @@
 LIBRARY_TOPIC_PATTERNS = {
     "borrowing_rules": {
         "phrases": [
+            "Library borrowing limit",
             "how many books can i borrow",
             "how many books i can borrow",
             "how many books may i borrow",
@@ -16,12 +17,13 @@ LIBRARY_TOPIC_PATTERNS = {
             "pila ka libro pwede hulamon",
             "pwede ko makaborrow pila ka libro"
         ],
-        "strong_keywords": ["borrow", "many", "limit", "pila", "pwede", "hulamon"],
+        "strong_keywords": ["borrow", "many", "limit", "pila", "pwede", "hulamon", "maximum"],
         "weak_keywords": ["books", "library", "libro", "many"],
         "required_context": []
     },
     "late_return_penalty": {
         "phrases": [
+            "Library late penalty",
             "late return",
             "penalty",
             "fine",
@@ -39,6 +41,7 @@ LIBRARY_TOPIC_PATTERNS = {
     },
     "library_hours": {
         "phrases": [
+            "Library hours",
             "library hours",
             "what time does the library open",
             "what time library closed",
@@ -53,6 +56,7 @@ LIBRARY_TOPIC_PATTERNS = {
     },
     "library_id_card_location": {
         "phrases": [
+            "Library ID location",
             "where to get library id",
             "where can i get library id",
             "asa makakuha ug library id",
@@ -70,6 +74,7 @@ LIBRARY_TOPIC_PATTERNS = {
     },
     "library_id_card_requirements": {
         "phrases": [
+            "Library ID requirements",
             "requirements for library id",
             "what do i need for library id",
             "unsa kailangan para sa library id",
@@ -86,6 +91,7 @@ LIBRARY_TOPIC_PATTERNS = {
     },
     "library_id_card_payment": {
         "phrases": [
+            "Library ID payment",
             "pay for library id",
             "library id payment",
             "how much is library id",
@@ -93,8 +99,7 @@ LIBRARY_TOPIC_PATTERNS = {
             "presyo sa library id",
             "pila ang bayad sa library id"
         ],
-        "strong_keywords": 
-        [
+        "strong_keywords": [
             "payment", "pay", "how much", "bayad", 
             "presyo", "cost", "price", "pila"
         ],
@@ -103,6 +108,7 @@ LIBRARY_TOPIC_PATTERNS = {
     },
     "borrow_books": {
         "phrases": [
+            "How to borrow books",
             "how do i borrow books",
             "borrow books",
             "how to borrow",
@@ -116,6 +122,7 @@ LIBRARY_TOPIC_PATTERNS = {
     },
     "return_books": {
         "phrases": [
+            "How to return books",
             "how do i return books",
             "return books",
             "uli sa libro",
@@ -128,6 +135,7 @@ LIBRARY_TOPIC_PATTERNS = {
     },
     "available_books": {
         "phrases": [
+            "What books can I borrow",
             "available books",
             "are there books",
             "naa bay libro",
@@ -144,6 +152,7 @@ LIBRARY_TOPIC_PATTERNS = {
     },
     "access_buksu_library_resources": {
         "phrases": [
+            "Access library resources",
             "how do student can access the library resources",
             "can you tell me how could i access the university library resources",
             "whats do i need to access the library resources in buksu",
@@ -151,7 +160,7 @@ LIBRARY_TOPIC_PATTERNS = {
             "pwedi ko nimo storyahan unsaon nako pag access sa university library resources",
             "unsaon pag access sa library resources"
         ],
-        "strong_keywords": ["access", "resources",],
+        "strong_keywords": ["access", "resources"],
         "weak_keywords": ["can", "i", "pwedi", "maka"],
         "required_context": []
     }

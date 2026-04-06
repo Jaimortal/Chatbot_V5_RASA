@@ -9,6 +9,7 @@ DEPARTMENT_INFO_TOPIC_PATTERNS = {
             "what colleges do you have"
         ],
         "strong_keywords": [
+            "Colleges in buksu",
             "colleges", "departments", "branches", "campuses"
         ],
         "weak_keywords": [
@@ -25,6 +26,7 @@ DEPARTMENT_INFO_TOPIC_PATTERNS = {
             "CAS college courses"
         ],
         "strong_keywords": [
+            "CAS courses",
             "cas", "arts", "sciences", "science"
         ],
         "weak_keywords": [
@@ -41,6 +43,7 @@ DEPARTMENT_INFO_TOPIC_PATTERNS = {
             "what does college of business offer"
         ],
         "strong_keywords": [
+            "COB courses",
             "cob", "business", "businesses"
         ],
         "weak_keywords": [
@@ -57,6 +60,7 @@ DEPARTMENT_INFO_TOPIC_PATTERNS = {
             "what courses are under technology"
         ],
         "strong_keywords": [
+            "COT courses",
             "cot", "technology", "technologies"
         ],
         "weak_keywords": [
@@ -73,6 +77,7 @@ DEPARTMENT_INFO_TOPIC_PATTERNS = {
             "nursing college offers"
         ],
         "strong_keywords": [
+            "CON courses",
             "con", "nursing", "nurse"
         ],
         "weak_keywords": [
@@ -89,6 +94,7 @@ DEPARTMENT_INFO_TOPIC_PATTERNS = {
             "education college courses"
         ],
         "strong_keywords": [
+            "COE courses",
             "coe", "education", "educ"
         ],
         "weak_keywords": [
@@ -105,6 +111,7 @@ DEPARTMENT_INFO_TOPIC_PATTERNS = {
             "juris doctor program info"
         ],
         "strong_keywords": [
+            "COL courses",
             "law", "juris", "doctor", "jd"
         ],
         "weak_keywords": [
@@ -121,6 +128,7 @@ DEPARTMENT_INFO_TOPIC_PATTERNS = {
             "college of public admin courses"
         ],
         "strong_keywords": [
+            "CPAG courses",
             "coa", "administration", "cpag", "public", "admin"
         ],
         "weak_keywords": [

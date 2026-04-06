@@ -1285,6 +1285,7 @@ nlu:
 
 - intent: ask_department_info
   examples: |
+    - Colleges in buksu
     - what are the colleges in buksu
     - list of college departments in buksu
     - can you tell me what colleges are available in bukidnon state university
@@ -1295,6 +1296,7 @@ nlu:
     - pwede nimo isulti unsa ang mga colleges nga naa sa bukidnon state university
     - palihug ihatag ang lista sa mga college departments sa buksu
     - unsa nga colleges ang naa karon sa buksu
+    - CAS courses
     - what are the courses offered in the college of arts and sciences in buksu
     - list of courses offered in college of arts and sciences in buksu
     - please tell me what courses the college of arts and sciences offer in buksu
@@ -1305,6 +1307,7 @@ nlu:
     - palihug isulti unsa ang mga kurso nga gi-offer sa college of arts and sciences sa buksu
     - pwede nimo ihatag ang lista sa mga kurso nga available ilawom sa cas sa bukidnon state university
     - unsa nga mga programa ang naa sa college of arts and sciences sa buksu
+    - COB courses
     - what are the courses offered in the college of business in buksu
     - can you list the programs available under the college of business at bukidnon state university
     - what courses does cob offer in buksu
@@ -1315,6 +1318,7 @@ nlu:
     - unsa ang mga kurso nga gi-offer sa cob sa buksu
     - palihug isulti unsa ang mga programa ilawom sa college of business sa buksu
     - ihatag ang lista sa mga kurso nga pwede kuhaon sa college of business sa buksu
+    - COT courses
     - what are the courses offered in the college of technologies in buksu
     - can you list the programs available under the college of technology at bukidnon state university
     - what courses does cot offer in buksu
@@ -1325,6 +1329,7 @@ nlu:
     - unsa ang mga kurso nga gi-offer sa cot sa buksu
     - palihug isulti unsa ang mga programa ilawom sa college of technologies sa buksu
     - ihatag ang lista sa mga kurso nga pwede kuhaon sa college of technologies sa buksu
+    - CON courses
     - what course does the college of nursing offer in buksu
     - is nursing the only program available in the college of nursing at bukidnon state university
     - what program can i take in the college of nursing at buksu
@@ -1335,6 +1340,7 @@ nlu:
     - unsa nga programa ang pwede kuhaon sa college of nursing sa buksu
     - isulti unsa nga kurso ang gi-offer ilawom sa con sa buksu
     - unsa ang kurso nga available sa buksu college of nursing
+    - COE courses
     - what are the courses offered in the college of education in buksu
     - can you list the programs available under the college of education at bukidnon state university
     - what courses does coe offer in buksu
@@ -1345,6 +1351,7 @@ nlu:
     - unsa ang mga kurso nga gi-offer sa coe sa buksu
     - palihug isulti unsa ang mga programa ilawom sa college of education sa buksu
     - ihatag ang lista sa kurso sa college of education sa buksu
+    - COL courses
     - what course does the college of law offer in buksu
     - is juris doctor the only program in the buksu college of law
     - what program can i take in the college of law at bukidnon state university
@@ -1355,6 +1362,7 @@ nlu:
     - unsa nga programa ang pwede kuhaon sa college of law sa bukidnon state university
     - isulti unsa nga kurso ang gi-offer ilawom sa law college sa buksu
     - unsa ang programa nga available sa buksu law school
+    - CPAG courses
     - what course does the college of public administration offer in buksu
     - what program is available under the college of administration and governance at bukidnon state university
     - tell me the course offered in the cpag at buksu
@@ -1367,8 +1375,138 @@ nlu:
     - bachelor of public administration ra ba ang kurso sa cpag sa buksu
 
 
+- intent: ask_dormitory_info
+  examples: |
+    - is the buksu has its own dormitory
+    - do the bukidnon state university provide dormitory
+    - Does Bukidnon State University have dormitories for students
+    - Are there dormitory facilities available inside the campus
+    - I want to know if the university provides student dormitories
+    - Can students stay in dormitories inside the university campus
+    - Is there a dormitory available for male and female students
+    - How can I apply for a dormitory inside the university
+    - Does the university offer accommodation for students
+    - Where can I find dormitories inside the campus
+    - Are students allowed to live in campus dormitories
+    - I want information about university dormitory availability
+    - Naa bay dormitory ang Bukidnon State University para sa students
+    - Aduna bay dormitory facilities sulod sa campus
+    - Gusto nako mahibal an kung naa bay dormitory ang university
+    - Pwede ba mag stay ang students sa dormitory sulod sa campus
+    - Naa bay dormitory para sa lalaki ug babae nga students
+    - Unsaon pag apply sa dormitory sa university
+    - Nag offer ba ang university ug accommodation para sa students
+    - Asa makakita ug dormitory sulod sa campus
+    - Tugotan ba ang students nga mopuyo sa campus dormitory
+    - Gusto nako mahibal an ang availability sa dormitory sa university
+    - how many dormitories are there in BukSU main campus
+    - what is the total number of dorms in Bukidnon State University
+    - can you tell me the number of dormitories in BukSU
+    - how many student dorms exist in BukSU
+    - total dormitory count in BukSU main campus
+    - how many dorm buildings are available in BukSU
+    - what is the number of dorms inside BukSU campus
+    - how many dormitories does BukSU have
+    - count of dormitories in Bukidnon State University
+    - how many dorms can be found in BukSU
+    - pila ka dormitory ang naa sa BukSU main campus
+    - pila kabuok dormitory sa Bukidnon State University
+    - unsa ka daghan ang dormitory sa BukSU
+    - pila ka dorm ang naa sulod sa BukSU campus
+    - pila kabuok dorm buildings sa BukSU
+    - pila ka student dormitory ang naa sa BukSU
+    - pila ang total nga dormitory sa BukSU
+    - pila ka dormitory ang available sa BukSU
+    - pila kabuok dorm sa Bukidnon State University main campus
+    - pila ka dorm ang makita sa sulod sa BukSU
+    - What are the advantages and disadvantages of living in the university dormitory
+    - Can you explain the benefits and limitations of staying in campus dormitories
+    - I want to know the pros and cons of living in the Bukidnon State University dormitory
+    - Is living in a university dormitory convenient for students
+    - What are the benefits of staying in the campus dormitory
+    - Are there any disadvantages of living in the university dormitory
+    - Why should students choose to live in campus dormitories
+    - What should I expect if I stay in the university dormitory
+    - Is it better to live in the dormitory or outside the campus
+    - Can you give information about dormitory living conditions and rules
+    - Unsa ang mga bentaha ug disbentaha sa pagpuyo sa dormitory sa university
+    - Pwede ba nimo ipasabot ang mga benepisyo ug limitasyon sa pagpuyo sa dormitory
+    - Gusto nako mahibal an ang pros ug cons sa pagpuyo sa dormitory sa Bukidnon State University
+    - Maayo ba ang pagpuyo sa dormitory para sa students
+    - Unsa ang mga benepisyo sa pagpuyo sa dormitory sulod sa campus
+    - Naa bay mga disbentaha sa pagpuyo sa dormitory
+    - Ngano nga ang students mopili sa pagpuyo sa campus dormitory
+    - Unsa ang akong ma expect kung mopuyo ko sa dormitory
+    - Mas maayo ba ang pagpuyo sa dormitory o sa gawas sa campcampus_dormitoriesus
+    - Pwede ba ka mohatag ug impormasyon bahin sa dormitory living conditions ug rules
+    - What dormitories are available at BukSU
+    - How many dormitories are inside BukSU campus
+    - Who can stay in BukSU dormitories
+    - Are there dormitories for athletes at BukSU
+    - Where are the campus dormitories located
+    - Can students apply for BukSU dormitory slots
+    - Which dormitories exist at BukSU
+    - What are the names of BukSU dormitories
+    - Are dormitories available for specific student groups
+    - How do students find dormitories near BukSU
+    - Unsang mga dormitoryo ang available sa BukSU
+    - Pila ka dormitoryo ang sulod sa BukSU campus
+    - Kinsa ang pwede mupuyo sa BukSU dormitories
+    - Naay dormitoryo para sa athletes sa BukSU
+    - Asa nahimutang ang campus dormitories
+    - Pwede ba mag apply ang estudyante sa BukSU dormitory slots
+    - Unsang dormitories ang naa sa BukSU
+    - Unsay mga pangalan sa BukSU dormitories
+    - Naay dormitories para sa specific student groups
+    - Giunsa pag pangita sa estudyante og dormitory duol sa BukSU
+    - male dormitory
+    - male dorm
+    - is there a male dormitory in BukSU?
+    - does Bukidnon State University have a male dorm?
+    - can you tell me if there's a male dormitory?
+    - is Mahogany dorm for male students only?
+    - tell me about the male dormitory in BukSU
+    - are there dormitories for male students in the university?
+    - can male students stay in the campus dormitory?
+    - what is the male dormitory called in BukSU?
+    - is there a separate dorm for male students?
+    - does the university provide housing for male students?
+    - naa bay male dormitory sa BukSU?
+    - pwede nimo isulti kung naa bay male dorm sa university?
+    - ang Mahogany dorm ba para sa lalaki ra?
+    - naa bay dormitory para sa lalaki?
+    - unsa ang pangalan sa male dorm sa BukSU?
+    - pwede ba magpuyo ang lalaki sa campus dorm?
+    - ang BukSU ba naghatag og male dormitory?
+    - pila ka male dormitory ang naa sa BukSU?
+    - kinsa ang pwede mupuyo sa male dormitory?
+    - naa bay laing dorm para sa lalaki?
+    - female dormitory
+    - female dorm
+    - is there a female dormitory in BukSU?
+    - does Bukidnon State University have a female dorm?
+    - can you tell me if there's a female dormitory?
+    - is Rubia dorm for female students only?
+    - tell me about the female dormitory in BukSU
+    - are there dormitories for female students in the university?
+    - can female students stay in the campus dormitory?
+    - what is the female dormitory called in BukSU?
+    - is there a separate dorm for female students?
+    - does the university provide housing for female students?
+    - naa bay female dormitory sa BukSU?
+    - pwede nimo isulti kung naa bay female dorm sa university?
+    - ang Rubia dorm ba para sa babae ra?
+    - naa bay dormitory para sa babae?
+    - unsa ang pangalan sa female dorm sa BukSU?
+    - pwede ba magpuyo ang babae sa campus dorm?
+    - ang BukSU ba naghatag og female dormitory?
+    - pila ka female dormitory ang naa sa BukSU?
+    - kinsa ang pwede mupuyo sa female dormitory?
+    - naa bay laing dorm para sa babae?
+
 - intent: ask_enrollment_info
   examples: |
+    - Transferee enrollment
     - I want to know if a student transferring from another school can enroll at Bukidnon State University
     - Can you explain the enrollment process for transferee students coming from another institution
     - I am planning to transfer to BukSU and I want to understand the transferee enrollment policy
@@ -1381,6 +1519,7 @@ nlu:
     - Palihug ipasabot kung giunsa ang enrollment para sa mga estudyante nga mobalhin gikan sa public nga mga eskwelahan
     - Gusto ko mangutana bahin sa mga requirements para sa transferee enrollment sa Bukidnon State University
     - Giunsa pag-handle sa BukSU ang enrollment para sa mga estudyante nga mobalhin gikan sa private nga mga eskwelahan
+    - Student fees
     - I want to know what fees students are required to pay at Bukidnon State University
     - Are there any fees that students need to pay even if tuition is free
     - What are the required fees that enrolled students must settle at BukSU
@@ -1399,6 +1538,7 @@ nlu:
     - Unsa nga klase sa bayranan ang dapat andamon sa mga estudyante kada semester
     - Gusto ko sa kompleto nga detalye bahin sa mga bayranan nga gipangayo sa unibersidad
     - Palihug isulti kung ang mga libro ug laboratory materials ba adunay dugang gasto
+    - SIAS account access
     - how can i access my buksu sias account
     - can you help me where can i login for sias
     - where can i access my sias account for my grades
@@ -1411,6 +1551,7 @@ nlu:
     - Isulti asa ko moadto para ma access ang akong SIAS portal
     - Palihug tabangi ko unsaon pag access sa akong SIAS web account
     - Pwede ba nimo isulti asa ko moadto para ma access ang akong SIAS account portal
+    - Campus transfer
     - Can I transfer to another BukSU campus
     - Is it possible to move to a different bukidnon state university campus
     - Can students transfer to another campus during the semester
@@ -1419,6 +1560,7 @@ nlu:
     - Posible ba nga mobalhin sa lain nga campus sa Bukidnon State University
     - Pwede ba ang mga estudyante mobalhin sa lain nga campus sulod sa semester
     - Pwede ba ang estudyante mobalhin sa lain nga campus
+    - Dual enrollment
     - Am I allowed to enroll at BukSU while currently studying at another school
     - Can I study at BukSU if I am still enrolled in a different university
     - Is dual enrollment permitted between BukSU and another institution
@@ -1429,6 +1571,7 @@ nlu:
     - Gitugotan ba ang dual enrollment sa BukSU ug lain nga eskwelahan
     - Pwede ba ko magpa enroll sa BukSU bisan naa pa koy active enrollment sa lain nga kolehiyo
     - Okay ra ba nga naka-enroll ko sa BukSU ug sa lain nga eskwelahan sa parehas nga panahon
+    - Enrollment process
     - can you tell me how to enroll
     - how student enroll in bukidnon state university
     - How to enroll in BukSU
@@ -1457,6 +1600,7 @@ nlu:
     - Unsaon nako pag enroll online gamit ang BukSU admission website
     - Unsa ang angay kong buhaton para maka enroll online sa BukSU admission step by step
     - Gusto ko mag pa enroll online sa BukSU admission unsa ang mga steps
+    - Face to face enrollment
     - what should I do after online enrollment for face to face process
     - how to enroll face to face process
     - What are the next steps after completing online enrollment for onsite processing
@@ -1471,6 +1615,7 @@ nlu:
     - Unsa ang proseso sa face to face nga enrollment human sa online registration
     - Kung mahuman na ang online enrollment, unsaon nako pagpadayon sa physical nga proseso
     - Unsaon nako pag-proceed sa face to face nga enrollment human makompleto ang online registration
+    - Enrollment documents
     - What documents do I need to bring for enrollment as a freshman at BukSU
     - As a first year student, what document are required before I can enroll
     - tell me what document do i need to bring during the enrollment process
@@ -1514,6 +1659,7 @@ nlu:
 
 - intent: ask_oss_services
   examples: |
+    - Student ID fee
     - do i need to pay for the buksu student id
     - is the bukidnon state university student id free or do i need to pay
     - is there a fee for getting a buksu student id
@@ -1524,6 +1670,7 @@ nlu:
     - naa bay bayad sa pagkuha sa buksu student id
     - pila ang presyo sa buksu student id
     - kinahanglan ba sa mga freshmen mobayad sa ilang student id sa buksu
+    - Student ID requirements
     - what are the requirements for getting a buksu student id
     - what do i need to bring to get a student id at bukidnon state university
     - what documents are needed to get a buksu student id
@@ -1534,6 +1681,7 @@ nlu:
     - unsa nga mga dokumento ang kinahanglan para makakuha og buksu student id
     - pwede nimo isulti ang requirements sa pagkuha og buksu student id
     - unsa ang akong ipreparar aron makuha ang akong student id sa buksu
+    - Lost student ID
     - what should i do if i lost my buksu student id
     - how do i get a replacement id if i lost my buksu student id
     - what is the process if my buksu student id got lost
@@ -1544,6 +1692,7 @@ nlu:
     - unsa ang proseso kung mawala ang akong buksu student id
     - step by step unsaon pagkuha og bag-ong student id kung mawala sa bukidnon state university
     - nawala ang akong buksu student id unsaon nako pagkuha og bag-o
+    - Good moral certificate
     - where can i get a good moral certificate in buksu
     - how do i request a good moral certificate from the office of student services
     - how much does a good moral certificate cost at buksu
@@ -1554,6 +1703,7 @@ nlu:
     - pila ang bayad sa good moral certificate sa buksu
     - asa ko moadto para i-request ang akong good moral certificate sa bukidnon state university
     - pwede nimo isulti ang proseso sa pagkuha og good moral certificate gikan sa oss
+    - Student ID process
     - what is the process for getting a student id at buksu
     - how do i get a student id at bukidnon state university
     - where do i go to get my student id at buksu
@@ -1568,6 +1718,7 @@ nlu:
 
 - intent: ask_library_info
   examples: |
+    - Library borrowing limit
     - How many books can I borrow from the library
     - What is the borrowing book limit for student
     - Is there a limit to how many books I can borrow?
@@ -1576,6 +1727,7 @@ nlu:
     - Can students borrow more than five books?
     - Unsa ang rules sa panghulam og libro?
     - pwedi bao maka hulam og daghan nga libro sa library?
+    - Library late penalty
     - What is the penalty for late return of books
     - what if i return the book on late time
     - Who pays the penalty for unreturned items
@@ -1584,6 +1736,7 @@ nlu:
     - unsay mahitabo kung malangan ko ug balik sa libro
     - maka bayad bako og akong i uli ang libro og dugay sa library
     - unsay amount sa penalty para sa late return
+    - Library hours
     - When is the University Library open
     - When does the library open and close
     - Are library facilities accessible after hours
@@ -1592,6 +1745,7 @@ nlu:
     - Kanusa moabri ug mosira ang library
     - kanusa manirado ang library
     - Ma access ba ang mga pasilidad sa librarya human sa oras?
+    - Library ID location
     - where do i get library ID card
     - where can i process my library id card
     - Location on where can i get my library id
@@ -1600,6 +1754,7 @@ nlu:
     - asa ko mo adto para mag kuha og id sa library
     - unsa nga floor sa library ko mo adto para mokuha og library card
     - asa dapita ta mo kohag Id para sa library
+    - Library ID requirements
     - What are the requirements to get library id
     - what do i need to bring to get library id card
     - requirements need to get library card
@@ -1608,6 +1763,7 @@ nlu:
     - mga kinahanglanon aron makakuha og library ID
     - gakinahanglan batag mga requirements para lang sa library id card
     - unsay dalon nako pag kuha og library card id
+    - Library ID payment
     - Do i need to pay for library id card
     - is library card need to be payed during the process
     - where do i pay for my libray Id 
@@ -1616,6 +1772,7 @@ nlu:
     - asa ko magbayad para sa library id card
     - naa pabay bayronon para sa library ID
     - pilay mabayran sa library card
+    - How to borrow books
     - how to borrow a book in library
     - what do i need to do to borrow a book from library
     - can i borrow a book in library
@@ -1624,6 +1781,7 @@ nlu:
     - asa ko mo adto para mang hulam og libro
     - pwedi ko maka hulam og libro sa library
     - aha manta maka hulam og libro sa library
+    - How to return books
     - what do i need to during the book returnment in library
     - do i need to bring my library id card for book returnment
     - what else do i need for returning my book on the library
@@ -1632,6 +1790,7 @@ nlu:
     - mga dalunon para sapag uli og libro sa 
     - unsaon nako pag uli sa akong gi hulman nga libro
     - asa nako dapit i uli ang libro nga gikan sa library
+    - What books can I borrow
     - what books i can borrow on the library?
     - books available in the library
     - what spacific books can be borrow on the library
@@ -1640,6 +1799,7 @@ nlu:
     - unsa nga mga libro ang available diris library 
     - unsay mga libro ang pwedi nako hulaman diris library
     - mga libro nga pwedi nako mahulan
+    - Access library resources
     - how do student can access the library resources
     - can you tell me how could i access the university library resources
     - whats do i need to access the library resources in buksu
@@ -1659,6 +1819,8 @@ nlu:
     - pwede ko nimo hatagan og background info about sa buksu
     - storyahi ko gamay bahin sa bukidnon state university
     - ganahan ko makabalo bahin sa buksu
+    - about buksu
+    - Buksu mission
     - what is the mission of bukidnon state university
     - can you tell me the mission of buksu
     - what is buksu mission all about
@@ -1669,6 +1831,7 @@ nlu:
     - unsa gyud ang tumong sa mission sa buksu
     - storyahi ko bahin sa mission sa bukidnon state university
     - ganahan ko makabalo sa mission sa buksu
+    - Buksu vision
     - what is the vision of bukidnon state university
     - can you tell me the vision of buksu
     - what is buksu vision all about
@@ -1679,6 +1842,7 @@ nlu:
     - unsa gyud ang kahulugan sa vision sa buksu
     - storyahi ko bahin sa vision sa bukidnon state university
     - ganahan ko makabalo sa vision sa buksu
+    - Buksu core values
     - what are the core values of bukidnon state university
     - can you tell me the core values of buksu
     - what values does buksu stand for
@@ -1689,6 +1853,7 @@ nlu:
     - unsa nga mga values ang ginabarugan sa buksu
     - storyahi ko bahin sa core values sa bukidnon state university
     - ganahan ko makabalo sa core values sa buksu
+    - Buksu president
     - who is the president of the buksu
     - who is the president of buksu
     - who is the current president of bukidnon state university
@@ -1701,6 +1866,7 @@ nlu:
     - kinsa ang nagdumala sa buksu karon
     - storyahi ko kung kinsa ang president sa bukidnon state university
     - ganahan ko makabalo kung kinsa ang current president sa buksu
+    - Buksu history
     - can you tell me about the history of bukidnon state university
     - what is the background of buksu
     - tell me about the history of buksu
@@ -1711,6 +1877,7 @@ nlu:
     - storyahi ko bahin sa history sa buksu
     - hatagi ko og info bahin sa background sa bukidnon state university
     - ganahan ko makabalo sa history sa buksu
+    - Buksu seal
     - what is the meaning of the buksu seal
     - can you tell me what the buksu seal stands for
     - what does the buksu seal represent
@@ -1721,6 +1888,7 @@ nlu:
     - unsa ang ginarepresenta sa buksu seal
     - storyahi ko bahin sa significance sa buksu seal
     - ganahan ko makabalo unsay pasabot sa kada parte sa buksu seal
+    - Buksu hymn
     - where can i find the buksu hymn lyrics
     - can you give me the lyrics of the buksu hymn
     - i want to see the lyrics of the bukidnon state university hymn
@@ -1731,6 +1899,7 @@ nlu:
     - ganahan ko makita ang lyrics sa bukidnon state university hymn
     - storyahi ko asa makita ang buksu hymn
     - naa bay link para sa lyrics sa buksu hymn
+    - Buksu presidents
     - who are all the presidents of bukidnon state university
     - can you give me the list of buksu presidents
     - tell me all the presidents that led buksu over the years
@@ -1741,7 +1910,7 @@ nlu:
     - storyahi ko sa tanang president nga nagdumala sa buksu
     - ganahan ko makita ang listahan sa president sa bukidnon state university
     - kinsa ang mga niaging president sa buksu
-    - what does buksu stand for
+    - What does buksu stand for
     - can you tell me what buksu means
     - what is the meaning of the abbreviation buksu
     - tell me what buksu stands for
@@ -1751,6 +1920,7 @@ nlu:
     - unsa ang kahulugan sa abbreviation nga buksu
     - storyahi ko unsay pasabot sa buksu
     - unsa gyud ang tinuod nga meaning sa word nga buksu
+    - When was buksu founded
     - when was bukidnon state university founded
     - can you tell me when buksu was established
     - what year was buksu founded
@@ -1761,6 +1931,7 @@ nlu:
     - unsa nga tuig gitukod ang buksu
     - storyahi ko kanus a gitukod ang bukidnon state university
     - ganahan ko makabalo kanus a nagsugod ang buksu
+    - Buksu ranking
     - what is the current ranking of bukidnon state university
     - can you tell me the ranking of buksu right now
     - how high is buksu ranked in the philippines
@@ -1771,6 +1942,7 @@ nlu:
     - unsa ka taas ang rank sa buksu sa pilipinas
     - storyahi ko bahin sa current rank sa buksu
     - ganahan ko makabalo sa ranking sa bukidnon state university
+    - When did buksu become university
     - when did buksu become a university
     - can you tell me when bukidnon state university became a university
     - how did buksu become a university
@@ -1781,6 +1953,7 @@ nlu:
     - unsaon pagkahimong university sa buksu
     - storyahi ko kanus a nausab ang buksu ngadto sa university
     - ganahan ko makabalo kanusa opisyal nga nahimong university ang buksu
+    - Buksu university president
     - who was the president of buksu when it became a university
     - can you tell me who led buksu when it became a university in 2007
     - who was in charge of buksu when it became a university
@@ -1791,6 +1964,7 @@ nlu:
     - kinsa ang in charge sa buksu pag nahimong university kini
     - storyahi ko kung kinsa ang president sa buksu ato nga time
     - ganahan ko makabalo kung kinsa ang president sa buksu pag nahimo kini university
+    - How old is buksu
     - how old is bukidnon state university
     - can you tell me the age of buksu
     - how many years has buksu been around
@@ -1801,6 +1975,7 @@ nlu:
     - pila na ka tuig nag exist ang buksu
     - storyahi ko unsa na ka dugay ang buksu
     - ganahan ko makabalo pila na ka tuig ang bukidnon state university
+    - Buksu location
     - where is bukidnon state university located
     - can you tell me where buksu is located
     - what is the location of buksu
@@ -1811,6 +1986,7 @@ nlu:
     - unsa ang location sa buksu
     - storyahi ko asa ang bukidnon state university
     - ganahan ko makabalo asa dapit ang buksu
+    - Buksu gazette
     - what is the buksu gazette
     - can you tell me about the buksu gazette
     - what is the gazette of bukidnon state university
@@ -1821,6 +1997,7 @@ nlu:
     - unsa ang gazette sa bukidnon state university
     - storyahi ko bahin sa gazette sa buksu
     - ganahan ko makabalo unsa ang buksu gazette
+    - Is buksu worth it
     - is it worth it to study in buksu
     - can you tell me if buksu is a good school to study in
     - is bukidnon state university worth enrolling in
@@ -1831,6 +2008,7 @@ nlu:
     - worth it ba mag enroll sa bukidnon state university
     - storyahi ko kung worth it ba mag study sa buksu
     - ganahan ko makabalo kung worth it ba ang buksu
+    - Buksu study spots
     - where is a good place to study inside buksu
     - can you tell me where i can study in bukidnon state university
     - where can i go to study quietly in buksu
@@ -1841,6 +2019,7 @@ nlu:
     - asa ko pwede mag study nga hilom sa buksu
     - storyahi ko asa nindot nga studyhan sa buksu
     - ganahan ko makabalo asa ko pwede mag study sulod sa bukidnon state university
+    - Buksu campus tour
     - is there a campus tour in buksu
     - can you tell me if buksu has a campus tour for new students
     - does bukidnon state university offer campus tours
@@ -2328,6 +2507,7 @@ nlu:
     - Can you tell me where the [Research Extension](location_name) is located in front of the Museum
     - Asa dapit makita ang [Research Extension](location_name) nga naa sa atubangan sa Museum
     - I am looking for the [Kilala Dorm](location_name) behind the Health and Service Building
+    - where can i locate the [Kilala Dorm](location_name) behind the Health and Service Building
     - Asa dapit ang [Kilala Dorm](location_name) nga naa sa likod sa Health and Service Building
     - Where can students find the nearest [Comfort Room](location_name) on campus
     - Asa ko makakita og duol nga [Comfort Room](location_name) sulod sa campus
@@ -2612,6 +2792,81 @@ nlu:
     - Asa ko moadto para sa [CON SBO Office](location_name)
     - Can you guide me going to the [COA SBO Office](location_name)
     - Tabangi ko pag adto sa [COA SBO Office](location_name)
+    - Where is the [ICT Service Unit](location_name) located
+    - Asa makita ang [ICT Service Unit](location_name)
+    - Where is [CPAG 2-01](location_name)
+    - Asa dapit ang [CPAG 2-01](location_name)
+    - I need directions to [CPAG 2-02](location_name)
+    - Asa makita ang [CPAG 2-02](location_name)
+    - Can you tell me the location of [CPAG 2-03](location_name)
+    - Unsaon pag adto sa [CPAG 2-03](location_name)
+    - Where can I find [CPAG 2-04](location_name)
+    - Asa dapit ang [CPAG 2-04](location_name)
+    - Please guide me to [CPAG 2-05](location_name)
+    - Asa makita ang [CPAG 2-05](location_name)
+    - How do I reach the [Office of the Chairperson CPAG](location_name)
+    - Asa dapit ang [Office of the Chairperson CPAG](location_name)
+    - Where can I find the [Project Management Unit](location_name)
+    - Asa makita ang [Project Management Unit](location_name)
+    - I am trying to find where the [Planning Office](location_name) is located
+    - Unsaon pag adto sa [Planning Office](location_name)
+    - Where is the [Smart Classroom](location_name) located
+    - Unsaon pag adto sa [Smart Classroom](location_name)
+    - Please guide me to [CPAG 3-09](location_name)
+    - Asa dapit ang [CPAG 3-09](location_name)
+    - I need directions to [CPAG 3-08](location_name)
+    - Asa makita ang [CPAG 3-08](location_name)
+    - Where can I find [CPAG 3-07](location_name)
+    - Unsaon pag adto sa [CPAG 3-07](location_name)
+    - Can you tell me the location of [CPAG 3-06](location_name)
+    - Asa dapit ang [CPAG 3-06](location_name)
+    - Where is the [Speech Laboratory](location_name) located
+    - Asa makita ang [Speech Laboratory](location_name)
+    - How do I get to the [CPAG Guidance Office](location_name)
+    - Unsaon pag adto sa [CPAG Guidance Office](location_name)
+
+- synonym: Mahogany Dorm
+  examples: |
+    - male dorm
+    - male dormitory
+    - man dorm
+    - man dormitory
+    - boy dorm
+    - boy dormitory
+    - boys dorm
+    - dorm sa lalaki
+    - dorm sa laki
+    - lalaki nga dorm
+    - lalaki nga dormitory
+
+- synonym: Rubia Dorm
+  examples: |
+    - female dorm
+    - female dormitory
+    - woman dorm
+    - woman dormitory
+    - girl dorm
+    - girl dormitory
+    - girls dorm
+    - dorm sa babae
+    - dorm sa bae
+    - babae nga dorm
+    - babae nga dormitory
+
+- synonym: Kilala Dorm
+  examples: |
+    - kilala dorm
+    - kilalas dorm
+    - kilala's dorm
+    - kilala dormitory
+
+- lookup: location_name
+  examples: |
+    - Mahogany Dorm
+    - Rubia Dorm
+    - Kilala Dorm
+    - male dorm
+    - female dorm
 
 - regex: location_name
   examples: |
@@ -3236,71 +3491,6 @@ nlu:
     - Pwede ba ang civilian attire para sa bag o nga students
     - Unsa ang rules sa pagsul ob ug civilian attire sulod sa campus
 
-- intent: campus_dormitories
-  examples: |
-    - is the buksu has its own dormitory
-    - do the bukidnons state university provide dormitory
-    - Does Bukidnon State University have dormitories for students
-    - Are there dormitory facilities available inside the campus
-    - I want to know if the university provides student dormitories
-    - Can students stay in dormitories inside the university campus
-    - Is there a dormitory available for male and female students
-    - How can I apply for a dormitory inside the university
-    - Does the university offer accommodation for students
-    - Where can I find dormitories inside the campus
-    - Are students allowed to live in campus dormitories
-    - I want information about university dormitory availability
-    - Naa bay dormitory ang Bukidnon State University para sa students
-    - Aduna bay dormitory facilities sulod sa campus
-    - Gusto nako mahibal an kung naa bay dormitory ang university
-    - Pwede ba mag stay ang students sa dormitory sulod sa campus
-    - Naa bay dormitory para sa lalaki ug babae nga students
-    - Unsaon pag apply sa dormitory sa university
-    - Nag offer ba ang university ug accommodation para sa students
-    - Asa makakita ug dormitory sulod sa campus
-    - Tugotan ba ang students nga mopuyo sa campus dormitory
-    - Gusto nako mahibal an ang availability sa dormitory sa university
-
-- intent: number_of_dormitories
-  examples: |
-    - how many dormitory are inside the buksu main campus
-    - can you tell me how many dormitory are there
-    - number of dorm existing in buksu
-    - pila ka dormitory ang naa sa buksu
-    - pila ka dormitory ang naa sa bukidnons state university
-    - pila ka dormitory ang naa sa bukidnons state university main campus
-
-
-- intent: dormitory_pros_cons
-  examples: |
-    - What are the advantages and disadvantages of living in the university dormitory
-    - Can you explain the benefits and limitations of staying in campus dormitories
-    - I want to know the pros and cons of living in the Bukidnon State University dormitory
-    - Is living in a university dormitory convenient for students
-    - What are the benefits of staying in the campus dormitory
-    - Are there any disadvantages of living in the university dormitory
-    - Why should students choose to live in campus dormitories
-    - What should I expect if I stay in the university dormitory
-    - Is it better to live in the dormitory or outside the campus
-    - Can you give information about dormitory living conditions and rules
-    - Unsa ang mga bentaha ug disbentaha sa pagpuyo sa dormitory sa university
-    - Pwede ba nimo ipasabot ang mga benepisyo ug limitasyon sa pagpuyo sa dormitory
-    - Gusto nako mahibal an ang pros ug cons sa pagpuyo sa dormitory sa Bukidnon State University
-    - Maayo ba ang pagpuyo sa dormitory para sa students
-    - Unsa ang mga benepisyo sa pagpuyo sa dormitory sulod sa campus
-    - Naa bay mga disbentaha sa pagpuyo sa dormitory
-    - Ngano nga ang students mopili sa pagpuyo sa campus dormitory
-    - Unsa ang akong ma expect kung mopuyo ko sa dormitory
-    - Mas maayo ba ang pagpuyo sa dormitory o sa gawas sa campus
-    - Pwede ba ka mohatag ug impormasyon bahin sa dormitory living conditions ug rules
-
-- synonym: dormitory
-  examples: |
-    - dorm
-    - dormitory
-    - dormitories
-    - dorms
-
 - intent: cancel_tabuk_assistance
   examples: |
     - How can I cancel my TABUK assistance
@@ -3581,32 +3771,7 @@ nlu:
     - Unsang opisina ang mo handle sa PWD student assistance
     - Pwede ba ang BukSU maghatag og exam support para sa disabled students
     - Naay special services para sa PWD students sa BukSU
-    - Kinsa kontakon sa PWD students para sa tabang
-
-- intent: buksu_dormitory_information
-  examples: |
-    - What dormitories are available at BukSU
-    - How many dormitories are inside BukSU campus
-    - Who can stay in BukSU dormitories
-    - Are there dormitories for athletes at BukSU
-    - Where are the campus dormitories located
-    - Can students apply for BukSU dormitory slots
-    - Which dormitories exist at BukSU
-    - What are the names of BukSU dormitories
-    - Are dormitories available for specific student groups
-    - How do students find dormitories near BukSU
-    - Unsang mga dormitoryo ang available sa BukSU
-    - Pila ka dormitoryo ang sulod sa BukSU campus
-    - Kinsa ang pwede mupuyo sa BukSU dormitories
-    - Naay dormitoryo para sa athletes sa BukSU
-    - Asa nahimutang ang campus dormitories
-    - Pwede ba mag apply ang estudyante sa BukSU dormitory slots
-    - Unsang dormitories ang naa sa BukSU
-    - Unsay mga pangalan sa BukSU dormitories
-    - Naay dormitories para sa specific student groups
-    - Giunsa pag pangita sa estudyante og dormitory duol sa BukSU
-
-
+    - Kinsa kontakon sa PWD students para sa tabang 
 
 - intent: free_tuition_undergraduate_buksu
   examples: |

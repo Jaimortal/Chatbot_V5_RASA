@@ -88,6 +88,11 @@ University_info_topicroute = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(University_info_topicroute)
 UNIVERSITY_TOPIC_PATTERNS = University_info_topicroute.UNIVERSITY_TOPIC_PATTERNS
 
+spec = importlib.util.spec_from_file_location("Dormitory_info_topicroute", os.path.join(topic_router_dir, "Dormitory_info_topicroute.py"))
+Dormitory_info_topicroute = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(Dormitory_info_topicroute)
+DORMITORY_INFO_TOPIC_PATTERNS = Dormitory_info_topicroute.DORMITORY_INFO_TOPIC_PATTERNS
+
 # Weak/common words that should score lower to avoid false matches
 WEAK_COMMON_WORDS = {
     "get", "getting", "got", "the", "a", "an", "is", "are", "was", "were",
@@ -377,6 +382,10 @@ class ActionReplyFromJsonHelper:
         # University Info
         self.university_info_path = os.path.join(supper_saiyan_dir, "University_info.json")
         self.university_info = self._load_json_file(self.university_info_path)
+        
+        # Dormitory Info
+        self.dormitory_info_path = os.path.join(supper_saiyan_dir, "Dormitory_info.json")
+        self.dormitory_info = self._load_json_file(self.dormitory_info_path)
         
         self.context = ConversationContext()
 
@@ -1204,6 +1213,19 @@ class ActionReplyFromJsonHelper:
             fallback_message="I'm sorry, I didn't understand your university question. Could you please rephrase it?"
         )
 
+    def get_dormitory_response(self, user_message: str) -> Dict[str, Any]:
+        """
+        Dormitory Info-specific wrapper around get_structured_response.
+        Uses DORMITORY_INFO_TOPIC_PATTERNS and Dormitory_info.json.
+        """
+        return self.get_structured_response(
+            user_message=user_message,
+            data_source=self.dormitory_info,
+            topic_patterns=DORMITORY_INFO_TOPIC_PATTERNS,
+            topic_mapping=None,
+            fallback_message="I'm sorry, I didn't understand your dormitory question. Could you please rephrase it?"
+        )
+
     def get_structured_response_with_topic(
         self,
         topic: str,
@@ -1732,6 +1754,33 @@ class ActionReplyFromJson(Action):
             elif response.get("image"):
                 dispatcher.utter_message(image=response["image"])
             
+            return []
+
+        # Dormitory info lookup with topic detection
+        if intent == "ask_dormitory_info":
+            # Check if topic entity was provided (e.g., from quick access payload)
+            topic_entity = None
+            for entity in tracker.latest_message.get("entities", []):
+                if entity.get("entity") == "topic":
+                    topic_entity = entity.get("value")
+                    break
+            
+            # If no topic entity from this message, check slot
+            if not topic_entity:
+                topic_entity = tracker.get_slot("topic")
+            
+            # Use entity if available, otherwise detect from message
+            if topic_entity:
+                response = self.helper.get_structured_response_with_topic(
+                    topic_entity,
+                    self.helper.dormitory_info,
+                    fallback_message="I'm sorry, I don't have information about that dormitory topic."
+                )
+            else:
+                response = self.helper.get_dormitory_response(user_msg)
+            
+            if response.get("text"):
+                dispatcher.utter_message(text=response["text"])
             return []
 
         # ✨ FIX: if intent == ask_more → DO NOT call main response

@@ -97,7 +97,6 @@ LOCATION_ALIASES = {
 
     # === CPAG Building ===
     "cpag building": "CPAG building",
-    "cpag": "CPAG building",
     "cpag building": "CPAG Building",
     "building sa cpag": "CPAG Building",
     "building cpag": "CPAG Building",
@@ -294,7 +293,9 @@ LOCATION_ALIASES = {
     "cob faculty room": "COB Faculty Room",
     
     "cpag faculty": "CPAG Faculty Room",
+    "office of the cpag faculty": "CPAG Faculty Room",
     "cpag faculty room": "CPAG Faculty Room",
+    "cpag faculty office": "CPAG Faculty Room",
     
     "bsn faculty": "BSN Faculty Room",
     "CON faculty": "BSN Faculty Room",
@@ -325,6 +326,8 @@ LOCATION_ALIASES = {
     # === CPAG Dean's Office ===
     "cpag dean's office": "CPAG Dean's Office",
     "cpag deans office": "CPAG Dean's Office",
+    "cpag dean office": "CPAG Dean's Office",
+    "cpag office of the dean": "CPAG Dean's Office",
     "college of public administration and governance deans office": "CPAG Dean's Office",
     "college of public administration and governance dean office": "CPAG Dean's Office",
     "college of public administration and governance office of the dean": "CPAG Dean's Office",
@@ -372,6 +375,8 @@ LOCATION_ALIASES = {
     "mahogany dormitory": "Mahogany Dorm",
     "mahogany's dormitory": "Mahogany Dorm",
     "mahoganys dormitory": "Mahogany Dorm",
+    "mahugany dorm": "Mahogany Dorm",
+    "mahugany dormitory": "Mahogany Dorm",
     "male dormitory": "Mahogany Dorm",
     "man dormitory": "Mahogany Dorm",
     "mans dormitory": "Mahogany Dorm",
@@ -390,6 +395,8 @@ LOCATION_ALIASES = {
     "rubia's dorm": "Rubia Dorm",
     "rubias doorm": "Rubia Dorm",
     "rubias dorm": "Rubia Dorm",
+    "robias dorm": "Rubia Dorm",
+    "robia dorm": "Rubia Dorm",
     "rubia dormitory": "Rubia Dorm",
     "rubia's dormitory": "Rubia Dorm",
     "female dormitory": "Rubia Dorm",
@@ -1063,6 +1070,128 @@ LOCATION_ALIASES = {
     "Medical clinic": "Medical clinic",
     "buksu med clinic": "Medical clinic",
     "bukidnon state university medical clinic": "Medical clinic",
-    "medical clinic office": "Medical clinic"
+    "medical clinic office": "Medical clinic",
+    
+    # ICT Service Unit
+    "ict service unit": "ICT Service Unit",
+    "ict service unit office": "ICT Service Unit",
+    "ict service unit room": "ICT Service Unit",
+    "ict office": "ICT Service Unit",
+    "ict unit": "ICT Service Unit",
+    "ict": "ICT Service Unit",
+    
+    # CPAG Rooms 2nd Floor
+    "cpag 2-02": "CPAG 2-02", 
+    "cpag2-02 room": "CPAG 2-02", 
+    "cpag 202": "CPAG 2-02", 
+    "room 2-02": "CPAG 2-02",
+    "cpag202": "CPAG 2-02",
+    "cpag202 room": "CPAG 2-02",
+    "cpag2-02": "CPAG 2-02",
+    "room cpag202": "CPAG 2-02",
+    "cpag 2-02 room": "CPAG 2-02",
+
+    "cpag 2-03": "CPAG 2-03", 
+    "cpag2-03 room": "CPAG 2-03",
+    "cpag 203": "CPAG 2-03",
+    "room 2-03": "CPAG 2-03",
+    "cpag203": "CPAG 2-03",
+    "cpag203 room": "CPAG 2-03",
+    "cpag2-03": "CPAG 2-03",
+    "room cpag203": "CPAG 2-03",
+    "cpag 2-03 room": "CPAG 2-03",
+
+    "cpag 2-04": "CPAG 2-04", 
+    "cpag2-04 room": "CPAG 2-04", 
+    "cpag 204": "CPAG 2-04", 
+    "room 2-04": "CPAG 2-04",
+    "cpag204": "CPAG 2-04",
+    "cpag204 room": "CPAG 2-04",
+    "cpag2-04": "CPAG 2-04",
+    "room cpag204": "CPAG 2-04",
+    "cpag 2-04 room": "CPAG 2-04",
+
+    "cpag 2-05": "CPAG 2-05", 
+    "cpag2-05 room": "CPAG 2-05", 
+    "cpag 205": "CPAG 2-05", 
+    "room 2-05": "CPAG 2-05",
+    "cpag205": "CPAG 2-05",
+    "cpag205 room": "CPAG 2-05",
+    "cpag2-05": "CPAG 2-05",
+    "room cpag205": "CPAG 2-05",
+    "cpag 2-05 room": "CPAG 2-05",
+
+    # Office of the Chairperson CPAG
+    "office of the chairperson cpag": "Office of the Chairperson CPAG",
+    "chairperson office cpag": "Office of the Chairperson CPAG",
+    "cpag chairperson office": "Office of the Chairperson CPAG",
+    
+    # Finance Building Offices
+    "project management unit": "Project Management Unit",
+    "project management unit office": "Project Management Unit",
+    "pmu": "Project Management Unit",
+    "pmu office": "Project Management Unit",
+
+    "planning office": "Planning Office",
+    "finance planning office": "Planning Office",
+    
+    # Smart Classroom
+    "smart classroom": "Smart Classroom",
+    "classroom smart": "Smart Classroom",
+    "smart room": "Smart Classroom",
+    "finance smart classroom": "Smart Classroom",
+    
+    # CPAG Rooms 3rd Floor
+   "cpag 3-06": "CPAG 3-06", 
+    "cpag3-06 room": "CPAG 3-06", 
+    "cpag 306": "CPAG 3-06", 
+    "room 3-06": "CPAG 3-06",
+    "cpag306": "CPAG 3-06",
+    "cpag306 room": "CPAG 3-06",
+    "cpag3-06": "CPAG 3-06",
+    "room cpag306": "CPAG 3-06",
+    "cpag 3-06 room": "CPAG 3-06",
+
+    "cpag 3-07": "CPAG 3-07", 
+    "cpag3-07 room": "CPAG 3-07", 
+    "cpag 307": "CPAG 3-07", 
+    "room 3-07": "CPAG 3-07",
+    "cpag307": "CPAG 3-07",
+    "cpag307 room": "CPAG 3-07",
+    "cpag3-07": "CPAG 3-07",
+    "room cpag307": "CPAG 3-07",
+    "cpag 3-07 room": "CPAG 3-07",
+
+    "cpag 3-08": "CPAG 3-08", 
+    "cpag3-08 room": "CPAG 3-08", 
+    "cpag 308": "CPAG 3-08", 
+    "room 3-08": "CPAG 3-08",
+    "cpag308": "CPAG 3-08",
+    "cpag308 room": "CPAG 3-08",
+    "cpag3-08": "CPAG 3-08",
+    "room cpag308": "CPAG 3-08",
+    "cpag 3-08 room": "CPAG 3-08",
+
+    "cpag 3-09": "CPAG 3-09", 
+    "cpag3-09 room": "CPAG 3-09", 
+    "cpag 309": "CPAG 3-09", 
+    "room 3-09": "CPAG 3-09",
+    "cpag309": "CPAG 3-09",
+    "cpag309 room": "CPAG 3-09",
+    "cpag3-09": "CPAG 3-09",
+    "room cpag309": "CPAG 3-09",
+    "cpag 3-09 room": "CPAG 3-09",
+    
+    # Speech Lab
+    "speech laboratory": "Speech Laboratory",
+    "cpag speech laboratory": "Speech Laboratory",
+    "speech lab": "Speech Laboratory",
+    "cpag speech lab": "Speech Laboratory",
+    
+    # CPAG Guidance Office
+    "cpag guidance office": "CPAG Guidance Office",
+    "guidance office cpag": "CPAG Guidance Office",
+    "cpag guidance": "CPAG Guidance Office",
+    "cpag guidance office": "CPAG Guidance Office"
 
 }

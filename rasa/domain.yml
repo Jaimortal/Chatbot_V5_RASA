@@ -10,6 +10,7 @@ intents:
   - ask_courses_info
   - departments_faculty_staff
   - ask_department_info
+  - ask_dormitory_info
   - ask_enrollment_info
   - ask_ict_info
   - ask_library_info
@@ -43,9 +44,6 @@ intents:
   - tes_release_delay
   - tes_with_other_scholarships
   - wear_civilian_attire
-  - campus_dormitories
-  - number_of_dormitories
-  - dormitory_pros_cons
   - cancel_tabuk_assistance
   - shorts_on_campus
 
@@ -59,7 +57,6 @@ intents:
   - campus_dress_code_policy
   - change_program_after_application
   - pwd_student_assistance_services
-  - buksu_dormitory_information
   - free_tuition_undergraduate_buksu
   - join_student_organizations_process
   - sports_facilities_for_students
@@ -147,9 +144,10 @@ responses:
   utter_greet:
     - text: "Hello! How can I assist you today?"
   utter_goodbye:
-    - text: "Welcome as always, Feel free to ask again😊"
+    - text: "Welcome as always 😊"
+    - text: "You can ask me anytime you like"
   utter_iamabot:
-    - text: "I am a bot, here to help you."
+    - text: "Obviously I am a bot 😏, you cant tell? will anyways im here to help."
 
 actions:
   - action_reply_from_json

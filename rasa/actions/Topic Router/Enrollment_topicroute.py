@@ -7,6 +7,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "transferee_enrollment": {
         "phrases": [
+            "Transferee enrollment",
             "transferee enrollment",
             "transfer to BukSU",
             "transferring from another school",
@@ -32,6 +33,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "student_fees": {
         "phrases": [
+            "Student fees",
             "student fees",
             "fees during enrollment",
             "bayranan sa enrollment",
@@ -57,6 +59,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "access_sias": {
         "phrases": [
+            "SIAS account access",
             "access sias",
             "sias portal",
             "login sias",
@@ -80,6 +83,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "campus_transfer": {
         "phrases": [
+            "Campus transfer",
             "transfer campus",
             "another campus",
             "move to different campus",
@@ -102,6 +106,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "double_enrollment_policy": {
         "phrases": [
+            "Dual enrollment",
             "double enrollment",
             "dual enrollment",
             "enrolled in two schools",
@@ -125,6 +130,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "enrollment_general_process": {
         "phrases": [
+            "Enrollment process",
             "how to enroll in BukSU",
             "enrollment process",
             "unsaon pag enroll sa BukSU",
@@ -149,6 +155,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "online_enrollment_steps": {
         "phrases": [
+            "Online enrollment",
             "online enrollment steps",
             "step by step online enrollment BukSU",
             "how to enroll online BukSU",
@@ -176,6 +183,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "mixed_enrollment_process": {
         "phrases": [
+            "Face to face enrollment",
             "face to face enrollment",
             "mixed enrollment",
             "onsite enrollment",
@@ -203,6 +211,7 @@ ENROLLMENT_INFO_TOPIC_PATTERNS = {
 
     "enrollment_documents": {
         "phrases": [
+            "Enrollment documents",
             "enrollment documents",
             "documents needed for enrollment",
             "what to bring for enrollment",

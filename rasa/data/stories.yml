@@ -47,6 +47,11 @@ stories:
     - intent: ask_department_info
     - action: action_reply_from_json
 
+- story: ask all about the dormitory informations
+  steps:
+    - intent: ask_dormitory_info
+    - action: action_reply_from_json
+
 - story: all about enrollment info the user can ask
   steps:
     - intent: ask_enrollment_info
@@ -182,21 +187,6 @@ stories:
     - intent: wear_civilian_attire
     - action: action_reply_from_json
 
-- story: ask about number of dormitories
-  steps:
-    - intent: number_of_dormitories
-    - action: action_reply_from_json
-
-- story: ask about campus dormitories
-  steps:
-    - intent: campus_dormitories
-    - action: action_reply_from_json
-
-- story: ask about dormitory pros and cons
-  steps:
-    - intent: dormitory_pros_cons
-    - action: action_reply_from_json
-
 - story: ask about cancel tabuk assistance
   steps:
     - intent: cancel_tabuk_assistance
@@ -257,11 +247,6 @@ stories:
     - intent: pwd_student_assistance_services
     - action: action_reply_from_json
 
-- story: ask about buksu dormitory information
-  steps:
-    - intent: buksu_dormitory_information
-    - action: action_reply_from_json
-
 - story: ask about free tuition undergraduate buksu
   steps:
     - intent: free_tuition_undergraduate_buksu
@@ -301,7 +286,6 @@ stories:
   steps:
     - intent: institutional_email_info
     - action: action_reply_from_json
-
 
 - story: ask about significance year 1924 buksu
   steps:

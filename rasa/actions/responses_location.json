@@ -347,32 +347,28 @@
       "imageUrls": []
     },
     "Smart Classroom": {
-      "type": "smart_classroom",
-      "building": "Finance Building",
+      "type": "room",
+      "building": "Finance",
       "floor": "3rd Floor",
       "coordinates": [
-        716,
-        519
+        729,
+        530
       ],
       "map_id": "main_map",
       "responses": {
         "en": [
-          "This is the Smart Classroom located on the 3rd floor of the CPAG Building.",
-          "Situated beside the Networking Laboratory and the Audio Laboratory.",
-          "Once you reach the area, the classroom is easy to identify."
+          "The Smart Classroom is located on the 3rd floor of the Finance building. For your convenience, a map is provided to help you navigate the area."
         ],
         "ceb": [
-          "Kini ang Smart Classroom nahimutang sa 3rd floor sa CPAG Building.",
-          "Nahimutang tapad sa Networking Laboratory ug Audio Laboratory.",
-          "Kung moabot ka sa area, sayon makita ang classroom."
+          "Ang Smart Classroom nahimutang sa 3rd floor sa Finance building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
         ]
       },
       "pins": [
         {
           "name": "Main Pin",
           "coordinates": [
-            716,
-            519
+            729,
+            530
           ]
         }
       ],
@@ -3694,7 +3690,13 @@
         "ceb": [
           "Ang CPAG building nahimutang tapad sa Finance Building, duol sa exit path sa university. Hinumdomi nga konektado ang Finance ug CPAG buildings, mao nga posible nga makasulod ka sa Finance Building nga wala nimo mabantayi. Dali ra nimo sila mailhan: ang CPAG building mao ang mas karaan, samtang ang Finance Building adunay tiled flooring ug ang CPAG building wala. Hatagan tika og mapa aron matabangan ka sa paglibot."
         ]
-      }
+      },
+      "coordinates": [
+        748,
+        503
+      ],
+      "pins": [],
+      "imageUrls": []
     },
     "COB Accreditation Room": {
       "type": "room",
@@ -4088,6 +4090,426 @@
           "Pasensya, wala ko’y datos bahin ana, apan pwede ka mangutana sa bisan kinsang staff o estudyante."
         ]
       }
+    },
+    "ICT Service Unit": {
+      "type": "office",
+      "building": "CPAG",
+      "floor": "2nd Floor",
+      "coordinates": [
+        633,
+        532
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The ICT Service Unit is located on the 2nd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang ICT Service Unit nahimutang sa 2nd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            633,
+            532
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 2-01": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "2nd Floor",
+      "coordinates": [
+        645,
+        537
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 2-01 is located on the 2nd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 2-01 nahimutang sa 2nd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            645,
+            537
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 2-02": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "2nd Floor",
+      "coordinates": [
+        658,
+        537
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 2-02 is located on the 2nd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 2-02 nahimutang sa 2nd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            658,
+            537
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 2-03": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "2nd Floor",
+      "coordinates": [
+        667,
+        535
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 2-03 is located on the 2nd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 2-03 nahimutang sa 2nd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            667,
+            535
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 2-04": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "2nd Floor",
+      "coordinates": [
+        680,
+        534
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 2-04 is located on the 2nd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 2-04 nahimutang sa 2nd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            680,
+            534
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 2-05": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "2nd Floor",
+      "coordinates": [
+        693,
+        534
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 2-05 is located on the 2nd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 2-05 nahimutang sa 2nd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            693,
+            534
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Office of the Chairperson CPAG": {
+      "type": "office",
+      "building": "CPAG",
+      "floor": "2nd Floor",
+      "coordinates": [
+        727,
+        505
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Office of the Chairperson for CPAG is located on the 2nd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang Office of the Chairperson para sa CPAG nahimutang sa 2nd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            727,
+            505
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Project Management Unit": {
+      "type": "office",
+      "building": "Finance",
+      "floor": "2nd Floor",
+      "coordinates": [
+        760,
+        607
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Project Management Unit is located on the 2nd floor of the Finance building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang Project Management Unit nahimutang sa 2nd floor sa Finance building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            760,
+            607
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Planning Office": {
+      "type": "office",
+      "building": "Finance",
+      "floor": "2nd Floor",
+      "coordinates": [
+        756,
+        639
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Planning Office is located on the 2nd floor of the Finance building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang Planning Office nahimutang sa 2nd floor sa Finance building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            756,
+            639
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 3-09": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "3rd Floor",
+      "coordinates": [
+        710,
+        534
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 3-09 is located on the 3rd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 3-09 nahimutang sa 3rd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            710,
+            534
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 3-08": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "3rd Floor",
+      "coordinates": [
+        696,
+        529
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 3-08 is located on the 3rd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 3-08 nahimutang sa 3rd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            696,
+            529
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 3-07": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "3rd Floor",
+      "coordinates": [
+        670,
+        535
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 3-07 is located on the 3rd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 3-07 nahimutang sa 3rd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            670,
+            535
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG 3-06": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "3rd Floor",
+      "coordinates": [
+        667,
+        536
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "Room CPAG 3-06 is located on the 3rd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang kwarto nga CPAG 3-06 nahimutang sa 3rd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            667,
+            536
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "Speech Laboratory": {
+      "type": "room",
+      "building": "CPAG",
+      "floor": "3rd Floor",
+      "coordinates": [
+        654,
+        533
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The Speech Laboratory is located on the 3rd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang Speech Laboratory nahimutang sa 3rd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            654,
+            533
+          ]
+        }
+      ],
+      "imageUrls": []
+    },
+    "CPAG Guidance Office": {
+      "type": "office",
+      "building": "CPAG",
+      "floor": "3rd Floor",
+      "coordinates": [
+        635,
+        538
+      ],
+      "map_id": "main_map",
+      "responses": {
+        "en": [
+          "The CPAG Guidance Office is located on the 3rd floor of the CPAG building. For your convenience, a map is provided to help you navigate the area."
+        ],
+        "ceb": [
+          "Ang CPAG Guidance Office nahimutang sa 3rd floor sa CPAG building. Para sa imong kasayon, naghatag ko og mapa aron matabangan ka sa pag-navigate sa lugar."
+        ]
+      },
+      "pins": [
+        {
+          "name": "Main Pin",
+          "coordinates": [
+            635,
+            538
+          ]
+        }
+      ],
+      "imageUrls": []
     }
   }
 }

@@ -148,7 +148,7 @@ export async function getSuperIntentWithLanguage(
 
   return {
     text,
-    imageUrls: response.imageUrls || [],
+    imageUrls: (response.imageUrls || []).filter(url => url && url.trim()),
     mapData: response.mapData,
     pins: response.pins || [],
   };

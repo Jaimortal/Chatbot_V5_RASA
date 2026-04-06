@@ -1,6 +1,7 @@
 UNIVERSITY_TOPIC_PATTERNS = {
     "about_buksu": {
         "phrases": [
+            "about buksu",
             "tell me about bukidnon state university",
             "info about buksu",
             "unsa ang buksu",
@@ -17,6 +18,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_mission": {
         "phrases": [
+            "Buksu mission",
             "what is the mission of buksu",
             "buksu mission",
             "unsa ang misyon sa buksu",
@@ -24,7 +26,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "our mission in buksu"
         ],
         "strong_keywords": [
-            "mission", "misyon"
+            "mission", "misyon", "buksu mission",
         ],
         "weak_keywords": [
             "buksu", "what", "is", "unsa", "ang", "our", "university"
@@ -33,6 +35,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_vision": {
         "phrases": [
+            "Buksu vision",
             "what is the vision of buksu",
             "buksu vision",
             "unsa ang bisyon sa buksu",
@@ -40,7 +43,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "buksu school vision"
         ],
         "strong_keywords": [
-            "vision", "bisyon"
+            "vision", "bisyon", "Buksu vision",
         ],
         "weak_keywords": [
             "buksu", "what", "is", "unsa", "ang", "school", "university"
@@ -49,6 +52,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_core_values": {
         "phrases": [
+            "Buksu core values",
             "buksu core values",
             "what are the core values",
             "mga core values nato",
@@ -56,7 +60,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "unsa ang values sa buksu"
         ],
         "strong_keywords": [
-            "core", "values", "value"
+            "core", "values", "value", "Buksu core values",
         ],
         "weak_keywords": [
             "buksu", "what", "are", "mga", "nato", "unsa", "university"
@@ -65,6 +69,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_president": {
         "phrases": [
+            "Buksu president",
             "who is the president of buksu",
             "buksu president",
             "kinsa ang presidente nato",
@@ -72,7 +77,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "president of bukidnon state university"
         ],
         "strong_keywords": [
-            "president", "presidente", "mirasol", "joy"
+            "president", "presidente", "mirasol", "joy", "Buksu president",
         ],
         "weak_keywords": [
             "who", "buksu", "kinsa", "ang", "current", "nato", "university", "is", 'the'
@@ -81,6 +86,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_history_background": {
         "phrases": [
+            "Buksu history",
             "buksu history",
             "history of buksu",
             "history background",
@@ -88,7 +94,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "kanus a nagsugod ang buksu"
         ],
         "strong_keywords": [
-            "history", "background", "start", "nagsugod"
+            "history", "background", "start", "nagsugod", "Buksu history",
         ],
         "weak_keywords": [
             "buksu", "what", "is", "how", "kanus", "ang"
@@ -97,6 +103,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_seal_significance": {
         "phrases": [
+            "Buksu seal",
             "buksu seal meaning",
             "unsa pasabot sa logo sa buksu",
             "meaning of university seal",
@@ -104,7 +111,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "logo meaning"
         ],
         "strong_keywords": [
-            "seal", "logo", "significance", "emblem", "meaning"
+            "seal", "logo", "significance", "emblem", "meaning", "Buksu seal",
         ],
         "weak_keywords": [
             "buksu", "what", "unsa", "pasabot", "sa", "ang", "university"
@@ -113,6 +120,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_hymn_lyrics": {
         "phrases": [
+            "Buksu hymn",
             "buksu hymn lyrics",
             "kanta sa buksu",
             "lyrics of buksu hymn",
@@ -120,7 +128,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "buksu song"
         ],
         "strong_keywords": [
-            "hymn", "lyrics", "kanta", "song"
+            "hymn", "lyrics", "kanta", "song", "Buksu hymn",
         ],
         "weak_keywords": [
             "buksu", "asa", "makita", "ang", "of"
@@ -129,6 +137,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_presidents_list": {
         "phrases": [
+            "Buksu presidents",
             "buksu presidents list",
             "list of all presidents",
             "mga past presidents sa buksu",
@@ -136,16 +145,17 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "kinsa mga niaging presidente"
         ],
         "strong_keywords": [
-            "list", "past", "niaging", 'presidents', 'president'
+            "list", "past", "niaging"
         ],
         "weak_keywords": [
             "buksu", "mga", "kinsa", "sa", "university",
-            "years", "few", "are", 'who', 'the'
+            "years", "few", "are", 'who', 'the', 'presidents', 'president'
         ],
         "required_context": []
     },
     "meaning_of_buksu": {
         "phrases": [
+            "What does buksu stand for",
             "what does buksu mean",
             "meaning of buksu acronym",
             "unsa ang buksu short for",
@@ -153,7 +163,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "what is buksu abbreviation"
         ],
         "strong_keywords": [
-            "acronym", "abbreviation", "stand", "short"
+            "acronym", "abbreviation", "stand", "short", "buksu word", "buksu meaning"
         ],
         "weak_keywords": [
             "buksu", "meaning", "mean", "what", "unsa", "for"
@@ -162,6 +172,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "founding": {
         "phrases": [
+            "When was buksu founded",
             "when was buksu founded",
             "kanus a natukod ang buksu",
             "buksu founding date",
@@ -178,6 +189,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "current_rank": {
         "phrases": [
+            "Buksu ranking",
             "what is the rank of buksu",
             "buksu ranking today",
             "unsa ang rank nato",
@@ -194,6 +206,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "buksu_become_university": {
         "phrases": [
+            "When did buksu become university",
             "when did buksu become a university",
             "kanus a nahimong university",
             "year buksu became university",
@@ -210,6 +223,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "Pres_thetime_university": {
         "phrases": [
+            "Buksu university president",
             "president when buksu became university",
             "kinsa ang presidente ato nga time",
             "first university president",
@@ -226,6 +240,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "Buksu_age": {
         "phrases": [
+            "How old is buksu",
             "how old is buksu",
             "pila na ka tuig ang buksu",
             "age of buksu",
@@ -242,6 +257,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "bukus_location": {
         "phrases": [
+            "Buksu location",
             "where is buksu located",
             "asa dapit ang buksu",
             "buksu location",
@@ -258,6 +274,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "Whats_buksu_gazette": {
         "phrases": [
+            "Buksu gazette",
             "what is buksu gazette",
             "unsa ang gazette",
             "meaning of gazette documents",
@@ -274,6 +291,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "Buksu_worth_it": {
         "phrases": [
+            "Is buksu worth it",
             "is buksu worth it",
             "nindot ba mo eskwela sa buksu",
             "worth it ba diria",
@@ -284,12 +302,13 @@ UNIVERSITY_TOPIC_PATTERNS = {
             "worth", "nindot", "good", "should"
         ],
         "weak_keywords": [
-            "buksu", "it", "is", "ba", "mo", "eskwela", "study", "here"
+            "buksu", "it", "is", "ba", "mo", "eskwela", "study", "here", "enroll"
         ],
         "required_context": []
     },
     "buksu_study_place": {
         "phrases": [
+            "Buksu study spots",
             "where is a good place to study",
             "asa tsada mag tuon sa buksu",
             "study areas in the campus",
@@ -306,6 +325,7 @@ UNIVERSITY_TOPIC_PATTERNS = {
     },
     "Campus_tour": {
         "phrases": [
+            "Buksu campus tour",
             "is there a campus tour",
             "naa bay campus tour",
             "do you have campus tours",

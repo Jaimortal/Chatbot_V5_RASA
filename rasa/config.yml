@@ -5,14 +5,9 @@ language: en
 
 pipeline:
   - name: WhitespaceTokenizer
-    case_sensitive: false
   - name: RegexFeaturizer
-    case_sensitive: false
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer
-    analyzer: char_wb
-    min_ngram: 1
-    max_ngram: 4
     case_sensitive: false
   - name: CountVectorsFeaturizer
     analyzer: char_wb

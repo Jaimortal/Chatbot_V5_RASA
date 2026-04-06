@@ -2,6 +2,7 @@
 OSS_SERVICES_TOPIC_PATTERNS = {
     "Student_id_fee": {
         "phrases": [
+            "Student ID fee",
             "do I have to pay for the student id",
             "naa bay bayad ang id",
             "is the buksu id free",
@@ -19,6 +20,7 @@ OSS_SERVICES_TOPIC_PATTERNS = {
     },
     "Requirement_get_id": {
         "phrases": [
+            "Student ID requirements",
             "what are the requirements for student id",
             "unsa ang dal on para kuha kog id",
             "requirements to get id",
@@ -35,6 +37,7 @@ OSS_SERVICES_TOPIC_PATTERNS = {
     },
     "lost_student_id_replacement_process": {
         "phrases": [
+            "Lost student ID",
             "what to do if I lost my id",
             "unsaon kung nawala ang id",
             "how to replace lost id",
@@ -51,6 +54,7 @@ OSS_SERVICES_TOPIC_PATTERNS = {
     },
     "request_good_moral_certificate_oss": {
         "phrases": [
+            "Good moral certificate",
             "how to get good moral certificate",
             "asa mukuha og good moral",
             "pila bayad sa good moral",
@@ -67,6 +71,7 @@ OSS_SERVICES_TOPIC_PATTERNS = {
     },
     "student_id_process": {
         "phrases": [
+            "Student ID process",
             "how to get student id",
             "unsa ang process sa pagkuha og id",
             "asa dapit mukuha og id",

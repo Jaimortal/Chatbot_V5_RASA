@@ -61,7 +61,7 @@
       "topic": "inc_grade_solution",
       "responses": {
         "en": [
-          "An INC (Incomplete) grade means you still have missing requirements for the subject.",
+          "An INC (Incomplete) grade means you still have <b>missing requirements</b> for the subject.",
           "You can complete it by submitting the required activities or outputs requested by your instructor.",
           "You must also submit an INC form to process your completion.",
           "Students are usually given up to one year to complete their INC requirements.",
@@ -74,7 +74,10 @@
           "Kasagaran hatagan ang estudyante og hangtod usa ka tuig aron makompleto ang ilang INC requirements.",
           "Mahimo nimo i-download ang INC form dinhi: https://drive.google.com/uc?export=download&id=1Au7gJutn9daoM7dJB82IBr20pBjJVrl8"
         ]
-      }
+      },
+      "images": [],
+      "map": null,
+      "pins": []
     },
     {
       "topic": "inc_grade_consequences",
